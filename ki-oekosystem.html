@@ -188,8 +188,15 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 </div>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">System Architecture: Interconnection Structure</h2>
-<p>The ecosystem is not a collection of independent tools &mdash; all components are connected via the LLM router proxy as central switchboard. Every request passes through routing, memory enrichment, source search with credibility scoring, and asynchronous quality evaluation, before and after a model responds.</p>
-<p><strong>Data flow of a typical request:</strong> Input &rarr; Stage 1: Rule-based dispatcher (domain recognition, token length, topic classification; no LLM call). Ambiguous cases &rarr; Stage 2: L1 reformulator (LLM classifies intent, recommends model, extracts search queries; overrides rule-based search-intent extraction). Routing &rarr; Neo4j slow memory (thematically relevant persons, concepts, projects injected as context). Routing &rarr; Session fast memory (themes already encountered). Model response &rarr; Synthegy evaluator (asynchronous quality score 1&ndash;5). High-stakes queries &rarr; adversarial second check (separate model).</p>
+<p>The ecosystem is not a collection of independent tools &mdash; all components are connected via the LLM router proxy as central switchboard. Every request passes through routing, memory enrichment, source search with credibility scoring, and asynchronous quality evaluation, before and after a model responds.
+
+
+<div class="conn-item"><span class="conn-from">Input</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 1: Rule-based dispatcher</strong> &mdash; domain detection, token length, topic classification. No LLM call, decision in &lt;1 ms.</span></div>
+<div class="conn-item"><span class="conn-from">Stage 1</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 2 (ambiguous cases): L1 reformulator</strong> &mdash; LLM classifies intent, recommends model, extracts search queries. Overrides rule-based search intent extraction.</span></div>
+<div class="conn-item"><span class="conn-from">Routing</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Neo4j Slow Memory</strong> &mdash; thematically relevant persons, concepts, projects are queried and injected as context.</span></div>
+<div class="conn-item"><span class="conn-from">Router</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Synthegy evaluator</strong> &mdash; evaluates every response for accuracy (1&ndash;5) and groundedness (1&ndash;5) before delivery. Asynchronous, <100 ms overhead.</span></div>
+<div class="conn-item"><span class="conn-from">All components</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>CLAUDE-DATA stick</strong> &mdash; Master-Sync writes updated project status to the stick nightly at 03:00.</span></div>
+</p>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Hardware</h2>
 <table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
@@ -231,7 +238,38 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 
 <h3>Session Fast Memory</h3>
 <p>For each running conversation separately: topics already mentioned are compactly prepended. No database access &mdash; purely in the working memory of the running session.</p>
+
+<div class="routing-table" style="font-size:.84rem;margin:1.2rem 0;font-family:var(--mono,monospace)">
+<p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:.5rem;">Stage 1 — Domain keyword routing (direct, no LLM)</p>
+<p><strong>qwen3:235b</strong> (philosophy / structural mathematics): Plotinus, Proclus, Iamblichus, Damascius, Neoplatonism, Aristotle, Plato, Spinoza, Leibniz, Kant, Hegel; condensed mathematics, derived categories, motives, chromatic homotopy, Langlands, automorphic forms, (&phi;,&Gamma;)-modules, perfectoid, étale cohomology</p>
+<p><strong>deepseek-r1:70b</strong> (reasoning / verification): prove, verify, check, counterexample, formal proof, Lean, theorem; logical reasoning queries</p>
+<p><strong>qwen3:32b</strong> (default / coding): everything else, including Python, shell, infrastructure, general questions</p>
+<p><strong>DSV4-Flash</strong> (long context): inputs &gt;400 tokens complexity threshold, full-document analysis</p>
+</div>
+
+<p><strong>Anti-sycophancy protocol:</strong> The P4 structure (Prior Identification &rarr; Causal Mechanisms &rarr; Counter-evidence &rarr; Judgement, after He et al. arXiv:2604.10511, 2026) is active in all epistemic prompts. The system treats cross-model disagreement as an epistemic signal rather than an error: disagreement indicates genuine difficulty or counter-intuitive terrain.</p>
+<p><strong>Synthegy evaluator pattern:</strong> Each response is scored by a separate evaluator LLM (accuracy 1&ndash;5, groundedness 1&ndash;5) before delivery. Scores below threshold trigger reformulation with broader search.</p>
+
+<p><strong>Data flow of a typical request:</strong> Input &rarr; Stage 1: Rule-based dispatcher (domain recognition, token length, topic classification; no LLM call). Ambiguous cases &rarr; Stage 2: L1 reformulator (LLM classifies intent, recommends model, extracts search queries; overrides rule-based search-intent extraction). Routing &rarr; Neo4j slow memory (thematically relevant persons, concepts, projects injected as context). Routing &rarr; Session fast memory (themes already encountered). Model response &rarr; Synthegy evaluator (asynchronous quality score 1&ndash;5). High-stakes queries &rarr; adversarial second check (separate model).</p>
+
+
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Epistemic Tools</h2>
+
+<p><strong>Theoretical basis: He et al. 2026 (arXiv:2604.10511)</strong> &mdash; Models fail on counter-intuitive questions not from lack of knowledge but because chain-of-thought reasoning rationalises the intuitive prior instead of overcoming it. The epistemic tools work with explicit prior identification (P4 structure), anti-intuition forcing, and cross-model disagreement as epistemic signal.</p>
+
+<table style="width:100%;border-collapse:collapse;font-size:.83rem;margin:1rem 0;font-family:sans-serif;">
+<thead><tr style="background:#f5f4f0;"><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Command</th><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Function</th><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Model</th></tr></thead>
+<tbody>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/question [model]</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Activates P4 structure + anti-intuition forcing</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">specified or auto</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/speculate</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Explicit uncertainty marking, probability estimates</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/analogy</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Structural analogies with explicit comparison criteria</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/verify</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Z3 / Lean 4 verification of formal claim</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">r1:70b + Z3</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/counterargument</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Steel-man of opposite position</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">r1:70b</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/uncertainty</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Explicit confidence intervals, distinguishes KNOWN / FOLKLORE / CONJECTURE</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
+<tr><td style="padding:.3rem .6rem;"><code>/sources</code></td><td style="padding:.3rem .6rem;">Retrieves primary sources with credibility scores before answering</td><td style="padding:.3rem .6rem;">router + LanceDB</td></tr>
+</tbody>
+</table>
+
 <p>The anti-hallucination architecture follows He et al. (arXiv:2604.10511, 2026). Key components:</p>
 <ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
 <li><strong>Source credibility scoring</strong> before retrieval (not only post-retrieval): sources are rated by recency, citation count, and document type</li>
@@ -242,6 +280,15 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Search and Source Integration</h2>
 <p>The retrieval architecture integrates multiple search layers: LanceDB vector search (semantic + BM25 hybrid), Neo4j knowledge graph traversal, arXiv search (2.94M articles, MMR diversification), and PhilArchive search (187,882 philosophy preprints). The source credibility scoring system assigns scores based on document type (peer-reviewed &gt; preprint &gt; forum), recency, and citation count. All sources retrieved are logged with their credibility score for the Synthegy evaluator.</p>
+
+<h3>SearXNG meta-search engine (Port 8080)</h3>
+<p>Local SearXNG instance aggregates multiple engines in parallel: Brave Search &middot; DuckDuckGo &middot; Wikipedia (multilingual) &middot; Semantic Scholar &middot; arXiv &middot; Google Scholar &middot; PubMed. All results enter context with credibility annotation. Mojeek, Yahoo, Google, and Bing are disabled (rate-limiting). Running in parallel: direct queries to OpenAlex &middot; CORE (Open Access) &middot; Open Library &middot; local arXiv index.</p>
+
+<h3>Perplexica (AI-assisted web search)</h3>
+<p>Standalone Perplexica instance as Docker container &mdash; a Perplexity-like search interface that combines natural language queries with SearXNG web search and delivers source citations inline. Runs separately from the proxy system, usable for direct interactive web research. Docker Desktop installed; Perplexica configured as a service.</p>
+
+<h3>Hybrid arXiv index (2.4 million entries)</h3>
+<p>A local index with approx. 2.4 million arXiv entries combines BM25 keyword search with semantic vector search. Maximal Marginal Relevance (MMR) increases topical diversity of search results. Fuzzy author search handles name variants correctly. Covers mathematics, physics, computer science, philosophy &mdash; all locally available without network access.</p>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Philosophical Primary Text Vector Databases</h2>
 <table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
@@ -425,6 +472,20 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 </div>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What Is Still Missing</h2>
+
+<p>For a reliable assessment of the system, a systematic quantitative evaluation is still missing &mdash; there was simply no time for it. Open items:</p>
+<ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;font-size:.92rem;">
+<li><strong>Retrieval Recall and Precision</strong> across all vector databases &mdash; no systematic benchmark, only qualitative assessment</li>
+<li><strong>Latency profiling</strong> per model and query type &mdash; no measured end-to-end latencies under real conditions</li>
+<li><strong>MMR impact measurement</strong> &mdash; does Maximal Marginal Relevance actually increase topical diversity measurably? Not evaluated.</li>
+<li><strong>Memory and throughput benchmarks</strong> &mdash; no quantified RAM footprints or throughput limits established</li>
+<li><strong>Nightly Master-Sync quality</strong> &mdash; the generated summaries have not been systematically evaluated against human judgement</li>
+<li><strong>Synthegy evaluator calibration</strong> &mdash; accuracy and groundedness scores have not been calibrated against human raters</li>
+<li><strong>Cross-model consistency</strong> &mdash; how often do qwen3:235b and r1:70b disagree, and when is the disagreement epistemically meaningful?</li>
+<li><strong>Mathlib gap coverage</strong> &mdash; systematic mapping of which chromatic homotopy theory results are already formalisable and which are not</li>
+<li><strong>LLM hallucination rate by domain</strong> &mdash; philosophy vs. mathematics vs. technical queries not separately benchmarked</li>
+</ul>
+
 <ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
 <li>A dedicated Plotinus store (Henry-Schwyzer edition or Loeb digitisation) for authentic primary text access beyond the TLG broad corpus</li>
 <li>Systematic evaluation of the Synthegy evaluator against human judgements</li>

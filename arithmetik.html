@@ -348,6 +348,20 @@ span.lang-de-section{display:none;}
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">02 &mdash; Corpus Ingestion (Phase 0)</h2>
 <p>520 chunks of chromatic homotopy theory literature were ingested into LanceDB with BGE-M3 embeddings and a full-text search index. Sources: Ravenel's Orange Book (<em>Complex Cobordism and Stable Homotopy Groups of Spheres</em>), Lurie's chromatic homotopy theory notes, Morava's original K-theory papers, and key survey articles. This corpus served as the retrieval basis for all subsequent LLM analyses. The 18&nbsp;document collection: 520 chunks (avg. 384 tokens), 63&nbsp;KB text content; the BM25 full-text index indexes 7,312 unique terms.</p>
+<p>Nine texts form the literature foundation. Eight papers are available as machine-readable PDFs, extracted with <code>pdftotext</code>. Hazewinkel&rsquo;s <em>Formal Groups and Applications</em> is a scanned book &mdash; the first 40 pages were converted to Markdown with Chandra OCR 2 (5-billion-parameter model, local).</p>
+<p>All texts were chunked at 600 words, embedded with bge-m3 (1.2 GB, multilingual) and stored in a LanceDB collection <code>chromatic_arith</code> on the Thunderbolt volume. Full-text search index active. Semantic search for &ldquo;formal group law height supersingular&rdquo; returns correct hits from Behrens, Bauer, and Lurie.</p>
+<div class="math-block"><span class="ok">Corpus summary:</span>
+Barthel-Beaudry (arXiv:1901.09004)  &middot;  57 chunks  &middot;  197 KB
+Bauer tmf (arXiv:0311328)           &middot;  18 chunks  &middot;   63 KB
+Behrens K(2)-local (arXiv:0507184)  &middot;  46 chunks  &middot;  175 KB
+Goerss-Henn-Mahowald-Rezk (0204002) &middot;  25 chunks  &middot;   78 KB
+Lurie Survey Elliptic Cohomology    &middot;  56 chunks  &middot;  176 KB
+Ravenel Green Book                  &middot; 120 chunks  &middot; 1360 KB
+Ravenel Orange Book (2020)          &middot; 120 chunks  &middot;  435 KB
+Rezk Hopkins-Miller Theorem         &middot;  52 chunks  &middot;  173 KB
+Hazewinkel (OCR, pp. 1&ndash;40)   &middot;  26 chunks  &middot;   84 KB Markdown
+<span class="dim">Total: 520 chunks &middot; FTS-Index &middot; BM25 index: 7,312 unique terms</span></div>
+
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">03 &mdash; Formal Group Laws (Phase 1a)</h2>
 <p>The formal group law of an elliptic curve E/&#120125;<sub>p</sub> encodes arithmetic information in its height. The height h &isin; {1, 2, &infin;} determines the chromatic level:</p>
@@ -382,6 +396,21 @@ Lubin&ndash;Tate deformation space: Spf(W(&#120125;&#8313;)[[u&#8321;]])  with  
   |Aut(H&#8322;)| = p^(h&sup2;) &minus; 1 = 3&#8308; &minus; 1 = 80</div>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">04 &mdash; Supersingular Database (Phase 1b)</h2>
 <p>A complete database of supersingular j-invariants for all primes p &le; 300 was computed using SageMath. The count of supersingular j-invariants for a prime p is &lfloor;p/12&rfloor; + &epsilon;<sub>p</sub> where &epsilon;<sub>p</sub> depends on p mod 12 (the Deuring formula). This theoretical prediction was confirmed computationally for all primes tested: 347 supersingular j-invariants found across all primes p &le; 300.</p>
+
+<table class="dt">
+<thead><tr><th>p</th><th>Polynomial degree = h<sub>p</sub></th><th>ss j-inv. over &#120125;<sub>p</sub></th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>2, 3, 5, 7, 11</td><td>0</td><td>&mdash;</td><td>only in &#120125;<sub>p&sup2;</sub> \ &#120125;<sub>p</sub></td></tr>
+<tr><td>13</td><td class="am">1</td><td class="ak">[5]</td></tr>
+<tr><td>17</td><td class="am">1</td><td class="ak">[8]</td></tr>
+<tr><td>29</td><td class="am">2</td><td class="ak">[2, 25]</td></tr>
+<tr><td>41</td><td class="am">3</td><td class="ak">[3, 28, 32]</td></tr>
+<tr><td>97</td><td class="am">8</td><td class="ak">[1, 20]</td><td>6 further in &#120125;<sub>97&sup2;</sub></td></tr>
+<tr><td>149</td><td class="am">12</td><td class="ak">[12, 30, 62, 68, 74, 103]</td></tr>
+<tr><td>241</td><td class="am">20</td><td class="ak">[8, 28, 64, 93, 216, 240]</td></tr>
+</tbody>
+</table>
+
 
 
 <h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">CM curve verification</h3>
@@ -468,9 +497,30 @@ Betti: s=0:1  s=1:4  s=2:11  s=3:32  s=4:93  s=5:269  s=6:780  s=7:2260
 <p><strong>Hypothesis 1 (LLM-generated, plausible):</strong> The distribution of supersingular primes for a CM elliptic curve E follows the Chebotarev density theorem for the splitting field of the CM field. Verifiable with the computed data.</p>
 <p><strong>Hypothesis 2 (LLM-generated, speculative):</strong> The v<sub>3</sub>-patterns should become visible at p &asymp; 1000&ndash;2000, where the density of height-3 formal groups relative to height-2 ones becomes appreciable. Computationally accessible but outside project scope.</p>
 
+
+<div class="hyp">
+  <div class="hyp-label">Chain: a<sub>3</sub>(&Delta;) &rarr; Height &rarr; Deformation space &rarr; tmf</div>
+  <p>a<sub>3</sub>(&Delta;) = 252 = 4&middot;9&middot;7, so v<sub>3</sub>(252) = 2. Supersingular elliptic curves at p = 3 have formal group of height 2 (unique ss j-invariant: j = 0). The Lubin&ndash;Tate deformation space for height 2 at p = 3 is Spf(W(&#120125;<sub>9</sub>)[[u<sub>1</sub>]]) with W(&#120125;<sub>9</sub>) &cong; &integers;<sub>3</sub>[&zeta;<sub>8</sub>]. Morava E-theory E<sub>2</sub> has &pi;<sub>*</sub>(E<sub>2</sub>) = W(&#120125;<sub>9</sub>)[[u<sub>1</sub>]][u, u<sup>&minus;1</sup>]. tmf<sub>(3)</sub> arises as homotopy fixed points (E<sub>2</sub>)<sup>hG<sub>2</sub></sup>.</p>
+  <p style="font-size:.82rem;color:var(--text3);font-style:italic;margin-top:.5rem;">The connection v<sub>3</sub>(a<sub>3</sub>) = 2 &rarr; height 2 is plausible but not causal: v<sub>3</sub> measures 3-adic proximity, height is a property of the formal group. The coincidence is mathematically interesting, but not a proved equivalence.</p>
+</div>
+
+<div class="hyp">
+  <div class="hyp-label">Hypothesis 2 &mdash; valuation and chromatic height (LLM-generated)</div>
+  <p>v<sub>p</sub>(a<sub>p</sub>(&Delta;)) = k &gt; 0 implies chromatic height h = k. In the case examined: v<sub>3</sub>(252) = 2, so h = 2. <em>Hypothesis, not a proved theorem. Not verified beyond the tested range.</em></p>
+</div>
+
+
+
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">09 &mdash; LLM Verification and Meta-Finding</h2>
 <p>qwen3:235b-a22b was used for all four phases (corpus ingestion, initial analysis, synthesis, hypotheses). deepseek-r1:70b served as adversarial checker for all formal claims.</p>
 <p><strong>Meta-finding:</strong> The LLM performed reliably on retrieval-augmented tasks (finding relevant theorems in the 520-chunk corpus, checking computed results against known theory). It performed less reliably on extrapolation tasks (the v<sub>3</sub>-prediction is speculative, not derived from the corpus). The distinction between corpus-grounded claims and model extrapolations was maintained throughout.</p>
+10 &mdash; Observations</h2>
+<p>The project confirmed the practical feasibility of computer-assisted exploration at the interface of arithmetic and homotopy theory. The main observation: the Lazard&ndash;Lubin&ndash;Tate classification of formal groups is not merely an existence theorem but a computationally explicit classification, at least in the ranges accessible to modern computer algebra systems.</p>
+<p>The connection between supersingularity (an arithmetic property of elliptic curves) and the chromatic height (a homotopy-theoretic invariant of the associated formal group) is both theoretically deep and computationally concrete &mdash; this combination makes it an ideal testing ground for local AI infrastructure.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;"><h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">10 &mdash; Observations</h2>
+<p>The project confirmed the practical feasibility of computer-assisted exploration at the interface of arithmetic and homotopy theory. The Lazard&ndash;Lubin&ndash;Tate classification of formal groups is not merely an existence theorem but a computationally explicit classification. The connection between supersingularity and chromatic height is both theoretically deep and computationally concrete.</p>
+
 <h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">What the computational tools deliver</h3>
 <p>SageMath computes Frobenius traces deterministically; Macaulay2 solves exact Betti numbers over &integers;/3; Lean 4 machine-verifies that WittVector.frobenius is a ring homomorphism. These results carry no interpretation in themselves &mdash; they are correct answers to precisely posed questions. The value lies in asking the right question.</p>
 
@@ -487,21 +537,24 @@ Betti: s=0:1  s=1:4  s=2:11  s=3:32  s=4:93  s=5:269  s=6:780  s=7:2260
 <p>The most important practical result: the combination of CAS tools (SageMath, Macaulay2) with formal verification (Lean 4) and semantic index (LanceDB) in a fully local infrastructure works. Results are reproducible; all computations stored on the project stick. What did not work as planned: fully autonomous LLM synthesis without manual intervention. Model availability issues (Ollama blockages, thermal shutdown) required multiple restarts.</p>
 
 
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">10 &mdash; Observations</h2>
-<p>The project confirmed the practical feasibility of computer-assisted exploration at the interface of arithmetic and homotopy theory. The main observation: the Lazard&ndash;Lubin&ndash;Tate classification of formal groups is not merely an existence theorem but a computationally explicit classification, at least in the ranges accessible to modern computer algebra systems.</p>
-<p>The connection between supersingularity (an arithmetic property of elliptic curves) and the chromatic height (a homotopy-theoretic invariant of the associated formal group) is both theoretically deep and computationally concrete &mdash; this combination makes it an ideal testing ground for local AI infrastructure.</p>
-
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">11 &mdash; Thermal Incident and Management</h2>
 <div style="background:#fdf6e0;border:1px solid #c8a840;border-left:3px solid #7a5a14;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
-<strong>Thermal incident:</strong> qwen3:235b-a22b caused the Mac Studio to reach 108&deg;C during the Phase 2 Ext-computations combined with Macaulay2 running in parallel. A thermal throttle occurred at this temperature. All results were saved before the throttle triggered and verified to be correct post-throttle. The system handled it without data loss. Subsequent computations were run with interleaved cooling pauses of 5 minutes between intensive Macaulay2 calls.
+<strong>Thermal incident:</strong> The external NVMe drive (OWC Aura Pro IV, 3.84 TB, passively cooled in Thunderbolt enclosure) shut down thermally. Cause: OLLAMA_MAX_LOADED_MODELS=3 and KEEP_ALIVE=30m led to qwen3:235b (132 GB) and deepseek-r1:70b (40 GB) being loaded simultaneously &mdash; 172 GB sequentially from external NVMe. qwen3:235b-a22b also caused the Mac Studio to reach 108&deg;C during the Phase 2 Ext-computations combined with Macaulay2 running in parallel. A thermal throttle occurred at this temperature. All results were saved before the throttle triggered and verified to be correct post-throttle. The system handled it without data loss. Subsequent computations were run with interleaved cooling pauses of 5 minutes between intensive Macaulay2 calls.
 </div>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">12 &mdash; Literature</h2>
-<p>Ravenel, D.C.: <em>Complex Cobordism and Stable Homotopy Groups of Spheres</em> (Orange Book), Academic Press, 1986.<br>
-Lurie, J.: Chromatic Homotopy Theory, lecture notes, 2010.<br>
-Morava, J.: Forms of K-theory, <em>Math. Z.</em> 201 (1989), 401&ndash;428.<br>
-Lazard, M.: Sur les groupes de Lie formels &agrave; un param&egrave;tre, <em>Bull. Soc. Math. France</em> 83 (1955), 251&ndash;274.<br>
-Deuring, M.: Die Typen der Multiplikatorenringe elliptischer Funktionenk&ouml;rper, <em>Abh. Math. Sem. Hamburg</em> 14 (1941), 197&ndash;272.</p>
+<p style="font-size:.85rem;color:var(--text2);margin-bottom:1rem;">All texts locally available. 8 PDFs extracted as machine-readable text. Hazewinkel (scanned) digitised via Chandra OCR 2 (pages 1&ndash;40).</p>
+<ul class="litlist">
+<li><span class="litnum">1</span><span class="littext"><strong>Ravenel, D.C.</strong> &mdash; <em>Nilpotence and Periodicity in Stable Homotopy Theory</em> (Orange Book). Princeton UP, 1992.</span></li>
+<li><span class="litnum">2</span><span class="littext"><strong>Ravenel, D.C.</strong> &mdash; <em>Complex Cobordism and Stable Homotopy Groups of Spheres</em> (Green Book). AMS Chelsea, 2004.</span></li>
+<li><span class="litnum">3</span><span class="littext"><strong>Rezk, C.</strong> &mdash; <em>Notes on the Hopkins-Miller Theorem.</em> Contemp. Math. 220, AMS, 1998.</span></li>
+<li><span class="litnum">4</span><span class="littext"><strong>Lurie, J.</strong> &mdash; <em>A Survey of Elliptic Cohomology.</em> Abel Symposia 2007. Springer, 2009.</span></li>
+<li><span class="litnum">5</span><span class="littext"><strong>Barthel, T. &amp; Beaudry, A.</strong> &mdash; <em>Chromatic structures in stable homotopy theory.</em> arXiv:1901.09004.</span></li>
+<li><span class="litnum">6</span><span class="littext"><strong>Goerss, P. &amp; Henn, H.-W. &amp; Mahowald, M. &amp; Rezk, C.</strong> &mdash; <em>A resolution of the K(2)-local sphere at the prime 3.</em> arXiv:math/0204002.</span></li>
+<li><span class="litnum">7</span><span class="littext"><strong>Behrens, M.</strong> &mdash; <em>A modular description of the K(2)-local sphere at the prime 3.</em> arXiv:math/0507184.</span></li>
+<li><span class="litnum">8</span><span class="littext"><strong>Bauer, T.</strong> &mdash; <em>Computation of the homotopy of the spectrum tmf.</em> arXiv:math/0311328.</span></li>
+<li><span class="litnum">9</span><span class="littext"><strong>Hazewinkel, M.</strong> &mdash; <em>Formal Groups and Applications.</em> Academic Press, 1978. Scanned book, OCR pp. 1&ndash;40 locally available.</span></li>
+</ul>
 
 <div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
 T. Riepe, Berlin &middot; Autark Data &middot; ERGO Intelligence &middot; Mac Studio M3 Ultra, 256 GB, macOS Sequoia &middot; 26 May 2026
