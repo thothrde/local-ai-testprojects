@@ -212,10 +212,25 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 <tr><td style="padding:.4rem .75rem;">llama3.1:8b</td><td style="padding:.4rem .75rem;">~5 GB</td><td style="padding:.4rem .75rem;">Fast responses, ConTopoS service (Grundgesetz)</td></tr>
 </table>
 
+
+<h3>DeepSeek V4 Flash (DSV4) &mdash; dedicated llama-server</h3>
+<p>Additionally: DeepSeek V4 Flash (284B MoE, 153 GB GGUF, Mixed Quantization Q4KExperts/F16HC) on TB5-WORK. Runs via its own llama-server on port 8888 &mdash; <strong>256K context</strong>, 99 GPU layers, 1M-context architecture. Automatically activated by the router for very long inputs (&gt;400 token complexity threshold). RunAtLoad=false; startable manually or automatically via router. Not yet available via the official Ollama API.</p>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">LLM Router Proxy v3.3 &mdash; Core of the System</h2>
 <p>The two-stage routing is the central architectural decision. Stage 1 (rule-based dispatcher) classifies requests by domain keywords, token length and topic markers &mdash; without any LLM call, purely pattern-based. For simple queries (library searches, factual lookups, short code tasks) this stage routes directly. For ambiguous cases Stage 2 (L1 reformulator) is invoked: a smaller LLM classifies the query's intent, selects the appropriate large model, and extracts search queries for the retrieval layer.</p>
 <p>The system has an internal slow memory (Neo4j knowledge graph with persons, concepts, projects, relations) and fast session memory (conversation-scope context from current session). Both are injected as system context before each model call. After each response, the Synthegy evaluator (a separate model instance) rates the response 1&ndash;5 on accuracy and groundedness. Scores below 3 trigger a retry or escalation.</p>
 
+
+<h3>Data flow for a typical request</h3>
+<div class="conn-item"><span class="conn-from">Input</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 1: Rule-based dispatcher</strong> &mdash; domain detection, token length, topic classification. No LLM call.</span></div>
+<div class="conn-item"><span class="conn-from">Stage 1</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 2 (ambiguous cases): L1 reformulator</strong> &mdash; LLM classifies intent, recommends model, extracts search queries.</span></div>
+<div class="conn-item"><span class="conn-from">Stage 2</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 3: Model</strong> &mdash; call to selected model (Ollama/DSV4/Claude API).</span></div>
+<div class="conn-item"><span class="conn-from">Router</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Slow Memory (Neo4j)</strong> &mdash; thematically relevant entities injected as context.</span></div>
+
+<h3>Slow Memory &mdash; Neo4j</h3>
+<p>With each request, thematically relevant entities from the local knowledge graph are queried and injected as annotated context. Labels: Person &middot; MathConcept &middot; PhilosophyConcept &middot; Project. A <strong>Nightly Master-Sync</strong> runs daily at 03:00: <code>qwen3:32b</code> reads the most recent backup files on CLAUDE-DATA and creates an updated project status summary.</p>
+
+<h3>Session Fast Memory</h3>
+<p>For each running conversation separately: topics already mentioned are compactly prepended. No database access &mdash; purely in the working memory of the running session.</p>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Epistemic Tools</h2>
 <p>The anti-hallucination architecture follows He et al. (arXiv:2604.10511, 2026). Key components:</p>
 <ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
@@ -241,6 +256,23 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Experimental Mathematics</h2>
 <p>A dedicated experimental mathematics ensemble (Bailey&ndash;Borwein style, 1996) runs structured multi-model computations for mathematical research projects. The orchestrator coordinates: Phase 1 (primary literature extraction, DSV4-Flash), Phase 2 (adversarial checking, deepseek-r1:70b), Phase 3 (conjecture generation, qwen3:235b), Phase 4 (final verification, deepseek-r1:70b). PARI/GP, SageMath, Macaulay2, and Julia/Hecke.jl are called as subprocesses for formal computations. Results are logged and cross-validated between models.</p>
 
+
+<h3>PSLQ and constant recognition</h3>
+<ul class="feat purple">
+  <li>High-precision arithmetic up to 500+ decimal places via mpmath</li>
+  <li>PSLQ constant recognition: finds integer relations between numerical constants</li>
+  <li>Inverse Symbolic Calculator logic: identifies unknown constants via LLM+PSLQ pipeline</li>
+</ul>
+
+<h3>BBP formula and &Pi;-computation</h3>
+<ul class="feat purple">
+  <li>BBP formula: arbitrary hexadecimal digits of &pi; directly (without all preceding)</li>
+  <li>Full Borwein/Bailey cycle locally executable</li>
+  <li>Cross-check of known constants (log(2), &zeta;(3), Catalan) as calibration</li>
+</ul>
+
+<h3>PARI/GP Integration (Version 2.17.3)</h3>
+<p>Direct access to PARI/GP for number-theoretic computations: <code>factor</code> &middot; <code>bnfinit</code> (class groups, units, discriminants) &middot; <code>ellap</code> (Frobenius traces) &middot; elliptic curve arithmetic &middot; L-function special values. Integration into the LLM pipeline: structured queries from natural language &rarr; PARI/GP calls &rarr; result injection into context.</p>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Formal Verification and Scientific Computing</h2>
 <p><strong>Lean 4.30.0-rc2 + Mathlib:</strong> Primary formal verification tool. Used for the condensed mathematics / solid modules project (PR #39701 on leanprover-community/mathlib4) and for the arithmetic chromaticity formalisations (4 theorems, 0 sorry).</p>
 <p><strong>Z3 4.15.4:</strong> SAT/UNSAT solver for logical verification. Used in the Plotinus project for machine-verifying alignment definition independence (4 tests, all deterministic).</p>
@@ -250,9 +282,38 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 <p><strong>Julia 1.12 / Hecke.jl:</strong> Algebraic number theory, point counting on elliptic curves.</p>
 <p><strong>Singular:</strong> Computer algebra for polynomial rings and modules.</p>
 
+
+<h3>Lean 4 + Mathlib</h3>
+<ul class="feat blue">
+  <li>Lean 4.29.1 + 4.30.0-rc2 (both via elan)</li>
+  <li>Mathlib fully installed: ~1.5 million lines, ~150,000 theorems</li>
+  <li>Project ChromaticArith: 4 .lean files, 2722 build jobs, 0 sorry</li>
+  <li>Anti-hallucination use: verified formal claims, direct Mathlib queries</li>
+</ul>
+
+<h3>Z3 SMT-Solver 4.15.4</h3>
+<ul class="feat blue">
+  <li>Anti-hallucination layer: LLM conjecture &rarr; Z3 verification &rarr; minimal counterexample</li>
+  <li>SAT encoding advisor: automatic formalisation of natural language claims</li>
+  <li>Projects: Plotinus (4 tests: SAT/UNSAT), alignment (D1/D2 implications), Anima formalisations</li>
+</ul>
+
+<h3>Julia 1.12.6 + QuTiP 5.2</h3>
+<ul class="feat blue">
+  <li>Apple Silicon native, DifferentialEquations ecosystem</li>
+  <li>Geodesics in Kerr spacetime, post-Newtonian inspirals, N-body systems</li>
+  <li>QuTiP for quantum circuit simulation, Lindblad evolution, density matrices</li>
+  <li>Integration into LLM pipeline via structured output parsing</li>
+</ul>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Document Processing and OCR</h2>
 <p>Chandra OCR 2 (local, GPU-accelerated via Apple Metal) for historical and scanned documents. PDF processing pipeline: PyMuPDF for text-layer extraction (fast path), Chandra OCR 2 for scanned/image-heavy PDFs. The Macrobius corpus was processed with Chandra; OCR quality varies significantly with scan quality (the Macrobius project identified OCR as a bottleneck for some volumes).</p>
 
+
+<h3>Chandra OCR 2 (v0.2.0)</h3>
+<p>5-billion-parameter model for document understanding. Structured output: Markdown &middot; HTML &middot; JSON with preserved layout. 90+ languages including handwriting, tables, multi-column layouts. Used in the Arithmetik project to digitise Hazewinkel&rsquo;s <em>Formal Groups and Applications</em> (scanned book, pages 1&ndash;40).</p>
+
+<h3>LLM-assisted document understanding</h3>
+<p>Complementary to Chandra OCR: any Ollama models for document interpretation, layout analysis, content indexing. Gemma4:26b processes native PDFs with complex mathematical notation. Pipeline: pdftotext/Chandra &rarr; LLM interpretation &rarr; structured metadata extraction &rarr; LanceDB ingestion.</p>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Open WebUI and WebUI Tools</h2>
 <p>Open WebUI 0.9.2 (in dedicated Python 3.11 environment) provides the primary chat interface for local LLM interaction, accessible both locally and remotely via webui.autark-data.org. 11 custom tools are implemented:</p>
 <ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
@@ -269,12 +330,54 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 <li>Web Crawler &mdash; URL-based content extraction</li>
 </ul>
 
+
+<h3 style="font-size:.85rem;color:var(--blue);margin:.3rem 0 .4rem">Knowledge &amp; Research</h3>
+<ul class="feat blue">
+  <li>Library search (5,788 books, anti-hallucination mandate)</li>
+  <li>arXiv search (2.94 million articles, BM25 + semantic)</li>
+  <li>Academic search (PhilArchive, 187,882 preprints)</li>
+  <li>DuckDuckGo Pro, Web Crawler, YouTube Transcript</li>
+</ul>
+<h3 style="font-size:.85rem;color:var(--blue);margin:.75rem 0 .4rem">Infrastructure</h3>
+<ul class="feat blue">
+  <li>Bridge / Master-Sync (CLAUDE-DATA)</li>
+  <li>Ollama direct query &middot; System status &middot; Date/time</li>
+  <li>Neo4j knowledge graph query</li>
+</ul>
+<h3 style="font-size:.85rem;color:var(--blue);margin:.75rem 0 .4rem">Mathematics &amp; Formal Verification</h3>
+<ul class="feat blue">
+  <li>Lean 4 verifier (with Mathlib access)</li>
+  <li>Z3 SMT solver</li>
+  <li>SageMath / Macaulay2 / PARI/GP pipeline</li>
+</ul>
+<h3 style="font-size:.85rem;color:var(--blue);margin:.75rem 0 .4rem">Epistemic Tools</h3>
+<ul class="feat blue">
+  <li>/question &middot; /speculate &middot; /analogy &middot; /verify</li>
+  <li>/counterargument &middot; /uncertainty &middot; /sources</li>
+  <li>Anti-sycophancy protocol: P4 structure (Prior Identification &rarr; Mechanisms &rarr; Counter-evidence &rarr; Judgement)</li>
+</ul>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Knowledge Infrastructure</h2>
 <p><strong>Neo4j knowledge graph (port 7687):</strong> Extended with personal nodes (Person, MathConcept, PhilosophyConcept, Project labels). Contains: mathematical concepts and their relations, philosophers and primary texts, project status and dependencies, persons and correspondences. Nightly sync via LaunchAgent at 03:00 (qwen3:32b summarising open tasks into Master-Sync).</p>
 <p><strong>PostgreSQL 15 (port 5432):</strong> Permanent data store for structured data (mydb). MCP server access via Node.js. Used for book catalogue queries, session logging, source credibility scores.</p>
 <p><strong>Book catalogue:</strong> 5,788 entries in CATALOG_WITH_MANUAL_REVIEW_295.csv on CLAUDE-DATA stick. ISBN lookup, manual review status, subject classification.</p>
 <p><strong>Apple Notes synchronisation:</strong> Bridge tool syncs daily session summaries to Apple Notes (iCloud). Nightly synthesis via LaunchAgent creates structured summaries of open research threads.</p>
 
+
+<h3>Neo4j Knowledge Graph (Port 7687)</h3>
+<ul class="feat green">
+  <li>Labels: Person &middot; MathConcept &middot; PhilosophyConcept &middot; Project</li>
+  <li>Slow-memory basis of the LLM proxy</li>
+  <li>Personal nodes added: mathematicians (Clausen, Scholze, Venkatesh), concepts, project relationships</li>
+  <li>Nightly automated update via Master-Sync</li>
+</ul>
+
+<h3>Private library (5,788 books)</h3>
+<ul class="feat green">
+  <li>Catalogue: <code>/Volumes/CLAUDE-DATA/Library-System/CATALOG_WITH_MANUAL_REVIEW_295.csv</code></li>
+  <li>Semantically searchable via bge-m3 embeddings (LanceDB)</li>
+  <li>Anti-hallucination mandate: library queries always verified against actual catalogue</li>
+  <li>Full-text index for 847 digitised books</li>
+</ul>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Applications and Public Services</h2>
 <table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
 <tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Domain</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Port</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Service</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Status</th></tr>
@@ -295,6 +398,22 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 <p><strong>Aider 0.86.2:</strong> Coding assistant using qwen3.6:35b-a3b as primary model with qwen3:32b as editor model. Global CONVENTIONS.md, PROJECT_MAP.md, 9+ projects with individual context. Aliases in .zshrc, desktop launcher apps. Used for all Python development in the test projects.</p>
 <p><strong>Python environments:</strong> System Python 3.11 (Gradio apps), mlx-env (Python 3.13, MLX-LM 0.31.3 for Apple Silicon inference), webui_env (Open WebUI). NumPy conflicts managed by environment isolation.</p>
 
+
+<h3>Image generation (local, no cloud)</h3>
+<ul class="feat amber">
+  <li><strong>ComfyUI</strong>: FLUX.1-dev (flux1-dev.safetensors, ~23 GB) + SDXL Base 1.0, T5-XXL fp16 text encoder, workflow-based pipeline</li>
+  <li>Models via symlinks in ComfyUI/models/ from TB5-WORK</li>
+  <li>Integration into LLM pipeline: text prompt &rarr; ComfyUI API &rarr; image result</li>
+</ul>
+
+<h3>Aider 0.86.2</h3>
+<ul class="feat amber">
+  <li>Main model + editor: <code>ollama/qwen3.6:35b-a3b</code></li>
+  <li>Weak model: <code>ollama/mistral-small3.1:24b</code></li>
+  <li>CONVENTIONS.md across 9 projects, PROJECT_MAP.md</li>
+  <li>Global aliases in .zshrc, desktop launcher apps</li>
+  <li>Anti-hallucination: code changes always verified against existing tests</li>
+</ul>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What Remains Experimental</h2>
 <ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
 <li><strong>LLM Router model-quality correlation:</strong> The qwen3:235b routing preference (prior-forcing method from He et al. 2026) is theoretically well motivated, but not empirically verified for this specific system.</li>

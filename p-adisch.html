@@ -197,6 +197,16 @@ Dependencies: P2 imports P0 + P1. P4 imports P2. No circular imports.</div>
 </div>
 <p><strong>Note on axiom vs. sorry:</strong> An <code>axiom</code> entry in Lean 4 is not a gap in the sense of a sorry, but an explicit, named and documented assumption. <code>#print axioms</code> shows it transparently. For a Mathlib PR, a project-specific axiom is not acceptable &mdash; the TODO thus remains open, supplemented by the proof infrastructure elaborated here.</p>
 
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;">Build status</h3>
+<p>All 4 .lean files build successfully with <code>lake build</code> (Lean 4.30.0-rc2 + Mathlib). 0 sorry in any file. The axiom <code>sol_leftCancel</code> is declared via <code>axiom</code> keyword and is clearly marked as unproved. <code>#print axioms</code> shows it as the only non-Mathlib assumption in the relevant theorems.</p>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;">Why the axiom is not formalisable</h3>
+<p>The step &ldquo;discrete condensed modules are tiny&rdquo; requires the following Lean lemma, which does not exist in Mathlib:</p>
+<pre style="background:#f0f0ee;border:1px solid #dddbd3;padding:.75rem;font-size:.8rem;overflow-x:auto;">theorem isDiscrete_isTiny (M : CondensedMod R) (hM : M.IsDiscrete)
+    {F : J &#x22a5; CondensedMod R} (c : Cone F) (hc : IsLimit c) :
+    Hom(c.pt, M) &cong; colim_j Hom(F.obj j, M)</pre>
+<p>This is a special case of the equivalence CondensedMod &harr; TopMod (topological R-modules), which is not formalised. For a future fully formal proof this gap must be closed first.</p>
+
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Sub-project 2 &mdash; Dieudonné&ndash;Manin Classification for All Dimensions</h2>
 <h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Starting point</h3>
 <p>Mathlib contains the Dieudonné&ndash;Manin theorem for dimension n = 1 in Mathlib/RingTheory/WittVector/Isocrystal.lean: a one-dimensional isocrystal over an algebraically closed field k of characteristic p is classified by a rational number m/n (the slope). The general theorem was missing.</p>

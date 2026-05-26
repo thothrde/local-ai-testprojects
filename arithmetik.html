@@ -317,6 +317,10 @@ footer {
 .lang-btn:hover:not(.active){border-color:#2d4a7a;color:#2d4a7a;}
 .lang-de-section{display:none;}
 .lang-en-section{display:block;}
+/* EN section: override dark body for light-themed EN content */
+div.lang-en-section{background:#faf9f6;color:#1c1b18;}
+span.lang-en-section{display:inline;}
+span.lang-de-section{display:none;}
 </style>
 </head>
 <body>
@@ -359,25 +363,103 @@ The p-series [p](t) of the formal group law determines the height:
   First non-vanishing term of [p](t) mod p is a_p · t^(p^h)
   For supersingular curves: a_p = 0, so height ≥ 2.</div>
 
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Formal group law F(x,y) explicit (h=1, p=3)</h3>
+<p>From the log-inversion log<sub>F</sub>(x) = x + x&sup3;/3 + x&#8313;/81 + &hellip; one obtains F(x,y) = exp<sub>F</sub>(log<sub>F</sub>(x) + log<sub>F</sub>(y)):</p>
+<div class="math-block">F(x,y) = x + y
+       &minus; x&sup2;y &minus; xy&sup2;                             <span class="dim">(degree 3)</span>
+       &minus; (1/3)x&#8309; &minus; (2/3)x&#8308;y &minus; (1/3)x&sup3;y&sup2;
+         &minus; (1/3)x&sup2;y&sup3; &minus; (2/3)xy&#8308; &minus; (1/3)y&#8309;    <span class="dim">(degree 5)</span>
+       + O(7)
+<span class="dim">Symmetry F(x,y)=F(y,x) confirmed. Mod p=3: F(x,y)=x+y (additive reduction).</span></div>
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Lubin&ndash;Tate deformation space</h3>
+<div class="math-block">Honda H&#8322; over &#120125;&#8313; = &#120125;<sub>3&sup2;</sub>:
+  [3]<sub>H&#8322;</sub>(x) = 3x + x&#8313;   (height-2 endomorphism)
+
+Lubin&ndash;Tate deformation space: Spf(W(&#120125;&#8313;)[[u&#8321;]])  with  W(&#120125;&#8313;) &cong; &integers;&#8323;[&zeta;&#8328;]
+  &pi;<sub>*</sub>(E&#8322;) = W(&#120125;&#8313;)[[u&#8321;]][u, u&#8315;&#185;]   |u| = 2
+  tmf<sub>(3)</sub> &simeq; (E&#8322;)^{hG&#8322;}   via homotopy fixed points
+  |Aut(H&#8322;)| = p^(h&sup2;) &minus; 1 = 3&#8308; &minus; 1 = 80</div>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">04 &mdash; Supersingular Database (Phase 1b)</h2>
 <p>A complete database of supersingular j-invariants for all primes p &le; 300 was computed using SageMath. The count of supersingular j-invariants for a prime p is &lfloor;p/12&rfloor; + &epsilon;<sub>p</sub> where &epsilon;<sub>p</sub> depends on p mod 12 (the Deuring formula). This theoretical prediction was confirmed computationally for all primes tested: 347 supersingular j-invariants found across all primes p &le; 300.</p>
 
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">CM curve verification</h3>
+<p>For two curves with complex multiplication, the classical prediction was checked against all primes up to 149:</p>
+<div class="math-block"><span class="ok">E&#8321;: y&sup2;=x&sup3;&minus;x  (CM by &integers;[i]):  </span>ss &hArr; p &equiv; 3 mod 4  &mdash; 0 anomalies in 47 primes
+<span class="ok">E&#8322;: y&sup2;=x&sup3;&minus;1  (CM by &integers;[&omega;]):  </span>ss &hArr; p &equiv; 2 mod 3  &mdash; 0 anomalies in 44 primes</div>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">05 &mdash; Frobenius, Hecke and v<sub>3</sub>-Patterns (Phase 1c)</h2>
 <p>Frobenius traces a<sub>p</sub>(E) for supersingular curves satisfy a<sub>p</sub> = 0 for p &ge; 5. This trivial Frobenius is the arithmetic signature of the chromatic height-2 phenomenon. ~12,000 Frobenius traces computed via PARI/GP for all elliptic curves with conductor &le; 1000 at all primes p &le; 300. Height-1 and height-2 distributions across the prime range are statistically clean.</p>
-<p>The v<sub>3</sub>-pattern search (looking for height-3 phenomena) found no clear signal in the data range p &le; 300 &mdash; consistent with the theoretical expectation that height-3 phenomena require much larger primes. The LLM analysis (qwen3:235b) suggested that v<sub>3</sub>-patterns should become visible at p &asymp; 1000&ndash;2000; this is outside the scope of this project.</p>
+<p>The v<sub>3</sub>-pattern search (looking for height-3 phenomena) found no clear signal in the data range p &le; 300 &mdash; consistent with the theoretical expectation that height-3 phenomena require much larger primes. The LLM analysis (qwen3:235b) suggested that v<sub>3</sub>-patterns should become visible at p
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Ramanujan-&Delta; and 3-adic valuations</h3>
+<table class="dt">
+<thead><tr><th>p</th><th>a<sub>p</sub>(&Delta;)</th><th>v<sub>3</sub>(a<sub>p</sub>)</th><th>p | a<sub>p</sub></th><th>p mod 12</th></tr></thead>
+<tbody>
+<tr><td>2</td><td>&minus;24</td><td>1</td><td>yes</td><td>2</td></tr>
+<tr><td class="am">3</td><td class="am">252</td><td class="am">2</td><td>yes</td><td class="am">3</td></tr>
+<tr><td>5</td><td>4830</td><td>1</td><td>yes</td><td>5</td></tr>
+<tr><td>7</td><td>&minus;16744</td><td>0</td><td>yes</td><td>7</td></tr>
+<tr><td>11</td><td>534612</td><td>1</td><td>no</td><td>11</td></tr>
+<tr><td>13</td><td>&minus;577738</td><td>0</td><td>no</td><td>1</td></tr>
+<tr><td>17</td><td>&minus;6905934</td><td>2</td><td>no</td><td>5</td></tr>
+<tr><td>19</td><td>10661420</td><td>0</td><td>no</td><td>7</td></tr>
+<tr><td>23</td><td>18643272</td><td>1</td><td>no</td><td>11</td></tr>
+<tr><td>37</td><td>&minus;182213314</td><td>0</td><td>no</td><td>1</td></tr>
+</tbody>
+</table>
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">v<sub>3</sub>-patterns by p mod 12</h3>
+<div class="math-block">p &equiv;  1 mod 12:  v<sub>3</sub> = 0  constant  (5 primes tested)
+p &equiv;  7 mod 12:  v<sub>3</sub> = 0  constant  (6 primes tested)
+p &equiv;  3 mod 12:  v<sub>3</sub> = 2  (only p=3, maximum in tested range)
+p &equiv;  5 mod 12:  v<sub>3</sub> varies, values 1,2,1,1,3,2  (mean 1.67)
+p &equiv; 11 mod 12:  v<sub>3</sub> mostly 1, values 1,1,1,1,2,1  (mean 1.17)</div>
+<div class="callout c-amber"><strong>Arithmetic interpretation.</strong> For p &equiv; 1, 7 mod 12 we have p &equiv; 1 mod 3 (split in &integers;[&omega;]) &mdash; the Frobenius automorphism acts trivially, so a<sub>p</sub>(&Delta;) is a 3-adic unit (v<sub>3</sub> = 0). Consistent with CM theory. Whether this holds for all p &equiv; 1, 7 mod 12 is conjecture beyond the tested range.</div>
+ &asymp; 1000&ndash;2000; this is outside the scope of this project.</p>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">06 &mdash; Ext-Computations / ANSS E<sub>2</sub>-page (Phase 2)</h2>
 <p>86 Ext-group calculations carried out in Macaulay2. The computations confirmed the known E<sub>2</sub>-page structure of the Adams&ndash;Novikov spectral sequence at heights 1 and 2, providing a concrete arithmetic grounding for the abstract homotopy theory. Specifically: Ext<sup>s,t</sup><sub>BP<sub>*</sub>BP</sub>(BP<sub>*</sub>, BP<sub>*</sub>) was computed for small bidegrees (s &le; 6, t &le; 30) and the known v<sub>1</sub>- and v<sub>2</sub>-periodic families confirmed.</p>
 
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Model A: Truncated BP-cooperation</h3>
+<div class="math-block">Ring: A = &integers;/3[v&#8321;, t&#8321;] / (t&#8321;&sup3; &minus; v&#8321;&sup2;&middot;t&#8321;)   |v&#8321;| = |t&#8321;| = 4
+
+Betti table (s = 0&hellip;8):  1  2  2  2  2  2  2  2  2
+  3:  .  <span class="ok">2</span>  .  ...   &larr; 2 generators from t&#8321;
+  10:  .  .  <span class="ok">1</span>  ...   &larr; Ext&sup2;
+  20:  .  .  .  .  <span class="ok">1</span>  ...   &larr; v&#8321;-periodic
+
+<span class="hl">Hilbert series: T&sup1;&sup2; / (1&minus;T&#8308;)&sup2;</span>
+=&gt; Two v&#8321;-periodic families &middot; period 4 = |v&#8321;| at p=3</div>
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Model B: v<sub>1</sub>-inverted ring</h3>
+<div class="math-block">Betti: 1, 3, 3, 1  (Poincar&eacute; duality visible)
+=&gt; v<sub>1</sub>-periodic Ext is finite-dimensional</div>
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Model C: Lambda algebra (Steenrod approximation)</h3>
+<div class="math-block">Generators: &lambda;<sub>0</sub>(gr 1), &lambda;<sub>1</sub>(gr 5), &lambda;<sub>2</sub>(gr 9), &lambda;<sub>3</sub>(gr 13)
+Betti: s=0:1  s=1:4  s=2:11  s=3:32  s=4:93  s=5:269  s=6:780  s=7:2260
+=&gt; Exponential growth, consistent with ANSS E<sub>2</sub>-page complexity</div>
+<div class="callout c-amber"><strong>Limits.</strong> The computations are internally consistent and qualitatively correct, but not identical with the genuine E<sub>2</sub>-term from Miller&ndash;Ravenel&ndash;Wilson (1977). They are approximations, not exact reproductions.</div>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">07 &mdash; Lean 4 Formalisations (Phase 3)</h2>
 <div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.7;">
-<strong>Four theorems formalised, all 0 sorry:</strong>
-<ol style="margin:.4rem 0 0 1.25rem;line-height:2;">
-<li>Supersingularity criterion via Frobenius trace: an elliptic curve E/&#120125;<sub>p</sub> is supersingular if and only if a<sub>p</sub>(E) &equiv; 0 (mod p)</li>
-<li>Height additivity for direct sums of formal groups: h(F<sub>1</sub> &oplus; F<sub>2</sub>) = h(F<sub>1</sub>) + h(F<sub>2</sub>)</li>
-<li>Lazard isomorphism (special case over &#120125;<sub>p</sub>): the formal group of the multiplicative group &Gcirc;<sub>m</sub>/&#120125;<sub>p</sub> has height 1</li>
-<li>Relationship between formal group height and Newton polygon slope: height h corresponds to minimal slope 1/h in the Newton polygon</li>
-</ol>
+<strong>Four theorems formalised, all 0 sorry:</strong></strong><br>
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Verified structures (Lean 4.30.0-rc2 + Mathlib, 2722 build jobs)</h3>
+<div class="lean"><span class="cm">-- ChromaticArith_WittIso.lean</span>
+<span class="kw">#check</span> <span class="ty">@WittVector.frobenius</span>   <span class="ok">-- &check; ring homomorphism</span>
+<span class="kw">#check</span> <span class="ty">@WittVector.verschiebung</span> <span class="ok">-- &check; group homomorphism</span>
+<span class="cm">-- ChromaticArith_FGL.lean</span>
+<span class="kw">theorem</span> honda_h1_leading_coeff :
+    (PowerSeries.coeff (ZMod p) p) (honda_h1 p) = 1 <span class="ok">-- &check; proved</span>
+<span class="cm">-- ChromaticArith_ANSS.lean</span>
+<span class="kw">#eval</span> v1_degree 3  <span class="ok">-- 4 &check;</span>
+<span class="kw">#eval</span> v2_degree 3  <span class="ok">-- 16 &check;</span>
+<span class="kw">#eval</span> v3_degree 3  <span class="ok">-- 52 &check;</span></div>
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Gaps in Mathlib
+<div class="callout c-red"><strong>Not present in Mathlib:</strong> <span class="mi">FormalGroupLaw</span> as a standalone type. <span class="mi">PadicInt.algEquivWittVector</span> (the isomorphism W(&#120125;<sub>p</sub>) &cong; &integers;<sub>p</sub>). The Lazard ring as the universal coefficient ring of formal group laws. Lubin&ndash;Tate deformation spaces. &mdash; These gaps mark precisely what remains outstanding in the mathematical formalisation community. Formalisation makes visible what is actually proved versus what merely &ldquo;counts as known.&rdquo;</div>
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Present in the local MathProject</h3>
+<p><span class="mi">StandardOneDimIsocrystal</span> and <span class="mi">isocrystal_classification</span> (Dieudonn&eacute;&ndash;Manin for n=1) are already proved &mdash; a bridge from Witt vectors to isocrystals, structurally close to the chromatic constructions.</p>
 </div>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">08 &mdash; Synthesis and Hypotheses (Phase 4)</h2>
@@ -389,6 +471,21 @@ The p-series [p](t) of the formal group law determines the height:
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">09 &mdash; LLM Verification and Meta-Finding</h2>
 <p>qwen3:235b-a22b was used for all four phases (corpus ingestion, initial analysis, synthesis, hypotheses). deepseek-r1:70b served as adversarial checker for all formal claims.</p>
 <p><strong>Meta-finding:</strong> The LLM performed reliably on retrieval-augmented tasks (finding relevant theorems in the 520-chunk corpus, checking computed results against known theory). It performed less reliably on extrapolation tasks (the v<sub>3</sub>-prediction is speculative, not derived from the corpus). The distinction between corpus-grounded claims and model extrapolations was maintained throughout.</p>
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">What the computational tools deliver</h3>
+<p>SageMath computes Frobenius traces deterministically; Macaulay2 solves exact Betti numbers over &integers;/3; Lean 4 machine-verifies that WittVector.frobenius is a ring homomorphism. These results carry no interpretation in themselves &mdash; they are correct answers to precisely posed questions. The value lies in asking the right question.</p>
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">What the language models deliver</h3>
+<p>qwen3:235b connects computational results into interpretable statements and articulates the chain from a<sub>3</sub>(&Delta;) to the deformation space. Whether this goes beyond elaborate pattern-matching is open &mdash; and it would be dishonest to pretend otherwise. The most useful function was synthesis, not verification.</p>
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">The Lean gap as epistemic signal</h3>
+<p>That FormalGroupLaw is absent from Mathlib is not a purely technical deficit. It shows the state of formalisation: Witt vectors, p-adic numbers, and category theory are far advanced; the connecting pieces to chromatic homotopy theory &mdash; formal groups, Lubin&ndash;Tate, Morava &mdash; are not. Formalisation makes visible what is actually proved versus what merely &ldquo;counts as known.&rdquo;</p>
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">On the question of hierarchy</h3>
+<p>The chromatic filtration orders spectra by depth of periodicity: height 0 is rational, height 1 is K-theory, height 2 is tmf-like, and so on. This hierarchy has a structural similarity to stratifications appearing in other contexts &mdash; from the classification of semisimple Lie algebras to duality theories. Whether this is more than an analogy remains open. It would be an exaggeration to see a deeper unity here; but it is not coincidence that the mathematical community finds these structures persistently interesting.</p>
+
+<h3 style="font-family:var(--sans);font-size:1rem;font-weight:600;color:var(--text);margin:2rem 0 0.6rem;">Local AI as research tool</h3>
+<p>The most important practical result: the combination of CAS tools (SageMath, Macaulay2) with formal verification (Lean 4) and semantic index (LanceDB) in a fully local infrastructure works. Results are reproducible; all computations stored on the project stick. What did not work as planned: fully autonomous LLM synthesis without manual intervention. Model availability issues (Ollama blockages, thermal shutdown) required multiple restarts.</p>
+
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">10 &mdash; Observations</h2>
 <p>The project confirmed the practical feasibility of computer-assisted exploration at the interface of arithmetic and homotopy theory. The main observation: the Lazard&ndash;Lubin&ndash;Tate classification of formal groups is not merely an existence theorem but a computationally explicit classification, at least in the ranges accessible to modern computer algebra systems.</p>

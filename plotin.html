@@ -251,11 +251,16 @@ D2 requires: &Sigma; &vdash; &exist;x (Unparticipated(x) &and; Causality(x, D2))
 </table>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Technical Appendix</h2>
-<p><strong>Infrastructure:</strong> Mac Studio M3 Ultra, 256 GB Unified Memory &middot; qwen3:235b-a22b (142 GB, num_predict=8000, temperature=0.15) &middot; Z3 4.15.4 &middot; intfloat/multilingual-e5-large (Apple MPS)</p>
-<p><strong>Data basis:</strong> LanceDB: 141,117 chunks Neoplatonic texts (TLG broad corpus, of which Plotinus ~696 chunks) + 187,882 PhilArchive preprints &middot; arXiv hybrid index: 2.94 million articles (BM25 + semantic, MMR)</p>
-<p><strong>Primary sources (retrieved from database):</strong> Proclus, Elements of Theology (Dodds), Props. 3, 5, 18, 23&ndash;25, 77, 89, 99&ndash;100 &middot; Damascius, Problems and Solutions &middot; Pseudo-Dionysius, Works SPCK 1920</p>
-<p><strong>PhilArchive sources:</strong> <em>When AI Feels Alive</em> &middot; <em>Alignment-Induced Flattening</em> &middot; <em>Murphy&rsquo;s Laws of AI Alignment</em> &mdash; PhilArchive 2024</p>
-<p><strong>Epistemic methodology:</strong> P4 structure (Prior Identification &rarr; Causal Mechanisms &rarr; Counter-evidence &rarr; Judgement) after: He et al. (2026), &ldquo;Thinking Fast, Thinking Wrong: Intuitiveness Modulates LLM Counterfactual Reasoning in Policy Evaluation&rdquo;, arXiv:2604.10511. Anti-intuition forcing active in all epistemic prompts.</p>
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">Infrastructure</h3>
+<p> Mac Studio M3 Ultra, 256 GB Unified Memory &middot; qwen3:235b-a22b (142 GB, num_predict=8000, temperature=0.15) &middot; Z3 4.15.4 &middot; intfloat/multilingual-e5-large (Apple MPS)</p>
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">Data basis</h3>
+<p> LanceDB: 141,117 chunks Neoplatonic texts (TLG broad corpus, of which Plotinus ~696 chunks) + 187,882 PhilArchive preprints &middot; arXiv hybrid index: 2.94 million articles (BM25 + semantic, MMR)</p>
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">Primary sources (retrieved from database)</h3>
+<p> Proclus, Elements of Theology (Dodds), Props. 3, 5, 18, 23&ndash;25, 77, 89, 99&ndash;100 &middot; Damascius, Problems and Solutions &middot; Pseudo-Dionysius, Works SPCK 1920</p>
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">PhilArchive sources</h3>
+<p> <em>When AI Feels Alive</em> &middot; <em>Alignment-Induced Flattening</em> &middot; <em>Murphy&rsquo;s Laws of AI Alignment</em> &mdash; PhilArchive 2024</p>
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">Epistemic methodology</h3>
+<p> P4 structure (Prior Identification &rarr; Causal Mechanisms &rarr; Counter-evidence &rarr; Judgement) after: He et al. (2026), &ldquo;Thinking Fast, Thinking Wrong: Intuitiveness Modulates LLM Counterfactual Reasoning in Policy Evaluation&rdquo;, arXiv:2604.10511. Anti-intuition forcing active in all epistemic prompts.</p>
 
 <div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
 May 2026. Berlin. &mdash; Analysis: qwen3:235b-a22b (local). Verification: Z3 (local). Database queries: LanceDB + Python (local). Report: Claude Sonnet 4.6 (Anthropic).

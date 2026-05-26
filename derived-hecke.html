@@ -164,120 +164,394 @@ footer p { font-size: .76rem; color: var(--ink-faint); line-height: 1.7; max-wid
 <body>
 <div id="lang-nav"><span><a class="nav-home" href="index.html">&#8592; Home</a><span class="lang-sep">|</span><span class="lang-crumb lang-en-section">Derived Hecke · Condensed Math</span><span class="lang-crumb lang-de-section">Derived Hecke · Kondensierte Mathematik</span></span><div class="lang-toggle"><button class='lang-btn active' id='btn-en' onclick='setLang("en")'>EN</button><button class='lang-btn' id='btn-de' onclick='setLang("de")'>DE</button></div></div>
 <div class="lang-en-section">
-<div style="max-width:860px;margin:0 auto;padding:2rem 2rem 0;font-family:Georgia,serif;">
-<div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Test Project &middot; 25 May 2026 &middot; Berlin</div>
-<h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">Derived Hecke, Completed Cohomology<br>and Condensed Mathematics</h1>
-<p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">Arithmetic Geometry &nbsp;&middot;&nbsp; Local AI Models as Tool</p>
+<header class="site-header">
+  <span class="kicker">Test Project &middot; 25 May 2026 &middot; Berlin</span>
+  <h1>Derived Hecke, Completed Cohomology<br>and <em>Condensed Mathematics</em></h1>
+  <p class="byline">Arithmetic Geometry &nbsp;&middot;&nbsp; Local AI Models as Research Tool</p>
+</header>
+
+<nav class="nav-strip">
+  <a href="#background-en">Background</a>
+  <a href="#execution-en">Execution</a>
+  <a href="#strukturen-en">Structures</a>
+  <a href="#synthese-en">Results</a>
+  <a href="#konjekturen-en">Conjectures</a>
+  <a href="#beobachtungen-en">Observations</a>
+  <a href="#einschaetzung-en">Assessment</a>
+</nav>
+
+<main class="main-col">
+
+<!-- §1 Background -->
+<section id="background-en">
+  <div class="sec-label">&sect; 1</div>
+  <h2>Background and Question</h2>
+
+  <div class="rq">
+    <span class="rq-label">Central Question</span>
+    Does Emerton&rsquo;s completed cohomology &Htilde;<sup>*</sup>(K<sup>p</sup>,&integers;<sub>p</sub>) carry a natural structure as an object in D(Solid<sub>&integers;<sub>p</sub></sub>), such that Venkatesh&rsquo;s derived Hecke action T<sup>der</sup> is formalisable as an E<sub>&infin;</sub>-module structure in this category?
+  </div>
+
+  <p>The question arose from a simple observation: completed cohomology and derived Hecke algebra suffer from the same categorical pathologies &mdash; non-exact inverse limits, problematic completed tensor products, uncontrolled topological group actions &mdash; for which Scholze and Clausen&rsquo;s condensed mathematics was specifically developed. Whether the languages are actually compatible is open.</p>
+
+  <p>Venkatesh&rsquo;s own statement (&sect;1.6b, 2019) marks the gap: <em>&ldquo;It will be interesting to study the action of the mod p derived Hecke algebra of a p-adic group; but we stay away from this in the current paper.&rdquo;</em></p>
+
+  <div class="theory-grid">
+    <div class="theory-card">
+      <span class="th-label">Emerton 2006&ndash;</span>
+      <div class="th-name">Completed Cohomology</div>
+      <div class="th-desc">&Htilde;<sup>*</sup>(K<sup>p</sup>,&integers;<sub>p</sub>) as finitely generated &integers;<sub>p</sub>[[G<sub>0</sub>]]-module with continuous G(&rationals;<sub>p</sub>)- and Hecke action. Classical category: pseudocompact modules &mdash; not abelian, with chronic homological difficulties.</div>
+    </div>
+    <div class="theory-card">
+      <span class="th-label">Venkatesh 2016/2019</span>
+      <div class="th-name">Derived Hecke Algebra</div>
+      <div class="th-desc">&Ttilde; = Ext<sup>*</sup><sub>G-Mod</sub>(S[G/U], S[G/U]) &mdash; graded Ext-algebra in the category of G-modules. Transports Hecke eigenclasses between cohomology degrees; explains spectral degeneracy structurally.</div>
+    </div>
+    <div class="theory-card">
+      <span class="th-label">Clausen&ndash;Scholze 2019&ndash;</span>
+      <div class="th-name">Solid Modules</div>
+      <div class="th-desc">Abelian subcategory of condensed &integers;<sub>p</sub>-modules: exact inverse limits (AB4*), correct completed tensor products, &reals;<sup>L</sup><sub>solid</sub> = 0. Compact-projective generators: &prod;<sub>I</sub> &integers;.</div>
+    </div>
+    <div class="theory-card">
+      <span class="th-label">Galatius&ndash;Venkatesh 2018</span>
+      <div class="th-name">Derived Deformation Ring</div>
+      <div class="th-desc">Pro-simplicial ring &Rscr;<sub>S</sub>, constructed via the derived Schlessinger criterion (Lurie). &pi;<sub>*</sub>&Rscr;<sub>S</sub> &cong; &and;<sup>*</sup> V<sup>*</sup> under TW conditions. Canonical isomorphism &pi;<sub>*</sub>&Rscr;<sub>S</sub> &cong; (&Ttilde;<sub>m</sub>)<sup>*</sup> as graded rings (GV 15.4).</div>
+    </div>
+    <div class="theory-card">
+      <span class="th-label">Feng 2020</span>
+      <div class="th-name">Spectral Hecke Algebra</div>
+      <div class="th-desc">S<sub>q</sub><sup>Hk</sup> = S<sub>q</sub><sup>ur</sup> &otimes;<sup>&Lopf;</sup><sub>S<sub>q</sub></sub> S<sub>q</sub><sup>ur</sup> &mdash; E<sub>&infin;</sub>-algebra via derived self-intersection. &pi;<sub>*</sub>(S<sub>q</sub><sup>Hk</sup>&otimes;&Lambda;) &cong; S<sub>q</sub><sup>ur</sup>&otimes;<sub>O</sub>H<sub>*</sub>(T<sub>q</sub>;&Lambda;) (Cor. 3.4). Local building block for global derived Hecke structures.</div>
+    </div>
+    <div class="theory-card">
+      <span class="th-label">Prasanna&ndash;Venkatesh 2016</span>
+      <div class="th-name">Motivic Cohomology Connection</div>
+      <div class="th-desc">L = H<sub>mot</sub><sup>1</sup>(M<sub>&pi;</sub>,&rationals;(1)) links motivic cohomology, derived Hecke algebra, and Selmer group. Binomial multiplicities (Formula 1.1.2): dim H<sup>q<sub>0</sub>+j</sup>(Y(K),&rationals;)<sub>&Pi;</sub> = C(&delta;,j)&middot;dim H<sup>q<sub>0</sub></sup>. Regulator conjecture: L&otimes;&rationals;<sub>p</sub> &cong; H<sup>1</sup><sub>f</sub>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- §2 Execution -->
+<section id="execution-en">
+  <div class="sec-label">&sect; 2</div>
+  <h2>Execution</h2>
+
+  <p>Six primary sources extracted via <code>pdftotext</code> (710 KB) and fed directly as full text &mdash; no summaries, no preprocessing. Seven phases, three models:</p>
+
+  <div class="pipeline">
+    <div class="pipe-step"><span class="ps-phase">Phase 1a</span><div class="ps-model">DSV4-Flash</div><div class="ps-desc">5K tokens</div><div class="ps-src">Emerton &middot; Venkatesh &middot; Scholze</div></div>
+    <div class="pipe-step"><span class="ps-phase">Phase 1b</span><div class="ps-model">DSV4-Flash</div><div class="ps-desc">107K tokens</div><div class="ps-src">Galatius&ndash;Venkatesh &middot; Feng</div></div>
+    <div class="pipe-step"><span class="ps-phase">Phase 1c</span><div class="ps-model">DSV4-Flash</div><div class="ps-desc">65K tokens</div><div class="ps-src">Prasanna&ndash;Venkatesh</div></div>
+    <div class="pipe-step"><span class="ps-phase">Phase 1d</span><div class="ps-model">qwen3:235b</div><div class="ps-desc">Synthesis 1a+b+c</div></div>
+    <div class="pipe-step"><span class="ps-phase">Phase 2</span><div class="ps-model">r1:70b</div><div class="ps-desc">Adversarial</div></div>
+    <div class="pipe-step"><span class="ps-phase">Phase 3</span><div class="ps-model">qwen3:235b</div><div class="ps-desc">Conjectures</div></div>
+    <div class="pipe-step"><span class="ps-phase">Phase 4</span><div class="ps-model">r1:70b</div><div class="ps-desc">Assessment</div></div>
+  </div>
+
+  <div class="infra-grid">
+    <div class="infra-card"><span class="ic-label">Hardware</span><div class="ic-val">Mac Studio M3 Ultra</div><div class="ic-desc">256 GB Unified Memory</div></div>
+    <div class="infra-card"><span class="ic-label">DSV4-Flash</span><div class="ic-val">164 GB GGUF Q4</div><div class="ic-desc">llama-server, Thunderbolt, 256K context</div></div>
+    <div class="infra-card"><span class="ic-label">qwen3:235b-a22b</span><div class="ic-val">142 GB MoE</div><div class="ic-desc">Ollama, 22B active parameters/token</div></div>
+    <div class="infra-card"><span class="ic-label">deepseek-r1:70b</span><div class="ic-val">42 GB</div><div class="ic-desc">Chain-of-Thought Reasoning</div></div>
+    <div class="infra-card"><span class="ic-label">Runtime</span><div class="ic-val">approx. 5.5 hours</div><div class="ic-desc">incl. recovery: DSV4+qwen3 = 306 GB &rarr; not simultaneous</div></div>
+    <div class="infra-card"><span class="ic-label">Cloud</span><div class="ic-val">none</div><div class="ic-desc">All models local</div></div>
+  </div>
+</section>
+
+<!-- §3 Structural Extraction -->
+<section id="strukturen-en">
+  <div class="sec-label">&sect; 3</div>
+  <h2>Structural Extraction from Primary Sources</h2>
+
+  <h3>The derived Hecke action: explicit formula</h3>
+  <p>The action of an element h<sub>z,&alpha;</sub> (with z &isin; G(&rationals;<sub>v</sub>), &alpha; &isin; H<sup>*</sup>(K<sub>v</sub> &cap; Ad(g<sub>z</sub>)K<sub>v</sub>, S)) on H<sup>*</sup>(Y(K)) is (Venkatesh, Lemma 2.11):</p>
+
+  <div class="formula-block">
+    <span class="formula-label">T<sup>der</sup>-action on H<sup>*</sup>(Y(K))</span>
+    <p>H<sup>*</sup>(Y(K)) &rarr; H<sup>*</sup>(Y(K<sub>z</sub>)) &rarr; H<sup>*</sup>(Y(K<sub>z</sub>)) &rarr; H<sup>*</sup>(Y(K))</p>
+    <p style="font-size:.82rem;margin-top:.5rem;color:var(--ink-light)">i.e.: pull back to level K<sub>z</sub>, then cup product with &alpha;, then corestriction. Degree shift = deg &alpha;. The action on &Htilde;<sup>*</sup>(K<sup>p</sup>,&integers;<sub>p</sub>) = lim<sub>&larr;n</sub> lim<sub>&rarr;K<sub>p</sub></sub> H<sup>*</sup>(X<sub>K<sub>p</sub>K<sup>p</sup></sub>, &integers;/p<sup>n</sup>) is defined by compatible systems on finite levels (&sect;2.13).</p>
+  </div>
+
+  <h3>The motivating phenomenon: spectral degeneracy</h3>
+  <p>Hecke operators appear with the same eigenvalues in multiple cohomology degrees. The observed multiplicities follow a binomial law: if &Pi; occurs in degree q<sub>0</sub>, the same Hecke eigenclass appears in degrees q<sub>0</sub>, q<sub>0</sub>+1, &hellip;, q<sub>0</sub>+&delta;, with multiplicities</p>
+
+  <div class="formula-block">
+    <span class="formula-label">Binomial multiplicities (Prasanna&ndash;Venkatesh, Formula 1.1.2)</span>
+    <p>dim H<sup>q<sub>0</sub>+j</sup>(Y(K),&rationals;)<sub>&Pi;</sub> = C(&delta;,j) &middot; dim H<sup>q<sub>0</sub></sup>(Y(K),&rationals;)<sub>&Pi;</sub></p>
+    <p style="font-size:.82rem;margin-top:.5rem;color:var(--ink-light)">Here &delta; = rank G &minus; rank K<sub>&infin;</sub>. This formula is consistent with a <em>free generation</em> by &and;<sup>*</sup> L<sup>*</sup> from the minimal degree q<sub>0</sub>. The motivic cohomology group L is a &rationals;-vector space of dimension &delta;.</p>
+  </div>
+
+  <h3>The derived deformation ring: categorical aspects</h3>
+
+  <div class="formula-block">
+    <span class="formula-label">Homotopy groups via Tor (GV, Theorem 14.1)</span>
+    <p>&pi;<sub>*</sub> &Rscr;<sub>S</sub> &cong; Tor<sub>*</sub><sup>S&deg;<sub>&infin;</sub></sup>(R<sub>&infin;</sub>, W) &cong; &and;<sup>*</sup> V<sup>*</sup></p>
+    <p style="font-size:.82rem;margin-top:.5rem;color:var(--ink-light)">The identification &pi;<sub>1</sub>&Rscr;<sub>S</sub> &cong; V<sup>*</sup> follows from the Hurewicz map (Lemma 15.1) and Poitou&ndash;Tate duality. The regularity of S&deg;<sub>&infin;</sub> and the Euler characteristic condition (12.1) force the patching limit to be an exterior algebra.</p>
+  </div>
+
+  <h3>Known isomorphisms (complete)</h3>
+
+  <div class="iso-wrap">
+  <table>
+    <thead><tr><th>Isomorphism</th><th>Source</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>&pi;<sub>*</sub>&Rscr;<sub>S</sub> &cong; &and;<sup>*</sup> V<sup>*</sup></td><td>GV Thm 14.1</td><td class="status-known">KNOWN</td></tr>
+      <tr><td>&pi;<sub>*</sub>&Rscr;<sub>S</sub> &cong; (&Ttilde;<sub>m</sub>)<sup>*</sup></td><td>GV 15.4</td><td class="status-known">KNOWN</td></tr>
+      <tr><td>&pi;<sub>*</sub>(S<sub>q</sub><sup>Hk</sup>&otimes;&Lambda;) &cong; S<sub>q</sub><sup>ur</sup>&otimes;<sub>O</sub>H<sub>*</sub>(T<sub>q</sub>;&Lambda;)</td><td>Feng Cor 3.4</td><td class="status-known">KNOWN</td></tr>
+      <tr><td>H<sub>*</sub>(GL<sub>n</sub>(&integers;[1/q]);&integers;) &cong; &and;<sup>*</sup>(K<sub>2i&minus;1</sub>(&integers;[1/q])&otimes;&rationals;)</td><td>Borel</td><td class="status-known">KNOWN</td></tr>
+      <tr><td>L&otimes;&rationals;<sub>p</sub> &cong; H<sup>1</sup><sub>f</sub>(G<sub>&rationals;</sub>, Ad<sup>*</sup>&rho;(1))</td><td>PV Conj. 1.2.5</td><td class="status-conj">CONJECTURE</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Feng&rsquo;s structure table &mdash; and what is missing</h3>
+  <p>Feng&rsquo;s table (automorphic/Galois &times; local/global) is structurally complete &mdash; but the motivic layer (Prasanna&ndash;Venkatesh) is entirely absent. It would require a new dimension: the archimedean side (L&otimes;&complexes; &cong; a<sub>G</sub>) and the p-adic side (L&otimes;&rationals;<sub>p</sub> &cong; H<sup>1</sup><sub>f</sub>) together form a bridge between both columns of the table that does not appear in it.</p>
+
+  <div class="iso-wrap">
+  <table>
+    <thead><tr><th></th><th>Automorphic side</th><th>Galois side</th></tr></thead>
+    <tbody>
+      <tr><th>Local</th><td>S<sub>q</sub><sup>Hk</sup> (Feng)</td><td>R<sub>q</sub><sup>loc</sup> (local defn. ring)</td></tr>
+      <tr><th>Global</th><td>&Ttilde; (Venkatesh), &Htilde;<sup>*</sup> (Emerton)</td><td>&Rscr;<sub>S</sub> (GV)</td></tr>
+      <tr><th>Missing</th><td colspan="2">L = H<sup>1</sup><sub>mot</sub>(M<sub>&pi;</sub>,&rationals;(1)) &mdash; motivic bridge between both columns</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- §4 Results -->
+<section id="synthese-en">
+  <div class="sec-label">&sect; 4</div>
+  <h2>Results of the Synthesis</h2>
+
+  <div class="key-finding">
+    <span class="kf-label">Central categorical finding (DSV4-Flash, Phase 1a)</span>
+    <p>&Htilde;<sup>*</sup>(K<sup>p</sup>,&integers;<sub>p</sub>) as a projective limit of discrete modules is already naturally solid &mdash; solidification = identity. The transition from pseudocompact modules to D(Solid<sub>&integers;<sub>p</sub></sub>) does not change the object, but makes the homological algebra fundamentally better: exact inverse limits (AB4*), no lim&sup1;-problem, correct completed tensor products (&integers;<sub>p</sub>&otimes;<sup>&Lopf;</sup><sub>solid</sub>&integers;<sub>p</sub> = &integers;<sub>p</sub>, &integers;<sub>p</sub>&otimes;<sup>&Lopf;</sup><sub>solid</sub>&reals; = 0).</p>
+  </div>
+
+  <h3>Category inventory</h3>
+  <div class="iso-wrap">
+  <table>
+    <thead><tr><th>Object</th><th>Category</th><th>Key properties</th></tr></thead>
+    <tbody>
+      <tr><td>&Htilde;<sup>*</sup>(K<sup>p</sup>,&integers;<sub>p</sub>)</td><td>D(Solid<sub>&integers;<sub>p</sub></sub>)</td><td>finitely generated over &integers;<sub>p</sub>[[G<sub>0</sub>]], p-adically complete, bounded p-torsion, continuous G(&rationals;<sub>p</sub>)-action, natural inverse limit</td></tr>
+      <tr><td>&Ttilde; (global derived Hecke)</td><td>dg/E<sub>&infin;</sub>-algebra</td><td>subalgebra of End(H<sup>*</sup>(Y(K),&integers;<sub>p</sub>)); E<sub>&infin;</sub>-structure in Solid not established; graded commutativity known only in special cases</td></tr>
+      <tr><td>&Rscr;<sub>S</sub> (derived defn. ring)</td><td>pro-simplicial comm. rings</td><td>&pi;<sub>0</sub>(&Rscr;<sub>S</sub>) = classical Mazur ring; &pi;<sub>*</sub> = exterior algebra; homotopy groups graded commutative; candidate as condensed ring</td></tr>
+      <tr><td>S<sub>q</sub><sup>Hk</sup> (spectral Hecke)</td><td>E<sub>&infin;</sub>-algebra</td><td>derived self-intersection; Corollary 3.4 (Feng): &pi;<sub>*</sub>(S<sub>q</sub><sup>Hk</sup>&otimes;&Lambda;) &cong; S<sub>q</sub><sup>ur</sup>&otimes;<sub>O</sub>H<sub>*</sub>(T<sub>q</sub>;&Lambda;); local building block</td></tr>
+      <tr><td>L<sub>&rationals;<sub>p</sub></sub> = H<sup>1</sup><sub>f</sub>(G<sub>&rationals;</sub>,Ad<sup>*</sup>&rho;(1))</td><td>&rationals;<sub>p</sub>-vector space / Solid</td><td>finite-dimensional (under Beilinson); naturally solid; p-adic regulator conjecturally isomorphism</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Terra incognita &mdash; complete</h3>
+  <p>From Phase 1d (qwen3:235b synthesis) three clear gaps emerged:</p>
+  <p><strong>1. No explicit global construction.</strong> Feng&rsquo;s table shows local and global objects on both sides, but the explicit construction of the global derived Hecke algebra from the local building blocks is missing &mdash; addressed in Venkatesh&rsquo;s work, but not in Feng&rsquo;s.</p>
+  <p><strong>2. The motivic gap.</strong> The connection between Prasanna&ndash;Venkatesh&rsquo;s motivic cohomology L and the remaining structures is only conjectured (Conjecture 1.2.1), not constructed. In particular it is unclear whether the p-adic regulator map L&otimes;&rationals;<sub>p</sub> &rarr; H<sup>1</sup><sub>f</sub> is an isomorphism integrally.</p>
+  <p><strong>3. Solid compatibility of &Ttilde;.</strong> Whether the derived Hecke algebra carries a natural E<sub>&infin;</sub>-structure in D(Solid<sub>&integers;<sub>p</sub></sub>) &mdash; not just as a graded ring, but as an E<sub>&infin;</sub>-algebra &mdash; is the central open question. None of the three primary sources addresses this directly.</p>
+
+  <h3>Phase 2: adversarial refinements</h3>
+  <p>deepseek-r1:70b (Phase 2) reviewed and refined the Phase 1d synthesis. Five key findings retained as correct; two adjustments made: (a) The GV isomorphism concerns homotopy groups, not the full derived structure &mdash; important restriction noted. (b) Feng&rsquo;s q &equiv; 1 &isin; &Lambda; condition for the derived Satake (Corollary 3.4) limits applicability of Conjecture K3; this restriction must be named explicitly.</p>
+</section>
+
+<!-- §5 Conjectures -->
+<section id="konjekturen-en">
+  <div class="sec-label">&sect; 5</div>
+  <h2>Conjectures</h2>
+  <p>Seven conjectures, generated by qwen3:235b (Phase 3), all retained by deepseek-r1:70b (Phase 4), with importance &times; feasibility scores:</p>
+
+  <div class="conj-list">
+    <div class="conj-item">
+      <div class="conj-head">
+        <span class="cn">K 1</span>
+        <span class="ct">E<sub>&infin;</sub>-module structure of the derived Hecke action in D(Solid<sub>&integers;<sub>p</sub></sub>)</span>
+        <span class="cs cs-plausibel">plausible</span>
+      </div>
+      <div class="conj-body">
+        &Htilde;<sup>*</sup>(K<sup>p</sup>,&integers;<sub>p</sub>) carries a natural E<sub>&infin;</sub>-algebra structure in D(Solid<sub>&integers;<sub>p</sub></sub>), so that the derived Hecke action defines an E<sub>&infin;</sub>-module structure. Structural argument: the solidification functor preserves p-adic completeness and resolves lim&sup1;-problems (Thm 5.8), while the cup product structure on H<sup>*</sup>(Y(K),&integers;<sub>p</sub>) is correctly stabilised via pro-&eacute;tale cohomology in D(Solid).
+        <div class="conj-meta">
+          <div class="cm-item"><strong>Prerequisites</strong> K<sup>p</sup> &sub; G(&Aopf;<sub>f</sub><sup>p</sup>) compact open; G reductive, G(&reals;) non-compact; p-ordinarity</div>
+          <div class="cm-item"><strong>First step</strong> cup products in pro&eacute;tale cohomology with Solid coefficients for GL<sub>2</sub>/&rationals;, &Htilde;<sup>1</sup></div>
+        </div>
+        <div class="cb-scores">
+          <div class="cb-score">Importance <b>9/10</b></div>
+          <div class="cb-score">Feasibility <b>7/10</b></div>
+          <div class="cb-score best">Score <b>63 &mdash; strongest conjecture</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conj-item">
+      <div class="conj-head">
+        <span class="cn">K 2</span>
+        <span class="ct">&Htilde;<sup>1</sup> &cong; &and;<sup>*</sup> L<sub>&integers;<sub>p</sub></sub> &otimes; M in D(Solid) for GL<sub>2</sub>/&rationals;</span>
+        <span class="cs cs-plausibel">plausible</span>
+      </div>
+      <div class="conj-body">
+        For G=GL<sub>2</sub>/&rationals;: &Htilde;<sup>1</sup>(K<sup>p</sup>,&integers;<sub>p</sub>) &cong; &and;<sup>*</sup> L<sub>&integers;<sub>p</sub></sub> &otimes;<sub>&integers;<sub>p</sub></sub> M in D(Solid<sub>&integers;<sub>p</sub></sub>), where M is a free &integers;<sub>p</sub>[[&integers;<sub>p</sub><sup>&times;</sup>]]-module of rank 1.
+        <div class="conj-meta">
+          <div class="cm-item"><strong>Prerequisites</strong> TW conditions; big image; p &ge; 5</div>
+          <div class="cm-item"><strong>First step</strong> Tate curve over &rationals;<sub>p</sub>: explicit computation of &Htilde;<sup>1</sup> and L<sub>&integers;<sub>p</sub></sub></div>
+        </div>
+        <div class="cb-scores">
+          <div class="cb-score">Importance <b>8/10</b></div>
+          <div class="cb-score">Feasibility <b>6/10</b></div>
+          <div class="cb-score">Score <b>48</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conj-item">
+      <div class="conj-head">
+        <span class="cn">K 3</span>
+        <span class="ct">Feng isomorphism in D(Solid<sub>&integers;<sub>p</sub></sub>) for q &equiv; 1</span>
+        <span class="cs cs-plausibel">plausible</span>
+      </div>
+      <div class="conj-body">
+        For q &equiv; 1 &isin; &Lambda; (Feng&rsquo;s condition for Cor 3.4): the isomorphism &pi;<sub>*</sub>(S<sub>q</sub><sup>Hk</sup>&otimes;&Lambda;) &cong; S<sub>q</sub><sup>ur</sup>&otimes;<sub>O</sub>H<sub>*</sub>(T<sub>q</sub>;&Lambda;) lifts to D(Solid<sub>&integers;<sub>p</sub></sub>), where S<sub>q</sub><sup>Hk</sup> becomes a solid E<sub>&infin;</sub>-algebra.
+        <div class="conj-meta">
+          <div class="cm-item"><strong>Restriction</strong> q &equiv; 1 &isin; &Lambda; required; derived Satake not available otherwise (deepseek-r1 refinement)</div>
+        </div>
+        <div class="cb-scores">
+          <div class="cb-score">Importance <b>7/10</b></div>
+          <div class="cb-score">Feasibility <b>7/10</b></div>
+          <div class="cb-score">Score <b>49</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conj-item">
+      <div class="conj-head">
+        <span class="cn">K 4</span>
+        <span class="ct">p-adic regulator as solid isomorphism</span>
+        <span class="cs cs-spekulativ">speculative</span>
+      </div>
+      <div class="conj-body">
+        The p-adic regulator map r<sub>p</sub>: L<sub>&integers;<sub>p</sub></sub> &rarr; H<sup>1</sup><sub>f</sub>(G<sub>&rationals;</sub>,Ad<sup>*</sup>&rho;(1)) is an isomorphism of solid &integers;<sub>p</sub>-modules. Conditional on Beilinson&rsquo;s conjecture (L&otimes;&rationals; &cong; K<sub>2n-1</sub>(&integers;)).
+        <div class="conj-meta">
+          <div class="cm-item"><strong>Dependency</strong> Beilinson&rsquo;s conjecture; no current proof strategy independent of it</div>
+        </div>
+        <div class="cb-scores">
+          <div class="cb-score">Importance <b>9/10</b></div>
+          <div class="cb-score">Feasibility <b>3/10</b></div>
+          <div class="cb-score">Score <b>27</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conj-item">
+      <div class="conj-head">
+        <span class="cn">K 5</span>
+        <span class="ct">&Rscr;<sub>S</sub> as condensed ring in D(Solid<sub>&integers;<sub>p</sub></sub>)</span>
+        <span class="cs cs-plausibel">plausible</span>
+      </div>
+      <div class="conj-body">
+        The derived deformation ring &Rscr;<sub>S</sub> carries a natural structure as a condensed commutative ring, so that &pi;<sub>*</sub>&Rscr;<sub>S</sub> &cong; &and;<sup>*</sup> V<sup>*</sup> holds in D(Solid<sub>&integers;<sub>p</sub></sub>).
+        <div class="conj-meta">
+          <div class="cm-item"><strong>Basis</strong> Pro-simplicial rings are a full subcategory of condensed rings (Scholze&ndash;Clausen)</div>
+        </div>
+        <div class="cb-scores">
+          <div class="cb-score">Importance <b>7/10</b></div>
+          <div class="cb-score">Feasibility <b>8/10</b></div>
+          <div class="cb-score">Score <b>56</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conj-item">
+      <div class="conj-head">
+        <span class="cn">K 6</span>
+        <span class="ct">Spectral degeneracy as solid cohomology phenomenon</span>
+        <span class="cs cs-plausibel">plausible</span>
+      </div>
+      <div class="conj-body">
+        The binomial multiplicities (PV Formula 1.1.2) arise from a natural &and;<sup>*</sup>L<sup>*</sup>-action on H<sup>*</sup>(Y(K),&integers;<sub>p</sub>) in D(Solid<sub>&integers;<sub>p</sub></sub>), where L is naturally solid and the action is compatible with Hecke operators.
+        <div class="cb-scores">
+          <div class="cb-score">Importance <b>8/10</b></div>
+          <div class="cb-score">Feasibility <b>6/10</b></div>
+          <div class="cb-score">Score <b>48</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="conj-item">
+      <div class="conj-head">
+        <span class="cn">K 7</span>
+        <span class="ct">Global-local compatibility in D(Solid) for the derived Hecke algebra</span>
+        <span class="cs cs-spekulativ">speculative</span>
+      </div>
+      <div class="conj-body">
+        There exists an &ldquo;assembly map&rdquo; in D(Solid<sub>&integers;<sub>p</sub></sub>) from the local spectral Hecke algebras S<sub>q</sub><sup>Hk</sup> (Feng) to the global derived Hecke algebra &Ttilde; (Venkatesh), compatible with the GV isomorphism &pi;<sub>*</sub>&Rscr;<sub>S</sub> &cong; (&Ttilde;<sub>m</sub>)<sup>*</sup>.
+        <div class="conj-meta">
+          <div class="cm-item"><strong>Dependency</strong> Conditional on K1 and K5; requires explicit local-to-global construction currently absent from all primary sources</div>
+        </div>
+        <div class="cb-scores">
+          <div class="cb-score">Importance <b>9/10</b></div>
+          <div class="cb-score">Feasibility <b>4/10</b></div>
+          <div class="cb-score">Score <b>36</b></div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Dependency map</h3>
+    <p>K1 (E<sub>&infin;</sub> in Solid) &larr; prerequisite for &rarr; K2 (GL<sub>2</sub> case), K6 (spectral degeneracy in Solid). K5 (&Rscr;<sub>S</sub> as condensed ring) &larr; prerequisite for &rarr; K7 (global-local assembly). K4 (regulator isomorphism) depends on Beilinson&rsquo;s conjecture independently of the other conjectures. K3 (Feng in Solid) is independent but provides the local building block for K7.</p>
+
+  </div>
+</section>
+
+<!-- §6 Conceptual Observations -->
+<section id="beobachtungen-en">
+  <div class="sec-label">&sect; 6</div>
+  <h2>Conceptual Observations</h2>
+
+  <p>Beyond the mathematical results, the model analyses yielded several conceptual observations concerning the framework of the conjectures.</p>
+
+  <div class="obs-grid">
+    <div class="obs-card">
+      <span class="obs-label">Pro-simplicial rings as condensed rings</span>
+      <div class="obs-text">A pro-simplicial ring (R<sub>&alpha;</sub>) defines a condensed ring via X &mapsto; lim<sub>&rarr;&alpha;</sub> Hom<sub>Top</sub>(X, |R<sub>&alpha;</sub>|). The category of pro-simplicial rings is thus a full subcategory of condensed rings (Scholze&ndash;Clausen). This means: &Rscr;<sub>S</sub> is not only categorically compatible with the Solid world &mdash; it <em>already lives there</em> naturally. (Phase 1b, Section C.1)</div>
+    </div>
+    <div class="obs-card">
+      <span class="obs-label">The non-archimedean nature of Solid</span>
+      <div class="obs-text">&reals;<sup>L</sup><sub>solid</sub> = 0 &mdash; the real number line vanishes after solidification (Scholze&ndash;Clausen, Corollary 6.1(iii)). This is not a defect but a programme: Solid captures exclusively the p-adic, non-archimedean structure. For automorphic cohomology over &rationals;<sub>p</sub> this is the correct framework &mdash; archimedean phenomena (as in Prasanna&ndash;Venkatesh over &complexes;) lie outside it.</div>
+    </div>
+    <div class="obs-card">
+      <span class="obs-label">Spectral degeneracy as a symmetry phenomenon</span>
+      <div class="obs-text">That Hecke eigenvalues are identical in multiple cohomology degrees is not coincidental: it reflects a hidden graded symmetry (the &and;<sup>*</sup>L<sup>*</sup>-action). The binomial multiplicities (Formula 1.1.2) are a direct fingerprint of this symmetry. The derived Hecke algebra is the algebraic tool that makes this symmetry visible; D(Solid) the framework in which it lives coherently.</div>
+    </div>
+    <div class="obs-card">
+      <span class="obs-label">The motivic gap in Feng&rsquo;s table</span>
+      <div class="obs-text">Feng&rsquo;s automorphic/Galois &times; local/global table is structurally complete &mdash; but the motivic layer (Prasanna&ndash;Venkatesh) is entirely absent. It would require a new dimension: the archimedean side (L&otimes;&complexes; &cong; a<sub>G</sub>) and the p-adic side (L&otimes;&rationals;<sub>p</sub> &cong; H<sup>1</sup><sub>f</sub>) together form a bridge between both columns that does not appear in the table.</div>
+    </div>
+    <div class="obs-card">
+      <span class="obs-label">Derived = better, throughout</span>
+      <div class="obs-text">All three cases in the project show the same pattern: the derived transition (Hecke algebra &rarr; derived Hecke, deformation ring &rarr; derived deformation ring, module categories &rarr; derived category) consistently produces better structures &mdash; more exact limits, richer actions, more coherent isomorphisms. D(Solid<sub>&integers;<sub>p</sub></sub>) is the completion of this pattern: the derived category in which all transitions live naturally and compatibly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- §7 Assessment -->
+<section id="einschaetzung-en">
+  <div class="sec-label">&sect; 7</div>
+  <h2>Assessment</h2>
+
+  <div class="verdict">
+    <span class="vd-label">Verdict deepseek-r1:70b (Phase 4)</span>
+    <p><strong>(a) Probably deep &mdash; genuine new mathematics to be expected.</strong> The connections are not mere reformulations of known structures. D(Solid<sub>&integers;<sub>p</sub></sub>) fixes structural pathologies that cause functional damage in the classical treatment of completed cohomology. They open new mathematical territory, though some conjectures require breakthroughs.</p>
+    <p>Conjecture 1 is the recommended first step (9&times;7=63): E<sub>&infin;</sub>-structure on &Htilde;<sup>1</sup> for GL<sub>2</sub>/&rationals;. The minimal test case &mdash; Tate curve, &Htilde;<sup>1</sup>, pro&eacute;tale cohomology &mdash; is concrete enough for a manageable research project. Conjectures 4 and 7 are tied to Beilinson&rsquo;s conjecture and of immediate arithmetic relevance in the event of a breakthrough there.</p>
+    <p>All 7 conjectures retained.</p>
+  </div>
+
+  <h3>On the tool</h3>
+  <p>DSV4-Flash handled 107K-token inputs from primary sources and extracted correct theorem formulations with source references. The distinction KNOWN / FOLKLORE / CONJECTURE was maintained. The pro-simplicial-condensed bridge (Observation &sect;6) comes directly from DSV4&rsquo;s Phase-1b analysis &mdash; there the model had identified the concrete functor construction from Scholze&ndash;Clausen and connected it with GV&rsquo;s construction.</p>
+  <p>qwen3:235b produced mathematically substantial conjectures with genuine source references. deepseek-r1:70b correctly identified the most important constraint (GV isomorphism concerns homotopy groups, not full structure) and verified all five topic areas as correct. The inconsistent ranking in Phase 4 (importance instead of product) is a minor deficiency of the reasoning model on formal sorting tasks.</p>
+</section>
+
+<footer class="page-footer">
+  <p>Test project, 25 May 2026, Berlin. Local models (no cloud connection): DeepSeek-V4-Flash (GGUF Q4, 164 GB, 256K context), qwen3:235b-a22b (Ollama MoE, 142 GB), deepseek-r1:70b (Ollama, 42 GB). Primary sources: Calegari&ndash;Emerton (survey), Venkatesh (arXiv:1608.07234), Clausen&ndash;Scholze (Condensed Mathematics 2019), Galatius&ndash;Venkatesh (arXiv:1608.07236), Feng (arXiv:1912.04413), Prasanna&ndash;Venkatesh (arXiv:1609.06370). Hardware: Apple Mac Studio M3 Ultra, 256 GB Unified Memory. Report: Claude Sonnet 4.6 (Anthropic).</p>
+</footer>
+
+</main>
 </div>
-<div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
 
-<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">&sect; 1 &mdash; Background and Question</h2>
-<p><strong>Central question.</strong> Does Emerton's completed cohomology H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>) carry a natural structure as an object in D(Solid<sub>&#8484;<sub>p</sub></sub>), such that Venkatesh's derived Hecke action T<sup>der</sup> is expressible as an E<sub>&infin;</sub>-module structure in this category?</p>
-<p>The question arose from a simple observation: completed cohomology and the derived Hecke algebra suffer from the same categorical pathologies &mdash; non-exact inverse limits, problematic completed tensor products, uncontrolled topological group actions &mdash; for which Scholze and Clausen's condensed mathematics was expressly developed. Whether the languages are actually compatible is open. Venkatesh's own remark (§1.6b, 2019) marks the gap: &ldquo;It will be interesting to study the action of the mod p derived Hecke algebra of a p-adic group; but we stay away from this in the current paper.&rdquo;</p>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">&sect; 2 &mdash; Execution</h2>
-<p>The project processed five primary sources as full text via DSV4-Flash (107K-token context), then synthesised with qwen3:235b-a22b, and subjected all results to adversarial checking by deepseek-r1:70b.</p>
-<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
-<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Source</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Role in project</th></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Emerton, completed cohomology survey (2006&ndash;)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Definition of H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>) as finitely generated &#8484;<sub>p</sub>[[G<sub>0</sub>]]-module</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Venkatesh, derived Galois deformation (arXiv:1608.07234)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Definition of T<sup>der</sup> and Reciprocity Theorem</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Galatius&ndash;Venkatesh (arXiv:1608.07236)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Derived deformation ring &#8475;<sub>S</sub> and its homotopy groups</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Feng, spectral Hecke (arXiv:1912.04413)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Local derived Satake S<sup>Hk</sup></td></tr>
-<tr><td style="padding:.4rem .75rem;">Prasanna&ndash;Venkatesh (arXiv:1609.06370)</td><td style="padding:.4rem .75rem;">Motivic cohomology L and p-adic regulator</td></tr>
-</table>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">&sect; 3 &mdash; Structural Extraction from Primary Sources</h2>
-<p>Five structural areas were identified by DSV4-Flash in Phase 1 with relevant theorems and their exact source references. Key results:</p>
-<ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
-<li><strong>Completed cohomology (Emerton):</strong> H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>) is a finitely generated &#8484;<sub>p</sub>[[G<sub>0</sub>]]-module with continuous G(&#8474;<sub>p</sub>)- and Hecke action. Classical category: pseudocompact modules &mdash; not abelian, with chronically problematic inverse limits. The Solid-Theorems 5.4 and 5.8 of [CS19] repair both defects.</li>
-<li><strong>Derived Hecke algebra (Venkatesh):</strong> T<sup>der</sup> = Sym(L<sub>&#8484;</sub>[&minus;1]) where L = H<sub>1</sub>(Lie G, &#8484;) is the first Lie algebra homology. Venkatesh Reciprocity (Thm 8.5): T<sup>der</sup> acts on H*(Y(K), &#8484;<sub>p</sub>) via the period map reg<sub>p</sub>. The binomial multiplicities (formula 1.1.2) are a direct fingerprint of the &bigwedge;* L*-action.</li>
-<li><strong>Galatius&ndash;Venkatesh:</strong> Derived deformation ring &#8475;<sub>S</sub> with &pi;<sub>*</sub>&#8475;<sub>S</sub> &cong; (&#8484;&#771;<sub>m</sub>)* as free &#8484;<sub>p</sub>[[ &#8484;<sub>p</sub><sup>&times;</sup>]]-module of rank 1.</li>
-<li><strong>Feng spectral Hecke:</strong> Local derived Satake S<sup>Hk</sup> with Feng's isomorphism (Thm 5.3) between spectral Hecke algebra and GV derived deformation ring (requires q &equiv; 1 &isin; &Lambda;).</li>
-<li><strong>Prasanna&ndash;Venkatesh:</strong> Motivic cohomology L over &#8474; with L &otimes; &#8474;<sub>p</sub> &cong; H<sup>1</sup><sub>f</sub>(G<sub>&#8474;</sub>, Ad*&rho;(1)) and regulator map reg<sub>p</sub> : L<sub>&#8484;<sub>p</sub></sub> &rarr; H<sup>1</sup><sub>f</sub>(Selmer group) &mdash; the p-adic bridge.</li>
-</ul>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">&sect; 4 &mdash; Results of the Synthesis</h2>
-<p>qwen3:235b-a22b synthesised the five structural areas across Phase 2:</p>
-<p><strong>Solidification of completed cohomology:</strong> H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>) carries a natural Solid-structure via the solidification functor (&minus;)<sup>solid</sup>. Since H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>) is already a pseudocompact &#8484;<sub>p</sub>[[G<sub>0</sub>]]-module (Emerton) and Solid<sub>&#8484;<sub>p</sub></sub> &supseteq; Pseudocompact<sub>&#8484;<sub>p</sub></sub> (Scholze&ndash;Clausen), solidification is the identity. The lim<sup>1</sup> problems of the classical category are repaired by Thm 5.8 [CS19].</p>
-<p><strong>E<sub>&infin;</sub>-structure of the derived Hecke action:</strong> T<sup>der</sup> = Sym(L<sub>&#8484;</sub>[&minus;1]) acts on H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>)<sup>solid</sup> with E<sub>&infin;</sub>-module structure. The cup product structure on H*(Y(K), &#8484;<sub>p</sub>) is stabilised by pro-&eacute;tale cohomology in D(Solid), and the Venkatesh Reciprocity extends to D(Solid<sub>&#8484;<sub>p</sub></sub>).</p>
-
-<div style="background:#edf2fb;border:1px solid #b8c8e8;border-left:3px solid #2d4a7a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
-<strong>Adversarial Phase 2 (deepseek-r1:70b):</strong> Synthesis confirmed as correct (all five areas individually verified). Three precisions:<br>
-1. The GV isomorphism &pi;<sub>*</sub>&#8475;<sub>S</sub> &cong; (&#8484;&#771;<sub>m</sub>)* holds for the homotopy groups, not for the complete pro-simplicial structure.<br>
-2. Feng's isomorphism requires q &equiv; 1 &isin; &Lambda;. Without this condition the derived Satake is not available &mdash; Conjecture K3 must name this restriction explicitly.<br>
-3. The question of whether solidification might destroy relevant structure is formally open &mdash; but unlikely, since H&#771;* is already solid and the functor is the identity.
-</div>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">&sect; 5 &mdash; Conjectures</h2>
-<p>Seven conjectures, generated by qwen3:235b (Phase 3), all retained by deepseek-r1:70b (Phase 4), with importance &times; feasibility scores:</p>
-
-<div style="background:#f5f4f0;border:1px solid #dddbd3;border-radius:4px;padding:.85rem 1.1rem;margin:.75rem 0;">
-<strong>K 1 &mdash; E<sub>&infin;</sub>-module structure of the derived Hecke action in D(Solid<sub>&#8484;<sub>p</sub></sub>) &mdash; <em>plausible</em></strong><br>
-H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>) carries a natural E<sub>&infin;</sub>-algebra structure in D(Solid<sub>&#8484;<sub>p</sub></sub>), such that the derived Hecke action defines an E<sub>&infin;</sub>-module structure. The solidification functor preserves p-adic completeness and resolves lim<sup>1</sup> problems, while the cup product structure is correctly stabilised by pro-&eacute;tale cohomology.<br>
-Prerequisites: K<sup>p</sup> &subset; G(&#120120;<sub>f</sub><sup>p</sup>) compact open; G reductive; p-ordinarity.<br>
-First step: cup products in pro-&eacute;tale cohomology with Solid coefficients for GL<sub>2</sub>/&#8474;, H&#771;<sup>1</sup>.<br>
-<strong>Importance 9/10 &middot; Feasibility 7/10 &middot; Product 63 &mdash; strongest conjecture</strong>
-</div>
-
-<div style="background:#f5f4f0;border:1px solid #dddbd3;border-radius:4px;padding:.85rem 1.1rem;margin:.75rem 0;">
-<strong>K 2 &mdash; H&#771;<sup>1</sup> &cong; &bigwedge;* L<sub>&#8484;<sub>p</sub></sub> &otimes; M in D(Solid) for GL<sub>2</sub>/&#8474; &mdash; <em>plausible</em></strong><br>
-For G = GL<sub>2</sub>/&#8474;: H&#771;<sup>1</sup>(K<sup>p</sup>, &#8484;<sub>p</sub>) &cong; &bigwedge;* L<sub>&#8484;<sub>p</sub></sub> &otimes;<sub>&#8484;<sub>p</sub></sub> M in D(Solid<sub>&#8484;<sub>p</sub></sub>), where M is a free &#8484;<sub>p</sub>[[&#8484;<sub>p</sub><sup>&times;</sup>]]-module of rank 1. Venkatesh Reciprocity and the motivic identification L &otimes; &#8474;<sub>p</sub> &cong; H<sup>1</sup><sub>f</sub> imply a canonical L-action made coherent by the Solid structure.<br>
-<strong>Importance 8/10 &middot; Feasibility 6/10 &middot; Product 48</strong>
-</div>
-
-<div style="background:#f5f4f0;border:1px solid #dddbd3;border-radius:4px;padding:.85rem 1.1rem;margin:.75rem 0;">
-<strong>K 3 &mdash; Global derived R=T in D(Solid): &#8484;&#771; &cong; (&#8475;<sub>S</sub>)* &otimes; S<sup>Hk</sup> &mdash; <em>speculative</em></strong><br>
-Unifies Feng's local derived Satake and GV Thm 14.1 in D(Solid<sub>&#8484;<sub>p</sub></sub>). Requires allowable conditions (GV Def. 6.2); q &equiv; 1 &isin; &Lambda;; G = GL<sub>n</sub>.<br>
-<strong>Importance 7/10 &middot; Feasibility 4/10 &middot; Product 28</strong>
-</div>
-
-<div style="background:#f5f4f0;border:1px solid #dddbd3;border-radius:4px;padding:.85rem 1.1rem;margin:.75rem 0;">
-<strong>K 4 &mdash; p-adic regulator as isomorphism in D(Solid<sub>&#8484;<sub>p</sub></sub>) &mdash; <em>speculative</em></strong><br>
-The motivic cohomology L has a p-adic realisation L<sub>&#8484;<sub>p</sub></sub> in D(Solid<sub>&#8484;<sub>p</sub></sub>), such that the p-adic regulator map is an isomorphism L<sub>&#8484;<sub>p</sub></sub> &xrarr;&#8764; H<sup>1</sup><sub>f</sub>(G<sub>&#8474;</sub>, Ad*&rho;(1)) in D(Solid<sub>&#8484;<sub>p</sub></sub>). Requires Beilinson's conjecture.<br>
-<strong>Importance 10/10 &middot; Feasibility 2/10 &middot; Product 20</strong>
-</div>
-
-<div style="background:#f5f4f0;border:1px solid #dddbd3;border-radius:4px;padding:.85rem 1.1rem;margin:.75rem 0;">
-<strong>K 5 &mdash; H&#771;* &cong; Sym(L<sub>&#8484;<sub>p</sub></sub>) &otimes; M &mdash; motivic action compatible with derived Hecke &mdash; <em>speculative</em></strong><br>
-The action of L<sub>&#8484;<sub>p</sub></sub> on H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>) is compatible with the derived Hecke action, and there exists an E<sub>&infin;</sub>-isomorphism H&#771;*(K<sup>p</sup>, &#8484;<sub>p</sub>) &cong; Sym(L<sub>&#8484;<sub>p</sub></sub>) &otimes; M in D(Solid<sub>&#8484;<sub>p</sub></sub>).<br>
-<strong>Importance 9/10 &middot; Feasibility 3/10 &middot; Product 27</strong>
-</div>
-
-<div style="background:#f5f4f0;border:1px solid #dddbd3;border-radius:4px;padding:.85rem 1.1rem;margin:.75rem 0;">
-<strong>K 6 &mdash; &pi;<sub>*</sub>&#8475;<sub>S</sub> &cong; &bigwedge;* V* as Solid modules &mdash; <em>plausible</em></strong><br>
-&#8475;<sub>S</sub> carries a natural commutative algebra structure in D(Solid<sub>&#8484;<sub>p</sub></sub>), and &pi;<sub>*</sub>&#8475;<sub>S</sub> &cong; &bigwedge;* V* holds as an isomorphism of Solid modules (not just abelian groups). The inverse limit construction gives a natural Solid structure.<br>
-<strong>Importance 6/10 &middot; Feasibility 5/10 &middot; Product 30</strong>
-</div>
-
-<div style="background:#f5f4f0;border:1px solid #dddbd3;border-radius:4px;padding:.85rem 1.1rem;margin:.75rem 0;">
-<strong>K 7 &mdash; p-adic regulator induces L<sub>&#8484;<sub>p</sub></sub> &otimes; H&#771;<sup>1</sup> &xrarr;&#8764; H&#771;<sup>1</sup> &mdash; <em>speculative</em></strong><br>
-The p-adic regulator map induces a derived-Hecke-compatible isomorphism L<sub>&#8484;<sub>p</sub></sub> &otimes;<sub>&#8484;<sub>p</sub></sub> H&#771;<sup>1</sup>(K<sup>p</sup>, &#8484;<sub>p</sub>) &xrarr;&#8764; H&#771;<sup>1</sup>(K<sup>p</sup>, &#8484;<sub>p</sub>) in D(Solid<sub>&#8484;<sub>p</sub></sub>). Presupposes Beilinson's conjecture.<br>
-<strong>Importance 10/10 &middot; Feasibility 2/10 &middot; Product 20</strong>
-</div>
-
-<div style="background:#fdf6e0;border:1px solid #c8a840;border-left:3px solid #7a5a14;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
-<strong>Dependency map:</strong> K1 is independent and the natural first step. K2 requires K1 (needs the E<sub>&infin;</sub>-structure). K6 is independent of K1/K2 and can be pursued in parallel. K3 requires K6. K4 and K7 both depend on the motivic side (Beilinson) &mdash; independent of each other, but both presuppose K1 as framework. The correct order by product (importance &times; feasibility): K1 (63) &rarr; K2 (48) &rarr; K6 (30) &rarr; K3 (28) &rarr; K5 (27) &rarr; K4 (20) = K7 (20).
-</div>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">&sect; 6 &mdash; Conceptual Observations</h2>
-<p><strong>Pro-simplicial rings as condensed rings:</strong> A pro-simplicial ring (R<sub>&alpha;</sub>) defines a condensed ring via X &mapsto; lim<sub>&rarr;&alpha;</sub> Hom<sub>Top</sub>(X, |R<sub>&alpha;</sub>|). The category of pro-simplicial rings is thus a full subcategory of condensed rings (Scholze&ndash;Clausen). This means: &#8475;<sub>S</sub> is not only categorically compatible with the Solid world &mdash; it lives there naturally.</p>
-<p><strong>The non-archimedean nature of Solid:</strong> &#8477;<sub>solid</sub><sup>L</sup> = 0 &mdash; the real number line vanishes after solidification (Scholze&ndash;Clausen, Corollary 6.1(iii)). This is not a defect but a programme: Solid captures exclusively the p-adic, non-archimedean structure. For automorphic cohomology over &#8474;<sub>p</sub>, this is the correct framework &mdash; archimedean phenomena (as in Prasanna&ndash;Venkatesh over &#8450;) lie outside.</p>
-<p><strong>Spectral degeneracy as symmetry phenomenon:</strong> That Hecke eigenvalues appear identically in several cohomological degrees is not accidental: it reflects a hidden graded symmetry (the &bigwedge;* L*-action). The binomial multiplicities (formula 1.1.2) are a direct fingerprint of this symmetry. The derived Hecke algebra is the algebraic tool that makes this symmetry visible; D(Solid) is the framework in which it lives coherently.</p>
-<p><strong>The motivic gap in Feng's table:</strong> Feng's automorphic/Galois &times; local/global table is structurally complete &mdash; but the motivic layer (Prasanna&ndash;Venkatesh) is entirely absent. It would require a new dimension: the archimedean side (L &otimes; &#8450; &cong; a<sub>G</sub>) and the p-adic side (L &otimes; &#8474;<sub>p</sub> &cong; H<sup>1</sup><sub>f</sub>) together form a bridge between both columns of the table that does not appear in it.</p>
-<p><strong>Derived = better, throughout:</strong> All three cases in the project show the same pattern: the derived passage (Hecke algebra &rarr; derived Hecke, deformation ring &rarr; derived deformation ring, categories of modules &rarr; derived category) consistently produces better structures &mdash; more exact limits, richer actions, more coherent isomorphisms. D(Solid<sub>&#8484;<sub>p</sub></sub>) is the closure of this pattern: the derived category where all other derived constructions converge.</p>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">&sect; 7 &mdash; Assessment</h2>
-<div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
-<strong>Verdict deepseek-r1:70b (Phase 4):</strong> Probably deep &mdash; real new mathematics to be expected. The connections are not a mere reformulation of known structures. D(Solid<sub>&#8484;<sub>p</sub></sub>) repairs structural pathologies that cause functional damage in the classical treatment of completed cohomology. Conjecture K1 is the recommended first step (9&times;7=63): E<sub>&infin;</sub>-structure on H&#771;<sup>1</sup> for GL<sub>2</sub>/&#8474;. The minimal test case &mdash; Tate curve, H&#771;<sup>1</sup>, pro-&eacute;tale cohomology &mdash; is concrete enough for a manageable research programme. All 7 conjectures retained.
-</div>
-<p><strong>On the tool:</strong> DSV4-Flash processed 107K-token inputs from primary sources and extracted correct theorem formulations with source references. The distinction KNOWN / FOLKLORE / CONJECTURE was maintained. The pro-simplicial-condensed bridge (Observation §6) comes directly from DSV4's Phase-1b analysis. qwen3:235b produced mathematically substantial conjectures with genuine source references. deepseek-r1:70b identified the most important restriction correctly (GV isomorphism concerns homotopy groups, not full structure). The inconsistent ranking in Phase 4 (by importance rather than product) is a small deficiency of the reasoning model in formal sorting tasks.</p>
-
-<div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
-Test project, 25 May 2026, Berlin. Local models (no cloud connection): DeepSeek-V4-Flash (GGUF Q4, 164 GB, 256K context), qwen3:235b-a22b (Ollama MoE, 142 GB), deepseek-r1:70b (Ollama, 42 GB). Primary sources: Calegari&ndash;Emerton (survey), Venkatesh (arXiv:1608.07234), Clausen&ndash;Scholze (Condensed Mathematics 2019), Galatius&ndash;Venkatesh (arXiv:1608.07236), Feng (arXiv:1912.04413), Prasanna&ndash;Venkatesh (arXiv:1609.06370). Hardware: Apple Mac Studio M3 Ultra, 256 GB Unified Memory. Report: Claude Sonnet 4.6 (Anthropic).
-</div>
-</div>
-
-</div>
 <div class="lang-de-section" style="display:none">
 <header class="site-header">
   <span class="kicker">Testprojekt · 25. Mai 2026 · Berlin</span>
