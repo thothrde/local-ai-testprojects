@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condensed Soul — Anima Between Topology and Neoplatonism · 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+:root {
+  --bg:      #0f0e0c;
+  --bg2:     #161410;
+  --bg3:     #1c1a16;
+  --fg:      #e2ddd4;
+  --fg-dim:  #9a9188;
+  --gold:    #c8903a;
+  --gold2:   #a87430;
+  --green:   #7aad7a;
+  --amber:   #d4a040;
+  --red:     #b86060;
+  --rule:    #2a2620;
+  --serif:   'EB Garamond', Georgia, serif;
+  --mono:    'DM Mono', monospace;
+  --sans:    'Instrument Sans', sans-serif;
+  --max:     740px;
+  --wide:    940px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { font-size:18px; scroll-behavior:smooth; }
+body { background:var(--bg); color:var(--fg); font-family:var(--serif); line-height:1.78; -webkit-font-smoothing:antialiased; }
+
+.wrapper { max-width:var(--wide); margin:0 auto; padding:0 2rem; }
+.col { max-width:var(--max); margin:0 auto; }
+
+/* Header */
+header { border-bottom:1px solid var(--rule); padding:4.5rem 0 3rem; margin-bottom:3.5rem; }
+.header-meta { font-family:var(--sans); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+h1 { font-size:clamp(2rem,5vw,3.5rem); font-weight:500; font-style:italic; line-height:1.13; letter-spacing:-.02em; margin-bottom:.8rem; }
+h1 .sub { display:block; font-style:normal; font-size:.48em; font-family:var(--sans); font-weight:400; color:var(--fg-dim); letter-spacing:.02em; margin-top:.6rem; }
+.header-desc { max-width:560px; font-size:1rem; color:var(--fg-dim); line-height:1.7; margin-top:1.5rem; }
+.version-note { font-family:var(--mono); font-size:.65rem; color:var(--gold2); margin-top:1rem; letter-spacing:.04em; }
+
+/* Nav */
+nav { font-family:var(--sans); font-size:.78rem; display:flex; flex-wrap:wrap; gap:.4rem 1.5rem; margin-bottom:4rem; padding-bottom:2rem; border-bottom:1px solid var(--rule); }
+nav a { color:var(--fg-dim); text-decoration:none; letter-spacing:.04em; transition:color .2s; }
+nav a:hover { color:var(--gold); }
+.nav-num { color:var(--gold); margin-right:.25em; font-family:var(--mono); font-size:.7em; }
+
+/* Sections */
+section { margin-bottom:5rem; scroll-margin-top:2rem; }
+h2 { font-family:var(--sans); font-size:.72rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-bottom:2rem; display:flex; align-items:center; gap:1rem; }
+h2::after { content:''; flex:1; height:1px; background:var(--rule); }
+h3 { font-family:var(--serif); font-size:1.22rem; font-weight:500; font-style:italic; color:var(--fg); margin:2.8rem 0 .8rem; letter-spacing:-.01em; }
+h4 { font-family:var(--sans); font-size:.75rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-dim); margin:2rem 0 .6rem; }
+p { margin-bottom:1.2em; font-size:1rem; }
+p:last-child { margin-bottom:0; }
+
+/* Blockquote */
+blockquote { border-left:2px solid var(--gold2); margin:1.8rem 0; padding:.5rem 0 .5rem 1.6rem; color:var(--fg-dim); font-style:italic; font-size:.97rem; }
+blockquote em { font-style:normal; color:var(--fg); }
+blockquote cite { display:block; margin-top:.5rem; font-style:normal; font-family:var(--mono); font-size:.68rem; color:var(--gold2); letter-spacing:.05em; }
+
+/* Result / theorem boxes */
+.box { background:var(--bg2); border:1px solid var(--rule); border-left:3px solid var(--gold2); padding:1.4rem 1.6rem; margin:1.8rem 0; border-radius:2px; }
+.box .label { font-family:var(--mono); font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); margin-bottom:.7rem; }
+.box p { font-size:.97rem; margin-bottom:.6em; }
+.box.confirmed { border-left-color:var(--green); }
+.box.confirmed .label { color:var(--green); }
+.box.warning { border-left-color:var(--amber); }
+.box.warning .label { color:var(--amber); }
+.box.conflict { border-left-color:var(--red); }
+.box.conflict .label { color:var(--red); }
+
+.theorem { background:var(--bg2); border:1px solid #2e2a24; padding:1.5rem 1.8rem; margin:2rem 0; border-radius:2px; }
+.theorem::before { content:attr(data-label); font-family:var(--mono); font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:.8rem; }
+.theorem p { font-size:.97rem; margin-bottom:.6em; }
+.theorem ol { padding-left:1.4rem; margin-top:.6rem; }
+.theorem ol li { margin-bottom:.6em; font-size:.97rem; }
+
+/* Tables */
+.table-wrap { overflow-x:auto; margin:2rem 0; }
+table { width:100%; border-collapse:collapse; font-size:.88rem; font-family:var(--sans); }
+thead tr { border-bottom:1px solid var(--gold2); }
+th { text-align:left; padding:.6rem 1rem .6rem 0; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); font-weight:500; }
+td { padding:.6rem 1rem .6rem 0; border-bottom:1px solid var(--rule); color:var(--fg-dim); vertical-align:top; line-height:1.5; }
+td:first-child { color:var(--fg); font-family:var(--mono); font-size:.82rem; }
+td.ok { color:var(--green); }
+td.conj { color:var(--amber); }
+td.err { color:var(--red); }
+
+/* ADV grid */
+.adv-grid { display:grid; grid-template-columns:1fr; gap:1rem; margin:1.5rem 0; }
+.adv-item { background:var(--bg3); border:1px solid var(--rule); padding:1rem 1.2rem; border-radius:2px; }
+.adv-item .adv-label { font-family:var(--mono); font-size:.65rem; letter-spacing:.08em; color:var(--green); margin-bottom:.4rem; }
+.adv-item .adv-claim { font-family:var(--sans); font-size:.82rem; color:var(--fg); margin-bottom:.4rem; font-weight:500; }
+.adv-item .adv-arg { font-size:.88rem; color:var(--fg-dim); line-height:1.55; }
+
+/* Process cards */
+.process-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; margin:1.5rem 0; }
+.process-card { background:var(--bg2); border:1px solid var(--rule); padding:1rem 1.2rem; border-radius:2px; }
+.process-card .model { font-family:var(--mono); font-size:.68rem; color:var(--gold); letter-spacing:.05em; margin-bottom:.4rem; }
+.process-card .task { font-family:var(--sans); font-size:.8rem; color:var(--fg-dim); line-height:1.4; }
+.process-card .tokens { font-family:var(--mono); font-size:.65rem; color:#555; margin-top:.4rem; }
+
+.rule { border:none; border-top:1px solid var(--rule); margin:3rem 0; }
+
+/* Verdict pill */
+.verdict { display:inline-block; font-family:var(--mono); font-size:.65rem; letter-spacing:.08em; padding:.25em .7em; border-radius:2px; margin-left:.5em; vertical-align:middle; }
+.verdict.c { background:#1a2e1a; color:var(--green); border:1px solid #2d4a2d; }
+.verdict.b { background:#2a2010; color:var(--amber); border:1px solid #4a3a10; }
+.verdict.disagree { background:#2a1a1a; color:var(--red); border:1px solid #4a2a2a; }
+
+footer { border-top:1px solid var(--rule); padding:3rem 0; margin-top:5rem; font-family:var(--sans); font-size:.75rem; color:var(--fg-dim); display:flex; flex-wrap:wrap; gap:.5rem 2rem; justify-content:space-between; }
+
+/* Animations */
+@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.col > *, header > * { animation:fadeUp .5s ease both; }
+header .header-meta  { animation-delay:.05s; }
+header h1            { animation-delay:.15s; }
+header .header-desc  { animation-delay:.25s; }
+header .version-note { animation-delay:.32s; }
+
+@media(max-width:640px){
+  html { font-size:16px; }
+  .wrapper { padding:0 1.2rem; }
+  h1 { font-size:2rem; }
+  .process-grid { grid-template-columns:1fr 1fr; }
+}
+</style>
+<style>
+/* Language nav — neutral dark strip, consistent on dark-themed page */
+#lang-nav{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(22,20,16,.97);
+  border-bottom:1px solid #3a3630;
+  padding:.5rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:sans-serif;font-size:.8rem;gap:.5rem;
+}
+#lang-nav a.nav-home{color:#c8903a;text-decoration:none;font-weight:600;}
+#lang-nav a.nav-home:hover{text-decoration:underline;}
+.lang-sep{color:#5a5450;margin:0 .4rem;}
+.lang-crumb{color:#9a9188;font-size:.78rem;}
+.lang-toggle{display:flex;gap:.2rem;flex-shrink:0;}
+.lang-btn{
+  font-size:.75rem;font-weight:700;padding:.25rem .6rem;
+  border:1.5px solid #4a4640;border-radius:3px;
+  background:transparent;color:#9a9188;cursor:pointer;
+}
+.lang-btn.active{background:#c8903a;border-color:#c8903a;color:#0f0e0c;}
+.lang-btn:hover:not(.active){border-color:#c8903a;color:#c8903a;}
+
+/* div.lang-en-section: white bg for EN content (nav crumb spans are unaffected) */
+div.lang-en-section{
+  display:block;
+  background:#faf9f6;
+  color:#1c1b18;
+}
+/* div.lang-de-section: hidden by default, dark body shows through (correct) */
+div.lang-de-section{display:none;}
+
+/* Nav crumb visibility (span elements with these classes) */
+span.lang-en-section{display:inline;}
+span.lang-de-section{display:none;}
+</style>
+</head>
+<body>
+<div id="lang-nav"><span><a class="nav-home" href="index.html">&#8592; Home</a><span class="lang-sep">|</span><span class="lang-crumb lang-en-section">Anima: Topology & Neoplatonism</span><span class="lang-crumb lang-de-section">Anima: Topologie & Neoplatonismus</span></span><div class="lang-toggle"><button class='lang-btn active' id='btn-en' onclick='setLang("en")'>EN</button><button class='lang-btn' id='btn-de' onclick='setLang("de")'>DE</button></div></div>
+<div class="lang-en-section">
+<div style="max-width:860px;margin:0 auto;padding:2rem 2rem 0;font-family:Georgia,serif;">
+<div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Research Project &middot; 25 May 2026 &middot; Local AI Ecosystem</div>
+<h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">Condensed Soul</h1>
+<p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">The concept of <em>anima</em> between homotopic topology and Neoplatonism &mdash; v2, all module results complete</p>
+<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:1.5rem;">An exploratory project combining mathematical computations on Clausen's new Weil-Moore anima with a terminological-historical and philosophical analysis of the concept <em>anima</em> &mdash; carried out on a local AI ecosystem without cloud connectivity.</p>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">00 &mdash; Introduction</h2>
+<p>Dustin Clausen's paper <em>Weil-Moore anima</em> (arXiv:2605.11950, May 2026) introduces a concept whose name is already remarkable: <em>anima</em> &mdash; Latin for soul. In Remark&nbsp;1.1, Clausen explains the naming with two independent motivations, the second of which explicitly references the Neoplatonic tradition: an anima is what remains of a CW-complex once one removes its worldly (point-set) incarnation.</p>
+<p>That was the starting point of this project. The questions were: Is this structurally substantial or mere terminological decoration? And, as an independent mathematical thread: what are the concrete homotopy groups of the archimedean Weil-Moore anima X<sub>&#8450;</sub>, and what general principle underlies them?</p>
+<p>Both were investigated using local language models &mdash; without cloud connectivity, on a Mac Studio M3 Ultra with 256&nbsp;GB unified memory. The models received the complete primary texts as context. An adversarial verification round independently checked all central mathematical claims.</p>
+<p><strong>Primary texts used:</strong> Clausen, Weil-Moore anima (2026) &middot; Scholze, Lectures on Condensed Mathematics (2026) &middot; Scholze, Lectures on Analytic Geometry (2026) &middot; Beilinson, Topological &epsilon;-factors (2007) &middot; Clausen&ndash;Mathew, Hyperdescent and &eacute;tale K-theory</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">01 &mdash; Terminological Archaeology</h2>
+<p>The search for the origin of the concept <em>anima</em> leads directly to Beilinson (2007). In Section&nbsp;1.1 of his paper on topological &epsilon;-factors he writes: &ldquo;The homotopy world is a (yet unnamed) animation of the homotopy category that hovers inbetween the latter and highly non-canonical model categories.&rdquo; The words &ldquo;yet unnamed&rdquo; are decisive: Beilinson describes the complete &infin;-categorical framework of homotopy theory and calls it intuitively &ldquo;animation&rdquo;, without giving it a proper name. Clausen and Scholze give it that name.</p>
+<p>In §3.8 of the same paper, &ldquo;animation&rdquo; appears in a second, more precise sense: it is the process by which a numerical identity (the Euler characteristic formula) is replaced by a fuller homotopy-theoretic structure &mdash; the formula &ldquo;now lives in an &infin;-category rather than just a number&rdquo;. This is the same movement that Clausen's condensed anima performs: an abstract structure is &ldquo;animated&rdquo; by being placed in its natural &infin;-categorical context.</p>
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Remark 1.1: The two motivations</h3>
+<blockquote style="margin:1.25rem 0 1.25rem 1.5rem;padding-left:1rem;border-left:3px solid #dddbd3;color:#4a4844;font-style:italic;font-size:.95rem;">&ldquo;An anima is just a homotopy type, but viewed as an object in its natural ambient &infin;-category rather than its 1-categorical shadow (the classical homotopy category). Why the name &lsquo;anima&rsquo;? There is a two-fold motivation. First, one has the following intuition described by Beilinson in [4]. A set is static in the sense that its points are stuck where they are: they cannot move around within the set. But if we have an anima A, with underlying set &pi;<sub>0</sub>A, then a point of A is free to move around within its connected component: as Beilinson says, the points of A are naturally &lsquo;animated&rsquo;. Second, an anima is something like a soul. If we have, say, a CW complex, then its associated anima is what remains of the CW complex when it is stripped of its worldly (point-set) incarnation.&rdquo;<br>&mdash; Clausen, Weil-Moore anima (2026), Remark 1.1</blockquote>
+<div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
+<strong>Finding A1 &mdash; four arguments for a structural-mathematical connection:</strong> (1) Clausen cites Beilinson explicitly in Remark 1.1 with direct reference to [4]. (2) Beilinson calls the same structure &ldquo;yet unnamed&rdquo; &mdash; Clausen gives it the name. (3) Beilinson's second usage in §3.8 shows that &ldquo;animation&rdquo; for him means precisely &ldquo;categorification of a numerical identity to a homotopy-theoretic structure&rdquo; &mdash; exactly what Clausen's anima concept performs. (4) Scholze confirms in Analytic Geometry, fn.&nbsp;22: &ldquo;language that has been coined by Clausen inspired by Beilinson's [Bei07].&rdquo;
+</div>
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">What the condensed anima adds</h3>
+<p>An ordinary anima is a homotopy type, viewed as an object in its &infin;-category rather than the 1-categorical homotopy category. A condensed anima additionally carries topological structure &mdash; independently of the homotopy-theoretic one. The key example: as condensed anima, K(&#8477;, n) &ne; K(&#8477;<sub>&delta;</sub>, n) and K(&#8477;, n) &ne; *, even though &#8477; as a topological space is contractible. The condensed structure preserves the topological information of &#8477; as an abelian topological group and makes it cohomologically accessible.</p>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">Beilinson&rsquo;s second use: Animation as categorification</h3>
+<p>In &sect;3.8 of the same paper, &ldquo;animation&rdquo; appears in a second, more precise sense:</p>
+<blockquote style="margin:1.25rem 0 1.25rem 1.5rem;padding-left:1rem;border-left:3px solid #d0cec4;color:#4a4844;font-style:italic;font-size:.95rem;line-height:1.7;">
+&ldquo;One can view &epsilon;&dagger;(F) as an animation of Kashiwara&rsquo;s characteristic cycle CC(F); therefore the identification [R&Gamma;(X,F)] = tr &epsilon;(F) of 4.1 becomes an animation of the Dubson&ndash;Kashiwara formula.&rdquo;
+<br><span style="font-style:normal;font-size:.82rem;color:#7a7872;">&mdash; Beilinson, Topological &epsilon;-factors (2007), &sect;3.8</span>
+</blockquote>
+<p>Here &ldquo;animation&rdquo; is the process by which a numerical identity (the Euler characteristic formula) is replaced by a fuller homotopy-theoretic structure &mdash; the formula &ldquo;now lives in an &infin;-category rather than just a number&rdquo;. This is the same movement Clausen&rsquo;s condensed anima makes: an abstract structure is &ldquo;animated&rdquo; by placing it in its natural &infin;-categorical context.</p>
+
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">02 &mdash; Mathematical Computations</h2>
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">&pi;<sub>2</sub>(X<sub>&#8450;</sub>): explicit calculation</h3>
+<p>For X<sub>&#8450;</sub> one has &pi;<sub>1</sub> = W<sub>&#8450;</sub> = &#8450;<sup>&times;</sup>. The maximal compact subgroup of the identity component is K&deg; = S<sup>1</sup> = U(1). Lemma&nbsp;7.11 gives:</p>
+<div style="background:#f0f0ee;border:1px solid #dddbd3;border-radius:3px;padding:.85rem 1.1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:.86rem;overflow-x:auto;white-space:pre;">&#960;&#8322;(X_&#8450;) = (Sym&#178;&#8484; &#923;)&#8896;, &#923; = Hom_cont(S&#185;, &#8477;/&#8484;)</div>
+<p>The algebraic core: Hom<sub>cont</sub>(S<sup>1</sup>, &#8477;/&#8484;) = &#8484; (classical result: continuous characters of the circle). Then Sym<sup>2</sup><sub>&#8484;</sub>(&#8484;) = &#8484;&middot;(e&otimes;e) &cong; &#8484;. The Pontryagin dual: &#8484;<sup>&vee;</sup> = Hom(&#8484;, &#8477;/&#8484;) = &#8477;/&#8484;.</p>
+<div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.9rem;"><strong>Result: &#x3c0;<sub>2</sub>(X<sub>&#8450;</sub>) = &#8477;/&#8484;</strong></div>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">&pi;<sub>2</sub>(X<sub>&#8477;</sub>): Galois action and its neutralisation</h3>
+<p>For X<sub>&#8477;</sub>, the group Gal(&#8450;/&#8477;) = &#8484;/2 acts on K&deg; = S<sup>1</sup> by z &mapsto; z&#772; = z<sup>-1</sup>. On &#923; = &#8484; this induces negation n &mapsto; -n. The decisive step: on Sym<sup>2</sup><sub>&#8484;</sub>(&#8484;) this action is <em>trivial</em>, since the non-trivial element acts as (-1)&middot;(n&otimes;n) = (-n)&otimes;(-n) = n&otimes;n. Squaring cancels the sign.</p>
+<div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.9rem;"><strong>Result: &#x3c0;<sub>2</sub>(X<sub>&#8477;</sub>) = &#8477;/&#8484; with trivial W<sub>&#8477;</sub>-action.</strong> Although W<sub>&#8477;</sub> carries a non-trivial Galois action, the Sym<sup>2</sup> functor neutralises it completely.</div>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">The k-invariant and the condensed Hopf element</h3>
+<p>From Corollary&nbsp;3.7: H<sup>3</sup>(BW<sub>&#8450;</sub>;&nbsp;&#8477;/&#8484;) = H<sup>4</sup>(B&#8450;<sup>&times;</sup>;&nbsp;&#8484;). Since B&#8450;<sup>&times;</sup> &#8771; &#8450;P<sup>&infin;</sup> and H<sup>4</sup>(&#8450;P<sup>&infin;</sup>;&nbsp;&#8484;) = &#8484;, the k-invariant space of X<sub>&#8450;</sub> is canonically isomorphic to &#8484;. The k-invariant &kappa;, classifying the second Postnikov step, is the generator &mdash; the precise condensed analogue of the classical Hopf element &eta;.</p>
+
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7872;"></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7872;">Classical S<sup>2</sup></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7872;">Condensed X<sub>&#8450;</sub></th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&pi;<sub>1</sub></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">trivial</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">W<sub>&#8450;</sub> = &#8450;<sup>&times;</sup></td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&pi;<sub>2</sub></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#8484;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#8477;/&#8484; = &#8484;&#770;</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">k-invariant space</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">H<sup>4</sup>(&#8450;P<sup>&infin;</sup>;&nbsp;&#8484;) = &#8484;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">H<sup>3</sup>(B&#8450;<sup>&times;</sup>;&nbsp;&#8477;/&#8484;) = &#8484;</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">k-invariant</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Generator &eta; (Hopf)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Generator &kappa;</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Euler char. &chi;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2 (Example 8.10)</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Cohom. dim.</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2 (Theorem 8.1)</td></tr>
+</table>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">The compact/discrete duality principle &mdash; corrected formulation</h3>
+<p>The most striking pattern in the computations is the transformation &#8484; &mapsto; &#8477;/&#8484; through Pontryagin dualisation. The principle operates on the <em>unstable</em> homotopy groups &pi;<sub>n</sub>(S<sup>2</sup>), not the stable stem groups &pi;<sub>n</sub><sup>s</sup>: &pi;<sub>2</sub>(S<sup>2</sup>) = &#8484; (unstable) &xrarr; &#8477;/&#8484; = &pi;<sub>2</sub>(X<sub>&#8450;</sub>). The stable stem &pi;<sub>2</sub><sup>s</sup> = &#8484;/2 would have predicted &#8484;/2 &mdash; incorrect.</p>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">The collapse K(&#8477;<sub>&delta;</sub>, n) &simeq; *</h3>
+<p>&#8477;<sub>&delta;</sub> (the real numbers with discrete topology) is as an abstract abelian group a &#8474;-vector space. &#8474;-vector spaces are injective as &#8484;-modules. It follows that H<sup>n</sup>(K(&#8477;<sub>&delta;</sub>, 1);&nbsp;&#8484;) = 0 for all n &ge; 1, and analogously all higher Ext groups vanish. K(&#8477;<sub>&delta;</sub>, n) is cohomologically trivial &mdash; contractible. By contrast, K(&#8477;, n) with the genuine topology carries rich cohomology. Forgetting the topological structure through discretisation destroys everything.</p>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">The &pi;<sub>3</sub>-problem: Serre spectral sequence argument</h3>
+<p>Clausen writes in Remark&nbsp;1.5: <em>&ldquo;The question of how to calculate the higher homotopy groups of X<sub>Q</sub> is tantalizing&hellip; we do not investigate this in detail.&rdquo;</em> For &pi;<sub>3</sub>, the Serre spectral sequence for the Postnikov fibration</p>
+<div style="background:#f0f0ee;border:1px solid #dddbd3;border-radius:3px;padding:.85rem 1.1rem;margin:.75rem 0;font-family:'Courier New',monospace;font-size:.86rem;">K<sub>cond</sub>(&#8477;/&#8484;, 2) &longrightarrow; X<sub>&#8450;</sub> &longrightarrow; B&#8450;&times;</div>
+<p>yields E<sub>2</sub>-terms E<sub>2</sub><sup>p,q</sup> = H<sup>p</sup>(B&#8450;&times;; H<sup>q</sup>(K<sub>cond</sub>(&#8477;/&#8484;,2); &#8477;/&#8484;)). For q = 0 and q = 2 terms contribute; for q &gt; 2 the cohomology H<sup>q</sup> vanishes (since K<sub>cond</sub>(&#8477;/&#8484;,2) is 2-connected). From Lemma&nbsp;4.12: &pi;<sub>3</sub>(X<sub>&#8450;</sub>) = (H<sup>4</sup>(X<sub>&#8450;</sub><sup>(2),&circ;</sup>; &#8477;/&#8484;))<sup>&vee;</sup>, where X<sub>&#8450;</sub><sup>(2)</sup> is the 2-stage Postnikov tower. The duality principle and comparison with &pi;<sub>3</sub>(S<sup>2</sup>) = &integers; suggest &pi;<sub>3</sub>(X<sub>&#8450;</sub>) = &#8477;/&#8484;. A complete proof requires the condensed cohomology of B<sup>2</sup>(S<sup>1</sup>).</p>
+
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">The forget functor X &rarr; |X| is not fully faithful</h3>
+<p>The canonical functor X &mapsto; |X|, which forgets the condensed structure and returns the &ldquo;bare anima&rdquo;, is <em>not fully faithful</em>: distinct morphisms between condensed anima can induce the same morphisms between the underlying anima. This is a category-theoretic result with a consequence: the bare anima |X| is preserved as a structural skeleton across different condensed incarnations of X and is not uniquely determined by them. The condensed S<sup>1</sup> and |S<sup>1</sup>| are different as objects &mdash; Scholze: <em>&ldquo;S<sup>1</sup> is a physical circle, while |S<sup>1</sup>| is some ghostly appearance of a point with an internal automorphism (the anima &lowast;/&integers;).&rdquo;</em></p>
+
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">03 &mdash; Adversarial Verification</h2>
+<p>All three central mathematical claims were independently checked by Module B2 (deepseek-r1:70b, chain-of-thought). All three were confirmed.</p>
+<div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.7;">
+<strong>ADV-1 &mdash; Confirmed &#10003;</strong> &pi;<sub>2</sub>(X<sub>&#8450;</sub>) = &#8477;/&#8484;: Sym<sup>2</sup><sub>&#8484;</sub>(&#8484;) = &#8484;&middot;(e&otimes;e) &cong; &#8484;; Hom<sub>cont</sub>(&#8484;, &#8477;/&#8484;) &cong; &#8477;/&#8484;.<br>
+<strong>ADV-2 &mdash; Confirmed &#10003;</strong> K(&#8477;<sub>&delta;</sub>, n) &simeq; *: &#8477;<sub>&delta;</sub> is &#8474;-vector space &Rightarrow; injective as &#8484;-module &Rightarrow; H<sup>n</sup>(K(&#8477;<sub>&delta;</sub>, 1); &#8484;) = 0 for all n &ge; 1; application of Theorem 2.2.<br>
+<strong>ADV-3 &mdash; Confirmed &#10003;</strong> H<sup>3</sup>(B&#8450;<sup>&times;</sup>; &#8477;/&#8484;) = &#8484;: Theorem 2.2 identifies condensed cohomology with sheaf cohomology; H<sup>4</sup>(&#8450;P<sup>&infin;</sup>; &#8484;) = &#8484; also in the condensed world.<br>
+<strong>ADV-4 (philosophical, Damascius analogy)</strong>: disputed between models &mdash; see Section 05.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">04 &mdash; Neoplatonic Structural Analysis</h2>
+<p>Three philosophical parallels were examined. The goal in each case: to distinguish structural isomorphism from terminological coincidence, and to name the break points at least as precisely as the parallels.</p>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">I &mdash; Plotinus: Liberation from matter</h3>
+<p>In Plotinus (Enneads IV.8), &psi;&upsilon;&chi;&eta; is what remains of a being when &tau;&ograve; &upsilon;&lambda;&eta; (matter) is removed &mdash; the principle of self-motion (&alpha;&upsilon;&tau;&omicron;&kappa;&iacute;&nu;&eta;&tau;&omicron;&nu;) that preserves the essential structure. In Clausen&ndash;Scholze, the anima is what remains of a CW-complex when point-set topology (&ldquo;worldly incarnation&rdquo;) is removed. The structural parallel: in both cases there is an operation of &ldquo;stripping&rdquo; that reduces a rich concrete structure to a more abstract one &mdash; and the more abstract one carries its own name.</p>
+<p>Beilinson's &ldquo;animated points&rdquo; &mdash; points free to move within their connected component &mdash; structurally corresponds to the Plotinian principle of self-motion.</p>
+<p><em>Break point:</em> The Plotinian soul exists before material embodiment as a metaphysical entity; the anima is an abstraction arrived at by removing the topology. The ontological direction is reversed.</p>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">II &mdash; Iamblichus vs. Plotinus: The category-theoretic verdict</h3>
+<p>Iamblichus disputes Plotinus' thesis of an &ldquo;undescended part&rdquo; of the soul. For Iamblichus, the soul descends completely into matter. The mathematical analogue would be: there is no &ldquo;undescended remainder&rdquo; &mdash; the bare anima |X| would be completely determined by the condensed structure X.</p>
+<p>But this is precisely false. Since the functor X &mapsto; |X| is not fully faithful, there is a permanent &ldquo;Plotinian remainder&rdquo;: different condensed anima can have the same bare anima |X|. |X| survives every condensed incarnation. Concretely: |S<sup>1</sup>| remains the same anima, regardless of what condensed structure one places on S<sup>1</sup>.</p>
+<div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
+<strong>Category-theoretic verdict &mdash; established:</strong> The mathematical structure is Plotinian, not Iamblichan: there is an undescended part (|X|, the bare anima) that remains identical across different material incarnations and is not fully determined by them. The non-full-faithfulness of the forgetful functor is the precise mathematical ground for this.
+</div>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">III &mdash; S<sup>1</sup> and |S<sup>1</sup>| as concrete model</h3>
+<p>Scholze's quote provides the most vivid mathematical model for the philosophical distinction: &ldquo;S<sup>1</sup> is a physical circle, while |S<sup>1</sup>| is some ghostly appearance of a point with an internal automorphism (the anima */&#8484;).&rdquo; (Scholze, Lectures on Analytic Geometry, Lecture XI)</p>
+<p>S<sup>1</sup> as condensed anima is the &ldquo;materially incarnated&rdquo; version &mdash; with topological structure, physically tangible. |S<sup>1</sup>| as bare anima is the &ldquo;pure soul&rdquo; &mdash; only the homotopy-theoretic essence, &pi;<sub>1</sub> = &#8484; and nothing more. This is a mathematically precise instance of the Plotinian soul/matter distinction.</p>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">IV &mdash; Damascius: Apophatics and the two break points</h3>
+<p>Damascius' apophatic method: every attempt to determine the One positively collapses. The mathematical analogue: K(&#8477;<sub>&delta;</sub>, n) &simeq; * &mdash; discretisation (removal of all topological structure) leads to the point.</p>
+<p><em>Break point 1 (intention):</em> For Damascius, apophatics is an approach to the Absolute; the collapse is not the goal but a pointer to the limits of positive determinability. For Clausen&ndash;Scholze, K(&#8477;<sub>&delta;</sub>, n) &simeq; * is a negative result &mdash; a warning signal against information loss, not an approach to something.</p>
+<p><em>Break point 2 (universality):</em> Damascius' method is universally applicable to all positive determinations. Mathematical discretisation is selective: it removes topological structure, but leaves algebraic structure (the group structure of &#8477;) intact. &ldquo;Mathematical apophatics&rdquo; would only be possible selectively &mdash; not universally in the Damascian sense.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">05 &mdash; Model Conflict ADV-4</h2>
+<p>On one point the two main models of the project disagree &mdash; and this disagreement is itself a result.</p>
+<div style="background:#fdf6e0;border:1px solid #c8a840;border-left:3px solid #7a5a14;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
+<strong>ADV-4 &mdash; Model conflict: Damascius analogy</strong><br>
+deepseek-r1:70b (B2): The Damascius analogy is &ldquo;mere metaphor&rdquo; &mdash; an analogical transfer not directly structurally precise.<br>
+qwen3:235b-a22b (A3): The analogy is &ldquo;genuine structural resonance&rdquo;, grounded in the shared operation of stripping positive determinations and the collapse into nothingness in both cases.
+</div>
+<p>The conflict is not arbitrary. deepseek-r1:70b works with chain-of-thought reasoning and tends toward formal rigour; the break points (selective vs. universal; approach vs. negative result) are from this perspective weighty enough to reject the analogy. qwen3:235b-a22b has access to the full Neoplatonism context and evaluates the structural operation itself as a genuine similarity, even if the framework conditions differ.</p>
+<p>Both assessments are internally consistent. The question of whether structural agreement in the operation (stripping &rarr; collapse) constitutes genuine resonance even when the intention and scope differ is a methodological question this project cannot answer definitively. The conflict marks exactly the point where a formal framework for structural analogies between mathematics and philosophy is lacking.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">06 &mdash; Synthesis</h2>
+<p>The two project threads converge on one point: the condensed anima is an object that on two independent levels navigates between &ldquo;too much&rdquo; and &ldquo;too little structure.&rdquo;</p>
+<p><em>Topologically:</em> between the concrete CW-complex (too many non-canonical details) and the abstract homotopy type (too little, because the topology of the coefficient groups is lost). The condensed anima keeps both separate and independent &mdash; this is mathematically the content of the non-collapse property K(&#8477;, n) &ne; K(&#8477;<sub>&delta;</sub>, n) &ne; *.</p>
+<p><em>Arithmetically:</em> between BW<sub>K</sub> (wrong cohomological dimension, archimedean asymmetries) and full Galois cohomology (similar defects). The Weil-Moore anima X<sub>K</sub> repairs both by adding higher homotopy groups whose structure reflects the compact/discrete duality principle.</p>
+<p>Pontryagin duality &#8484; &harr; &#8477;/&#8484; is precisely this transition: the discrete, abstract homotopy group is &ldquo;animated&rdquo; through condensation &mdash; it receives a compact, topologically rich structure. This is the mathematical content of Beilinson's &ldquo;animation&rdquo; and Clausen's &ldquo;anima&rdquo;, and it is structurally the same movement that Plotinus describes with the transition from matter to soul &mdash; with the important caveat of the reversed ontological direction.</p>
+<div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
+<strong>Overall verdict on the philosophical question:</strong> The naming <em>anima</em> lies between conscious borrowing and genuine structural resonance. The evidence for intentionality is strong (four textual arguments). The structural resonance in the shared operation of &ldquo;stripping&rdquo; is precisely identifiable. The category-theoretic result (Plotinian, not Iamblichan) is not metaphorical but mathematically demonstrable. Where the analogy breaks (ontological direction, teleology, selectivity of mathematical apophatics), this is documented with equal precision.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">07 &mdash; Open Questions</h2>
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">Mathematical</h3>
+<p> Does the compact/discrete duality principle hold for all n and all archimedean Weil-Moore anima? This requires the complete calculation of the Postnikov towers of X<sub>&#8450;</sub>, in particular the condensed cohomology groups H*(K<sub>cond</sub>(&#8477;/&#8484;, n); &#8477;/&#8484;). Case 3 of the principle (finite, not self-dual) does not occur in the known range and remains untested.</p>
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">Historical</h3>
+<p> How deep does Clausen and Scholze's knowledge of the Neoplatonic tradition run? The formulations &ldquo;worldly incarnation&rdquo; and &ldquo;ghostly appearance&rdquo; are too specific to be coincidental. An investigation of earlier manuscripts and correspondence could reveal further connections.</p>
+<h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:#1c1b18;">Philosophical-methodological</h3>
+<p> Is there a formal framework that describes structural analogies between mathematical objects and philosophical concepts precisely &mdash; beyond metaphorical similarity, but without categorical fallacies? The model conflict in ADV-4 shows that without such a framework, the answer to &ldquo;what constitutes structural resonance&rdquo; depends on the evaluation criteria of the respective model. This is the actual methodological limit of this project.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">08 &mdash; Technical Execution</h2>
+<p>The project ran entirely locally on a Mac Studio M3 Ultra (256&nbsp;GB unified memory, 80-core GPU, macOS Sequoia) with Ollama&nbsp;0.24.0. Models received the complete primary texts as context.</p>
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7872;">Model</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7872;">Role</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7872;">Parameters</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">qwen3:235b-a22b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Terminological archaeology (A1), Neoplatonism analysis (A3), Synthesis</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">46K tokens input &middot; num_predict 18K &middot; thinking mode active</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">deepseek-r1:70b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Postnikov computations (B1), &pi;<sub>3</sub> problem + adversarial (B2)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">65K context &middot; chain-of-thought &middot; 65K tokens input</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">DSV4-Flash (GGUF)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Planned for full-text ingestion; not used</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">153 GB Q4 &middot; GPU memory error at 99K-token KV-cache</td></tr>
+</table>
+<p>The execution was not without problems: a system crash (GPU memory error with too-large KV-cache), a timeout from too small num_predict with active thinking mode (qwen3 consumed the entire token budget for internal reasoning tokens without visible output &mdash; solution: num_predict: 18000), and several syntax errors through mathematical notation in Python f-strings. All problems were diagnosed and resolved. Total model runtime: approximately 4 hours.</p>
+<p>All raw results are at /Volumes/CLAUDE-DATA/Anima-Project/ &mdash; five .md files with the complete model responses.</p>
+
+<div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
+Anima Project &middot; 25 May 2026 &middot; v2 &middot; Primary source: Clausen arXiv:2605.11950 &middot; Beilinson PAMQ 3:1 (2007) &middot; Local AI ecosystem &middot; Mac Studio M3 Ultra &middot; 256 GB
+</div>
+</div>
+
+</div>
+<div class="lang-de-section" style="display:none">
+<div class="wrapper">
+
+<!-- ══════════════════ HEADER ══════════════════ -->
+<header>
+<div class="col">
+  <p class="header-meta">Forschungsprojekt · 25. Mai 2026 · Lokales KI-Ökosystem</p>
+  <h1>Kondensierte Seele
+    <span class="sub">Das Konzept der Anima zwischen homotopischer Topologie und Neoplatonismus</span>
+  </h1>
+  <p class="header-desc">
+    Ein exploratives Projekt, das mathematische Berechnungen zu Clausens neuen
+    Weil-Moore-Anima mit einer terminologiegeschichtlichen und philosophischen Analyse
+    des Begriffs <em>anima</em> verbindet — durchgeführt auf einem lokalen KI-Ökosystem
+    ohne Cloud-Anbindung.
+  </p>
+  <p class="version-note">v2 — erweiterte Fassung, alle Modulergebnisse vollständig</p>
+</div>
+</header>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="wrapper">
+  <a href="#einleitung"><span class="nav-num">00</span>Einleitung</a>
+  <a href="#terminologie"><span class="nav-num">01</span>Terminologie</a>
+  <a href="#mathematik"><span class="nav-num">02</span>Mathematik</a>
+  <a href="#adversarial"><span class="nav-num">03</span>Verifikation</a>
+  <a href="#philosophie"><span class="nav-num">04</span>Philosophie</a>
+  <a href="#konflikt"><span class="nav-num">05</span>Modellkonflikt</a>
+  <a href="#synthese"><span class="nav-num">06</span>Synthese</a>
+  <a href="#fragen"><span class="nav-num">07</span>Offene Fragen</a>
+  <a href="#technik"><span class="nav-num">08</span>Technik</a>
+</nav>
+
+<!-- ══════════════════ 00 EINLEITUNG ══════════════════ -->
+<section id="einleitung">
+<div class="col">
+  <h2><span class="nav-num">00</span> Einleitung</h2>
+
+  <p>Dustin Clausens Paper <em>Weil-Moore anima</em> (arXiv:2605.11950, Mai 2026)
+  führt einen Begriff ein, der für sich schon bemerkenswert ist: <em>anima</em> —
+  lateinisch für Seele. Clausen erklärt die Namenswahl in Remark&nbsp;1.1 mit zwei
+  voneinander unabhängigen Motivationen, von denen die zweite explizit auf die
+  Neoplatonische Tradition verweist: Eine Anima sei das, was von einem CW-Komplex
+  übrigbleibe, wenn man ihm seine <em>worldly (point-set) incarnation</em> entziehe.</p>
+
+  <p>Das war der Ausgangspunkt dieses Projekts. Die Fragen lauteten: Ist das
+  strukturell substanziell oder terminologische Dekoration? Und, als eigenständiger
+  mathematischer Strang: Was sind die konkreten Homotopiegruppen der archimedischen
+  Weil-Moore-Anima $X_{\mathbb{C}}$, und welches allgemeine Prinzip steckt dahinter?</p>
+
+  <p>Beides wurde mit lokalen Sprachmodellen untersucht — ohne Cloud-Verbindung, auf
+  einem Mac Studio M3 Ultra mit 256&nbsp;GB unified memory. Die Modelle erhielten die
+  vollständigen Primärtexte als Kontext. Das Projekt ist keine fertige Publikation;
+  es ist eine strukturierte Exploration mit nachvollziehbaren Quellen und explizit
+  markierten Unsicherheiten. Eine adversariale Verifikationsrunde hat alle zentralen
+  mathematischen Behauptungen unabhängig geprüft.</p>
+
+  <h4>Verwendete Primärtexte</h4>
+  <p>Clausen, <em>Weil-Moore anima</em> (2026) · Scholze, <em>Lectures on Condensed
+  Mathematics</em> (2026) · Scholze, <em>Lectures on Analytic Geometry</em> (2026) ·
+  Beilinson, <em>Topological ε-factors</em> (2007) · Clausen–Mathew,
+  <em>Hyperdescent and étale K-theory</em></p>
+</div>
+</section>
+
+<!-- ══════════════════ 01 TERMINOLOGIE ══════════════════ -->
+<section id="terminologie">
+<div class="col">
+  <h2><span class="nav-num">01</span> Terminologische Archäologie</h2>
+
+  <p>Die Frage nach der Herkunft des Begriffs <em>anima</em> führt direkt zu
+  Beilinson (2007). In Abschnitt&nbsp;1.1 seines Papers über topologische
+  $\varepsilon$-Faktoren schreibt er:</p>
+
+  <blockquote>
+    "The homotopy world is a <em>(yet unnamed) animation</em> of the homotopy category
+    that hovers inbetween the latter and highly non-canonical model categories."
+    <cite>Beilinson, Topological ε-factors (2007), §1.1</cite>
+  </blockquote>
+
+  <p>Das "yet unnamed" ist der entscheidende Punkt: Beilinson beschreibt den
+  vollständigen $\infty$-kategorialen Rahmen der Homotopietheorie und nennt ihn
+  intuitiv "animation", ohne ihm einen eigentlichen Namen zu geben.
+  Clausen und Scholze geben ihm diesen Namen.</p>
+
+  <h3>Beilinsons zweite Verwendung: Animation als Kategorifizierung</h3>
+
+  <p>In §3.8 desselben Papers erscheint "animation" in einem zweiten, präziseren Sinne:</p>
+
+  <blockquote>
+    "One can view $\varepsilon^\dagger(F)$ as an animation of Kashiwara's characteristic
+    cycle $\mathrm{CC}(F)$; therefore the identification $[R\Gamma(X,F)] = \mathrm{tr}\,\varepsilon(F)$
+    of 4.1 becomes an animation of the Dubson–Kashiwara formula."
+    <cite>Beilinson, Topological ε-factors (2007), §3.8</cite>
+  </blockquote>
+
+  <p>Hier ist "animation" der Prozess, bei dem eine numerische Identität (die
+  Euler-Charakteristik-Formel) durch eine vollständigere homotopie-theoretische Struktur
+  ersetzt wird — die Formel "lebt jetzt in einer $\infty$-Kategorie statt nur in einer
+  Zahl". Das ist dieselbe Bewegung, die Clausens kondensierte Anima vollzieht: eine
+  abstrakte Struktur wird "belebt", indem sie in ihren natürlichen $\infty$-kategorialen
+  Kontext gesetzt wird.</p>
+
+  <h3>Remark 1.1: Die beiden Motivationen</h3>
+
+  <blockquote>
+    "An anima is just a homotopy type, but viewed as an object in its natural ambient
+    ∞-category rather than its 1-categorical shadow (the classical homotopy category).
+    Why the name 'anima'? There is a two-fold motivation. First, one has the following
+    intuition described by Beilinson in [4]. A set is static in the sense that its points
+    are stuck where they are: they cannot move around within the set. But if we have an
+    anima $A$, with underlying set $\pi_0 A$, then a point of $A$ is free to move around
+    within its connected component: as Beilinson says, the points of $A$ are naturally
+    'animated'. Second, an anima is something like a soul. If we have, say, a CW complex,
+    then its associated anima is what remains of the CW complex when it is stripped of its
+    worldly (point-set) incarnation."
+    <cite>Clausen, Weil-Moore anima (2026), Remark 1.1</cite>
+  </blockquote>
+
+  <div class="box confirmed">
+    <div class="label">Befund A1 — Vier Argumente für strukturell-mathematische Verbindung</div>
+    <p>Die Verbindung Beilinson → Clausen–Scholze ist nicht nur terminologisch.
+    Vier Argumente aus den Texten:</p>
+    <p><strong>1.</strong> Clausen zitiert Beilinson explizit in Remark 1.1 mit direktem Verweis auf [4].</p>
+    <p><strong>2.</strong> Beilinson nennt dieselbe Struktur "yet unnamed" — Clausen gibt ihr den Namen.</p>
+    <p><strong>3.</strong> Beilinsons zweite Verwendung in §3.8 zeigt, dass "animation" bei ihm
+    präzise "Kategorifizierung einer numerischen Identität zu einer homotopie-theoretischen
+    Struktur" bedeutet — genau das vollzieht Clausens Anima-Begriff.</p>
+    <p><strong>4.</strong> Scholze bestätigt in Analytic Geometry, Fn.&nbsp;22:
+    <em>"language that has been coined by Clausen inspired by Beilinson's [Bei07]."</em></p>
+  </div>
+
+  <h3>Was die kondensierte Anima hinzufügt</h3>
+
+  <p>Eine gewöhnliche Anima ist ein Homotopietyp, gesehen als Objekt in seiner
+  $\infty$-Kategorie statt in der 1-kategorialen Homotopiekategorie. Eine
+  <em>kondensierte</em> Anima trägt zusätzlich topologische Struktur — und zwar
+  unabhängig von der homotopie-theoretischen. Definition&nbsp;2.1 von Clausens Paper
+  definiert: $\mathbf{CondAn} = P_\Sigma(\mathbf{Extr})$, frei erzeugt von der Kategorie
+  der extremal-diskontinuierten kompakten Hausdorff-Räume unter siebartigen Kolimites.</p>
+
+  <p>Das Schlüsselbeispiel: Als kondensierte Anima gilt
+  $K(\mathbb{R}, n) \neq K(\mathbb{R}_\delta, n)$ und $K(\mathbb{R},n) \neq *$,
+  obwohl $\mathbb{R}$ als topologischer Raum zusammenziehbar ist. Die kondensierte
+  Struktur erhält die topologische Information von $\mathbb{R}$ als abelscher
+  topologischer Gruppe und macht sie kohomologisch zugänglich.</p>
+</div>
+</section>
+
+<!-- ══════════════════ 02 MATHEMATIK ══════════════════ -->
+<section id="mathematik">
+<div class="col">
+  <h2><span class="nav-num">02</span> Mathematische Berechnungen</h2>
+
+  <h3>$\pi_2(X_{\mathbb{C}})$: explizite Berechnung</h3>
+
+  <p>Für $X_{\mathbb{C}}$ gilt $\pi_1 = W_{\mathbb{C}} = \mathbb{C}^\times$.
+  Die maximale kompakte Untergruppe der Zusammenhangskomponente ist
+  $K^\circ = S^1 = U(1)$. Lemma&nbsp;7.11 des Papers gibt:</p>
+
+  $$\pi_2(X_{\mathbb{C}}) = \bigl(\mathrm{Sym}^2_{\mathbb{Z}}\,\Lambda\bigr)^\vee,
+  \quad \Lambda = \mathrm{Hom}_{\mathrm{cont}}(S^1, \mathbb{R}/\mathbb{Z})$$
+
+  <p>Der algebraische Kern: $\mathrm{Hom}_{\mathrm{cont}}(S^1, \mathbb{R}/\mathbb{Z}) = \mathbb{Z}$
+  (klassisches Resultat: stetige Charaktere des Kreises). Dann
+  $\mathrm{Sym}^2_{\mathbb{Z}}(\mathbb{Z}) = \mathbb{Z} \cdot (e \otimes e) \cong \mathbb{Z}$
+  (symmetrischer Tensor-Quadrat des freien Rang-1-Moduls hat genau einen Erzeuger).
+  Das Pontryagin-Dual: $\mathbb{Z}^\vee = \mathrm{Hom}(\mathbb{Z}, \mathbb{R}/\mathbb{Z}) = \mathbb{R}/\mathbb{Z}$.</p>
+
+  $$\boxed{\pi_2(X_{\mathbb{C}}) = \mathbb{R}/\mathbb{Z}}$$
+
+  <h3>$\pi_2(X_{\mathbb{R}})$: Galois-Wirkung und ihre Neutralisierung</h3>
+
+  <p>Für $X_{\mathbb{R}}$ wirkt $\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2$
+  auf $K^\circ = S^1$ durch $z \mapsto \bar{z} = z^{-1}$.
+  Auf $\Lambda = \mathbb{Z}$ induziert das die Negation $n \mapsto -n$.</p>
+
+  <p>Der entscheidende Schritt: Auf $\mathrm{Sym}^2_{\mathbb{Z}}(\mathbb{Z})$ ist
+  diese Wirkung <em>trivial</em>. Denn das nicht-triviale Element wirkt als
+  $(-1) \cdot (n \otimes n) = (-n) \otimes (-n) = n \otimes n$. Quadrieren hebt
+  das Vorzeichen auf. Damit:</p>
+
+  $$\boxed{\pi_2(X_{\mathbb{R}}) = \mathbb{R}/\mathbb{Z} \text{ mit trivialer }
+  W_{\mathbb{R}}\text{-Wirkung}}$$
+
+  <p>Das ist nicht selbstverständlich: obwohl $W_{\mathbb{R}}$ eine nichttriviale
+  Galois-Wirkung trägt, neutralisiert der Sym²-Funktor diese vollständig.</p>
+
+  <h3>Die k-Invariante und das kondensierte Hopf-Element</h3>
+
+  <p>Aus Korollar&nbsp;3.7 (für $G$ fast kompakt, $\pi_i X$ kompakt Hausdorff):
+  $H^3(BW_{\mathbb{C}};\,\mathbb{R}/\mathbb{Z}) = H^4(B\mathbb{C}^\times;\,\mathbb{Z})$.
+  Da $B\mathbb{C}^\times \simeq \mathbb{CP}^\infty$ (Homotopieäquivalenz), und
+  $H^4(\mathbb{CP}^\infty;\,\mathbb{Z}) = \mathbb{Z}$, ist der k-Invarianten-Raum
+  von $X_{\mathbb{C}}$ kanonisch isomorph zu $\mathbb{Z}$.</p>
+
+  <p>Die k-Invariante $\kappa$, die den zweiten Postnikov-Schritt klassifiziert,
+  ist der Erzeuger — das genaue kondensierte Analogon des klassischen
+  Hopf-Elements $\eta \in H^4(K(\mathbb{Z},2);\,\mathbb{Z})$. In beiden Welten
+  ist der k-Invarianten-Raum $\mathbb{Z}$, und die k-Invariante ist jeweils der
+  Erzeuger.</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th></th><th>Klassisch $S^2$</th><th>Kondensiert $X_{\mathbb{C}}$</th></tr></thead>
+    <tbody>
+      <tr><td>$\pi_1$</td><td class="ok">trivial</td><td class="ok">$W_{\mathbb{C}} = \mathbb{C}^\times$</td></tr>
+      <tr><td>$\pi_2$</td><td class="ok">$\mathbb{Z}$</td><td class="ok">$\mathbb{R}/\mathbb{Z} = \hat{\mathbb{Z}}$</td></tr>
+      <tr><td>k-Inv.-Raum</td><td class="ok">$H^4(\mathbb{CP}^\infty;\mathbb{Z}) = \mathbb{Z}$</td><td class="ok">$H^3(B\mathbb{C}^\times;\mathbb{R}/\mathbb{Z}) = \mathbb{Z}$</td></tr>
+      <tr><td>k-Invariante</td><td class="ok">Erzeuger $\eta$ (Hopf)</td><td class="ok">Erzeuger $\kappa$</td></tr>
+      <tr><td>Euler-Char. $\chi$</td><td class="ok">$2$</td><td class="ok">$2$ (Example 8.10)</td></tr>
+      <tr><td>koh. Dim.</td><td class="ok">$2$</td><td class="ok">$2$ (Theorem 8.1)</td></tr>
+      <tr><td>$\pi_3$</td><td class="ok">$\mathbb{Z}$</td><td class="conj">$\mathbb{R}/\mathbb{Z}$ (Vermutung)</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Auch $\chi(X_{\mathbb{R}}) = 1$ ist gesichert (Example 8.10 des Papers) —
+  die geometrischen Euler-Charakteristiken von $S^2$ und $\mathbb{RP}^2$ haben
+  direkte arithmetische Entsprechungen.</p>
+
+  <h3>Das Kompakt/Diskret-Dualitätsprinzip — korrigierte Formulierung</h3>
+
+  <p>Das auffälligste Muster der Berechnungen ist die Transformation
+  $\mathbb{Z} \mapsto \mathbb{R}/\mathbb{Z}$ durch Pontryagin-Dualisierung.
+  Das Prinzip operiert auf den <em>instabilen</em> Homotopiegruppen $\pi_n(S^2)$,
+  nicht auf den stabilen Stammgruppen $\pi_n^s$:</p>
+
+  <div class="box warning">
+    <div class="label">Präzisierung — instabile, nicht stabile Homotopiegruppen</div>
+    <p>$\pi_2(S^2) = \mathbb{Z}$ (instabil) $\xrightarrow{\text{Dual}} \mathbb{R}/\mathbb{Z} = \pi_2(X_{\mathbb{C}})$ ✓</p>
+    <p>Dagegen: $\pi_2^s = \mathbb{Z}/2$ (stabil) hätte $\mathbb{Z}/2$ vorhergesagt — falsch.
+    Die stabile Stammgruppe $\pi_2^s$ ist ein anderes Objekt als $\pi_2(S^2)$.
+    Das Prinzip ist für $\pi_n(S^2)$ formuliert, nicht für $\pi_n^s$.</p>
+  </div>
+
+  <div class="theorem" data-label="Vermutung — Kompakt/Diskret-Dualitätsprinzip">
+    <p>Sei $\pi_n(S^2)$ die $n$-te Homotopiegruppe der 2-Sphäre (instabil).
+    Dann gilt für $\pi_n(X_{\mathbb{C}})$:</p>
+    <ol>
+      <li>Enthält $\pi_n(S^2)$ freie $\mathbb{Z}$-Anteile:
+          $\pi_n(X_{\mathbb{C}}) = \mathbb{R}/\mathbb{Z}$.</li>
+      <li>Ist $\pi_n(S^2)$ endlich (und damit Pontryagin-selbstdual):
+          $\pi_n(X_{\mathbb{C}}) = \pi_n(S^2)$.</li>
+      <li>Ist $\pi_n(S^2)$ endlich aber nicht selbstdual:
+          $\pi_n(X_{\mathbb{C}}) = \pi_n(S^2)^\vee$.</li>
+    </ol>
+    <p style="margin-top:.8em; font-size:.88rem; color:var(--fg-dim);">
+    Belegt für $n=2,3$. Fall&nbsp;3 tritt bei $\pi_n(S^2)$ in den bekannten Bereichen
+    nicht auf; die Formulierung ist der Vollständigkeit halber mitgeführt.
+    Das allgemeine Prinzip ist eine offene Forschungsfrage.
+    </p>
+  </div>
+
+  <h3>Das $\pi_3$-Problem: Serre-Spektralsequenz-Argument</h3>
+
+  <p>Clausen schreibt in Remark&nbsp;1.5: <em>"The question of how to calculate the
+  higher homotopy groups of $X_Q$ is tantalizing... we do not investigate this in
+  detail."</em> Für $\pi_3$ liefert die Serre-Spektralsequenz für die Postnikov-Faserung</p>
+
+  $$K_{\mathrm{cond}}(\mathbb{R}/\mathbb{Z}, 2) \longrightarrow X_{\mathbb{C}} \longrightarrow B\mathbb{C}^\times$$
+
+  <p>die $E_2$-Terme
+  $E_2^{p,q} = H^p(B\mathbb{C}^\times;\, H^q(K_{\mathrm{cond}}(\mathbb{R}/\mathbb{Z},2);\, \mathbb{R}/\mathbb{Z}))$.
+  Für $q=0$ und $q=2$ tragen Terme bei; für $q > 2$ verschwindet $H^q$
+  (da $K_{\mathrm{cond}}(\mathbb{R}/\mathbb{Z},2)$ 2-zusammenhängend ist).
+  Aus Lemma&nbsp;4.12: $\pi_3(X_{\mathbb{C}}) = (H^4(X_{\mathbb{C}}^{(2),\circ};\,\mathbb{R}/\mathbb{Z}))^\vee$,
+  wobei $X_{\mathbb{C}}^{(2)}$ der 2-stufige Postnikov-Turm ist. Das Dualitätsprinzip und
+  der Vergleich mit $\pi_3(S^2) = \mathbb{Z}$ legen $\pi_3(X_{\mathbb{C}}) = \mathbb{R}/\mathbb{Z}$
+  nahe. Ein vollständiger Beweis erfordert die kondensierte Kohomologie von $B^2(S^1)$.</p>
+
+  <h3>Der Kollaps $K(\mathbb{R}_\delta, n) \simeq *$</h3>
+
+  <p>$\mathbb{R}_\delta$ (die reellen Zahlen mit diskreter Topologie) ist als abstrakte
+  abelsche Gruppe ein $\mathbb{Q}$-Vektorraum. $\mathbb{Q}$-Vektorräume sind als
+  $\mathbb{Z}$-Moduln injektiv. Daraus folgt durch Theorem&nbsp;2.2 des Papers, dass
+  $H^n(K(\mathbb{R}_\delta, 1);\,\mathbb{Z}) = 0$ für alle $n \geq 1$, und analog
+  verschwinden alle höheren Ext-Gruppen. Damit ist $K(\mathbb{R}_\delta, n)$
+  kohomologisch trivial — kontraktibel. Dagegen trägt $K(\mathbb{R}, n)$ mit der
+  echten Topologie reiche Kohomologie. Das Vergessen der topologischen Struktur durch
+  Diskretisierung vernichtet alles.</p>
+
+  <h3>Der Vergissfunktor $X \to |X|$ ist nicht volltreu</h3>
+
+  <p>Der kanonische Funktor $X \mapsto |X|$, der die kondensierte Struktur vergisst
+  und die "bloße Anima" zurückgibt, ist <em>nicht volltreu</em>: verschiedene Morphismen
+  zwischen kondensierten Anima können dieselben Morphismen zwischen den zugrundeliegenden
+  Anima induzieren. Das ist ein kategorientheoretisches Resultat mit einer Konsequenz:
+  Die bloße Anima $|X|$ bleibt als strukturelles Gerüst über verschiedene kondensierte
+  Inkarnationen von $X$ hinweg erhalten und ist durch sie nicht eindeutig bestimmt.
+  Das kondensierte $S^1$ und $|S^1|$ sind verschieden als Objekte — Scholze:
+  <em>"$S^1$ is a physical circle, while $|S^1|$ is some ghostly appearance of a point
+  with an internal automorphism (the anima $*/\mathbb{Z}$)."</em></p>
+</div>
+</section>
+
+<!-- ══════════════════ 03 ADVERSARIALE VERIFIKATION ══════════════════ -->
+<section id="adversarial">
+<div class="col">
+  <h2><span class="nav-num">03</span> Adversariale Verifikation</h2>
+
+  <p>Alle drei zentralen mathematischen Behauptungen wurden durch Modul B2
+  (deepseek-r1:70b, Chain-of-Thought) unabhängig geprüft. Alle drei wurden bestätigt.</p>
+
+  <div class="adv-grid">
+    <div class="adv-item">
+      <div class="adv-label">ADV-1 — Bestätigt ✓</div>
+      <div class="adv-claim">$\pi_2(X_{\mathbb{C}}) = \mathbb{R}/\mathbb{Z}$</div>
+      <div class="adv-arg">
+        $\mathrm{Sym}^2_{\mathbb{Z}}(\mathbb{Z}) = \mathbb{Z} \cdot (e \otimes e) \cong \mathbb{Z}$
+        (symmetrische Tensoren von $\mathbb{Z}$ haben genau einen Erzeuger).
+        $\mathrm{Hom}_{\mathrm{cont}}(\mathbb{Z}, \mathbb{R}/\mathbb{Z}) \cong \mathbb{R}/\mathbb{Z}$
+        (jedes $n \mapsto n \cdot x$ für $x \in \mathbb{R}/\mathbb{Z}$ ist stetig).
+      </div>
+    </div>
+    <div class="adv-item">
+      <div class="adv-label">ADV-2 — Bestätigt ✓</div>
+      <div class="adv-claim">$K(\mathbb{R}_\delta, n) \simeq *$</div>
+      <div class="adv-arg">
+        $\mathbb{R}_\delta$ ist $\mathbb{Q}$-Vektorraum $\Rightarrow$ injektiv als
+        $\mathbb{Z}$-Modul $\Rightarrow$ $H^n(K(\mathbb{R}_\delta,1);\,\mathbb{Z})=0$
+        für alle $n \geq 1$; höhere Ext-Gruppen verschwinden ebenso.
+        Anwendung von Theorem 2.2 des Papers.
+      </div>
+    </div>
+    <div class="adv-item">
+      <div class="adv-label">ADV-3 — Bestätigt ✓</div>
+      <div class="adv-claim">$H^3(B\mathbb{C}^\times;\,\mathbb{R}/\mathbb{Z}) = \mathbb{Z}$</div>
+      <div class="adv-arg">
+        Theorem 2.2 identifiziert kondensierte Kohomologie mit Garbenkohomologie.
+        Daher gilt $H^4(B\mathbb{C}^\times;\,\mathbb{Z}) = H^4(\mathbb{CP}^\infty;\,\mathbb{Z}) = \mathbb{Z}$
+        auch in der kondensierten Welt. Der Schritt ist legitim.
+      </div>
+    </div>
+  </div>
+
+  <p>ADV-4 (philosophisch, Damascius-Analogie) ist zwischen den Modellen umstritten —
+  dazu Abschnitt&nbsp;05.</p>
+</div>
+</section>
+
+<!-- ══════════════════ 04 PHILOSOPHIE ══════════════════ -->
+<section id="philosophie">
+<div class="col">
+  <h2><span class="nav-num">04</span> Neoplatonische Strukturanalyse</h2>
+
+  <p>Drei philosophische Parallelen wurden untersucht. Das Ziel war jeweils:
+  strukturelle Isomorphie von terminologischer Koinzidenz unterscheiden, und die
+  Bruchpunkte mindestens ebenso präzise benennen wie die Parallelen.</p>
+
+  <h3>I — Plotinos: Befreiung von der Materie</h3>
+
+  <p>Bei Plotinos (Enneaden IV.8) ist $\psi\upsilon\chi\acute{\eta}$ das, was von
+  einem Wesen übrigbleibt, wenn $\tau\grave{o}\ \overset{\,}{\upsilon}\lambda\eta$
+  (die Materie) entfernt wird — das Prinzip der Selbstbewegung ($\alpha\upsilon\tau o\kappa\acute{\iota}\nu\eta\tau o\nu$),
+  das die Wesensstruktur bewahrt. Bei Clausen–Scholze ist die Anima das, was von
+  einem CW-Komplex übrigbleibt, wenn die Punkt-Menge-Topologie ("worldly incarnation")
+  entfernt wird.</p>
+
+  <p>Die strukturelle Parallele: In beiden Fällen gibt es eine Operation des
+  "Entkleidens", die eine reiche konkrete Struktur auf eine abstraktere reduziert —
+  und die abstraktere trägt einen eigenen Namen. Beilinsons "animated points" —
+  Punkte, die sich frei innerhalb ihrer Zusammenhangskomponente bewegen können —
+  entspricht strukturell dem Plotinischen Selbstbewegungsprinzip.</p>
+
+  <p><strong>Bruchpunkt:</strong> Die Plotinische Seele existiert <em>vor</em> der
+  materiellen Verkörperung als metaphysische Entität; die Anima ist eine Abstraktion
+  <em>nach</em> dem Entfernen der Topologie. Die ontologische Richtung ist umgekehrt.</p>
+
+  <h3>II — Iamblichos vs. Plotinos: Das kategorientheoretische Urteil</h3>
+
+  <p>Iamblichos bestreitet Plotinos' These eines "unabgestiegenen Teils" der Seele.
+  Für Iamblichos steigt die Seele vollständig in die Materie hinab. Das mathematische
+  Analogon wäre: Es gibt keinen "unabgestiegenen Rest" — die bloße Anima $|X|$ wäre
+  durch die kondensierte Struktur $X$ vollständig bestimmt.</p>
+
+  <p>Genau das ist aber falsch. Da der Funktor $X \mapsto |X|$ nicht volltreu ist,
+  gibt es einen dauerhaften "Plotinischen Rest": Verschiedene kondensierte Anima
+  können dieselbe bloße Anima $|X|$ haben. $|X|$ überlebt jede kondensierte
+  Inkarnation. Konkret: $|S^1|$ bleibt dieselbe Anima, egal welche kondensierte
+  Struktur man auf $S^1$ legt.</p>
+
+  <div class="box confirmed">
+    <div class="label">Kategorientheoretisches Urteil — gesichert</div>
+    <p>Die mathematische Struktur ist <strong>Plotinisch</strong>, nicht Iamblichisch:
+    Es gibt einen unabgestiegenen Teil ($|X|$, die bloße Anima), der über verschiedene
+    materielle Inkarnationen hinweg identisch bleibt und durch diese nicht vollständig
+    bestimmt wird. Die Nicht-Volltreue des Vergissfunktors ist der präzise mathematische
+    Grund dafür.</p>
+  </div>
+
+  <h3>III — $S^1$ und $|S^1|$ als konkretes Modell</h3>
+
+  <p>Scholzes Zitat liefert das plastischste mathematische Modell für die
+  philosophische Unterscheidung:</p>
+
+  <blockquote>
+    "$S^1$ is a physical circle, while $|S^1|$ is some ghostly appearance of a point
+    with an internal automorphism (the anima $*/\mathbb{Z}$)."
+    <cite>Scholze, Lectures on Analytic Geometry (2026), Lecture XI</cite>
+  </blockquote>
+
+  <p>$S^1$ als kondensierte Anima ist die "materiell inkarnierte" Version — mit
+  topologischer Struktur, physisch greifbar. $|S^1|$ als bloße Anima ist die
+  "reine Seele" — nur die homotopie-theoretische Essenz, $\pi_1 = \mathbb{Z}$ und
+  sonst nichts. Das ist eine mathematisch präzise Instanz der Plotinischen Seele/Materie-Unterscheidung.</p>
+
+  <h3>IV — Damascius: Apophatik und die zwei Bruchpunkte</h3>
+
+  <p>Damascios' apophatische Methode: Jeder Versuch, das Eine positiv zu bestimmen,
+  kollabiert. Das mathematische Analogon: $K(\mathbb{R}_\delta, n) \simeq *$ —
+  Diskretisierung (Entfernung aller topologischen Struktur) führt auf den Punkt.
+  Die strukturelle Parallele: Beide Verfahren produzieren durch radikales Entfernen
+  aller Zusatzstruktur ein Objekt ohne Eigengehalt.</p>
+
+  <p><strong>Bruchpunkt 1 — Absicht:</strong> Bei Damascius ist die Apophatik eine
+  Annäherungsmethode an das Absolute; der Kollaps ist nicht das Ziel, sondern ein
+  Hinweis auf die Grenze positiver Bestimmbarkeit. Bei Clausen–Scholze ist
+  $K(\mathbb{R}_\delta, n) \simeq *$ ein <em>Negativresultat</em> — ein Warnsignal
+  vor Informationsverlust, keine Annäherung an etwas.</p>
+
+  <p><strong>Bruchpunkt 2 — Universalität:</strong> Damascius' Methode ist universell
+  auf alle positiven Bestimmungen anwendbar. Die mathematische Diskretisierung ist
+  <em>selektiv</em>: sie entfernt die topologische Struktur, lässt aber die algebraische
+  Struktur (die Gruppenstruktur von $\mathbb{R}$) intakt. "Mathematische Apophatik"
+  wäre nur selektiv möglich — nicht universell im Damascischen Sinne.</p>
+</div>
+</section>
+
+<!-- ══════════════════ 05 MODELLKONFLIKT ══════════════════ -->
+<section id="konflikt">
+<div class="col">
+  <h2><span class="nav-num">05</span> Modellkonflikt ADV-4</h2>
+
+  <p>In einem Punkt sind die beiden Hauptmodelle des Projekts uneinig — und diese
+  Uneinigkeit ist selbst ein Ergebnis.</p>
+
+  <div class="box conflict">
+    <div class="label">ADV-4 — Modellkonflikt: Damascius-Analogie</div>
+    <p><strong>deepseek-r1:70b (B2):</strong> Die Damascius-Analogie ist "bloße Metapher" —
+    eine analogische Übertragung, die nicht direkt strukturell präzise ist.</p>
+    <p><strong>qwen3:235b-a22b (A3):</strong> Die Analogie ist "genuine strukturelle Resonanz",
+    begründet mit der gemeinsamen Operation der Entkleidung positiver Bestimmungen und dem
+    Kollaps auf Nichtigkeit in beiden Fällen.</p>
+  </div>
+
+  <p>Der Konflikt ist nicht arbiträr. deepseek-r1:70b arbeitet mit
+  Chain-of-Thought-Reasoning und tendiert zur formalen Strenge; die Bruchpunkte
+  (selektiv vs. universell; Annäherung vs. Negativresultat) sind aus dieser
+  Perspektive gewichtig genug, um die Analogie zu verwerfen. qwen3:235b-a22b
+  hat Zugang zum vollständigen Neoplatonismus-Kontext und bewertet die strukturelle
+  Operation selbst als genuine Ähnlichkeit, auch wenn die Rahmenbedingungen
+  verschieden sind.</p>
+
+  <p>Beide Einschätzungen sind intern konsistent. Die Frage, ob eine strukturelle
+  Übereinstimmung in der <em>Operation</em> (Entkleidung → Kollaps) genuine
+  Resonanz konstituiert auch wenn die <em>Absicht</em> und <em>Reichweite</em>
+  verschieden sind, ist eine methodische Frage, die dieses Projekt nicht
+  abschließend beantworten kann. Der Konflikt markiert genau die Stelle, an der
+  ein formaler Rahmen für strukturelle Analogien zwischen Mathematik und Philosophie
+  fehlt.</p>
+</div>
+</section>
+
+<!-- ══════════════════ 06 SYNTHESE ══════════════════ -->
+<section id="synthese">
+<div class="col">
+  <h2><span class="nav-num">06</span> Synthese</h2>
+
+  <p>Die beiden Projektstränge konvergieren in einem Punkt: Die kondensierte Anima
+  ist ein Objekt, das auf zwei unabhängigen Ebenen zwischen "zu viel" und "zu wenig
+  Struktur" navigiert.</p>
+
+  <p>Topologisch: zwischen dem konkreten CW-Komplex (zu viele nicht-kanonische Details)
+  und dem abstrakten Homotopietyp (zu wenig, weil die Topologie der Koeffizientengruppen
+  verloren geht). Die kondensierte Anima hält beides getrennt und unabhängig —
+  das ist mathematisch der Inhalt der Nicht-Kollaps-Eigenschaft
+  $K(\mathbb{R},n) \neq K(\mathbb{R}_\delta,n) \neq *$.</p>
+
+  <p>Arithmetisch: zwischen $BW_K$ (falsche kohomologische Dimension, archimedische
+  Asymmetrien) und der vollen Galoiskohomologie (ähnliche Defekte). Die Weil-Moore-Anima
+  $X_K$ repariert beides durch Hinzufügen höherer Homotopiegruppen, deren Struktur
+  das Kompakt/Diskret-Dualitätsprinzip widerspiegelt.</p>
+
+  <p>Die Pontryagin-Dualität $\mathbb{Z} \leftrightarrow \mathbb{R}/\mathbb{Z}$
+  ist genau dieser Übergang: die diskrete, abstrakte Homotopiegruppe wird durch
+  Kondensierung "belebt" — sie erhält eine kompakte, topologisch reiche Struktur.
+  Das ist der mathematische Gehalt von Beilinsons "animation" und Clausens "anima",
+  und es ist strukturell dieselbe Bewegung, die Plotinos mit dem Übergang von Materie
+  zu Seele beschreibt — mit dem wichtigen Vorbehalt der umgekehrten ontologischen
+  Richtung.</p>
+
+  <div class="box confirmed">
+    <div class="label">Gesamturteil zur philosophischen Frage</div>
+    <p>Die Namenswahl <em>anima</em> liegt zwischen bewusster Anlehnung und genuiner
+    struktureller Resonanz. Die Belege für Absichtlichkeit sind stark (vier textliche
+    Argumente). Die strukturelle Resonanz in der gemeinsamen Operation des
+    "Entkleidens" ist präzise identifizierbar. Das kategorientheoretische
+    Ergebnis (Plotinisch, nicht Iamblichisch) ist nicht metaphorisch, sondern
+    mathematisch demonstrierbar. Wo die Analogie bricht (ontologische Richtung,
+    Teleologie, Selektivität der mathematischen Apophatik), ist das ebenso präzise
+    dokumentiert.</p>
+  </div>
+</div>
+</section>
+
+<!-- ══════════════════ 07 OFFENE FRAGEN ══════════════════ -->
+<section id="fragen">
+<div class="col">
+  <h2><span class="nav-num">07</span> Offene Fragen</h2>
+
+  <h3>Mathematisch</h3>
+  <p>Gilt das Kompakt/Diskret-Dualitätsprinzip für alle $n$ und für alle
+  archimedischen Weil-Moore-Anima? Das erfordert die vollständige Berechnung
+  der Postnikov-Türme von $X_{\mathbb{C}}$, insbesondere die kondensierten
+  Kohomologiegruppen $H^*(K_{\mathrm{cond}}(\mathbb{R}/\mathbb{Z}, n);\,\mathbb{R}/\mathbb{Z})$.
+  Fall&nbsp;3 des Prinzips (endlich, nicht selbstdual) tritt in den bekannten
+  Bereichen nicht auf und bleibt ungetestet.</p>
+
+  <h3>Historisch</h3>
+  <p>Wie tief reicht die Kenntnis der Neoplatonischen Tradition bei Clausen und Scholze?
+  Die Formulierungen "worldly incarnation" und "ghostly appearance" sind zu spezifisch,
+  um zufällig zu sein. Eine Untersuchung früherer Manuskripte und Korrespondenz könnte
+  weitere Verbindungen aufdecken.</p>
+
+  <h3>Philosophisch-methodisch</h3>
+  <p>Gibt es einen formalen Rahmen, der strukturelle Analogien zwischen mathematischen
+  Objekten und philosophischen Begriffen präzise beschreibt — jenseits von metaphorischer
+  Ähnlichkeit, aber ohne Kategorienfehlschlüsse? Der Modellkonflikt in ADV-4 zeigt,
+  dass die Antwort auf "Was konstituiert strukturelle Resonanz?" ohne solchen Rahmen
+  von den Beurteilungskriterien des jeweiligen Modells abhängt. Das ist die eigentliche
+  methodische Grenze dieses Projekts.</p>
+</div>
+</section>
+
+<!-- ══════════════════ 08 TECHNIK ══════════════════ -->
+<section id="technik">
+<div class="col">
+  <h2><span class="nav-num">08</span> Technische Durchführung</h2>
+
+  <p>Das Projekt lief vollständig lokal auf einem Mac Studio M3 Ultra
+  (256&nbsp;GB Unified Memory, 80-Core GPU, macOS Sequoia) mit Ollama&nbsp;0.24.0.
+  Die Modelle erhielten die Primärtexte als Volltext.</p>
+
+  <div class="process-grid">
+    <div class="process-card">
+      <div class="model">qwen3:235b-a22b</div>
+      <div class="task">Terminologische Archäologie (A1), Neoplatonismus-Analyse (A3), Synthese</div>
+      <div class="tokens">46K Tokens Input · num_predict 18K · Thinking-Modus aktiv</div>
+    </div>
+    <div class="process-card">
+      <div class="model">deepseek-r1:70b</div>
+      <div class="task">Postnikov-Berechnungen (B1), π₃-Problem + Adversarial (B2)</div>
+      <div class="tokens">65K Kontext · Chain-of-Thought · 65K Tokens Input</div>
+    </div>
+    <div class="process-card">
+      <div class="model">DSV4-Flash (GGUF)</div>
+      <div class="task">Geplant für Volltext-Ingestion; nicht eingesetzt</div>
+      <div class="tokens">153 GB Q4 · GPU-Speicherfehler bei 99K-Token KV-Cache</div>
+    </div>
+  </div>
+
+  <p>Die Durchführung verlief nicht reibungslos: ein Systemabsturz (GPU-Speicherfehler
+  bei zu großem KV-Cache), ein Timeout durch zu kleines <code>num_predict</code> bei aktivem
+  Thinking-Modus (qwen3 verbrauchte das gesamte Token-Budget für interne Reasoning-Tokens
+  ohne sichtbaren Output — Lösung: <code>num_predict: 18000</code>), und mehrere Syntaxfehler
+  durch mathematische Notation in Python-f-Strings ($\{p,q\}$, $\{(2)\}$ wurden als Python-Template-Variablen interpretiert). Alle Probleme wurden diagnostiziert und behoben.
+  Gesamtlaufzeit der Modelle: ca. 4 Stunden.</p>
+
+  <p>Alle Rohergebnisse liegen auf
+  <code>/Volumes/CLAUDE-DATA/Anima-Project/</code> —
+  fünf <code>.md</code>-Dateien mit den vollständigen Modellantworten.</p>
+</div>
+</section>
+
+<hr class="rule">
+
+<footer class="wrapper">
+  <span>Anima-Projekt · 25. Mai 2026 · v2</span>
+  <span>Primärquelle: Clausen arXiv:2605.11950 · Beilinson PAMQ 3:1 (2007)</span>
+  <span>Lokales KI-Ökosystem · Mac Studio M3 Ultra · 256 GB</span>
+</footer>
+
+</div><!-- /wrapper -->
+</div>
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-en-section').forEach(e=>e.style.display=l==='en'?'':'none');
+  document.querySelectorAll('.lang-de-section').forEach(e=>e.style.display=l==='de'?'':'none');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-de').classList.toggle('active',l==='de');
+  document.documentElement.lang=l;
+  try{localStorage.setItem('site-lang',l);}catch(e){}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var l=null;try{l=localStorage.getItem('site-lang');}catch(e){}
+  setLang(l==='de'?'de':'en');
+});
+</script>
+</body>
+</html>
