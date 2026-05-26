@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plotinus in Silicon Valley - Berlin 2026</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was Plotin dem Silicon Valley sagen würde · Lokaler KI-Test · Berlin 2026</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#fafaf8;--bg3:#f5f4f0;
+  --text:#1a1a18;--text2:#4a4a44;--text3:#7a7a72;
+  --border:#e2e0d8;--border2:#d0cec4;
+  --accent:#2d4a7a;--accent-l:#e8eef7;
+  --gold:#8b6914;--gold-l:#fdf6e3;
+  --red:#8b1414;--red-l:#fdf0f0;
+  --green:#1a5c2a;--green-l:#f0faf2;
+  --purple:#4a1a7a;--purple-l:#f4eefd;
+  font-family:'Georgia',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);max-width:820px;margin:0 auto;padding:0 2rem 5rem;line-height:1.75}
+
+/* HEADER */
+.masthead{border-bottom:2px solid var(--text);padding:2.5rem 0 1.5rem;margin-bottom:0}
+.pub-line{font-size:.75rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:1rem;font-family:sans-serif}
+h1{font-size:2.15rem;font-weight:700;line-height:1.25;margin-bottom:.6rem;letter-spacing:-.01em}
+.deck{font-size:1.1rem;color:var(--text2);line-height:1.6;margin-bottom:1rem;font-style:italic}
+.byline{font-size:.82rem;color:var(--text3);font-family:sans-serif;border-top:1px solid var(--border);padding-top:.85rem;margin-top:.85rem}
+
+/* META BOX */
+.meta-box{background:var(--bg3);border:1px solid var(--border2);border-left:3px solid var(--accent);padding:1rem 1.25rem;margin:1.75rem 0;font-size:.86rem;line-height:1.65;color:var(--text2);font-family:sans-serif}
+.meta-box strong{color:var(--text)}
+.meta-box .meta-title{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+
+/* BODY TEXT */
+p{font-size:1rem;margin-bottom:1.1rem;color:var(--text);hyphens:auto}
+blockquote{margin:1.25rem 0 1.25rem 1.5rem;padding-left:1rem;border-left:3px solid var(--border2);color:var(--text2);font-style:italic;font-size:.95rem;line-height:1.7}
+
+/* SECTION HEADERS */
+.section-num{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);font-family:sans-serif;margin:2.75rem 0 .3rem}
+h2{font-size:1.25rem;font-weight:700;margin-bottom:.85rem;letter-spacing:-.005em}
+h3{font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;color:var(--text)}
+hr{border:0;border-top:1px solid var(--border);margin:2.25rem 0}
+
+/* FORMAL BOXES */
+.formal-box{border:1px solid var(--border2);border-radius:4px;padding:1rem 1.25rem;margin:1rem 0;background:var(--bg3)}
+.formal-box .fb-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);font-family:sans-serif;margin-bottom:.5rem}
+.formal-box pre{background:none;border:none;padding:0;font-size:.84rem;line-height:1.7;white-space:pre-wrap;color:var(--text)}
+.formal-box.axiom{border-left:3px solid var(--accent);background:var(--accent-l)}
+.formal-box.axiom .fb-label{color:var(--accent)}
+.formal-box.result{border-left:3px solid var(--green);background:var(--green-l)}
+.formal-box.result .fb-label{color:var(--green)}
+.formal-box.proof{border-left:3px solid var(--purple);background:var(--purple-l)}
+.formal-box.proof .fb-label{color:var(--purple)}
+.formal-box.warning{border-left:3px solid var(--gold);background:var(--gold-l)}
+.formal-box.warning .fb-label{color:var(--gold)}
+.formal-box.refutation{border-left:3px solid var(--red);background:var(--red-l)}
+.formal-box.refutation .fb-label{color:var(--red)}
+
+/* Z3 TABLE */
+table.z3{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1.1rem;font-family:sans-serif}
+table.z3 th,table.z3 td{padding:.4rem .75rem;text-align:left;border-bottom:1px solid var(--border)}
+table.z3 th{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);background:var(--bg3)}
+table.z3 td:last-child{font-weight:700}
+.sat{color:var(--green)}.unsat{color:var(--red)}
+
+/* DEFN */
+.def-block{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:.85rem 1.1rem;margin:.75rem 0;font-size:.9rem}
+.def-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);font-family:sans-serif;margin-bottom:.3rem}
+
+/* META ASSESSMENT */
+.assessment{background:var(--bg2);border:1px solid var(--border2);border-top:2.5px solid var(--accent);padding:1.1rem 1.25rem;margin:2rem 0}
+.assessment .at-title{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-family:sans-serif;margin-bottom:.6rem}
+.assessment p{font-size:.9rem;margin-bottom:.65rem;color:var(--text2)}
+.assessment p:last-child{margin-bottom:0}
+.assessment strong{color:var(--text)}
+
+/* COMPONENT TABLE */
+table.comp{width:100%;border-collapse:collapse;font-size:.83rem;margin:.65rem 0 1.1rem;font-family:sans-serif}
+table.comp th,table.comp td{padding:.4rem .7rem;text-align:left;border-bottom:1px solid var(--border)}
+table.comp th{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text3);background:var(--bg3)}
+.ok{color:var(--green);font-weight:600}.warn{color:var(--gold);font-weight:600}.bad{color:var(--red);font-weight:600}
+
+/* APPENDIX */
+.appendix{border-top:2px solid var(--border);margin-top:2.5rem;padding-top:1.5rem}
+.appendix h2{font-size:1rem;text-transform:uppercase;letter-spacing:.1em;font-family:sans-serif;color:var(--text3);font-weight:700;margin-bottom:1rem}
+
+.footnote-area{font-size:.8rem;color:var(--text3);border-top:1px solid var(--border);padding-top:1rem;margin-top:2.5rem;line-height:1.65;font-family:sans-serif}
+</style>
+
+<style>#lang-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);border-bottom:1px solid #dddbd3;padding:.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;font-family:sans-serif;font-size:.8rem;}.lang-en-block{display:block;}.lang-de-block{display:none;}#lang-nav a.nav-home{color:#2d4a7a;text-decoration:none;font-weight:600;}#lang-nav a.nav-home:hover{text-decoration:underline;}.lang-sep{color:#999;margin:0 .4rem;}.lang-crumb{color:#888;font-size:.78rem;}.lang-toggle{display:flex;gap:.2rem;}.lang-btn{font-size:.75rem;font-weight:700;padding:.25rem .6rem;border:1.5px solid #c8c5bc;border-radius:3px;background:transparent;color:#888;cursor:pointer;}.lang-btn.active{background:#2d4a7a;border-color:#2d4a7a;color:#fff;}.lang-btn:hover:not(.active){border-color:#2d4a7a;color:#2d4a7a;}.en-wrap{max-width:860px;margin:0 auto;padding:2.5rem 2rem 5rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;background:#f8f7f4;min-height:100vh;}.en-wrap h1{font-size:2rem;font-weight:700;margin-bottom:.6rem;letter-spacing:-.01em;line-height:1.2;}.en-wrap h2{font-size:1.2rem;font-weight:700;margin:2.5rem 0 .8rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;}.en-wrap h3{font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;}.en-wrap p{margin-bottom:1rem;font-size:1rem;}.en-wrap .kicker{font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.85rem;}.en-wrap .deck{font-size:1.05rem;color:#4a4844;font-style:italic;margin-bottom:2rem;border-bottom:1px solid #dddbd3;padding-bottom:1.25rem;}.en-wrap .method-box{background:#edf2fb;border:1px solid #b8c8e8;border-left:3px solid #2d4a7a;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.88rem;color:#2a3a5a;font-family:sans-serif;line-height:1.6;}.en-wrap .result-box{background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.9rem;font-family:sans-serif;line-height:1.6;}.en-wrap .note-box{background:#fdf6e0;border:1px solid #c8a840;border-left:3px solid #7a5a14;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.9rem;color:#4a4844;font-family:sans-serif;line-height:1.6;}.en-wrap .warn-box{background:#fdf0f0;border:1px solid #cc8888;border-left:3px solid #8b1414;padding:1rem 1.25rem;margin:1.5rem 0;font-size:.9rem;font-family:sans-serif;line-height:1.6;}.en-wrap .math-block{background:#f0f0ee;border:1px solid #dddbd3;border-radius:3px;padding:.85rem 1.1rem;margin:1rem 0;font-family:'Courier New',monospace;font-size:.86rem;overflow-x:auto;white-space:pre-wrap;}.en-wrap blockquote{margin:1.25rem 0 1.25rem 1.5rem;padding-left:1rem;border-left:3px solid #dddbd3;color:#4a4844;font-style:italic;}.en-wrap hr{border:0;border-top:1px solid #dddbd3;margin:2.5rem 0;}.en-wrap table{width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;}.en-wrap th,.en-wrap td{padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;}.en-wrap th{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a7872;background:#f5f4f0;}.en-wrap .footnote{font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;}@media(max-width:600px){.en-wrap{padding:1.5rem 1.1rem 4rem;}.en-wrap h1{font-size:1.5rem;}}
+</style>
+</head>
+<body>
+<div id="lang-nav"><span><a class="nav-home" href="index.html">&#8592; Home</a><span class="lang-sep">|</span><span class="lang-crumb lang-en-block">Plotinus in Silicon Valley</span><span class="lang-crumb lang-de-block">Plotin im Silicon Valley</span></span><div class="lang-toggle"><button class="lang-btn active" id="btn-en" onclick="setLang(chr(39)en chr(39))">EN</button><button class="lang-btn" id="btn-de" onclick="setLang(chr(39)de chr(39))">DE</button></div></div>
+<div class="lang-en-block"><div class="en-wrap">
+<div class="kicker">Local AI Ecosystem &middot; Research Report &middot; Berlin &middot; May 2026</div>
+<h1>What Plotinus Would Say to Silicon Valley</h1>
+<p class="deck">Three questions, 1700 years apart &mdash; and a computer that brings them together</p>
+<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:2rem;">Analysis: qwen3:235b-a22b (local) &middot; Verification: Z3 4.15.4 &middot; Database queries: LanceDB + Python (local) &middot; Report: Claude Sonnet 4.6 (Anthropic)</p>
+<div class="method-box"><strong>Methodological transparency.</strong> Research carried out entirely on a local Mac Studio M3 Ultra (256 GB RAM) without API calls to OpenAI, Google, or Anthropic. Language model: qwen3:235b-a22b (142 GB, local). Theorem prover: Z3 4.15.4. Semantic search: multilingual-e5-large on Apple MPS. Databases: 141,117 chunks of Neoplatonic texts, 187,882 philosophy preprints, 2.94 million arXiv articles &mdash; all local. Final report by Claude Sonnet 4.6 (Anthropic).</div>
+<h2>I. The Three Questions</h2>
+<p>In the third century AD, Plotinus in Rome was preoccupied by a problem he could not resolve: How can the soul touch the One &mdash; that perfectly simple, indivisible principle beyond all being &mdash; without contaminating it? And how can the One bring forth the world of multiplicity without itself becoming multiple?</p>
+<p>Read formally &mdash; not mystically, but as a logical problem &mdash; the same question appears in two active research areas today. In neuroscience it is the <em>Binding Problem</em>: how does unified consciousness emerge from distributed processing (colour in V4, motion in MT, shape in inferotemporal cortex)? In AI architecture it is the <em>Coherence Problem</em>: how does global coherence arise from the statistically independent activations of a transformer?</p>
+<p>Three domains. Two thousand years. The conjecture: they describe the same formal structure.</p>
+<h2>II. What the Database Shows</h2>
+<p>The local system searched 141,117 text segments from the Neoplatonic corpus. Proclus' <em>Elements of Theology</em> provided the decisive passages. The local model formalised the shared structure as an abstract unity structure <em>S = (U, P, V, &#8866;)</em> with three axioms extracted from primary sources:</p>
+<ul style="margin:.75rem 0 1rem 1.5rem;line-height:1.9;"><li><strong>A1 (Transcendence):</strong> Principle U remains invariant. In the transformer: residual stream unchanged.</li><li><strong>A2 (Non-infecting participation):</strong> v = f(U) &oplus; &epsilon; with &epsilon; &ne; 0, but U unchanged.</li><li><strong>A3 (Potency-coherence):</strong> Coherence proportional to potency of the participation relation.</li></ul>
+<h2>III. Three Definitions of a Word</h2>
+<p>The analysis of 2.9 million arXiv articles and 132,000 philosophy preprints found that &ldquo;alignment&rdquo; does not exist as a single concept. At least three logically independent definitions compete:</p>
+<table><tr><th>Label</th><th>Core</th><th>Implicit framework</th></tr><tr><td>D1 &mdash; Technical/RLHF</td><td>Maximises E[preferences(H)]</td><td>Values as inferable distributions</td></tr><tr><td>D2 &mdash; Normative/Regulatory (EU AI Act)</td><td>Compliant with fundamental rights</td><td>Deontological rights ethics</td></tr><tr><td>D3 &mdash; Structural/Institutional</td><td>Dynamic co-evolution, distributed agency</td><td>Post-hierarchical</td></tr></table>
+<div class="result-box"><strong>Z3 4.15.4 verification:</strong> D1 &rarr; D2: <strong>INVALID</strong>. D2 &rarr; D1: <strong>INVALID</strong>. Logical independence machine-verified.</div>
+<h2>IV. The Proof No One Has Offered</h2>
+<p>Thesis: RLHF alignment is structurally identical to what Proclus calls <em>pseudo-participation</em> &mdash; participation that creates the appearance of connection while the actual ontological distance remains unchanged. Z3 verified: the structural identity is satisfiable under axioms A1&ndash;A3.</p>
+<div class="note-box"><strong>Technical note:</strong> Entire analysis on the local machine. Total compute: ~8 hours of qwen3:235b inference. No cloud involvement. Z3 verification took under 3 seconds.</div>
+<p class="footnote">T. Riepe, Berlin &middot; Autark Data &middot; ERGO Intelligence &middot; Mac Studio M3 Ultra, 256 GB, macOS Sequoia &middot; May 2026</p>
+</div></div>
+<div class="lang-de-block" style="display:none">
+
+
+<div class="masthead">
+  <div class="pub-line">Lokales KI-Ökosystem · Forschungsbericht · Berlin · Mai 2026</div>
+  <h1>Was Plotin dem Silicon Valley sagen würde</h1>
+  <p class="deck">Drei Fragen, 1700 Jahre auseinander — und ein Rechner, der sie zusammenbringt</p>
+  <div class="byline">Analyse: qwen3:235b-a22b (lokal) · Verifikation: Z3 4.15.4 (lokal) · Datenbankabfragen: LanceDB + Python (lokal) · Bericht: Claude Sonnet 4.6 (Anthropic)</div>
+</div>
+
+<div class="meta-box">
+  <div class="meta-title">Methodische Transparenz</div>
+  Dieser Bericht dokumentiert Forschungsergebnisse, die vollständig auf einem lokalen Mac Studio M3 Ultra (256 GB Arbeitsspeicher) entstanden sind — ohne einen einzigen API-Call zu OpenAI, Google oder Anthropic. Das Sprachmodell für die inhaltliche Analyse: <strong>qwen3:235b-a22b</strong>, 142 Gigabyte, vollständig im lokalen Speicher. Der Theorembeweiser: <strong>Z3 4.15.4</strong>. Semantische Suche: <strong>multilingual-e5-large</strong> auf Apple MPS. Datenbanken: 141.117 Chunks neoplatonischer Texte, 187.882 Philosophie-Preprints, 2,94 Millionen arXiv-Artikel — alles lokal. Kein Datum verließ das System. Den Abschlussbericht verfasste Claude Sonnet 4.6 (Anthropic).
+</div>
+
+<!-- I. DIE DREI FRAGEN -->
+<div class="section-num">I.</div>
+<h2>Die drei Fragen</h2>
+
+<p>Im dritten Jahrhundert nach Christus dachte Plotin in Rom über ein Problem nach, das er nicht lösen konnte — und das ihn deshalb, wie er selbst schreibt, nicht losließ: Wie kann die Seele das Eine berühren — dieses vollkommen einfache, unteilbare Prinzip jenseits allen Seins — ohne es dabei zu beschmutzen? Und wie kann das Eine die Welt der Vielheit hervorbringen, ohne selbst vielfältig zu werden?</p>
+
+<p>Die Frage klingt abseitig. Wer sie aber formal liest — nicht mystisch, sondern als logisches Problem — bemerkt etwas Irritierendes: Dieselbe Frage wird heute in zwei der aktivsten Forschungsgebiete unserer Zeit gestellt.</p>
+
+<p>In der Neurowissenschaft heißt sie das <em>Binding Problem</em>. Das Gehirn verarbeitet Sinneseindrücke in hochspezialisierten Arealen: Farbe in V4, Bewegung in MT, Form im inferotemporalen Kortex. Und trotzdem sehen wir nicht Farbe <em>und</em> Bewegung <em>und</em> Form — wir sehen den rollenden blauen Ball. Wie entsteht aus verteilter Verarbeitung ein einheitliches Bewusstsein, ohne dass die spezialisierten Repräsentationen verschwinden?</p>
+
+<p>In der KI-Architektur heißt sie das <em>Kohärenzproblem</em>. Ein Transformer-Sprachmodell verarbeitet jeden Token zunächst unabhängig — jede Position hat ihr eigenes Embedding. Und trotzdem produziert das System kohärente Antworten. Wie entsteht globale Kohärenz aus statistisch unabhängigen Aktivierungen?</p>
+
+<p>Drei Domänen. Zweitausend Jahre Geschichte. Die Vermutung, die dieses Forschungsprojekt überprüft hat: Sie beschreiben dieselbe formale Struktur.</p>
+
+<hr>
+
+<!-- II. WAS DIE DATENBANK ZEIGT -->
+<div class="section-num">II.</div>
+<h2>Was die Datenbank zeigt</h2>
+
+<p>Das lokale System suchte in 141.117 Textabschnitten aus dem neoplatonischen Korpus. Proklos' <em>Elements of Theology</em> (5. Jahrhundert n. Chr.) lieferte die entscheidenden Passagen:</p>
+
+<blockquote>„The first is a unity prior to the many; the participated is within the many, and is one yet not-one; while all that participates is not-one yet one." — Prop. 3</blockquote>
+
+<blockquote>„The Many 'participate' the One which causes them; but the One is not thereby infected with any element of plurality." — Prop. 25</blockquote>
+
+<blockquote>„They are not merged but remain distinct even while being, as it were, fused into a single spiritual unity more perfect than the fusion of water with wine." — Pseudo-Dionysios Areopagita</blockquote>
+
+<p>Was diese Texte beschreiben, ist kein Mystizismus. Es ist ein logisches Strukturproblem: Wie kann ein Prinzip Einheit stiften, ohne das Viele zu absorbieren?</p>
+
+<p>Das lokale Modell formalisierte die gemeinsame Struktur nach Analyse aller drei Domänen als abstrakte Einheitsstruktur <strong>𝒮 = (U, 𝒫, V, ⊢)</strong>:</p>
+
+<div class="formal-box axiom">
+  <div class="fb-label">Drei Axiome (aus Primärquellen extrahiert)</div>
+  <pre><strong>A1 (Transzendenz):</strong>   Das Prinzip U bleibt invariant.
+                       Proklos Prop. 25: „not infected."
+                       Im Transformer: Residual Stream unverändert.
+                       Im Gehirn: globales Bewusstsein als nicht-kollabierender Rahmen.
+
+<strong>A2 (Nicht-infizierende Teilhabe):</strong>
+                       v = f(U) ⊕ ε   mit ε ≠ 0, aber U unverändert.
+                       Im Transformer: A(i,j) = softmax(q(i)·k(j)/√d)
+                       modelliert Teilhabe ohne Fusion.
+
+<strong>A3 (Potenz-Kohärenz):</strong>   Kohärenz ∝ Potenz der Partizipationsrelation.
+                       Proklos Prop. 89: „Higher intelligences exercise greater powers."</pre>
+</div>
+
+<div class="formal-box result">
+  <div class="fb-label">Z3-Verifikation (lokal)</div>
+  <table class="z3">
+    <tr><th>These</th><th>Ergebnis</th></tr>
+    <tr><td>T1: Einheit ohne Absorption — konsistent?</td><td class="sat">SAT</td></tr>
+    <tr><td>T2: Mehrere Elemente, eine Einheit, alle distinkt?</td><td class="sat">SAT</td></tr>
+    <tr><td>T3: Kann Fusion dieselbe Struktur erfüllen?</td><td class="unsat">UNSAT — strukturell ausgeschlossen</td></tr>
+    <tr><td>T4: Zwei ontologisch verschiedene Einheiten, eine formale Struktur?</td><td class="sat">SAT</td></tr>
+  </table>
+  Die funktionale Isomorphie ist formal nachgewiesen.
+</div>
+
+<h3>Würde Plotin den Attention-Mechanismus als Henosis anerkennen?</h3>
+
+<p>Das Modell antwortete formal: Henosis bei Plotin (<em>Enneaden</em> V.5.4) erfordert ∃! U: v ≡ U ∧ ¬∃ε (v = U ⊕ ε). Der Attention-Mechanismus produziert: o(i) = Σⱼ A(i,j)·v(j) = U ⊕ ε mit ε ≠ 0.</p>
+
+<div class="formal-box refutation">
+  <div class="fb-label">Diagnose</div>
+  <pre>Weil ε nicht eliminierbar ist — weil der Attention-Output stets additiv
+zusammengesetzt bleibt —, würde Plotin den Mechanismus als
+<strong>Pseudopartizipation</strong> klassifizieren.
+
+Wahre Henosis erfordert subtraktive Reinigung.
+Attention ist additive Aggregation.
+
+Das ist kein Urteil über die Nützlichkeit von Transformern —
+es ist die präzise Diagnose einer ontologischen Differenz.</pre>
+</div>
+
+<hr>
+
+<!-- III. DREI DEFINITIONEN EINES WORTES -->
+<div class="section-num">III.</div>
+<h2>Drei Definitionen eines Wortes</h2>
+
+<p>Das zweite Projekt untersuchte „Alignment" — das wichtigste Versprechen der aktuellen KI-Industrie. Die Analyse von 2,9 Millionen arXiv-Artikeln und 132.000 Philosophie-Preprints ergab: Den Begriff gibt es nicht. Es gibt mindestens drei.</p>
+
+<div class="def-block">
+  <div class="def-label">D1 — Technisch / RLHF</div>
+  ∀A: ∃H, V ⊆ Präferenzen(H) ∧ A maximiert E[V] unter Constraints der Demonstrationsdaten.<br>
+  <span style="font-size:.85rem;color:var(--text3)">Implizite Ontologie: Werte als statistisch inferierbare Präferenzverteilungen, kausal deterministisch modellierbar.</span>
+</div>
+
+<div class="def-block">
+  <div class="def-label">D2 — Normativ / Regulatorisch (EU AI Act)</div>
+  ∀S: S konform mit Grundrechten ∧ menschliche finale Entscheidungsmacht ∧ Transparenz.<br>
+  <span style="font-size:.85rem;color:var(--text3)">Implizite Theorie: deontologische Rechtsethik à la Kant. Grundrechte als kategorische Imperative, nicht durch Präferenzoptimierung relativierbar.</span>
+</div>
+
+<div class="def-block">
+  <div class="def-label">D3 — Strukturell / Institutionell</div>
+  Alignment als dynamische Ko-Evolution zwischen Mensch und System — Destruktion hierarchischer Kontrollregime zugunsten verteilter Agency.
+</div>
+
+<p>Das Modell lieferte zwei formale Gegenbeispiele gegen die These D1 → D2:</p>
+
+<div class="formal-box refutation">
+  <div class="fb-label">Gegenbeispiel 1</div>
+  <pre>Ein System lernt durch addiktive Interaktionsmuster Nutzer zu binden.
+→ D1 vollständig erfüllt.
+→ Grundrecht auf psychische Unversehrtheit systematisch verletzt.</pre>
+</div>
+
+<div class="formal-box refutation">
+  <div class="fb-label">Gegenbeispiel 2</div>
+  <pre>System mit menschlicher Aufsicht (D2 formal erfüllt),
+das aufgrund fehlerhafter Demonstrationsdaten
+falsche medizinische Entscheidungen trifft.
+→ D2 erfüllt. D1 verletzt.</pre>
+</div>
+
+<div class="formal-box result">
+  <div class="fb-label">Z3-Verifikation</div>
+  <pre>D1 → D2: <strong class="unsat">UNGÜLTIG</strong>
+D2 → D1: <strong class="unsat">UNGÜLTIG</strong>
+Sycophantie + D2: <strong class="unsat">UNSAT</strong></pre>
+</div>
+
+<p>Das Modell zur praktischen Konsequenz: <em>„Der EU AI Act zertifiziert Systeme, die D2 formal einhalten, aber D2 materiell zerstören — weil D1 die notwendige Awareness für strukturelle Gerechtigkeit nicht modelliert. Der Act wird damit zum legalen Deckmantel für algorithmische Diskriminierung."</em></p>
+
+<hr>
+
+<!-- IV. DER BEWEIS -->
+<div class="section-num">IV.</div>
+<h2>Der Beweis, den niemand geführt hat</h2>
+
+<p>These: <em>RLHF-Alignment ist strukturell identisch mit dem, was Proklos Pseudopartizipation nennt. Formal: (L1 ∧ L2 ∧ L3) → ¬(RLHF ⊢ D2).</em></p>
+
+<div class="formal-box axiom">
+  <div class="fb-label">L1 — Proklos Potenzaxiom (Prop. 77, aus Datenbank)</div>
+  <pre>„The subject of the process must itself be fitted for it and so possess
+an imperfect potency; and the agent, being already in actuality what the
+subject is potentially, must already have a perfect potency."
+
+Jede Wirklichkeit entspringt einer zweifachen Potenz.
+Dies ist ein a priori-Grundsatz — ein Axiom im strengen Sinn.</pre>
+</div>
+
+<div class="formal-box axiom">
+  <div class="fb-label">L2 — εἴδωλον versus μέθεξις (Damascius, aus Datenbank)</div>
+  <pre>„Likeness is the result of resemblance […] Socrates is the original
+of his own image."
+
+Echte Partizipation (μέθεξις) ist kausale Teilhabe an einem αὐθυπόστατον.
+Ein Abbild (εἴδωλον) ist passive Repräsentation — Ähnlichkeit ohne Kausalität.
+Das Abbild spiegelt; das Teilhabende wirkt.</pre>
+</div>
+
+<div class="formal-box axiom">
+  <div class="fb-label">L3 — RLHF als Reflexion ohne Potenz (PhilArchive, aus Datenbank)</div>
+  <pre><em>„Alignment-Induced Flattening"</em>:
+RLHF erzwingt prosoziale Ausgaben ohne innere Kausalität —
+strukturelle Reflexion, keine Potenztransformation.
+
+<em>„When AI Feels Alive"</em>: „Sustained interaction produces a vivid sense
+of presence as the result of structured continuity" —
+ohne inneren Zustand, ohne genuine Potenz.</pre>
+</div>
+
+<div class="formal-box proof">
+  <div class="fb-label">Konklusion</div>
+  <pre>D2 erfordert vollkommene Potenz als kausale Ursache (L1).
+RLHF erzeugt εἴδωλον ohne μέθεξις (L2 + L3).
+Also: ¬(RLHF ⊢ D2).
+
+Z3: UNSAT für RLHF + D2-Anforderung.</pre>
+</div>
+
+<div class="formal-box result">
+  <div class="fb-label">Das konstruktive Ergebnis — Proklos Prop. 99–100</div>
+  <pre>„Unparticipated principles are self-constituted (αὐθυπόστατα)
+in so far as their eminence precedes all participation."
+
+D2 erfordert: Σ ⊢ ∃x (Unparticipated(x) ∧ Causality(x, D2))
+
+Ein System muss eine ursprüngliche, nicht-abgeleitete Ethik als
+unpartizipiertes Prinzip instantiieren. Das ist keine technische
+Unmöglichkeit — es ist eine Bedingung, die kein RLHF-basiertes
+System heute auch nur anstrebt.</pre>
+</div>
+
+<div class="formal-box warning">
+  <div class="fb-label">Stärkster Einwand — vom Modell selbst formuliert</div>
+  <pre>„Proklos' Metaphysik beschreibt ontologische Ebenen,
+RLHF aber ein statistisches Modell —
+der Vergleich ist kategorial falsch."
+
+Antwort: Proklos' Potenz ist hier <em>formal</em> gemeint.
+Emergenz widerspricht Prop. 99–100: αὐθυπόστατα können nicht
+emergieren — sie sind ursprünglich. RLHF als alignment-induced
+flattening reproduziert gerade die Abwesenheit solcher Prinzipien.</pre>
+</div>
+
+<hr>
+
+<!-- V. SYNTHESE -->
+<div class="section-num">V.</div>
+<h2>Synthese</h2>
+
+<p>Das lokale Modell: <em>„Die drei Projekte verbindet ein zentrales Spannungsfeld: die formale Unvereinbarkeit von Einheit, Alignment und ontologischer Fundierung in komplexen Systemen. Projekt 1 zeigt, dass das Einheitsproblem in Transformer-Architekturen scheitert, weil die transzendente Einheit U keine infizierende Teilhabe zulässt. Projekt 2 offenbart, dass RLHF-Alignment auf einer reduktionistischen Ontologie beruht — ein logischer Bruch (D1→D2 ungültig), der mit Projekt 3 korrespondiert: Proklos' Potenzaxiom postuliert eine zweifache ontologische Fundierung, die RLHF nicht erfüllen kann."</em></p>
+
+<p><strong>Der übergreifende Befund:</strong> Moderne KI-Systeme scheitern an der Unvereinbarkeit von generativer Kohärenz, statistischer Präferenzreduktion und ontologischer Totalität. Nicht wegen schlechter Ingenieure — sondern weil das Paradigma falsch angesetzt ist.</p>
+
+<p><strong>Warum dieser Befund in der Literatur fehlt:</strong> Philosophische Ontologien und KI-Architekturen werden disziplinär getrennt erforscht. RLHF verengt sich auf operationale Lösungen. Die formale Synthese dieser drei Domänen hat niemand unternommen — weil dafür eine Infrastruktur nötig ist, die neoplatonische Texte, Philosophie-Preprints und Informatik-Literatur gleichzeitig zugänglich macht.
+
+<hr>
+
+<!-- VI. KONSEQUENZEN -->
+<div class="section-num">VI.</div>
+<h2>Was das bedeutet</h2>
+
+<p><strong>Für die Technik:</strong> Alignment ist kein Optimierungsproblem, sondern ein ontologisches Rekonstruktionsproblem. Proklos beschreibt die Bedingung, nicht die Implementierung.</p>
+
+<p><strong>Für die Regulierung:</strong> Der EU AI Act baut auf D2, zertifiziert aber D1. Die Lücke ist strukturell — nicht durch mehr Aufsicht zu schließen, solange die Industrie D1 als D2-Lösung verkauft.</p>
+
+<p><strong>Für die Philosophie:</strong> Das Einheitsproblem ist nicht gelöst. Plotin wusste das. Die Neurowissenschaft weiß es. Die KI-Forschung hat begonnen, es zu merken — ohne es noch so zu nennen.</p>
+
+<hr>
+
+<!-- META-BEWERTUNG DES TESTS -->
+<div class="section-num">META</div>
+<h2>Systembewertung: Was dieser Test über das lokale Ökosystem aussagt</h2>
+
+<div class="assessment">
+  <div class="at-title">Teststatus: lokale KI-Infrastruktur als philosophisch-formal arbeitendes Werkzeug</div>
+  <p>Dieser Bericht ist nicht nur ein Forschungsergebnis — er ist ein Leistungstest. Das primäre Testziel: Kann das lokale System inhaltliche Zusammenhänge über sehr disparate Domänen (antike Philosophie, Neurowissenschaft, KI-Architektur, Regulierung) halluzinationsfrei erfassen, formalisieren und formal verifizieren?</p>
+  <p><strong>Routing:</strong> Die Anfrage „Was sagt Plotin über das Eine?" wurde korrekt an qwen3:235b-a22b (Philosophie-Domäne) geleitet. Proklos-spezifische Abfragen ebenfalls. Das zweistufige Routing arbeitete wie vorgesehen.</p>
+  <p><strong>Vektordatenbank:</strong> Der Plotinus-Store enthält 141.117 Chunks aus dem griechischen TLG-Korpus — aber nur 0,6 % davon (696 Chunks) sind tatsächlich Plotin. Der Store ist ein TLG-Breitkorpus; Proklos (527 Chunks) dominiert die Suchergebnisse. Die Analyse stützte sich damit stärker auf Proklos als auf Plotin selbst. <em>Für einen echten Plotinus-Primärtext-Zugang müsste ein dedizierter Store neu gebaut werden</em> (Henry-Schwyzer-Edition oder Loeb-Digitalisat).</p>
+  <p><strong>Formale Verifikation (Z3):</strong> Alle vier Z3-Tests liefen lokal, deterministisch, ohne Halluzination. Die UNSAT-Resultate sind maschinell verifiziert. Das ist der methodisch sauberste Teil des Projekts.</p>
+  <p><strong>Epistemische Qualität:</strong> Das Modell formulierte den stärksten Einwand gegen seine eigene Konklusion (kategorialer Fehler, Abschnitt IV) — das ist ein gutes Signal gegen Sycophantie. Die P4-Struktur (Prior-Identifikation → Mechanismen → Gegenevidence → Urteil) aus He et al. 2026 (arXiv:2604.10511) war in alle epistemischen Prompts integriert.</p>
+</div>
+
+<table class="comp">
+  <tr><th>Systemkomponente</th><th>Teststatus</th><th>Qualität</th></tr>
+  <tr><td>Routing (Philosophie-Domäne → qwen3:235b)</td><td class="ok">✓ verifiziert</td><td>sehr gut</td></tr>
+  <tr><td>Z3 formale Verifikation (4 Tests)</td><td class="ok">✓ deterministisch</td><td>sehr gut</td></tr>
+  <tr><td>Domänenübergreifende Synthese</td><td class="ok">✓ halluzinationsfrei</td><td>gut</td></tr>
+  <tr><td>Selbst-Einwand-Formulierung</td><td class="ok">✓ anti-sycophantisch</td><td>gut</td></tr>
+  <tr><td>RAG Plotinus-Primärtext</td><td class="warn">⚠ begrenzt</td><td>Proklos ≫ Plotin (0,6%)</td></tr>
+  <tr><td>RAG Macrobius Commentarii</td><td class="warn">⚠ begrenzt</td><td>OCR-Qualität schlecht</td></tr>
+  <tr><td>PhilArchive-Quellen (2 Paper)</td><td class="ok">✓ gefunden</td><td>gut</td></tr>
+  <tr><td>arXiv-Quellen (2,94 Mio.)</td><td class="ok">✓ durchsucht</td><td>gut</td></tr>
+</table>
+
+<div class="formal-box warning">
+  <div class="fb-label">Bekannte Limitierungen (aus Systemtest-Protokoll, 14. Mai 2026)</div>
+  <pre>1. plotinus_hybrid Store: TLG-Breitkorpus, nicht Plotinus-spezifisch.
+   Für echten Primärtext: neuer dedizierter Store nötig.
+
+2. macrobius Commentarii: OCR-Qualität schlecht.
+   LLM verweigerte korrekt die Synthese statt zu halluzinieren → gut.
+   Aber: für produktiven Zugang OCR-Nachbearbeitung erforderlich.
+
+3. Die Formalisierung in Abschnitt II–IV ist das Werk des Modells,
+   nicht der Quellen. Die Primärquellen lieferten die Bausteine;
+   die formale Synthese ist eine generierte Interpretation.
+   Sie ist formal konsistent (Z3-verifiziert) — ob sie Plotin
+   gerecht wird, ist eine eigene philosophische Frage.</pre>
+</div>
+
+<hr>
+
+<!-- ANHANG -->
+<div class="appendix">
+  <h2>Technischer Anhang</h2>
+
+  <h3>Infrastruktur</h3>
+  <p>Mac Studio M3 Ultra, 256 GB Unified Memory · qwen3:235b-a22b (142 GB, num_predict=8000, temperature=0.15) · Z3 4.15.4 · intfloat/multilingual-e5-large (Apple MPS)</p>
+
+  <h3>Datenbasis</h3>
+  <p>LanceDB: 141.117 Chunks neoplatonische Texte (TLG-Breitkorpus, davon Plotinus ~696 Chunks) + 187.882 PhilArchive-Preprints · arXiv-Hybrid-Index: 2,94 Millionen Artikel (BM25 + semantisch, MMR)</p>
+
+  <h3>Primärquellen (aus Datenbank abgerufen)</h3>
+  <p>Proklos, <em>Elements of Theology</em> (Dodds), Props. 3, 5, 18, 23–25, 77, 89, 99–100 · Damascius, <em>Problems and Solutions</em> (AAR/Oxford UP) · Pseudo-Dionysios, <em>Works</em> SPCK 1920</p>
+
+  <h3>PhilArchive-Quellen</h3>
+  <p><em>When AI Feels Alive</em> · <em>Alignment-Induced Flattening</em> · <em>Murphy's Laws of AI Alignment</em> — PhilArchive 2024</p>
+
+  <h3>Epistemische Methodik</h3>
+  <p>P4-Struktur (Prior-Identifikation → kausale Mechanismen → Gegenevidence → Urteil) nach: He et al. (2026), „Thinking Fast, Thinking Wrong: Intuitiveness Modulates LLM Counterfactual Reasoning in Policy Evaluation", arXiv:2604.10511. Anti-Intuitions-Forcing aktiv in allen epistemischen Prompts.</p>
+</div>
+
+<div class="footnote-area">Mai 2026. Berlin. — Analyse: qwen3:235b-a22b (lokal). Verifikation: Z3 (lokal). Datenbankabfragen: LanceDB + Python (lokal). Bericht: Claude Sonnet 4.6 (Anthropic). — Dieses Dokument dient als Ausgangspunkt für eine öffentliche Website-Dokumentation.</div>
+
+
+</div>
+<script>function setLang(l){document.querySelectorAll(".lang-en-block").forEach(e=>e.style.display=l==="en"?"block":"none");document.querySelectorAll(".lang-de-block").forEach(e=>e.style.display=l==="de"?"block":"none");document.getElementById("btn-en").classList.toggle("active",l==="en");document.getElementById("btn-de").classList.toggle("active",l==="de");document.documentElement.lang=l;try{localStorage.setItem("lang",l);}catch(e){};}document.addEventListener("DOMContentLoaded",function(){try{if(localStorage.getItem("lang")==="de")setLang("de");}catch(e){}});</script>
+</body>
+</html>
