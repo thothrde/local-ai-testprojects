@@ -270,6 +270,9 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 </tbody>
 </table>
 
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Deep Consolidation (<code>tiefenkonsolidierung</code>)</h3>
+<p>Software analogue of the LLM Sleep Paradigm (Lee et al., arXiv:2605.26099, 2026): 1&nbsp;exploration pass at high temperature + N deepening passes at low temperature over the same context. Implemented as new method in the <code>komitee_bewertung</code> WebUI tool (v1.0.0 &rarr; v1.1.0, May 2026). Suitable for deep analyses, chains of argument, mathematical explanations, and proof ideas. Runtime: n=2 approx. 15&ndash;20&nbsp;min, n=3 approx. 25&nbsp;min. Deliberately not extended to <code>lean_iterativ</code> (which already implements the analogous principle via the Ralph&nbsp;Loop) or the mathematics orchestrator (no specific occasion).</p>
+
 <p>The anti-hallucination architecture follows He et al. (arXiv:2604.10511, 2026). Key components:</p>
 <ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
 <li><strong>Source credibility scoring</strong> before retrieval (not only post-retrieval): sources are rated by recency, citation count, and document type</li>
@@ -336,6 +339,7 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
   <li>Mathlib fully installed: ~1.5 million lines, ~150,000 theorems</li>
   <li>Project ChromaticArith: 4 .lean files, 2722 build jobs, 0 sorry</li>
   <li>Anti-hallucination use: verified formal claims, direct Mathlib queries</li>
+  <li>WebUI tool <code>lean_iterativ</code>: iterative Lean&nbsp;4 proof assistant via Ralph&nbsp;Loop (arXiv:2605.22763, AlphaProof Nexus, DeepMind 2026) &mdash; LLM sees compiler errors and corrects iteratively until sorry-free; max.&nbsp;8 rounds, backend deepseek-r1:70b</li>
 </ul>
 
 <h3>Z3 SMT-Solver 4.15.4</h3>
@@ -671,6 +675,9 @@ T. Riepe, Berlin &middot; Autark Data &middot; ERGO Intelligence &middot; Mac St
   <tr><td><code>/journal [Text]</code></td><td>Datierter Forschungsnotiz-Eintrag (sitzungsübergreifend persistent)</td><td>—</td></tr>
 </table>
 
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Tiefenkonsolidierung (<code>tiefenkonsolidierung</code>)</h3>
+<p>Software-Analogon des LLM-Sleep-Paradigmas (Lee et al., arXiv:2605.26099, 2026): 1&nbsp;Explorations-Pass bei hoher Temperatur + N Vertiefungs-Pässe bei niedriger Temperatur über denselben Kontext. Implementiert als neue Methode im WebUI-Tool <code>komitee_bewertung</code> (v1.0.0 &rarr; v1.1.0, Mai 2026). Geeignet für Tiefenanalysen, Argumentationsketten, mathematische Erklärungen und Beweisideen. Laufzeit: n=2 ca. 15&ndash;20&nbsp;Min, n=3 ca. 25&nbsp;Min. Bewusst nicht auf <code>lean_iterativ</code> (implementiert dasselbe Prinzip bereits via Ralph&nbsp;Loop, arXiv:2605.22763) oder den Mathematik-Orchestrierer ausgedehnt.</p>
+
 <p>Der Memory-Notifier sendet nach Inaktivität eine macOS-Systembenachrichtigung als Speicher-Erinnerung. Journal-Einträge und /speichere-Ausgaben werden auf <code class="inline">/Volumes/CLAUDE-DATA</code> abgelegt.</p>
 
 <hr>
@@ -754,6 +761,7 @@ T. Riepe, Berlin &middot; Autark Data &middot; ERGO Intelligence &middot; Mac St
       <li>Mathlib vollständig: ~1,5 Mio. Zeilen, ~150.000 Sätze</li>
       <li>Projekt <code>~/lean_mathlib/</code> (41 .lean-Dateien)</li>
       <li>WebUI-Tool <code>lean4_verifier</code></li>
+      <li>WebUI-Tool <code>lean_iterativ</code>: iterativer Lean-4-Beweisassistent via Ralph&nbsp;Loop (arXiv:2605.22763, AlphaProof&nbsp;Nexus, DeepMind&nbsp;2026) &mdash; LLM sieht Compiler-Fehler und korrigiert gezielt nach, bis sorry-frei; max.&nbsp;8&nbsp;Runden, Backend deepseek-r1:70b</li>
       <li>GitHub-Projekt: solid modules</li>
     </ul>
   </div>
