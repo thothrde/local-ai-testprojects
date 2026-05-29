@@ -214,23 +214,32 @@ div.lang-de-section p  { color:var(--text) !important; }
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">GPU</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">80-core</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">CPU</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">24-core (16 performance + 8 efficiency)</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Storage</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2 TB SSD</td></tr>
-<tr><td style="padding:.4rem .75rem;">Operating System</td><td style="padding:.4rem .75rem;">macOS Sequoia</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Operating System</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">macOS Sequoia</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">External SSD</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">4 TB Thunderbolt (<code>TB5-WORK</code>) &mdash; holds DeepSeek V4 Flash GGUF (153&nbsp;GB)</td></tr>
+<tr><td style="padding:.4rem .75rem;">Memory stick</td><td style="padding:.4rem .75rem;"><code>/Volumes/CLAUDE-DATA</code> &mdash; Backup, Bridge files, session logs, project continuity</td></tr>
 </table>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Local Language Models (Ollama)</h2>
+<p style="font-size:.88rem;color:#5a5648;margin-bottom:.65rem;">Ollama runs as a Homebrew service on <strong>port 11434</strong>. MLX backend active via <code>OLLAMA_BACKEND=mlx</code> (~30&nbsp;% speed gain on Apple Silicon). Models are automatically loaded by the router on demand and unloaded after inactivity.</p>
 <table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
 <tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Model</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Size</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Role / Routing</th></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">qwen3:235b-a22b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">142 GB MoE</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Flagship &mdash; complex analysis, philosophy, mathematics, synthesis</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">DeepSeek-V4-Flash</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~170 GB MoE</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1M context window &mdash; long documents, full-text ingestion</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">deepseek-r1:70b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~45 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Adversarial checker, chain-of-thought reasoning</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">qwen3:32b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~20 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Primary coding and standard reasoning backend</td></tr>
-<tr><td style="padding:.4rem .75rem;">llama3.1:8b</td><td style="padding:.4rem .75rem;">~5 GB</td><td style="padding:.4rem .75rem;">Fast responses, ConTopoS service (Grundgesetz)</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">llama3.1:8b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~5 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Fast responses, ConTopoS service (Grundgesetz)</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>qwen3.6:35b-a3b</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~23 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Standard all-purpose, routing interpreter (L1 reformulator), coding (~47 tok/s)</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>gemma4:26b</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~17 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Vision, tool-calling, 256K context, MTP speculative decoding (~80 tok/s)</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>mistral-small3.1:24b</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~15 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Lightweight, commit messages (Aider weak model)</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>mxbai-embed-large</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">669 MB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Second embedding model</td></tr>
+<tr><td style="padding:.4rem .75rem;"><code>llama-guard3:8b</code></td><td style="padding:.4rem .75rem;">4.9 GB</td><td style="padding:.4rem .75rem;">Safety classifier</td></tr>
 </table>
 
 
 <h3>DeepSeek V4 Flash (DSV4) &mdash; dedicated llama-server</h3>
 <p>Additionally: DeepSeek V4 Flash (284B MoE, 153 GB GGUF, Mixed Quantization Q4KExperts/F16HC) on TB5-WORK. Runs via its own llama-server on port 8888 &mdash; <strong>256K context</strong>, 99 GPU layers, 1M-context architecture. Automatically activated by the router for very long inputs (&gt;400 token complexity threshold). RunAtLoad=false; startable manually or automatically via router. Not yet available via the official Ollama API.</p>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">LLM Router Proxy v3.3 &mdash; Core of the System</h2>
+<p style="font-size:.88rem;color:#5a5648;margin-bottom:.65rem;">FastAPI middleware on <strong>Port 11435</strong> (<code>~/llm_router/llm_proxy.py</code>, LaunchAgent <code>com.autarkdata.llm-router-proxy</code>). Every request from Open WebUI and all other clients passes exclusively through this proxy.</p>
 <p>The two-stage routing is the central architectural decision. Stage 1 (rule-based dispatcher) classifies requests by domain keywords, token length and topic markers &mdash; without any LLM call, purely pattern-based. For simple queries (library searches, factual lookups, short code tasks) this stage routes directly. For ambiguous cases Stage 2 (L1 reformulator) is invoked: a smaller LLM classifies the query's intent, selects the appropriate large model, and extracts search queries for the retrieval layer.</p>
 <p>The system has an internal slow memory (Neo4j knowledge graph with persons, concepts, projects, relations) and fast session memory (conversation-scope context from current session). Both are injected as system context before each model call. After each response, the Synthegy evaluator (a separate model instance) rates the response 1&ndash;5 on accuracy and groundedness. Scores below 3 trigger a retry or escalation.</p>
 
@@ -255,6 +264,19 @@ div.lang-de-section p  { color:var(--text) !important; }
 <p><strong>DSV4-Flash</strong> (long context): inputs &gt;400 tokens complexity threshold, full-document analysis</p>
 </div>
 
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Source Credibility Scoring</h3>
+<p>All search results are annotated with a URL-based credibility score before context injection. Sources below threshold are discarded.</p>
+<table style="width:100%;border-collapse:collapse;font-size:.83rem;margin:.75rem 0;font-family:sans-serif;">
+<thead><tr style="background:#f5f4f0;"><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Tier</th><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Sources</th></tr></thead>
+<tbody>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Canonical academic</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Institutional sites (IHES, IAS, MPIM, Oberwolfach), peer-reviewed journals, MathSciNet, mathematician blogs (Tao, Gowers)</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Very good</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">arXiv preprints, OpenAlex, CORE, Semantic Scholar, zbMATH</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Good</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Wikipedia (multilingual), Open Library, reliable reference sites</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Medium / low</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Forums, popular sites, non-academic blogs</td></tr>
+<tr><td style="padding:.3rem .6rem;">Ignored</td><td style="padding:.3rem .6rem;">Sources below credibility threshold &mdash; no context injection</td></tr>
+</tbody>
+</table>
+
 <p><strong>Anti-sycophancy protocol:</strong> The P4 structure (Prior Identification &rarr; Causal Mechanisms &rarr; Counter-evidence &rarr; Judgement, after He et al. arXiv:2604.10511, 2026) is active in all epistemic prompts. The system treats cross-model disagreement as an epistemic signal rather than an error: disagreement indicates genuine difficulty or counter-intuitive terrain.</p>
 <p><strong>Synthegy evaluator pattern:</strong> Each response is scored by a separate evaluator LLM (accuracy 1&ndash;5, groundedness 1&ndash;5) before delivery. Scores below threshold trigger reformulation with broader search.</p>
 
@@ -274,7 +296,13 @@ div.lang-de-section p  { color:var(--text) !important; }
 <tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/verify</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Z3 / Lean 4 verification of formal claim</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">r1:70b + Z3</td></tr>
 <tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/counterargument</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Steel-man of opposite position</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">r1:70b</td></tr>
 <tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/uncertainty</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Explicit confidence intervals, distinguishes KNOWN / FOLKLORE / CONJECTURE</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
-<tr><td style="padding:.3rem .6rem;"><code>/sources</code></td><td style="padding:.3rem .6rem;">Retrieves primary sources with credibility scores before answering</td><td style="padding:.3rem .6rem;">router + LanceDB</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/sources</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Retrieves primary sources with credibility scores before answering</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">router + LanceDB</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/ensemble [question]</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Three models answer independently &mdash; cross-model disagreement as epistemic signal</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b + r1:70b + qwen3.6</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/kreativ</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Productive estrangement, structural analogies across domains</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/navigator</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Navigator cognitive mode (hypnagogic, associative thinking)</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/destilliere</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Core extraction, compression to essential structure</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3.6:35b</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/speichere</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">LLM-compressed session summary &rarr; CLAUDE-DATA stick</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3.6:35b</td></tr>
+<tr><td style="padding:.3rem .6rem;"><code>/journal [text]</code></td><td style="padding:.3rem .6rem;">Dated research note entry (persistent across sessions)</td><td style="padding:.3rem .6rem;">&mdash;</td></tr>
 </tbody>
 </table>
 
@@ -307,8 +335,12 @@ div.lang-de-section p  { color:var(--text) !important; }
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">plotinus_multilingual</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">78,674</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Neoplatonic TLG corpus (GR/LA/DE/EN). Note: Plotinus ~0.6%, Proclus dominant.</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">ose_wiki</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">19,659</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Open Source Ecology Wiki</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">macrobius_corpus</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~8,000</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Macrobius primary texts (Saturnalia, Somnium Scipionis)</td></tr>
-<tr><td style="padding:.4rem .75rem;">Chromatic homotopy</td><td style="padding:.4rem .75rem;">520</td><td style="padding:.4rem .75rem;">Chromatic homotopy theory literature (Ravenel, Lurie, Morava etc.)</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Chromatic homotopy</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">520</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Chromatic homotopy theory literature (Ravenel, Lurie, Morava etc.)</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">latin_passages</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&mdash;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Additional Latin primary texts</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">cardano_hybrid</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&mdash;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Renaissance texts (Cardano: Ars magna, autobiographical works)</td></tr>
+<tr><td style="padding:.4rem .75rem;">philarchive</td><td style="padding:.4rem .75rem;">&mdash;</td><td style="padding:.4rem .75rem;">PhilArchive philosophy preprints (187,882 papers)</td></tr>
 </table>
+<p style="font-size:.85rem;color:#5a5648;margin-top:.5rem;">plotinus_multilingual: 855&nbsp;MB &middot; ose_wiki: 335&nbsp;MB &middot; macrobius: 6.1&nbsp;MB. All collections: BGE-M3 embeddings + BM25 full-text index + MMR re-ranking. Accessible via local Library API service (Port 7872).</p>
 <p>The LanceDB collections use BGE-M3 embeddings (multilingual, 1024-dimensional) with 1.6&nbsp;GB for the plotinus_multilingual collection. All collections have both vector and BM25 full-text search; hybrid retrieval with MMR diversity re-ranking.</p>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Experimental Mathematics</h2>
@@ -374,7 +406,7 @@ div.lang-de-section p  { color:var(--text) !important; }
 <h3>LLM-assisted document understanding</h3>
 <p>Complementary to Chandra OCR: any Ollama models for document interpretation, layout analysis, content indexing. Gemma4:26b processes native PDFs with complex mathematical notation. Pipeline: pdftotext/Chandra &rarr; LLM interpretation &rarr; structured metadata extraction &rarr; LanceDB ingestion.</p>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Open WebUI and WebUI Tools</h2>
-<p>Open WebUI 0.9.2 (in dedicated Python 3.11 environment) provides the primary chat interface for local LLM interaction, accessible both locally and remotely via webui.autark-data.org. 11 custom tools are implemented:</p>
+<p>Open WebUI 0.9.2 (in dedicated Python environment) provides the primary chat interface for local LLM interaction, accessible locally and remotely via webui.autark-data.org (Port 3002, LaunchAgent <code>com.autarkdata.open-webui</code>). <strong>20 custom tools</strong> are implemented (directly activatable from the chat window):</p>
 <ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
 <li>Bridge/Master-Sync/Notes &mdash; synchronisation with CLAUDE-DATA stick and Apple Notes</li>
 <li>Knowledge Graph Neo4j &mdash; direct query of the knowledge graph from WebUI</li>
@@ -387,6 +419,14 @@ div.lang-de-section p  { color:var(--text) !important; }
 <li>DuckDuckGo Pro &mdash; web search with deduplication</li>
 <li>YouTube Transcript &mdash; transcript extraction for video content</li>
 <li>Web Crawler &mdash; URL-based content extraction</li>
+<li>SAT Encoding Advisor &mdash; automatic formalisation of natural language claims for Z3</li>
+<li>Physics Simulation &mdash; Julia + QuTiP (Schr&ouml;dinger, Kerr geodesics, N-body)</li>
+<li>Lean 4 Verifier (<code>lean4_verifier</code>) &mdash; formal verification with Mathlib access</li>
+<li>Lean Iterative (<code>lean_iterativ</code>) &mdash; iterative proof assistant via Ralph Loop</li>
+<li>Experimental Mathematics &mdash; PSLQ, BBP, PARI/GP pipeline</li>
+<li>Philosophical Primary Texts &mdash; Plotinus, Macrobius, OSE-Wiki, latin passages</li>
+<li>Knowledge Graph (Neo4j) &mdash; direct query via <code>wissensgraph_neo4j</code></li>
+<li>Academic Search &mdash; OpenAlex, CORE, Semantic Scholar combined</li>
 </ul>
 
 
@@ -448,7 +488,29 @@ div.lang-de-section p  { color:var(--text) !important; }
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">shimura.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7878</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Shimura Varieties Quiz</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; active</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">vw.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7864</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">VW Group Intelligence Engine</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">(off)</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">walks.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7880</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Walks App with AI-generated texts</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">(off)</td></tr>
-<tr><td style="padding:.4rem .75rem;">&mdash;</td><td style="padding:.4rem .75rem;">7687</td><td style="padding:.4rem .75rem;">Neo4j Knowledge Graph</td><td style="padding:.4rem .75rem;">&#10003; permanent</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&mdash;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7687</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Neo4j Knowledge Graph</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; permanent</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&mdash;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">5432</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">PostgreSQL 15 (mydb) &mdash; MCP server access via Node.js</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; permanent</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">drehtuer.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7876</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Dreht&uuml;r-Datenbank Deutschland (LobbyRG)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">active</td></tr>
+<tr><td style="padding:.4rem .75rem;">dboepnv.autark-data.org</td><td style="padding:.4rem .75rem;">7877</td><td style="padding:.4rem .75rem;">DB/&Ouml;PNV Dreht&uuml;r-Datenbank</td><td style="padding:.4rem .75rem;">active</td></tr>
+</table>
+
+<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Main application: demo.autark-data.org (Port 7860, ~12 main tabs)</h3>
+<table style="width:100%;border-collapse:collapse;font-size:.85rem;margin:.65rem 0;font-family:sans-serif;">
+<thead><tr style="background:#f5f4f0;"><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Tab</th><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Content</th></tr></thead>
+<tbody>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Plotinus RAG</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Ancient Greek primary texts, semantic search, LLM interpretation</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Macrobius &amp; Gellius</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Late Roman antiquity, Commentarii in Somnium Scipionis, Latin sources</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Ibn Khald&ucirc;n</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">al-Muqaddima &mdash; Arabic medieval, philosophy of history</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Girolamo Cardano</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Renaissance: Ars magna, autobiographical texts, combinatorics</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Think Tank Navigator</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">TDA, persistent homology, political network analysis</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">ConTopoS</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Grundgesetz: all 205 articles, hypergraph analysis, Constitutional Topology</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Economy Navigator</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">3D constellation, shock simulator, IO analysis, Leontief, biodiversity IPBES 2026</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Private Library</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Knowledge network, semantic search, 5,788 books</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">ArXiv Navigator</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">2.4M papers, smart search, network analysis, quality scoring</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Pale Fire &mdash; Nabokov</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Literary analysis, intertextuality</td></tr>
+<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Sovereign Debt</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Global sovereign debt, financial architecture, bilingual</td></tr>
+<tr><td style="padding:.3rem .6rem;">Banking Intelligence</td><td style="padding:.3rem .6rem;">German banks, Basel III, Pillar 3, regulation</td></tr>
+</tbody>
 </table>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Image Generation &middot; Coding Assistant &middot; Python Environments</h2>
@@ -503,6 +565,10 @@ div.lang-de-section p  { color:var(--text) !important; }
 <li>Systematic evaluation of the Synthegy evaluator against human judgements</li>
 <li>The Mathlib lemma IsDiscrete &rarr; IsTiny for the complete sol_leftCancel proof</li>
 <li>Chandra OCR post-processing for the Macrobius volumes with poor scan quality</li>
+<li><strong>Comparison against naive baselines</strong> &mdash; no comparison against simple keyword search or direct LLM call without context injection; the benefit of two-stage routing is empirically unconfirmed</li>
+<li><strong>Error profiles by domain</strong> &mdash; no systematic error analysis: where does the system hallucinate, which domains have weakest coverage?</li>
+<li><strong>False-positive rate in safety classifier</strong> (llama-guard3:8b) &mdash; no measurement of how often legitimate queries are incorrectly blocked</li>
+<li><strong>Measurable benefit of ensemble check</strong> vs. single-model answers &mdash; the cross-model disagreement signal (He et al. 2026) is theoretically well-motivated but not empirically verified for this specific system</li>
 </ul>
 
 <div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
