@@ -321,6 +321,56 @@ footer {
 div.lang-en-section{background:#faf9f6;color:#1c1b18;}
 span.lang-en-section{display:inline;}
 span.lang-de-section{display:none;}
+/* ── Light-theme overrides for EN section ─────────────────────────────── */
+div.lang-en-section h1 { color:#1c1b18 !important; }
+div.lang-en-section h2 { color:#5a5648; border-bottom-color:#ccc; }
+div.lang-en-section h3 { color:#1c1b18 !important; }
+div.lang-en-section p  { color:#1c1b18; }
+div.lang-en-section header { border-bottom-color:#ccc; }
+div.lang-en-section .subtitle   { color:#4a4844; }
+div.lang-en-section .meta-strip { color:#5a5648; }
+div.lang-en-section .kicker     { color:#5a5648; }
+div.lang-en-section .math-block { background:#f0f0ee; color:#1c1b18; border-left-color:#8a7a50; }
+div.lang-en-section .math-block .hl  { color:#7a4a00; }
+div.lang-en-section .math-block .ok  { color:#2a6a1f; }
+div.lang-en-section .math-block .dim { color:#666; }
+div.lang-en-section .lean       { background:#f0f5f0; color:#1a3a1a; }
+div.lang-en-section .lean .kw   { color:#2a5a38; }
+div.lang-en-section .lean .ty   { color:#7a5000; }
+div.lang-en-section .lean .cm   { color:#5a6655; }
+div.lang-en-section .lean .ok   { color:#2a6a1f; }
+div.lang-en-section .mi         { background:#f0efe8; color:#2c2a26; }
+div.lang-en-section .c-green { background:#e8f5ea; border-left-color:#2a6a1f; }
+div.lang-en-section .c-amber { background:#fdf6e0; border-left-color:#8a5a00; }
+div.lang-en-section .c-red   { background:#fce8e8; border-left-color:#c06060; }
+div.lang-en-section .dt td        { color:#2c2a26; border-bottom-color:#ccc; }
+div.lang-en-section .dt th        { color:#5a5648; border-bottom-color:#ccc; }
+div.lang-en-section .dt td.ak     { color:#2a6a1f; }
+div.lang-en-section .dt td.am     { color:#8a5a00; }
+div.lang-en-section .dt tr:hover td { background:#f0efe8; }
+div.lang-en-section .hyp       { border-color:#c0b898; }
+div.lang-en-section .hyp-label { color:#8a5a00; }
+div.lang-en-section .statrow         { border-color:#ccc; }
+div.lang-en-section .statcell        { border-color:#ccc; }
+div.lang-en-section .statlabel       { color:#5a5648; }
+div.lang-en-section .statval         { color:#8a5a00; }
+div.lang-en-section .statnote        { color:#666; }
+div.lang-en-section .pb-done  { background:#e8f5ea; color:#2a6a1f; }
+div.lang-en-section .pb-warn  { background:#fdf6e0; color:#8a5a00; }
+div.lang-en-section .pb-error { background:#fce8e8; color:#c06060; }
+div.lang-en-section .litlist li  { border-bottom-color:#ccc; }
+div.lang-en-section .litnum      { color:#5a5648; }
+div.lang-en-section .littext     { color:#2c2a26; }
+div.lang-en-section .littext em  { color:#1c1b18; }
+/* ─────────────────────────────────────────────────────────────────────── */
+
+/* ── Dark-theme guarantees for DE section ──────────────────────────────── */
+div.lang-de-section { background:var(--bg); color:var(--text); }
+div.lang-de-section h1 { color:var(--text) !important; }
+div.lang-de-section h2 { color:var(--text3) !important; }
+div.lang-de-section h3 { color:var(--text) !important; }
+div.lang-de-section p  { color:var(--text) !important; }
+/* ─────────────────────────────────────────────────────────────────────── */
 </style>
 </head>
 <body>
@@ -608,6 +658,11 @@ T. Riepe, Berlin &middot; Autark Data &middot; ERGO Intelligence &middot; Mac St
     <div class="statlabel">Primzahlen untersucht</div>
     <div class="statval">≤ 300</div>
     <div class="statnote">supersinuläre Datenbank</div>
+  </div>
+  <div class="statcell">
+    <div class="statlabel">Supersinuläre j-Invarianten</div>
+    <div class="statval">347</div>
+    <div class="statnote">alle Primzahlen ≤ 300</div>
   </div>
   <div class="statcell">
     <div class="statlabel">Corpus-Chunks</div>
@@ -935,8 +990,12 @@ Backup: ~/.zshrc.bak_thermal</div>
 </div>
 <script>
 function setLang(l){
-  document.querySelectorAll('.lang-en-section').forEach(e=>e.style.display=l==='en'?'':'none');
-  document.querySelectorAll('.lang-de-section').forEach(e=>e.style.display=l==='de'?'':'none');
+  document.querySelectorAll('.lang-en-section').forEach(function(e){
+    e.style.display = l==='en' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.querySelectorAll('.lang-de-section').forEach(function(e){
+    e.style.display = l==='de' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
   document.getElementById('btn-en').classList.toggle('active',l==='en');
   document.getElementById('btn-de').classList.toggle('active',l==='de');
   document.documentElement.lang=l;

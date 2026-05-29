@@ -110,6 +110,14 @@ table.comp th{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transfor
 .lang-btn:hover:not(.active){border-color:#2d4a7a;color:#2d4a7a;}
 .lang-de-section{display:none;}
 .lang-en-section{display:block;}
+
+/* ── DE section: explicit theme guarantees ─────────────────────────────── */
+div.lang-de-section { background:var(--bg); color:var(--text); }
+div.lang-de-section h1 { color:var(--text) !important; }
+div.lang-de-section h2 { color:var(--text3) !important; }
+div.lang-de-section h3 { color:var(--text) !important; }
+div.lang-de-section p  { color:var(--text) !important; }
+/* ─────────────────────────────────────────────────────────────────────── */
 </style>
 </head>
 <body>
@@ -575,8 +583,12 @@ flattening reproduziert gerade die Abwesenheit solcher Prinzipien.</pre>
 </div>
 <script>
 function setLang(l){
-  document.querySelectorAll('.lang-en-section').forEach(e=>e.style.display=l==='en'?'':'none');
-  document.querySelectorAll('.lang-de-section').forEach(e=>e.style.display=l==='de'?'':'none');
+  document.querySelectorAll('.lang-en-section').forEach(function(e){
+    e.style.display = l==='en' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.querySelectorAll('.lang-de-section').forEach(function(e){
+    e.style.display = l==='de' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
   document.getElementById('btn-en').classList.toggle('active',l==='en');
   document.getElementById('btn-de').classList.toggle('active',l==='de');
   document.documentElement.lang=l;

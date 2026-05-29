@@ -167,6 +167,14 @@ ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(-
 .lang-btn:hover:not(.active){border-color:#2d4a7a;color:#2d4a7a;}
 .lang-de-section{display:none;}
 .lang-en-section{display:block;}
+
+/* ── DE section: explicit theme guarantees ─────────────────────────────── */
+div.lang-de-section { background:var(--bg); color:var(--text); }
+div.lang-de-section h1 { color:var(--text) !important; }
+div.lang-de-section h2 { color:var(--text3) !important; }
+div.lang-de-section h3 { color:var(--text) !important; }
+div.lang-de-section p  { color:var(--text) !important; }
+/* ─────────────────────────────────────────────────────────────────────── */
 </style>
 </head>
 <body>
@@ -983,8 +991,12 @@ T. Riepe, Berlin &middot; Autark Data &middot; Mac Studio M3 Ultra, 256 GB, macO
 </div>
 <script>
 function setLang(l){
-  document.querySelectorAll('.lang-en-section').forEach(e=>e.style.display=l==='en'?'':'none');
-  document.querySelectorAll('.lang-de-section').forEach(e=>e.style.display=l==='de'?'':'none');
+  document.querySelectorAll('.lang-en-section').forEach(function(e){
+    e.style.display = l==='en' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.querySelectorAll('.lang-de-section').forEach(function(e){
+    e.style.display = l==='de' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
   document.getElementById('btn-en').classList.toggle('active',l==='en');
   document.getElementById('btn-de').classList.toggle('active',l==='de');
   document.documentElement.lang=l;
