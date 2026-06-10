@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arithmetische Eichtheorie — P1–P8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;
+--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;
+--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+--sans:'Instrument Sans',sans-serif;--max:740px;--wide:940px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+header{border-bottom:1px solid var(--rule);padding:4.5rem 0 3rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.back{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;display:inline-flex;align-items:center;gap:.4em;margin-bottom:1.5rem;transition:color .2s}
+.back:hover{color:var(--gold)}
+h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.header-desc{max-width:560px;font-size:1rem;color:var(--fg-dim);line-height:1.7;margin-top:1.5rem}
+.version-note{font-family:var(--mono);font-size:.65rem;color:var(--gold2);margin-top:1rem;letter-spacing:.04em}
+nav{font-family:var(--sans);font-size:.78rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+nav a{color:var(--fg-dim);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+nav a:hover{color:var(--gold)}
+.nav-num{color:var(--gold);margin-right:.25em;font-family:var(--mono);font-size:.7em}
+section{margin-bottom:5rem;scroll-margin-top:2rem}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;font-style:italic;color:var(--fg);margin:2.5rem 0 .8rem;letter-spacing:-.01em}
+h4{font-family:var(--sans);font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-dim);margin:2rem 0 .6rem}
+p{margin-bottom:1.2em;font-size:1rem}
+blockquote{border-left:2px solid var(--gold2);margin:1.8rem 0;padding:.5rem 0 .5rem 1.6rem;color:var(--fg-dim);font-style:italic;font-size:.97rem}
+.box{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.4rem 1.6rem;margin:1.8rem 0;border-radius:2px}
+.box .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.box p{font-size:.97rem;margin-bottom:.6em}
+.box.confirmed{border-left-color:var(--green)}.box.confirmed .label{color:var(--green)}
+.box.open{border-left-color:var(--amber)}.box.open .label{color:var(--amber)}
+.box.spec{border-left-color:var(--red)}.box.spec .label{color:var(--red)}
+.theorem{background:var(--bg2);border:1px solid #2e2a24;padding:1.5rem 1.8rem;margin:2rem 0;border-radius:2px}
+.theorem::before{content:attr(data-label);font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem}
+.table-wrap{overflow-x:auto;margin:2rem 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-family:var(--sans)}
+thead tr{border-bottom:1px solid var(--gold2)}
+th{text-align:left;padding:.6rem 1rem .6rem 0;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
+td{padding:.6rem 1rem .6rem 0;border-bottom:1px solid var(--rule);color:var(--fg-dim);vertical-align:top;line-height:1.5}
+td:first-child{color:var(--fg);font-family:var(--mono);font-size:.82rem}
+td.ok{color:var(--green)} td.conj{color:var(--amber)} td.err{color:var(--red)}
+.process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.process-card{background:var(--bg2);border:1px solid var(--rule);padding:1rem 1.2rem;border-radius:2px}
+.process-card .model{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.05em;margin-bottom:.4rem}
+.process-card .task{font-family:var(--sans);font-size:.8rem;color:var(--fg-dim);line-height:1.4}
+.lang-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-en{display:none}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+@media(max-width:640px){html{font-size:16px}.wrapper{padding:0 1.2rem}h1{font-size:2rem}}
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+<header>
+<div class="col">
+  <a class="back" href="index.html">&larr; Zur&uuml;ck / Back</a>
+  <p class="header-meta">Projekt 15 · Juni 2026 · 7 Phasen / 8 Teilprojekte</p>
+  <h1>Arithmetische Eichtheorie<span class="sub">Floer/Yang–Mills/Knoten &amp; arithmetische Topologie</span></h1>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
+  </div>
+  <p class="header-desc lang-de">Acht Teilprojekte (P1–P8) an der Schnittstelle zwischen topologischen Invarianten (Floer-Homologie, Yang–Mills-Theorie) und arithmetischen Objekten (Galois-Darstellungen, Iwasawa-Theorie). Basierend auf dem Mazur–Morishita-Analogie-Programm.</p>
+  <p class="header-desc lang-en" style="display:none">Eight sub-projects (P1–P8) at the interface between topological invariants (Floer homology, Yang–Mills theory) and arithmetic objects (Galois representations, Iwasawa theory). Based on the Mazur–Morishita analogy program.</p>
+  
+</div>
+</header><nav class="wrapper"><a href="#p1p4"><span class="nav-num">00</span><span class="lang-de">P1–P4: Knoten &amp; Iwasawa</span><span class="lang-en" style="display:none">P1–P4: Knots &amp; Iwasawa</span></a>
+<a href="#p5p6"><span class="nav-num">01</span><span class="lang-de">P5–P6: FF-Kurve &amp; Hitchin</span><span class="lang-en" style="display:none">P5–P6: FF Curve &amp; Hitchin</span></a>
+<a href="#p7p8"><span class="nav-num">02</span><span class="lang-de">P7–P8: Instantonen</span><span class="lang-en" style="display:none">P7–P8: Instantons</span></a>
+<a href="#synthese"><span class="nav-num">03</span><span class="lang-de">Übergreifende Synthese</span><span class="lang-en" style="display:none">Overall Synthesis</span></a>
+</nav>
+<section id="p1p4">
+<div class="col">
+  <h2><span class="nav-num">00</span>
+    <span class="lang-de">P1–P4: Verknüpfungsmatrizen &amp; Iwasawa-Theorie</span>
+    <span class="lang-en" style="display:none">P1–P4: Linking Matrices &amp; Iwasawa Theory</span>
+  </h2>
+  <div class="lang-de">
+<p>Das Mazur–Morishita-Dictionary (Mazur 1963, Morishita 2002) zieht eine tiefe Analogie
+zwischen algebraischer Zahlentheorie und 3-dimensionaler Topologie:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Topologie</th><th>Zahlentheorie</th></tr></thead>
+<tbody>
+<tr><td>Knoten K ⊂ S³</td><td>Primzahl p</td></tr>
+<tr><td>Verschlingung (linking)</td><td>Legendre-Symbol</td></tr>
+<tr><td>Alexander-Polynom</td><td>Iwasawa-L-Funktion</td></tr>
+<tr><td>Fundamentalgruppe π₁(S³\K)</td><td>Galoisgruppe Gal(K̄/K)</td></tr>
+</tbody></table></div>
+<h3>P1 — Verknüpfungsmatrix &amp; Reidemeister-Torsion</h3>
+<p>SageMath-Berechnung von Verknüpfungsmatrizen für klassische Links (Hopf-Link, Borromäische Ringe).
+Die Reidemeister-Torsion wird über das Alexander-Polynom berechnet [BELEGT]. Numerische Verifikation
+des Mazur–Morishita-Dictionary in expliziten Beispielen.</p>
+<h3>P2 — Instanton-Floer &amp; Selmer-Gruppen <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[KONJEKTUR]</span></h3>
+<p>Instanton-Floer-Homologie $HF^*(Y, \mathfrak{s})$ für rationalhomologische 3-Sphären soll
+der p-adischen Selmer-Gruppe $\mathrm{Sel}(\mathbb{Q}, \mathrm{Ad}^0\rho)$ entsprechen.
+Strukturelle Analogie ohne formale Konstruktion.</p>
+<h3>P3 — Iwasawa-Theorie &amp; Floer-Grenzwert <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[KONJEKTUR]</span></h3>
+<p>Für eine Knotenkomplementsequenz $S^3_{1/p^n}(K)$ (Dehn-Chirurgie) sollten die Floer-Homologie-Gruppen
+den Iwasawa-Moduln über $\mathbb{Z}_p[[T]]$ entsprechen. SageMath-Numerik stützt dies in kleinen Fällen.</p>
+<h3>P4 — Reidemeister-Torsion &amp; Alexander-Polynom <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[BELEGT]</span></h3>
+<p>Die Reidemeister-Torsion $\tau(S^3 \setminus K)$ ist durch das Alexander-Polynom $\Delta_K(t)$
+ausdrückbar: klassisches Resultat (Milnor 1966). Der Zusammenhang mit der Iwasawa-L-Funktion
+ist Teil des Mazur–Morishita-Frameworks [BELEGT].</p>
+</div>
+  <div class="lang-en" style="display:none">
+<p>The Mazur–Morishita dictionary (Mazur 1963, Morishita 2002) draws a deep analogy between
+algebraic number theory and 3-dimensional topology:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Topology</th><th>Number Theory</th></tr></thead>
+<tbody>
+<tr><td>Knot K ⊂ S³</td><td>Prime number p</td></tr>
+<tr><td>Linking number</td><td>Legendre symbol</td></tr>
+<tr><td>Alexander polynomial</td><td>Iwasawa L-function</td></tr>
+<tr><td>Fundamental group π₁(S³\K)</td><td>Galois group Gal(K̄/K)</td></tr>
+</tbody></table></div>
+<h3>P1 — Linking matrix &amp; Reidemeister torsion</h3>
+<p>SageMath computation of linking matrices for classical links (Hopf link, Borromean rings).
+Reidemeister torsion computed via the Alexander polynomial [ESTABLISHED]. Numerical verification
+of the Mazur–Morishita dictionary in explicit examples.</p>
+<h3>P2 — Instanton Floer &amp; Selmer groups <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[CONJECTURE]</span></h3>
+<p>Instanton Floer homology $HF^*(Y, \mathfrak{s})$ for rational homology 3-spheres should
+correspond to the p-adic Selmer group $\mathrm{Sel}(\mathbb{Q}, \mathrm{Ad}^0\rho)$.
+Structural analogy without formal construction.</p>
+<h3>P3 — Iwasawa theory &amp; Floer limit <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[CONJECTURE]</span></h3>
+<p>For a knot complement sequence $S^3_{1/p^n}(K)$ (Dehn surgery), the Floer homology groups
+should correspond to Iwasawa modules over $\mathbb{Z}_p[[T]]$. SageMath numerics support
+this in small cases.</p>
+<h3>P4 — Reidemeister torsion &amp; Alexander polynomial <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[ESTABLISHED]</span></h3>
+<p>The Reidemeister torsion $\tau(S^3 \setminus K)$ is expressible via the Alexander polynomial
+$\Delta_K(t)$: classical result (Milnor 1966). The connection to the Iwasawa L-function is
+part of the Mazur–Morishita framework [ESTABLISHED].</p>
+</div>
+</div>
+</section>
+<section id="p5p6">
+<div class="col">
+  <h2><span class="nav-num">01</span>
+    <span class="lang-de">P5–P6: FF-Kurve &amp; Hitchin-Fasern</span>
+    <span class="lang-en" style="display:none">P5–P6: FF Curve &amp; Hitchin Fibers</span>
+  </h2>
+  <div class="lang-de">
+<h3>P5 — Geometrisierung &amp; FF-Kurve <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[OFFEN]</span></h3>
+<p>Fargues' Programm: lokale Langlands-Korrespondenz für $G$ ↔ geometrische Objekte auf der
+Fargues–Fontaine-Kurve. Die „Arithmetisierung" der Floer-Homologie über diese Geometrisierung
+wäre die übergeordnete Synthese beider Projekte.</p>
+<p>SageMath berechnete Betti-Zahlen der Hitchin-Fasern für $\mathrm{GL}_2$ über endlichen Körpern
+als numerisches Testmaterial für die Analogien.</p>
+<h3>P6 — Hitchin-Fasern nach Fong (arXiv:2606.06092) <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[BELEGT mit Einschränkung]</span></h3>
+<p>Fongs BNR-Korrespondenz: Higgs-Bündel auf der FF-Kurve ↔ Spektralkurven.
+<strong>Einschränkung:</strong> Theorem 4.9 (BNR) erfordert Generizitätsbedingung „distinct eigenvalues".
+Die Kobayashi–Hitchin-Korrespondenz im p-adischen Kontext ist SPEKULATIV — nicht als etabliertes
+Theorem behandeln.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<h3>P5 — Geometrization &amp; FF curve <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[OPEN]</span></h3>
+<p>Fargues' program: local Langlands correspondence for $G$ ↔ geometric objects on the
+Fargues–Fontaine curve. The "arithmetization" of Floer homology via this geometrization
+would be the overarching synthesis of both projects.</p>
+<p>SageMath computed Betti numbers of Hitchin fibers for $\mathrm{GL}_2$ over finite fields
+as numerical test material for the analogies.</p>
+<h3>P6 — Hitchin fibers after Fong (arXiv:2606.06092) <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[ESTABLISHED with restriction]</span></h3>
+<p>Fong's BNR correspondence: Higgs bundles on the FF curve ↔ spectral curves.
+<strong>Restriction:</strong> Theorem 4.9 (BNR) requires the genericity condition "distinct eigenvalues".
+The Kobayashi–Hitchin correspondence in the p-adic context is SPECULATIVE — not to be treated
+as an established theorem.</p>
+</div>
+</div>
+</section>
+<section id="p7p8">
+<div class="col">
+  <h2><span class="nav-num">02</span>
+    <span class="lang-de">P7–P8: p-adische Instantonen &amp; Donaldson-Zahlen</span>
+    <span class="lang-en" style="display:none">P7–P8: p-adic Instantons &amp; Donaldson Numbers</span>
+  </h2>
+  <div class="lang-de">
+<h3>P7 — p-adische Instantonen <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[KONJEKTUR]</span></h3>
+<p>Yang–Mills-Instantonen über p-adischen Körpern $\mathbb{Q}_p$. Die Selbst-Dualitätsbedingung
+$F = *F$ über p-adischen Varietäten ist formell definierbar; ihre Verbindung zu Selmer-Gruppen
+via Ausnahmewerte der $L$-Funktion ist eine offene Konjektur.</p>
+<p>SageMath berechnete Hodge-Zahlen ausgewählter p-adischer Varietäten als Vorarbeit.</p>
+<h3>P8 — Donaldson-Invarianten &amp; Darstellungsvarietäten <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[KONJEKTUR]</span></h3>
+<p>Donaldson-Invarianten von 4-Mannigfaltigkeiten und ihre p-adischen Analoga über
+étale Darstellungsvarietäten. Verbindung zu Shimura-Varietäten im Mazur–Morishita-Rahmen.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<h3>P7 — p-adic instantons <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[CONJECTURE]</span></h3>
+<p>Yang–Mills instantons over p-adic fields $\mathbb{Q}_p$. The self-duality condition
+$F = *F$ over p-adic varieties is formally definable; its connection to Selmer groups
+via special values of the $L$-function is an open conjecture.</p>
+<p>SageMath computed Hodge numbers of selected p-adic varieties as preparation.</p>
+<h3>P8 — Donaldson invariants &amp; representation varieties <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[CONJECTURE]</span></h3>
+<p>Donaldson invariants of 4-manifolds and their p-adic analogues via étale representation
+varieties. Connection to Shimura varieties in the Mazur–Morishita framework.</p>
+</div>
+</div>
+</section>
+<section id="synthese">
+<div class="col">
+  <h2><span class="nav-num">03</span>
+    <span class="lang-de">Übergreifende Synthese</span>
+    <span class="lang-en" style="display:none">Overall Synthesis</span>
+  </h2>
+  <div class="lang-de">
+<p>Die Multi-Modell-Synthese (qwen3:235b) bestätigt die strukturelle Kohärenz des Mazur–Morishita-Frameworks
+als organisierende Analogie. Die adversarielle Prüfung (r1:70b) ordnet:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Projekt</th><th>Status</th><th>Kommentar</th></tr></thead>
+<tbody>
+<tr><td>P1, P4</td><td class="ok">BELEGT</td><td>Klassische Knoten- und Zahlentheorie</td></tr>
+<tr><td>P2, P3, P7, P8</td><td class="conj">KONJEKTUR</td><td>Strukturell motiviert, kein Beweis</td></tr>
+<tr><td>P5</td><td class="conj">OFFEN</td><td>Fargues' Geometrisierungsprogramm in Arbeit</td></tr>
+<tr><td>P6 (BNR)</td><td class="ok">BELEGT</td><td>Nur unter Generizitätsbedingung</td></tr>
+<tr><td>P6 (Kob.-Hitchin p-ad.)</td><td class="err">SPEKULATIV</td><td>Kein p-adisches Analogon etabliert</td></tr>
+</tbody></table></div>
+<div class="process-grid">
+  <div class="process-card"><div class="model">SageMath 10.9</div><div class="task">P1, P3, P5, P6: Linking-Matrizen, Betti-Zahlen, Hitchin-Fasern</div></div>
+  <div class="process-card"><div class="model">qwen3:235b-a22b</div><div class="task">Synthese P1–P8: strukturelle Analogien, Statusmarkierung</div></div>
+  <div class="process-card"><div class="model">deepseek-r1:70b</div><div class="task">Adversariell: BNR-Einschränkung korrekt identifiziert</div></div>
+</div>
+</div>
+  <div class="lang-en" style="display:none">
+<p>The multi-model synthesis (qwen3:235b) confirms the structural coherence of the Mazur–Morishita
+framework as an organizing analogy. The adversarial check (r1:70b) classifies:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Project</th><th>Status</th><th>Comment</th></tr></thead>
+<tbody>
+<tr><td>P1, P4</td><td class="ok">ESTABLISHED</td><td>Classical knot and number theory</td></tr>
+<tr><td>P2, P3, P7, P8</td><td class="conj">CONJECTURE</td><td>Structurally motivated, no proof</td></tr>
+<tr><td>P5</td><td class="conj">OPEN</td><td>Fargues' geometrization program in progress</td></tr>
+<tr><td>P6 (BNR)</td><td class="ok">ESTABLISHED</td><td>Only under genericity condition</td></tr>
+<tr><td>P6 (Kob.-Hitchin p-ad.)</td><td class="err">SPECULATIVE</td><td>No p-adic analogue established</td></tr>
+</tbody></table></div>
+<div class="process-grid">
+  <div class="process-card"><div class="model">SageMath 10.9</div><div class="task">P1, P3, P5, P6: linking matrices, Betti numbers, Hitchin fibers</div></div>
+  <div class="process-card"><div class="model">qwen3:235b-a22b</div><div class="task">Synthesis P1–P8: structural analogies, status labeling</div></div>
+  <div class="process-card"><div class="model">deepseek-r1:70b</div><div class="task">Adversarial: BNR restriction correctly identified</div></div>
+</div>
+</div>
+</div>
+</section>
+<footer class="wrapper">
+  <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
+  <span>Thomas Riepe &middot; Berlin &middot; Juni 2026</span>
+  <span>Projekt 15 von 21</span>
+</footer>
+</div>
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='');
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
+}
+</script>
+</body>
+</html>

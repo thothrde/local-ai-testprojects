@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R2-Konjektur — Toda-Tabelle, J-Bild, β₁ bei p=3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;
+--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;
+--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+--sans:'Instrument Sans',sans-serif;--max:740px;--wide:940px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+header{border-bottom:1px solid var(--rule);padding:4.5rem 0 3rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.back{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;display:inline-flex;align-items:center;gap:.4em;margin-bottom:1.5rem;transition:color .2s}
+.back:hover{color:var(--gold)}
+h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.header-desc{max-width:560px;font-size:1rem;color:var(--fg-dim);line-height:1.7;margin-top:1.5rem}
+.version-note{font-family:var(--mono);font-size:.65rem;color:var(--gold2);margin-top:1rem;letter-spacing:.04em}
+nav{font-family:var(--sans);font-size:.78rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+nav a{color:var(--fg-dim);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+nav a:hover{color:var(--gold)}
+.nav-num{color:var(--gold);margin-right:.25em;font-family:var(--mono);font-size:.7em}
+section{margin-bottom:5rem;scroll-margin-top:2rem}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;font-style:italic;color:var(--fg);margin:2.5rem 0 .8rem;letter-spacing:-.01em}
+h4{font-family:var(--sans);font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-dim);margin:2rem 0 .6rem}
+p{margin-bottom:1.2em;font-size:1rem}
+blockquote{border-left:2px solid var(--gold2);margin:1.8rem 0;padding:.5rem 0 .5rem 1.6rem;color:var(--fg-dim);font-style:italic;font-size:.97rem}
+.box{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.4rem 1.6rem;margin:1.8rem 0;border-radius:2px}
+.box .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.box p{font-size:.97rem;margin-bottom:.6em}
+.box.confirmed{border-left-color:var(--green)}.box.confirmed .label{color:var(--green)}
+.box.open{border-left-color:var(--amber)}.box.open .label{color:var(--amber)}
+.box.spec{border-left-color:var(--red)}.box.spec .label{color:var(--red)}
+.theorem{background:var(--bg2);border:1px solid #2e2a24;padding:1.5rem 1.8rem;margin:2rem 0;border-radius:2px}
+.theorem::before{content:attr(data-label);font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem}
+.table-wrap{overflow-x:auto;margin:2rem 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-family:var(--sans)}
+thead tr{border-bottom:1px solid var(--gold2)}
+th{text-align:left;padding:.6rem 1rem .6rem 0;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
+td{padding:.6rem 1rem .6rem 0;border-bottom:1px solid var(--rule);color:var(--fg-dim);vertical-align:top;line-height:1.5}
+td:first-child{color:var(--fg);font-family:var(--mono);font-size:.82rem}
+td.ok{color:var(--green)} td.conj{color:var(--amber)} td.err{color:var(--red)}
+.process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.process-card{background:var(--bg2);border:1px solid var(--rule);padding:1rem 1.2rem;border-radius:2px}
+.process-card .model{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.05em;margin-bottom:.4rem}
+.process-card .task{font-family:var(--sans);font-size:.8rem;color:var(--fg-dim);line-height:1.4}
+.lang-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-en{display:none}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+@media(max-width:640px){html{font-size:16px}.wrapper{padding:0 1.2rem}h1{font-size:2rem}}
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+<header>
+<div class="col">
+  <a class="back" href="index.html">&larr; Zur&uuml;ck / Back</a>
+  <p class="header-meta">Projekt 13 · Juni 2026 · 3 Phasen</p>
+  <h1>R2-Konjektur<span class="sub">Toda-Tabelle, J-Bild, β₁-Element bei p=3</span></h1>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
+  </div>
+  <p class="header-desc lang-de">Untersuchung des β₁-Elements in den stabilen Homotopiegruppen von Sphären bei p=3 im Kontext der Toda-Tabelle und des J-Bildes. Kenzo-Berechnung von K(ℤ/2,4) als numerischer Testfall.</p>
+  <p class="header-desc lang-en" style="display:none">Investigation of the β₁ element in stable homotopy groups of spheres at p=3 in the context of the Toda table and the J-image. Kenzo computation of K(ℤ/2,4) as numerical test case.</p>
+  
+</div>
+</header><nav class="wrapper"><a href="#stable"><span class="nav-num">00</span><span class="lang-de">Stabile Homotopiegruppen</span><span class="lang-en" style="display:none">Stable Homotopy Groups</span></a>
+<a href="#beta"><span class="nav-num">01</span><span class="lang-de">β₁-Element &amp; R2</span><span class="lang-en" style="display:none">β₁ Element &amp; R2</span></a>
+<a href="#kenzo"><span class="nav-num">02</span><span class="lang-de">Kenzo-Berechnung K(ℤ/2,4)</span><span class="lang-en" style="display:none">Kenzo Computation K(ℤ/2,4)</span></a>
+<a href="#ergebnisse"><span class="nav-num">03</span><span class="lang-de">Ergebnisse</span><span class="lang-en" style="display:none">Results</span></a>
+</nav>
+<section id="stable">
+<div class="col">
+  <h2><span class="nav-num">00</span>
+    <span class="lang-de">Stabile Homotopiegruppen von Sphären</span>
+    <span class="lang-en" style="display:none">Stable Homotopy Groups of Spheres</span>
+  </h2>
+  <div class="lang-de">
+<p>Die <em>stabilen Homotopiegruppen von Sphären</em>
+$\pi_k^s = \varinjlim_{n \to \infty} \pi_{n+k}(S^n)$ gehören zu den fundamentalsten und
+am schwersten zugänglichen Objekten der algebraischen Topologie. Selbst heute sind nur
+endlich viele Gruppen explizit bekannt:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>k</th><th>π_k^s</th><th>Generator</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>ℤ</td><td>Identität</td></tr>
+<tr><td>1</td><td>ℤ/2</td><td>η (Hopf-Faserung)</td></tr>
+<tr><td>2</td><td>ℤ/2</td><td>η²</td></tr>
+<tr><td>3</td><td>ℤ/24</td><td>ν (quaternionische Hopf)</td></tr>
+<tr><td>7</td><td>ℤ/240</td><td>σ (oktonionische Hopf)</td></tr>
+<tr><td>10</td><td>ℤ/6 ⊕ ℤ/2</td><td>β₁ bei p=3</td></tr>
+</tbody></table></div>
+<p>Das J-Bild (Adams 1966): $J: \pi_k(\mathrm{SO}) \to \pi_k^s$ injiziert und liefert
+die „algebraischsten" Elemente. Sein Bild in $\pi_{4k-1}^s$ hat Ordnung $\mathrm{denom}(B_{2k}/4k)$
+(Bernoulli-Adams-Theorem [BELEGT]).</p>
+</div>
+  <div class="lang-en" style="display:none">
+<p>The <em>stable homotopy groups of spheres</em>
+$\pi_k^s = \varinjlim_{n \to \infty} \pi_{n+k}(S^n)$ are among the most fundamental and
+hardest-to-access objects in algebraic topology. Even today, only finitely many groups are
+explicitly known:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>k</th><th>π_k^s</th><th>Generator</th></tr></thead>
+<tbody>
+<tr><td>0</td><td>ℤ</td><td>identity</td></tr>
+<tr><td>1</td><td>ℤ/2</td><td>η (Hopf fibration)</td></tr>
+<tr><td>2</td><td>ℤ/2</td><td>η²</td></tr>
+<tr><td>3</td><td>ℤ/24</td><td>ν (quaternionic Hopf)</td></tr>
+<tr><td>7</td><td>ℤ/240</td><td>σ (octonionic Hopf)</td></tr>
+<tr><td>10</td><td>ℤ/6 ⊕ ℤ/2</td><td>β₁ at p=3</td></tr>
+</tbody></table></div>
+<p>The J-image (Adams 1966): $J: \pi_k(\mathrm{SO}) \to \pi_k^s$ injects and provides the
+"most algebraic" elements. Its image in $\pi_{4k-1}^s$ has order $\mathrm{denom}(B_{2k}/4k)$
+(Bernoulli–Adams theorem [ESTABLISHED]).</p>
+</div>
+</div>
+</section>
+<section id="beta">
+<div class="col">
+  <h2><span class="nav-num">01</span>
+    <span class="lang-de">Das β₁-Element &amp; die R2-Konjektur</span>
+    <span class="lang-en" style="display:none">The β₁ Element &amp; the R2 Conjecture</span>
+  </h2>
+  <div class="lang-de">
+<p>Das $\beta_1$-Element bei $p=3$: Ein Element in $\pi_{10}^s$ der Ordnung 3, das
+<em>nicht</em> im J-Bild liegt. Es sitzt im zweiten Filtrationsgrad der Adams–Novikov-Spektralsequenz
+$$E_2^{s,t} = \mathrm{Ext}_{\mathcal{A}_*}^{s,t}(\mathbb{F}_p, \mathbb{F}_p) \Rightarrow \pi_{t-s}^s$$
+und hat $s=2$ (zweite Filtrierung), $t=12$ (topologischer Grad) [BELEGT, Toda 1962].</p>
+<p><strong>R2-Konjektur (projektspezifische Formulierung):</strong> Eine bestimmte Differentialrelation
+in der Adams-Spektralsequenz bei $p=3$ zwischen den Elementen $\beta_1$, $\alpha_1^3$
+und einem Element in $E_2^{4,*}$ soll gelten und eine nicht-triviale Erweiterung bezeugen.
+Status: weder bewiesen noch widerlegt [OFFEN/KONJEKTUR].</p>
+</div>
+  <div class="lang-en" style="display:none">
+<p>The $\beta_1$ element at $p=3$: an element in $\pi_{10}^s$ of order 3 that does
+<em>not</em> lie in the J-image. It sits in the second filtration degree of the Adams–Novikov
+spectral sequence
+$$E_2^{s,t} = \mathrm{Ext}_{\mathcal{A}_*}^{s,t}(\mathbb{F}_p, \mathbb{F}_p) \Rightarrow \pi_{t-s}^s$$
+with $s=2$ (second filtration), $t=12$ (topological degree) [ESTABLISHED, Toda 1962].</p>
+<p><strong>R2 conjecture (project-specific formulation):</strong> A certain differential relation
+in the Adams spectral sequence at $p=3$ between $\beta_1$, $\alpha_1^3$
+and an element in $E_2^{4,*}$ should hold and witness a non-trivial extension.
+Status: neither proved nor disproved [OPEN/CONJECTURE].</p>
+</div>
+</div>
+</section>
+<section id="kenzo">
+<div class="col">
+  <h2><span class="nav-num">02</span>
+    <span class="lang-de">Kenzo-Berechnung: K(ℤ/2,4)</span>
+    <span class="lang-en" style="display:none">Kenzo Computation: K(ℤ/2,4)</span>
+  </h2>
+  <div class="lang-de">
+<p>Kenzo (Common Lisp, SBCL) berechnete die Mod-2-Kohomologie von $K(\mathbb{Z}/2, 4)$
+bis Grad ~20. Das Ergebnis ist eine wichtige Zutat für die Adams-Spektralsequenz bei $p=2$
+(und indirekt bei $p=3$ über Vergleich).</p>
+<p>$K(\mathbb{Z}/2, 4)$ ist ein Eilenberg–MacLane-Raum — der classifying space für
+$H^4(-; \mathbb{Z}/2)$. Seine Kohomologie wird durch Steenrod-Squares und Adem-Relationen
+erzeugt. Bekannte Tatsache: $H^*(K(\mathbb{Z}/2, n); \mathbb{Z}/2)$ ist ein freies
+graduiertes kommuatives Algebra über $\mathcal{A}_2$ [BELEGT, Serre].</p>
+<p>Laufzeit der Kenzo-Berechnung: ~15 Stunden auf Mac Studio M3 Ultra (SBCL Single-Thread).
+Ergebnis gespeichert in
+<code>/Volumes/CLAUDE-DATA/Anima-Project/Anima-IV/k_Z2_4.txt</code>.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<p>Kenzo (Common Lisp, SBCL) computed the mod-2 cohomology of $K(\mathbb{Z}/2, 4)$
+through degree ~20. This is an important ingredient for the Adams spectral sequence at $p=2$
+(and indirectly at $p=3$ via comparison).</p>
+<p>$K(\mathbb{Z}/2, 4)$ is an Eilenberg–MacLane space — the classifying space for
+$H^4(-; \mathbb{Z}/2)$. Its cohomology is generated by Steenrod squares and Adem relations.
+Known fact: $H^*(K(\mathbb{Z}/2, n); \mathbb{Z}/2)$ is a free graded commutative algebra
+over $\mathcal{A}_2$ [ESTABLISHED, Serre].</p>
+<p>Kenzo computation runtime: ~15 hours on Mac Studio M3 Ultra (SBCL single-threaded).
+Result saved in
+<code>/Volumes/CLAUDE-DATA/Anima-Project/Anima-IV/k_Z2_4.txt</code>.</p>
+</div>
+</div>
+</section>
+<section id="ergebnisse">
+<div class="col">
+  <h2><span class="nav-num">03</span>
+    <span class="lang-de">Syntheseergebnisse</span>
+    <span class="lang-en" style="display:none">Synthesis Results</span>
+  </h2>
+  <div class="lang-de">
+<div class="table-wrap"><table>
+<thead><tr><th>Behauptung</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>β₁ ∈ π₁₀^s, Ordnung 3, Filtration 2</td><td class="ok">BELEGT (Toda 1962)</td></tr>
+<tr><td>β₁ liegt nicht im J-Bild</td><td class="ok">BELEGT (Adams 1966)</td></tr>
+<tr><td>H*(K(ℤ/2,4); ℤ/2) als A₂-Modul</td><td class="ok">BELEGT (Serre)</td></tr>
+<tr><td>R2-Differentialrelation bei p=3</td><td class="conj">KONJEKTUR — weder bewiesen noch widerlegt</td></tr>
+<tr><td>Verbindung R2 ↔ Anima IV-Spektrum</td><td class="err">SPEKULATIV — strukturelle Analogie</td></tr>
+</tbody></table></div>
+<p>Das adversarielle Modell (r1:70b) stellte fest: Die R2-Konjektur ist mathematisch präzise
+formulierbar, aber die projektspezifische Formulierung muss von einem Experten für stabile
+Homotopietheorie auf Korrektheit geprüft werden. Die LLM-Analyse liefert plausible strukturelle
+Argumente, kein Beweis.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<div class="table-wrap"><table>
+<thead><tr><th>Claim</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>β₁ ∈ π₁₀^s, order 3, filtration 2</td><td class="ok">ESTABLISHED (Toda 1962)</td></tr>
+<tr><td>β₁ not in J-image</td><td class="ok">ESTABLISHED (Adams 1966)</td></tr>
+<tr><td>H*(K(ℤ/2,4); ℤ/2) as A₂-module</td><td class="ok">ESTABLISHED (Serre)</td></tr>
+<tr><td>R2 differential relation at p=3</td><td class="conj">CONJECTURE — neither proved nor disproved</td></tr>
+<tr><td>R2 ↔ Anima IV-Spektrum connection</td><td class="err">SPECULATIVE — structural analogy</td></tr>
+</tbody></table></div>
+<p>The adversarial model (r1:70b) found: the R2 conjecture is precisely formulable, but the
+project-specific formulation should be checked by a stable homotopy theory expert for correctness.
+The LLM analysis provides plausible structural arguments, not a proof.</p>
+</div>
+</div>
+</section>
+<footer class="wrapper">
+  <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
+  <span>Thomas Riepe &middot; Berlin &middot; Juni 2026</span>
+  <span>Projekt 13 von 21</span>
+</footer>
+</div>
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='');
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
+}
+</script>
+</body>
+</html>

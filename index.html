@@ -1,142 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Local System &amp; Test Projects · Berlin 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f8f7f4;--surface:#ffffff;--border:#dddbd3;--border2:#c8c5bc;--text:#1c1b18;--text2:#4a4844;--text3:#7a7872;--accent:#2d4a7a;--accent-l:#edf2fb;--gold:#7a5a14;--gold-l:#fdf6e0;--link:#2d4a7a;font-family:'Georgia',serif;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);line-height:1.75;min-height:100vh;}
-nav{background:var(--surface);border-bottom:1px solid var(--border);padding:.65rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
-.nav-title{font-size:.8rem;font-family:sans-serif;font-weight:600;letter-spacing:.06em;color:var(--text3);}
-.lang-toggle{display:flex;gap:.25rem;}
-.lang-btn{font-family:sans-serif;font-size:.78rem;font-weight:700;padding:.3rem .7rem;border:1.5px solid var(--border2);border-radius:3px;background:transparent;color:var(--text3);cursor:pointer;transition:all .15s;}
-.lang-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
-.lang-btn:hover:not(.active){border-color:var(--accent);color:var(--accent);}
-.page-wrap{max-width:800px;margin:0 auto;padding:3.5rem 2rem 5rem;}
-.kicker{font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:1rem;}
-h1{font-size:2.1rem;font-weight:700;line-height:1.2;margin-bottom:.7rem;color:var(--text);letter-spacing:-.01em;}
-.deck{font-size:1.05rem;color:var(--text2);font-style:italic;margin-bottom:2.5rem;border-bottom:1px solid var(--border);padding-bottom:1.5rem;}
-.intro{font-size:1rem;color:var(--text);margin-bottom:2rem;}
-.intro p{margin-bottom:1rem;}
-h2{font-size:1.2rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--text);border-bottom:2px solid var(--text);padding-bottom:.4rem;letter-spacing:-.005em;}
-.project-list{list-style:none;margin:0 0 1rem;}
-.project-list li{border-bottom:1px solid var(--border);}
-.project-list li:first-child{border-top:1px solid var(--border);}
-.project-list a{display:block;padding:.9rem .5rem;text-decoration:none;color:var(--text);transition:background .1s;}
-.project-list a:hover{background:var(--accent-l);}
-.pl-num{font-family:sans-serif;font-size:.72rem;font-weight:700;color:var(--text3);letter-spacing:.06em;margin-right:.6rem;}
-.pl-title{font-weight:600;color:var(--accent);font-size:1rem;}
-.pl-sub{display:block;font-size:.86rem;color:var(--text2);font-style:italic;margin-top:.15rem;padding-left:1.75rem;}
-.note-box{background:var(--gold-l);border:1px solid #c8a840;border-left:3px solid var(--gold);padding:1rem 1.25rem;margin:2rem 0;font-size:.9rem;color:var(--text2);font-family:sans-serif;line-height:1.6;}
-.note-box strong{color:var(--text);}
-.impressum{margin-top:4rem;padding-top:2rem;border-top:2px solid var(--border);}
-.impressum h2{border:none;padding:0;margin-bottom:1.25rem;font-size:1rem;text-transform:uppercase;letter-spacing:.1em;font-family:sans-serif;color:var(--text3);}
-.imp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-@media(max-width:600px){.imp-grid{grid-template-columns:1fr;}.page-wrap{padding:2rem 1.25rem 4rem;}h1{font-size:1.6rem;}}
-.imp-block{font-size:.86rem;line-height:1.8;color:var(--text2);font-family:sans-serif;}
-.imp-block h3{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:.6rem;}
-.imp-block p{margin-bottom:.5rem;}
-.imp-block a{color:var(--link);}
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--max:740px;--wide:1100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+header{border-bottom:1px solid var(--rule);padding:4.5rem 0 3rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.header-desc{max-width:560px;font-size:1rem;color:var(--fg-dim);line-height:1.7;margin-top:1.5rem}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:3rem 0 1.5rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--fg);margin:1.5rem 0 .5rem}
+p{margin-bottom:1.2em;font-size:1rem}
+section{margin-bottom:4rem}
+/* Lang tabs */
+.lang-tabs{display:flex;gap:.5rem;margin-bottom:2rem;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-en{display:none}.lang-de{display:block}
+/* Project grid */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin:1.5rem 0}
+.proj-card{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.4rem 1.6rem;border-radius:2px;text-decoration:none;display:block;transition:border-color .2s,background .2s}
+.proj-card:hover{border-color:var(--gold);background:var(--bg3)}
+.proj-num{font-family:var(--mono);font-size:.65rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.5rem;text-transform:uppercase}
+.proj-title{font-family:var(--serif);font-size:1.08rem;font-weight:500;color:var(--fg);margin-bottom:.5rem;line-height:1.4}
+.proj-desc{font-family:var(--sans);font-size:.8rem;color:var(--fg-dim);line-height:1.5}
+.proj-status{font-family:var(--mono);font-size:.6rem;color:var(--green);letter-spacing:.08em;margin-top:.6rem}
+/* Section headings */
+.sect-group{margin:3rem 0 1rem;font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);border-bottom:1px solid var(--rule);padding-bottom:.5rem}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+@media(max-width:640px){html{font-size:15px}.wrapper{padding:0 1.2rem}.proj-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav>
-  <span class="nav-title lang-en">Local System &amp; Test Projects</span>
-  <span class="nav-title lang-de" style="display:none">Lokales System &amp; Testprojekte</span>
-  <div class="lang-toggle">
-    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+<div class="wrapper">
+
+<header>
+<div class="col">
+  <p class="header-meta">Lokales KI-Ökosystem &amp; Forschungsprojekte · Berlin 2026</p>
+  <h1>Lokales System &amp; Testprojekte
+    <span class="sub">Local System &amp; Test Projects</span>
+  </h1>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
   </div>
-</nav>
-<div class="page-wrap">
-
-<div class="kicker lang-en">Local AI Ecosystem · Berlin 2026</div>
-<div class="kicker lang-de" style="display:none">Lokales KI-Ökosystem · Berlin 2026</div>
-<h1 class="lang-en">Local System &amp;<br>Test Projects</h1>
-<h1 class="lang-de" style="display:none">Lokales System &amp;<br>Testprojekte</h1>
-<p class="deck lang-en">An experiment in local AI infrastructure, mathematical exploration, and self-applied pedagogical compensation.</p>
-<p class="deck lang-de" style="display:none">Ein Experiment in lokaler KI-Infrastruktur, mathematischer Erkundung und selbstapplizierterpädagogischer Kompensation.</p>
-
-<div class="intro lang-en">
-  <h2 style="border:none;padding:0;margin:0 0 1rem;font-size:1.05rem;text-transform:uppercase;letter-spacing:.1em;font-family:sans-serif;color:var(--text3);">Background</h2>
-  <p>This system is a just-for-fun experiment, since I am not a programmer and find coding extraordinarily tedious — so I keep it minimal and only do it when there is no other way. The starting point was curiosity about local AI infrastructure combined with a certain self-ironic impulse: in my teaching I tend toward precisely the kind of frontal instruction I found dreadful fifty-plus years ago, and I had half-jokingly promised participants some compensatory self-application. That turned into a bootcamp for neural networks, AI, and related topics. Surprisingly, it worked, and led to exploratory tinkering over several months. Claude AI was my implementation assistant throughout.</p>
-  <p>I would be happy about feedback and suggestions for improvement — professionals will undoubtedly spot numerous weaknesses I missed entirely.</p>
+  <p class="header-desc lang-de">
+    Ein Experiment in lokaler KI-Infrastruktur, mathematischer Erkundung und
+    selbstapplizierterpädagogischer Kompensation. Alle Berechnungen vollständig
+    lokal auf Mac Studio M3 Ultra (256 GB), ohne API-Calls zu Cloud-Diensten.
+  </p>
+  <p class="header-desc lang-en" style="display:none">
+    An experiment in local AI infrastructure, mathematical exploration, and self-applied
+    pedagogical compensation. All computations entirely local on Mac Studio M3 Ultra
+    (256 GB), without any calls to cloud services.
+  </p>
 </div>
-<div class="intro lang-de" style="display:none">
-  <h2 style="border:none;padding:0;margin:0 0 1rem;font-size:1.05rem;text-transform:uppercase;letter-spacing:.1em;font-family:sans-serif;color:var(--text3);">Entstehungskontext</h2>
-  <p>Dieses System ist ein just-for-fun-Experiment, denn ich bin kein Programmierer und finde coden äußerst lästig, mache das also minimalistisch und nur wenns anders nicht geht. Der Ausgangspunkt war Neugier auf lokale KI-Infrastruktur verbunden mit einer gewissen selbstironischen Aktion: In meinen Schulungen neige ich zu jener Art Frontalunterricht, die ich selber vor 50+ Jahren gräßlich fand und ich versprach den TeilnehmerInnen mal eher scherzhaft kompensatorische Selbstapplikation, was mich in ein Bootcamp für neuronale Netze, KI, usw. brachte. Das klappte erstaunlicherweise und führte zu explorativem Tinkering über mehrere Monate. Claude-KI war dabei mein Implementierungsassistent.</p>
-  <p>Über Infos und Anregungen zu Verbesserungen würde ich mich freuen — Profis sollten mir natürlich völlig entgangene Schwachpunkte en masse auffallen!</p>
-</div>
+</header>
 
-<div class="lang-en">
-  <h2>Test Projects</h2>
-  <ul class="project-list">
-    <li><a href="plotin.html"><span class="pl-num">01</span><span class="pl-title">Plotinus in Silicon Valley</span><span class="pl-sub">Three questions, 1700 years apart — formal structure analysis with local AI, Z3 theorem prover, and Neoplatonic text corpus.</span></a></li>
-    <li><a href="p-adisch.html"><span class="pl-num">02</span><span class="pl-title">p-adic Theory and Condensed Mathematics</span><span class="pl-sub">Formal verification in Lean 4 (solid condensed modules), Dieudonné–Manin classification, and computer-algebraic experiments with formal groups.</span></a></li>
-    <li><a href="derived-hecke.html"><span class="pl-num">03</span><span class="pl-title">Derived Hecke, Completed Cohomology and Condensed Mathematics</span><span class="pl-sub">Does Emerton's completed cohomology carry a natural structure in Clausen–Scholze's condensed world?</span></a></li>
-    <li><a href="anima.html"><span class="pl-num">04</span><span class="pl-title">Anima: Between Homotopic Topology and Neoplatonism</span><span class="pl-sub">Clausen's new concept of anima (arXiv:2605.11950) connects to Neoplatonic tradition — mathematical computation meets philosophical analysis.</span></a></li>
-    <li><a href="arithmetik.html"><span class="pl-num">05</span><span class="pl-title">Arithmetic Chromaticity</span><span class="pl-sub">Formal groups, height stratification and spectral sequences — computer-assisted exploration. SageMath, Macaulay2, Lean 4.</span></a></li>
-    <li><a href="ki-oekosystem.html"><span class="pl-num">06</span><span class="pl-title">Overview: Local AI Ecosystem</span><span class="pl-sub">Technical documentation of the Mac Studio M3 Ultra infrastructure: LLM routing, RAG systems, vector databases, formal verification tools (May 2026).</span></a></li>
-  </ul>
-</div>
-<div class="lang-de" style="display:none">
-  <h2>Testprojekte</h2>
-  <ul class="project-list">
-    <li><a href="plotin.html"><span class="pl-num">01</span><span class="pl-title">Plotin im Silicon Valley</span><span class="pl-sub">Drei Fragen, 1700 Jahre auseinander. Formale Strukturanalyse mit lokalem KI, Z3-Theorembeweiser und neoplatonischem Textkorpus.</span></a></li>
-    <li><a href="p-adisch.html"><span class="pl-num">02</span><span class="pl-title">p-adische Theorie und kondensierte Mathematik</span><span class="pl-sub">Formale Verifikation in Lean 4 (solide kondensierte Moduln), Dieudonné-Manin-Klassifikation und computeralgebraische Experimente mit formalen Gruppen.</span></a></li>
-    <li><a href="derived-hecke.html"><span class="pl-num">03</span><span class="pl-title">Derived Hecke, Completed Cohomology und kondensierte Mathematik</span><span class="pl-sub">Besitzt Emertons Completed Cohomology eine natürliche Struktur in der kondensierten Welt von Clausen-Scholze?</span></a></li>
-    <li><a href="anima.html"><span class="pl-num">04</span><span class="pl-title">Anima: zwischen homotopischer Topologie und Neoplatonismus</span><span class="pl-sub">Clausens Anima-Begriff (arXiv:2605.11950) verweist auf die neoplatonische Tradition — Mathematik trifft Philosophie.</span></a></li>
-    <li><a href="arithmetik.html"><span class="pl-num">05</span><span class="pl-title">Arithmetische Chromatik</span><span class="pl-sub">Formale Gruppen, Höhenstratifizierung und spektrale Sequenzen — computergestützte Erkundung. SageMath, Macaulay2, Lean 4.</span></a></li>
-    <li><a href="ki-oekosystem.html"><span class="pl-num">06</span><span class="pl-title">Übersicht lokales KI-Ökosystem</span><span class="pl-sub">Technische Dokumentation der Mac-Studio-M3-Ultra-Infrastruktur: LLM-Routing, RAG-Systeme, Vektordatenbanken, formale Verifikationswerkzeuge (Mai 2026).</span></a></li>
-  </ul>
+<section>
+<div class="col">
+
+<!-- DE -->
+<div class="lang-de">
+<h2>Entstehungskontext</h2>
+<p>Dieses System ist ein <em>just-for-fun</em>-Experiment: Ich bin kein Programmierer und finde Coden äußerst lästig — mache es also minimalistisch und nur wenn es anders nicht geht. Ausgangspunkt war Neugier auf lokale KI-Infrastruktur, verbunden mit einer selbstironischen Aktion: In meinen Schulungen neige ich zu genau jenem Frontalunterricht, den ich vor 50 Jahren gräßlich fand. Ich versprach den TeilnehmerInnen kompensatorische Selbstapplikation — was mich in ein Bootcamp für neuronale Netze, KI und Verwandtes brachte. Das klappte erstaunlicherweise und führte zu explorativem Tinkering über mehrere Monate. Claude AI war dabei mein Implementierungsassistent.</p>
+<p>Über Infos und Anregungen würde ich mich freuen — Profis werden zahlreiche Schwachstellen entdecken, die mir völlig entgangen sind.</p>
 </div>
 
-<div class="note-box lang-en"><strong>Technical note:</strong> All AI-based analyses were performed locally on a Mac Studio M3 Ultra (256 GB unified memory), using open-source models via Ollama — without any API calls to OpenAI, Google, or Anthropic. Final reports written by Claude Sonnet 4.6 (Anthropic).</div>
-<div class="note-box lang-de" style="display:none"><strong>Technischer Hinweis:</strong> Alle KI-basierten Analysen wurden vollständig lokal auf einem Mac Studio M3 Ultra (256 GB) mit Open-Source-Modellen via Ollama durchgeführt — ohne API-Calls zu OpenAI, Google oder Anthropic. Berichte: Claude Sonnet 4.6 (Anthropic).</div>
-
-<div class="impressum">
-  <h2 class="lang-en">Legal Notice &amp; Privacy</h2>
-  <h2 class="lang-de" style="display:none">Impressum &amp; Datenschutz</h2>
-  <div class="imp-grid">
-    <div class="imp-block">
-      <h3 class="lang-en">Legal Notice (§ 5 DDG)</h3>
-      <h3 class="lang-de" style="display:none">Impressum (§ 5 DDG)</h3>
-      <p><strong>Thomas Riepe</strong><br>Heinz-Kapelle-Straße 12<br>10407 Berlin, Deutschland</p>
-      <p>Tel.: +49 (0) 176 95614801<br>E-Mail: thomasriepe(at)gmail.com</p>
-      <p class="lang-en">Responsible pursuant to § 18 (2) MStV: Thomas Riepe, Berlin · As of: April 2026</p>
-      <p class="lang-de" style="display:none">Verantwortlich gem. § 18 Abs. 2 MStV: Thomas Riepe, Berlin · Stand: April 2026</p>
-      <p style="font-size:.8rem;color:var(--text3);margin-top:.5rem" class="lang-en">Private leisure project, no commercial intent. No registered trade.</p>
-      <p style="font-size:.8rem;color:var(--text3);margin-top:.5rem" class="lang-de" style="display:none">Privates Freizeitprojekt ohne kommerzielle Absicht. Kein Gewerbe.</p>
-      <p style="font-size:.79rem;color:var(--text3);margin-top:.4rem" class="lang-en">EU dispute resolution: <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a> — We do not participate.</p>
-      <p style="font-size:.79rem;color:var(--text3);margin-top:.4rem" class="lang-de" style="display:none">EU-Streitschlichtung: <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a> — Keine Teilnahme.</p>
-    </div>
-    <div class="imp-block">
-      <h3 class="lang-en">Privacy Policy (GDPR)</h3>
-      <h3 class="lang-de" style="display:none">Datenschutzerklärung (DSGVO)</h3>
-      <p><strong class="lang-en">Controller (Art. 4 No. 7):</strong><strong class="lang-de" style="display:none">Verantwortlicher (Art. 4 Nr. 7):</strong><br>Thomas Riepe, Heinz-Kapelle-Str. 12, 10407 Berlin</p>
-      <p class="lang-en"><strong>No data collection.</strong> No cookies, no tracking, no analytics.</p>
-      <p class="lang-de" style="display:none"><strong>Keine Datenerhebung.</strong> Keine Cookies, kein Tracking, keine Analyse-Dienste.</p>
-      <p class="lang-en">Legal basis: Art. 6 (1)(f) GDPR. Rights: Art. 15–22 GDPR.</p>
-      <p class="lang-de" style="display:none">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO. Rechte: Art. 15–22 DSGVO.</p>
-      <p class="lang-en"><strong>Supervisory authority:</strong> Berliner Beauftragte für Datenschutz, Friedrichstr. 219, 10969 Berlin</p>
-      <p class="lang-de" style="display:none"><strong>Aufsichtsbehörde:</strong> Berliner Beauftragte für Datenschutz, Friedrichstr. 219, 10969 Berlin</p>
-    </div>
-  </div>
+<!-- EN -->
+<div class="lang-en" style="display:none">
+<h2>Background</h2>
+<p>This system is a <em>just-for-fun</em> experiment. I am not a programmer and find coding extraordinarily tedious — so I keep it minimal and only do it when there is no other way. The starting point was curiosity about local AI infrastructure combined with a certain self-ironic impulse: in my teaching I tend toward precisely the kind of frontal instruction I found dreadful fifty-plus years ago, and I had half-jokingly promised participants some compensatory self-application. That turned into a bootcamp for neural networks, AI, and related topics. Surprisingly, it worked, and led to exploratory tinkering over several months. Claude AI was my implementation assistant throughout.</p>
+<p>I would be happy about feedback and suggestions — professionals will undoubtedly spot numerous weaknesses I missed entirely.</p>
 </div>
 
+</div><!-- .col -->
+</section>
+
+<section>
+<div class="wrapper">
+
+<p class="sect-group lang-de">Infrastruktur</p>
+<p class="sect-group lang-en" style="display:none">Infrastructure</p>
+<div class="proj-grid">
+  <a class="proj-card" href="ki-oekosystem.html">
+    <p class="proj-num">06</p>
+    <p class="proj-title lang-de">Lokales KI-Ökosystem</p>
+    <p class="proj-title lang-en" style="display:none">Local AI Ecosystem</p>
+    <p class="proj-desc lang-de">Technische Dokumentation der Mac-Studio-M3-Ultra-Infrastruktur: LLM-Routing, RAG-Systeme, Vektordatenbanken, Master-Orchestrator, Chemie-/Neuro-Stack (Mai/Juni 2026).</p>
+    <p class="proj-desc lang-en" style="display:none">Technical documentation of the Mac Studio M3 Ultra infrastructure: LLM routing, RAG systems, vector databases, Master Orchestrator, chemistry/neuro stack (May/June 2026).</p>
+    <p class="proj-status">✓ AKTUELL · June 2026</p>
+  </a>
 </div>
+
+<p class="sect-group lang-de">Philosophie &amp; Sprache</p>
+<p class="sect-group lang-en" style="display:none">Philosophy &amp; Language</p>
+<div class="proj-grid">
+  <a class="proj-card" href="plotin.html">
+    <p class="proj-num">01</p>
+    <p class="proj-title lang-de">Plotin im Silicon Valley</p>
+    <p class="proj-title lang-en" style="display:none">Plotinus in Silicon Valley</p>
+    <p class="proj-desc lang-de">Drei Fragen, 1700 Jahre auseinander. Formale Strukturanalyse mit lokalem KI, Z3-Theorembeweiser und neoplatonischem Textkorpus.</p>
+    <p class="proj-desc lang-en" style="display:none">Three questions, 1700 years apart — formal structure analysis with local AI, Z3 theorem prover, and Neoplatonic text corpus.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN</p>
+  </a>
+</div>
+
+<p class="sect-group lang-de">Kondensierte &amp; p-adische Mathematik</p>
+<p class="sect-group lang-en" style="display:none">Condensed &amp; p-adic Mathematics</p>
+<div class="proj-grid">
+
+  <a class="proj-card" href="p-adisch.html">
+    <p class="proj-num">02</p>
+    <p class="proj-title lang-de">p-adische Theorie &amp; kondensierte Mathematik</p>
+    <p class="proj-title lang-en" style="display:none">p-adic Theory &amp; Condensed Mathematics</p>
+    <p class="proj-desc lang-de">Formale Verifikation in Lean 4 (solide kondensierte Moduln, PR #39701), Dieudonné-Manin-Klassifikation, computeralgebraische Experimente mit formalen Gruppen.</p>
+    <p class="proj-desc lang-en" style="display:none">Formal verification in Lean 4 (solid condensed modules, PR #39701), Dieudonné–Manin classification, computer-algebraic experiments with formal groups.</p>
+    <p class="proj-status">✓ LEAN PR EINGEREICHT</p>
+  </a>
+
+  <a class="proj-card" href="derived-hecke.html">
+    <p class="proj-num">03</p>
+    <p class="proj-title lang-de">Derived Hecke I — Completed Cohomology</p>
+    <p class="proj-title lang-en" style="display:none">Derived Hecke I — Completed Cohomology</p>
+    <p class="proj-desc lang-de">Trägt Emertons Completed Cohomology eine natürliche Struktur in der kondensierten Welt von Clausen–Scholze? Erstes Projekt dieser Reihe.</p>
+    <p class="proj-desc lang-en" style="display:none">Does Emerton's completed cohomology carry a natural structure in Clausen–Scholze's condensed world? First project in this series.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN</p>
+  </a>
+
+  <a class="proj-card" href="vcq3.html">
+    <p class="proj-num">07</p>
+    <p class="proj-title lang-de">VCQ3 / Derived Hecke II — Koszul-Dualität</p>
+    <p class="proj-title lang-en" style="display:none">VCQ3 / Derived Hecke II — Koszul Duality</p>
+    <p class="proj-desc lang-de">Koszul-Dualität in D(Solid<sub>ℤp</sub>), derived Hecke-Algebra, Prasanna–Venkatesh äußere Algebra-Wirkung in soliden Moduln. Adversarielle Multi-Modell-Analyse.</p>
+    <p class="proj-desc lang-en" style="display:none">Koszul duality in D(Solid<sub>ℤp</sub>), derived Hecke algebra, Prasanna–Venkatesh exterior algebra action in solid modules. Adversarial multi-model analysis.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 7 Phasen</p>
+  </a>
+
+  <a class="proj-card" href="laq.html">
+    <p class="proj-num">08</p>
+    <p class="proj-title lang-de">Liquid Archimedes (LAQ)</p>
+    <p class="proj-title lang-en" style="display:none">Liquid Archimedes (LAQ)</p>
+    <p class="proj-desc lang-de">Archimedische Seite der Prasanna–Venkatesh-Gradverteilung in liquiden ℝ-Moduln. Komplementärprojekt zu VCQ3 (p-adisch solid ↔ archimedisch liquid).</p>
+    <p class="proj-desc lang-en" style="display:none">Archimedean side of the Prasanna–Venkatesh degree distribution in liquid ℝ-modules. Companion project to VCQ3 (p-adic solid ↔ archimedean liquid).</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 8 Phasen</p>
+  </a>
+
+  <a class="proj-card" href="connes-consani.html">
+    <p class="proj-num">21</p>
+    <p class="proj-title lang-de">Connes–Consani F₁-Geometrie &amp; FF-Kurve</p>
+    <p class="proj-title lang-en" style="display:none">Connes–Consani F₁ Geometry &amp; FF Curve</p>
+    <p class="proj-desc lang-de">Verbindet Connes–Consanis F₁-Siebarithmetik mit Scholzes Fargues-Fontaine-Kurve. Vier Forschungsfragen zur Trichomie, zum 6-Funktor-Formalismus und zu Theorem 3.16.</p>
+    <p class="proj-desc lang-en" style="display:none">Connects Connes–Consani F₁ sieve arithmetic with Scholze's Fargues–Fontaine curve. Four research questions on trichotomy, the 6-functor formalism, and Theorem 3.16.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 4 Phasen · arXiv:2606.06604</p>
+  </a>
+
+</div>
+
+<p class="sect-group lang-de">Homotopietheorie &amp; Neoplatonismus</p>
+<p class="sect-group lang-en" style="display:none">Homotopy Theory &amp; Neoplatonism</p>
+<div class="proj-grid">
+
+  <a class="proj-card" href="anima.html">
+    <p class="proj-num">04</p>
+    <p class="proj-title lang-de">Anima II — Topologie &amp; Neoplatonismus</p>
+    <p class="proj-title lang-en" style="display:none">Anima II — Topology &amp; Neoplatonism</p>
+    <p class="proj-desc lang-de">Clausens Anima-Begriff (arXiv:2605.11950) verbindet mit der neoplatonischen Tradition. Homotopiegruppen von X<sub>ℂ</sub>, kondensierte Kohomologie.</p>
+    <p class="proj-desc lang-en" style="display:none">Clausen's concept of anima (arXiv:2605.11950) connects to the Neoplatonic tradition. Homotopy groups of X<sub>ℂ</sub>, condensed cohomology.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN</p>
+  </a>
+
+  <a class="proj-card" href="anima-iv.html">
+    <p class="proj-num">09</p>
+    <p class="proj-title lang-de">Anima IV — Kenzo, Spektrum, GL₁-CLLC</p>
+    <p class="proj-title lang-en" style="display:none">Anima IV — Kenzo, Spectrum, GL₁-CLLC</p>
+    <p class="proj-desc lang-de">Fünf Teilprojekte: Kenzo-Berechnungen (K(ℤ/2,n)), Rigiditätsanalyse des Spektrums, archimedische GL₁-CLLC (Hansen–Mann), Spektrale Aktion, k-Invarianten-Konsistenzbaum.</p>
+    <p class="proj-desc lang-en" style="display:none">Five sub-projects: Kenzo computations (K(ℤ/2,n)), rigidity analysis of the spectrum, archimedean GL₁-CLLC (Hansen–Mann), spectral action, k-invariants consistency tree.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 5 Teilprojekte</p>
+  </a>
+
+  <a class="proj-card" href="anima-v.html">
+    <p class="proj-num">10</p>
+    <p class="proj-title lang-de">Anima V — Bernoulli-Perioden &amp; J-Homomorphismus</p>
+    <p class="proj-title lang-en" style="display:none">Anima V — Bernoulli Periods &amp; J-Homomorphism</p>
+    <p class="proj-desc lang-de">Bernoulli-Zahlen als Perioden der Anima X<sub>ℂ</sub>, Adams e-Invariante, Verbindung zum J-Homomorphismus und stabilen Homotopiegruppen.</p>
+    <p class="proj-desc lang-en" style="display:none">Bernoulli numbers as periods of the anima X<sub>ℂ</sub>, Adams e-invariant, connection to the J-homomorphism and stable homotopy groups.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 2 Phasen</p>
+  </a>
+
+</div>
+
+<p class="sect-group lang-de">Arithmetik &amp; Zahlentheorie</p>
+<p class="sect-group lang-en" style="display:none">Arithmetic &amp; Number Theory</p>
+<div class="proj-grid">
+
+  <a class="proj-card" href="arithmetik.html">
+    <p class="proj-num">05</p>
+    <p class="proj-title lang-de">Arithmetische Chromatik</p>
+    <p class="proj-title lang-en" style="display:none">Arithmetic Chromaticity</p>
+    <p class="proj-desc lang-de">Formale Gruppen, Höhenstratifizierung und spektrale Sequenzen. SageMath, Macaulay2, Lean 4.</p>
+    <p class="proj-desc lang-en" style="display:none">Formal groups, height stratification and spectral sequences. SageMath, Macaulay2, Lean 4.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN</p>
+  </a>
+
+  <a class="proj-card" href="real-mult.html">
+    <p class="proj-num">11</p>
+    <p class="proj-title lang-de">Reelle Multiplikation</p>
+    <p class="proj-title lang-en" style="display:none">Real Multiplication</p>
+    <p class="proj-desc lang-de">Manin-Programm, NC-Tori, Hilbert-12-Problem. Nikolaevs Beweis der Manin-Vermutung (2021), Dang–Gargava–Li (2025). PARI/GP und LLM-Synthese.</p>
+    <p class="proj-desc lang-en" style="display:none">Manin's program, NC-tori, Hilbert's 12th problem. Nikolaev's proof of Manin's conjecture (2021), Dang–Gargava–Li (2025). PARI/GP and LLM synthesis.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 4 Phasen</p>
+  </a>
+
+  <a class="proj-card" href="greenberg.html">
+    <p class="proj-num">12</p>
+    <p class="proj-title lang-de">Greenberg-Vermutung</p>
+    <p class="proj-title lang-en" style="display:none">Greenberg's Conjecture</p>
+    <p class="proj-desc lang-de">Iwasawa-Invarianten μ=0 und λ=0 für total-reelle Körper. Ferrero–Washington-Theorem, Gras'sche Reformulierung via Torsionsgruppen.</p>
+    <p class="proj-desc lang-en" style="display:none">Iwasawa invariants μ=0 and λ=0 for totally real fields. Ferrero–Washington theorem, Gras's reformulation via torsion groups.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 5 Phasen</p>
+  </a>
+
+  <a class="proj-card" href="r2-konjektur.html">
+    <p class="proj-num">13</p>
+    <p class="proj-title lang-de">R2-Konjektur</p>
+    <p class="proj-title lang-en" style="display:none">R2 Conjecture</p>
+    <p class="proj-desc lang-de">Toda-Tabelle, J-Bild, β₁-Element bei p=3. Kenzo-Berechnung von K(ℤ/2,4), Adams-Spektralsequenz, stabile Homotopiegruppen von Sphären.</p>
+    <p class="proj-desc lang-en" style="display:none">Toda table, J-image, β₁ element at p=3. Kenzo computation of K(ℤ/2,4), Adams spectral sequence, stable homotopy groups of spheres.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 3 Phasen</p>
+  </a>
+
+  <a class="proj-card" href="combe-manin.html">
+    <p class="proj-num">14</p>
+    <p class="proj-title lang-de">Combe–Manin: NY-Operad, Typ-B-Arrangements</p>
+    <p class="proj-title lang-en" style="display:none">Combe–Manin: NY-Operad, Type-B Arrangements</p>
+    <p class="proj-desc lang-de">New York-Operad, Typ-B-Hyperebenenarrangements, Poincaré-Polynome. Koordinatenwechsel y=2z−1 identifiziert NY-Straten mit Typ-B-Komplements.</p>
+    <p class="proj-desc lang-en" style="display:none">New York operad, type-B hyperplane arrangements, Poincaré polynomials. The substitution y=2z−1 identifies NY-strata with type-B complements.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 3 Phasen</p>
+  </a>
+
+</div>
+
+<p class="sect-group lang-de">Eichtheorie, Floer &amp; arithmetische Topologie</p>
+<p class="sect-group lang-en" style="display:none">Gauge Theory, Floer &amp; Arithmetic Topology</p>
+<div class="proj-grid">
+
+  <a class="proj-card" href="arith-gauge.html">
+    <p class="proj-num">15</p>
+    <p class="proj-title lang-de">Arithmetische Eichtheorie</p>
+    <p class="proj-title lang-en" style="display:none">Arithmetic Gauge Theory</p>
+    <p class="proj-desc lang-de">Acht Teilprojekte P1–P8: Verknüpfungsmatrix/Reidemeister-Torsion, Floer-Homologie &amp; Iwasawa-Theorie, Hitchin-Fasern auf der FF-Kurve, p-adische Instantonen.</p>
+    <p class="proj-desc lang-en" style="display:none">Eight sub-projects P1–P8: linking matrix/Reidemeister torsion, Floer homology &amp; Iwasawa theory, Hitchin fibers on the FF curve, p-adic instantons.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 7 Phasen</p>
+  </a>
+
+  <a class="proj-card" href="floer-condensed.html">
+    <p class="proj-num">16</p>
+    <p class="proj-title lang-de">Floer-Theorie &amp; Kondensierte Mathematik</p>
+    <p class="proj-title lang-en" style="display:none">Floer Theory &amp; Condensed Mathematics</p>
+    <p class="proj-desc lang-de">Sechs Teilprojekte P-FL-1 bis P-FL-6: Verbindungen zwischen Floer-Homologie und kondensierter/solider Mathematik. Springer-Fasern, TDA, Novikov-Solidifizierung.</p>
+    <p class="proj-desc lang-en" style="display:none">Six sub-projects P-FL-1 to P-FL-6: connections between Floer homology and condensed/solid mathematics. Springer fibers, TDA, Novikov solidification.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 14 Phasen</p>
+  </a>
+
+</div>
+
+<p class="sect-group lang-de">Physik &amp; Mathematische Physik</p>
+<p class="sect-group lang-en" style="display:none">Physics &amp; Mathematical Physics</p>
+<div class="proj-grid">
+
+  <a class="proj-card" href="mixmaster.html">
+    <p class="proj-num">17</p>
+    <p class="proj-title lang-de">Mixmaster-GUP &amp; Quantenchaos</p>
+    <p class="proj-title lang-en" style="display:none">Mixmaster-GUP &amp; Quantum Chaos</p>
+    <p class="proj-desc lang-de">Mixmaster-Universum und verallgemeinertes Unsicherheitsprinzip (GUP). BKL-Chaos, Mayer-Transfer-Operator, Selberg-Zeta-Funktion, kubisches Supplement.</p>
+    <p class="proj-desc lang-en" style="display:none">Mixmaster universe and generalized uncertainty principle (GUP). BKL chaos, Mayer transfer operator, Selberg zeta function, cubic supplement.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 8 Phasen</p>
+  </a>
+
+  <a class="proj-card" href="bost.html">
+    <p class="proj-num">18</p>
+    <p class="proj-title lang-de">Bost θ-Invarianten</p>
+    <p class="proj-title lang-en" style="display:none">Bost θ-Invariants</p>
+    <p class="proj-desc lang-de">Bosts θ-Invarianten für Hermitesche Vektorbündel auf arithmetischen Kurven, Verbindungen zu Arakelov-Geometrie, Stark-Einheiten und Dirichlet L-Funktionen.</p>
+    <p class="proj-desc lang-en" style="display:none">Bost's θ-invariants for Hermitian vector bundles on arithmetic curves, connections to Arakelov geometry, Stark units, and Dirichlet L-functions.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 5 Phasen</p>
+  </a>
+
+</div>
+
+<p class="sect-group lang-de">Übergreifende Synthese</p>
+<p class="sect-group lang-en" style="display:none">Cross-cutting Synthesis</p>
+<div class="proj-grid">
+
+  <a class="proj-card" href="klammer.html">
+    <p class="proj-num">19</p>
+    <p class="proj-title lang-de">Die gemeinsame Klammer</p>
+    <p class="proj-title lang-en" style="display:none">The Common Bracket</p>
+    <p class="proj-desc lang-de">Cartier-Dualität auf Gestalten als übergreifendes Strukturprinzip: Verbindung zwischen VCQ3 (solid), LAQ (liquid), Anima IV und allen anderen Projekten.</p>
+    <p class="proj-desc lang-en" style="display:none">Cartier duality on Gestalten as an overarching structural principle: connecting VCQ3 (solid), LAQ (liquid), Anima IV, and all other projects.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 2 Phasen</p>
+  </a>
+
+</div>
+
+</div><!-- .wrapper -->
+</section>
+
+<section>
+<div class="col">
+<div class="lang-de">
+<h2>Technischer Hinweis</h2>
+<p>Alle KI-basierten Analysen wurden vollständig lokal auf einem Mac Studio M3 Ultra (256 GB) mit Open-Source-Modellen via Ollama durchgeführt — ohne API-Calls zu OpenAI, Google oder Anthropic. Für lange Dokumente: DeepSeek V4 Flash (284B MoE, 256K Kontext). Für Synthese: qwen3:235b-a22b. Für adversarielle Prüfung: deepseek-r1:70b. Seitenberichte: Claude Sonnet 4.6 (Anthropic).</p>
+</div>
+<div class="lang-en" style="display:none">
+<h2>Technical Note</h2>
+<p>All AI-based analyses were performed entirely locally on a Mac Studio M3 Ultra (256 GB) using open-source models via Ollama — without any API calls to OpenAI, Google, or Anthropic. For long documents: DeepSeek V4 Flash (284B MoE, 256K context). For synthesis: qwen3:235b-a22b. For adversarial checking: deepseek-r1:70b. Page reports written by Claude Sonnet 4.6 (Anthropic).</p>
+</div>
+</div>
+</section>
+
+<footer class="wrapper">
+  <span>Thomas Riepe · Berlin · <a href="mailto:thomasriepe@gmail.com" style="color:var(--fg-dim)">thomasriepe@gmail.com</a></span>
+  <span>§ 5 DDG: Privates Freizeitprojekt · keine kommerzielle Absicht · kein Gewerbe</span>
+  <span>Stand: Juni 2026</span>
+</footer>
+
+</div><!-- .wrapper -->
+
 <script>
 function setLang(l){
-  document.querySelectorAll('.lang-en').forEach(e=>e.style.display=l==='en'?'':'none');
-  document.querySelectorAll('.lang-de').forEach(e=>e.style.display=l==='de'?'':'none');
-  document.getElementById('btn-en').classList.toggle('active',l==='en');
-  document.getElementById('btn-de').classList.toggle('active',l==='de');
-  document.documentElement.lang=l;
-  try{localStorage.setItem('lang',l);}catch(e){}
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='');
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
 }
-(function(){try{if(localStorage.getItem('lang')==='de')setLang('de');}catch(e){}})();
 </script>
 </body>
 </html>

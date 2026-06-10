@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anima V &mdash; Bernoulli-Perioden &amp; J-Homomorphismus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;
+--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;
+--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+--sans:'Instrument Sans',sans-serif;--max:740px;--wide:940px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+header{border-bottom:1px solid var(--rule);padding:4.5rem 0 3rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.back{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;display:inline-flex;align-items:center;gap:.4em;margin-bottom:1.5rem;transition:color .2s}
+.back:hover{color:var(--gold)}
+h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.header-desc{max-width:560px;font-size:1rem;color:var(--fg-dim);line-height:1.7;margin-top:1.5rem}
+.version-note{font-family:var(--mono);font-size:.65rem;color:var(--gold2);margin-top:1rem;letter-spacing:.04em}
+nav{font-family:var(--sans);font-size:.78rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+nav a{color:var(--fg-dim);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+nav a:hover{color:var(--gold)}
+.nav-num{color:var(--gold);margin-right:.25em;font-family:var(--mono);font-size:.7em}
+section{margin-bottom:5rem;scroll-margin-top:2rem}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;font-style:italic;color:var(--fg);margin:2.5rem 0 .8rem;letter-spacing:-.01em}
+h4{font-family:var(--sans);font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-dim);margin:2rem 0 .6rem}
+p{margin-bottom:1.2em;font-size:1rem}
+blockquote{border-left:2px solid var(--gold2);margin:1.8rem 0;padding:.5rem 0 .5rem 1.6rem;color:var(--fg-dim);font-style:italic;font-size:.97rem}
+.box{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.4rem 1.6rem;margin:1.8rem 0;border-radius:2px}
+.box .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.box p{font-size:.97rem;margin-bottom:.6em}
+.box.confirmed{border-left-color:var(--green)}.box.confirmed .label{color:var(--green)}
+.box.open{border-left-color:var(--amber)}.box.open .label{color:var(--amber)}
+.box.spec{border-left-color:var(--red)}.box.spec .label{color:var(--red)}
+.theorem{background:var(--bg2);border:1px solid #2e2a24;padding:1.5rem 1.8rem;margin:2rem 0;border-radius:2px}
+.theorem::before{content:attr(data-label);font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem}
+.table-wrap{overflow-x:auto;margin:2rem 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-family:var(--sans)}
+thead tr{border-bottom:1px solid var(--gold2)}
+th{text-align:left;padding:.6rem 1rem .6rem 0;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
+td{padding:.6rem 1rem .6rem 0;border-bottom:1px solid var(--rule);color:var(--fg-dim);vertical-align:top;line-height:1.5}
+td:first-child{color:var(--fg);font-family:var(--mono);font-size:.82rem}
+td.ok{color:var(--green)} td.conj{color:var(--amber)} td.err{color:var(--red)}
+.process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.process-card{background:var(--bg2);border:1px solid var(--rule);padding:1rem 1.2rem;border-radius:2px}
+.process-card .model{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.05em;margin-bottom:.4rem}
+.process-card .task{font-family:var(--sans);font-size:.8rem;color:var(--fg-dim);line-height:1.4}
+.lang-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-en{display:none}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+@media(max-width:640px){html{font-size:16px}.wrapper{padding:0 1.2rem}h1{font-size:2rem}}
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+<header>
+<div class="col">
+  <a class="back" href="index.html">&larr; Zur&uuml;ck / Back</a>
+  <p class="header-meta">Projekt 10 &middot; Juni 2026 &middot; Stabile Homotopietheorie</p>
+  <h1>Anima V<span class="sub">Bernoulli-Perioden, J-Homomorphismus, Adams e-Invariante</span></h1>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
+  </div>
+  <p class="header-desc lang-de">Bernoulli-Zahlen als Perioden der Anima $X_\mathbb{C}$: Verbindung zwischen der algebraischen Struktur der Anima und den stabilen Homotopiegruppen von Sphären via J-Homomorphismus und Adams e-Invariante.</p>
+  <p class="header-desc lang-en" style="display:none">Bernoulli numbers as periods of the anima $X_\mathbb{C}$: connection between the algebraic structure of the anima and stable homotopy groups of spheres via the J-homomorphism and Adams e-invariant.</p>
+  
+</div>
+</header><nav class="wrapper"><a href="#kontext"><span class="nav-num">00</span><span class="lang-de">Kontext</span><span class="lang-en" style="display:none">Context</span></a>
+<a href="#bernoulli"><span class="nav-num">01</span><span class="lang-de">Bernoulli als Perioden</span><span class="lang-en" style="display:none">Bernoulli as Periods</span></a>
+<a href="#j-hom"><span class="nav-num">02</span><span class="lang-de">J-Homomorphismus</span><span class="lang-en" style="display:none">J-Homomorphism</span></a>
+<a href="#ergebnisse"><span class="nav-num">03</span><span class="lang-de">Ergebnisse</span><span class="lang-en" style="display:none">Results</span></a>
+</nav>
+<section id="kontext">
+<div class="col">
+  <h2><span class="nav-num">00</span>
+    <span class="lang-de">Kontext: von Anima II zu Anima V</span>
+    <span class="lang-en" style="display:none">Context: from Anima II to Anima V</span>
+  </h2>
+  <div class="lang-de"><p>Anima II (Projekt 04) zeigte: $\pi_n(X_\mathbb{C}) \cong \pi_n(S^2)^\vee$ (operiert auf
+<em>instabilen</em> Homotopiegruppen). Anima V fragt nach der Verbindung zu <em>stabilen</em> Strukturen.</p>
+<p>Das Ausgangsmaterial: Bernoulli-Zahlen $B_{2k}$ tauchen in mehreren für die Anima relevanten
+Kontexten auf — als Koeffizienten im Äquivarianten-Periodizitäts-Operator, als Werte der Riemann-Zetafunktion
+$\zeta(1-2k) = -B_{2k}/(2k)$, und als Image des J-Homomorphismus in $\pi_{4k-1}^s$.</p></div>
+  <div class="lang-en" style="display:none"><p>Anima II (Project 04) showed: $\pi_n(X_\mathbb{C}) \cong \pi_n(S^2)^\vee$ (acting on
+<em>unstable</em> homotopy groups). Anima V asks about the connection to <em>stable</em> structures.</p>
+<p>The starting material: Bernoulli numbers $B_{2k}$ appear in several contexts relevant for the
+anima — as coefficients in the equivariant periodicity operator, as values of the Riemann zeta function
+$\zeta(1-2k) = -B_{2k}/(2k)$, and as the image of the J-homomorphism in $\pi_{4k-1}^s$.</p></div>
+</div>
+</section>
+<section id="bernoulli">
+<div class="col">
+  <h2><span class="nav-num">01</span>
+    <span class="lang-de">Bernoulli-Zahlen als Perioden</span>
+    <span class="lang-en" style="display:none">Bernoulli Numbers as Periods</span>
+  </h2>
+  <div class="lang-de"><p>Die zentrale Hypothese von Anima V:</p>
+<blockquote>Die Bernoulli-Zahlen $B_{2k}$ erscheinen als <em>Perioden</em> der Anima $X_\mathbb{C}$ —
+als Koeffizienten des Charakteristischen Elements, das die Wirkung der äußeren Algebra
+$\bigwedge^* a_G^*$ auf der archimedischen Seite steuert. [KONJEKTUR]</blockquote>
+<p>Verbindungen (alle bekannt, unabhängig voneinander):</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+<li>$\zeta(-1) = -1/12 = -B_2/2$ — Wert im Regularisierungsbereich [BELEGT]</li>
+<li>Image$(J) \subset \pi_{4k-1}^s$ hat Ordnung $|B_{2k}|/(4k)$ nach Adams [BELEGT]</li>
+<li>Bernoulli-Zahlen als Koeffizienten des Hirzebruch-Geschlechts $L(M)$ und $\hat{A}(M)$ [BELEGT]</li>
+</ul>
+<p>Die Synthese untersucht, ob diese Verbindungen durch die Anima-Struktur vereinheitlicht werden
+können oder ob es sich um zufällige Koinzidenzen handelt [OFFEN].</p></div>
+  <div class="lang-en" style="display:none"><p>The central hypothesis of Anima V:</p>
+<blockquote>Bernoulli numbers $B_{2k}$ appear as <em>periods</em> of the anima $X_\mathbb{C}$ —
+as coefficients of the characteristic element governing the action of the exterior algebra
+$\bigwedge^* a_G^*$ on the archimedean side. [CONJECTURE]</blockquote>
+<p>Connections (all known, independently of each other):</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+<li>$\zeta(-1) = -1/12 = -B_2/2$ — value in regularization domain [ESTABLISHED]</li>
+<li>Im$(J) \subset \pi_{4k-1}^s$ has order $|B_{2k}|/(4k)$ by Adams [ESTABLISHED]</li>
+<li>Bernoulli numbers as coefficients of Hirzebruch's genera $L(M)$ and $\hat{A}(M)$ [ESTABLISHED]</li>
+</ul>
+<p>The synthesis investigates whether these connections can be unified through the anima structure
+or whether they are coincidental [OPEN].</p></div>
+</div>
+</section>
+<section id="j-hom">
+<div class="col">
+  <h2><span class="nav-num">02</span>
+    <span class="lang-de">J-Homomorphismus und Adams e-Invariante</span>
+    <span class="lang-en" style="display:none">J-Homomorphism and Adams e-invariant</span>
+  </h2>
+  <div class="lang-de"><p>Der J-Homomorphismus $J: \pi_k(\mathrm{SO}) \to \pi_k^s$ verbindet die Homotopiegruppen
+der stabilen orthogonalen Gruppe mit den stabilen Homotopiegruppen von Sphären.</p>
+<p>Adams' $e$-Invariante: Für $\alpha \in \pi_{4k-1}^s$,
+$$e(\alpha) = \frac{B_{2k}}{2k} \cdot \text{(Signatur-Korrekturterm)}$$
+Das Image von $J$ in Grad $4k-1$ ist genau die zyklische Gruppe der Ordnung Nenner$(B_{2k}/4k)$
+(Bernoulli-Adams-Theorem [BELEGT]).</p>
+<p>Anima V fragt: Taucht diese Struktur als Modul-Eigenschaft der kondensiert-kohomologischen Realisierung
+von $X_\mathbb{C}$ auf? Die Synthese identifiziert dies als KONJEKTUR mit plausiblem Mechanismus,
+aber ohne konstruktiven Beweis.</p></div>
+  <div class="lang-en" style="display:none"><p>The J-homomorphism $J: \pi_k(\mathrm{SO}) \to \pi_k^s$ connects the homotopy groups of the
+stable orthogonal group with stable homotopy groups of spheres.</p>
+<p>Adams' $e$-invariant: for $\alpha \in \pi_{4k-1}^s$,
+$$e(\alpha) = \frac{B_{2k}}{2k} \cdot \text{(signature correction term)}$$
+The image of $J$ in degree $4k-1$ is exactly the cyclic group of order denominator$(B_{2k}/4k)$
+(Bernoulli–Adams theorem [ESTABLISHED]).</p>
+<p>Anima V asks: does this structure appear as a module-theoretic property of the condensed
+cohomological realization of $X_\mathbb{C}$? The synthesis identifies this as CONJECTURE with a
+plausible mechanism but no constructive proof.</p></div>
+</div>
+</section>
+<section id="ergebnisse">
+<div class="col">
+  <h2><span class="nav-num">03</span>
+    <span class="lang-de">Ergebnisse</span>
+    <span class="lang-en" style="display:none">Results</span>
+  </h2>
+  <div class="lang-de"><div class="table-wrap"><table>
+<thead><tr><th>Behauptung</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>$B_{2k}$ als Zetawerte: $\zeta(1-2k) = -B_{2k}/(2k)$</td><td class="ok">BELEGT (klassisch)</td></tr>
+<tr><td>Adams: Ordnung Im$(J)$ in Grad $4k-1$ = Nenner$(B_{2k}/4k)$</td><td class="ok">BELEGT (Adams 1966)</td></tr>
+<tr><td>$B_{2k}$ als Koeffizienten im Anima-Periodizitätsoperator</td><td class="conj">KONJEKTUR</td></tr>
+<tr><td>Vereinheitlichung durch Anima-Struktur</td><td class="err">SPEKULATIV</td></tr>
+<tr><td>Direkte Verbindung $X_\mathbb{C}$ ↔ Im$(J)$</td><td class="err">OFFEN</td></tr>
+</tbody></table></div>
+<p>Das adversarielle Modell (r1:70b) stellte fest: Die Verbindung zwischen Anima und Bernoulli-Zahlen
+ist mathematisch präzisierbar, aber der Schritt von den bekannten Resultaten zur Anima-Interpretation
+ist ein echtes Forschungsprogramm, kein unmittelbares Korollar.</p></div>
+  <div class="lang-en" style="display:none"><div class="table-wrap"><table>
+<thead><tr><th>Claim</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>$B_{2k}$ as zeta values: $\zeta(1-2k) = -B_{2k}/(2k)$</td><td class="ok">ESTABLISHED (classical)</td></tr>
+<tr><td>Adams: order of Im$(J)$ in degree $4k-1$ = denominator$(B_{2k}/4k)$</td><td class="ok">ESTABLISHED (Adams 1966)</td></tr>
+<tr><td>$B_{2k}$ as coefficients in anima periodicity operator</td><td class="conj">CONJECTURE</td></tr>
+<tr><td>Unification via anima structure</td><td class="err">SPECULATIVE</td></tr>
+<tr><td>Direct connection $X_\mathbb{C}$ ↔ Im$(J)$</td><td class="err">OPEN</td></tr>
+</tbody></table></div>
+<p>The adversarial model (r1:70b) found: the connection between anima and Bernoulli numbers is
+mathematically precise, but the step from known results to the anima interpretation is a genuine
+research program, not an immediate corollary.</p></div>
+</div>
+</section>
+<footer class="wrapper">
+  <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
+  <span>Thomas Riepe &middot; Berlin &middot; Juni 2026</span>
+  <span>Projekt 10 von 21</span>
+</footer>
+</div>
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='');
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
+}
+</script>
+</body>
+</html>

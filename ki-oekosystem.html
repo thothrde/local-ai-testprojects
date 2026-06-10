@@ -1,1077 +1,449 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local AI Ecosystem · Mac Studio M3 Ultra · Berlin · May 2026</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-
-
+<title>Lokales KI-Ökosystem · Mac Studio M3 Ultra · Berlin · Juni 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 <style>
-:root{
-  --bg:#ffffff;--bg2:#f9fafb;--bg3:#f3f4f6;
-  --text:#111827;--text2:#4b5563;--text3:#6b7280;
-  --border:#e5e7eb;
-  --purple:#7c3aed;--purple-l:#ede9fe;--purple-d:#5b21b6;
-  --blue:#1d4ed8;--blue-l:#dbeafe;--blue-d:#1e3a8a;
-  --green:#059669;--green-l:#d1fae5;--green-d:#065f46;
-  --amber:#b45309;--amber-l:#fef3c7;--amber-d:#78350f;
-  --red:#dc2626;--red-l:#fee2e2;
-  --teal:#0f766e;--teal-l:#ccfbf1;
-  font-family:'Georgia',serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);line-height:1.75;font-size:16px;max-width:920px;margin:0 auto;padding:2.5rem 2rem 5rem}
-code,pre{font-family:'Courier New',Courier,monospace}
-h1{font-size:2rem;font-weight:700;line-height:1.3;margin-bottom:.6rem}
-h2{font-size:1.2rem;font-weight:700;margin:2.5rem 0 .75rem;padding-bottom:.4rem;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:.5rem}
-h3{font-size:1rem;font-weight:700;margin:1.4rem 0 .45rem;color:var(--text)}
-p{margin-bottom:.9rem;font-size:.94rem;color:var(--text);line-height:1.7}
-.kicker{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:.55rem}
-.hero{border-bottom:2px solid var(--border);padding-bottom:1.75rem;margin-bottom:2.5rem}
-.subtitle{font-size:1rem;color:var(--text2);margin-bottom:1.5rem;line-height:1.65}
-code.inline{background:#f1f5f9;padding:1px 5px;border-radius:3px;font-size:.86em;color:#1e293b}
-pre{background:#f1f5f9;border:1px solid var(--border);border-radius:6px;padding:.85rem 1rem;overflow-x:auto;font-size:.81rem;line-height:1.65;margin:.65rem 0 1rem}
-hr{border:0;border-top:1.5px solid var(--border);margin:2.25rem 0}
-
-/* BADGES */
-.badges{display:flex;flex-wrap:wrap;gap:.35rem;margin:.6rem 0 1rem}
-.badge{font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:4px}
-.b-green{background:var(--green-l);color:var(--green-d)}
-.b-blue{background:var(--blue-l);color:var(--blue-d)}
-.b-purple{background:var(--purple-l);color:var(--purple-d)}
-.b-amber{background:var(--amber-l);color:var(--amber-d)}
-.b-gray{background:var(--bg3);color:#374151;border:1px solid var(--border)}
-.b-teal{background:var(--teal-l);color:var(--teal)}
-
-/* TABLES */
-table{width:100%;border-collapse:collapse;font-size:.87rem;margin:.65rem 0 1.1rem}
-th,td{padding:.45rem .75rem;text-align:left;border-bottom:1px solid var(--border)}
-th{font-size:.74rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.06em;background:var(--bg3)}
-td code{font-family:'Courier New',monospace;font-size:.79rem}
-.on{color:#059669;font-weight:600}
-.off{color:#9ca3af}
-.note{color:var(--amber);font-weight:600}
-
-/* CALLOUTS */
-.callout{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:.85rem 1.1rem;margin:.75rem 0;font-size:.91rem;color:var(--text2);line-height:1.65}
-.callout strong{color:var(--text)}
-.callout-warn{background:var(--amber-l);border-color:#d97706}
-.callout-warn,.callout-warn strong{color:var(--amber-d)}
-.callout-purple{background:var(--purple-l);border-color:#a78bfa}
-.callout-purple,.callout-purple strong{color:var(--purple-d)}
-.callout-blue{background:var(--blue-l);border-color:#93c5fd}
-.callout-blue,.callout-blue strong{color:var(--blue-d)}
-.callout-red{background:var(--red-l);border-color:#fca5a5}
-.callout-red,.callout-red strong{color:#991b1b}
-
-/* FEATURE LISTS */
-ul.feat{list-style:none;padding:0;margin:.4rem 0 .75rem}
-ul.feat li{display:flex;align-items:baseline;gap:.4rem;font-size:.88rem;padding:2px 0;color:var(--text2);line-height:1.55}
-ul.feat li::before{content:"·";font-weight:700;flex-shrink:0}
-ul.feat.purple li::before{color:var(--purple)}
-ul.feat.blue li::before{color:var(--blue)}
-ul.feat.green li::before{color:var(--green)}
-ul.feat.amber li::before{color:var(--amber)}
-ul.feat li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(--text)}
-
-/* SECTION LABEL */
-.sec-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin:1.5rem 0 .55rem;display:flex;align-items:center;gap:.4rem}
-.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
-
-/* CARDS */
-.card{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;margin-bottom:.75rem}
-.card h3{margin:0 0 .5rem;font-size:.95rem}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:.75rem 0}
-.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;margin:.75rem 0}
-@media(max-width:650px){.two-col,.three-col{grid-template-columns:1fr}}
-
-/* ROUTING DIAGRAM */
-.routing-grid{display:grid;grid-template-columns:1fr 60px 1fr;align-items:start;gap:.5rem;margin:.85rem 0}
-.r-box{border-radius:7px;padding:.75rem 1rem;border:1.5px solid}
-.r-box.stage1{border-color:var(--blue);background:var(--blue-l)}
-.r-box.stage2{border-color:var(--purple);background:var(--purple-l)}
-.r-arrow{display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--text3);padding-top:1.5rem}
-.r-label{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.3rem}
-.r-box.stage1 .r-label{color:var(--blue-d)}
-.r-box.stage2 .r-label{color:var(--purple-d)}
-.r-title{font-size:.92rem;font-weight:700;margin-bottom:.5rem}
-.r-box.stage1 .r-title{color:var(--blue-d)}
-.r-box.stage2 .r-title{color:var(--purple-d)}
-.r-item{font-size:.82rem;color:var(--text2);padding:2px 0;line-height:1.5}
-.r-item strong{color:var(--text)}
-@media(max-width:650px){.routing-grid{grid-template-columns:1fr;}.r-arrow{transform:rotate(90deg);padding:0 0 .5rem}}
-
-/* ARCHITECTURE OVERVIEW */
-.arch-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin:.75rem 0}
-.arch-cell{border-radius:6px;padding:.6rem .75rem;text-align:center;border:1px solid var(--border)}
-.arch-cell .ac-num{font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.2rem;color:var(--text3)}
-.arch-cell .ac-title{font-size:.82rem;font-weight:700;color:var(--text)}
-.arch-cell .ac-sub{font-size:.72rem;color:var(--text3);margin-top:.15rem}
-.arch-cell.hub{border-color:var(--purple);background:var(--purple-l)}
-.arch-cell.hub .ac-num{color:var(--purple)}
-.arch-cell.hub .ac-title{color:var(--purple-d)}
-@media(max-width:600px){.arch-row{grid-template-columns:1fr 1fr}}
-
-/* DOMAIN TAGS */
-.domain-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin:.4rem 0}
-.dtag{font-size:.72rem;padding:2px 7px;border-radius:3px;font-weight:600}
-.dtag.math{background:#f3e8ff;color:#6b21a8}
-.dtag.philo{background:#fce7f3;color:#9d174d}
-.dtag.logic{background:#dbeafe;color:#1e3a8a}
-.dtag.default{background:var(--bg3);color:var(--text2)}
-
-/* MODEL ROUTING TARGETS */
-.model-badge{display:inline-block;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:.35rem}
-.m-flagship{background:#ede9fe;color:#5b21b6}
-.m-reason{background:#fef3c7;color:#92400e}
-.m-fast{background:var(--green-l);color:var(--green-d)}
-.m-dsv4{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
-
-/* APP GRID */
-.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin:.7rem 0}
-.app-item{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:.55rem .85rem}
-.app-domain{font-weight:700;color:var(--blue);font-size:.82rem}
-.app-desc{color:var(--text2);font-size:.78rem;margin-top:1px;line-height:1.4}
-.app-port{font-family:'Courier New',monospace;font-size:.72rem;color:var(--text3)}
-@media(max-width:600px){.app-grid{grid-template-columns:1fr}}
-
-/* CONNECTION MAP */
-.conn-map{border:1px solid var(--border);border-radius:8px;padding:1.1rem 1.25rem;background:var(--bg2);margin:.75rem 0}
-.conn-map h3{font-size:.9rem;margin:0 0 .75rem;color:var(--text2)}
-.conn-item{display:flex;align-items:flex-start;gap:.5rem;margin:.3rem 0;font-size:.86rem;line-height:1.5}
-.conn-from{font-weight:700;color:var(--text);white-space:nowrap}
-.conn-arrow{color:var(--text3);flex-shrink:0}
-.conn-to{color:var(--text2)}
-
-.footnote{font-size:.79rem;color:var(--text3);border-top:1px solid var(--border);padding-top:1rem;margin-top:2.5rem;line-height:1.65}
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;
+--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;
+--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+--sans:'Instrument Sans',sans-serif;--max:740px;--wide:940px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+header{border-bottom:1px solid var(--rule);padding:4.5rem 0 3rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.back{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;display:inline-flex;align-items:center;gap:.4em;margin-bottom:1.5rem;transition:color .2s}
+.back:hover{color:var(--gold)}
+h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.header-desc{max-width:560px;font-size:1rem;color:var(--fg-dim);line-height:1.7;margin-top:1.5rem}
+.version-note{font-family:var(--mono);font-size:.65rem;color:var(--gold2);margin-top:1rem;letter-spacing:.04em}
+nav{font-family:var(--sans);font-size:.78rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+nav a{color:var(--fg-dim);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+nav a:hover{color:var(--gold)}
+.nav-num{color:var(--gold);margin-right:.25em;font-family:var(--mono);font-size:.7em}
+section{margin-bottom:5rem;scroll-margin-top:2rem}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;font-style:italic;color:var(--fg);margin:2.5rem 0 .8rem;letter-spacing:-.01em}
+h4{font-family:var(--sans);font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-dim);margin:2rem 0 .6rem}
+p{margin-bottom:1.2em;font-size:1rem}
+blockquote{border-left:2px solid var(--gold2);margin:1.8rem 0;padding:.5rem 0 .5rem 1.6rem;color:var(--fg-dim);font-style:italic;font-size:.97rem}
+.box{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.4rem 1.6rem;margin:1.8rem 0;border-radius:2px}
+.box .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.box p{font-size:.97rem;margin-bottom:.6em}
+.box.confirmed{border-left-color:var(--green)}.box.confirmed .label{color:var(--green)}
+.box.open{border-left-color:var(--amber)}.box.open .label{color:var(--amber)}
+.box.spec{border-left-color:var(--red)}.box.spec .label{color:var(--red)}
+.theorem{background:var(--bg2);border:1px solid #2e2a24;padding:1.5rem 1.8rem;margin:2rem 0;border-radius:2px}
+.theorem::before{content:attr(data-label);font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem}
+.table-wrap{overflow-x:auto;margin:2rem 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-family:var(--sans)}
+thead tr{border-bottom:1px solid var(--gold2)}
+th{text-align:left;padding:.6rem 1rem .6rem 0;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
+td{padding:.6rem 1rem .6rem 0;border-bottom:1px solid var(--rule);color:var(--fg-dim);vertical-align:top;line-height:1.5}
+td:first-child{color:var(--fg);font-family:var(--mono);font-size:.82rem}
+td.ok{color:var(--green)} td.conj{color:var(--amber)} td.err{color:var(--red)}
+.process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.process-card{background:var(--bg2);border:1px solid var(--rule);padding:1rem 1.2rem;border-radius:2px}
+.process-card .model{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.05em;margin-bottom:.4rem}
+.process-card .task{font-family:var(--sans);font-size:.8rem;color:var(--fg-dim);line-height:1.4}
+.lang-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-en{display:none}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+@media(max-width:640px){html{font-size:16px}.wrapper{padding:0 1.2rem}h1{font-size:2rem}}
 </style>
 <style>
-#lang-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);
-  border-bottom:1px solid #dddbd3;padding:.5rem 1.5rem;
-  display:flex;align-items:center;justify-content:space-between;
-  font-family:sans-serif;font-size:.8rem;gap:.5rem;}
-#lang-nav a.nav-home{color:#2d4a7a;text-decoration:none;font-weight:600;}
-#lang-nav a.nav-home:hover{text-decoration:underline;}
-.lang-sep{color:#aaa;margin:0 .4rem;}
-.lang-crumb{color:#888;font-size:.78rem;}
-.lang-toggle{display:flex;gap:.2rem;flex-shrink:0;}
-.lang-btn{font-size:.75rem;font-weight:700;padding:.25rem .6rem;
-  border:1.5px solid #c8c5bc;border-radius:3px;background:transparent;
-  color:#888;cursor:pointer;}
-.lang-btn.active{background:#2d4a7a;border-color:#2d4a7a;color:#fff;}
-.lang-btn:hover:not(.active){border-color:#2d4a7a;color:#2d4a7a;}
-.lang-de-section{display:none;}
-.lang-en-section{display:block;}
-
-/* ── DE section: explicit theme guarantees ─────────────────────────────── */
-div.lang-de-section { background:var(--bg); color:var(--text); }
-div.lang-de-section h1 { color:var(--text) !important; }
-div.lang-de-section h2 { color:var(--text3) !important; }
-div.lang-de-section h3 { color:var(--text) !important; }
-div.lang-de-section p  { color:var(--text) !important; }
-/* ─────────────────────────────────────────────────────────────────────── */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}
+.stat-card{background:var(--bg2);border:1px solid var(--rule);padding:1rem 1.2rem;border-radius:2px;text-align:center}
+.stat-num{font-family:var(--mono);font-size:1.6rem;color:var(--gold);display:block;margin-bottom:.3rem}
+.stat-label{font-family:var(--sans);font-size:.72rem;color:var(--fg-dim);letter-spacing:.06em}
 </style>
 </head>
 <body>
-<div id="lang-nav"><span><a class="nav-home" href="index.html">&#8592; Home</a><span class="lang-sep">|</span><span class="lang-crumb lang-en-section">AI Ecosystem Overview</span><span class="lang-crumb lang-de-section">KI-Ökosystem</span></span><div class="lang-toggle"><button class='lang-btn active' id='btn-en' onclick='setLang("en")'>EN</button><button class='lang-btn' id='btn-de' onclick='setLang("de")'>DE</button></div></div>
-<div class="lang-en-section">
-<div style="max-width:860px;margin:0 auto;padding:2rem 2rem 0;font-family:Georgia,serif;">
-<div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Local AI Ecosystem &middot; Berlin &middot; Autark Data</div>
-<h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">AI Infrastructure on Mac Studio M3 Ultra</h1>
-<p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">Fully local, cloud-independent AI infrastructure for mathematical-philosophical research, scientific computing, and public data applications. Status: May 2026.</p>
+<div class="wrapper">
+<header>
+<div class="col">
+  <a class="back" href="index.html">&larr; Zur&uuml;ck / Back</a>
+  <p class="header-meta">Infrastruktur-Dokumentation · Stand: Juni 2026</p>
+  <h1>Lokales KI-Ökosystem<span class="sub">Mac Studio M3 Ultra · 256 GB · Vollständig lokal</span></h1>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
+  </div>
+  <p class="header-desc lang-de">Vollständig lokale, cloud-unabhängige KI-Infrastruktur für mathematisch-philosophische Forschung, wissenschaftliches Rechnen und öffentliche Datenanwendungen. Alle Berechnungen auf Mac Studio M3 Ultra (256 GB unified memory) — kein Cloud-Zugang, keine Daten verlassen den Rechner.</p>
+  <p class="header-desc lang-en" style="display:none">Fully local, cloud-independent AI infrastructure for mathematical-philosophical research, scientific computing, and public data applications. All computations on Mac Studio M3 Ultra (256 GB unified memory) — no cloud access, no data leaves the machine.</p>
+  <p class="version-note">Stand: Juni 2026 · v3.4</p>
 </div>
-<div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
-
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.65rem;margin:1.5rem 0;font-family:sans-serif;">
-<div style="background:#edf2fb;border:1px solid #b8c8e8;border-radius:4px;padding:.75rem 1rem;"><strong>256 GB</strong><br><span style="font-size:.8rem;color:#4a4844;">Unified Memory</span></div>
-<div style="background:#edf2fb;border:1px solid #b8c8e8;border-radius:4px;padding:.75rem 1rem;"><strong>Two-tier LLM routing</strong><br><span style="font-size:.8rem;color:#4a4844;">Rule-based + AI dispatcher</span></div>
-<div style="background:#edf2fb;border:1px solid #b8c8e8;border-radius:4px;padding:.75rem 1rem;"><strong>Lean 4 + Z3 + Julia</strong><br><span style="font-size:.8rem;color:#4a4844;">Formal verification</span></div>
-<div style="background:#edf2fb;border:1px solid #b8c8e8;border-radius:4px;padding:.75rem 1rem;"><strong>~17 HTTPS domains</strong><br><span style="font-size:.8rem;color:#4a4844;">via Cloudflare Tunnel</span></div>
-<div style="background:#edf2fb;border:1px solid #b8c8e8;border-radius:4px;padding:.75rem 1rem;"><strong>Anti-hallucination</strong><br><span style="font-size:.8rem;color:#4a4844;">Synthegy evaluator</span></div>
+</header><nav class="wrapper"><a href="#hardware"><span class="nav-num">00</span><span class="lang-de">Hardware</span><span class="lang-en" style="display:none">Hardware</span></a>
+<a href="#modelle"><span class="nav-num">01</span><span class="lang-de">LLM-Modelle</span><span class="lang-en" style="display:none">LLM Models</span></a>
+<a href="#router"><span class="nav-num">02</span><span class="lang-de">LLM-Router-Proxy</span><span class="lang-en" style="display:none">LLM Router Proxy</span></a>
+<a href="#orchestrator"><span class="nav-num">03</span><span class="lang-de">Master-Orchestrator</span><span class="lang-en" style="display:none">Master Orchestrator</span></a>
+<a href="#math"><span class="nav-num">04</span><span class="lang-de">Mathematik-Stack</span><span class="lang-en" style="display:none">Mathematics Stack</span></a>
+<a href="#chem"><span class="nav-num">05</span><span class="lang-de">Chemie/Bio/Neuro-Stack</span><span class="lang-en" style="display:none">Chem/Bio/Neuro Stack</span></a>
+<a href="#architektur"><span class="nav-num">06</span><span class="lang-de">Systemarchitektur</span><span class="lang-en" style="display:none">System Architecture</span></a>
+</nav>
+<section id="hardware">
+<div class="col">
+  <h2><span class="nav-num">00</span>
+    <span class="lang-de">Hardware-Infrastruktur</span>
+    <span class="lang-en" style="display:none">Hardware Infrastructure</span>
+  </h2>
+  <div class="lang-de">
+<div class="stat-grid">
+  <div class="stat-card"><span class="stat-num">256 GB</span><span class="stat-label">Unified Memory</span></div>
+  <div class="stat-card"><span class="stat-num">80-core</span><span class="stat-label">Apple GPU (M3 Ultra)</span></div>
+  <div class="stat-card"><span class="stat-num">24-core</span><span class="stat-label">CPU (16P + 8E)</span></div>
+  <div class="stat-card"><span class="stat-num">2 TB</span><span class="stat-label">Interner SSD</span></div>
+  <div class="stat-card"><span class="stat-num">4 TB</span><span class="stat-label">TB5-WORK (extern)</span></div>
 </div>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">System Architecture: Interconnection Structure</h2>
-<p>The ecosystem is not a collection of independent tools &mdash; all components are connected via the LLM router proxy as central switchboard. Every request passes through routing, memory enrichment, source search with credibility scoring, and asynchronous quality evaluation, before and after a model responds.
-
-
-<div class="conn-item"><span class="conn-from">Input</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 1: Rule-based dispatcher</strong> &mdash; domain detection, token length, topic classification. No LLM call, decision in &lt;1 ms.</span></div>
-<div class="conn-item"><span class="conn-from">Stage 1</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 2 (ambiguous cases): L1 reformulator</strong> &mdash; LLM classifies intent, recommends model, extracts search queries. Overrides rule-based search intent extraction.</span></div>
-<div class="conn-item"><span class="conn-from">Routing</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Neo4j Slow Memory</strong> &mdash; thematically relevant persons, concepts, projects are queried and injected as context.</span></div>
-<div class="conn-item"><span class="conn-from">Router</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Synthegy evaluator</strong> &mdash; evaluates every response for accuracy (1&ndash;5) and groundedness (1&ndash;5) before delivery. Asynchronous, <100 ms overhead.</span></div>
-<div class="conn-item"><span class="conn-from">All components</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>CLAUDE-DATA stick</strong> &mdash; Master-Sync writes updated project status to the stick nightly at 03:00.</span></div>
-</p>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Hardware</h2>
-<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
-<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Component</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Specification</th></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Model</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Apple Mac Studio M3 Ultra</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Unified Memory</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">256 GB</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">GPU</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">80-core</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">CPU</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">24-core (16 performance + 8 efficiency)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Storage</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2 TB SSD</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Operating System</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">macOS Sequoia</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">External SSD</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">4 TB Thunderbolt (<code>TB5-WORK</code>) &mdash; holds DeepSeek V4 Flash GGUF (153&nbsp;GB)</td></tr>
-<tr><td style="padding:.4rem .75rem;">Memory stick</td><td style="padding:.4rem .75rem;"><code>/Volumes/CLAUDE-DATA</code> &mdash; Backup, Bridge files, session logs, project continuity</td></tr>
-</table>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Local Language Models (Ollama)</h2>
-<p style="font-size:.88rem;color:#5a5648;margin-bottom:.65rem;">Ollama runs as a Homebrew service on <strong>port 11434</strong>. MLX backend active via <code>OLLAMA_BACKEND=mlx</code> (~30&nbsp;% speed gain on Apple Silicon). Models are automatically loaded by the router on demand and unloaded after inactivity.</p>
-<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
-<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Model</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Size</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Role / Routing</th></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">qwen3:235b-a22b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">142 GB MoE</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Flagship &mdash; complex analysis, philosophy, mathematics, synthesis</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">DeepSeek-V4-Flash</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~170 GB MoE</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1M context window &mdash; long documents, full-text ingestion</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">deepseek-r1:70b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~45 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Adversarial checker, chain-of-thought reasoning</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">qwen3:32b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~20 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Primary coding and standard reasoning backend</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">llama3.1:8b</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~5 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Fast responses, ConTopoS service (Grundgesetz)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>qwen3.6:35b-a3b</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~23 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Standard all-purpose, routing interpreter (L1 reformulator), coding (~47 tok/s)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>gemma4:26b</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~17 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Vision, tool-calling, 256K context, MTP speculative decoding (~80 tok/s)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>mistral-small3.1:24b</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~15 GB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Lightweight, commit messages (Aider weak model)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>mxbai-embed-large</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">669 MB</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Second embedding model</td></tr>
-<tr><td style="padding:.4rem .75rem;"><code>llama-guard3:8b</code></td><td style="padding:.4rem .75rem;">4.9 GB</td><td style="padding:.4rem .75rem;">Safety classifier</td></tr>
-</table>
-
-
-<h3>DeepSeek V4 Flash (DSV4) &mdash; dedicated llama-server</h3>
-<p>Additionally: DeepSeek V4 Flash (284B MoE, 153 GB GGUF, Mixed Quantization Q4KExperts/F16HC) on TB5-WORK. Runs via its own llama-server on port 8888 &mdash; <strong>256K context</strong>, 99 GPU layers, 1M-context architecture. Automatically activated by the router for very long inputs (&gt;400 token complexity threshold). RunAtLoad=false; startable manually or automatically via router. Not yet available via the official Ollama API.</p>
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">LLM Router Proxy v3.3 &mdash; Core of the System</h2>
-<p style="font-size:.88rem;color:#5a5648;margin-bottom:.65rem;">FastAPI middleware on <strong>Port 11435</strong> (<code>~/llm_router/llm_proxy.py</code>, LaunchAgent <code>com.autarkdata.llm-router-proxy</code>). Every request from Open WebUI and all other clients passes exclusively through this proxy.</p>
-<p>The two-stage routing is the central architectural decision. Stage 1 (rule-based dispatcher) classifies requests by domain keywords, token length and topic markers &mdash; without any LLM call, purely pattern-based. For simple queries (library searches, factual lookups, short code tasks) this stage routes directly. For ambiguous cases Stage 2 (L1 reformulator) is invoked: a smaller LLM classifies the query's intent, selects the appropriate large model, and extracts search queries for the retrieval layer.</p>
-<p>The system has an internal slow memory (Neo4j knowledge graph with persons, concepts, projects, relations) and fast session memory (conversation-scope context from current session). Both are injected as system context before each model call. After each response, the Synthegy evaluator (a separate model instance) rates the response 1&ndash;5 on accuracy and groundedness. Scores below 3 trigger a retry or escalation.</p>
-
-
-<h3>Data flow for a typical request</h3>
-<div class="conn-item"><span class="conn-from">Input</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 1: Rule-based dispatcher</strong> &mdash; domain detection, token length, topic classification. No LLM call.</span></div>
-<div class="conn-item"><span class="conn-from">Stage 1</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 2 (ambiguous cases): L1 reformulator</strong> &mdash; LLM classifies intent, recommends model, extracts search queries.</span></div>
-<div class="conn-item"><span class="conn-from">Stage 2</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Stage 3: Model</strong> &mdash; call to selected model (Ollama/DSV4/Claude API).</span></div>
-<div class="conn-item"><span class="conn-from">Router</span><span class="conn-arrow">&rarr;</span><span class="conn-to"><strong>Slow Memory (Neo4j)</strong> &mdash; thematically relevant entities injected as context.</span></div>
-
-<h3>Slow Memory &mdash; Neo4j</h3>
-<p>With each request, thematically relevant entities from the local knowledge graph are queried and injected as annotated context. Labels: Person &middot; MathConcept &middot; PhilosophyConcept &middot; Project. A <strong>Nightly Master-Sync</strong> runs daily at 03:00: <code>qwen3:32b</code> reads the most recent backup files on CLAUDE-DATA and creates an updated project status summary.</p>
-
-<h3>Session Fast Memory</h3>
-<p>For each running conversation separately: topics already mentioned are compactly prepended. No database access &mdash; purely in the working memory of the running session.</p>
-
-<div class="routing-table" style="font-size:.84rem;margin:1.2rem 0;font-family:var(--mono,monospace)">
-<p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:.5rem;">Stage 1 — Domain keyword routing (direct, no LLM)</p>
-<p><strong>qwen3:235b</strong> (philosophy / structural mathematics): Plotinus, Proclus, Iamblichus, Damascius, Neoplatonism, Aristotle, Plato, Spinoza, Leibniz, Kant, Hegel; condensed mathematics, derived categories, motives, chromatic homotopy, Langlands, automorphic forms, (&phi;,&Gamma;)-modules, perfectoid, étale cohomology</p>
-<p><strong>deepseek-r1:70b</strong> (reasoning / verification): prove, verify, check, counterexample, formal proof, Lean, theorem; logical reasoning queries</p>
-<p><strong>qwen3:32b</strong> (default / coding): everything else, including Python, shell, infrastructure, general questions</p>
-<p><strong>DSV4-Flash</strong> (long context): inputs &gt;400 tokens complexity threshold, full-document analysis</p>
-</div>
-
-<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Source Credibility Scoring</h3>
-<p>All search results are annotated with a URL-based credibility score before context injection. Sources below threshold are discarded.</p>
-<table style="width:100%;border-collapse:collapse;font-size:.83rem;margin:.75rem 0;font-family:sans-serif;">
-<thead><tr style="background:#f5f4f0;"><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Tier</th><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Sources</th></tr></thead>
+<div class="table-wrap"><table>
+<thead><tr><th>Komponente</th><th>Spezifikation</th></tr></thead>
 <tbody>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Canonical academic</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Institutional sites (IHES, IAS, MPIM, Oberwolfach), peer-reviewed journals, MathSciNet, mathematician blogs (Tao, Gowers)</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Very good</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">arXiv preprints, OpenAlex, CORE, Semantic Scholar, zbMATH</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Good</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Wikipedia (multilingual), Open Library, reliable reference sites</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Medium / low</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Forums, popular sites, non-academic blogs</td></tr>
-<tr><td style="padding:.3rem .6rem;">Ignored</td><td style="padding:.3rem .6rem;">Sources below credibility threshold &mdash; no context injection</td></tr>
-</tbody>
-</table>
-
-<p><strong>Anti-sycophancy protocol:</strong> The P4 structure (Prior Identification &rarr; Causal Mechanisms &rarr; Counter-evidence &rarr; Judgement, after He et al. arXiv:2604.10511, 2026) is active in all epistemic prompts. The system treats cross-model disagreement as an epistemic signal rather than an error: disagreement indicates genuine difficulty or counter-intuitive terrain.</p>
-<p><strong>Synthegy evaluator pattern:</strong> Each response is scored by a separate evaluator LLM (accuracy 1&ndash;5, groundedness 1&ndash;5) before delivery. Scores below threshold trigger reformulation with broader search.</p>
-
-<p><strong>Data flow of a typical request:</strong> Input &rarr; Stage 1: Rule-based dispatcher (domain recognition, token length, topic classification; no LLM call). Ambiguous cases &rarr; Stage 2: L1 reformulator (LLM classifies intent, recommends model, extracts search queries; overrides rule-based search-intent extraction). Routing &rarr; Neo4j slow memory (thematically relevant persons, concepts, projects injected as context). Routing &rarr; Session fast memory (themes already encountered). Model response &rarr; Synthegy evaluator (asynchronous quality score 1&ndash;5). High-stakes queries &rarr; adversarial second check (separate model).</p>
-
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Epistemic Tools</h2>
-
-<p><strong>Theoretical basis: He et al. 2026 (arXiv:2604.10511)</strong> &mdash; Models fail on counter-intuitive questions not from lack of knowledge but because chain-of-thought reasoning rationalises the intuitive prior instead of overcoming it. The epistemic tools work with explicit prior identification (P4 structure), anti-intuition forcing, and cross-model disagreement as epistemic signal.</p>
-
-<table style="width:100%;border-collapse:collapse;font-size:.83rem;margin:1rem 0;font-family:sans-serif;">
-<thead><tr style="background:#f5f4f0;"><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Command</th><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Function</th><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Model</th></tr></thead>
+<tr><td>Modell</td><td>Apple Mac Studio M3 Ultra</td></tr>
+<tr><td>Unified Memory</td><td>256 GB (LLM + System + Chemie ohne Konflikt)</td></tr>
+<tr><td>GPU</td><td>80-core (MPS-Beschleunigung für ML-Tools)</td></tr>
+<tr><td>CPU</td><td>24-core (16 Performance + 8 Efficiency)</td></tr>
+<tr><td>Betriebssystem</td><td>macOS Sequoia</td></tr>
+<tr><td>Externer SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — hält DeepSeek V4 Flash GGUF (164 GB)</td></tr>
+<tr><td>Memory Stick</td><td>/Volumes/CLAUDE-DATA — Backup, Bridge-Dateien, Session-Logs, Projekt-Persistenz</td></tr>
+</tbody></table></div>
+<p>RAM-Beschränkung: <code>MAX_LOADED_MODELS=1</code>, <code>NUM_PARALLEL=1</code> — DSV4 (~164 GB) +
+qwen3:235b (~142 GB) = 306 GB &gt; 256 GB. Deshalb strikt sequenzieller Betrieb.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<div class="stat-grid">
+  <div class="stat-card"><span class="stat-num">256 GB</span><span class="stat-label">Unified Memory</span></div>
+  <div class="stat-card"><span class="stat-num">80-core</span><span class="stat-label">Apple GPU (M3 Ultra)</span></div>
+  <div class="stat-card"><span class="stat-num">24-core</span><span class="stat-label">CPU (16P + 8E)</span></div>
+  <div class="stat-card"><span class="stat-num">2 TB</span><span class="stat-label">Internal SSD</span></div>
+  <div class="stat-card"><span class="stat-num">4 TB</span><span class="stat-label">TB5-WORK (external)</span></div>
+</div>
+<div class="table-wrap"><table>
+<thead><tr><th>Component</th><th>Specification</th></tr></thead>
 <tbody>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/question [model]</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Activates P4 structure + anti-intuition forcing</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">specified or auto</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/speculate</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Explicit uncertainty marking, probability estimates</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/analogy</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Structural analogies with explicit comparison criteria</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/verify</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Z3 / Lean 4 verification of formal claim</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">r1:70b + Z3</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/counterargument</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Steel-man of opposite position</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">r1:70b</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/uncertainty</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Explicit confidence intervals, distinguishes KNOWN / FOLKLORE / CONJECTURE</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/sources</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Retrieves primary sources with credibility scores before answering</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">router + LanceDB</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/ensemble [question]</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Three models answer independently &mdash; cross-model disagreement as epistemic signal</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b + r1:70b + qwen3.6</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/kreativ</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Productive estrangement, structural analogies across domains</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/navigator</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Navigator cognitive mode (hypnagogic, associative thinking)</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3:235b</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/destilliere</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Core extraction, compression to essential structure</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3.6:35b</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;"><code>/speichere</code></td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">LLM-compressed session summary &rarr; CLAUDE-DATA stick</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">qwen3.6:35b</td></tr>
-<tr><td style="padding:.3rem .6rem;"><code>/journal [text]</code></td><td style="padding:.3rem .6rem;">Dated research note entry (persistent across sessions)</td><td style="padding:.3rem .6rem;">&mdash;</td></tr>
-</tbody>
-</table>
-
-<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Deep Consolidation (<code>tiefenkonsolidierung</code>)</h3>
-<p>Software analogue of the LLM Sleep Paradigm (Lee et al., arXiv:2605.26099, 2026): 1&nbsp;exploration pass at high temperature + N deepening passes at low temperature over the same context. Implemented as new method in the <code>komitee_bewertung</code> WebUI tool (v1.0.0 &rarr; v1.1.0, May 2026). Suitable for deep analyses, chains of argument, mathematical explanations, and proof ideas. Runtime: n=2 approx. 15&ndash;20&nbsp;min, n=3 approx. 25&nbsp;min. Deliberately not extended to <code>lean_iterativ</code> (which already implements the analogous principle via the Ralph&nbsp;Loop) or the mathematics orchestrator (no specific occasion).</p>
-
-<p>The anti-hallucination architecture follows He et al. (arXiv:2604.10511, 2026). Key components:</p>
-<ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
-<li><strong>Source credibility scoring</strong> before retrieval (not only post-retrieval): sources are rated by recency, citation count, and document type</li>
-<li><strong>Synthegy evaluator pattern</strong>: a separate evaluator LLM rates each response on accuracy (1&ndash;5) and groundedness (1&ndash;5) before delivery to the user</li>
-<li><strong>Prior-forcing</strong> for counterintuitive questions: the system is prompted to explicitly consider the opposite of the obvious answer before committing (P4 structure: Prior Identification &rarr; Causal Mechanisms &rarr; Counter-evidence &rarr; Judgement)</li>
-<li><strong>Adversarial checking</strong> for high-stakes outputs: deepseek-r1:70b checks all formal mathematical claims independently via chain-of-thought</li>
-</ul>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Search and Source Integration</h2>
-<p>The retrieval architecture integrates multiple search layers: LanceDB vector search (semantic + BM25 hybrid), Neo4j knowledge graph traversal, arXiv search (2.94M articles, MMR diversification), and PhilArchive search (187,882 philosophy preprints). The source credibility scoring system assigns scores based on document type (peer-reviewed &gt; preprint &gt; forum), recency, and citation count. All sources retrieved are logged with their credibility score for the Synthegy evaluator.</p>
-
-<h3>SearXNG meta-search engine (Port 8080)</h3>
-<p>Local SearXNG instance aggregates multiple engines in parallel: Brave Search &middot; DuckDuckGo &middot; Wikipedia (multilingual) &middot; Semantic Scholar &middot; arXiv &middot; Google Scholar &middot; PubMed. All results enter context with credibility annotation. Mojeek, Yahoo, Google, and Bing are disabled (rate-limiting). Running in parallel: direct queries to OpenAlex &middot; CORE (Open Access) &middot; Open Library &middot; local arXiv index.</p>
-
-<h3>Perplexica (AI-assisted web search)</h3>
-<p>Standalone Perplexica instance as Docker container &mdash; a Perplexity-like search interface that combines natural language queries with SearXNG web search and delivers source citations inline. Runs separately from the proxy system, usable for direct interactive web research. Docker Desktop installed; Perplexica configured as a service.</p>
-
-<h3>Hybrid arXiv index (2.4 million entries)</h3>
-<p>A local index with approx. 2.4 million arXiv entries combines BM25 keyword search with semantic vector search. Maximal Marginal Relevance (MMR) increases topical diversity of search results. Fuzzy author search handles name variants correctly. Covers mathematics, physics, computer science, philosophy &mdash; all locally available without network access.</p>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Philosophical Primary Text Vector Databases</h2>
-<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
-<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Collection</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Chunks</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Content</th></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">plotinus_multilingual</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">78,674</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Neoplatonic TLG corpus (GR/LA/DE/EN). Note: Plotinus ~0.6%, Proclus dominant.</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">ose_wiki</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">19,659</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Open Source Ecology Wiki</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">macrobius_corpus</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">~8,000</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Macrobius primary texts (Saturnalia, Somnium Scipionis)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Chromatic homotopy</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">520</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Chromatic homotopy theory literature (Ravenel, Lurie, Morava etc.)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">latin_passages</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&mdash;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Additional Latin primary texts</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">cardano_hybrid</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&mdash;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Renaissance texts (Cardano: Ars magna, autobiographical works)</td></tr>
-<tr><td style="padding:.4rem .75rem;">philarchive</td><td style="padding:.4rem .75rem;">&mdash;</td><td style="padding:.4rem .75rem;">PhilArchive philosophy preprints (187,882 papers)</td></tr>
-</table>
-<p style="font-size:.85rem;color:#5a5648;margin-top:.5rem;">plotinus_multilingual: 855&nbsp;MB &middot; ose_wiki: 335&nbsp;MB &middot; macrobius: 6.1&nbsp;MB. All collections: BGE-M3 embeddings + BM25 full-text index + MMR re-ranking. Accessible via local Library API service (Port 7872).</p>
-<p>The LanceDB collections use BGE-M3 embeddings (multilingual, 1024-dimensional) with 1.6&nbsp;GB for the plotinus_multilingual collection. All collections have both vector and BM25 full-text search; hybrid retrieval with MMR diversity re-ranking.</p>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Experimental Mathematics</h2>
-<p>A dedicated experimental mathematics ensemble (Bailey&ndash;Borwein style, 1996) runs structured multi-model computations for mathematical research projects. The orchestrator coordinates: Phase 1 (primary literature extraction, DSV4-Flash), Phase 2 (adversarial checking, deepseek-r1:70b), Phase 3 (conjecture generation, qwen3:235b), Phase 4 (final verification, deepseek-r1:70b). PARI/GP, SageMath, Macaulay2, and Julia/Hecke.jl are called as subprocesses for formal computations. Results are logged and cross-validated between models.</p>
-
-
-<h3>PSLQ and constant recognition</h3>
-<ul class="feat purple">
-  <li>High-precision arithmetic up to 500+ decimal places via mpmath</li>
-  <li>PSLQ constant recognition: finds integer relations between numerical constants</li>
-  <li>Inverse Symbolic Calculator logic: identifies unknown constants via LLM+PSLQ pipeline</li>
-</ul>
-
-<h3>BBP formula and &Pi;-computation</h3>
-<ul class="feat purple">
-  <li>BBP formula: arbitrary hexadecimal digits of &pi; directly (without all preceding)</li>
-  <li>Full Borwein/Bailey cycle locally executable</li>
-  <li>Cross-check of known constants (log(2), &zeta;(3), Catalan) as calibration</li>
-</ul>
-
-<h3>PARI/GP Integration (Version 2.17.3)</h3>
-<p>Direct access to PARI/GP for number-theoretic computations: <code>factor</code> &middot; <code>bnfinit</code> (class groups, units, discriminants) &middot; <code>ellap</code> (Frobenius traces) &middot; elliptic curve arithmetic &middot; L-function special values. Integration into the LLM pipeline: structured queries from natural language &rarr; PARI/GP calls &rarr; result injection into context.</p>
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Formal Verification and Scientific Computing</h2>
-<p><strong>Lean 4.30.0-rc2 + Mathlib:</strong> Primary formal verification tool. Used for the condensed mathematics / solid modules project (PR #39701 on leanprover-community/mathlib4) and for the arithmetic chromaticity formalisations (4 theorems, 0 sorry).</p>
-<p><strong>Z3 4.15.4:</strong> SAT/UNSAT solver for logical verification. Used in the Plotinus project for machine-verifying alignment definition independence (4 tests, all deterministic).</p>
-<p><strong>PARI/GP 2.17.3:</strong> Number theory computations: Frobenius traces, formal group p-series, elliptic curve arithmetic, L-function computations.</p>
-<p><strong>SageMath:</strong> Algebraic geometry, supersingular j-invariant databases, polynomial system solving.</p>
-<p><strong>Macaulay2:</strong> Commutative algebra, Ext-group computations, Adams&ndash;Novikov E<sub>2</sub>-page.</p>
-<p><strong>Julia 1.12 / Hecke.jl:</strong> Algebraic number theory, point counting on elliptic curves.</p>
-<p><strong>Singular:</strong> Computer algebra for polynomial rings and modules.</p>
-
-
-<h3>Lean 4 + Mathlib</h3>
-<ul class="feat blue">
-  <li>Lean 4.29.1 + 4.30.0-rc2 (both via elan)</li>
-  <li>Mathlib fully installed: ~1.5 million lines, ~150,000 theorems</li>
-  <li>Project ChromaticArith: 4 .lean files, 2722 build jobs, 0 sorry</li>
-  <li>Anti-hallucination use: verified formal claims, direct Mathlib queries</li>
-  <li>WebUI tool <code>lean_iterativ</code>: iterative Lean&nbsp;4 proof assistant via Ralph&nbsp;Loop (arXiv:2605.22763, AlphaProof Nexus, DeepMind 2026) &mdash; LLM sees compiler errors and corrects iteratively until sorry-free; max.&nbsp;8 rounds, backend deepseek-r1:70b</li>
-</ul>
-
-<h3>Z3 SMT-Solver 4.15.4</h3>
-<ul class="feat blue">
-  <li>Anti-hallucination layer: LLM conjecture &rarr; Z3 verification &rarr; minimal counterexample</li>
-  <li>SAT encoding advisor: automatic formalisation of natural language claims</li>
-  <li>Projects: Plotinus (4 tests: SAT/UNSAT), alignment (D1/D2 implications), Anima formalisations</li>
-</ul>
-
-<h3>Julia 1.12.6 + QuTiP 5.2</h3>
-<ul class="feat blue">
-  <li>Apple Silicon native, DifferentialEquations ecosystem</li>
-  <li>Geodesics in Kerr spacetime, post-Newtonian inspirals, N-body systems</li>
-  <li>QuTiP for quantum circuit simulation, Lindblad evolution, density matrices</li>
-  <li>Integration into LLM pipeline via structured output parsing</li>
-</ul>
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Document Processing and OCR</h2>
-<p>Chandra OCR 2 (local, GPU-accelerated via Apple Metal) for historical and scanned documents. PDF processing pipeline: PyMuPDF for text-layer extraction (fast path), Chandra OCR 2 for scanned/image-heavy PDFs. The Macrobius corpus was processed with Chandra; OCR quality varies significantly with scan quality (the Macrobius project identified OCR as a bottleneck for some volumes).</p>
-
-
-<h3>Chandra OCR 2 (v0.2.0)</h3>
-<p>5-billion-parameter model for document understanding. Structured output: Markdown &middot; HTML &middot; JSON with preserved layout. 90+ languages including handwriting, tables, multi-column layouts. Used in the Arithmetik project to digitise Hazewinkel&rsquo;s <em>Formal Groups and Applications</em> (scanned book, pages 1&ndash;40).</p>
-
-<h3>LLM-assisted document understanding</h3>
-<p>Complementary to Chandra OCR: any Ollama models for document interpretation, layout analysis, content indexing. Gemma4:26b processes native PDFs with complex mathematical notation. Pipeline: pdftotext/Chandra &rarr; LLM interpretation &rarr; structured metadata extraction &rarr; LanceDB ingestion.</p>
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Open WebUI and WebUI Tools</h2>
-<p>Open WebUI 0.9.2 (in dedicated Python environment) provides the primary chat interface for local LLM interaction, accessible locally and remotely via webui.autark-data.org (Port 3002, LaunchAgent <code>com.autarkdata.open-webui</code>). <strong>20 custom tools</strong> are implemented (directly activatable from the chat window):</p>
-<ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
-<li>Bridge/Master-Sync/Notes &mdash; synchronisation with CLAUDE-DATA stick and Apple Notes</li>
-<li>Knowledge Graph Neo4j &mdash; direct query of the knowledge graph from WebUI</li>
-<li>Library and File Reader &mdash; access to the book catalogue and local files</li>
-<li>System Status &mdash; real-time status of all services (ports, models, memory)</li>
-<li>Ollama Direct Query &mdash; direct model calls bypassing the router</li>
-<li>arXiv Search &mdash; live arXiv paper search integrated into chat</li>
-<li>Academic Search &mdash; combined PhilArchive + arXiv</li>
-<li>Date/Time &mdash; temporal context injection</li>
-<li>DuckDuckGo Pro &mdash; web search with deduplication</li>
-<li>YouTube Transcript &mdash; transcript extraction for video content</li>
-<li>Web Crawler &mdash; URL-based content extraction</li>
-<li>SAT Encoding Advisor &mdash; automatic formalisation of natural language claims for Z3</li>
-<li>Physics Simulation &mdash; Julia + QuTiP (Schr&ouml;dinger, Kerr geodesics, N-body)</li>
-<li>Lean 4 Verifier (<code>lean4_verifier</code>) &mdash; formal verification with Mathlib access</li>
-<li>Lean Iterative (<code>lean_iterativ</code>) &mdash; iterative proof assistant via Ralph Loop</li>
-<li>Experimental Mathematics &mdash; PSLQ, BBP, PARI/GP pipeline</li>
-<li>Philosophical Primary Texts &mdash; Plotinus, Macrobius, OSE-Wiki, latin passages</li>
-<li>Knowledge Graph (Neo4j) &mdash; direct query via <code>wissensgraph_neo4j</code></li>
-<li>Academic Search &mdash; OpenAlex, CORE, Semantic Scholar combined</li>
-</ul>
-
-
-<h3 style="font-size:.85rem;color:var(--blue);margin:.3rem 0 .4rem">Knowledge &amp; Research</h3>
-<ul class="feat blue">
-  <li>Library search (5,788 books, anti-hallucination mandate)</li>
-  <li>arXiv search (2.94 million articles, BM25 + semantic)</li>
-  <li>Academic search (PhilArchive, 187,882 preprints)</li>
-  <li>DuckDuckGo Pro, Web Crawler, YouTube Transcript</li>
-</ul>
-<h3 style="font-size:.85rem;color:var(--blue);margin:.75rem 0 .4rem">Infrastructure</h3>
-<ul class="feat blue">
-  <li>Bridge / Master-Sync (CLAUDE-DATA)</li>
-  <li>Ollama direct query &middot; System status &middot; Date/time</li>
-  <li>Neo4j knowledge graph query</li>
-</ul>
-<h3 style="font-size:.85rem;color:var(--blue);margin:.75rem 0 .4rem">Mathematics &amp; Formal Verification</h3>
-<ul class="feat blue">
-  <li>Lean 4 verifier (with Mathlib access)</li>
-  <li>Z3 SMT solver</li>
-  <li>SageMath / Macaulay2 / PARI/GP pipeline</li>
-</ul>
-<h3 style="font-size:.85rem;color:var(--blue);margin:.75rem 0 .4rem">Epistemic Tools</h3>
-<ul class="feat blue">
-  <li>/question &middot; /speculate &middot; /analogy &middot; /verify</li>
-  <li>/counterargument &middot; /uncertainty &middot; /sources</li>
-  <li>Anti-sycophancy protocol: P4 structure (Prior Identification &rarr; Mechanisms &rarr; Counter-evidence &rarr; Judgement)</li>
-</ul>
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Knowledge Infrastructure</h2>
-<p><strong>Neo4j knowledge graph (port 7687):</strong> Extended with personal nodes (Person, MathConcept, PhilosophyConcept, Project labels). Contains: mathematical concepts and their relations, philosophers and primary texts, project status and dependencies, persons and correspondences. Nightly sync via LaunchAgent at 03:00 (qwen3:32b summarising open tasks into Master-Sync).</p>
-<p><strong>PostgreSQL 15 (port 5432):</strong> Permanent data store for structured data (mydb). MCP server access via Node.js. Used for book catalogue queries, session logging, source credibility scores.</p>
-<p><strong>Book catalogue:</strong> 5,788 entries in CATALOG_WITH_MANUAL_REVIEW_295.csv on CLAUDE-DATA stick. ISBN lookup, manual review status, subject classification.</p>
-<p><strong>Apple Notes synchronisation:</strong> Bridge tool syncs daily session summaries to Apple Notes (iCloud). Nightly synthesis via LaunchAgent creates structured summaries of open research threads.</p>
-
-
-<h3>Neo4j Knowledge Graph (Port 7687)</h3>
-<ul class="feat green">
-  <li>Labels: Person &middot; MathConcept &middot; PhilosophyConcept &middot; Project</li>
-  <li>Slow-memory basis of the LLM proxy</li>
-  <li>Personal nodes added: mathematicians (Clausen, Scholze, Venkatesh), concepts, project relationships</li>
-  <li>Nightly automated update via Master-Sync</li>
-</ul>
-
-<h3>Private library (5,788 books)</h3>
-<ul class="feat green">
-  <li>Catalogue: <code>/Volumes/CLAUDE-DATA/Library-System/CATALOG_WITH_MANUAL_REVIEW_295.csv</code></li>
-  <li>Semantically searchable via bge-m3 embeddings (LanceDB)</li>
-  <li>Anti-hallucination mandate: library queries always verified against actual catalogue</li>
-  <li>Full-text index for 847 digitised books</li>
-</ul>
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Applications and Public Services</h2>
-<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
-<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Domain</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Port</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Service</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Status</th></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">library3d.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7871</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">3D Library Network</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; permanent</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">webui.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">3002</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Open WebUI 0.9.2 (iPad/Mobile)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; permanent</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">thinktank.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7862</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">ThinkTank TopoX (qwen3:32b)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; active</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">ergo.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7861</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">ERGO Intelligence Engine</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; active</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">contopos.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7863</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">ConTopoS (Grundgesetz, llama3.1:8b)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; active</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">shimura.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7878</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Shimura Varieties Quiz</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; active</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">vw.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7864</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">VW Group Intelligence Engine</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">(off)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">walks.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7880</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Walks App with AI-generated texts</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">(off)</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&mdash;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7687</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Neo4j Knowledge Graph</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; permanent</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&mdash;</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">5432</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">PostgreSQL 15 (mydb) &mdash; MCP server access via Node.js</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&#10003; permanent</td></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">drehtuer.autark-data.org</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">7876</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Dreht&uuml;r-Datenbank Deutschland (LobbyRG)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">active</td></tr>
-<tr><td style="padding:.4rem .75rem;">dboepnv.autark-data.org</td><td style="padding:.4rem .75rem;">7877</td><td style="padding:.4rem .75rem;">DB/&Ouml;PNV Dreht&uuml;r-Datenbank</td><td style="padding:.4rem .75rem;">active</td></tr>
-</table>
-
-<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Main application: demo.autark-data.org (Port 7860, ~12 main tabs)</h3>
-<table style="width:100%;border-collapse:collapse;font-size:.85rem;margin:.65rem 0;font-family:sans-serif;">
-<thead><tr style="background:#f5f4f0;"><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Tab</th><th style="padding:.35rem .6rem;text-align:left;border-bottom:1px solid #dddbd3;">Content</th></tr></thead>
+<tr><td>Model</td><td>Apple Mac Studio M3 Ultra</td></tr>
+<tr><td>Unified Memory</td><td>256 GB (LLM + system + chemistry without conflict)</td></tr>
+<tr><td>GPU</td><td>80-core (MPS acceleration for ML tools)</td></tr>
+<tr><td>CPU</td><td>24-core (16 Performance + 8 Efficiency)</td></tr>
+<tr><td>Operating System</td><td>macOS Sequoia</td></tr>
+<tr><td>External SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — holds DeepSeek V4 Flash GGUF (164 GB)</td></tr>
+<tr><td>Memory stick</td><td>/Volumes/CLAUDE-DATA — backup, bridge files, session logs, project persistence</td></tr>
+</tbody></table></div>
+<p>RAM constraint: <code>MAX_LOADED_MODELS=1</code>, <code>NUM_PARALLEL=1</code> — DSV4 (~164 GB) +
+qwen3:235b (~142 GB) = 306 GB > 256 GB. Strictly sequential operation therefore.</p>
+</div>
+</div>
+</section>
+<section id="modelle">
+<div class="col">
+  <h2><span class="nav-num">01</span>
+    <span class="lang-de">Lokale Sprachmodelle (Ollama + DSV4)</span>
+    <span class="lang-en" style="display:none">Local Language Models (Ollama + DSV4)</span>
+  </h2>
+  <div class="lang-de">
+<div class="table-wrap"><table>
+<thead><tr><th>Modell</th><th>Größe</th><th>Rolle / Routing</th></tr></thead>
 <tbody>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Plotinus RAG</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Ancient Greek primary texts, semantic search, LLM interpretation</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Macrobius &amp; Gellius</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Late Roman antiquity, Commentarii in Somnium Scipionis, Latin sources</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Ibn Khald&ucirc;n</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">al-Muqaddima &mdash; Arabic medieval, philosophy of history</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Girolamo Cardano</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Renaissance: Ars magna, autobiographical texts, combinatorics</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Think Tank Navigator</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">TDA, persistent homology, political network analysis</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">ConTopoS</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Grundgesetz: all 205 articles, hypergraph analysis, Constitutional Topology</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Economy Navigator</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">3D constellation, shock simulator, IO analysis, Leontief, biodiversity IPBES 2026</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Private Library</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Knowledge network, semantic search, 5,788 books</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">ArXiv Navigator</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">2.4M papers, smart search, network analysis, quality scoring</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Pale Fire &mdash; Nabokov</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Literary analysis, intertextuality</td></tr>
-<tr><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Sovereign Debt</td><td style="padding:.3rem .6rem;border-bottom:1px solid #dddbd3;">Global sovereign debt, financial architecture, bilingual</td></tr>
-<tr><td style="padding:.3rem .6rem;">Banking Intelligence</td><td style="padding:.3rem .6rem;">German banks, Basel III, Pillar 3, regulation</td></tr>
-</tbody>
-</table>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Image Generation &middot; Coding Assistant &middot; Python Environments</h2>
-<p><strong>ComfyUI:</strong> FLUX.1-dev (flux1-dev.safetensors, ~23 GB) + SDXL Base 1.0, T5-XXL fp16 text encoder. Workflow-based, Apple Metal GPU acceleration. ComfyUI models integrated via symlinks from the CLAUDE-DATA model directory.</p>
-<p><strong>Draw Things:</strong> Native macOS app, SDXL Base 1.0 + CLIP, direct Metal GPU acceleration. Faster for simple generation tasks than ComfyUI.</p>
-<p><strong>Aider 0.86.2:</strong> Coding assistant using qwen3.6:35b-a3b as primary model with qwen3:32b as editor model. Global CONVENTIONS.md, PROJECT_MAP.md, 9+ projects with individual context. Aliases in .zshrc, desktop launcher apps. Used for all Python development in the test projects.</p>
-<p><strong>Python environments:</strong> System Python 3.11 (Gradio apps), mlx-env (Python 3.13, MLX-LM 0.31.3 for Apple Silicon inference), webui_env (Open WebUI). NumPy conflicts managed by environment isolation.</p>
-
-
-<h3>Image generation (local, no cloud)</h3>
-<ul class="feat amber">
-  <li><strong>ComfyUI</strong>: FLUX.1-dev (flux1-dev.safetensors, ~23 GB) + SDXL Base 1.0, T5-XXL fp16 text encoder, workflow-based pipeline</li>
-  <li>Models via symlinks in ComfyUI/models/ from TB5-WORK</li>
-  <li>Integration into LLM pipeline: text prompt &rarr; ComfyUI API &rarr; image result</li>
+<tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — komplexe Analyse, Philosophie, Mathematik-Synthese</td></tr>
+<tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K Kontext-Fenster — lange Dokumente, Corpus-Ingestion (Port 8888)</td></tr>
+<tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarielle Prüfung, Chain-of-Thought, formale Verifikation</td></tr>
+<tr><td>qwen3:32b</td><td>~20 GB</td><td>Coding, Standard-Reasoning, Nightly-Sync</td></tr>
+<tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Schnelle All-Purpose, Routing-Interpreter (~47 tok/s)</td></tr>
+<tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K Kontext, MTP-Spekulation (~80 tok/s)</td></tr>
+<tr><td>mistral-small3.1:24b</td><td>~15 GB</td><td>Leichtgewicht, Commit-Messages (Aider weak model)</td></tr>
+<tr><td>mxbai-embed-large</td><td>669 MB</td><td>Embedding-Modell (Vektordatenbanken)</td></tr>
+<tr><td>llama-guard3:8b</td><td>4.9 GB</td><td>Safety-Klassifikator</td></tr>
+</tbody></table></div>
+<h3>DeepSeek V4 Flash (DSV4) — separater llama-server</h3>
+<p>284B MoE, 153 GB GGUF, gemischte Quantisierung (Q4KExperts/F16HC), auf TB5-WORK. Eigener
+llama-server auf Port 8888 — <strong>256K Kontext</strong>, 99 GPU-Lagen. Automatisch via Router
+für sehr lange Eingaben (&gt;400-Token-Komplexitätsschwelle) gestartet. Nicht über die offizielle
+Ollama-API verfügbar.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<div class="table-wrap"><table>
+<thead><tr><th>Model</th><th>Size</th><th>Role / Routing</th></tr></thead>
+<tbody>
+<tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — complex analysis, philosophy, mathematics synthesis</td></tr>
+<tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K context window — long documents, corpus ingestion (port 8888)</td></tr>
+<tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarial checking, chain-of-thought, formal verification</td></tr>
+<tr><td>qwen3:32b</td><td>~20 GB</td><td>Coding, standard reasoning, nightly sync</td></tr>
+<tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Fast all-purpose, routing interpreter (~47 tok/s)</td></tr>
+<tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K context, MTP speculation (~80 tok/s)</td></tr>
+<tr><td>mistral-small3.1:24b</td><td>~15 GB</td><td>Lightweight, commit messages (Aider weak model)</td></tr>
+<tr><td>mxbai-embed-large</td><td>669 MB</td><td>Embedding model (vector databases)</td></tr>
+<tr><td>llama-guard3:8b</td><td>4.9 GB</td><td>Safety classifier</td></tr>
+</tbody></table></div>
+<h3>DeepSeek V4 Flash (DSV4) — dedicated llama-server</h3>
+<p>284B MoE, 153 GB GGUF, mixed quantization (Q4KExperts/F16HC), on TB5-WORK. Dedicated
+llama-server on port 8888 — <strong>256K context</strong>, 99 GPU layers. Automatically started
+via router for very long inputs (&gt;400-token complexity threshold). Not available via the
+official Ollama API.</p>
+</div>
+</div>
+</section>
+<section id="router">
+<div class="col">
+  <h2><span class="nav-num">02</span>
+    <span class="lang-de">LLM-Router-Proxy v3.3</span>
+    <span class="lang-en" style="display:none">LLM Router Proxy v3.3</span>
+  </h2>
+  <div class="lang-de">
+<p>FastAPI-Middleware auf Port 11435 (<code>~/llm_router/llm_proxy.py</code>). Jede Anfrage
+von Open WebUI und allen anderen Clients läuft ausschließlich über diesen Proxy.</p>
+<p><strong>Zweistufiges Routing:</strong></p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+<li><strong>Stufe 1 — Regelbasierter Dispatcher:</strong> Domain-Keywords, Token-Länge, Themenklassifikation.
+Kein LLM-Call, Entscheidung in &lt;1 ms.</li>
+<li><strong>Stufe 2 (ambig) — L1-Reformulator:</strong> Ein kleineres LLM klassifiziert die Absicht,
+empfiehlt das Modell, extrahiert Such-Queries.</li>
 </ul>
-
-<h3>Aider 0.86.2</h3>
-<ul class="feat amber">
-  <li>Main model + editor: <code>ollama/qwen3.6:35b-a3b</code></li>
-  <li>Weak model: <code>ollama/mistral-small3.1:24b</code></li>
-  <li>CONVENTIONS.md across 9 projects, PROJECT_MAP.md</li>
-  <li>Global aliases in .zshrc, desktop launcher apps</li>
-  <li>Anti-hallucination: code changes always verified against existing tests</li>
+<p><strong>Anti-Halluzinations-Protokoll:</strong> P4-Struktur (Prior Identification → Causal Mechanisms
+→ Counter-evidence → Judgement) in allen epistemischen Prompts.
+<strong>Synthegy-Evaluator:</strong> Jede Antwort wird durch ein separates Evaluator-LLM bewertet
+(Genauigkeit 1–5, Fundierung 1–5) bevor Auslieferung.</p>
+<p><strong>Spezialbefehle:</strong> /ensemble, /kreativ, /navigator, /destilliere, /speichere,
+/journal — epistemische Orchestrierungs-Kommandos.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<p>FastAPI middleware on port 11435 (<code>~/llm_router/llm_proxy.py</code>). Every request
+from Open WebUI and all other clients passes exclusively through this proxy.</p>
+<p><strong>Two-stage routing:</strong></p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+<li><strong>Stage 1 — Rule-based dispatcher:</strong> domain keywords, token length, topic classification.
+No LLM call, decision in &lt;1 ms.</li>
+<li><strong>Stage 2 (ambiguous) — L1 reformulator:</strong> A smaller LLM classifies intent,
+recommends model, extracts search queries.</li>
 </ul>
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What Remains Experimental</h2>
-<ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
-<li><strong>LLM Router model-quality correlation:</strong> The qwen3:235b routing preference (prior-forcing method from He et al. 2026) is theoretically well motivated, but not empirically verified for this specific system.</li>
-<li><strong>Synthegy evaluator validation:</strong> The scores (1&ndash;5) are not calibrated against human judgements; it is unclear whether high scores correlate with actually useful responses.</li>
-<li><strong>Complete Lean 4 formalisation of sol_leftCancel:</strong> The only project-specific axiom in the Solid Modules project awaits the Mathlib lemma IsDiscrete &rarr; IsTiny.</li>
+<p><strong>Anti-hallucination protocol:</strong> P4 structure (Prior Identification → Causal Mechanisms
+→ Counter-evidence → Judgement) in all epistemic prompts.
+<strong>Synthegy evaluator:</strong> Every response scored by a separate evaluator LLM
+(accuracy 1–5, groundedness 1–5) before delivery.</p>
+<p><strong>Special commands:</strong> /ensemble, /kreativ, /navigator, /destilliere, /speichere,
+/journal — epistemic orchestration commands.</p>
+</div>
+</div>
+</section>
+<section id="orchestrator">
+<div class="col">
+  <h2><span class="nav-num">03</span>
+    <span class="lang-de">Master-Orchestrator v2.2</span>
+    <span class="lang-en" style="display:none">Master Orchestrator v2.2</span>
+  </h2>
+  <div class="lang-de">
+<p>Der Master-Orchestrator (<code>/Volumes/CLAUDE-DATA/MASTER_ORCHESTRATOR/master_orchestrator.py</code>)
+ist der automatische Workflow-Manager für alle 21 Forschungsprojekte (100 Phasen).</p>
+<div class="stat-grid">
+  <div class="stat-card"><span class="stat-num">21</span><span class="stat-label">Projekte</span></div>
+  <div class="stat-card"><span class="stat-num">100</span><span class="stat-label">Phasen gesamt</span></div>
+  <div class="stat-card"><span class="stat-num">92</span><span class="stat-label">Phasen abgeschlossen</span></div>
+  <div class="stat-card"><span class="stat-num">8</span><span class="stat-label">Übersprungen (intentional)</span></div>
+</div>
+<p><strong>Kern-Fixes in v2.2:</strong></p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+<li>Deadlock-Fix: <code>Popen.communicate(timeout=)</code> statt <code>subprocess.run(capture_output=True)</code>
+  — verhindert Pipe-Buffer-Deadlock bei großem Output</li>
+<li>Absolute Pfade: <code>/opt/homebrew/bin/gp</code> statt <code>gp</code> (unified_env-Shadowing-Fix)</li>
+<li><code>_proj_done()</code>: Phasen mit attempts≥99 als übersprungen, nicht blockierend</li>
+<li>DSV4-Ingestion: Textsanitierung (80 KB max, Null-Bytes entfernt, Surrogate bereinigt)</li>
+<li>PDF-Download: corpus_urls via urllib + pdftotext (poppler)</li>
 </ul>
-<div style="background:#fdf6e0;border:1px solid #c8a840;border-left:3px solid #7a5a14;padding:1rem 1.25rem;margin:1.5rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
-<strong>Honest assessment:</strong> The system is functional and tested in daily research work. But it is a self-built single system without peer review, without A/B tests, and without systematic evaluation. The architectural decisions are well-motivated &mdash; the empirical confirmation is pending.
+<p><strong>Modell-Sequenzierung:</strong> MAX_LOADED_MODELS=1 enforced. DSV4 → Entladen → qwen3:235b → 
+Entladen → r1:70b. Kenz-Hintergrundprozesse laufen parallel (separate SBCL-Prozesse).</p>
 </div>
-
-<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What Is Still Missing</h2>
-
-<p>For a reliable assessment of the system, a systematic quantitative evaluation is still missing &mdash; there was simply no time for it. Open items:</p>
-<ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;font-size:.92rem;">
-<li><strong>Retrieval Recall and Precision</strong> across all vector databases &mdash; no systematic benchmark, only qualitative assessment</li>
-<li><strong>Latency profiling</strong> per model and query type &mdash; no measured end-to-end latencies under real conditions</li>
-<li><strong>MMR impact measurement</strong> &mdash; does Maximal Marginal Relevance actually increase topical diversity measurably? Not evaluated.</li>
-<li><strong>Memory and throughput benchmarks</strong> &mdash; no quantified RAM footprints or throughput limits established</li>
-<li><strong>Nightly Master-Sync quality</strong> &mdash; the generated summaries have not been systematically evaluated against human judgement</li>
-<li><strong>Synthegy evaluator calibration</strong> &mdash; accuracy and groundedness scores have not been calibrated against human raters</li>
-<li><strong>Cross-model consistency</strong> &mdash; how often do qwen3:235b and r1:70b disagree, and when is the disagreement epistemically meaningful?</li>
-<li><strong>Mathlib gap coverage</strong> &mdash; systematic mapping of which chromatic homotopy theory results are already formalisable and which are not</li>
-<li><strong>LLM hallucination rate by domain</strong> &mdash; philosophy vs. mathematics vs. technical queries not separately benchmarked</li>
+  <div class="lang-en" style="display:none">
+<p>The Master Orchestrator (<code>/Volumes/CLAUDE-DATA/MASTER_ORCHESTRATOR/master_orchestrator.py</code>)
+is the automatic workflow manager for all 21 research projects (100 phases).</p>
+<div class="stat-grid">
+  <div class="stat-card"><span class="stat-num">21</span><span class="stat-label">Projects</span></div>
+  <div class="stat-card"><span class="stat-num">100</span><span class="stat-label">Phases total</span></div>
+  <div class="stat-card"><span class="stat-num">92</span><span class="stat-label">Phases completed</span></div>
+  <div class="stat-card"><span class="stat-num">8</span><span class="stat-label">Skipped (intentional)</span></div>
+</div>
+<p><strong>Core fixes in v2.2:</strong></p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+<li>Deadlock fix: <code>Popen.communicate(timeout=)</code> instead of <code>subprocess.run(capture_output=True)</code>
+  — prevents pipe-buffer deadlock on large output</li>
+<li>Absolute paths: <code>/opt/homebrew/bin/gp</code> instead of <code>gp</code> (unified_env shadowing fix)</li>
+<li><code>_proj_done()</code>: phases with attempts≥99 treated as skipped, not blocking</li>
+<li>DSV4 ingestion: text sanitization (80 KB max, null bytes removed, surrogates cleaned)</li>
+<li>PDF download: corpus_urls via urllib + pdftotext (poppler)</li>
 </ul>
-
-<ul style="margin:.75rem 0 1rem 1.5rem;line-height:2;">
-<li>A dedicated Plotinus store (Henry-Schwyzer edition or Loeb digitisation) for authentic primary text access beyond the TLG broad corpus</li>
-<li>Systematic evaluation of the Synthegy evaluator against human judgements</li>
-<li>The Mathlib lemma IsDiscrete &rarr; IsTiny for the complete sol_leftCancel proof</li>
-<li>Chandra OCR post-processing for the Macrobius volumes with poor scan quality</li>
-<li><strong>Comparison against naive baselines</strong> &mdash; no comparison against simple keyword search or direct LLM call without context injection; the benefit of two-stage routing is empirically unconfirmed</li>
-<li><strong>Error profiles by domain</strong> &mdash; no systematic error analysis: where does the system hallucinate, which domains have weakest coverage?</li>
-<li><strong>False-positive rate in safety classifier</strong> (llama-guard3:8b) &mdash; no measurement of how often legitimate queries are incorrectly blocked</li>
-<li><strong>Measurable benefit of ensemble check</strong> vs. single-model answers &mdash; the cross-model disagreement signal (He et al. 2026) is theoretically well-motivated but not empirically verified for this specific system</li>
-</ul>
-
-<div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
-T. Riepe, Berlin &middot; Autark Data &middot; Mac Studio M3 Ultra, 256 GB, macOS Sequoia &middot; May 2026. Epistemic tools based on: He et al. (2026), arXiv:2604.10511. Experimental mathematics after Bailey &amp; Borwein (1996). &mdash; This document serves as the starting point for public website documentation.
+<p><strong>Model sequencing:</strong> MAX_LOADED_MODELS=1 enforced. DSV4 → unload → qwen3:235b → 
+unload → r1:70b. Kenzo background processes run in parallel (separate SBCL processes).</p>
 </div>
 </div>
-
+</section>
+<section id="math">
+<div class="col">
+  <h2><span class="nav-num">04</span>
+    <span class="lang-de">Mathematik-Stack</span>
+    <span class="lang-en" style="display:none">Mathematics Stack</span>
+  </h2>
+  <div class="lang-de">
+<div class="table-wrap"><table>
+<thead><tr><th>Tool</th><th>Version</th><th>Verwendung</th></tr></thead>
+<tbody>
+<tr><td>Lean 4 + Mathlib</td><td>4.30.0-rc2</td><td>Formale Verifikation; PR #39701 (kondensierte Moduln)</td></tr>
+<tr><td>SageMath</td><td>10.9 (ARM64)</td><td>Algebraische Geometrie, Berechnungen</td></tr>
+<tr><td>PARI/GP</td><td>2.17.3</td><td>Zahlentheorie, Fundamentaleinheiten, Iwasawa</td></tr>
+<tr><td>Julia + Hecke.jl</td><td>aktuell</td><td>Algebraische Zahlentheorie, schnelle Berechnungen</td></tr>
+<tr><td>Macaulay2</td><td>1.26</td><td>Kommutative Algebra, Gröbner-Basen</td></tr>
+<tr><td>Kenzo (SBCL)</td><td>7.0 (Common Lisp)</td><td>Effektive Homotopieberechnungen (K(ℤ/2,n))</td></tr>
+<tr><td>Lean 4 lean-liquid</td><td>aktuell</td><td>Formalisiertes LTE-Fundament (liquid Tensor)</td></tr>
+<tr><td>Z3 Prover</td><td>aktuell</td><td>SMT-Solving, formale Verifikation</td></tr>
+<tr><td>Singular</td><td>aktuell</td><td>Algebraische Geometrie, Normalen</td></tr>
+<tr><td>Agda / Rocq</td><td>aktuell</td><td>Typentheoretische Formalisierung</td></tr>
+</tbody></table></div>
 </div>
-<div class="lang-de-section" style="display:none">
-<div class="hero">
-  <div class="kicker">Lokales KI-Ökosystem · Berlin · Autark Data</div>
-  <h1>KI-Infrastruktur auf Mac Studio M3 Ultra</h1>
-  <p class="subtitle">Vollständig lokale, cloud-unabhängige KI-Infrastruktur für mathematisch-philosophische Forschung, wissenschaftliches Rechnen und öffentliche Datenanwendungen. Das System verbindet semantisches Modell-Routing, formale Verifikation, Primärtext-RAG, Hochpräzisionsrechnen und epistemische Qualitätssicherung in einer kohärenten Architektur. Stand: Mai 2026.</p>
-  <div class="badges">
-    <span class="badge b-green">256 GB Unified Memory</span>
-    <span class="badge b-blue">Zweistufiges LLM-Routing</span>
-    <span class="badge b-purple">Lean 4 + Z3 + Julia</span>
-    <span class="badge b-amber">Chandra OCR 2 + LLM</span>
-    <span class="badge b-teal">Anti-Halluzinations-Architektur</span>
-    <span class="badge b-gray">~17 HTTPS-Domains</span>
-  </div>
-</div>
-
-<!-- ARCHITEKTUR-ÜBERSICHT -->
-<h2>Systemarchitektur: Verknüpfungsstruktur</h2>
-<p>Das Ökosystem ist nicht eine Sammlung unabhängiger Werkzeuge — alle Komponenten sind über den LLM-Router-Proxy als Schaltstelle verbunden. Jede Anfrage durchläuft Routing, Gedächtnisanreicherung, Quellensuche mit Credibility-Scoring und asynchrone Qualitätsbewertung, bevor und nachdem ein Modell antwortet.</p>
-
-<div class="conn-map">
-  <h3>Datenfluss einer typischen Anfrage</h3>
-  <div class="conn-item"><span class="conn-from">Eingabe</span><span class="conn-arrow">→</span><span class="conn-to"><strong>Stufe 1: Regelbasierter Dispatcher</strong> — Domänen-Erkennung, Token-Länge, Themenklassifikation. Kein LLM-Aufruf.</span></div>
-  <div class="conn-item"><span class="conn-from">Stufe 1</span><span class="conn-arrow">→</span><span class="conn-to"><strong>Stufe 2 (ambivalente Fälle): L1-Reformulierer</strong> — LLM klassifiziert Intent, empfiehlt Modell, extrahiert Suchanfragen. Überschreibt regelbasierte Suchintent-Extraktion.</span></div>
-  <div class="conn-item"><span class="conn-from">Routing</span><span class="conn-arrow">→</span><span class="conn-to"><strong>Neo4j Slow Memory</strong> — thematisch passende Personen, Konzepte, Projekte werden als Kontext injiziert</span></div>
-  <div class="conn-item"><span class="conn-from">Routing</span><span class="conn-arrow">→</span><span class="conn-to"><strong>Session Fast Memory</strong> — bereits aufgetauchte Themen der laufenden Konversation werden vorangestellt</span></div>
-  <div class="conn-item"><span class="conn-from">Routing</span><span class="conn-arrow">→</span><span class="conn-to"><strong>SearXNG + akademische Quellen</strong> — parallele Suche, Credibility-Annotation aller Treffer vor Kontext-Injektion</span></div>
-  <div class="conn-item"><span class="conn-from">Kontext</span><span class="conn-arrow">→</span><span class="conn-to"><strong>Modell-Aufruf</strong> — qwen3:235b / deepseek-r1:70b / qwen3.6:35b / DSV4 Flash / gemma4:26b je nach Routing-Entscheidung</span></div>
-  <div class="conn-item"><span class="conn-from">Antwort</span><span class="conn-arrow">→</span><span class="conn-to"><strong>Synthegy-Evaluator (asynchron)</strong> — Score 1–5, keine Latenz, persistent in Neo4j gespeichert</span></div>
-  <div class="conn-item"><span class="conn-from">Nightly 03:00</span><span class="conn-arrow">→</span><span class="conn-to"><strong>Nightly Master-Sync</strong> — qwen3:32b liest CLAUDE-DATA-Sicherungen + MASTER-SYNC_Projektuebergreifend.md, erstellt Projektstands-Update, schreibt zurück auf Stick</span></div>
-  <div class="conn-item"><span class="conn-from">60s-Intervall</span><span class="conn-arrow">→</span><span class="conn-to"><strong>Notes-Sync Daemon</strong> — pollt Open WebUI SQLite-Notes, synchronisiert automatisch in WebUI Knowledge Base (KB)</span></div>
-</div>
-
-<hr>
-
-<!-- HARDWARE -->
-<h2>Hardware</h2>
-<table>
-  <tr><th>Komponente</th><th>Details</th></tr>
-  <tr><td>Gerät</td><td>Apple Mac Studio M3 Ultra</td></tr>
-  <tr><td>CPU</td><td>32-Kern (24P + 8E)</td></tr>
-  <tr><td>GPU / Neural Engine</td><td>80-Kern GPU, Apple Silicon Metal, Neural Engine</td></tr>
-  <tr><td>Unified Memory</td><td>256 GB — hält Modelle bis ~200 GB vollständig im RAM</td></tr>
-  <tr><td>Interne SSD</td><td>2 TB (Macintosh HD)</td></tr>
-  <tr><td>Externe SSD</td><td>4 TB Thunderbolt (<code>TB5-WORK</code>) — DeepSeek V4 Flash GGUF (153 GB)</td></tr>
-  <tr><td>Memory-Stick</td><td><code>/Volumes/CLAUDE-DATA</code> — Backup, Bridge-Dateien, Session-Protokolle</td></tr>
-</table>
-
-<hr>
-
-<!-- MODELLE -->
-<h2>Lokale Sprachmodelle</h2>
-<p>Ollama läuft als Homebrew-Service auf Port 11434. MLX-Backend aktiv via <code class="inline">OLLAMA_BACKEND=mlx</code> (~30 % Geschwindigkeitsgewinn auf Apple Silicon). Die Modelle werden bei Bedarf vom Router automatisch gestartet und nach Inaktivität entladen.</p>
-
-<table>
-  <tr><th>Modell</th><th>Größe</th><th>Geschwindigkeit</th><th>Rolle im System</th></tr>
-  <tr><td><code>qwen3:235b-a22b</code></td><td>142 GB</td><td>~8 tok/s</td><td>Flagship: Philosophie, Mathematik, Tiefenanalyse, Synthesen</td></tr>
-  <tr><td><code>qwen3.6:35b-a3b</code></td><td>23 GB</td><td>~47 tok/s</td><td>Standard-Allzweck, Routing-Interpreter (L1-Reformulierer), Coding</td></tr>
-  <tr><td><code>gemma4:26b</code></td><td>17 GB</td><td>~80 tok/s</td><td>Vision, Tool-Calling, 256K Kontext, MTP Speculative Decoding</td></tr>
-  <tr><td><code>deepseek-r1:70b</code></td><td>42 GB</td><td>~18 tok/s</td><td>Reasoning, Beweise, Mathematik, gegenintuitives Terrain</td></tr>
-  <tr><td><code>mistral-small3.1:24b</code></td><td>15 GB</td><td>~35 tok/s</td><td>Leichtgewicht, Commit-Messages (Aider weak-model)</td></tr>
-  <tr><td><code>bge-m3</code></td><td>1,2 GB</td><td>—</td><td>Multilinguales Embedding (RAG, Primärtext-Datenbanken)</td></tr>
-  <tr><td><code>mxbai-embed-large</code></td><td>669 MB</td><td>—</td><td>Zweites Embedding-Modell</td></tr>
-  <tr><td><code>llama-guard3:8b</code></td><td>4,9 GB</td><td>—</td><td>Safety-Classifier</td></tr>
-</table>
-
-<div class="card">
-  <h3>DeepSeek V4 Flash (DSV4) — eigener llama-server</h3>
-  <p>Zusätzlich: DeepSeek V4 Flash (284B MoE, 153 GB GGUF, Mixed Quantization Q4KExperts/F16HC) auf TB5-WORK. Läuft via eigenem llama-server auf Port 8888 — <strong>256K Kontext</strong>, 99 GPU-Lagen, 1M-Kontext-Architektur. Wird vom Router automatisch für sehr lange Eingaben (&gt;400 Token Komplexschwelle) aktiviert. RunAtLoad=false; manuell oder automatisch via Router startbar. Noch nicht über offizielle Ollama-API verfügbar.</p>
-</div>
-
-<hr>
-
-<!-- LLM ROUTER PROXY -->
-<h2>LLM-Router-Proxy v3.3 — Herzstück des Systems</h2>
-<p>FastAPI-Middleware auf Port 11435 (<code class="inline">~/llm_router/llm_proxy.py</code>, LaunchAgent <code class="inline">com.autarkdata.llm-router-proxy</code>). Jede Anfrage von Open WebUI und allen anderen Clients läuft ausschließlich durch diesen Proxy. Er steuert Routing, Gedächtnis, Suche, Qualitätsbewertung und alle epistemischen Werkzeuge.</p>
-
-<div class="sec-label">Zweistufiges Modell-Routing</div>
-
-<div class="routing-grid">
-  <div class="r-box stage1">
-    <div class="r-label">Stufe 1</div>
-    <div class="r-title">Regelbasierter Dispatcher</div>
-    <div class="r-item"><strong>Kein LLM-Aufruf</strong> — Entscheidung in &lt;1 ms</div>
-    <div class="r-item" style="margin-top:.5rem"><strong>→ qwen3:235b</strong> bei Philosophie- oder Strukturmathematik-Domänen:</div>
-    <div class="domain-tags" style="margin:.3rem 0">
-      <span class="dtag philo">Plotin</span><span class="dtag philo">Proklos</span><span class="dtag philo">Iamblichos</span><span class="dtag philo">Damascius</span><span class="dtag philo">Neoplatonismus</span><span class="dtag philo">Aristoteles</span><span class="dtag philo">Platon</span><span class="dtag philo">Spinoza</span><span class="dtag philo">Leibniz</span><span class="dtag philo">Kant</span><span class="dtag philo">Hegel</span><span class="dtag philo">Nietzsche</span><span class="dtag philo">Husserl</span><span class="dtag philo">Heidegger</span><span class="dtag philo">Ibn Khaldūn</span><span class="dtag philo">Macrobius</span>
-    </div>
-    <div class="domain-tags" style="margin:.3rem 0">
-      <span class="dtag math">Galois-Darstellungen</span><span class="dtag math">Langlands</span><span class="dtag math">p-adische Geometrie</span><span class="dtag math">kondensierte Mathematik</span><span class="dtag math">Kohomologie</span><span class="dtag math">Motive</span><span class="dtag math">Homotopie</span><span class="dtag math">Chromatic Homotopy</span>
-    </div>
-    <div class="r-item" style="margin-top:.4rem"><strong>→ deepseek-r1:70b</strong> bei Beweisen, formaler Logik, gegenintuitiven Fragen</div>
-    <div class="r-item"><strong>→ DSV4 Flash</strong> bei Eingaben &gt;400 Token (Langkontext)</div>
-    <div class="r-item"><strong>→ qwen3.6:35b</strong> Standard, schnelle Einzelfragen, Coding</div>
-    <div class="r-item"><strong>→ gemma4:26b</strong> bei Vision / Bildanalyse</div>
-  </div>
-  <div class="r-arrow">→</div>
-  <div class="r-box stage2">
-    <div class="r-label">Stufe 2</div>
-    <div class="r-title">L1-Reformulierer</div>
-    <div class="r-item"><strong>Für ambivalente Fälle</strong> — LLM-gestützt</div>
-    <div class="r-item" style="margin-top:.5rem">Modell: qwen3.6:35b-a3b (INTERP_MODEL)</div>
-    <div class="r-item">Läuft <em>vor</em> dem eigentlichen Kontext-Aufbau</div>
-    <div class="r-item" style="margin-top:.4rem"><strong>Liefert:</strong></div>
-    <div class="r-item">· Intent-Klassifikation</div>
-    <div class="r-item">· Modell-Empfehlung</div>
-    <div class="r-item">· Extrahierte Suchanfragen</div>
-    <div class="r-item">· Überschreibt regelbasierte Suchintent-Extraktion</div>
-    <div class="r-item" style="margin-top:.4rem"><strong>Tiefe Synthesen / Mehrwerk-Vergleiche</strong> → qwen3:235b</div>
-  </div>
-</div>
-
-<div class="sec-label">Anti-Halluzinations-Architektur</div>
-
-<div class="callout callout-red">
-  <strong>Anti-Halluzinations-Block</strong> — erstes Element im System-Prompt, gilt für alle Konversationen.<br><br>
-  <strong>Absolute Verbote:</strong> keine erfundenen Quellen · keine Domänen-Projektion · keine Schmeichelei · kein Erfinden von Titeldetails oder Inhaltsbeschreibungen<br><br>
-  <strong>Selbsttest-Anweisung</strong> vor jeder quellenbasierten Aussage · Unsicherheit wird direkt benannt, nicht weichgezeichnet<br><br>
-  <strong>Bibliotheks-Mandat (verschärft):</strong> Nicht gefundene Bücher werden explizit als nicht gefunden ausgewiesen. Keine Analyse, keine Spekulation, kein Erfinden von Inhaltsbeschreibungen für unbekannte Werke. Dasselbe Mandat ist in alle epistemischen Befehle integriert.
-</div>
-
-<div class="sec-label">Quellenglaubwürdigkeit (URL-Credibility-Scoring)</div>
-<p>Alle Suchergebnisse werden vor der Kontext-Injektion mit einem URL-basierten Credibility-Score annotiert. Die Skala reicht von kanonischen akademischen Quellen bis zu Foren. Quellen unter einem Schwellenwert werden ignoriert und nicht in den Kontext injiziert.</p>
-<table>
-  <tr><th>Tier</th><th>Quellen</th></tr>
-  <tr><td>Kanonisch akademisch</td><td>Institutionsseiten (IHES, IAS, MPIM, Oberwolfach), peer-reviewed Journals, MathSciNet, Mathematiker-Blogs (Tao, Gowers)</td></tr>
-  <tr><td>Sehr gut</td><td>arXiv-Preprints, OpenAlex, CORE, Semantic Scholar, zbMATH</td></tr>
-  <tr><td>Gut</td><td>Wikipedia (mehrsprachig), Open Library, zuverlässige Informationsseiten</td></tr>
-  <tr><td>Mittel / niedrig</td><td>Foren, Populärseiten, nicht-akademische Blogs</td></tr>
-  <tr><td>Ignoriert</td><td>Quellen unter Credibility-Schwellenwert — kein Kontext-Eintrag</td></tr>
-</table>
-
-<div class="sec-label">Synthegy-Evaluator (asynchrone Qualitätssicherung)</div>
-<p>Nach jeder generierten Antwort bewertet ein dediziertes Evaluierungsmodell <strong>asynchron</strong> — ohne Latenz — ob die Antwort die gestellte Frage tatsächlich beantwortet und ob Widersprüche zum injizierten Kontext vorliegen. Vergibt einen Score von 1 bis 5. Scores werden <strong>persistent im Neo4j-Wissensgraphen gespeichert</strong>, verknüpft mit den thematischen Domänen der Session — damit entsteht über Zeit ein Qualitätsprofil pro Domäne.</p>
-
-<div class="sec-label">Zweischichtiges Gedächtnissystem</div>
-<div class="two-col">
-  <div class="card">
-    <h3>Slow Memory — Neo4j</h3>
-    <p>Bei jeder Anfrage werden thematisch passende Entitäten aus dem lokalen Wissensgraphen abgefragt und als annotierter Kontext injiziert. Labels: Person · MathConcept · PhilosophyConcept · Project. Ein <strong>Nightly Master-Sync</strong> läuft täglich um 03:00: <code class="inline">qwen3:32b</code> liest die jüngsten Sicherungsdateien auf CLAUDE-DATA sowie die zentrale Kontinuitätsdatei <code class="inline">MASTER-SYNC_Projektuebergreifend.md</code> und erstellt ein aktualisiertes Projektstands-Update.</p>
-  </div>
-  <div class="card">
-    <h3>Session Fast Memory</h3>
-    <p>Für jede laufende Konversation separat: bereits aufgetauchte Themen werden kompakt vorangestellt. Kein Datenbankzugriff — rein im Arbeitsspeicher der laufenden Session.</p>
-  </div>
-</div>
-
-<hr>
-
-<!-- EPISTEMISCHE WERKZEUGE -->
-<h2>Epistemische Werkzeuge</h2>
-
-<div class="callout callout-purple">
-  <strong>Theoretische Basis: He et al. 2026 (arXiv:2604.10511)</strong><br>
-  Modelle scheitern bei gegenintuitiven Fragen nicht wegen fehlenden Wissens, sondern weil Chain-of-Thought-Reasoning den intuitiven Prior rationalisiert statt ihn zu überwinden. Die Werkzeuge arbeiten dagegen mit <strong>expliziter Prior-Identifikation (P4-Struktur)</strong>, <strong>Anti-Intuitions-Forcing</strong> und nutzen <strong>Cross-Modell-Disagreement als epistemisches Signal</strong> — statt als Fehler zu werten, wird Uneinigkeit als valider Hinweis auf genuinen Schwierigkeitsgrad oder gegenintuitives Terrain interpretiert.
-</div>
-
-<table>
-  <tr><th>Befehl</th><th>Funktion</th><th>Modell</th></tr>
-  <tr><td><code>/fragen [modus]</code></td><td>Modi: sokrates · frontier · analogie · luecken · konfrontation</td><td><span class="model-badge m-fast">qwen3.6</span></td></tr>
-  <tr><td><code>/spekuliere [/deep]</code></td><td>Strukturierte Spekulation; /deep aktiviert Reasoning-Modell</td><td><span class="model-badge m-reason">deepseek-r1</span></td></tr>
-  <tr><td><code>/analogie A :: B</code></td><td>Strukturanalogien zwischen zwei Domänen</td><td><span class="model-badge m-flagship">qwen3:235b</span></td></tr>
-  <tr><td><code>/verifiziere Behauptung :: Kontext</code></td><td>Anti-Halluzinations-Verifikation</td><td><span class="model-badge m-reason">deepseek-r1</span></td></tr>
-  <tr><td><code>/gegenthese</code></td><td>Systematische Gegenposition (gegenintuitives Reasoning)</td><td><span class="model-badge m-reason">deepseek-r1</span></td></tr>
-  <tr><td><code>/tiefenanalyse</code></td><td>Mehrstufige Analyse</td><td><span class="model-badge m-flagship">qwen3:235b</span></td></tr>
-  <tr><td><code>/ensemble Frage</code></td><td>Drei Modelle <em>unabhängig</em> — Disagreement = epistemisches Signal</td><td><span class="model-badge m-flagship">235b</span> <span class="model-badge m-reason">r1</span> <span class="model-badge m-fast">qwen3.6</span></td></tr>
-  <tr><td><code>/kreativ</code></td><td>Produktive Fremdheit, Strukturanalogien</td><td><span class="model-badge m-flagship">qwen3:235b</span></td></tr>
-  <tr><td><code>/navigator</code></td><td>Navigator-Kognitionsmodus</td><td><span class="model-badge m-flagship">qwen3:235b</span></td></tr>
-  <tr><td><code>/destilliere</code></td><td>Kern-Extraktion, Komprimierung</td><td><span class="model-badge m-fast">qwen3.6</span></td></tr>
-  <tr><td><code>/speichere</code></td><td>LLM-komprimierte Sitzungszusammenfassung → CLAUDE-DATA</td><td><span class="model-badge m-fast">qwen3.6</span></td></tr>
-  <tr><td><code>/journal [Text]</code></td><td>Datierter Forschungsnotiz-Eintrag (sitzungsübergreifend persistent)</td><td>—</td></tr>
-</table>
-
-<h3 style="font-size:1rem;font-weight:700;margin:1.5rem 0 .5rem;">Tiefenkonsolidierung (<code>tiefenkonsolidierung</code>)</h3>
-<p>Software-Analogon des LLM-Sleep-Paradigmas (Lee et al., arXiv:2605.26099, 2026): 1&nbsp;Explorations-Pass bei hoher Temperatur + N Vertiefungs-Pässe bei niedriger Temperatur über denselben Kontext. Implementiert als neue Methode im WebUI-Tool <code>komitee_bewertung</code> (v1.0.0 &rarr; v1.1.0, Mai 2026). Geeignet für Tiefenanalysen, Argumentationsketten, mathematische Erklärungen und Beweisideen. Laufzeit: n=2 ca. 15&ndash;20&nbsp;Min, n=3 ca. 25&nbsp;Min. Bewusst nicht auf <code>lean_iterativ</code> (implementiert dasselbe Prinzip bereits via Ralph&nbsp;Loop, arXiv:2605.22763) oder den Mathematik-Orchestrierer ausgedehnt.</p>
-
-<p>Der Memory-Notifier sendet nach Inaktivität eine macOS-Systembenachrichtigung als Speicher-Erinnerung. Journal-Einträge und /speichere-Ausgaben werden auf <code class="inline">/Volumes/CLAUDE-DATA</code> abgelegt.</p>
-
-<hr>
-
-<!-- SUCHE UND QUELLENINTEGRATION -->
-<h2>Suche und Quellenintegration</h2>
-
-<div class="sec-label">SearXNG-Metasuchmaschine (Port 8080)</div>
-<p>Lokale SearXNG-Instanz aggregiert parallel mehrere Engines: Brave Search · DuckDuckGo · Wikipedia (mehrsprachig) · Semantic Scholar · arXiv · Google Scholar · PubMed. Alle Suchergebnisse fließen mit Credibility-Annotation in den Kontext ein. Mojeek, Yahoo, Google und Bing sind deaktiviert (Rate-Limiting).</p>
-<p>Parallel laufen direkte Abfragen an: <strong>OpenAlex</strong> · <strong>CORE (Open Access)</strong> · <strong>Open Library</strong> · lokalen arXiv-Index.</p>
-
-<div class="sec-label">Perplexica (KI-gestützte Websuche)</div>
-<p>Eigenständige Perplexica-Instanz als Docker-Container — eine Perplexity-artige Suchoberfläche, die natürlichsprachige Anfragen mit SearXNG-Websuche kombiniert und Quellenangaben direkt inline liefert. Läuft separat vom Proxy-System, für direkte interaktive Webrecherche nutzbar. Docker Desktop ist installiert; Perplexica ist als Dienst konfiguriert.</p>
-
-<div class="sec-label">Hybrider arXiv-Index (2,4 Millionen Einträge)</div>
-<div class="callout callout-blue">
-  Ein lokaler Index mit ca. 2,4 Millionen arXiv-Einträgen kombiniert <strong>BM25-Schlüsselwortsuche</strong> mit <strong>semantischer Vektorsuche</strong>. Maximal Marginal Relevance (MMR) erhöht die thematische Diversität der Suchergebnisse. Fuzzy-Autorensuche behandelt Namensvarianten korrekt. Der Index deckt Mathematik, Physik, Informatik und angrenzende Disziplinen ab.
-</div>
-
-<hr>
-
-<!-- PRIMÄRTEXT-DATENBANKEN -->
-<h2>Philosophische Primärtext-Vektordatenbanken</h2>
-<p>Über den lokalen Bibliotheks-API-Dienst (Port 7872) sind Vektordatenbanken für philosophische Primärtexte abfragbar. Embedding: <strong>multilingual-e5-large</strong> mit topologischer Erweiterungskomponente (TDA).</p>
-
-<table>
-  <tr><th>Datenbank</th><th>Inhalt</th><th>Größe</th><th>Status</th></tr>
-  <tr><td>plotinus_multilingual</td><td>Plotins Enneaden (griechisches Original), Proklos-Kommentare</td><td>855 MB</td><td class="on">produktiv</td></tr>
-  <tr><td>ose</td><td>OSE-Wiki-Korpus</td><td>335 MB</td><td class="on">produktiv</td></tr>
-  <tr><td>macrobius</td><td>Commentarii in Somnium Scipionis (Latein), alle 7 Bücher</td><td>6,1 MB</td><td class="on">produktiv</td></tr>
-  <tr><td>latin_passages</td><td>Weitere lateinische Primärtexte</td><td>—</td><td class="on">produktiv</td></tr>
-  <tr><td>cardano_hybrid, philarchive</td><td>Renaissance-Texte, philosophisches Archiv</td><td>—</td><td class="on">produktiv</td></tr>
-</table>
-
-<div class="callout callout-warn"><strong>Bekannte Einschränkung (Plotinos):</strong> Der Index enthält neben Plotin auch breiteres griechisches TLG-Material; Proklos-Anfragen funktionieren sehr gut, direkte Plotinos-Primärtexte sind noch ausbaufähig und werden nicht als vollständig abgedeckt ausgewiesen.</div>
-
-<hr>
-
-<!-- EXPERIMENTELLE MATHEMATIK -->
-<h2>Experimentelle Mathematik</h2>
-
-<div class="callout callout-purple">
-  Ein dediziertes WebUI-Werkzeug implementiert den <strong>Borwein/Bailey-Workflow</strong> für experimentelle Mathematik. Philosophie: mathematische Entdeckung über numerische Exploration, Mustererkennung und rigorose Nachverifikation — die Methode, mit der BBP 1996 via PSLQ entdeckt wurde.
-</div>
-
-<div class="two-col">
-  <div class="card">
-    <h3>PSLQ und Konstantenerkennung</h3>
-    <ul class="feat purple">
-      <li>Hochpräzisionsarithmetik bis 500+ Dezimalstellen via mpmath</li>
-      <li>PSLQ-Konstantenerkennung: findet ganzzahlige Relationen (z.B. ζ(2) = π²/6)</li>
-      <li>Basis: π, e, log, sqrt, ζ, Γ, euler, catalan, φ und Kombinationen</li>
-      <li>Rigorose Intervall-Arithmetik mit garantierten Fehlerschranken</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>BBP-Formel und Π-Berechnung</h3>
-    <ul class="feat purple">
-      <li>BBP-Formel: beliebige Hexadezimalstellen von π direkt (ohne alle vorherigen)</li>
-      <li>Vollständiger Borwein/Bailey-Zyklus: Hochpräzision → identify → PSLQ → LLM-Interpretation</li>
-      <li>Systematische Gegenbeispielsuche (LLM generiert Testcode)</li>
-    </ul>
-  </div>
-</div>
-
-<div class="card">
-  <h3>PARI/GP-Integration (Version 2.17.3)</h3>
-  <p>Direktzugriff auf PARI/GP für zahlentheoretische Berechnungen: <code class="inline">factor</code> · <code class="inline">bnfinit</code> (Klassengruppen) · <code class="inline">ellinit</code> / <code class="inline">ellrank</code> (elliptische Kurven) · <code class="inline">lfun</code> (L-Funktionen) · <code class="inline">polroots</code> · Modulformen. Cohen GTM 138-Algorithmen verfügbar. Direktes WebUI-Tool <code class="inline">pari_rechnung</code>.</p>
-</div>
-
-<hr>
-
-<!-- FORMALE VERIFIKATION -->
-<h2>Formale Verifikation und wissenschaftliches Rechnen</h2>
-
-<div class="three-col">
-  <div class="card">
-    <h3>Lean 4 + Mathlib</h3>
-    <ul class="feat blue">
-      <li>Lean 4.29.1 + 4.30.0-rc2 (beide via elan)</li>
-      <li>Mathlib vollständig: ~1,5 Mio. Zeilen, ~150.000 Sätze</li>
-      <li>Projekt <code>~/lean_mathlib/</code> (41 .lean-Dateien)</li>
-      <li>WebUI-Tool <code>lean4_verifier</code></li>
-      <li>WebUI-Tool <code>lean_iterativ</code>: iterativer Lean-4-Beweisassistent via Ralph&nbsp;Loop (arXiv:2605.22763, AlphaProof&nbsp;Nexus, DeepMind&nbsp;2026) &mdash; LLM sieht Compiler-Fehler und korrigiert gezielt nach, bis sorry-frei; max.&nbsp;8&nbsp;Runden, Backend deepseek-r1:70b</li>
-      <li>GitHub-Projekt: solid modules</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Z3 SMT-Solver 4.15.4</h3>
-    <ul class="feat blue">
-      <li>Anti-Halluzinations-Schicht: LLM-Vermutung → Z3-Verifikation → minimales Gegenbeispiel</li>
-      <li>SAT-Encoding-Advisor: automatische Theoriewahl + Kodierungsskizze + sofortige Ausführung</li>
-      <li>Theorie-Auswahl: SAT · SMT/ℤ · SMT/ℝ · QBF</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Julia 1.12.6 + QuTiP 5.2</h3>
-    <ul class="feat blue">
-      <li>Apple Silicon nativ, DifferentialEquations-Ökosystem</li>
-      <li>Geodäten in Kerr-Raumzeit, Post-Newtonian-Inspirale, N-Körper</li>
-      <li>QuTiP: Qubits, Schrödinger-Gleichung, Dekohärenz</li>
-      <li>WebUI-Tools: <code>julia_ausfuehren</code>, <code>qutip_simulation</code>, <code>physik_simulation_generieren</code></li>
-    </ul>
-  </div>
-</div>
-
-<div class="callout callout-warn"><strong>Grenzen:</strong> Volle nichtlineare Numerische Relativität (Kollaps, Merger) erfordert HPC-Codes auf Clustern. Quantenfeldtheorie auf Gitter: nicht implementiert.</div>
-
-<hr>
-
-<!-- DOKUMENTENVERARBEITUNG -->
-<h2>Dokumentenverarbeitung und Schrifterkennung</h2>
-
-<div class="two-col">
-  <div class="card">
-    <h3>Chandra OCR 2 (v0.2.0)</h3>
-    <p>5-Milliarden-Parameter-Modell für Dokumentverständnis. Strukturierter Output: Markdown · HTML · JSON mit erhaltenem Layout. 90+ Sprachen inkl. Handschrift, Tabellen, mathematische Formeln. Inference-Modi: lokal via HuggingFace (<code class="inline">--method hf</code>) oder via vLLM-Server. Systemweiter Wrapper <code class="inline">~/bin/chandra_ocr</code>. Vollständig ohne Cloud-Beteiligung.</p>
-  </div>
-  <div class="card">
-    <h3>LLM-gestütztes Dokumentenverständnis</h3>
-    <p>Ergänzend zu Chandra OCR: Beliebige Ollama-Modelle für Dokumentinterpretation, Layout-Analyse, inhaltliche Erschließung. Gemma4:26b verarbeitet nativ Bilder und PDFs (256K Kontext, Vision). Die Kombination OCR-Extraktion + LLM-Interpretation ermöglicht vollständige Erschließung von historischen Manuskripten bis wissenschaftlichen Artikeln — ohne Cloud.</p>
-  </div>
-</div>
-
-<hr>
-
-<!-- OPEN WEBUI -->
-<h2>Open WebUI und WebUI-Werkzeuge</h2>
-<p>Open WebUI 0.9.2 auf Port 3002 (LaunchAgent <code class="inline">com.autarkdata.open-webui</code>), extern erreichbar unter <strong>webui.autark-data.org</strong>. Verbindet sich über den LLM-Router-Proxy. Zugänglich von iPad und Mobilgerät via Cloudflare Tunnel.</p>
-
-<div class="sec-label">20 WebUI-Werkzeuge (direkt aus dem Chat aktivierbar)</div>
-<div class="two-col">
-<div>
-  <h3 style="font-size:.85rem;color:var(--purple);margin:.3rem 0 .4rem">Wissen &amp; Recherche</h3>
-  <ul class="feat purple">
-    <li>Bibliothekssuche (5.788 Bücher, Anti-Halluzinations-Mandat)</li>
-    <li>Neo4j-Wissensgraph (Person/Math/Philosophie/Projekt)</li>
-    <li>arXiv-Suche (strukturiert, Hybrid-Index)</li>
-    <li>Academic Search (OpenAlex, CORE, Semantic Scholar)</li>
-    <li>Web-Crawler (mit Credibility-Scoring)</li>
-    <li>Philosophische Primärtexte (Plotin, Macrobius, OSE)</li>
-    <li>DuckDuckGo Pro · YouTube-Transkript</li>
-  </ul>
-  <h3 style="font-size:.85rem;color:var(--purple);margin:.75rem 0 .4rem">Infrastruktur</h3>
-  <ul class="feat purple">
-    <li>Bridge / Master-Sync (CLAUDE-DATA)</li>
-    <li>Ollama-Direktabfrage · Systemstatus · Datum/Zeit</li>
-  </ul>
-</div>
-<div>
-  <h3 style="font-size:.85rem;color:var(--blue);margin:.3rem 0 .4rem">Mathematik &amp; Formale Verifikation</h3>
-  <ul class="feat blue">
-    <li>Lean 4 Verifier (mit Mathlib-Zugriff)</li>
-    <li>Z3 SMT-Solver</li>
-    <li>SAT-Encoding-Advisor</li>
-    <li>Experimentelle Mathematik (PSLQ, BBP, PARI/GP)</li>
-    <li>Physik-Simulation (Julia + QuTiP)</li>
-  </ul>
-  <h3 style="font-size:.85rem;color:var(--blue);margin:.75rem 0 .4rem">Epistemische Werkzeuge</h3>
-  <ul class="feat blue">
-    <li>/fragen · /spekuliere · /analogie · /verifiziere</li>
-    <li>/gegenthese · /tiefenanalyse · /ensemble</li>
-    <li>/kreativ · /navigator · /destilliere</li>
-    <li>/speichere · /journal</li>
-  </ul>
+  <div class="lang-en" style="display:none">
+<div class="table-wrap"><table>
+<thead><tr><th>Tool</th><th>Version</th><th>Use</th></tr></thead>
+<tbody>
+<tr><td>Lean 4 + Mathlib</td><td>4.30.0-rc2</td><td>Formal verification; PR #39701 (condensed modules)</td></tr>
+<tr><td>SageMath</td><td>10.9 (ARM64)</td><td>Algebraic geometry, computations</td></tr>
+<tr><td>PARI/GP</td><td>2.17.3</td><td>Number theory, fundamental units, Iwasawa</td></tr>
+<tr><td>Julia + Hecke.jl</td><td>current</td><td>Algebraic number theory, fast computations</td></tr>
+<tr><td>Macaulay2</td><td>1.26</td><td>Commutative algebra, Gröbner bases</td></tr>
+<tr><td>Kenzo (SBCL)</td><td>7.0 (Common Lisp)</td><td>Effective homotopy computations (K(ℤ/2,n))</td></tr>
+<tr><td>Lean 4 lean-liquid</td><td>current</td><td>Formalized LTE foundation (liquid tensor)</td></tr>
+<tr><td>Z3 Prover</td><td>current</td><td>SMT solving, formal verification</td></tr>
+<tr><td>Singular</td><td>current</td><td>Algebraic geometry, normalizations</td></tr>
+<tr><td>Agda / Rocq</td><td>current</td><td>Type-theoretic formalization</td></tr>
+</tbody></table></div>
 </div>
 </div>
-
-<hr>
-
-<!-- WISSENSINFRASTRUKTUR -->
-<h2>Wissensinfrastruktur</h2>
-<div class="two-col">
-  <div class="card">
-    <h3>Neo4j Knowledge Graph (Port 7687)</h3>
-    <ul class="feat green">
-      <li>Labels: Person · MathConcept · PhilosophyConcept · Project</li>
-      <li>Slow-Memory-Basis des LLM-Proxys</li>
-      <li>Synthegy-Scores persistent gespeichert</li>
-      <li>Nightly Memory-Daemon reichert Graphen an</li>
-      <li>WebUI-Tool <code>wissensgraph_neo4j</code></li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Privatbibliothek (5.788 Bücher)</h3>
-    <ul class="feat green">
-      <li>Katalog: <code>/Volumes/CLAUDE-DATA/Library-System/CATALOG_WITH_MANUAL_REVIEW_295.csv</code></li>
-      <li>Semantisch durchsuchbar via LanceDB + Gradio-App</li>
-      <li>3D-Netzwerk-Visualisierung: library3d.autark-data.org</li>
-      <li>Domänen: Algebraische Geometrie · Zahlentheorie · Kategorientheorie · Neoplatonismus · Renaissance-Philosophie</li>
-    </ul>
-  </div>
+</section>
+<section id="chem">
+<div class="col">
+  <h2><span class="nav-num">05</span>
+    <span class="lang-de">Chemie / Biochemie / Neurobiologie-Stack (neu Juni 2026)</span>
+    <span class="lang-en" style="display:none">Chemistry / Biochemistry / Neuroscience Stack (new June 2026)</span>
+  </h2>
+  <div class="lang-de">
+<p>Installiert in Miniforge3-Umgebung <code>chem_env</code> (Python 3.12, ~/miniforge3/).
+Vollständig isoliert von unified_env, kein Konflikt mit LLM-Stack.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Tool</th><th>Version</th><th>Domäne</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>PySCF</td><td>aktuell (conda-forge ARM64)</td><td>Quantenchemie: HF/DFT/CCSD</td><td class="ok">✓ Getestet</td></tr>
+<tr><td>MACE-OFF23</td><td>small (7 MB Modell)</td><td>ML-Kraftfeld organische Moleküle</td><td class="ok">✓ MPS-GPU</td></tr>
+<tr><td>ASE</td><td>3.28.0</td><td>Molekülstruktur-Framework</td><td class="ok">✓</td></tr>
+<tr><td>OpenMM</td><td>8.5.2</td><td>Molekulardynamik (OpenCL/GPU)</td><td class="ok">✓ OpenCL</td></tr>
+<tr><td>NEURON</td><td>9.0.1</td><td>Kompartiment-Neuronenmodelle, HH</td><td class="ok">✓</td></tr>
+<tr><td>Brian2</td><td>2.10.1</td><td>Spiking Neural Networks</td><td class="ok">✓</td></tr>
+<tr><td>Nengo</td><td>4.1.0</td><td>Neural Engineering Framework</td><td class="ok">✓ NEF</td></tr>
+<tr><td>MNE</td><td>1.12.1</td><td>EEG/MEG-Signalanalyse</td><td class="ok">✓</td></tr>
+<tr><td>RDKit</td><td>aktuell</td><td>Cheminformatik, SMILES-Parsing</td><td class="ok">✓</td></tr>
+<tr><td>MDAnalysis</td><td>2.10.0</td><td>MD-Trajektorienanalyse</td><td class="ok">✓</td></tr>
+<tr><td>NetworkX</td><td>3.6.1</td><td>Graphentheorie, Konnektomics</td><td class="ok">✓</td></tr>
+<tr><td>nilearn/nibabel/dipy</td><td>aktuell</td><td>Neuroimaging, fMRI</td><td class="ok">✓</td></tr>
+<tr><td>PyMOL (OS)</td><td>aktuell</td><td>Molekülvisualisierung</td><td class="ok">✓</td></tr>
+<tr><td>Tellurium</td><td>2.2.13</td><td>Systembiologie, SBML</td><td class="ok">✓</td></tr>
+</tbody></table></div>
+<p>Verifikationstest PySCF: Hartree–Fock auf HF-Molekül ($y^2+y=x^3-x$), Ergebnis:
+E_HF = −99.987397 Hartree (Literatur ~−99.9878 Hartree — korrekt).</p>
 </div>
-
-<hr>
-
-<!-- ANWENDUNGEN -->
-<h2>Anwendungen und öffentliche Dienste</h2>
-<p>Alle Anwendungen sind via Cloudflare Tunnel HTTPS-verschlüsselt erreichbar. Die Haupt-App (<strong>demo.autark-data.org</strong>, Port 7860) bündelt ca. 15 Haupttabs. Weitere Dienste sind eigenständig oder on-demand startbar.</p>
-
-<div class="sec-label">Hauptanwendung: demo.autark-data.org</div>
-<div class="app-grid">
-  <div class="app-item"><div class="app-domain">Plotinus RAG</div><div class="app-desc">Altgriechische Primärtexte, semantische Suche, LLM-Interpretation</div></div>
-  <div class="app-item"><div class="app-domain">Macrobius &amp; Gellius</div><div class="app-desc">Römische Spätantike, Commentarii in Somnium Scipionis, lateinische Quelltexte</div></div>
-  <div class="app-item"><div class="app-domain">Ibn Khaldūn</div><div class="app-desc">al-Muqaddima — arabisches Mittelalter, Geschichtsphilosophie</div></div>
-  <div class="app-item"><div class="app-domain">Girolamo Cardano</div><div class="app-desc">Renaissance: Ars magna, autobiographische Texte, Kombinatorik</div></div>
-  <div class="app-item"><div class="app-domain">Think Tank Navigator</div><div class="app-desc">TDA, persistente Homologie, politische Netzwerkanalyse</div></div>
-  <div class="app-item"><div class="app-domain">ConTopoS</div><div class="app-desc">Grundgesetz: alle 205 Artikel, Hypergraphanalyse, Constitutional Topology</div></div>
-  <div class="app-item"><div class="app-domain">Economy Navigator</div><div class="app-desc">3D-Konstellation, Shock-Simulator, IO-Analyse, Leontief, Biodiversität IPBES 2026</div></div>
-  <div class="app-item"><div class="app-domain">Private Library</div><div class="app-desc">Wissensnetzwerk, semantische Suche, 5.788 Bücher</div></div>
-  <div class="app-item"><div class="app-domain">ArXiv Navigator</div><div class="app-desc">2,4 Mio. Papers, Smart Search, Netzwerkanalyse, Quality Scoring</div></div>
-  <div class="app-item"><div class="app-domain">Pale Fire – Nabokov</div><div class="app-desc">Literarische Analyse, Intertextualität</div></div>
-  <div class="app-item"><div class="app-domain">Sovereign Debt</div><div class="app-desc">Globale Staatsschulden, Finanzarchitektur, bilingual</div></div>
-  <div class="app-item"><div class="app-domain">Banken-Intelligence</div><div class="app-desc">Deutsche Banken, Basel III, Pillar 3, Regulierung</div></div>
+  <div class="lang-en" style="display:none">
+<p>Installed in Miniforge3 environment <code>chem_env</code> (Python 3.12, ~/miniforge3/).
+Fully isolated from unified_env, no conflict with LLM stack.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Tool</th><th>Version</th><th>Domain</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>PySCF</td><td>current (conda-forge ARM64)</td><td>Quantum chemistry: HF/DFT/CCSD</td><td class="ok">✓ Tested</td></tr>
+<tr><td>MACE-OFF23</td><td>small (7 MB model)</td><td>ML force field organic molecules</td><td class="ok">✓ MPS-GPU</td></tr>
+<tr><td>ASE</td><td>3.28.0</td><td>Molecular structure framework</td><td class="ok">✓</td></tr>
+<tr><td>OpenMM</td><td>8.5.2</td><td>Molecular dynamics (OpenCL/GPU)</td><td class="ok">✓ OpenCL</td></tr>
+<tr><td>NEURON</td><td>9.0.1</td><td>Compartment neuron models, HH</td><td class="ok">✓</td></tr>
+<tr><td>Brian2</td><td>2.10.1</td><td>Spiking neural networks</td><td class="ok">✓</td></tr>
+<tr><td>Nengo</td><td>4.1.0</td><td>Neural engineering framework</td><td class="ok">✓ NEF</td></tr>
+<tr><td>MNE</td><td>1.12.1</td><td>EEG/MEG signal analysis</td><td class="ok">✓</td></tr>
+<tr><td>RDKit</td><td>current</td><td>Cheminformatics, SMILES parsing</td><td class="ok">✓</td></tr>
+<tr><td>MDAnalysis</td><td>2.10.0</td><td>MD trajectory analysis</td><td class="ok">✓</td></tr>
+<tr><td>NetworkX</td><td>3.6.1</td><td>Graph theory, connectomics</td><td class="ok">✓</td></tr>
+<tr><td>nilearn/nibabel/dipy</td><td>current</td><td>Neuroimaging, fMRI</td><td class="ok">✓</td></tr>
+<tr><td>PyMOL (OS)</td><td>current</td><td>Molecular visualization</td><td class="ok">✓</td></tr>
+<tr><td>Tellurium</td><td>2.2.13</td><td>Systems biology, SBML</td><td class="ok">✓</td></tr>
+</tbody></table></div>
+<p>PySCF verification test: Hartree–Fock on HF molecule, result:
+E_HF = −99.987397 Hartree (literature ~−99.9878 Hartree — correct).</p>
 </div>
-
-<div class="sec-label">Weitere eigenständige Domains</div>
-<table>
-  <tr><th>Domain</th><th>Port</th><th>Funktion</th></tr>
-  <tr><td>library3d.autark-data.org</td><td>7871</td><td class="on">permanent aktiv — 3D-Bibliotheksnetzwerk</td></tr>
-  <tr><td>webui.autark-data.org</td><td>3002</td><td class="on">permanent aktiv — Open WebUI (iPad/Mobil)</td></tr>
-  <tr><td>—</td><td>7687</td><td class="on">permanent aktiv — Neo4j Knowledge Graph</td></tr>
-  <tr><td>—</td><td>5432</td><td class="on">permanent aktiv — PostgreSQL 15 (<code>mydb</code>), MCP-Server-Zugriff via Node.js</td></tr>
-  <tr><td>thinktank.autark-data.org</td><td>7862</td><td>Think Tank Navigator eigenständig</td></tr>
-  <tr><td>contopos.autark-data.org</td><td>7863</td><td>ConTopoS eigenständig</td></tr>
-  <tr><td>shimura.autark-data.org</td><td>7878</td><td>Shimura-Varietäten Quiz</td></tr>
-  <tr><td>ergo.autark-data.org</td><td>7861</td><td>ERGO Intelligence Engine</td></tr>
-  <tr><td>vw.autark-data.org</td><td>7864</td><td>VW Group Intelligence Engine</td></tr>
-  <tr><td>drehtuer.autark-data.org</td><td>7876</td><td>Drehtür-Datenbank Deutschland (LobbyRG)</td></tr>
-  <tr><td>dboepnv.autark-data.org</td><td>7877</td><td>DB/ÖPNV Drehtür-Datenbank</td></tr>
-  <tr><td>walks.autark-data.org</td><td>7880</td><td>Walks-App mit KI-generierten Texten</td></tr>
-</table>
-
-<hr>
-
-<!-- BILDGENERIERUNG UND AIDER -->
-<h2>Bildgenerierung · Coding-Assistent · Python-Umgebungen</h2>
-
-<div class="two-col">
-  <div class="card">
-    <h3>Bildgenerierung (lokal, ohne Cloud)</h3>
-    <ul class="feat amber">
-      <li><strong>ComfyUI</strong>: FLUX.1-dev (flux1-dev.safetensors, ~23 GB) + SDXL Base 1.0, T5-XXL fp16 Text-Encoder, workflow-basiert</li>
-      <li><strong>Draw Things</strong>: nativ macOS, SDXL Base 1.0 + CLIP</li>
-      <li>Beide via Apple Metal GPU-Beschleunigung</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Aider 0.86.2</h3>
-    <ul class="feat amber">
-      <li>Hauptmodell + Editor: <code>ollama/qwen3.6:35b-a3b</code></li>
-      <li>Weak-Model: <code>ollama/mistral-small3.1:24b</code></li>
-      <li>Global: <code>~/CONVENTIONS.md</code>, <code>~/PROJECT_MAP.md</code></li>
-      <li>9+ Projekte mit CONVENTIONS.md</li>
-      <li>Auto-Commits aktiv</li>
-    </ul>
-  </div>
 </div>
-
-<table>
-  <tr><th>Python-Umgebung</th><th>Zweck</th></tr>
-  <tr><td>System Python 3.12</td><td>LLM-Proxy, Memory-Daemon, LaunchAgents, Notes-Sync</td></tr>
-  <tr><td>unified_env</td><td>Gradio-Apps, RAG, Chandra OCR, LanceDB</td></tr>
-  <tr><td>webui_env</td><td>Open WebUI 0.9.2 (numpy-isoliert)</td></tr>
-  <tr><td>mlx-env (Python 3.13)</td><td>MLX-LM 0.31.3, Apple Silicon Inference</td></tr>
-</table>
-
-<hr>
-
-<!-- EXPERIMENTELL -->
-<h2>Was experimentell bleibt</h2>
-<ul class="feat amber">
-  <li>TDA-Retrieval (persistente Homologie, GUDHI) — implementiert, nicht produktiv in Hauptpipeline, nicht gegen Baselines evaluiert</li>
-  <li>Synthegy-Evaluator-Scores — akkumulieren; selbstreferenzielles TDA-Parameter-Update noch nicht aktiviert</li>
-  <li>Plotinos-Vektordatenbank — für direkte Primärtext-Zitate in WebUI ausbaufähig; TLG-Abgrenzung nicht vollständig</li>
-  <li>DSV4 Flash (llama-server) — läuft nur bei Bedarf; offizieller Ollama-Support noch nicht verfügbar</li>
-  <li>PSLQ-Suche über L-Funktions-Werte für Langlands-Exploration — konzeptuell vorbereitet, nicht implementiert</li>
-</ul>
-
-<hr>
-
-<h2>Was noch fehlt</h2>
-<p>Für eine belastbare Beurteilung des Systems fehlt bisher eine systematische quantitative Evaluierung — dazu war schlicht keine Zeit. Offen sind:</p>
-
-<ul class="feat amber">
-  <li><strong>Retrieval Recall und Precision</strong> über alle Vektordatenbanken — kein systematischer Benchmark, nur qualitative Einschätzung</li>
-  <li><strong>Latenz-Profiling</strong> je Modell und Anfrage-Typ — keine gemessenen End-to-End-Latenzen unter realen Bedingungen</li>
-  <li><strong>MMR-Impact-Messung</strong> — erhöht Maximal Marginal Relevance die thematische Diversität der Suchergebnisse tatsächlich messbar? Nicht evaluiert.</li>
-  <li><strong>Speicher- und Throughput-Benchmarks</strong> — keine quantifizierten RAM-Footprints je Modell unter gleichzeitiger Last</li>
-  <li><strong>Vergleich gegen naive Baselines</strong> — kein Vergleich gegen einfache Keyword-Suche oder direkten LLM-Aufruf ohne Kontext-Injektion. Der Nutzen des zweistufigen Routings ist empirisch nicht bestätigt.</li>
-  <li><strong>Fehlerprofile nach Domäne</strong> — keine systematische Fehleranalyse: wo halluziniert das System, wo gibt es Lücken, welche Domänen sind schwächer abgedeckt?</li>
-  <li><strong>Empirische Halluzinationsraten</strong> vor und nach dem Anti-Halluzinations-Block — der Block wurde auf Basis qualitativer Einschätzung eingeführt, nicht auf Basis gemessener Ratenreduktion</li>
-  <li><strong>False-Positive-Rate im Safety-Classifier</strong> (llama-guard3:8b) — keine Messung, wie oft legitime Anfragen fälschlich blockiert werden</li>
-  <li><strong>Messbarer Nutzen des Ensemble-Checks</strong> gegenüber Single-Model-Antworten — das Cross-Modell-Disagreement-Signal (He et al. 2026) ist theoretisch gut begründet, aber für dieses spezifische System nicht empirisch verifiziert</li>
-  <li><strong>Quantifizierter Effekt der Prior-Forcing-Methodik</strong> in den epistemischen Werkzeugen — verbessert die P4-Struktur tatsächlich die Antwortqualität bei gegenintuitiven Fragen? Nicht gemessen.</li>
-  <li><strong>Synthegy-Evaluator-Validierung</strong> — die Scores (1–5) sind nicht gegen menschliche Urteile kalibriert; es ist unklar, ob hohe Scores mit tatsächlich nützlichen Antworten korrelieren</li>
-  <li><strong>Vollständige Lean 4-Formalisierung von sol_leftCancel</strong> — das einzige projektspezifische Axiom im Solid-Modules-Projekt wartet auf das Mathlib-Lemma <code class="inline">IsDiscrete → IsTiny</code></li>
-</ul>
-
-<div class="callout callout-warn"><strong>Ehrliche Einschätzung:</strong> Das System ist funktional und in der täglichen Forschungsarbeit erprobt. Aber es ist ein selbstgebautes Einzelsystem ohne peer review, ohne A/B-Tests und ohne systematische Evaluierung. Die Architekturentscheidungen sind gut begründet — die empirische Bestätigung steht aus.</div>
-
-<div class="footnote">T. Riepe, Berlin — Autark Data. Mac Studio M3 Ultra, 256 GB, macOS Sequoia. Infrastruktur vollständig lokal, ohne Cloud-Beteiligung für Kernkomponenten. Epistemische Werkzeuge basieren auf: He et al. (2026), arXiv:2604.10511. Experimentelle Mathematik nach Bailey &amp; Borwein (1996). Stand: Mai 2026. — Dieses Dokument dient als Ausgangspunkt für eine öffentliche Website-Dokumentation.</div>
+</section>
+<section id="architektur">
+<div class="col">
+  <h2><span class="nav-num">06</span>
+    <span class="lang-de">Systemarchitektur: Verbindungsstruktur</span>
+    <span class="lang-en" style="display:none">System Architecture: Connection Structure</span>
+  </h2>
+  <div class="lang-de">
+<p>Das Ökosystem ist keine Sammlung unabhängiger Tools — alle Komponenten sind durch den
+LLM-Router-Proxy als zentrale Schaltstelle verbunden:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Dienst</th><th>Port</th><th>Funktion</th></tr></thead>
+<tbody>
+<tr><td>LLM-Router-Proxy</td><td>11435</td><td>Zentrale Middleware, Routing, Synthegy</td></tr>
+<tr><td>Ollama</td><td>11434</td><td>Modell-Backend (9 Modelle)</td></tr>
+<tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K Kontext</td></tr>
+<tr><td>Open WebUI</td><td>3002</td><td>Chat-Interface, 20+ Python-Tools</td></tr>
+<tr><td>Perplexica</td><td>3000</td><td>Lokale Suche</td></tr>
+<tr><td>SearXNG</td><td>8080</td><td>Meta-Suchmaschine</td></tr>
+<tr><td>Neo4j</td><td>7687</td><td>Knowledge Graph (Slow Memory)</td></tr>
+<tr><td>PostgreSQL</td><td>5432</td><td>Daten-Backend</td></tr>
+<tr><td>ComfyUI + FLUX.1</td><td>8188</td><td>Bildgenerierung</td></tr>
+<tr><td>Lean 4 Verifier</td><td>Lokal</td><td>lake build für Mathlib-PRs</td></tr>
+<tr><td>Master-Orchestrator</td><td>LaunchAgent</td><td>21 Projekte, 100 Phasen automatisch</td></tr>
+</tbody></table></div>
+<p>Vektordatenbanken (LanceDB): plotinus_multilingual (78.674 Chunks), latin_passages, cardano_hybrid,
+philarchive — für RAG-basierte Retrieval-Anfragen.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<p>The ecosystem is not a collection of independent tools — all components are connected via
+the LLM router proxy as central switchboard:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Service</th><th>Port</th><th>Function</th></tr></thead>
+<tbody>
+<tr><td>LLM Router Proxy</td><td>11435</td><td>Central middleware, routing, Synthegy</td></tr>
+<tr><td>Ollama</td><td>11434</td><td>Model backend (9 models)</td></tr>
+<tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K context</td></tr>
+<tr><td>Open WebUI</td><td>3002</td><td>Chat interface, 20+ Python tools</td></tr>
+<tr><td>Perplexica</td><td>3000</td><td>Local search</td></tr>
+<tr><td>SearXNG</td><td>8080</td><td>Meta search engine</td></tr>
+<tr><td>Neo4j</td><td>7687</td><td>Knowledge graph (slow memory)</td></tr>
+<tr><td>PostgreSQL</td><td>5432</td><td>Data backend</td></tr>
+<tr><td>ComfyUI + FLUX.1</td><td>8188</td><td>Image generation</td></tr>
+<tr><td>Lean 4 Verifier</td><td>Local</td><td>lake build for Mathlib PRs</td></tr>
+<tr><td>Master Orchestrator</td><td>LaunchAgent</td><td>21 projects, 100 phases automated</td></tr>
+</tbody></table></div>
+<p>Vector databases (LanceDB): plotinus_multilingual (78,674 chunks), latin_passages, cardano_hybrid,
+philarchive — for RAG-based retrieval queries.</p>
+</div>
+</div>
+</section>
+<footer class="wrapper">
+  <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
+  <span>Thomas Riepe &middot; Berlin &middot; Juni 2026</span>
+  <span>Projekt — von —</span>
+</footer>
 </div>
 <script>
 function setLang(l){
-  document.querySelectorAll('.lang-en-section').forEach(function(e){
-    e.style.display = l==='en' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
-  });
-  document.querySelectorAll('.lang-de-section').forEach(function(e){
-    e.style.display = l==='de' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
-  });
-  document.getElementById('btn-en').classList.toggle('active',l==='en');
-  document.getElementById('btn-de').classList.toggle('active',l==='de');
-  document.documentElement.lang=l;
-  try{localStorage.setItem('site-lang',l);}catch(e){}
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='');
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
 }
-document.addEventListener('DOMContentLoaded',function(){
-  var l=null;try{l=localStorage.getItem('site-lang');}catch(e){}
-  setLang(l==='de'?'de':'en');
-});
 </script>
 </body>
 </html>

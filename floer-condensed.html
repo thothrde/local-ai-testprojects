@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floer-Theorie &amp; Kondensierte Mathematik &mdash; P-FL-1 bis P-FL-6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;
+--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;
+--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;
+--sans:'Instrument Sans',sans-serif;--max:740px;--wide:940px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+header{border-bottom:1px solid var(--rule);padding:4.5rem 0 3rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.back{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;display:inline-flex;align-items:center;gap:.4em;margin-bottom:1.5rem;transition:color .2s}
+.back:hover{color:var(--gold)}
+h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.header-desc{max-width:560px;font-size:1rem;color:var(--fg-dim);line-height:1.7;margin-top:1.5rem}
+.version-note{font-family:var(--mono);font-size:.65rem;color:var(--gold2);margin-top:1rem;letter-spacing:.04em}
+nav{font-family:var(--sans);font-size:.78rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
+nav a{color:var(--fg-dim);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+nav a:hover{color:var(--gold)}
+.nav-num{color:var(--gold);margin-right:.25em;font-family:var(--mono);font-size:.7em}
+section{margin-bottom:5rem;scroll-margin-top:2rem}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;font-style:italic;color:var(--fg);margin:2.5rem 0 .8rem;letter-spacing:-.01em}
+h4{font-family:var(--sans);font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--fg-dim);margin:2rem 0 .6rem}
+p{margin-bottom:1.2em;font-size:1rem}
+blockquote{border-left:2px solid var(--gold2);margin:1.8rem 0;padding:.5rem 0 .5rem 1.6rem;color:var(--fg-dim);font-style:italic;font-size:.97rem}
+.box{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.4rem 1.6rem;margin:1.8rem 0;border-radius:2px}
+.box .label{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.box p{font-size:.97rem;margin-bottom:.6em}
+.box.confirmed{border-left-color:var(--green)}.box.confirmed .label{color:var(--green)}
+.box.open{border-left-color:var(--amber)}.box.open .label{color:var(--amber)}
+.box.spec{border-left-color:var(--red)}.box.spec .label{color:var(--red)}
+.theorem{background:var(--bg2);border:1px solid #2e2a24;padding:1.5rem 1.8rem;margin:2rem 0;border-radius:2px}
+.theorem::before{content:attr(data-label);font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem}
+.table-wrap{overflow-x:auto;margin:2rem 0}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-family:var(--sans)}
+thead tr{border-bottom:1px solid var(--gold2)}
+th{text-align:left;padding:.6rem 1rem .6rem 0;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
+td{padding:.6rem 1rem .6rem 0;border-bottom:1px solid var(--rule);color:var(--fg-dim);vertical-align:top;line-height:1.5}
+td:first-child{color:var(--fg);font-family:var(--mono);font-size:.82rem}
+td.ok{color:var(--green)} td.conj{color:var(--amber)} td.err{color:var(--red)}
+.process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.process-card{background:var(--bg2);border:1px solid var(--rule);padding:1rem 1.2rem;border-radius:2px}
+.process-card .model{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.05em;margin-bottom:.4rem}
+.process-card .task{font-family:var(--sans);font-size:.8rem;color:var(--fg-dim);line-height:1.4}
+.lang-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-en{display:none}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+@media(max-width:640px){html{font-size:16px}.wrapper{padding:0 1.2rem}h1{font-size:2rem}}
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+<header>
+<div class="col">
+  <a class="back" href="index.html">&larr; Zur&uuml;ck / Back</a>
+  <p class="header-meta">Projekt 16 &middot; Juni 2026 &middot; 6 Teilprojekte</p>
+  <h1>Floer-Theorie &amp; Kondensierte Mathematik<span class="sub">Sechs Verbindungen: P-FL-1 bis P-FL-6</span></h1>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
+  </div>
+  <p class="header-desc lang-de">Sechs Teilprojekte untersuchen Verbindungen zwischen Floer-Homologie und kondensierter/solider Mathematik: von Springer-Fasern auf der FF-Kurve bis zur TDA-Analyse von Hitchin-Fasern.</p>
+  <p class="header-desc lang-en" style="display:none">Six sub-projects investigate connections between Floer homology and condensed/solid mathematics: from Springer fibers on the FF curve to TDA analysis of Hitchin fibers.</p>
+  
+</div>
+</header><nav class="wrapper"><a href="#p1"><span class="nav-num">00</span><span class="lang-de">P-FL-1: Dedekind–Floer</span><span class="lang-en" style="display:none">P-FL-1: Dedekind–Floer</span></a>
+<a href="#p2"><span class="nav-num">01</span><span class="lang-de">P-FL-2: Novikov-Solidifizierung</span><span class="lang-en" style="display:none">P-FL-2: Novikov Solidification</span></a>
+<a href="#p3"><span class="nav-num">02</span><span class="lang-de">P-FL-3: Springer-Fasern/FF</span><span class="lang-en" style="display:none">P-FL-3: Springer Fibers/FF</span></a>
+<a href="#p4"><span class="nav-num">03</span><span class="lang-de">P-FL-4: Lagrangian/D-Moduln</span><span class="lang-en" style="display:none">P-FL-4: Lagrangian/D-modules</span></a>
+<a href="#p5"><span class="nav-num">04</span><span class="lang-de">P-FL-5: Weinstein-Kategorifizierung</span><span class="lang-en" style="display:none">P-FL-5: Weinstein Categorification</span></a>
+<a href="#p6"><span class="nav-num">05</span><span class="lang-de">P-FL-6: TDA/Hitchin</span><span class="lang-en" style="display:none">P-FL-6: TDA/Hitchin</span></a>
+</nav>
+<section id="p1">
+<div class="col">
+  <h2><span class="nav-num">00</span>
+    <span class="lang-de">P-FL-1: Dedekind-Summen &amp; Floer-d-Invarianten</span>
+    <span class="lang-en" style="display:none">P-FL-1: Dedekind Sums &amp; Floer d-invariants</span>
+  </h2>
+  <div class="lang-de"><p>Verbindung zwischen Dedekind-Summen $s(a,b)$ und Floer-Homologie 3-dimensionaler Mannigfaltigkeiten.
+Der Casson-Walker-Invariant enthält Dedekind-Summen als kombinatorische Korrekturglieder.</p>
+<p><strong>Kern-Konjektur [OFFEN]:</strong> Die Floer-$d$-Invarianten von Linsenräumen $L(p,q)$ sind durch
+Dedekind-Summen ausdrückbar: $d(L(p,q)) \sim s(q,p) \mod \mathbb{Z}$. Dies ist teilweise bekannt
+(Ozsvath&ndash;Szabo), die exakte Formulierung über allgemeine Seifert-Faserungen ist Forschungsgebiet.</p>
+<p><strong>Verbindung zu Klassenzahlen [KONJEKTUR]:</strong> Klassenzahl-Formeln für imaginär-quadratische Körper
+enthalten ähnliche Summen. Eine präzise Brücke zwischen Floer-Theorie und Klassenzahlen durch kondensierte
+Kohomologie ist nicht etabliert.</p></div>
+  <div class="lang-en" style="display:none"><p>Connection between Dedekind sums $s(a,b)$ and Floer homology of 3-dimensional manifolds.
+The Casson–Walker invariant contains Dedekind sums as combinatorial correction terms.</p>
+<p><strong>Core conjecture [OPEN]:</strong> The Floer d-invariants of lens spaces $L(p,q)$ are expressible
+via Dedekind sums: $d(L(p,q)) \sim s(q,p) \mod \mathbb{Z}$. This is partially known (Ozsvath&ndash;Szabo);
+the exact formulation over general Seifert fibrations is active research.</p>
+<p><strong>Connection to class numbers [CONJECTURE]:</strong> Class number formulas for imaginary quadratic
+fields contain analogous sums. A precise bridge between Floer theory and class numbers via condensed
+cohomology is not established.</p></div>
+</div>
+</section>
+<section id="p2">
+<div class="col">
+  <h2><span class="nav-num">01</span>
+    <span class="lang-de">P-FL-2: Novikov-Solidifizierung</span>
+    <span class="lang-en" style="display:none">P-FL-2: Novikov Solidification</span>
+  </h2>
+  <div class="lang-de"><p>Das Novikov-Ring $\Lambda_\omega = \{\sum a_i T^{\lambda_i} : a_i \in \mathbb{Z}, \lambda_i \in \mathbb{R}, \lambda_i \to +\infty\}$
+ist der Koeffizientenring der Lagrangian-Floer-Homologie.</p>
+<div class="box confirmed"><div class="label">Strukturell belegt</div>
+<p>Affine Springer-Fasern über $B^+_{\mathrm{dR}}$ sind bereits kondensierte Objekte
+<em>by construction</em> — ein direkter Zusammenhang mit kondensierter Geometrie ohne zusätzliche
+Arbeit [BELEGT].</p></div>
+<div class="box open"><div class="label">Konjektur</div>
+<p>Die Solidifizierung von $\Lambda_\omega$ als solider $\mathbb{Z}_p$-Modul und die Kompatibilität
+mit dem Novikov-Isomorphismus in Floer-Theorie. Strukturell präzisierbar, kein Beweis bekannt [KONJEKTUR].</p></div></div>
+  <div class="lang-en" style="display:none"><p>The Novikov ring $\Lambda_\omega = \{\sum a_i T^{\lambda_i} : a_i \in \mathbb{Z}, \lambda_i \in \mathbb{R}, \lambda_i \to +\infty\}$
+is the coefficient ring of Lagrangian Floer homology.</p>
+<div class="box confirmed"><div class="label">Structurally established</div>
+<p>Affine Springer fibers over $B^+_{\mathrm{dR}}$ are already condensed objects
+<em>by construction</em> — a direct connection to condensed geometry without additional
+work [ESTABLISHED].</p></div>
+<div class="box open"><div class="label">Conjecture</div>
+<p>The solidification of $\Lambda_\omega$ as a solid $\mathbb{Z}_p$-module and compatibility
+with the Novikov isomorphism in Floer theory. Structurally precise, no proof known [CONJECTURE].</p></div></div>
+</div>
+</section>
+<section id="p3">
+<div class="col">
+  <h2><span class="nav-num">02</span>
+    <span class="lang-de">P-FL-3: Springer-Fasern auf der FF-Kurve</span>
+    <span class="lang-en" style="display:none">P-FL-3: Springer Fibers on the FF Curve</span>
+  </h2>
+  <div class="lang-de"><p>SageMath-Berechnung der Kohomologie von Springer-Fasern und Vergleich mit Fargues-Fontaine-Kurven-Struktur.</p>
+<p>Springer-Faser für $\mathrm{GL}_n$: $\mathcal{B}_u = \{F \bullet \in \mathrm{Fl}(\mathbb{C}^n) : u(F_i) \subset F_{i-1}\}$
+(Fahnen, die durch Nilpotent $u$ kompatibel sind). Kohomologie: Springer-Darstellungen der symmetrischen Gruppe $S_n$.</p>
+<p>Verbindung zur FF-Kurve: Affine Springer-Fasern sind Objekte in der perverden Garbentheorie auf der
+FF-Kurve, die in Fargues&ndash;Scholze als lokale Langlands-Parameter auftauchen. Die numerische
+SageMath-Berechnung lieferte Kohomologie-Dimensionen für kleine $n$.</p></div>
+  <div class="lang-en" style="display:none"><p>SageMath computation of cohomology of Springer fibers and comparison with Fargues&ndash;Fontaine curve structure.</p>
+<p>Springer fiber for $\mathrm{GL}_n$: $\mathcal{B}_u = \{F_\bullet \in \mathrm{Fl}(\mathbb{C}^n) : u(F_i) \subset F_{i-1}\}$
+(flags compatible under nilpotent $u$). Cohomology: Springer representations of the symmetric group $S_n$.</p>
+<p>Connection to FF curve: Affine Springer fibers are objects in the perverse sheaf theory on the FF curve,
+appearing in Fargues&ndash;Scholze as local Langlands parameters. The SageMath computation provided
+cohomology dimensions for small $n$.</p></div>
+</div>
+</section>
+<section id="p4">
+<div class="col">
+  <h2><span class="nav-num">03</span>
+    <span class="lang-de">P-FL-4: Lagrangian Floer &amp; D-Moduln</span>
+    <span class="lang-en" style="display:none">P-FL-4: Lagrangian Floer &amp; D-modules</span>
+  </h2>
+  <div class="lang-de"><p>Fukayas Kategorie $\mathcal{F}(M)$ (Lagrangian Floer) und die Kategorie der D-Moduln:
+Beide erscheinen in der geometrischen Langlands-Theorie. Verbindungskonjektur: Die Floer-$A_\infty$-Kategorie
+auf der Seite der Betti-Geometrie entspricht kondensiert-kohärent der D-Modul-Kategorie auf der
+de-Rham-Seite.</p>
+<p>Status: Multi-Modell-Synthese (qwen3:235b) identifiziert dies als KONJEKTUR im Kontext des
+geometrischen Satake und der Langlands-Dualität. Die adversarielle Prüfung bestätigte: strukturell
+kohärent, aber kein Beweis existiert.</p></div>
+  <div class="lang-en" style="display:none"><p>Fukaya's category $\mathcal{F}(M)$ (Lagrangian Floer) and the category of D-modules:
+both appear in geometric Langlands theory. Connection conjecture: the Floer $A_\infty$-category
+on the Betti geometry side corresponds, condensed-coherently, to the D-module category on the
+de Rham side.</p>
+<p>Status: Multi-model synthesis (qwen3:235b) identifies this as CONJECTURE in the context of
+geometric Satake and Langlands duality. The adversarial check confirmed: structurally coherent,
+but no proof exists.</p></div>
+</div>
+</section>
+<section id="p5">
+<div class="col">
+  <h2><span class="nav-num">04</span>
+    <span class="lang-de">P-FL-5: Weinstein-Sektoren &amp; Symplektische Kategorifizierung</span>
+    <span class="lang-en" style="display:none">P-FL-5: Weinstein Sectors &amp; Symplectic Categorification</span>
+  </h2>
+  <div class="lang-de"><p>Weinstein-Mannigfaltigkeiten und ihre Sektoren (nach Ganatra&ndash;Pardon&ndash;Shende) als Kandidaten
+für eine kondensierte Kategorifizierung symplektischer Geometrie.</p>
+<p>Die Frage: Ist die Sektorkategorie $\mathcal{F}(W, \partial_\infty W)$ eines Weinstein-Sektors $W$
+als solider oder liquider Modul über einer kondensierten Koeffizientenstruktur beschreibbar?</p>
+<p>Status: Synthese generierte strukturelle Analogien, keine konstruktiven Resultate.
+Der Ansatz bleibt SPEKULATIV.</p></div>
+  <div class="lang-en" style="display:none"><p>Weinstein manifolds and their sectors (after Ganatra&ndash;Pardon&ndash;Shende) as candidates
+for a condensed categorification of symplectic geometry.</p>
+<p>The question: is the sector category $\mathcal{F}(W, \partial_\infty W)$ of a Weinstein sector $W$
+describable as a solid or liquid module over a condensed coefficient structure?</p>
+<p>Status: Synthesis generated structural analogies, no constructive results.
+The approach remains SPECULATIVE.</p></div>
+</div>
+</section>
+<section id="p6">
+<div class="col">
+  <h2><span class="nav-num">05</span>
+    <span class="lang-de">P-FL-6: TDA-Analyse von Hitchin-Fasern</span>
+    <span class="lang-en" style="display:none">P-FL-6: TDA Analysis of Hitchin Fibers</span>
+  </h2>
+  <div class="lang-de"><p>Topologische Daten-Analyse (TDA) mit Ripser/Gudhi auf den Hitchin-Fasern der FF-Kurve.
+SageMath-Berechnung der Betti-Zahlen von Hitchin-Fasern für $\mathrm{GL}_2$ über $\mathbb{F}_q$,
+anschließend TDA-Analyse der Persistenz-Diagramme.</p>
+<p>Verbindung zu Fong (arXiv:2606.06092): Hitchin-Fasern auf der FF-Kurve sind per BNR-Korrespondenz
+mit Higgs-Bündeln identifiziert (unter Generizitätsbedingung: distinct eigenvalues). Die TDA-Analyse
+ergänzt die algebraische Analyse durch ein topologisch-numerisches Bild.</p>
+<p>Status: SageMath-Berechnung der Betti-Zahlen erfolgreich. TDA-Persistenzanalyse identifiziert
+topologische Features der Parametrisierungsräume.</p></div>
+  <div class="lang-en" style="display:none"><p>Topological data analysis (TDA) with Ripser/Gudhi on the Hitchin fibers of the FF curve.
+SageMath computation of Betti numbers of Hitchin fibers for $\mathrm{GL}_2$ over $\mathbb{F}_q$,
+followed by TDA analysis of persistence diagrams.</p>
+<p>Connection to Fong (arXiv:2606.06092): Hitchin fibers on the FF curve are identified with
+Higgs bundles via the BNR correspondence (under genericity condition: distinct eigenvalues). The TDA
+analysis complements the algebraic analysis with a topological-numerical picture.</p>
+<p>Status: SageMath computation of Betti numbers successful. TDA persistence analysis identifies
+topological features of the parameter spaces.</p></div>
+</div>
+</section>
+<footer class="wrapper">
+  <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
+  <span>Thomas Riepe &middot; Berlin &middot; Juni 2026</span>
+  <span>Projekt 16 von 21</span>
+</footer>
+</div>
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.display='');
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
+}
+</script>
+</body>
+</html>
