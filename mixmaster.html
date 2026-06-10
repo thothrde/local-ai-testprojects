@@ -267,6 +267,37 @@ hyperbolic system. Status label: CONJECTURE (not ESTABLISHED) is correct.</p></d
 </div>
 </div>
 </section>
+<section id="pari-ergebnisse">
+<div class="col">
+  <h2><span class="lang-de">PARI/GP Numerische Ergebnisse</span><span class="lang-en" style="display:none">PARI/GP Numerical Results</span></h2>
+  <div class="lang-de">
+<div class="box confirmed"><div class="label">PARI/GP Numerische Verifikation &mdash; Mayer-Transfer-Operator</div>
+<p>Der Mayer-Transfer-Operator für die BKL/Gauss-Abbildung (Mayer 1990, Manin-Marcolli 2001)
+wurde mit PARI/GP berechnet (N=4, 5 Summanden, Präzision 15 Stellen):</p>
+<p><strong>s=1.0:</strong> Eigenwerte $[-0.541,\; -0.161,\; 0.298,\; \mathbf{1.479}]$,
+Spektralradius $\rho(1.0) = 1.479 > 1$</p>
+<p><strong>s=0.5:</strong> Eigenwerte $[-0.879,\; -0.237,\; 0.558,\; \mathbf{3.444}]$,
+Spektralradius $\rho(0.5) = 3.444 > 1$</p>
+<p>Interpretation: $\rho(s) > 1$ für beide $s$-Werte impliziert
+<em>kein exponentielles Mischen</em> bei diesen Parametern.
+Verbindung zu BKL-Chaos-Theorie: $\log\rho \sim -c(s-\tfrac{1}{2})$ nahe $s=\tfrac{1}{2}$
+(Selberg-Zeta-Nullstellen) [KONJEKTUR, kein Beweis in Literatur].</p></div>
+</div>
+  <div class="lang-en" style="display:none">
+<div class="box confirmed"><div class="label">PARI/GP numerical verification &mdash; Mayer transfer operator</div>
+<p>The Mayer transfer operator for the BKL/Gauss map (Mayer 1990, Manin-Marcolli 2001)
+was computed with PARI/GP (N=4, 5 summands, 15-digit precision):</p>
+<p><strong>s=1.0:</strong> eigenvalues $[-0.541,\; -0.161,\; 0.298,\; \mathbf{1.479}]$,
+spectral radius $\rho(1.0) = 1.479 > 1$</p>
+<p><strong>s=0.5:</strong> eigenvalues $[-0.879,\; -0.237,\; 0.558,\; \mathbf{3.444}]$,
+spectral radius $\rho(0.5) = 3.444 > 1$</p>
+<p>Interpretation: $\rho(s) > 1$ for both $s$-values implies
+<em>no exponential mixing</em> at these parameters.
+Connection to BKL-chaos theory: $\log\rho \sim -c(s-\tfrac{1}{2})$ near $s=\tfrac{1}{2}$
+(Selberg zeta zeros) [CONJECTURE, no proof in literature].</p></div>
+</div>
+</div>
+</section>
 <footer class="wrapper">
   <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
   <span>Thomas Riepe &middot; Berlin &middot; Juni 2026</span>

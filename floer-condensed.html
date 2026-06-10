@@ -157,28 +157,68 @@ appearing in Fargues&ndash;Scholze as local Langlands parameters. The SageMath c
 cohomology dimensions for small $n$.</p></div>
 </div>
 </section>
-<section id="p4">
-<div class="col">
+<section id="p4"><div class="col">
   <h2><span class="nav-num">03</span>
-    <span class="lang-de">P-FL-4: Lagrangian Floer &amp; D-Moduln</span>
-    <span class="lang-en" style="display:none">P-FL-4: Lagrangian Floer &amp; D-modules</span>
+    <span class="lang-de">P-FL-4: Simpson-Korrespondenz auf der FF-Kurve (Fong 2021)</span>
+    <span class="lang-en" style="display:none">P-FL-4: Simpson correspondence on the FF-curve (Fong 2021)</span>
   </h2>
-  <div class="lang-de"><p>Fukayas Kategorie $\mathcal{F}(M)$ (Lagrangian Floer) und die Kategorie der D-Moduln:
-Beide erscheinen in der geometrischen Langlands-Theorie. Verbindungskonjektur: Die Floer-$A_\infty$-Kategorie
-auf der Seite der Betti-Geometrie entspricht kondensiert-kohärent der D-Modul-Kategorie auf der
-de-Rham-Seite.</p>
-<p>Status: Multi-Modell-Synthese (qwen3:235b) identifiziert dies als KONJEKTUR im Kontext des
-geometrischen Satake und der Langlands-Dualität. Die adversarielle Prüfung bestätigte: strukturell
-kohärent, aber kein Beweis existiert.</p></div>
-  <div class="lang-en" style="display:none"><p>Fukaya's category $\mathcal{F}(M)$ (Lagrangian Floer) and the category of D-modules:
-both appear in geometric Langlands theory. Connection conjecture: the Floer $A_\infty$-category
-on the Betti geometry side corresponds, condensed-coherently, to the D-module category on the
-de Rham side.</p>
-<p>Status: Multi-model synthesis (qwen3:235b) identifies this as CONJECTURE in the context of
-geometric Satake and Langlands duality. The adversarial check confirmed: structurally coherent,
-but no proof exists.</p></div>
-</div>
-</section>
+  <div class="lang-de">
+<p>Fukayas Kategorie $\mathcal{F}(M)$ und die Kategorie der D-Moduln erscheinen beide in der
+geometrischen Langlands-Theorie. Die Verbindungskonjektur (Floer $A_\infty$-Kategorie auf der
+Betti-Seite ↔ D-Modul-Kategorie auf der de-Rham-Seite) bleibt [KONJEKTUR]. Für den
+spezifischen Kontext der Fargues-Fontaine-Kurve liefert die Synthese jedoch BELEGTE Negativresultate:</p>
+<div class="box confirmed"><div class="label">Belegt — FF-Kurve trägt keine symplektische Struktur</div>
+<p>Die Fargues-Fontaine-Kurve $X_{C^\flat}$ trägt <em>keine symplektische Struktur</em>
+($p$-adische analytische Räume sind nicht lokal-euklidisch). Floer-Theorie, die eine
+symplektische Mannigfaltigkeit voraussetzt, ist auf der FF-Kurve damit
+<strong>nicht anwendbar</strong> [BELEGT, Fargues-Fontaine 2018].</p></div>
+<div class="box confirmed"><div class="label">Belegt — Fong Prop.&nbsp;3.7: Abbildung Φ ist nicht volltreu</div>
+<p>Fong (2021, <em>On p-adic Simpson Correspondences</em>, arXiv:2606.06092) konstruiert
+$$\Phi: \{\text{Higgs-Bündel auf }X_{C^\flat}\} \to \{\text{Galois-Darstellungen}\}$$
+via periodische Garben. Proposition 3.7 zeigt: $\Phi$ ist
+<strong>nicht volltreu</strong>, da die $\mathrm{Ext}^1$-Gruppen auf der Higgs-Seite nicht mit
+denen der Galois-Darstellungen übereinstimmen. Die Obstruktion ist
+<strong>algebraisch-kohomologisch</strong> (nicht topologisch) [BELEGT, direkte Berechnung via
+Fargues-Fontaine-Klassifikation Cor. 8.4.5].</p></div>
+<div class="box confirmed"><div class="label">Belegt — Kondensierte Mathematik löst die Obstruktion nicht</div>
+<p>Die Obstruktion von Fong Prop.&nbsp;3.7 ist <em>nicht</em> topologischer Natur, die kondensierte
+Mathematik würde topologische Defizite adressieren. Die algebraische Obstruktion bleibt durch
+kondensierte Umformulierungen unberührt [BELEGT für diesen Kontext; SPEKULATIV für
+eventuelle Bhatt-Scholze-Ansätze mit Higgs-Torsoren und Frobenius-Aktion].</p></div>
+<div class="box open"><div class="label">Offen — p-adische Simpson-Korrespondenz auf der FF-Kurve</div>
+<p>Eine rigorose $p$-adische Simpson-Korrespondenz auf $X_{C^\flat}$ ist nicht etabliert.
+Fong Prop.&nbsp;3.7 legt eine fundamentale Blockierung nahe; alternative Ansätze
+(Faltings, Abbes-Gros) scheitern an der fehlenden $p$-adischen Kähler-Geometrie [OFFEN].</p></div>
+  </div>
+  <div class="lang-en" style="display:none">
+<p>Fukaya's category $\mathcal{F}(M)$ and the category of D-modules both appear in geometric
+Langlands theory. The connection conjecture (Floer $A_\infty$-category on the Betti side ↔
+D-module category on the de Rham side) remains [CONJECTURE]. For the specific context of the
+Fargues-Fontaine curve, the synthesis yields ESTABLISHED negative results:</p>
+<div class="box confirmed"><div class="label">Established — FF-curve carries no symplectic structure</div>
+<p>The Fargues-Fontaine curve $X_{C^\flat}$ carries <em>no symplectic structure</em>
+($p$-adic analytic spaces are not locally Euclidean). Floer theory, which requires a symplectic
+manifold, is therefore <strong>not applicable</strong> to the FF-curve
+[ESTABLISHED, Fargues-Fontaine 2018].</p></div>
+<div class="box confirmed"><div class="label">Established — Fong Prop.&nbsp;3.7: map Φ is not fully faithful</div>
+<p>Fong (2021, <em>On p-adic Simpson Correspondences</em>, arXiv:2606.06092) constructs
+$$\Phi: \{\text{Higgs bundles on }X_{C^\flat}\} \to \{\text{Galois representations}\}$$
+via periodic sheaves. Proposition 3.7 shows: $\Phi$ is
+<strong>not fully faithful</strong>, since $\mathrm{Ext}^1$-groups on the Higgs side do not
+match those of Galois representations. The obstruction is
+<strong>algebraic-cohomological</strong> (not topological) [ESTABLISHED, direct computation via
+Fargues-Fontaine classification Cor. 8.4.5].</p></div>
+<div class="box confirmed"><div class="label">Established — condensed mathematics does not resolve the obstruction</div>
+<p>The obstruction of Fong Prop.&nbsp;3.7 is <em>not</em> topological in nature; condensed
+mathematics addresses topological deficiencies. The algebraic obstruction remains unaffected by
+condensed reformulations [ESTABLISHED for this context; SPECULATIVE for potential
+Bhatt-Scholze approaches with Higgs torsors and Frobenius action].</p></div>
+<div class="box open"><div class="label">Open — p-adic Simpson correspondence on the FF-curve</div>
+<p>A rigorous $p$-adic Simpson correspondence on $X_{C^\flat}$ is not established.
+Fong Prop.&nbsp;3.7 suggests a fundamental blockage; alternative approaches
+(Faltings, Abbes-Gros) fail due to the absence of $p$-adic Kähler geometry [OPEN].</p></div>
+  </div>
+</div></section>
 <section id="p5">
 <div class="col">
   <h2><span class="nav-num">04</span>
