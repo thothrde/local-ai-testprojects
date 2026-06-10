@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Liquid Archimedes (LAQ) — Archimedische PV-Gradverteilung</title>
+<title>Liquid Archimedes (LAQ) &mdash; Archimedische PV-Gradverteilung</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
 <script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}};</script>
@@ -25,7 +25,6 @@ header{border-bottom:1px solid var(--rule);padding:4.5rem 0 3rem;margin-bottom:3
 h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
 h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
 .header-desc{max-width:560px;font-size:1rem;color:var(--fg-dim);line-height:1.7;margin-top:1.5rem}
-.version-note{font-family:var(--mono);font-size:.65rem;color:var(--gold2);margin-top:1rem;letter-spacing:.04em}
 nav{font-family:var(--sans);font-size:.78rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;margin-bottom:4rem;padding-bottom:2rem;border-bottom:1px solid var(--rule)}
 nav a{color:var(--fg-dim);text-decoration:none;letter-spacing:.04em;transition:color .2s}
 nav a:hover{color:var(--gold)}
@@ -43,232 +42,728 @@ blockquote{border-left:2px solid var(--gold2);margin:1.8rem 0;padding:.5rem 0 .5
 .box.confirmed{border-left-color:var(--green)}.box.confirmed .label{color:var(--green)}
 .box.open{border-left-color:var(--amber)}.box.open .label{color:var(--amber)}
 .box.spec{border-left-color:var(--red)}.box.spec .label{color:var(--red)}
-.theorem{background:var(--bg2);border:1px solid #2e2a24;padding:1.5rem 1.8rem;margin:2rem 0;border-radius:2px}
-.theorem::before{content:attr(data-label);font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.8rem}
 .table-wrap{overflow-x:auto;margin:2rem 0}
 table{width:100%;border-collapse:collapse;font-size:.88rem;font-family:var(--sans)}
 thead tr{border-bottom:1px solid var(--gold2)}
 th{text-align:left;padding:.6rem 1rem .6rem 0;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
 td{padding:.6rem 1rem .6rem 0;border-bottom:1px solid var(--rule);color:var(--fg-dim);vertical-align:top;line-height:1.5}
 td:first-child{color:var(--fg);font-family:var(--mono);font-size:.82rem}
-td.ok{color:var(--green)} td.conj{color:var(--amber)} td.err{color:var(--red)}
+td.ok{color:var(--green)} td.conj{color:var(--amber)} td.err{color:var(--red)} td.part{color:#7ab0d4}
 .process-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
 .process-card{background:var(--bg2);border:1px solid var(--rule);padding:1rem 1.2rem;border-radius:2px}
 .process-card .model{font-family:var(--mono);font-size:.68rem;color:var(--gold);letter-spacing:.05em;margin-bottom:.4rem}
 .process-card .task{font-family:var(--sans);font-size:.8rem;color:var(--fg-dim);line-height:1.4}
+.fraktur-diag{background:var(--bg2);border:1px solid var(--rule);padding:1.8rem 2rem;margin:2rem 0;border-radius:2px;font-family:var(--mono);font-size:.82rem;line-height:2;color:var(--fg-dim);overflow-x:auto}
+.fraktur-diag .ok{color:var(--green)} .fraktur-diag .conj{color:var(--amber)} .fraktur-diag .label{color:var(--fg);font-style:italic}
 .lang-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;font-family:var(--sans);font-size:.75rem}
 .lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
 .lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
-
 footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
 @media(max-width:640px){html{font-size:16px}.wrapper{padding:0 1.2rem}h1{font-size:2rem}}
 </style>
-
 </head>
 <body>
 <div class="wrapper">
 <header>
 <div class="col">
   <a class="back" href="index.html">&larr; Zur&uuml;ck / Back</a>
-  <p class="header-meta">Projekt 08 &middot; Mai/Juni 2026 &middot; Liquid Mathematics</p>
-  <h1>Liquid Archimedes<span class="sub">Archimedische Seite der PV-Gradverteilung in liquiden Moduln</span></h1>
+  <p class="header-meta">Projekt 08 &middot; Mai/Juni 2026 &middot; Liquid Mathematics &middot; Neusynthese 10. Juni 2026</p>
+  <h1>Liquid Archimedes<span class="sub">Archimedische Seite der Prasanna&ndash;Venkatesh-Gradverteilung in liquiden Moduln</span></h1>
   <div class="lang-tabs">
     <button class="lang-tab active" onclick="setLang('de')">DE</button>
     <button class="lang-tab" onclick="setLang('en')">EN</button>
   </div>
-  <p class="header-desc lang-de">Komplementärprojekt zu VCQ3: die <em>archimedische</em> Seite der Prasanna&ndash;Venkatesh-Gradverteilung in liquiden ℝ-Moduln und komplex-analytisch kondensierten Garben. DSV4-Corpus-Analyse, qwen3:235b-Synthese, adversarielle Prüfung.</p>
-  <p class="header-desc lang-en" style="display:none">Companion project to VCQ3: the <em>archimedean</em> side of the Prasanna&ndash;Venkatesh degree distribution in liquid ℝ-modules and complex-analytically condensed sheaves. DSV4 corpus analysis, qwen3:235b synthesis, adversarial check.</p>
-  
+  <p class="header-desc lang-de">Komplement&auml;rprojekt zu VCQ3: die <em>archimedische</em> Seite der Prasanna&ndash;Venkatesh-Gradverteilung in liquiden &real;-Moduln. DSV4-Corpus-Analyse (Phasen 1a&ndash;1c), qwen3:235b-Synthese (Phase 1d, 3), adversarielle Pr&uuml;fung r1:70b (Phase 2, 4). Die Synthesen wurden vollst&auml;ndig neu durchgef&uuml;hrt, nachdem die Erstl&auml;ufe am Projekt-Kontext scheiterten.</p>
+  <p class="header-desc lang-en" style="display:none">Companion project to VCQ3: the <em>archimedean</em> side of the Prasanna&ndash;Venkatesh degree distribution in liquid &real;-modules. DSV4 corpus analysis (phases 1a&ndash;1c), qwen3:235b synthesis (phases 1d, 3), adversarial check r1:70b (phases 2, 4). The syntheses were completely re-run after the initial runs failed due to context confusion.</p>
 </div>
-</header><nav class="wrapper"><a href="#kontext"><span class="nav-num">00</span><span class="lang-de">Kontext &amp; Komplementarität</span><span class="lang-en" style="display:none">Context &amp; Complementarity</span></a>
-<a href="#fragen"><span class="nav-num">01</span><span class="lang-de">Forschungsfragen</span><span class="lang-en" style="display:none">Research Questions</span></a>
-<a href="#ergebnisse"><span class="nav-num">02</span><span class="lang-de">Ergebnisse</span><span class="lang-en" style="display:none">Results</span></a>
-<a href="#bianchi"><span class="nav-num">03</span><span class="lang-de">Bianchi-Testfall</span><span class="lang-en" style="display:none">Bianchi Test Case</span></a>
-<a href="#technik"><span class="nav-num">04</span><span class="lang-de">Methodik</span><span class="lang-en" style="display:none">Method</span></a>
+</header>
+
+<nav class="wrapper">
+  <a href="#kontext"><span class="nav-num">00</span><span class="lang-de">Kontext &amp; Komplementarit&auml;t</span><span class="lang-en" style="display:none">Context &amp; Complementarity</span></a>
+  <a href="#t1"><span class="nav-num">01</span><span class="lang-de">T1-Falle</span><span class="lang-en" style="display:none">T1 Trap</span></a>
+  <a href="#fragen"><span class="nav-num">02</span><span class="lang-de">L-a / L-b / L-c</span><span class="lang-en" style="display:none">L-a / L-b / L-c</span></a>
+  <a href="#ergebnisse"><span class="nav-num">03</span><span class="lang-de">Synthese-Ergebnisse</span><span class="lang-en" style="display:none">Synthesis Results</span></a>
+  <a href="#fraktur"><span class="nav-num">04</span><span class="lang-de">Fraktur-Quadrat</span><span class="lang-en" style="display:none">Fracture Square</span></a>
+  <a href="#statustabelle"><span class="nav-num">05</span><span class="lang-de">Finale Statustabelle</span><span class="lang-en" style="display:none">Final Status Table</span></a>
+  <a href="#bianchi"><span class="lang-de"><span class="nav-num">06</span>Bianchi (&delta;=1)</span><span class="lang-en" style="display:none"><span class="nav-num">06</span>Bianchi (&delta;=1)</span></a>
+  <a href="#luecken"><span class="nav-num">07</span><span class="lang-de">L&uuml;cken-Karte</span><span class="lang-en" style="display:none">Gaps Map</span></a>
+  <a href="#adversarial"><span class="nav-num">08</span><span class="lang-de">Adversarielle Pr&uuml;fung</span><span class="lang-en" style="display:none">Adversarial Check</span></a>
+  <a href="#technik"><span class="nav-num">09</span><span class="lang-de">Methodik</span><span class="lang-en" style="display:none">Method</span></a>
 </nav>
+
+<!-- ══ 00 KONTEXT ══════════════════════════════════════════════════════════ -->
 <section id="kontext">
 <div class="col">
   <h2><span class="nav-num">00</span>
-    <span class="lang-de">Kontext: die zwei Seiten der adelischen Fraktur</span>
-    <span class="lang-en" style="display:none">Context: the two sides of the adelic fracture</span>
+    <span class="lang-de">Kontext: Die zwei Seiten der adelischen Fraktur</span>
+    <span class="lang-en" style="display:none">Context: The Two Sides of the Adelic Fracture</span>
   </h2>
-  <div class="lang-de"><p>Prasanna&ndash;Venkatesh zeigen, dass die Kohomologie $H^*(Y(K))_\pi$ einer automorphen Darstellung
-$\pi$ nicht nur in einem Grad sitzt, sondern durch eine äußere Algebra verteilt wird:</p>
-<p>$$\dim H^{q_0+j}(Y(K))_\pi = \binom{\delta}{j} \cdot \dim H^{q_0}(Y(K))_\pi$$</p>
-<p>wobei $\delta = \text{rank}\,G - \text{rank}\,K_\infty$ und eine äußere Algebra $\bigwedge^* a_G^*$
-die Verteilung beschreibt. Diese Verteilung hat <em>zwei Seiten</em>:</p>
+  <div class="lang-de">
+<p>Prasanna&ndash;Venkatesh (PV, 2016) zeigen, dass die Kohomologie $H^*(Y(K))_\pi$ einer
+<em>temperierten</em> kohomologischen automorphen Darstellung $\pi$ nicht in einem einzigen Grad sitzt,
+sondern durch eine &auml;u&szlig;ere Algebra verteilt wird (Borel&ndash;Wallach [BELEGT]):</p>
+<p>$$\dim H^{q_0+j}(Y(K))_\pi \;=\; \binom{\delta}{j}\cdot\dim H^{q_0}(Y(K))_\pi, \qquad
+\delta = \mathrm{rank}\,G - \mathrm{rank}\,K_\infty$$</p>
+<p>Diese Verteilung hat <em>zwei Seiten</em>, die beide eine eigene analytische Sprache verlangen:</p>
 <div class="table-wrap"><table>
-<thead><tr><th></th><th>p-adische Stelle</th><th>Archimedische Stelle ∞</th></tr></thead>
+<thead><tr><th></th><th>$p$-adische Stelle</th><th>Archimedische Stelle $\infty$</th></tr></thead>
 <tbody>
-<tr><td>Rahmen</td><td>Solid ℤ<sub>p</sub>-Moduln</td><td>Liquid ℝ/ℂ-Moduln</td></tr>
-<tr><td>Kohomologie-Objekt</td><td>Completed cohomology H̃*</td><td>Automorphe Formen / (𝔤,K)-Koh.</td></tr>
-<tr><td>Äußere Algebra</td><td>⋀*V* (étale)</td><td>⋀*a<sub>G</sub>* (motivisch/reell)</td></tr>
-<tr><td>Projekt</td><td>VCQ3</td><td>LAQ (dieses Projekt)</td></tr>
+<tr><td><strong>Analytischer Rahmen</strong></td><td>Solide $\mathbb{Z}_p$-Moduln (Clausen&ndash;Scholze)</td><td><strong>Liquide $\mathbb{R}$/$\mathbb{C}$-Moduln (Clausen&ndash;Scholze)</strong></td></tr>
+<tr><td><strong>Kohomologie-Objekt</strong></td><td>Completed cohomology $\widetilde{H}^*$</td><td>Automorphe Formen / $(\mathfrak{g},K)$-Kohomologie</td></tr>
+<tr><td><strong>Operatoralgebra</strong></td><td>Derived Hecke $\widetilde{\mathbb{T}}$</td><td>Regulator / archimedische Perioden</td></tr>
+<tr><td><strong>&Auml;u&szlig;ere Algebra</strong></td><td>$\bigwedge^* V^*$ (&eacute;tale)</td><td>$\bigwedge^* a_G^*$ (motivisch/reell)</td></tr>
+<tr><td><strong>Projekt</strong></td><td>VCQ3</td><td><strong>LAQ (dieses Projekt)</strong></td></tr>
 </tbody></table></div>
-<p>Das Liquid Tensor Experiment (LTE, formal verifiziert in Lean am 14. Juli 2022) liefert das
-verifizierte Fundament für den liquiden Teil. Dieser strukturelle Vorteil gegenüber VCQ3:
-der liquide Unterbau ist <em>formalisiert</em>, der solide nicht vollständig.</p></div>
-  <div class="lang-en" style="display:none"><p>Prasanna&ndash;Venkatesh show that the cohomology $H^*(Y(K))_\pi$ of an automorphic representation
-$\pi$ does not sit in a single degree but is distributed by an exterior algebra:</p>
-<p>$$\dim H^{q_0+j}(Y(K))_\pi = \binom{\delta}{j} \cdot \dim H^{q_0}(Y(K))_\pi$$</p>
-<p>where $\delta = \text{rank}\,G - \text{rank}\,K_\infty$ and an exterior algebra $\bigwedge^* a_G^*$
-describes the distribution. This distribution has <em>two sides</em>:</p>
+<p><strong>Warum LAQ jetzt:</strong> Cl&auml;ren&ndash;Scholze, <em>Analytic Geometry</em> und
+<em>Condensed Mathematics and Complex Geometry</em> (arXiv:2605.11731, Mai 2026) liefern
+das analytische Fundament f&uuml;r die archimedische Seite. Das Liquid Tensor Experiment (LTE,
+Lean&nbsp;4, 14.&nbsp;Juli&nbsp;2022) ist vollst&auml;ndig formal verifiziert &mdash; ein struktureller
+<em>Vorteil</em> gegen&uuml;ber VCQ3, das an der Mathlib-L&uuml;cke (IsDiscrete &rarr; IsTiny)
+steckte.</p>
+  </div>
+  <div class="lang-en" style="display:none">
+<p>Prasanna&ndash;Venkatesh (PV, 2016) show that the cohomology $H^*(Y(K))_\pi$ of a
+<em>tempered</em> cohomological automorphic representation $\pi$ does not sit in a single degree
+but is distributed by an exterior algebra (Borel&ndash;Wallach [ESTABLISHED]):</p>
+<p>$$\dim H^{q_0+j}(Y(K))_\pi \;=\; \binom{\delta}{j}\cdot\dim H^{q_0}(Y(K))_\pi, \qquad
+\delta = \mathrm{rank}\,G - \mathrm{rank}\,K_\infty$$</p>
+<p>This distribution has <em>two sides</em>, each requiring its own analytic language:</p>
 <div class="table-wrap"><table>
-<thead><tr><th></th><th>p-adic place</th><th>Archimedean place ∞</th></tr></thead>
+<thead><tr><th></th><th>$p$-adic place</th><th>Archimedean place $\infty$</th></tr></thead>
 <tbody>
-<tr><td>Framework</td><td>Solid ℤ<sub>p</sub>-modules</td><td>Liquid ℝ/ℂ-modules</td></tr>
-<tr><td>Cohomology object</td><td>Completed cohomology H̃*</td><td>Automorphic forms / (𝔤,K)-coh.</td></tr>
-<tr><td>Exterior algebra</td><td>⋀*V* (étale)</td><td>⋀*a<sub>G</sub>* (motivic/real)</td></tr>
-<tr><td>Project</td><td>VCQ3</td><td>LAQ (this project)</td></tr>
+<tr><td><strong>Analytic framework</strong></td><td>Solid $\mathbb{Z}_p$-modules (Clausen&ndash;Scholze)</td><td><strong>Liquid $\mathbb{R}$/$\mathbb{C}$-modules (Clausen&ndash;Scholze)</strong></td></tr>
+<tr><td><strong>Cohomology object</strong></td><td>Completed cohomology $\widetilde{H}^*$</td><td>Automorphic forms / $(\mathfrak{g},K)$-cohomology</td></tr>
+<tr><td><strong>Operator algebra</strong></td><td>Derived Hecke $\widetilde{\mathbb{T}}$</td><td>Regulator / archimedean periods</td></tr>
+<tr><td><strong>Exterior algebra</strong></td><td>$\bigwedge^* V^*$ (&eacute;tale)</td><td>$\bigwedge^* a_G^*$ (motivic/real)</td></tr>
+<tr><td><strong>Project</strong></td><td>VCQ3</td><td><strong>LAQ (this project)</strong></td></tr>
 </tbody></table></div>
-<p>The Liquid Tensor Experiment (LTE, formally verified in Lean on July 14, 2022) provides the
-verified foundation for the liquid part. This is a structural advantage over VCQ3: the liquid
-underpinning is <em>formalized</em>, the solid one not completely so.</p></div>
+<p><strong>Why LAQ now:</strong> Clausen&ndash;Scholze, <em>Analytic Geometry</em> and
+<em>Condensed Mathematics and Complex Geometry</em> (arXiv:2605.11731, May 2026) provide the
+analytic foundation for the archimedean side. The Liquid Tensor Experiment (LTE, Lean&nbsp;4,
+14&nbsp;July&nbsp;2022) is fully formally verified &mdash; a structural <em>advantage</em> over
+VCQ3, which stalled at the Mathlib gap (IsDiscrete &rarr; IsTiny).</p>
+  </div>
 </div>
 </section>
-<section id="fragen">
+
+<!-- ══ 01 T1-FALLE ════════════════════════════════════════════════════════ -->
+<section id="t1">
 <div class="col">
   <h2><span class="nav-num">01</span>
-    <span class="lang-de">Drei Forschungsfragen (L-a, L-b, L-c)</span>
-    <span class="lang-en" style="display:none">Three Research Questions (L-a, L-b, L-c)</span>
+    <span class="lang-de">T1-Falle &mdash; Die kritische Warnung</span>
+    <span class="lang-en" style="display:none">T1 Trap &mdash; The Critical Warning</span>
   </h2>
-  <div class="lang-de"><div class="box confirmed"><div class="label">Belegt — Prasanna–Venkatesh-Gradverteilung</div>
-<p>Für eine temperierte kohomologische automorphe Darstellung $\pi$ gilt [BELEGT, Borel–Wallach]:
-$$\dim H^{q_0+j}(Y(K))_\pi = \binom{\delta}{j} \cdot \dim H^{q_0}(Y(K))_\pi$$
-mit $\delta = \dim_\mathbb{R} a_G = \mathrm{rank}(G) - \mathrm{rank}(K_\infty)$
-und $q_0$ dem minimalen Kohomologiegrad. Für Bianchi (Test case): $\delta=1$, also
-$\dim H^1 = \dim H^2$ [BELEGT, Venkatesh].</p>
-<p>Lean-Vorteil: Das Liquid Tensor Experiment (LTE) ist vollständig formal verifiziert
-(Lean, 14. Juli 2022) — anders als VCQ3, das an der Mathlib-Lücke (IsDiscrete → IsTiny)
-hängt, steht hier ein geprüfter Unterbau für den liquiden Anteil.</p></div>
-<div class="box open"><div class="label">L-a — Liquider Träger</div>
-<p>Existiert ein „liquider archimedischer" Träger von $H^*_{(\mathfrak{g},K)}(\pi)$, in dem die
-Fréchet-Topologie der Casselman&ndash;Wallach-Globalisierung korrekt erfasst ist?<br>
-Die endlich-dimensionale Betti-Kohomologie ist <em>trivial liquid</em> (jeder endlich-dim. ℝ-Vektorraum ist liquid)
-— das ist die falsche Antwort. Substanziell wird es erst bei den unendlich-dimensionalen analytischen Objekten.</p></div>
-<div class="box open"><div class="label">L-b — Regulator als kondensierter Morphismus</div>
-<p>Ist der Beilinson-Regulator $L \otimes \mathbb{R} \to H^*_\mathcal{D}(\cdot, \mathbb{R}(j))$
-ein Morphismus komplex-analytisch kondensierter Objekte im Sinne von Clausen&ndash;Scholze
-<em>Condensed Mathematics and Complex Geometry</em> (arXiv:2605.11731)?</p></div>
-<div class="box open"><div class="label">L-c — Fraktur-Quadrat</div>
-<p>Kommutiert das globale adeleische Fraktur-Quadrat<br>
-$$\bigwedge{}^{\!*} L^* \longrightarrow \prod_p \bigwedge{}^{\!*} V_p^*\ (\text{solid}) \;\times\; \bigwedge{}^{\!*} a_G^*\ (\text{liquid bei }\infty)$$
-mit den beiden äußeren-Algebra-Wirkungen (⋀*V* solid / ⋀*a<sub>G</sub>* liquid)?</p></div></div>
-  <div class="lang-en" style="display:none"><div class="box confirmed"><div class="label">Established — Prasanna–Venkatesh degree distribution</div>
-<p>For a tempered cohomological automorphic representation $\pi$ [ESTABLISHED, Borel–Wallach]:
-$$\dim H^{q_0+j}(Y(K))_\pi = \binom{\delta}{j} \cdot \dim H^{q_0}(Y(K))_\pi$$
-with $\delta = \dim_\mathbb{R} a_G = \mathrm{rank}(G) - \mathrm{rank}(K_\infty)$
-and $q_0$ the minimal cohomological degree. For Bianchi (test case): $\delta=1$, so
-$\dim H^1 = \dim H^2$ [ESTABLISHED, Venkatesh].</p>
-<p>Lean advantage: the Liquid Tensor Experiment (LTE) is fully formally verified
-(Lean, 14 July 2022) — unlike VCQ3 which stalled at the Mathlib gap (IsDiscrete → IsTiny),
-here there is a verified foundation for the liquid part.</p></div>
-<div class="box open"><div class="label">L-a — Liquid carrier</div>
-<p>Does a "liquid archimedean" carrier of $H^*_{(\mathfrak{g},K)}(\pi)$ exist, correctly capturing
-the Fréchet topology of the Casselman&ndash;Wallach globalization?<br>
-The finite-dimensional Betti cohomology is <em>trivially liquid</em> (every finite-dimensional ℝ-vector space is liquid)
-— this is the wrong answer. The substance lies in the infinite-dimensional analytic objects.</p></div>
-<div class="box open"><div class="label">L-b — Regulator as condensed morphism</div>
-<p>Is the Beilinson regulator $L \otimes \mathbb{R} \to H^*_\mathcal{D}(\cdot, \mathbb{R}(j))$
-a morphism of complex-analytically condensed objects in the sense of Clausen&ndash;Scholze
-<em>Condensed Mathematics and Complex Geometry</em> (arXiv:2605.11731)?</p></div>
-<div class="box open"><div class="label">L-c — Fracture square</div>
-<p>Does the global adelic fracture square<br>
-$$\bigwedge{}^{\!*} L^* \longrightarrow \prod_p \bigwedge{}^{\!*} V_p^*\ (\text{solid}) \;\times\; \bigwedge{}^{\!*} a_G^*\ (\text{liquid at }\infty)$$
-commute with both exterior algebra actions (⋀*V* solid / ⋀*a<sub>G</sub>* liquid)?</p></div></div>
+  <div class="lang-de">
+<div class="box spec"><div class="label">T1-Falle &mdash; kein Gehalt f&uuml;r LAQ</div>
+<p>Die <em>endlich-dimensionale</em> Betti-Kohomologie $H^*(Y(K),\mathbb{C})_\pi$ ist
+<strong>trivially liquid</strong> &mdash; jeder endlich-dimensionale $\mathbb{R}$-Vektorraum ist
+automatisch liquid (Clausen&ndash;Scholze [BELEGT]). Dass $H^q(Y(K))_\pi$ liquid ist, sagt
+<em>nichts</em> &uuml;ber die LAQ-Frage.</p>
+<p>Substanziell f&uuml;r LAQ werden ausschlie&szlig;lich die <strong>unendlich-dimensionalen analytischen</strong>
+Objekte:</p>
+<ul style="margin:.8rem 0 .8rem 1.5rem;color:var(--fg-dim);font-size:.97rem;line-height:1.8">
+<li>Casselman&ndash;Wallach-Darstellungen als Fr&eacute;chet-R&auml;ume [NICHT IM CORPUS]</li>
+<li>Automorphe Formen als analytische Funktionenr&auml;ume ($L^2$, glatt, temperiert) [NICHT IM CORPUS]</li>
+<li>Beilinson-Regulator als Abbildung mit analytischer Topologie [NICHT IM CORPUS]</li>
+</ul>
+<p>Die Synthese (Phase&nbsp;1d) best&auml;tigte: In <em>keiner</em> der analysierten Quellen
+(Scholze Analytic Geometry, CS Complex Geometry 2605.11731, PV Motivic) werden diese
+unendlich-dimensionalen Strukturen im liquiden Rahmen behandelt.</p></div>
+  </div>
+  <div class="lang-en" style="display:none">
+<div class="box spec"><div class="label">T1 trap &mdash; no content for LAQ</div>
+<p>The <em>finite-dimensional</em> Betti cohomology $H^*(Y(K),\mathbb{C})_\pi$ is
+<strong>trivially liquid</strong> &mdash; every finite-dimensional $\mathbb{R}$-vector space is
+automatically liquid (Clausen&ndash;Scholze [ESTABLISHED]). The fact that $H^q(Y(K))_\pi$ is
+liquid says <em>nothing</em> about the LAQ question.</p>
+<p>Substantive for LAQ are exclusively the <strong>infinite-dimensional analytic</strong> objects:</p>
+<ul style="margin:.8rem 0 .8rem 1.5rem;color:var(--fg-dim);font-size:.97rem;line-height:1.8">
+<li>Casselman&ndash;Wallach representations as Fr&eacute;chet spaces [NOT IN CORPUS]</li>
+<li>Automorphic forms as analytic function spaces ($L^2$, smooth, tempered) [NOT IN CORPUS]</li>
+<li>Beilinson regulator as a map with analytic topology [NOT IN CORPUS]</li>
+</ul>
+<p>The synthesis (Phase&nbsp;1d) confirmed: in <em>none</em> of the analyzed sources (Scholze
+Analytic Geometry, CS Complex Geometry 2605.11731, PV Motivic) are these infinite-dimensional
+structures treated in the liquid framework.</p></div>
+  </div>
 </div>
 </section>
-<section id="ergebnisse">
+
+<!-- ══ 02 FORSCHUNGSFRAGEN ═════════════════════════════════════════════════ -->
+<section id="fragen">
 <div class="col">
   <h2><span class="nav-num">02</span>
-    <span class="lang-de">Ergebnisse der Analyse</span>
-    <span class="lang-en" style="display:none">Analysis Results</span>
+    <span class="lang-de">Die drei Forschungsfragen L-a, L-b, L-c</span>
+    <span class="lang-en" style="display:none">The Three Research Questions L-a, L-b, L-c</span>
   </h2>
-  <div class="lang-de"><p>Die Multi-Modell-Analyse (DSV4 Corpus + qwen3:235b Synthese + r1:70b Adversariell) lieferte
-folgendes Befundbild:</p>
-<div class="box confirmed"><div class="label">Strukturell belegt</div>
-<p>L-a ist prinzipiell möglich: Banach-Räume und Fréchet-Räume liegen im Herzen dessen, wofür
-die liquide Mathematik entwickelt wurde (LTE: $p$-Banach-Räume sind liquid [BELEGT]). Die
-Casselman&ndash;Wallach-Globalisierung erzeugt konkrete Fréchet-Darstellungen — die liquide Einbettung
-ist strukturell kohärent.</p></div>
-<div class="box open"><div class="label">Ehrliche Forschungslücke</div>
-<p>Anders als auf der $p$-adischen Seite (Rodríguez Camargo: <em>locally analytic completed cohomology</em>
-solid gebaut) hat <em>niemand</em> die archimedische automorphe Seite (automorphe Formen, $(\mathfrak{g},K)$-Kohomologie,
-Regulator) bisher im liquiden Rahmen entwickelt. Das ist Neuland — LAQ kartiert es, beweist es aber nicht.</p></div>
-<p>Ein unabhängiges Argument für die Existenz dieser Lücke liefert Scholze selbst in <em>Gestalten</em>:
-Alle seine Dualitätsbeispiele sind Spezialfälle der Cartier-Dualität — „<em>except the very first one
-using $L^2$-functions</em>". Der $L^2$/Banach-archimedische Fall ist die Ausnahme. Das bestätigt
-LAQs Kern-These unabhängig.</p></div>
-  <div class="lang-en" style="display:none"><p>The multi-model analysis (DSV4 corpus + qwen3:235b synthesis + r1:70b adversarial) produced
-the following findings:</p>
-<div class="box confirmed"><div class="label">Structurally established</div>
-<p>L-a is in principle possible: Banach spaces and Fréchet spaces are at the heart of what liquid
-mathematics was developed for (LTE: $p$-Banach spaces are liquid [ESTABLISHED]). The Casselman&ndash;Wallach
-globalization produces concrete Fréchet representations — the liquid embedding is structurally
-coherent.</p></div>
-<div class="box open"><div class="label">Honest research gap</div>
-<p>Unlike the p-adic side (Rodr&iacute;guez Camargo: <em>locally analytic completed cohomology</em>
-built solidly), <em>nobody</em> has yet developed the archimedean automorphic side (automorphic forms,
-$(\mathfrak{g},K)$-cohomology, regulator) in the liquid framework. This is uncharted territory —
-LAQ charts it, but does not prove it.</p></div>
-<p>An independent argument for this gap's existence comes from Scholze himself in <em>Gestalten</em>:
-all his duality examples are special cases of Cartier duality — "<em>except the very first one
-using $L^2$-functions</em>". The $L^2$/Banach-archimedean case is the exception. This independently
-confirms LAQ's core thesis.</p></div>
+  <div class="lang-de">
+<div class="box confirmed"><div class="label">Vorab: PV-Gradverteilung [BELEGT]</div>
+<p>F&uuml;r eine temperierte kohomologische automorphe Darstellung $\pi$ [BELEGT, Borel&ndash;Wallach]:
+$$\dim H^{q_0+j}(Y(K))_\pi = \binom{\delta}{j}\cdot\dim H^{q_0}(Y(K))_\pi$$
+$\delta = \dim_\mathbb{R} a_G$, $q_0$ = Minimalgrad. F&uuml;r Bianchi: $\delta=1$,
+also $\dim H^1 = \dim H^2$ [BELEGT, Venkatesh].</p></div>
+
+<div class="box open"><div class="label">L-a &mdash; Liquider Tr&auml;ger [OFFEN]</div>
+<p>Existiert ein <em>liquider archimedischer</em> Tr&auml;ger von $H^*_{(\mathfrak{g},K)}(\pi)$,
+in dem die Fr&eacute;chet-Topologie der Casselman&ndash;Wallach-Globalisierung korrekt erfasst ist?</p>
+<p>Corpuslage: Fr&eacute;chet-Strukturen auf automorphen Darstellungen und ihre Einbettung in
+liquid-Kategorien sind in keinem der analysierten Quellen behandelt. Die Existenz eines
+liquiden Tr&auml;gers ist <strong>strukturell plausibel</strong> (p-Banach-R&auml;ume sind liquid
+[BELEGT, LTE]) aber nicht explizit konstruiert [OFFEN].</p></div>
+
+<div class="box open"><div class="label">L-b &mdash; Regulator als liquider Morphismus [KONJEKTUR]</div>
+<p>Ist der Beilinson-Regulator $L\otimes\mathbb{R} \to a_G$
+(aus PV: $L\otimes\mathbb{C}\to a_G$ konjeturell ein Isomorphismus [KONJEKTUR, PV §1.2])
+ein Morphismus komplex-analytisch kondensierter Objekte im Rahmen von CS Complex Geometry
+(arXiv:2605.11731)?</p>
+<p>Corpuslage: PV beschreibt den Regulator als Abbildung motivischer Kohomologie zu Deligne-Kohomologie
+[BELEGT, §1.2], behandelt aber <em>keine</em> topologischen oder liquiden Strukturen.
+Die Interpretation als liquider Morphismus ist [KONJEKTUR].</p></div>
+
+<div class="box open"><div class="label">L-c &mdash; Fraktur-Quadrat [KONJEKTUR]</div>
+<p>Kommutiert das globale adelische Fraktur-Quadrat
+$$\bigwedge^* L^* \;\longrightarrow\; \prod_p \bigwedge^* V_p^*\;(\text{solid})\;\times\;\bigwedge^* a_G^*\;(\text{liquid bei }\infty)$$
+mit beiden &auml;u&szlig;eren-Algebra-Wirkungen? Die globale Kohomologie als kondensierter Modul
+(adelisch, Borel&ndash;Wallach [BELEGT]), die Lokalisierungen solid bei $p$ (VCQ3 [BELEGT])
+und liquid bei $\infty$ (LAQ [KONJEKTUR]).</p></div>
+  </div>
+  <div class="lang-en" style="display:none">
+<div class="box confirmed"><div class="label">Preliminary: PV degree distribution [ESTABLISHED]</div>
+<p>For a tempered cohomological automorphic representation $\pi$ [ESTABLISHED, Borel&ndash;Wallach]:
+$$\dim H^{q_0+j}(Y(K))_\pi = \binom{\delta}{j}\cdot\dim H^{q_0}(Y(K))_\pi$$
+$\delta = \dim_\mathbb{R} a_G$, $q_0$ = minimal degree. For Bianchi: $\delta=1$,
+so $\dim H^1 = \dim H^2$ [ESTABLISHED, Venkatesh].</p></div>
+
+<div class="box open"><div class="label">L-a &mdash; Liquid carrier [OPEN]</div>
+<p>Does a <em>liquid archimedean</em> carrier of $H^*_{(\mathfrak{g},K)}(\pi)$ exist,
+correctly capturing the Fr&eacute;chet topology of the Casselman&ndash;Wallach globalization?</p>
+<p>Corpus situation: Fr&eacute;chet structures on automorphic representations and their embedding
+in liquid categories are not treated in any of the analyzed sources. The existence of a
+liquid carrier is <strong>structurally plausible</strong> (p-Banach spaces are liquid [ESTABLISHED, LTE])
+but not explicitly constructed [OPEN].</p></div>
+
+<div class="box open"><div class="label">L-b &mdash; Regulator as liquid morphism [CONJECTURE]</div>
+<p>Is the Beilinson regulator $L\otimes\mathbb{R} \to a_G$
+(from PV: $L\otimes\mathbb{C}\to a_G$ conjecturally an isomorphism [CONJECTURE, PV §1.2])
+a morphism of complex-analytically condensed objects within the framework of CS Complex Geometry
+(arXiv:2605.11731)?</p>
+<p>Corpus situation: PV describes the regulator as a map from motivic cohomology to Deligne
+cohomology [ESTABLISHED, §1.2], but treats <em>no</em> topological or liquid structures.
+The interpretation as a liquid morphism is [CONJECTURE].</p></div>
+
+<div class="box open"><div class="label">L-c &mdash; Fracture square [CONJECTURE]</div>
+<p>Does the global adelic fracture square
+$$\bigwedge^* L^* \;\longrightarrow\; \prod_p \bigwedge^* V_p^*\;(\text{solid})\;\times\;\bigwedge^* a_G^*\;(\text{liquid at }\infty)$$
+commute with both exterior algebra actions? The global cohomology as condensed module
+(adelic, Borel&ndash;Wallach [ESTABLISHED]), localizations solid at $p$ (VCQ3 [ESTABLISHED])
+and liquid at $\infty$ (LAQ [CONJECTURE]).</p></div>
+  </div>
 </div>
 </section>
-<section id="bianchi">
+
+<!-- ══ 03 SYNTHESE-ERGEBNISSE ═════════════════════════════════════════════ -->
+<section id="ergebnisse">
 <div class="col">
   <h2><span class="nav-num">03</span>
-    <span class="lang-de">Minimaler Testfall: Bianchi (δ=1)</span>
-    <span class="lang-en" style="display:none">Minimal Test Case: Bianchi (δ=1)</span>
+    <span class="lang-de">Synthese-Ergebnisse (Phase 1d &amp; 3 &mdash; qwen3:235b)</span>
+    <span class="lang-en" style="display:none">Synthesis Results (Phase 1d &amp; 3 &mdash; qwen3:235b)</span>
   </h2>
-  <div class="lang-de"><p>Der kleinste nicht-triviale Testfall ist <strong>Bianchi</strong>: $G = \mathrm{SL}_2/F$,
-$F$ imaginär-quadratisch, symmetrischer Raum $\mathbb{H}^3$, arithmetische hyperbolische 3-Mannigfaltigkeiten.
-Dann $\delta = 1$, $q_0 = 1$, Kohomologie in Grad <strong>1 und 2</strong>.</p>
-<p>Für $\delta=1$: $\bigwedge^* \mathbb{R}^* = \mathbb{R} \oplus \mathbb{R}[-1]$ verteilt
-$H^1 \to H^2$ mit $\dim H^1 = \dim H^2$ (Borel&ndash;Wallach, $\binom{1}{0}=\binom{1}{1}=1$).
-Dies ist Venkateshs motivierendes Beispiel für derived Hecke.</p>
-<p>Der konkrete liquide Test (L-a in kleinster Dimension): Casselman&ndash;Wallach-Globalisierung
-einer $\mathrm{SL}_2(\mathbb{C})$-Darstellung als liquider ℝ/ℂ-Vektorraum. Die Fréchet-Globalisierung
-ist klassisch gut verstanden — die liquide Einbettung ist prinzipiell klar, die formale Verifikation
-steht aus.</p></div>
-  <div class="lang-en" style="display:none"><p>The smallest non-trivial test case is <strong>Bianchi</strong>: $G = \mathrm{SL}_2/F$,
-$F$ imaginary quadratic, symmetric space $\mathbb{H}^3$, arithmetic hyperbolic 3-manifolds.
-Then $\delta = 1$, $q_0 = 1$, cohomology in degrees <strong>1 and 2</strong>.</p>
-<p>For $\delta=1$: $\bigwedge^* \mathbb{R}^* = \mathbb{R} \oplus \mathbb{R}[-1]$ distributes
-$H^1 \to H^2$ with $\dim H^1 = \dim H^2$ (Borel&ndash;Wallach, $\binom{1}{0}=\binom{1}{1}=1$).
-This is Venkatesh's motivating example for derived Hecke.</p>
-<p>The concrete liquid test (L-a in smallest dimension): Casselman&ndash;Wallach globalization of
-an $\mathrm{SL}_2(\mathbb{C})$-representation as a liquid ℝ/ℂ-vector space. The Fréchet
-globalization is classically well understood — the liquid embedding is in principle clear;
-formal verification is outstanding.</p></div>
+  <div class="lang-de">
+<p>Die vollst&auml;ndige Multi-Modell-Analyse (DSV4 Corpus-Ingestion Phasen 1a&ndash;1c,
+qwen3:235b Synthese Phasen 1d und 3, deepseek-r1:70b adversarielle Pr&uuml;fung Phasen 2 und 4)
+lieferte folgendes Gesamtbild:</p>
+
+<h3>Positiv-Befunde aus dem Corpus [BELEGT]</h3>
+<p>Die PV-Gradverteilungsformel $\dim H^{q_0+j} = \binom{\delta}{j}\cdot\dim H^{q_0}$
+ist in PV-Motivic Chunk 1, Gleichung (1.1.2) explizit und vollst&auml;ndig [BELEGT].</p>
+<p>$a_G$ ist als &ldquo;split component of a fundamental Cartan subalgebra inside $\mathrm{Lie}(G)_\mathbb{C}$&rdquo;
+definiert (PV §1.2) [BELEGT]. Als endlich-dimensionaler $\mathbb{C}$-Vektorraum ist
+$a_G$ trivially liquid &mdash; das ist T1-Gehalt (kein LAQ-Gehalt).</p>
+<p>Der Beilinson-Regulator als Abbildung motivischer Kohomologie zu Deligne-Kohomologie,
+identifiziert mit $L\otimes\mathbb{C}\to a_G$ (PV §1.2) [BELEGT als Abbildung; die Konjektur
+dass sie ein Isomorphismus ist: [KONJEKTUR, PV: &ldquo;conjecturally an isomorphism&rdquo;]).</p>
+
+<h3>Ehrliche Corpus-L&uuml;cke: Nichts im Corpus &uuml;ber liquide Strukturen</h3>
+<div class="box spec"><div class="label">NICHT IM CORPUS &mdash; vollst&auml;ndige Liste</div>
+<p>Folgendes ist in keiner der analysierten Quellen (Scholze Analytic Geometry, CS Complex
+Geometry 2605.11731, PV Motivic, Venkatesh DerivedHecke) enthalten:</p>
+<ul style="margin:.8rem 0 .8rem 1.5rem;color:var(--fg-dim);font-size:.95rem;line-height:1.8">
+<li>Definition oder Diskussion von liquid $\mathbb{R}$-Vektorr&auml;umen im automorphen Kontext</li>
+<li>Topologische oder analytische Diskussion der Casselman&ndash;Wallach-Darstellungen</li>
+<li>Fr&eacute;chet- oder Banachraumstrukturen auf automorphen Darstellungen</li>
+<li>Der Beilinson-Regulator im Kontext kondensierter Mathematik</li>
+<li>Explizite Beschreibung eines adelischen Fraktur-Quadrats</li>
+<li>Kompatibilit&auml;t der &auml;u&szlig;eren-Algebra-Wirkungen in solid/liquid-Rahmen</li>
+</ul></div>
+
+<h3>Unabh&auml;ngige Best&auml;tigung durch Scholze (Gestalten)</h3>
+<div class="box open"><div class="label">Scholzes L&sup2;-Ausnahme best&auml;tigt LAQ-These [KONJEKTUR &mdash; gest&uuml;tzt]</div>
+<p>Scholze h&auml;lt in <em>Gestalten</em> (Scholze&ndash;Stefanich, Feb. 2026) fest: alle seine
+Dualit&auml;tsbeispiele sind Spezialf&auml;lle der Cartier-Dualit&auml;t &mdash;
+&ldquo;<em>except the very first one using $L^2$-functions</em>&rdquo;. Der
+$L^2$/Banach-archimedische Fall ist die <em>Ausnahme</em>. Das best&auml;tigt LAQs Kern-These
+unabh&auml;ngig: die archimedische Seite kann <em>nicht</em> in solid-Moduln leben,
+$L^2$ ist das prototypische Gegenbeispiel.</p>
+<p>Status: Die Ausnahme ist [BELEGT als Scholze-Aussage in Gestalten]; die Verallgemeinerung
+auf automorphe Kohomologie ist [KONJEKTUR].</p></div>
+
+<h3>Ehrliche Gesamteinsch&auml;tzung</h3>
+<div class="box open"><div class="label">Realist. Perspektive (Phase 3-Fazit)</div>
+<p>LAQ ist <strong>theoretisch plausibel</strong> (gest&uuml;tzt durch LTE-Fundament und
+Scholzes $L^2$-Ausnahme), aber <strong>praktisch nicht unmittelbar umsetzbar</strong> ohne
+neue Theorie f&uuml;r Fr&eacute;chet-R&auml;ume in der liquid-Kategorie. Anders als die
+$p$-adische Seite (Rodr&iacute;guez Camargo hat <em>locally analytic completed cohomology</em>
+solid gebaut) hat <em>niemand</em> die archimedische automorphe Seite bisher im liquiden
+Rahmen entwickelt. Das ist echtes Neuland.</p></div>
+  </div>
+  <div class="lang-en" style="display:none">
+<p>The complete multi-model analysis (DSV4 corpus ingestion phases 1a&ndash;1c, qwen3:235b
+synthesis phases 1d and 3, deepseek-r1:70b adversarial check phases 2 and 4) produced the
+following overall picture:</p>
+
+<h3>Positive corpus findings [ESTABLISHED]</h3>
+<p>The PV degree distribution formula $\dim H^{q_0+j} = \binom{\delta}{j}\cdot\dim H^{q_0}$
+is explicit and complete in PV-Motivic Chunk 1, equation (1.1.2) [ESTABLISHED].</p>
+<p>$a_G$ is defined as the "split component of a fundamental Cartan subalgebra inside
+$\mathrm{Lie}(G)_\mathbb{C}$" (PV §1.2) [ESTABLISHED]. As a finite-dimensional
+$\mathbb{C}$-vector space, $a_G$ is trivially liquid &mdash; that is T1-content (no LAQ content).</p>
+<p>The Beilinson regulator as a map from motivic cohomology to Deligne cohomology, identified
+with $L\otimes\mathbb{C}\to a_G$ (PV §1.2) [ESTABLISHED as a map; the conjecture that it is
+an isomorphism: [CONJECTURE, PV: "conjecturally an isomorphism"]).</p>
+
+<h3>Honest corpus gap: nothing on liquid structures</h3>
+<div class="box spec"><div class="label">NOT IN CORPUS &mdash; complete list</div>
+<p>The following is absent from all analyzed sources (Scholze Analytic Geometry, CS Complex
+Geometry 2605.11731, PV Motivic, Venkatesh DerivedHecke):</p>
+<ul style="margin:.8rem 0 .8rem 1.5rem;color:var(--fg-dim);font-size:.95rem;line-height:1.8">
+<li>Definition or discussion of liquid $\mathbb{R}$-vector spaces in the automorphic context</li>
+<li>Topological or analytic discussion of Casselman&ndash;Wallach representations</li>
+<li>Fr&eacute;chet or Banach space structures on automorphic representations</li>
+<li>The Beilinson regulator in the context of condensed mathematics</li>
+<li>Explicit description of an adelic fracture square</li>
+<li>Compatibility of exterior algebra actions in solid/liquid framework</li>
+</ul></div>
+
+<h3>Independent confirmation by Scholze (Gestalten)</h3>
+<div class="box open"><div class="label">Scholze's L&sup2; exception confirms LAQ thesis [CONJECTURE &mdash; supported]</div>
+<p>Scholze notes in <em>Gestalten</em> (Scholze&ndash;Stefanich, Feb. 2026): all his duality
+examples are special cases of Cartier duality &mdash; &ldquo;<em>except the very first one
+using $L^2$-functions</em>&rdquo;. The $L^2$/Banach-archimedean case is the <em>exception</em>.
+This independently confirms LAQ's core thesis: the archimedean side <em>cannot</em> live in
+solid modules; $L^2$ is the prototypical counterexample.</p>
+<p>Status: the exception is [ESTABLISHED as a Scholze statement in Gestalten]; the
+generalization to automorphic cohomology is [CONJECTURE].</p></div>
+
+<h3>Honest overall assessment</h3>
+<div class="box open"><div class="label">Realistic perspective (Phase 3 conclusion)</div>
+<p>LAQ is <strong>theoretically plausible</strong> (supported by LTE foundation and Scholze's
+$L^2$ exception), but <strong>not immediately implementable</strong> without new theory for
+Fr&eacute;chet spaces in the liquid category. Unlike the p-adic side (Rodr&iacute;guez Camargo
+built <em>locally analytic completed cohomology</em> solidly), <em>nobody</em> has yet
+developed the archimedean automorphic side in the liquid framework. This is genuine new
+territory.</p></div>
+  </div>
 </div>
 </section>
-<section id="technik">
+
+<!-- ══ 04 FRAKTUR-QUADRAT ═════════════════════════════════════════════════ -->
+<section id="fraktur">
 <div class="col">
   <h2><span class="nav-num">04</span>
-    <span class="lang-de">Methodik</span>
-    <span class="lang-en" style="display:none">Method</span>
+    <span class="lang-de">Adelisches Fraktur-Quadrat (Phase 3)</span>
+    <span class="lang-en" style="display:none">Adelic Fracture Square (Phase 3)</span>
   </h2>
-  <div class="lang-de"><div class="process-grid">
-  <div class="process-card"><div class="model">DSV4 Flash (284B)</div><div class="task">Corpus-Ingestion: Scholze Analytic Geometry + Clausen&ndash;Scholze Complex Geometry (2605.11731) + Prasanna&ndash;Venkatesh motivic + Galatius&ndash;Venkatesh (8 Phasen, 256K Kontext)</div></div>
-  <div class="process-card"><div class="model">qwen3:235b-a22b</div><div class="task">Synthese L-a/L-b/L-c: Solidit&auml;t vs. Liquidit&auml;t, Bianchi-Analyse, Fraktur-Karte</div></div>
-  <div class="process-card"><div class="model">deepseek-r1:70b</div><div class="task">Adversarielle Pr&uuml;fung: T1-Falle (trivial liquid) vermieden? Statusmarkierungen korrekt?</div></div>
-</div></div>
-  <div class="lang-en" style="display:none"><div class="process-grid">
-  <div class="process-card"><div class="model">DSV4 Flash (284B)</div><div class="task">Corpus ingestion: Scholze Analytic Geometry + Clausen&ndash;Scholze Complex Geometry (2605.11731) + Prasanna&ndash;Venkatesh motivic + Galatius&ndash;Venkatesh (8 phases, 256K context)</div></div>
-  <div class="process-card"><div class="model">qwen3:235b-a22b</div><div class="task">Synthesis L-a/L-b/L-c: solidity vs. liquidity, Bianchi analysis, fracture map</div></div>
-  <div class="process-card"><div class="model">deepseek-r1:70b</div><div class="task">Adversarial check: T1-trap (trivially liquid) avoided? Status labels correct?</div></div>
-</div></div>
+  <div class="lang-de">
+<p>Phase 3 formulierte das Fraktur-Quadrat explizit:</p>
+<div class="fraktur-diag">
+<span class="ok">[BELEGT]</span> <span class="label">Globale Kohomologie</span> H*(Y(K), ℤ) als kondensierter Modul<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ (Adelische Zerlegung, Borel–Wallach) <span class="ok">[BELEGT]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;┌─────────────────┴────────────────────┐<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+∏<sub>p</sub> H*<sub>solid</sub>(Y(K)<sub>p</sub>, ℤ<sub>p</sub>)&nbsp;&nbsp;&nbsp;&nbsp;H*<sub>liquid</sub>(Y(K)<sub>∞</sub>, ℝ)<br>
+<span class="ok">[BELEGT]</span> VCQ3 + Clausen–Scholze&nbsp;&nbsp;&nbsp;<span class="conj">[KONJEKTUR]</span> LAQ–Kernfrage</div>
+<p>Der <strong>kritische Pfeil</strong>: der Vergleichs-Isomorphismus
+$H^*(Y(K)_\infty, \mathbb{R}) \xrightarrow{\sim} H^*_\mathrm{liquid}$
+ist der eigentliche Gehalt von LAQ &mdash; er ist [NICHT IM CORPUS] und bleibt [KONJEKTUR].</p>
+<p>Status der Pfeile:</p>
+<ul style="margin:.8rem 0 .8rem 1.5rem;color:var(--fg-dim);font-size:.97rem;line-height:1.8">
+<li>Horizontale Inklusion in p-adische/solid-Komponenten: [BELEGT, LTE]</li>
+<li>Vertikaler linker Pfeil (Einbettung in liquid ℝ-Modul): [OFFEN] &mdash; entscheidend f&uuml;r LAQ</li>
+<li>Rechter vertikaler Pfeil (Tensorierung mit $\mathbb{Q}_p$): [BELEGT, Standardmethode]</li>
+<li>Diagonale Kompatibilit&auml;t der &auml;u&szlig;eren-Algebra-Wirkungen: [KONJEKTUR]</li>
+</ul>
+  </div>
+  <div class="lang-en" style="display:none">
+<p>Phase 3 formulated the fracture square explicitly:</p>
+<div class="fraktur-diag">
+<span class="ok">[ESTABLISHED]</span> <span class="label">Global cohomology</span> H*(Y(K), ℤ) as condensed module<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ (Adelic decomposition, Borel–Wallach) <span class="ok">[ESTABLISHED]</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;┌─────────────────┴────────────────────┐<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+∏<sub>p</sub> H*<sub>solid</sub>(Y(K)<sub>p</sub>, ℤ<sub>p</sub>)&nbsp;&nbsp;&nbsp;&nbsp;H*<sub>liquid</sub>(Y(K)<sub>∞</sub>, ℝ)<br>
+<span class="ok">[ESTABLISHED]</span> VCQ3 + Clausen–Scholze&nbsp;&nbsp;&nbsp;<span class="conj">[CONJECTURE]</span> LAQ core question</div>
+<p>The <strong>critical arrow</strong>: the comparison isomorphism
+$H^*(Y(K)_\infty, \mathbb{R}) \xrightarrow{\sim} H^*_\mathrm{liquid}$
+is the actual content of LAQ &mdash; it is [NOT IN CORPUS] and remains [CONJECTURE].</p>
+<p>Status of arrows:</p>
+<ul style="margin:.8rem 0 .8rem 1.5rem;color:var(--fg-dim);font-size:.97rem;line-height:1.8">
+<li>Horizontal inclusion into p-adic/solid components: [ESTABLISHED, LTE]</li>
+<li>Left vertical arrow (embedding into liquid ℝ-module): [OPEN] &mdash; decisive for LAQ</li>
+<li>Right vertical arrow (tensoring with $\mathbb{Q}_p$): [ESTABLISHED, standard]</li>
+<li>Diagonal compatibility of exterior algebra actions: [CONJECTURE]</li>
+</ul>
+  </div>
 </div>
 </section>
+
+<!-- ══ 05 FINALE STATUSTABELLE ════════════════════════════════════════════ -->
+<section id="statustabelle">
+<div class="col">
+  <h2><span class="nav-num">05</span>
+    <span class="lang-de">Finale Statustabelle (Phase 4 &mdash; deepseek-r1:70b)</span>
+    <span class="lang-en" style="display:none">Final Status Table (Phase 4 &mdash; deepseek-r1:70b)</span>
+  </h2>
+  <div class="lang-de">
+<div class="table-wrap"><table>
+<thead><tr><th>Behauptung</th><th>Status</th><th>Begr&uuml;ndung</th><th>Quelle</th></tr></thead>
+<tbody>
+<tr>
+  <td>PV-Gradverteilung<br>$\dim H^{q_0+j} = \binom{\delta}{j}\cdot\dim H^{q_0}$</td>
+  <td class="ok">BELEGT</td>
+  <td>PV (2016), Borel&ndash;Wallach</td>
+  <td>PV-Motivic Chunk 1, Gl. (1.1.2)</td>
+</tr>
+<tr>
+  <td>$a_G = L\otimes\mathbb{R}$ mit $L$ motivischer Kohomologie</td>
+  <td class="conj">KONJEKTUR</td>
+  <td>PV: &ldquo;conjecturally an isomorphism&rdquo;</td>
+  <td>PV-Motivic Chunk 1, §1.2</td>
+</tr>
+<tr>
+  <td>Beilinson-Regulator als Abbildung $L\otimes\mathbb{C}\to a_G$</td>
+  <td class="conj">KONJEKTUR</td>
+  <td>Abbildung in PV beschrieben; Isomorphismus-Eigenschaft konjektural</td>
+  <td>PV-Motivic Chunk 1&amp;2, §1.2</td>
+</tr>
+<tr>
+  <td>L-a: Liquider Tr&auml;ger der Casselman&ndash;Wallach-Darstellung existiert</td>
+  <td class="err">OFFEN</td>
+  <td>Keine expliziten topologischen Strukturen im Corpus</td>
+  <td>NICHT IM CORPUS</td>
+</tr>
+<tr>
+  <td>L-b: Beilinson-Regulator als Morphismus liquider Objekte</td>
+  <td class="conj">KONJEKTUR</td>
+  <td>Plausibel (LTE-Fundament, CS Complex Geometry), aber keine Konstruktion</td>
+  <td>NICHT IM CORPUS</td>
+</tr>
+<tr>
+  <td>L-c: Adelisches Fraktur-Quadrat kommutiert mit $\bigwedge^*$-Wirkungen</td>
+  <td class="conj">KONJEKTUR</td>
+  <td>Fehlender Vergleichs-Isomorphismus; kein Beweis</td>
+  <td>NICHT IM CORPUS</td>
+</tr>
+<tr>
+  <td>LTE formalisiert Fundament f&uuml;r L-a</td>
+  <td class="part">TEILWEISE BELEGT</td>
+  <td>Abstrakte liquid-Kategorientheorie formalisiert; automorphe Seite nicht</td>
+  <td>Lean 4 / LTE (14. Juli 2022)</td>
+</tr>
+<tr>
+  <td>Scholzes $L^2$-Ausnahme best&auml;tigt LAQ-These</td>
+  <td class="conj">KONJEKTUR (gest&uuml;tzt)</td>
+  <td>Scholze-Aussage [BELEGT]; Verallgemeinerung auf automorphe Koh. [KONJEKTUR]</td>
+  <td>Scholze&ndash;Stefanich, Gestalten (Feb. 2026)</td>
+</tr>
+</tbody></table></div>
+  </div>
+  <div class="lang-en" style="display:none">
+<div class="table-wrap"><table>
+<thead><tr><th>Claim</th><th>Status</th><th>Justification</th><th>Source</th></tr></thead>
+<tbody>
+<tr>
+  <td>PV degree distribution<br>$\dim H^{q_0+j} = \binom{\delta}{j}\cdot\dim H^{q_0}$</td>
+  <td class="ok">ESTABLISHED</td>
+  <td>PV (2016), Borel&ndash;Wallach</td>
+  <td>PV-Motivic Chunk 1, eq. (1.1.2)</td>
+</tr>
+<tr>
+  <td>$a_G = L\otimes\mathbb{R}$ with $L$ motivic cohomology</td>
+  <td class="conj">CONJECTURE</td>
+  <td>PV: "conjecturally an isomorphism"</td>
+  <td>PV-Motivic Chunk 1, §1.2</td>
+</tr>
+<tr>
+  <td>Beilinson regulator as map $L\otimes\mathbb{C}\to a_G$</td>
+  <td class="conj">CONJECTURE</td>
+  <td>Map described in PV; isomorphism property conjectural</td>
+  <td>PV-Motivic Chunk 1&amp;2, §1.2</td>
+</tr>
+<tr>
+  <td>L-a: liquid carrier of Casselman&ndash;Wallach representation exists</td>
+  <td class="err">OPEN</td>
+  <td>No explicit topological structures in corpus</td>
+  <td>NOT IN CORPUS</td>
+</tr>
+<tr>
+  <td>L-b: Beilinson regulator as morphism of liquid objects</td>
+  <td class="conj">CONJECTURE</td>
+  <td>Plausible (LTE foundation, CS Complex Geometry), but no construction</td>
+  <td>NOT IN CORPUS</td>
+</tr>
+<tr>
+  <td>L-c: adelic fracture square commutes with $\bigwedge^*$-actions</td>
+  <td class="conj">CONJECTURE</td>
+  <td>Missing comparison isomorphism; no proof</td>
+  <td>NOT IN CORPUS</td>
+</tr>
+<tr>
+  <td>LTE formalizes foundation for L-a</td>
+  <td class="part">PARTIALLY ESTABLISHED</td>
+  <td>Abstract liquid category theory formalized; automorphic side not</td>
+  <td>Lean 4 / LTE (14 July 2022)</td>
+</tr>
+<tr>
+  <td>Scholze's $L^2$ exception confirms LAQ thesis</td>
+  <td class="conj">CONJECTURE (supported)</td>
+  <td>Scholze statement [ESTABLISHED]; generalization to automorphic coh. [CONJECTURE]</td>
+  <td>Scholze&ndash;Stefanich, Gestalten (Feb. 2026)</td>
+</tr>
+</tbody></table></div>
+  </div>
+</div>
+</section>
+
+<!-- ══ 06 BIANCHI ════════════════════════════════════════════════════════ -->
+<section id="bianchi">
+<div class="col">
+  <h2><span class="nav-num">06</span>
+    <span class="lang-de">Minimaler Testfall: Bianchi (&delta;=1)</span>
+    <span class="lang-en" style="display:none">Minimal Test Case: Bianchi (&delta;=1)</span>
+  </h2>
+  <div class="lang-de">
+<p>Der kleinste nicht-triviale Testfall ist <strong>Bianchi</strong>:</p>
+<p>$G = \mathrm{SL}_2/F$, $F$ imagin&auml;r-quadratisch, $K_\infty = \mathrm{SU}(2)$,
+symmetrischer Raum $\mathbb{H}^3$. Dann $\delta = 1$, $q_0 = 1$.</p>
+<p><strong>PV-Vorhersage [BELEGT]:</strong>
+$\dim H^1(Y(K))_\pi = \dim H^2(Y(K))_\pi$ (da $\binom{1}{0}=\binom{1}{1}=1$).
+$\bigwedge^* \mathbb{R}^* = \mathbb{R}\oplus\mathbb{R}[-1]$ verteilt $H^1\to H^2$.</p>
+
+<div class="box open"><div class="label">Konkreter L-a-Test in kleinster Dimension</div>
+<p>Casselman&ndash;Wallach-Globalisierung einer $\mathrm{SL}_2(\mathbb{C})$-Darstellung
+als liquider $\mathbb{R}/\mathbb{C}$-Vektorraum &mdash; die Fr&eacute;chet-Globalisierung
+ist klassisch gut verstanden; die liquide Einbettung ist <em>prinzipiell klar</em>
+(p-Banach-R&auml;ume sind liquid [BELEGT, LTE]), die formale Konstruktion im automorphen
+Kontext steht aus [OFFEN].</p>
+<p>Die archimedische Kohomologie lebt auf $\mathbb{H}^3 = \mathrm{SL}_2(\mathbb{C})/\mathrm{SU}(2)$.
+Die Fr&eacute;chet-Topologie auf automorphen Formen (z.B. $L^2$-Schnitte) ist
+<em>nicht als liquid-Modul beschrieben</em> [NICHT IM CORPUS].</p></div>
+
+<p><strong>Testbarkeit:</strong> Teste ob $H^1(\mathbb{H}^3, \mathbb{R})$ und $H^2(\mathbb{H}^3, \mathbb{R})$
+als liquid-Moduln isomorph sind (PV-Vorhersage). Die $\mathrm{SL}_2(\mathbb{C})$-Darstellungstheorie
+ist ausreichend f&uuml;r den Testfall [BELEGT], aber die liquide Interpretation ist
+[OFFEN].</p>
+  </div>
+  <div class="lang-en" style="display:none">
+<p>The smallest non-trivial test case is <strong>Bianchi</strong>:</p>
+<p>$G = \mathrm{SL}_2/F$, $F$ imaginary quadratic, $K_\infty = \mathrm{SU}(2)$,
+symmetric space $\mathbb{H}^3$. Then $\delta = 1$, $q_0 = 1$.</p>
+<p><strong>PV prediction [ESTABLISHED]:</strong>
+$\dim H^1(Y(K))_\pi = \dim H^2(Y(K))_\pi$ (since $\binom{1}{0}=\binom{1}{1}=1$).
+$\bigwedge^* \mathbb{R}^* = \mathbb{R}\oplus\mathbb{R}[-1]$ distributes $H^1\to H^2$.</p>
+
+<div class="box open"><div class="label">Concrete L-a test in smallest dimension</div>
+<p>Casselman&ndash;Wallach globalization of an $\mathrm{SL}_2(\mathbb{C})$-representation as
+a liquid $\mathbb{R}/\mathbb{C}$-vector space &mdash; the Fr&eacute;chet globalization is
+classically well understood; the liquid embedding is <em>in principle clear</em>
+(p-Banach spaces are liquid [ESTABLISHED, LTE]), the formal construction in the automorphic
+context is outstanding [OPEN].</p>
+<p>The archimedean cohomology lives on $\mathbb{H}^3 = \mathrm{SL}_2(\mathbb{C})/\mathrm{SU}(2)$.
+The Fr&eacute;chet topology on automorphic forms (e.g., $L^2$-sections) is
+<em>not described as a liquid module</em> [NOT IN CORPUS].</p></div>
+
+<p><strong>Testability:</strong> Test whether $H^1(\mathbb{H}^3, \mathbb{R})$ and
+$H^2(\mathbb{H}^3, \mathbb{R})$ are isomorphic as liquid modules (PV prediction). The
+$\mathrm{SL}_2(\mathbb{C})$-representation theory is sufficient for the test case [ESTABLISHED],
+but the liquid interpretation is [OPEN].</p>
+  </div>
+</div>
+</section>
+
+<!-- ══ 07 LÜCKEN-KARTE ════════════════════════════════════════════════════ -->
+<section id="luecken">
+<div class="col">
+  <h2><span class="nav-num">07</span>
+    <span class="lang-de">Machbarkeits- und L&uuml;cken-Karte (Phase 3)</span>
+    <span class="lang-en" style="display:none">Feasibility and Gaps Map (Phase 3)</span>
+  </h2>
+  <div class="lang-de">
+<div class="table-wrap"><table>
+<thead><tr><th>Behauptung</th><th>Was fehlt</th><th>Aufwand</th></tr></thead>
+<tbody>
+<tr>
+  <td>Liquider Tr&auml;ger von $H^*_{(\mathfrak{g},K_\infty)}(\pi)$</td>
+  <td>Definition der liquid-Struktur auf Casselman&ndash;Wallach-Darstellungen (Fr&eacute;chet-Einbettung in liquid-Kategorie)</td>
+  <td>Hoch (neue Topologie-Theorie erforderlich)</td>
+</tr>
+<tr>
+  <td>Beilinson-Regulator als liquid-Morphismus</td>
+  <td>Analytische Stetigkeit im Regulator-Kontext; Beschreibung von Deligne-Kohomologie in liquid-Sprache</td>
+  <td>Mittel (br&uuml;ckende Literatur n&ouml;tig)</td>
+</tr>
+<tr>
+  <td>Vergleichs-Iso $H^*_\mathrm{solid}\times H^*_\mathrm{liquid}\xrightarrow{\sim} H^*_\text{adelisch}$</td>
+  <td>Isomorphie-Beweis f&uuml;r archimedischen Anteil; adelische Fraktur im liquid/solid-Rahmen</td>
+  <td>Sehr hoch (kohomologische Dualit&auml;t)</td>
+</tr>
+<tr>
+  <td>Scholzes $L^2$-Ausnahme im LAQ-Kontext</td>
+  <td>Klassifizierung von $L^2$ als liquid-Modul; Verallgemeinerung auf automorphe Formen</td>
+  <td>Mittel (Anpassung an LTE)</td>
+</tr>
+<tr>
+  <td>Lean-Formalisierung von L-a (Teilresultat)</td>
+  <td>Erweiterung von LTE um Funktionalanalysis-Seite; Casselman&ndash;Wallach in Lean (kein Mathlib-Material)</td>
+  <td>Sehr hoch (&gt;200&nbsp;Zeilen neue Lean-Theorie)</td>
+</tr>
+</tbody></table></div>
+<p><strong>LTE-Lean-Abgrenzung:</strong> Nur die abstrakte liquid-Kategorientheorie (Ext-Verschwinden,
+Tensor-Produkte) ist LTE-f&auml;hig [BELEGT]. LAQ ben&ouml;tigt neue Formalisierungen f&uuml;r
+automorphe Darstellungen, die in Mathlib/lean-liquid <em>nicht vorhanden</em> sind.</p>
+  </div>
+  <div class="lang-en" style="display:none">
+<div class="table-wrap"><table>
+<thead><tr><th>Claim</th><th>What is missing</th><th>Effort</th></tr></thead>
+<tbody>
+<tr>
+  <td>Liquid carrier of $H^*_{(\mathfrak{g},K_\infty)}(\pi)$</td>
+  <td>Definition of liquid structure on Casselman&ndash;Wallach representations (Fr&eacute;chet embedding in liquid category)</td>
+  <td>High (new topology theory required)</td>
+</tr>
+<tr>
+  <td>Beilinson regulator as liquid morphism</td>
+  <td>Analytic continuity in regulator context; description of Deligne cohomology in liquid language</td>
+  <td>Medium (bridging literature needed)</td>
+</tr>
+<tr>
+  <td>Comparison iso $H^*_\mathrm{solid}\times H^*_\mathrm{liquid}\xrightarrow{\sim} H^*_\text{adelic}$</td>
+  <td>Isomorphism proof for archimedean component; adelic fracture in liquid/solid framework</td>
+  <td>Very high (cohomological duality)</td>
+</tr>
+<tr>
+  <td>Scholze's $L^2$ exception in LAQ context</td>
+  <td>Classification of $L^2$ as liquid module; generalization to automorphic forms</td>
+  <td>Medium (adaptation to LTE)</td>
+</tr>
+<tr>
+  <td>Lean formalization of L-a (partial result)</td>
+  <td>Extension of LTE to functional analysis side; Casselman&ndash;Wallach in Lean (no Mathlib material)</td>
+  <td>Very high (&gt;200 lines new Lean theory)</td>
+</tr>
+</tbody></table></div>
+<p><strong>LTE-Lean demarcation:</strong> Only the abstract liquid category theory (Ext-vanishing,
+tensor products) is LTE-formalizable [ESTABLISHED]. LAQ requires new formalizations for
+automorphic representations that are <em>not present</em> in Mathlib/lean-liquid.</p>
+  </div>
+</div>
+</section>
+
+<!-- ══ 08 ADVERSARIELLE PRÜFUNG ══════════════════════════════════════════ -->
+<section id="adversarial">
+<div class="col">
+  <h2><span class="nav-num">08</span>
+    <span class="lang-de">Adversarielle Pr&uuml;fung (Phasen 2 &amp; 4 &mdash; deepseek-r1:70b)</span>
+    <span class="lang-en" style="display:none">Adversarial Check (Phases 2 &amp; 4 &mdash; deepseek-r1:70b)</span>
+  </h2>
+  <div class="lang-de">
+<div class="box spec"><div class="label">Sch&auml;rfste Gegenthese</div>
+<p>&ldquo;Die archimedische Seite der PV-Gradverteilung hat <em>keinen</em> nicht-trivialen
+liquiden Gehalt.&rdquo;</p>
+<p><strong>Gewicht des Arguments:</strong> stark &mdash; es existiert keine publizierten Resultate,
+die Floer-Theorie oder automorphe Formen explizit mit liquid-Moduln verbinden. Die fehlende
+Br&uuml;ckenliteratur (analog zu Rodr&iacute;guez Camargo f&uuml;r die p-adische Seite)
+ist das st&auml;rkste Argument der Gegenthese.</p></div>
+<div class="box confirmed"><div class="label">T1-Falle korrekt adressiert</div>
+<p>Die finite-dim. Kohomologie als trivially liquid wird korrekt als <em>kein Gehalt</em>
+identifiziert. Keine falschen BELEGT-Markierungen f&uuml;r triviale Aussagen.</p></div>
+<p><strong>L-a-Validierung:</strong> Das Argument f&uuml;r einen liquiden Tr&auml;ger der
+Casselman&ndash;Wallach-Darstellungen ist mathematisch kohärent (Fr&eacute;chet $\subset$ liquid
+folgt aus LTE-Grundlagen), aber schwach: keine explizite Konstruktion, keine Verbindung
+zu PV im Corpus.</p>
+<p><strong>L-b-Validierung:</strong> Beilinson-Regulator als liquider Morphismus ist
+[KONJEKTUR] &mdash; plausibel, aber ohne topologische Analyse im Regulator-Kontext.</p>
+<p><strong>Status-&Uuml;berpr&uuml;fung:</strong> $a_G$ = motivische Kohomologie (PV §1.2) korrekt als
+[KONJEKTUR] markiert. Alle BELEGT-Markierungen best&auml;tigt korrekt.</p>
+  </div>
+  <div class="lang-en" style="display:none">
+<div class="box spec"><div class="label">Sharpest counterthesis</div>
+<p>"The archimedean side of the PV degree distribution has <em>no</em> non-trivial
+liquid content."</p>
+<p><strong>Weight of argument:</strong> strong &mdash; no published results exist explicitly
+connecting automorphic forms with liquid modules. The missing bridging literature (analogous
+to Rodr&iacute;guez Camargo for the p-adic side) is the strongest argument for the
+counterthesis.</p></div>
+<div class="box confirmed"><div class="label">T1 trap correctly addressed</div>
+<p>The finite-dim. cohomology as trivially liquid is correctly identified as <em>no content</em>.
+No false ESTABLISHED labels for trivial statements.</p></div>
+<p><strong>L-a validation:</strong> The argument for a liquid carrier of Casselman&ndash;Wallach
+representations is mathematically coherent (Fr&eacute;chet $\subset$ liquid follows from LTE
+foundations), but weak: no explicit construction, no connection to PV in corpus.</p>
+<p><strong>L-b validation:</strong> Beilinson regulator as liquid morphism is [CONJECTURE]
+&mdash; plausible, but without topological analysis in regulator context.</p>
+<p><strong>Status check:</strong> $a_G$ = motivic cohomology (PV §1.2) correctly labeled
+[CONJECTURE]. All ESTABLISHED labels confirmed correct.</p>
+  </div>
+</div>
+</section>
+
+<!-- ══ 09 METHODIK ════════════════════════════════════════════════════════ -->
+<section id="technik">
+<div class="col">
+  <h2><span class="nav-num">09</span>
+    <span class="lang-de">Methodik &amp; Modell-Sequenzierung</span>
+    <span class="lang-en" style="display:none">Method &amp; Model Sequencing</span>
+  </h2>
+  <div class="lang-de">
+<p><strong>Hinweis zur Neusynthese:</strong> Die Erstl&auml;ufe (Phasen 1d&ndash;4) scheiterten,
+weil das Modell die Abk&uuml;rzung &ldquo;PV&rdquo; als &ldquo;Photovoltaik&rdquo; interpretierte
+und ein fiktives Solaranlagen-Projekt synthetisierte. Die Neusynthese (10. Juni 2026) verwendete
+expliziten Kontext-Schutz: <em>PV = Prasanna&ndash;Venkatesh (Mathematiker)</em>,
+<em>LAQ = Liquid Archimedes Question (Mathematik)</em>. Dieses Ergebnis ist die korrekte Version.</p>
+<div class="process-grid">
+  <div class="process-card"><div class="model">DSV4 Flash (284B)</div><div class="task">Phasen 1a&ndash;1c: Corpus-Ingestion Scholze Analytic Geometry, CS Complex Geometry (2605.11731), Prasanna&ndash;Venkatesh Motivic, Venkatesh DerivedHecke. 256K Kontext, 4 Chunks je Quelle.</div></div>
+  <div class="process-card"><div class="model">qwen3:235b-a22b</div><div class="task">Phase 1d: Kern-Synthese L-a/L-b/L-c, T1-Falle, Ehrliche Lücken-Analyse. Phase 3: Fraktur-Quadrat explizit, Bianchi-Testfall, Machbarkeitskarte. Je ~800 W&ouml;rter.</div></div>
+  <div class="process-card"><div class="model">deepseek-r1:70b</div><div class="task">Phase 2: Adversarielle Pr&uuml;fung &mdash; T1-Falle, Gegenthese, Status-Pr&uuml;fung. Phase 4: Finale Verifikation &mdash; vollst&auml;ndige Statustabelle, Abschlussfazit.</div></div>
+</div>
+  </div>
+  <div class="lang-en" style="display:none">
+<p><strong>Note on re-synthesis:</strong> The initial runs (phases 1d&ndash;4) failed because
+the model interpreted the abbreviation "PV" as "Photovoltaik" (photovoltaics) and synthesized
+a fictitious solar array project. The re-synthesis (10 June 2026) used explicit context
+protection: <em>PV = Prasanna&ndash;Venkatesh (mathematicians)</em>,
+<em>LAQ = Liquid Archimedes Question (mathematics)</em>. This result is the correct version.</p>
+<div class="process-grid">
+  <div class="process-card"><div class="model">DSV4 Flash (284B)</div><div class="task">Phases 1a&ndash;1c: corpus ingestion of Scholze Analytic Geometry, CS Complex Geometry (2605.11731), Prasanna&ndash;Venkatesh Motivic, Venkatesh DerivedHecke. 256K context, 4 chunks per source.</div></div>
+  <div class="process-card"><div class="model">qwen3:235b-a22b</div><div class="task">Phase 1d: core synthesis L-a/L-b/L-c, T1-trap, honest gap analysis. Phase 3: fracture square explicit, Bianchi test case, feasibility map. ~800 words each.</div></div>
+  <div class="process-card"><div class="model">deepseek-r1:70b</div><div class="task">Phase 2: adversarial check &mdash; T1-trap, counterthesis, status verification. Phase 4: final verification &mdash; complete status table, concluding assessment.</div></div>
+</div>
+  </div>
+</div>
+</section>
+
 <footer class="wrapper">
   <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
-  <span>Thomas Riepe &middot; Berlin &middot; Juni 2026</span>
+  <span>Thomas Riepe &middot; Berlin &middot; Juni 2026 &middot; Neusynthese 10.06.2026</span>
   <span>Projekt 08 von 21</span>
 </footer>
 </div>
+
 <script>
 function setLang(l){
   document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
