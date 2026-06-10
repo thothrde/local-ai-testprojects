@@ -95,8 +95,10 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
   <div class="lang-de">
 <p>Belinskii–Khalatnikov–Lifshitz (1970) zeigten: Nahe der kosmologischen Singularität
 wechselt die Lösung der Einstein-Gleichungen für Bianchi IX chaotisch zwischen Kasner-Epochen
-$(p_1,p_2,p_3)$ mit $\sum p_i = \sum p_i^2 = 1$. Die Sequenz der Epochen folgt der
-<strong>Gauss-Abbildung</strong> $T: x \mapsto \{1/x\}$ [BELEGT, BKL 1970].</p>
+$(p_1,p_2,p_3)$ mit $\sum p_i = \sum p_i^2 = 1$. Die Hamilton-Funktion des Mixmaster-Universums:
+$$\mathcal{H} = \frac{e^{-3\alpha}}{24}\left(p_\alpha^2 - p_+^2 - p_-^2\right) + V(\alpha,\beta_\pm)$$
+mit Potential $V \sim e^{-4\sqrt{3}\beta_-} + e^{2\sqrt{3}(\beta_- + \beta_+)} + e^{2\sqrt{3}(\beta_- - \beta_+)} - 1$.
+Die Sequenz der Epochen folgt der <strong>Gauss-Abbildung</strong> $T: x \mapsto \{1/x\}$ [BELEGT, BKL/Misner 1969–1970].</p>
 <p>Die Gauss-Abbildung ist ergodisch mit invariantem Maß $\mu = \frac{1}{\ln 2} \frac{dx}{1+x}$
 (Gauß'sches Maß) und erzeugt über die Kettenbruchentwicklung eine natürliche Verbindung zur
 Theorie der Selberg-Zeta-Funktionen [BELEGT].</p>
@@ -108,8 +110,10 @@ deren Ergodizität die fundamentale Unberechenbarkeit der Kosmologie nahe dem An
   <div class="lang-en" style="display:none">
 <p>Belinskii–Khalatnikov–Lifshitz (1970) showed: near the cosmological singularity, the solution
 of Einstein's equations for Bianchi IX chaotically alternates between Kasner epochs
-$(p_1,p_2,p_3)$ with $\sum p_i = \sum p_i^2 = 1$. The sequence of epochs follows the
-<strong>Gauss map</strong> $T: x \mapsto \{1/x\}$ [ESTABLISHED, BKL 1970].</p>
+$(p_1,p_2,p_3)$ with $\sum p_i = \sum p_i^2 = 1$. The Hamiltonian of the Mixmaster universe:
+$$\mathcal{H} = \frac{e^{-3\alpha}}{24}\left(p_\alpha^2 - p_+^2 - p_-^2\right) + V(\alpha,\beta_\pm)$$
+with potential $V \sim e^{-4\sqrt{3}\beta_-} + e^{2\sqrt{3}(\beta_- + \beta_+)} + e^{2\sqrt{3}(\beta_- - \beta_+)} - 1$.
+The sequence of epochs follows the <strong>Gauss map</strong> $T: x \mapsto \{1/x\}$ [ESTABLISHED, BKL/Misner 1969–1970].</p>
 <p>The Gauss map is ergodic with invariant measure $\mu = \frac{1}{\ln 2} \frac{dx}{1+x}$
 (Gauss measure) and generates, via the continued fraction expansion, a natural connection to
 the theory of Selberg zeta functions [ESTABLISHED].</p>
@@ -171,9 +175,13 @@ arithmetic surfaces [ESTABLISHED, Selberg 1956].</p>
     <span class="lang-en" style="display:none">Generalized Uncertainty Principle (GUP)</span>
   </h2>
   <div class="lang-de">
-<p>Das GUP modifiziert die Heisenberg'schen Kommutatorrelationen auf der Planck-Skala:
-$$[x, p] = i\hbar\left(1 + \beta p^2 + \gamma x^2\right)$$
-mit $\beta, \gamma \sim \ell_P^2/\hbar^2$ (Planck-Länge $\ell_P \approx 1.6 \times 10^{-35}$ m).</p>
+<p>Das GUP (standard, quadratisch) modifiziert die Heisenberg'schen Kommutatorrelationen [BELEGT, Maggiore 1993; Kempf et al. 1995]:
+$$[\hat x, \hat p] = i\hbar(1 + \beta\hat p^2), \quad \beta = \frac{\beta_0 \ell_{\mathrm{Pl}}^2}{\hbar^2}$$
+Das kubische Supplement (Quesne–Tkachuk 2006) erweitert dies zu
+$$[\hat x, \hat p] = i\hbar(1 + \beta\hat p^2 + \gamma\hat p^3) \quad [\text{KONJEKTUR}]$$
+Modifizierte Wheeler–DeWitt-Gleichung (GUP-Mixmaster):
+$$\left[-\tfrac{e^{-3\alpha}}{24}\left((1 + 3\beta\hbar^2\partial_\alpha^2)\partial_\alpha^2 - \partial_+^2 - \partial_-^2\right) + V\right]\Psi = 0$$
+Für GUP ($\beta>0$): numerische Evidenz für Abschwächung der klassischen Singularität [BELEGT für vereinfachte Modelle, Moussa et al. 2015].</p>
 <p>Im Mixmaster-Universum modifiziert das GUP die quantenkosmologische Wheeler–DeWitt-Gleichung
 $\hat{H}\Psi = 0$. Die Frage: <em>Ist BKL-Chaos unter GUP-Korrekturen robust?</em></p>
 <div class="box open"><div class="label">Synthese-Ergebnis [KONJEKTUR]</div>
@@ -183,9 +191,13 @@ mit Resultaten für Quantenchaos in geschlossenen Systemen [KONJEKTUR — kein B
 volle Quantensystem].</p></div>
 </div>
   <div class="lang-en" style="display:none">
-<p>The GUP modifies Heisenberg's commutation relations at the Planck scale:
-$$[x, p] = i\hbar\left(1 + \beta p^2 + \gamma x^2\right)$$
-with $\beta, \gamma \sim \ell_P^2/\hbar^2$ (Planck length $\ell_P \approx 1.6 \times 10^{-35}$ m).</p>
+<p>The GUP (standard, quadratic) modifies Heisenberg's commutation relations [ESTABLISHED, Maggiore 1993; Kempf et al. 1995]:
+$$[\hat x, \hat p] = i\hbar(1 + \beta\hat p^2), \quad \beta = \frac{\beta_0 \ell_{\mathrm{Pl}}^2}{\hbar^2}$$
+The cubic supplement (Quesne–Tkachuk 2006) extends this to
+$$[\hat x, \hat p] = i\hbar(1 + \beta\hat p^2 + \gamma\hat p^3) \quad [\text{CONJECTURE}]$$
+Modified Wheeler–DeWitt equation (GUP-Mixmaster):
+$$\left[-\tfrac{e^{-3\alpha}}{24}\left((1 + 3\beta\hbar^2\partial_\alpha^2)\partial_\alpha^2 - \partial_+^2 - \partial_-^2\right) + V\right]\Psi = 0$$
+For GUP ($\beta&gt;0$): numerical evidence for regularization of classical singularity [ESTABLISHED for simplified models, Moussa et al. 2015].</p>
 <p>In the Mixmaster universe, the GUP modifies the quantum cosmological Wheeler–DeWitt equation
 $\hat{H}\Psi = 0$. The question: <em>Is BKL chaos robust under GUP corrections?</em></p>
 <div class="box open"><div class="label">Synthesis result [CONJECTURE]</div>

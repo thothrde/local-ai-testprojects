@@ -132,7 +132,16 @@ underpinning is <em>formalized</em>, the solid one not completely so.</p></div>
     <span class="lang-de">Drei Forschungsfragen (L-a, L-b, L-c)</span>
     <span class="lang-en" style="display:none">Three Research Questions (L-a, L-b, L-c)</span>
   </h2>
-  <div class="lang-de"><div class="box open"><div class="label">L-a — Liquider Träger</div>
+  <div class="lang-de"><div class="box confirmed"><div class="label">Belegt — Prasanna–Venkatesh-Gradverteilung</div>
+<p>Für eine temperierte kohomologische automorphe Darstellung $\pi$ gilt [BELEGT, Borel–Wallach]:
+$$\dim H^{q_0+j}(Y(K))_\pi = \binom{\delta}{j} \cdot \dim H^{q_0}(Y(K))_\pi$$
+mit $\delta = \dim_\mathbb{R} a_G = \mathrm{rank}(G) - \mathrm{rank}(K_\infty)$
+und $q_0$ dem minimalen Kohomologiegrad. Für Bianchi (Test case): $\delta=1$, also
+$\dim H^1 = \dim H^2$ [BELEGT, Venkatesh].</p>
+<p>Lean-Vorteil: Das Liquid Tensor Experiment (LTE) ist vollständig formal verifiziert
+(Lean, 14. Juli 2022) — anders als VCQ3, das an der Mathlib-Lücke (IsDiscrete → IsTiny)
+hängt, steht hier ein geprüfter Unterbau für den liquiden Anteil.</p></div>
+<div class="box open"><div class="label">L-a — Liquider Träger</div>
 <p>Existiert ein „liquider archimedischer" Träger von $H^*_{(\mathfrak{g},K)}(\pi)$, in dem die
 Fréchet-Topologie der Casselman&ndash;Wallach-Globalisierung korrekt erfasst ist?<br>
 Die endlich-dimensionale Betti-Kohomologie ist <em>trivial liquid</em> (jeder endlich-dim. ℝ-Vektorraum ist liquid)
@@ -145,7 +154,16 @@ ein Morphismus komplex-analytisch kondensierter Objekte im Sinne von Clausen&nda
 <p>Kommutiert das globale adeleische Fraktur-Quadrat<br>
 $$\bigwedge{}^{\!*} L^* \longrightarrow \prod_p \bigwedge{}^{\!*} V_p^*\ (\text{solid}) \;\times\; \bigwedge{}^{\!*} a_G^*\ (\text{liquid bei }\infty)$$
 mit den beiden äußeren-Algebra-Wirkungen (⋀*V* solid / ⋀*a<sub>G</sub>* liquid)?</p></div></div>
-  <div class="lang-en" style="display:none"><div class="box open"><div class="label">L-a — Liquid carrier</div>
+  <div class="lang-en" style="display:none"><div class="box confirmed"><div class="label">Established — Prasanna–Venkatesh degree distribution</div>
+<p>For a tempered cohomological automorphic representation $\pi$ [ESTABLISHED, Borel–Wallach]:
+$$\dim H^{q_0+j}(Y(K))_\pi = \binom{\delta}{j} \cdot \dim H^{q_0}(Y(K))_\pi$$
+with $\delta = \dim_\mathbb{R} a_G = \mathrm{rank}(G) - \mathrm{rank}(K_\infty)$
+and $q_0$ the minimal cohomological degree. For Bianchi (test case): $\delta=1$, so
+$\dim H^1 = \dim H^2$ [ESTABLISHED, Venkatesh].</p>
+<p>Lean advantage: the Liquid Tensor Experiment (LTE) is fully formally verified
+(Lean, 14 July 2022) — unlike VCQ3 which stalled at the Mathlib gap (IsDiscrete → IsTiny),
+here there is a verified foundation for the liquid part.</p></div>
+<div class="box open"><div class="label">L-a — Liquid carrier</div>
 <p>Does a "liquid archimedean" carrier of $H^*_{(\mathfrak{g},K)}(\pi)$ exist, correctly capturing
 the Fréchet topology of the Casselman&ndash;Wallach globalization?<br>
 The finite-dimensional Betti cohomology is <em>trivially liquid</em> (every finite-dimensional ℝ-vector space is liquid)

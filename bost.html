@@ -92,29 +92,37 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
     <span class="lang-en" style="display:none">Definition &amp; Basic Properties</span>
   </h2>
   <div class="lang-de">
-<p>Für ein Hermitesches Vektorbündel $\overline{E} = (E, h)$ auf Spec $\mathcal{O}_K$
-(Ganzring eines Zahlkörpers $K$) definiert Bost die <em>θ-Invariante</em>:</p>
-<p>$$\theta(\overline{E}) = \log \#\{s \in H^0(E) \mid \|s\|_{\sup} \leq 1\}
-- \widehat{\deg}(\overline{E})$$</p>
-<p>wobei $\widehat{\deg}(\overline{E})$ der Arakelov-Grad ist (Summe der archimedischen und
-endlichen Beiträge).</p>
-<div class="box confirmed"><div class="label">Belegt — Bost 1994</div>
+<p>Für ein Hermitesches Geradenbündel $\overline{L} = (L, \|\cdot\|)$ über einer
+arithmetischen Kurve Spec $\mathcal{O}_K$ definiert Bost die <em>θ-Invariante</em>:</p>
+<p>$$\theta(\overline{L}) = \log \left(\sum_{x \in L \setminus \{0\}} e^{-\pi \|x\|^2}\right) + \gamma$$</p>
+<p>wobei $\gamma$ die Euler–Mascheroni-Konstante ist und $\|\cdot\|$ die durch die Metrik
+induzierte Norm auf $L$. Diese Formel ist konstruiert aus der Thetareihe des zugehörigen
+Gitters $\theta_L(\tau) = \sum_{x \in L} e^{\pi i\tau \|x\|^2}$ bei $\tau = i$
+[BELEGT, Bost 2001].</p>
+<p>Allgemeiner, für Vektorbündel $\overline{E}$:
+$$\theta(\overline{E}) = \log \#\{s \in H^0(E) \mid \|s\|_{\sup} \leq 1\}
+- \widehat{\deg}(\overline{E})$$
+wobei $\widehat{\deg}(\overline{E})$ der Arakelov-Grad ist.</p>
+<div class="box confirmed"><div class="label">Belegt — Bost 1994/2001</div>
 <p>$\theta(\overline{E}) \geq 0$, mit Gleichheit genau dann, wenn $\overline{E}$ Arakelov-semistabil ist.
-Die θ-Invariante ist das Maß für die Abweichung von der Semistabilität — ein strikt positiver
-Term für „schlechte" Bündel.</p></div>
+Die θ-Invariante misst die Abweichung von der Semistabilität.</p></div>
 <p>Die Anwendung in der arithmetischen Geometrie: θ-Invarianten kontrollieren das Wachstumsverhalten
 arithmetischer Geometrie-Familien und erscheinen in Höhenformeln für Punkte auf Shimura-Varietäten.</p>
 </div>
   <div class="lang-en" style="display:none">
-<p>For a Hermitian vector bundle $\overline{E} = (E, h)$ on Spec $\mathcal{O}_K$
-(ring of integers of a number field $K$), Bost defines the <em>θ-invariant</em>:</p>
-<p>$$\theta(\overline{E}) = \log \#\{s \in H^0(E) \mid \|s\|_{\sup} \leq 1\}
-- \widehat{\deg}(\overline{E})$$</p>
-<p>where $\widehat{\deg}(\overline{E})$ is the Arakelov degree (sum of archimedean and finite contributions).</p>
-<div class="box confirmed"><div class="label">Established — Bost 1994</div>
+<p>For a Hermitian line bundle $\overline{L} = (L, \|\cdot\|)$ over an arithmetic
+curve Spec $\mathcal{O}_K$, Bost defines the <em>θ-invariant</em>:</p>
+<p>$$\theta(\overline{L}) = \log \left(\sum_{x \in L \setminus \{0\}} e^{-\pi \|x\|^2}\right) + \gamma$$</p>
+<p>where $\gamma$ is the Euler–Mascheroni constant and $\|\cdot\|$ is the norm induced by the metric
+on $L$. This formula is constructed from the theta series of the associated lattice
+$\theta_L(\tau) = \sum_{x \in L} e^{\pi i\tau \|x\|^2}$ at $\tau = i$ [ESTABLISHED, Bost 2001].</p>
+<p>More generally, for vector bundles $\overline{E}$:
+$$\theta(\overline{E}) = \log \#\{s \in H^0(E) \mid \|s\|_{\sup} \leq 1\}
+- \widehat{\deg}(\overline{E})$$
+where $\widehat{\deg}(\overline{E})$ is the Arakelov degree.</p>
+<div class="box confirmed"><div class="label">Established — Bost 1994/2001</div>
 <p>$\theta(\overline{E}) \geq 0$, with equality exactly when $\overline{E}$ is Arakelov-semistable.
-The θ-invariant measures the deviation from semistability — a strictly positive term for
-"bad" bundles.</p></div>
+The θ-invariant measures the deviation from semistability.</p></div>
 <p>Application in arithmetic geometry: θ-invariants control the growth behavior of arithmetic
 geometry families and appear in height formulas for points on Shimura varieties.</p>
 </div>

@@ -102,21 +102,27 @@ zwischen algebraischer Zahlentheorie und 3-dimensionaler Topologie:</p>
 <tr><td>Alexander-Polynom</td><td>Iwasawa-L-Funktion</td></tr>
 <tr><td>Fundamentalgruppe π₁(S³\K)</td><td>Galoisgruppe Gal(K̄/K)</td></tr>
 </tbody></table></div>
-<h3>P1 — Verknüpfungsmatrix &amp; Reidemeister-Torsion</h3>
-<p>SageMath-Berechnung von Verknüpfungsmatrizen für klassische Links (Hopf-Link, Borromäische Ringe).
-Die Reidemeister-Torsion wird über das Alexander-Polynom berechnet [BELEGT]. Numerische Verifikation
-des Mazur–Morishita-Dictionary in expliziten Beispielen.</p>
-<h3>P2 — Instanton-Floer &amp; Selmer-Gruppen <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[KONJEKTUR]</span></h3>
-<p>Instanton-Floer-Homologie $HF^*(Y, \mathfrak{s})$ für rationalhomologische 3-Sphären soll
-der p-adischen Selmer-Gruppe $\mathrm{Sel}(\mathbb{Q}, \mathrm{Ad}^0\rho)$ entsprechen.
-Strukturelle Analogie ohne formale Konstruktion.</p>
-<h3>P3 — Iwasawa-Theorie &amp; Floer-Grenzwert <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[KONJEKTUR]</span></h3>
-<p>Für eine Knotenkomplementsequenz $S^3_{1/p^n}(K)$ (Dehn-Chirurgie) sollten die Floer-Homologie-Gruppen
-den Iwasawa-Moduln über $\mathbb{Z}_p[[T]]$ entsprechen. SageMath-Numerik stützt dies in kleinen Fällen.</p>
-<h3>P4 — Reidemeister-Torsion &amp; Alexander-Polynom <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[BELEGT]</span></h3>
-<p>Die Reidemeister-Torsion $\tau(S^3 \setminus K)$ ist durch das Alexander-Polynom $\Delta_K(t)$
-ausdrückbar: klassisches Resultat (Milnor 1966). Der Zusammenhang mit der Iwasawa-L-Funktion
-ist Teil des Mazur–Morishita-Frameworks [BELEGT].</p>
+<h3>P1 — Mazur–Kapranov-Analogie: Verknüpfungsmatrizen <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[BELEGT]</span></h3>
+<p>Die Spektrum-Topologie von Spec(ℤ) zeigt strukturelle Parallelen zu orientierten geschlossenen
+3-Mannigfaltigkeiten (Mazur 1963, Kapranov 1995). SageMath-Berechnung von Verknüpfungsmatrizen
+für klassische Links (Hopf-Link, Borromäische Ringe); Reidemeister-Torsion via Alexander-Polynom.
+Numerische Verifikation des Mazur–Morishita-Dictionary in expliziten Beispielen [BELEGT].</p>
+
+<h3>P2 — Arithmetische Chern–Simons-Theorie (Minhyong Kim) <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[BELEGT]</span></h3>
+<p>Für Zahlkörper $K$ existieren 3-dimensionale Kohomologieklassen $H^3(G_K, \mathbb{Z}/n\mathbb{Z})$,
+die arithmetische Chern–Simons-Invarianten definieren — direkte Analogie zur klassischen
+Chern–Simons-Theorie auf 3-Mannigfaltigkeiten. Die Konstruktion ist für endliche Galois-Gruppen
+rigoros durchgeführt [BELEGT, Minhyong Kim, <em>Arithmetic Chern–Simons Theory I–II</em>, 2017–2020].</p>
+
+<h3>P3 — Instanton-Floer für Spec(ℤ) <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[OFFEN]</span></h3>
+<p>Eine direkte arithmetische Version der Instanton-Floer-Homologie (basierend auf Yang–Mills-Zusammenhängen)
+für Spec(ℤ) ist aufgrund fehlender differentialgeometrischer Strukturen auf arithmetischen Schemata
+nicht definiert. Kein konsistenter Formalismus für „arithmetische Krümmung" existiert [OFFEN].</p>
+
+<h3>P4 — Jones-Polynom &amp; L-Funktionen <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[KONJEKTUR]</span></h3>
+<p>Spezielle Werte motivischer L-Funktionen könnten mit Knoteninvarianten (Jones-Polynom)
+über arithmetische Eichtheorie verbunden sein — analog zur Beziehung zwischen Chern–Simons-Theorie
+und quanten-topologischen Invarianten [KONJEKTUR, Kim 2020; keine explizite Zuordnung bewiesen].</p>
 </div>
   <div class="lang-en" style="display:none">
 <p>The Mazur–Morishita dictionary (Mazur 1963, Morishita 2002) draws a deep analogy between
@@ -129,22 +135,27 @@ algebraic number theory and 3-dimensional topology:</p>
 <tr><td>Alexander polynomial</td><td>Iwasawa L-function</td></tr>
 <tr><td>Fundamental group π₁(S³\K)</td><td>Galois group Gal(K̄/K)</td></tr>
 </tbody></table></div>
-<h3>P1 — Linking matrix &amp; Reidemeister torsion</h3>
-<p>SageMath computation of linking matrices for classical links (Hopf link, Borromean rings).
-Reidemeister torsion computed via the Alexander polynomial [ESTABLISHED]. Numerical verification
-of the Mazur–Morishita dictionary in explicit examples.</p>
-<h3>P2 — Instanton Floer &amp; Selmer groups <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[CONJECTURE]</span></h3>
-<p>Instanton Floer homology $HF^*(Y, \mathfrak{s})$ for rational homology 3-spheres should
-correspond to the p-adic Selmer group $\mathrm{Sel}(\mathbb{Q}, \mathrm{Ad}^0\rho)$.
-Structural analogy without formal construction.</p>
-<h3>P3 — Iwasawa theory &amp; Floer limit <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[CONJECTURE]</span></h3>
-<p>For a knot complement sequence $S^3_{1/p^n}(K)$ (Dehn surgery), the Floer homology groups
-should correspond to Iwasawa modules over $\mathbb{Z}_p[[T]]$. SageMath numerics support
-this in small cases.</p>
-<h3>P4 — Reidemeister torsion &amp; Alexander polynomial <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[ESTABLISHED]</span></h3>
-<p>The Reidemeister torsion $\tau(S^3 \setminus K)$ is expressible via the Alexander polynomial
-$\Delta_K(t)$: classical result (Milnor 1966). The connection to the Iwasawa L-function is
-part of the Mazur–Morishita framework [ESTABLISHED].</p>
+<h3>P1 — Mazur–Kapranov analogy: linking matrices <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[ESTABLISHED]</span></h3>
+<p>The spectral topology of Spec(ℤ) shows structural parallels to oriented closed 3-manifolds
+(Mazur 1963, Kapranov 1995). SageMath computation of linking matrices for classical links (Hopf link,
+Borromean rings); Reidemeister torsion via Alexander polynomial. Numerical verification of the
+Mazur–Morishita dictionary in explicit examples [ESTABLISHED].</p>
+
+<h3>P2 — Arithmetic Chern–Simons theory (Minhyong Kim) <span style="font-family:var(--mono);font-size:.72rem;color:var(--green)">[ESTABLISHED]</span></h3>
+<p>For number fields $K$, 3-dimensional cohomology classes $H^3(G_K, \mathbb{Z}/n\mathbb{Z})$ exist
+that define arithmetic Chern–Simons invariants — a direct analogy to classical Chern–Simons theory
+on 3-manifolds. The construction is rigorously carried out for finite Galois groups
+[ESTABLISHED, Minhyong Kim, <em>Arithmetic Chern–Simons Theory I–II</em>, 2017–2020].</p>
+
+<h3>P3 — Instanton Floer for Spec(ℤ) <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[OPEN]</span></h3>
+<p>A direct arithmetic version of instanton Floer homology (based on Yang–Mills connections)
+for Spec(ℤ) is not defined due to the absence of differential-geometric structures on arithmetic
+schemes. No consistent formalism for "arithmetic curvature" exists [OPEN].</p>
+
+<h3>P4 — Jones polynomial &amp; L-functions <span style="font-family:var(--mono);font-size:.72rem;color:var(--amber)">[CONJECTURE]</span></h3>
+<p>Special values of motivic L-functions might be connected to knot invariants (Jones polynomial)
+via arithmetic gauge theory — analogous to the relationship between Chern–Simons theory and
+quantum topological invariants [CONJECTURE, Kim 2020; no explicit assignment proved].</p>
 </div>
 </div>
 </section>

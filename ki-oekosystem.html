@@ -213,6 +213,21 @@ empfiehlt das Modell, extrahiert Such-Queries.</li>
 → Counter-evidence → Judgement) in allen epistemischen Prompts.
 <strong>Synthegy-Evaluator:</strong> Jede Antwort wird durch ein separates Evaluator-LLM bewertet
 (Genauigkeit 1–5, Fundierung 1–5) bevor Auslieferung.</p>
+<p><strong>6 parallele Suchquellen</strong> (asyncio.gather, max. 14 Worker-Threads):</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Quelle</th><th>Zweck</th><th>Timeout</th></tr></thead>
+<tbody>
+<tr><td>SearXNG (Port 8080)</td><td>Web-Suche, language=all, multilingual</td><td>18s</td></tr>
+<tr><td>Wikipedia</td><td>DE + EN + FR + RU</td><td>20s</td></tr>
+<tr><td>CORE (Open Access)</td><td>Wissenschaftliche Paper</td><td>18s</td></tr>
+<tr><td>OpenAlex</td><td>Akademische Literatur</td><td>18s</td></tr>
+<tr><td>Open Library</td><td>Bücher (Literatur, Geschichte, Philosophie)</td><td>12s</td></tr>
+<tr><td>arXiv</td><td>Mathematik/Physik-Preprints (cat:math.*, hep-th)</td><td>25s</td></tr>
+</tbody></table></div>
+<p><strong>Multilingual Query Table:</strong> ~80 Einträge → erzeugt automatisch
+DE/FR/RU-Varianten. Domain-Scoring: Fandom/Quora/Pinterest entfernt;
+arXiv/Springer/Cambridge/MFO/Philpapers priorisiert (★★★).
+In-Memory-Cache mit TTL 1h, max. 200 Einträge.</p>
 <p><strong>Spezialbefehle:</strong> /ensemble, /kreativ, /navigator, /destilliere, /speichere,
 /journal — epistemische Orchestrierungs-Kommandos.</p>
 </div>
@@ -230,6 +245,21 @@ recommends model, extracts search queries.</li>
 → Counter-evidence → Judgement) in all epistemic prompts.
 <strong>Synthegy evaluator:</strong> Every response scored by a separate evaluator LLM
 (accuracy 1–5, groundedness 1–5) before delivery.</p>
+<p><strong>6 parallel search sources</strong> (asyncio.gather, max. 14 worker threads):</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Source</th><th>Purpose</th><th>Timeout</th></tr></thead>
+<tbody>
+<tr><td>SearXNG (port 8080)</td><td>Web search, language=all, multilingual</td><td>18s</td></tr>
+<tr><td>Wikipedia</td><td>DE + EN + FR + RU</td><td>20s</td></tr>
+<tr><td>CORE (Open Access)</td><td>Academic papers</td><td>18s</td></tr>
+<tr><td>OpenAlex</td><td>Academic literature</td><td>18s</td></tr>
+<tr><td>Open Library</td><td>Books (literature, history, philosophy)</td><td>12s</td></tr>
+<tr><td>arXiv</td><td>Math/physics preprints (cat:math.*, hep-th)</td><td>25s</td></tr>
+</tbody></table></div>
+<p><strong>Multilingual query table:</strong> ~80 entries → automatically generates
+DE/FR/RU variants. Domain scoring: Fandom/Quora/Pinterest removed;
+arXiv/Springer/Cambridge/MFO/Philpapers prioritized (★★★).
+In-memory cache TTL 1h, max. 200 entries.</p>
 <p><strong>Special commands:</strong> /ensemble, /kreativ, /navigator, /destilliere, /speichere,
 /journal — epistemic orchestration commands.</p>
 </div>
@@ -406,7 +436,18 @@ LLM-Router-Proxy als zentrale Schaltstelle verbunden:</p>
 <tr><td>Master-Orchestrator</td><td>LaunchAgent</td><td>21 Projekte, 100 Phasen automatisch</td></tr>
 </tbody></table></div>
 <p>Vektordatenbanken (LanceDB): plotinus_multilingual (78.674 Chunks), latin_passages, cardano_hybrid,
-philarchive — für RAG-basierte Retrieval-Anfragen.</p>
+philarchive, OSE-Wiki, Macrobius — für RAG-basierte Retrieval-Anfragen (BGE-M3-Embeddings, multilingual).</p>
+<h3>Slow Memory — Neo4j Knowledge Graph</h3>
+<p>Neo4j (Port 7687, Bolt): persistentes Wissensgraph-System als „Slow Memory".
+Labels: Person, MathConcept, Project, Text, Argument. Synthegy-Scores und
+Evaluationsergebnisse werden nach Neo4j persistiert. Verbindung: semantische Suche
+via Cypher-Queries, getrennt vom flüchtigen LLM-Kontext.</p>
+<h3>ERGO Intelligence &amp; ThinkTank TopoX</h3>
+<p>Zwei entwickelte (nicht permanent aktive) lokale KI-Systeme:
+ERGO Intelligence — eigenes RAG-System mit spezialisierter Suchlogik;
+ThinkTank TopoX — topologische Retrieval-Erweiterung (GUDHI-basiert, TDA auf Retrieval-Spaces).</p>
+<p>Bibliotheks-Website: <code>library3d.autark-data.org</code> — 3D-Darstellung der Privatbibliothek
+(~5.788 Einträge, Katalog: <code>/Volumes/CLAUDE-DATA/Library-System/CATALOG_WITH_MANUAL_REVIEW_295.csv</code>).</p>
 </div>
   <div class="lang-en" style="display:none">
 <p>The ecosystem is not a collection of independent tools — all components are connected via
@@ -427,7 +468,18 @@ the LLM router proxy as central switchboard:</p>
 <tr><td>Master Orchestrator</td><td>LaunchAgent</td><td>21 projects, 100 phases automated</td></tr>
 </tbody></table></div>
 <p>Vector databases (LanceDB): plotinus_multilingual (78,674 chunks), latin_passages, cardano_hybrid,
-philarchive — for RAG-based retrieval queries.</p>
+philarchive, OSE-Wiki, Macrobius — for RAG-based retrieval queries (BGE-M3 embeddings, multilingual).</p>
+<h3>Slow Memory — Neo4j Knowledge Graph</h3>
+<p>Neo4j (port 7687, Bolt): persistent knowledge graph system as "slow memory".
+Labels: Person, MathConcept, Project, Text, Argument. Synthegy scores and
+evaluation results are persisted to Neo4j. Connection: semantic search via Cypher
+queries, separate from ephemeral LLM context.</p>
+<h3>ERGO Intelligence &amp; ThinkTank TopoX</h3>
+<p>Two developed (not permanently active) local AI systems:
+ERGO Intelligence — custom RAG system with specialized search logic;
+ThinkTank TopoX — topological retrieval extension (GUDHI-based, TDA on retrieval spaces).</p>
+<p>Library website: <code>library3d.autark-data.org</code> — 3D visualization of the private library
+(~5,788 entries, catalog: <code>/Volumes/CLAUDE-DATA/Library-System/CATALOG_WITH_MANUAL_REVIEW_295.csv</code>).</p>
 </div>
 </div>
 </section>
