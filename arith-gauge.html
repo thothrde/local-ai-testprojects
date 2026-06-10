@@ -265,6 +265,70 @@ framework as an organizing analogy. The adversarial check (r1:70b) classifies:</
 </div>
 </div>
 </section>
+
+<section id="sage-outputs">
+<div class="col">
+  <h2><span class="lang-de">SageMath-Berechnungen P1, P3, P4 (numerische Ergebnisse)</span>
+      <span class="lang-en" style="display:none">SageMath computations P1, P3, P4 (numerical results)</span></h2>
+  <div class="lang-de">
+<h3>P1 — Arithmetische Verschlingungsmatrizen (Mazur–Kapranov-Analogie)</h3>
+<p>Verschlingungsmatrizen $L_{ij} = \left(\frac{p_j}{p_i}\right)_{\mathrm{Jacobi}}$
+für ausgewählte Primzahlmengen (numerische Verifikation des Mazur–Morishita-Dictionary):</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Primzahlen</th><th>Verschlingungsmatrix</th><th>Arithmetische Signatur σ</th></tr></thead>
+<tbody>
+<tr><td>{3, 5, 7}</td><td>[[0,−1,−1],[−1,0,−1],[1,−1,0]]</td><td>σ=0 (+1, −1)</td></tr>
+<tr><td>{3, 5, 7, 11, 13}</td><td>5×5-Matrix</td><td>σ=0 (+2, −2)</td></tr>
+<tr><td>{5, 13, 37}</td><td>[[0,−1,−1],[−1,0,−1],[−1,−1,0]]</td><td>σ=1 (+2, −1)</td></tr>
+<tr><td>{3, 7, 11, 23}</td><td>4×4-Matrix</td><td>σ=0 (+0, −0)</td></tr>
+</tbody></table></div>
+
+<h3>P3 — p-adische L-Funktionen &amp; Iwasawa-Invarianten (BSD-Verifikation)</h3>
+<p>BSD-Vermutung numerisch bestätigt für vier Cremona-Kurven (rang_alg = rang_an) [BELEGT]:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>Kurve</th><th>Rang</th><th>Primzahl p</th><th>a_p</th><th>BSD</th><th>p-adische L-Fkt (Taylor)</th></tr></thead>
+<tbody>
+<tr><td>37a1</td><td>1</td><td>5</td><td>−2</td><td class="ok">✓</td><td>$O(5^7) + (1+4·5+\cdots)T + \cdots$</td></tr>
+<tr><td>37a1</td><td>1</td><td>7</td><td>−1</td><td class="ok">✓</td><td>$O(7^7) + (4+3·7+\cdots)T + \cdots$</td></tr>
+<tr><td>11a1</td><td>0</td><td>5</td><td>1</td><td class="ok">✓</td><td>$5+4·5^2+\cdots$</td></tr>
+<tr><td>11a1</td><td>0</td><td>3</td><td>−1</td><td class="ok">✓</td><td>$2+3+3^2+\cdots$</td></tr>
+<tr><td>389a1</td><td>2</td><td>5</td><td>−3</td><td class="ok">✓</td><td>$O(5^7) + O(5^4)T + (4+4·5+\cdots)T^2+\cdots$</td></tr>
+<tr><td>5077a1</td><td>3</td><td>5</td><td>−4</td><td class="ok">✓</td><td>$O(5^7) + O(5^4)T + O(5^4)T^2 + \cdots$</td></tr>
+</tbody></table></div>
+<p>Für alle gewöhnlichen Primzahlen: eine $\lambda$-Invariante. L₀-Attribut nicht verfügbar in SageMath-Version (API-Hinweis).</p>
+
+<h3>P4 — Arithmetische Reidemeister-Torsion</h3>
+<p>Tabelle $\tau_{\mathrm{arith}}(d) = \pi R_d / w \cdot \sqrt{|D|}$ für imaginär-quadratische Körper:</p>
+<div class="table-wrap"><table>
+<thead><tr><th>d</th><th>h (Klassenzahl)</th><th>D</th><th>τ<sub>arith</sub></th></tr></thead>
+<tbody>
+<tr><td>1</td><td>1</td><td>−4</td><td>0.7854</td></tr>
+<tr><td>3</td><td>1</td><td>−3</td><td>0.6046</td></tr>
+<tr><td>5</td><td>2</td><td>−20</td><td>1.4050</td></tr>
+<tr><td>7</td><td>1</td><td>−7</td><td>1.1874</td></tr>
+<tr><td>11</td><td>1</td><td>−11</td><td>0.9472</td></tr>
+<tr><td>23</td><td>3</td><td>−23</td><td>1.9652</td></tr>
+<tr><td>43</td><td>1</td><td>−43</td><td>0.4791</td></tr>
+<tr><td>67</td><td>1</td><td>−67</td><td>0.3838</td></tr>
+<tr><td>163</td><td>1</td><td>−163</td><td>0.2461</td></tr>
+</tbody></table></div>
+<p>Status Korrelation τ<sub>arith</sub> mit klassischen Knoten-Torsionen:
+<strong>Keine bekannte explizite Korrespondenz in der Literatur</strong> [NICHT BELEGT].</p>
+  </div>
+  <div class="lang-en" style="display:none">
+<h3>P1 — Arithmetic linking matrices (Mazur–Kapranov analogy)</h3>
+<p>Linking matrices $L_{ij} = \left(\frac{p_j}{p_i}\right)_{\mathrm{Jacobi}}$ for selected
+prime sets (numerical verification of Mazur–Morishita dictionary).
+Arithmetic signatures σ: {3,5,7}→σ=0; {5,13,37}→σ=1; {3,7,11,23}→σ=0.</p>
+<h3>P3 — p-adic L-functions &amp; Iwasawa invariants (BSD verification)</h3>
+<p>BSD conjecture numerically confirmed (rang_alg = rang_an) for: 37a1 (rank 1), 11a1 (rank 0),
+389a1 (rank 2), 5077a1 (rank 3) [ESTABLISHED].</p>
+<h3>P4 — Arithmetic Reidemeister torsion</h3>
+<p>Table τ_arith(d) for imaginary quadratic fields d=1..163.
+No known explicit correspondence with classical knot torsions [NOT ESTABLISHED].</p>
+  </div>
+</div>
+</section>
 <footer class="wrapper">
   <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
   <span>Thomas Riepe &middot; Berlin &middot; Juni 2026</span>

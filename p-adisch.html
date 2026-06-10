@@ -608,5 +608,33 @@ document.addEventListener('DOMContentLoaded',function(){
   setLang(l==='de'?'de':'en');
 });
 </script>
+<section id="lean-pr-sorries">
+<div class="col">
+  <h2><span class="lang-de">Lean PR #39701 — Verbleibende Sorries (sheafifyComposeIso)</span>
+      <span class="lang-en" style="display:none">Lean PR #39701 — Remaining sorries (sheafifyComposeIso)</span></h2>
+  <div class="lang-de">
+<div class="box open"><div class="label">Offen — Zwei verbleibende Sorries</div>
+<p>Im PR-Branch <code>feat/condensed-solid-isSolid-profiniteSolid</code>
+(Fork <code>thothrde/mathlib4</code>) sind zwei Sorries offen, die die
+<code>sheafifyComposeIso</code>-Identifikation betreffen:
+(1) Identifikation via <code>sheafifyComposeIso</code> + <code>isIso_toSheafify</code>;
+(2) die zugehörige Limesformel für <code>((profiniteSolid ℤ).obj S).IsSolid</code>.
+Lake-Build: returncode = 0 (Erfolg); 17 Test-Sorries erwartet und korrekt ignoriert.</p>
+<p>Entscheidender Fix: <code>instance : (ModuleCat.free R).IsLeftAdjoint :=
+(ModuleCat.adj R).isLeftAdjoint</code>. Das Skript <code>fix_solid.py</code> auf dem Stick
+korrumpiert <code>Mathlib/Condensed/Solid.lean</code> — auto-git-checkout in
+<code>lean_verifier.py</code> eingebaut [OFFEN — aktiver PR in Mathlib-Fork].</p></div>
+  </div>
+  <div class="lang-en" style="display:none">
+<div class="box open"><div class="label">Open — Two remaining sorries</div>
+<p>In PR branch <code>feat/condensed-solid-isSolid-profiniteSolid</code>
+(fork <code>thothrde/mathlib4</code>), two sorries remain open concerning the
+<code>sheafifyComposeIso</code> identification:
+(1) identification via <code>sheafifyComposeIso</code> + <code>isIso_toSheafify</code>;
+(2) the corresponding limit formula for <code>((profiniteSolid ℤ).obj S).IsSolid</code>.
+Lake build: returncode = 0 (success); 17 test-sorries expected and correctly ignored.</p></div>
+  </div>
+</div>
+</section>
 </body>
 </html>

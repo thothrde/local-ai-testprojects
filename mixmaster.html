@@ -267,6 +267,76 @@ hyperbolic system. Status label: CONJECTURE (not ESTABLISHED) is correct.</p></d
 </div>
 </div>
 </section>
+
+<section id="qchaos">
+<div class="col">
+  <h2><span class="lang-de">Quantenchaos &amp; Arithmetik: Γ₀(2), Maass-Formen, BGS-Verletzung</span>
+      <span class="lang-en" style="display:none">Quantum chaos &amp; arithmetic: Γ₀(2), Maass forms, BGS violation</span></h2>
+  <div class="lang-de">
+<div class="box confirmed"><div class="label">Belegt — Arithmetische Quantenchaos-Ausnahme</div>
+<p>Für <em>arithmetische</em> hyperbolische Flächen wie $\Gamma_0(2)\backslash\mathbb{H}$
+(Kongruenzuntergruppe vom Index 3 in $\mathrm{SL}(2,\mathbb{Z})$) weichen die Niveau-Abstandsverteilungen
+der Eigenwerte des Laplace-Operators von der BGS-Vermutung (GOE/GUE-Statistik für quantenchaotische
+Systeme) ab und folgen einer <strong>Poisson-Verteilung</strong> $P(s) = e^{-s}$. Mechanism: Hohe
+Entartung durch Hecke-Operatoren unterdrückt Level-Repulsion [BELEGT, Bogomolny-Leboeuf 1994;
+Aurich-Steiner 2000].</p></div>
+
+<div class="box open"><div class="label">Konjektur — Mixmaster-GUP realisiert Γ₀(2)-Symmetrie</div>
+<p>Die klassische Mixmaster-Dynamik (Bianchi-IX als hyperbolisches Billard, Misner 1969) mit
+GUP-Modifikation und kubischem Supplement könnte eine Symmetriereduktion auf die Kongruenzuntergruppe
+$\Gamma_0(2) \subset \mathrm{SL}(2,\mathbb{Z})$ bewirken. Dann wären die Lösungen der
+Wheeler-DeWitt-Gleichung <em>Maass-Formen</em> auf $\Gamma_0(2)\backslash\mathbb{H}$
+$$\Delta u = \lambda u, \quad u(\gamma z) = u(z)\;\forall\gamma\in\Gamma_0(2), \quad
+\int_{\Gamma_0(2)\backslash\mathbb{H}}|u|^2\frac{dx\,dy}{y^2} &lt; \infty$$
+[KONJEKTUR, kein expliziter Beweis; für $\mathrm{SL}(2,\mathbb{Z})$ numerisch belegt, Bolte 1992].</p></div>
+
+<div class="table-wrap"><table>
+<thead><tr><th>Eigenschaft</th><th>Standard-BGS (GOE/GUE)</th><th>Dieses Modell (Poisson)</th></tr></thead>
+<tbody>
+<tr><td>Klassische Dynamik</td><td>Chaotisch (nicht-arithmetisch)</td><td>Chaotisch (arithmetisch: $\Gamma_0(2)$)</td></tr>
+<tr><td>Quantenstatistik</td><td>Level-Repulsion ($P(s)\sim s^\beta$)</td><td class="err">Keine Repulsion ($P(s)=e^{-s}$)</td></tr>
+<tr><td>BGS-Gültigkeit</td><td class="ok">Erfüllt</td><td class="err">Verletzt (arithmetische Ausnahme)</td></tr>
+<tr><td>Math. Basis</td><td>Zufallsmatrixtheorie</td><td>Spektraltheorie arithmetischer Flächen</td></tr>
+</tbody></table></div>
+
+<h3>Kubisch-Supplement (Phase: mixmaster_cubic)</h3>
+<p>Das Kubisch-Supplement über den sin²-Algorithmus (Karpenkov) und SL(3,ℤ)-Orbiten
+für total-reelle kubische Körper:</p>
+<ul style="margin:.8rem 0 .8rem 1.5rem;color:var(--fg-dim);font-size:.97rem;line-height:1.8">
+<li>sin²-Algorithmus als Lösung des Hermite-Problems für kubische Körper: [KONJEKTUR] —
+kein Nachweis in der Literatur, Hermite-Problem für Grad 3 offen (Kontsevich-Zorich 2003)</li>
+<li>SL(3,ℤ)-Orbiten und kubische Zahlkörper: [SPEKULATIV] — fehlende Brücke</li>
+<li>Mixmaster-GUP und Gitter-Regularisierung via kubische Strukturen: [SPEKULATIV] —
+physikalisch nicht motiviert</li>
+<li>Quantenchaos mit SL(3,ℤ)-Arithmetik: [OFFEN] — theoretisch möglich, unerforscht</li>
+</ul>
+  </div>
+  <div class="lang-en" style="display:none">
+<div class="box confirmed"><div class="label">Established — Arithmetic quantum chaos exception</div>
+<p>For <em>arithmetic</em> hyperbolic surfaces such as $\Gamma_0(2)\backslash\mathbb{H}$
+(congruence subgroup of index 3 in $\mathrm{SL}(2,\mathbb{Z})$), level spacing distributions
+deviate from the BGS conjecture (GOE/GUE statistics) and follow a <strong>Poisson distribution</strong>
+$P(s) = e^{-s}$. Mechanism: high degeneracy from Hecke operators suppresses level repulsion
+[ESTABLISHED, Bogomolny-Leboeuf 1994; Aurich-Steiner 2000].</p></div>
+
+<div class="box open"><div class="label">Conjecture — Mixmaster-GUP realizes Γ₀(2)-symmetry</div>
+<p>Classical Mixmaster dynamics (Bianchi-IX as hyperbolic billiard, Misner 1969) with GUP
+modification and cubic supplement might induce a symmetry reduction to the congruence subgroup
+$\Gamma_0(2) \subset \mathrm{SL}(2,\mathbb{Z})$. The Wheeler-DeWitt equation solutions
+would then be <em>Maass forms</em> on $\Gamma_0(2)\backslash\mathbb{H}$
+[CONJECTURE; for $\mathrm{SL}(2,\mathbb{Z})$ numerically established, Bolte 1992].</p></div>
+
+<h3>Cubic supplement (phase: mixmaster_cubic)</h3>
+<ul style="margin:.8rem 0 .8rem 1.5rem;color:var(--fg-dim);font-size:.97rem;line-height:1.8">
+<li>sin²-algorithm solving the Hermite problem for cubic fields: [CONJECTURE] — no evidence
+in literature; Hermite problem for degree 3 open (Kontsevich-Zorich 2003)</li>
+<li>SL(3,ℤ)-orbits and cubic number fields: [SPECULATIVE] — missing bridge</li>
+<li>Mixmaster-GUP lattice regularization via cubic structures: [SPECULATIVE] — not physically motivated</li>
+<li>Quantum chaos with SL(3,ℤ)-arithmetic: [OPEN] — theoretically possible, unexplored</li>
+</ul>
+  </div>
+</div>
+</section>
 <section id="pari-ergebnisse">
 <div class="col">
   <h2><span class="lang-de">PARI/GP Numerische Ergebnisse</span><span class="lang-en" style="display:none">PARI/GP Numerical Results</span></h2>
