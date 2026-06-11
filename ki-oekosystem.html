@@ -88,7 +88,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 </header><nav class="wrapper"><a href="#hardware"><span class="nav-num">00</span><span class="lang-de">Hardware</span><span class="lang-en" style="display:none">Hardware</span></a>
 <a href="#modelle"><span class="nav-num">01</span><span class="lang-de">LLM-Modelle</span><span class="lang-en" style="display:none">LLM Models</span></a>
 <a href="#router"><span class="nav-num">02</span><span class="lang-de">LLM-Router-Proxy</span><span class="lang-en" style="display:none">LLM Router Proxy</span></a>
-<a href="#orchestrator"><span class="nav-num">03</span><span class="lang-de">Master-Orchestrator</span><span class="lang-en" style="display:none">Master Orchestrator</span></a>
+
 <a href="#math"><span class="nav-num">04</span><span class="lang-de">Mathematik-Stack</span><span class="lang-en" style="display:none">Mathematics Stack</span></a>
 <a href="#chem"><span class="nav-num">05</span><span class="lang-de">Chemie/Bio/Neuro-Stack</span><span class="lang-en" style="display:none">Chem/Bio/Neuro Stack</span></a>
 <a href="#architektur"><span class="nav-num">06</span><span class="lang-de">Systemarchitektur</span><span class="lang-en" style="display:none">System Architecture</span></a>
@@ -265,56 +265,7 @@ In-memory cache TTL 1h, max. 200 entries.</p>
 </div>
 </div>
 </section>
-<section id="orchestrator">
-<div class="col">
-  <h2><span class="nav-num">03</span>
-    <span class="lang-de">Master-Orchestrator v2.2</span>
-    <span class="lang-en" style="display:none">Master Orchestrator v2.2</span>
-  </h2>
-  <div class="lang-de">
-<p>Der Master-Orchestrator (<code>/Volumes/CLAUDE-DATA/MASTER_ORCHESTRATOR/master_orchestrator.py</code>)
-ist der automatische Workflow-Manager für alle 21 Forschungsprojekte (100 Phasen).</p>
-<div class="stat-grid">
-  <div class="stat-card"><span class="stat-num">21</span><span class="stat-label">Projekte</span></div>
-  <div class="stat-card"><span class="stat-num">100</span><span class="stat-label">Phasen gesamt</span></div>
-  <div class="stat-card"><span class="stat-num">92</span><span class="stat-label">Phasen abgeschlossen</span></div>
-  <div class="stat-card"><span class="stat-num">8</span><span class="stat-label">Übersprungen (intentional)</span></div>
-</div>
-<p><strong>Kern-Fixes in v2.2:</strong></p>
-<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
-<li>Deadlock-Fix: <code>Popen.communicate(timeout=)</code> statt <code>subprocess.run(capture_output=True)</code>
-  — verhindert Pipe-Buffer-Deadlock bei großem Output</li>
-<li>Absolute Pfade: <code>/opt/homebrew/bin/gp</code> statt <code>gp</code> (unified_env-Shadowing-Fix)</li>
-<li><code>_proj_done()</code>: Phasen mit attempts≥99 als übersprungen, nicht blockierend</li>
-<li>DSV4-Ingestion: Textsanitierung (80 KB max, Null-Bytes entfernt, Surrogate bereinigt)</li>
-<li>PDF-Download: corpus_urls via urllib + pdftotext (poppler)</li>
-</ul>
-<p><strong>Modell-Sequenzierung:</strong> MAX_LOADED_MODELS=1 enforced. DSV4 → Entladen → qwen3:235b → 
-Entladen → r1:70b. Kenz-Hintergrundprozesse laufen parallel (separate SBCL-Prozesse).</p>
-</div>
-  <div class="lang-en" style="display:none">
-<p>The Master Orchestrator (<code>/Volumes/CLAUDE-DATA/MASTER_ORCHESTRATOR/master_orchestrator.py</code>)
-is the automatic workflow manager for all 21 research projects (100 phases).</p>
-<div class="stat-grid">
-  <div class="stat-card"><span class="stat-num">21</span><span class="stat-label">Projects</span></div>
-  <div class="stat-card"><span class="stat-num">100</span><span class="stat-label">Phases total</span></div>
-  <div class="stat-card"><span class="stat-num">92</span><span class="stat-label">Phases completed</span></div>
-  <div class="stat-card"><span class="stat-num">8</span><span class="stat-label">Skipped (intentional)</span></div>
-</div>
-<p><strong>Core fixes in v2.2:</strong></p>
-<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
-<li>Deadlock fix: <code>Popen.communicate(timeout=)</code> instead of <code>subprocess.run(capture_output=True)</code>
-  — prevents pipe-buffer deadlock on large output</li>
-<li>Absolute paths: <code>/opt/homebrew/bin/gp</code> instead of <code>gp</code> (unified_env shadowing fix)</li>
-<li><code>_proj_done()</code>: phases with attempts≥99 treated as skipped, not blocking</li>
-<li>DSV4 ingestion: text sanitization (80 KB max, null bytes removed, surrogates cleaned)</li>
-<li>PDF download: corpus_urls via urllib + pdftotext (poppler)</li>
-</ul>
-<p><strong>Model sequencing:</strong> MAX_LOADED_MODELS=1 enforced. DSV4 → unload → qwen3:235b → 
-unload → r1:70b. Kenzo background processes run in parallel (separate SBCL processes).</p>
-</div>
-</div>
-</section>
+
 <section id="math">
 <div class="col">
   <h2><span class="nav-num">04</span>
@@ -442,12 +393,6 @@ philarchive, OSE-Wiki, Macrobius — für RAG-basierte Retrieval-Anfragen (BGE-M
 Labels: Person, MathConcept, Project, Text, Argument. Synthegy-Scores und
 Evaluationsergebnisse werden nach Neo4j persistiert. Verbindung: semantische Suche
 via Cypher-Queries, getrennt vom flüchtigen LLM-Kontext.</p>
-<h3>ERGO Intelligence &amp; ThinkTank TopoX</h3>
-<p>Zwei entwickelte (nicht permanent aktive) lokale KI-Systeme:
-ERGO Intelligence — eigenes RAG-System mit spezialisierter Suchlogik;
-ThinkTank TopoX — topologische Retrieval-Erweiterung (GUDHI-basiert, TDA auf Retrieval-Spaces).</p>
-<p>Bibliotheks-Website: <code>library3d.autark-data.org</code> — 3D-Darstellung der Privatbibliothek
-(~5.788 Einträge, Katalog: <code>/Volumes/CLAUDE-DATA/Library-System/CATALOG_WITH_MANUAL_REVIEW_295.csv</code>).</p>
 </div>
   <div class="lang-en" style="display:none">
 <p>The ecosystem is not a collection of independent tools — all components are connected via
@@ -474,12 +419,6 @@ philarchive, OSE-Wiki, Macrobius — for RAG-based retrieval queries (BGE-M3 emb
 Labels: Person, MathConcept, Project, Text, Argument. Synthegy scores and
 evaluation results are persisted to Neo4j. Connection: semantic search via Cypher
 queries, separate from ephemeral LLM context.</p>
-<h3>ERGO Intelligence &amp; ThinkTank TopoX</h3>
-<p>Two developed (not permanently active) local AI systems:
-ERGO Intelligence — custom RAG system with specialized search logic;
-ThinkTank TopoX — topological retrieval extension (GUDHI-based, TDA on retrieval spaces).</p>
-<p>Library website: <code>library3d.autark-data.org</code> — 3D visualization of the private library
-(~5,788 entries, catalog: <code>/Volumes/CLAUDE-DATA/Library-System/CATALOG_WITH_MANUAL_REVIEW_295.csv</code>).</p>
 </div>
 </div>
 </section>
