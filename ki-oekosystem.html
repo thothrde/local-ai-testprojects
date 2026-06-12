@@ -83,7 +83,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
   </div>
   <p class="header-desc lang-de">Vollständig lokale, cloud-unabhängige KI-Infrastruktur für strikt lokale, private, experimentelle KI-Experimente. Alle Berechnungen auf Mac Studio M3 Ultra (256 GB unified memory) — kein Cloud-Zugang, keine Daten verlassen den Rechner.</p>
   <p class="header-desc lang-en" style="display:none">Fully local, cloud-independent AI infrastructure for strictly local, private, experimental AI experiments. All computations on Mac Studio M3 Ultra (256 GB unified memory) — no cloud access, no data leaves the machine.</p>
-  <p class="version-note">Stand: Juni 2026 · v3.4</p>
+  <p class="version-note">Stand: Juni 2026 · v3.5</p>
 </div>
 </header><nav class="wrapper"><a href="#hardware"><span class="nav-num">00</span><span class="lang-de">Hardware</span><span class="lang-en" style="display:none">Hardware</span></a>
 <a href="#modelle"><span class="nav-num">01</span><span class="lang-de">LLM-Modelle</span><span class="lang-en" style="display:none">LLM Models</span></a>
@@ -287,6 +287,21 @@ In-memory cache TTL 1h, max. 200 entries.</p>
 <tr><td>Singular</td><td>aktuell</td><td>Algebraische Geometrie, Normalen</td></tr>
 <tr><td>Agda / Rocq</td><td>aktuell</td><td>Typentheoretische Formalisierung</td></tr>
 </tbody></table></div>
+<h3>lean_iterativ v4 — Iterativer Proof-Refinement-Loop</h3>
+<p>Open-WebUI-Tool für iterative Lean&nbsp;4-Beweisverifikation auf Basis des <strong>Ralph Loop</strong> (AlphaProof Nexus, arXiv:2605.22763). Das Modell <code>deepseek-r1:70b</code> sieht Compiler-Feedback und korrigiert gezielt, bis alle <code>sorry</code>-Platzhalter durch verifizierte Beweise ersetzt sind.</p>
+<p><strong>Implementierungsgrundlage:</strong> Li et al. „Compile to Compress: Boosting Formal Theorem Provers by Compiler Outputs" (ICML 2026). Vier Verbesserungen gegenüber dem ursprünglichen Ralph Loop:</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li><strong>A — Inline-Fehlerinjektion:</strong> Compiler-Fehler werden direkt an der betreffenden Codezeile als <code>-- ERROR:</code>-Kommentar eingefügt, statt am Ende angehängt. Li et al. Table 10: +3 % auf MiniF2F gegenüber Append-Strategie.</li>
+  <li><strong>B — Markovianische Disziplin:</strong> War bereits korrekt im Original. Jede Runde erhält ausschließlich <code>(aktueller Code + Compiler-Fehler)</code> — keine akkumulierte Gesprächshistorie.</li>
+  <li><strong>C — Fehlertyp-Routing:</strong> Klassifikation nach Li et al. Table 7: <em>unfixierbar</em> (linarith failed, omega, nested error, max recursion depth — Frühabbruch ab Runde 2), <em>schwer</em> (unsolved goals, type mismatch — geringe, aber &gt;0 % Korrektierbarkeit), <em>reparierbar</em> (failed_to_synthesize ~4 %, unknown identifier ~1,4 %).</li>
+  <li><strong>D — BFS/DFS-Balance + EVOLVE-BLOCK:</strong> Parameter <code>frische_versuche=N</code> streut alle N Runden einen unabhängigen Direktversuch ein (Random Tree Search nach Li et al.). <code>locked_regions=True</code> schützt die Theorem-Signatur vor LLM-Modifikation (EVOLVE-BLOCK, AlphaProof Nexus).</li>
+  <li><strong>v4 — Verifikations-Bugfix:</strong> Lake ignoriert neu erstellte <code>.lean</code>-Dateien (statische Modulliste nach erstem Build). Fix: <code>_lean_kompiliere()</code> überschreibt <code>Test.lean</code> temporär und stellt sie nach jedem Build exakt wieder her. JSON-Fehlerformat bei <code>capture_output=True</code> (<code>--json</code>-Flag) wird korrekt geparst.</li>
+</ul>
+<p><strong>Testergebnisse (5/5):</strong> Korrekter Beweis direkt erkannt (10 s) · <code>sorry</code> → LLM-Fix → Lean-Verifikation (93 s) · Falscher Beweis ohne <code>sorry</code> korrekt abgelehnt (77 s) · Ringidentität <code>(a+b)(a−b) = a²−b²</code> via <code>ring</code>-Taktik (212 s) · Log ohne Trace-Kontamination (64 s).</p>
+<div class="box confirmed">
+  <div class="label">Signatur</div>
+  <p><code>lean_iterativ(aufgabe_oder_sketch, modell=&#39;deepseek-r1:70b&#39;, max_runden=8, frische_versuche=0, locked_regions=True)</code></p>
+</div>
 </div>
   <div class="lang-en" style="display:none">
 <div class="table-wrap"><table>
@@ -303,6 +318,21 @@ In-memory cache TTL 1h, max. 200 entries.</p>
 <tr><td>Singular</td><td>current</td><td>Algebraic geometry, normalizations</td></tr>
 <tr><td>Agda / Rocq</td><td>current</td><td>Type-theoretic formalization</td></tr>
 </tbody></table></div>
+<h3>lean_iterativ v4 — Iterative Proof Refinement Loop</h3>
+<p>Open WebUI tool for iterative Lean&nbsp;4 proof verification based on the <strong>Ralph Loop</strong> (AlphaProof Nexus, arXiv:2605.22763). The model <code>deepseek-r1:70b</code> sees compiler feedback and corrects iteratively until all <code>sorry</code> placeholders are replaced by verified proofs.</p>
+<p><strong>Implementation basis:</strong> Li et al. "Compile to Compress: Boosting Formal Theorem Provers by Compiler Outputs" (ICML 2026). Four improvements over the original Ralph Loop:</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li><strong>A — Inline error injection:</strong> Compiler errors inserted directly at the relevant code line as <code>-- ERROR:</code> comments, rather than appended at the end. Li et al. Table 10: +3% on MiniF2F versus append strategy.</li>
+  <li><strong>B — Markovian discipline:</strong> Already correct in the original. Each round receives only <code>(current code + compiler errors)</code> — no accumulated conversation history.</li>
+  <li><strong>C — Error-type routing:</strong> Classification per Li et al. Table 7: <em>unfixable</em> (linarith failed, omega, nested error, max recursion depth — early abort from round 2 onward), <em>hard</em> (unsolved goals, type mismatch — low but &gt;0% repairability), <em>repairable</em> (failed_to_synthesize ~4%, unknown identifier ~1.4%).</li>
+  <li><strong>D — BFS/DFS balance + EVOLVE-BLOCK:</strong> Parameter <code>frische_versuche=N</code> interleaves an independent fresh attempt every N rounds (Random Tree Search per Li et al.). <code>locked_regions=True</code> protects the theorem signature from LLM modification (EVOLVE-BLOCK, AlphaProof Nexus).</li>
+  <li><strong>v4 — Verification bugfix:</strong> Lake ignores newly created <code>.lean</code> files (static module list after first build). Fix: <code>_lean_kompiliere()</code> temporarily overwrites <code>Test.lean</code> and restores it exactly after every build. JSON error format under <code>capture_output=True</code> (<code>--json</code> flag) correctly parsed.</li>
+</ul>
+<p><strong>Test results (5/5):</strong> Correct proof recognized directly (10s) · <code>sorry</code> → LLM fix → Lean verification (93s) · Wrong proof without <code>sorry</code> correctly rejected (77s) · Ring identity <code>(a+b)(a−b) = a²−b²</code> via <code>ring</code> tactic (212s) · Log trace-free (64s).</p>
+<div class="box confirmed">
+  <div class="label">Signature</div>
+  <p><code>lean_iterativ(aufgabe_oder_sketch, modell=&#39;deepseek-r1:70b&#39;, max_runden=8, frische_versuche=0, locked_regions=True)</code></p>
+</div>
 </div>
 </div>
 </section>
