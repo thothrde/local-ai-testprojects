@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gravitationskollaps — Numerik &amp; Analytik · Berlin 2026</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8f8f6;--bg3:#f2f2ef;
+  --text:#1a1a18;--text2:#4a4a44;--text3:#7a7a72;
+  --border:#ddddd8;--border2:#c8c8c0;
+  --p1:#5b21b6;--p1l:#f3eeff;--p1d:#4a1a9a;
+  --p2:#1a4a7a;--p2l:#eef3fa;
+  --p3:#1a5c2a;--p3l:#eefaf2;
+  --p4:#7a2a00;--p4l:#fff3ee;
+  font-family:'Georgia',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);max-width:860px;margin:0 auto;padding:2.5rem 2rem 5rem;line-height:1.75;font-size:15.5px}
+code,pre{font-family:'Courier New',Courier,monospace}
+h1{font-size:1.8rem;font-weight:700;line-height:1.3;margin-bottom:.5rem}
+h2{font-size:1.15rem;font-weight:700;margin:2.25rem 0 .7rem;padding-bottom:.35rem;border-bottom:1.5px solid var(--border)}
+h3{font-size:.98rem;font-weight:700;margin:1.3rem 0 .4rem}
+p{margin-bottom:.85rem;font-size:.94rem;color:var(--text);line-height:1.75}
+code.i{background:var(--bg3);padding:1px 5px;border-radius:3px;font-size:.86em;color:#1a1a18}
+pre{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:.85rem 1rem;overflow-x:auto;font-size:.81rem;line-height:1.65;margin:.6rem 0 .9rem}
+hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+table{width:100%;border-collapse:collapse;font-size:.87rem;margin:.6rem 0 1rem}
+th,td{padding:.42rem .7rem;text-align:left;border-bottom:1px solid var(--border)}
+th{font-size:.73rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.05em;background:var(--bg3)}
+td code{font-family:'Courier New',monospace;font-size:.79rem}
+.ok{color:#1a5c2a;font-weight:600}
+.ax{color:#5b21b6;font-weight:600}
+.warn{color:#7a4000;font-weight:600}
+.band{border-left:3px solid;padding:.5rem .9rem .5rem 1rem;margin:1.5rem 0 .8rem;border-radius:0 5px 5px 0}
+.band.p1{border-color:var(--p1);background:var(--p1l)}
+.band.p2{border-color:var(--p2);background:var(--p2l)}
+.band.p3{border-color:var(--p3);background:var(--p3l)}
+.band.p4{border-color:var(--p4);background:var(--p4l)}
+.band .num{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.15rem}
+.band.p1 .num{color:var(--p1)}.band.p2 .num{color:var(--p2)}.band.p3 .num{color:var(--p3)}.band.p4 .num{color:var(--p4)}
+.band .title{font-size:1.05rem;font-weight:700}
+.band.p1 .title{color:var(--p1d)}.band.p2 .title{color:var(--p2)}.band.p3 .title{color:var(--p3)}.band.p4 .title{color:var(--p4)}
+.note{background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:.8rem 1rem;margin:.65rem 0;font-size:.9rem;color:var(--text2);line-height:1.65}
+.note strong{color:var(--text)}
+.note.ok{background:#f0faf2;border-color:#80c090}
+.note.warn{background:#fff8f0;border-color:#e0a050}
+.note.info{background:var(--p2l);border-color:var(--p2)}
+.result-box{background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.75}
+.result-box strong{color:var(--text)}
+ul.items{list-style:none;padding:0;margin:.35rem 0 .7rem}
+ul.items li{display:flex;align-items:baseline;gap:.4rem;font-size:.88rem;padding:2px 0;color:var(--text2);line-height:1.55}
+ul.items li::before{content:"—";flex-shrink:0;color:var(--text3)}
+ul.items li code{font-family:'Courier New',monospace;font-size:.81rem;color:var(--text)}
+.kicker{font-size:.74rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-bottom:.5rem;font-family:sans-serif}
+.byline{font-size:.82rem;color:var(--text3);font-family:sans-serif;border-top:1px solid var(--border);padding-top:.8rem;margin-top:.8rem}
+.footnote{font-size:.79rem;color:var(--text3);border-top:1px solid var(--border);padding-top:1rem;margin-top:2.5rem;line-height:1.65;font-family:sans-serif}
+#lang-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);
+  border-bottom:1px solid #dddbd3;padding:.5rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:sans-serif;font-size:.8rem;gap:.5rem;}
+#lang-nav a.nav-home{color:#2d4a7a;text-decoration:none;font-weight:600;}
+#lang-nav a.nav-home:hover{text-decoration:underline;}
+.lang-sep{color:#aaa;margin:0 .4rem;}
+.lang-crumb{color:#888;font-size:.78rem;}
+.lang-toggle{display:flex;gap:.2rem;flex-shrink:0;}
+.lang-btn{font-size:.75rem;font-weight:700;padding:.25rem .6rem;
+  border:1.5px solid #c8c5bc;border-radius:3px;background:transparent;
+  color:#888;cursor:pointer;}
+.lang-btn.active{background:#2d4a7a;border-color:#2d4a7a;color:#fff;}
+.lang-btn:hover:not(.active){border-color:#2d4a7a;color:#2d4a7a;}
+.lang-de-section{display:none;}
+.lang-en-section{display:block;}
+div.lang-de-section{background:var(--bg);color:var(--text);}
+div.lang-de-section h1,div.lang-de-section h3{color:var(--text) !important;}
+div.lang-de-section h2{color:var(--text3) !important;}
+div.lang-de-section p{color:var(--text) !important;}
+</style>
+</head>
+<body>
+
+<div id="lang-nav">
+  <span>
+    <a class="nav-home" href="index.html">&#8592; Home</a>
+    <span class="lang-sep">|</span>
+    <span class="lang-crumb lang-en-section">Gravitational Collapse &mdash; Numerics &amp; Analytics</span>
+    <span class="lang-crumb lang-de-section" style="display:none">Gravitationskollaps &mdash; Numerik &amp; Analytik</span>
+  </span>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-en" onclick='setLang("en")'>EN</button>
+    <button class="lang-btn" id="btn-de" onclick='setLang("de")'>DE</button>
+  </div>
+</div>
+
+<!-- ENGLISH -->
+<div class="lang-en-section">
+<div style="max-width:860px;margin:0 auto;padding:2rem 2rem 0;font-family:Georgia,serif;">
+<div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Test Project &middot; Local AI Infrastructure &middot; Berlin &middot; June 2026</div>
+<h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">Gravitational Collapse &mdash; Numerics &amp; Analytics</h1>
+<p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">Two complementary sub-projects: (1) Choptuik critical collapse via SpheriCo.jl, (2) ODE parameter study of Gravastar formation (Jampolski&ndash;Rezzolla). Both executed on Mac Studio M3 Ultra, fully locally.</p>
+<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:1.5rem;">SpheriCo.jl v0.1.0 &middot; NRPy+ v2.1.1 &middot; SFcollapse1D (arm64) &middot; Julia 1.12.6 &middot; Python 3.11 (nr_env) &middot; SciPy &middot; Mac Studio M3 Ultra (256 GB) &middot; June 2026</p>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Overview and Software Stack</h2>
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Tool</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Version / Path</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Purpose</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>SpheriCo.jl</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">v0.1.0 &middot; <code>~/.julia/packages/SpheriCo/VAgaD/</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Spherically symmetric scalar field collapse, Choptuik project</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>NRPy+</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">v2.1.1 &middot; <code>~/miniforge3/envs/nr_env/</code> (Python 3.11)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Symbolic GR code generation; Jupyter kernel registered</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>SFcollapse1D</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">arm64 binary &middot; <code>/Volumes/CLAUDE-DATA/SFcollapse1D/</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Scalar field collapse in C++ (GCC 15.2.0, -O2 -fopenmp)</td></tr>
+<tr><td style="padding:.4rem .75rem;">HDF5</td><td style="padding:.4rem .75rem;">v2.1.1 (Homebrew) + HDF5.jl v0.17.3</td><td style="padding:.4rem .75rem;">Output format for SpheriCo.jl simulations</td></tr>
+</table>
+<p>The GR-PHASE ODE system and Choptuik bisection were implemented in Python (SciPy Radau solver, rtol=1e-8, atol=1e-10) and Julia (SpheriCo.jl) respectively. All computations ran locally on Mac Studio M3 Ultra, without any cloud API calls.</p>
+<hr>
+
+<div class="band p1" style="margin-top:2.5rem;">
+  <div class="num">Sub-project 1</div>
+  <div class="title">Choptuik Critical Collapse &mdash; SpheriCo.jl</div>
+</div>
+<h3>Starting point and method</h3>
+<p>Choptuik's (1993) critical collapse of a massless scalar field in spherical symmetry is the prototype for Type-II critical phenomena in general relativity: near the critical amplitude p<sub>c</sub>, black hole mass scales as M<sub>BH</sub> &prop; (p&nbsp;&minus;&nbsp;p<sub>c</sub>)<sup>&gamma;</sup> with universal &gamma;&nbsp;&asymp;&nbsp;0.374. Discrete self-similarity (DSS) produces oscillations in M<sub>BH</sub>(p). The computation used SpheriCo.jl v0.1.0 with a Gaussian pulse initial profile (r<sub>c</sub>=0, width=2, r<sub>max</sub>=12, N<sub>r</sub>=259).</p>
+<h3>Result 1: Critical amplitude</h3>
+<div class="result-box">
+<strong>p<sub>c</sub> = 0.165524768573898</strong> (50 bisection steps, &Delta;=3.61&times;10<sup>&minus;16</sup> = machine precision)<br>
+Runtime: 11 minutes. SpheriCo.jl detects apparent horizon formation and terminates sub-critical runs cleanly.
+</div>
+<h3>Result 2: Mass-scaling exponent &gamma;</h3>
+<p>Two methods were applied to the M<sub>BH</sub>(dp) data (dp = p &minus; p<sub>c</sub>):</p>
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Method</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">&gamma;</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Deviation from lit. (0.37454)</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Remark</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Minima-Envelope</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>0.368</strong></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;" class="ok">1.8%</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Extracts slope from local minima of M<sub>BH</sub>(dp); avoids DSS noise. <strong>Physically reliable.</strong></td></tr>
+<tr><td style="padding:.4rem .75rem;">Naive linear fit</td><td style="padding:.4rem .75rem;">0.637</td><td style="padding:.4rem .75rem;" class="warn">70%</td><td style="padding:.4rem .75rem;">All 19 BH data points including far from p<sub>c</sub>; dominated by DSS oscillations. Not reliable.</td></tr>
+</table>
+<div class="note ok"><strong>Outcome:</strong> &gamma; = 0.368 &plusmn; ~0.007 (Minima-Envelope), 1.8% below Choptuik reference &gamma;=0.37454. DSS oscillations in M<sub>BH</sub>(dp) directly observed. The 70% deviation of the naive fit is a methodological artefact.</div>
+<div class="note warn"><strong>Limitation:</strong> High-resolution run (N<sub>r</sub>=1025) yielded only 3 BH points before t<sub>max</sub> boundary near p<sub>c</sub>. Higher t<sub>max</sub> or adaptive stepping needed to reduce the 1.8% discrepancy further.</div>
+<h3>Scripts and data</h3>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/scripts/choptuik_bisect.jl</code> &mdash; 50-step bisection</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/scripts/choptuik_worker.jl</code> &mdash; single-run worker</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/scripts/choptuik_gamma_fix.jl</code> &mdash; high-resolution &gamma; attempt</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/choptuik/choptuik_log.txt</code> &mdash; full bisection log</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/choptuik/mass_scaling.dat</code> &mdash; M<sub>BH</sub>(dp) data</li>
+</ul>
+<hr>
+
+<div class="band p2" style="margin-top:2.5rem;">
+  <div class="num">Sub-project 2</div>
+  <div class="title">GR-PHASE: Phase Diagram of Gravastar Formation (Jampolski&ndash;Rezzolla)</div>
+</div>
+<h3>Paper and model</h3>
+<p>Based on Jampolski &amp; Rezzolla, arXiv:2509.15302. Three spacetime regions: Region I (de Sitter, interior, p<sub>I</sub>=&minus;e<sub>I</sub>), Region II (dust shell), Region III (Schwarzschild exterior). Master ODE governs junction dynamics. Three outcomes: Black Hole (R<sub>2</sub>&lt;2M before &rho;<sub>1</sub>=&rho;<sub>2</sub>), Gravastar (equilibrium at R<sub>2</sub>=2M), No-Equilibrium. Free parameters: e<sub>I</sub>/e<sub>II</sub>(initial), |k<sub>I</sub>|/k<sub>II</sub>, R&#773;<sub>2</sub>/M (compactness C=M/R&#773;<sub>2</sub>&le;3/8). Implementation: <code>grphase_core.py</code> (v3), SciPy Radau (rtol=1e-8, atol=1e-10).</p>
+<h3>Result 1: Phase diagram (parameter scan)</h3>
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">R&#773;<sub>2</sub>/M</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">C=M/R&#773;<sub>2</sub></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Black Holes</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Gravastars</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">No-Equilibrium</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">9.0</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.111</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">625</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">4.5</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.222</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">622</td></tr>
+<tr><td style="padding:.4rem .75rem;">3.0</td><td style="padding:.4rem .75rem;">0.333</td><td style="padding:.4rem .75rem;">78</td><td style="padding:.4rem .75rem;"><strong>43</strong></td><td style="padding:.4rem .75rem;">504</td></tr>
+</table>
+<p>Gravastars form preferentially at high compactness C near 3/8. At low compactness (R&#773;<sub>2</sub>=9, C=0.111), No-Equilibrium dominates. This confirms Jampolski &amp; Rezzolla's central finding. Data: <code>/Volumes/CLAUDE-DATA/GR-PHASE/results/scan/scan_Rb{3.00,4.50,9.00}.json</code></p>
+
+<h3>Result 2: Separatrix scaling exponent &gamma; &asymp; 1</h3>
+<p>At fixed R&#773;<sub>2</sub>=3.0, separatrix located at 5 k<sub>I</sub> values by bisection (precision &le;4&times;10<sup>&minus;7</sup>), then power-law fit |&delta;| &prop; |e<sub>I</sub>&minus;e<sub>I</sub><sup>c</sup>|<sup>&gamma;</sup>:</p>
+<table style="width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">k<sub>I</sub></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">e<sub>I</sub><sup>c</sup></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">&gamma;<sub>BH</sub></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">R&sup2;</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">&gamma;<sub>No-Eq</sub></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">R&sup2;</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.080</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>0.26282096</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.0353</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.999</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.9754</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.000</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.150</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>0.15914923</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.0330</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.999</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.9763</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.000</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.250</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>0.09208269</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.0112</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.999</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.9982</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.999</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.400</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><code>0.04297263</code></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.0245</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.000</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.9802</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.000</td></tr>
+<tr><td style="padding:.4rem .75rem;">0.600</td><td style="padding:.4rem .75rem;"><code>0.00922827</code></td><td style="padding:.4rem .75rem;">0.9888</td><td style="padding:.4rem .75rem;">1.000</td><td style="padding:.4rem .75rem;">1.0154</td><td style="padding:.4rem .75rem;">0.999</td></tr>
+</table>
+<div class="result-box">
+<strong>&gamma;<sub>BH</sub> = 1.019 &plusmn; 0.017 &nbsp;|&nbsp; &gamma;<sub>No-Eq</sub> = 0.989 &plusmn; 0.016</strong> (N=5, R&sup2;&gt;0.999 in all cases)<br><br>
+Comparison: Choptuik 1993 (scalar field, D=4): &gamma;=0.374, Type-II DSS &middot; Boson star (CSS, D=4): &gamma;=0.26, Type-II CSS &middot; <strong>Jampolski-ODE (BH&harr;Gravastar): &gamma;=1.0, Landau-type, generic</strong>
+</div>
+<p><strong>Physical conclusion:</strong> &gamma;&asymp;1.0 indicates Landau-type (mean-field) critical behavior. The BH&harr;Gravastar separator is <em>not</em> a Type-II critical point: no DSS/CSS echoing, no universal scaling. The transition is controlled by a codimension-1 surface in parameter space with smooth (non-universal) structure.</p>
+
+<h3>Result 3: Separatrix geometry &mdash; no simple power law</h3>
+<p>Fit of e<sub>I</sub><sup>c</sup>(k<sub>I</sub>) = A &times; k<sub>I</sub><sup>&alpha;</sup> for four R&#773;<sub>2</sub> values:</p>
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">R&#773;<sub>2</sub>/M</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">&alpha; (free fit)</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">R&sup2;</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">RMS (&alpha;=&minus;3/2)</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">RMS (&alpha;=&minus;&pi;/2)</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2.8</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&minus;0.886 &plusmn; 0.088</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.911</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.974</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.068</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">3.0</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&minus;0.837 &plusmn; 0.077</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.944</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.750</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.823</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">3.5</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&minus;0.933 &plusmn; 0.096</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.960</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.428</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.476</td></tr>
+<tr><td style="padding:.4rem .75rem;">4.0</td><td style="padding:.4rem .75rem;">&minus;1.393 &plusmn; 0.230</td><td style="padding:.4rem .75rem;">0.925</td><td style="padding:.4rem .75rem;">0.244</td><td style="padding:.4rem .75rem;">0.258</td></tr>
+</table>
+<p><strong>Conclusion:</strong> &alpha; varies from &minus;0.84 to &minus;1.39 with R&#773;<sub>2</sub>. No universal exponent. &alpha;=&minus;3/2 consistently better than &alpha;=&minus;&pi;/2 but both inferior to free fit. Variation too large for single-parameter description.</p>
+<div class="note info"><strong>Physical reason:</strong> The Gravastar condition involves T<sub>&#9733;</sub>(e<sub>I</sub>, k<sub>I</sub>) = (1/H<sub>I</sub>) arcsinh(2M H<sub>I</sub>/&radic;k<sub>I</sub>) and &tau;<sub>&#9733;</sub>&asymp;3.99. Junction conditions couple T and &tau; non-trivially, precluding a closed-form e<sub>I</sub><sup>c</sup>(k<sub>I</sub>).</div>
+
+<h3>Scripts and data</h3>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/grphase_core.py</code> &mdash; ODE system v3</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/grphase_scan.py</code> &mdash; parallel parameter scan</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/grphase_separatrix.py</code> &mdash; bisection + &gamma; analysis</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/grphase_separatrix_geometry.py</code> &mdash; geometry fits</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/separatrix/separatrix_log.txt</code></li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/separatrix/slice_k*.json</code></li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/separatrix_geometry/geometry_log.txt</code></li>
+</ul>
+<hr>
+
+<div class="band p4" style="margin-top:2.5rem;">
+  <div class="num">Sub-project 3 (planned)</div>
+  <div class="title">EEG-DSS: Analytical DSS Solutions in the Large-D Limit</div>
+</div>
+<p>Based on Ecker, Ecker &amp; Grumiller, arXiv:2601.14358. LO/NLO/NNLO analytical solutions for the Choptuik problem in the large-D limit (1/D expansion). Echo period &Delta; fixed by NLO consistency condition. Choptuik exponent &gamma;&rarr;1/2 as D&rarr;&infin; (CSS limit). Python implementation planned: scan over &beta;-function classes, NEC-line comparison at D=300 and D=4, convergence analysis. <strong>Status: planned, not yet executed.</strong></p>
+<hr>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Overall Assessment</h2>
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Sub-project</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Type</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Outcome</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>1 &mdash; Choptuik (SpheriCo.jl)</strong></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Numerical GR</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">p<sub>c</sub>=0.16552476857... (machine precision) &middot; &gamma;=0.368 (1.8% from lit.) &middot; DSS oscillations observed</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>2 &mdash; GR-PHASE ODE (Jampolski-Rezzolla)</strong></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">ODE parameter study</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Phase diagram (3&times;625 pts) &middot; &gamma;&asymp;1.0 Landau-type (NOT Choptuik) &middot; Separatrix: no universal power law</td></tr>
+<tr><td style="padding:.4rem .75rem;"><strong>3 &mdash; EEG-DSS (Ecker et al.)</strong></td><td style="padding:.4rem .75rem;">Analytical implementation</td><td style="padding:.4rem .75rem;">Planned, not yet executed</td></tr>
+</table>
+<div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
+T. Riepe, Berlin. June 2026. Numerical relativistic computations on Mac Studio M3 Ultra (256 GB). Papers: Jampolski &amp; Rezzolla arXiv:2509.15302; Ecker, Ecker &amp; Grumiller arXiv:2601.14358; Choptuik (1993) Phys. Rev. Lett. 70, 9. Software: SpheriCo.jl (Giannakopoulos et al., arXiv:2412.19722), NRPy+, SFcollapse1D.
+</div>
+</div>
+</div>
+
+<!-- DEUTSCH -->
+<div class="lang-de-section" style="display:none;">
+<div class="kicker">Testprojekt &middot; Lokale KI-Infrastruktur &middot; Berlin &middot; Juni 2026</div>
+<h1>Gravitationskollaps &mdash; Numerik &amp; Analytik</h1>
+<p style="font-size:.97rem;color:var(--text2);line-height:1.7;margin:.5rem 0 1rem">Zwei komplementäre Teilprojekte: (1) Choptuik-kritischer Kollaps via SpheriCo.jl, (2) ODE-Parameterstudie der Gravastar-Bildung (Jampolski&ndash;Rezzolla). Beide vollständig lokal auf Mac Studio M3 Ultra ausgeführt.</p>
+<div class="byline">SpheriCo.jl v0.1.0 &middot; NRPy+ v2.1.1 &middot; SFcollapse1D (arm64) &middot; Julia 1.12.6 &middot; Python 3.11 (nr_env) &middot; SciPy &middot; Mac Studio M3 Ultra (256 GB) &middot; Juni 2026</div>
+<hr>
+
+<h2>Software-Stack</h2>
+<table>
+<tr style="background:#f5f4f0;"><th>Tool</th><th>Version / Pfad</th><th>Verwendung</th></tr>
+<tr><td><code>SpheriCo.jl</code></td><td>v0.1.0 &middot; <code>~/.julia/packages/SpheriCo/VAgaD/</code></td><td>Sphär. symmetrischer Skalarfeld-Kollaps, Choptuik-Projekt</td></tr>
+<tr><td><code>NRPy+</code></td><td>v2.1.1 &middot; <code>~/miniforge3/envs/nr_env/</code> (Python 3.11)</td><td>Symbolische GR-Codegenerierung; Jupyter-Kernel registriert</td></tr>
+<tr><td><code>SFcollapse1D</code></td><td>arm64-Binary &middot; <code>/Volumes/CLAUDE-DATA/SFcollapse1D/</code></td><td>Skalarfeld-Kollaps in C++ (GCC 15.2.0, -O2 -fopenmp)</td></tr>
+<tr><td>HDF5</td><td>v2.1.1 (Homebrew) + HDF5.jl v0.17.3</td><td>Ausgabeformat für SpheriCo.jl-Simulationen</td></tr>
+</table>
+<hr>
+
+<div class="band p1">
+  <div class="num">Teilprojekt 1</div>
+  <div class="title">Choptuik-Kritischer Kollaps &mdash; SpheriCo.jl</div>
+</div>
+<h3>Ausgangspunkt und Methode</h3>
+<p>Choptuiks (1993) kritischer Kollaps eines masselosen Skalarfeldes in sphärischer Symmetrie ist der Prototyp für Typ-II-kritische Phänomene in der ART: nahe der kritischen Amplitude p<sub>c</sub> skaliert die Schwarzlochmasse als M<sub>SL</sub> &prop; (p&minus;p<sub>c</sub>)<sup>&gamma;</sup> mit universellem &gamma; &asymp; 0,374. Diskrete Selbstähnlichkeit (DSS) erzeugt Oszillationen in M<sub>SL</sub>(p). SpheriCo.jl v0.1.0, Gauß-Puls (r<sub>c</sub>=0, Breite=2, r<sub>max</sub>=12, N<sub>r</sub>=259).</p>
+<h3>Ergebnis 1: Kritische Amplitude</h3>
+<div class="result-box">
+<strong>p<sub>c</sub> = 0,165524768573898</strong> (50 Bisektionsschritte, &Delta;=3,61&times;10<sup>&minus;16</sup> = Maschinenpräzision)<br>
+Laufzeit: 11 Minuten. SpheriCo.jl erkennt Apparent-Horizon-Bildung und beendet subkritische Läufe sauber.
+</div>
+<h3>Ergebnis 2: Massenskalierungs-Exponent &gamma;</h3>
+<table>
+<tr style="background:#f5f4f0;"><th>Methode</th><th>&gamma;</th><th>Abweichung von Lit. (0,37454)</th><th>Bemerkung</th></tr>
+<tr><td>Minima-Envelope</td><td><strong>0,368</strong></td><td class="ok">1,8 %</td><td>Steigung aus lokalen Minima von M<sub>SL</sub>(dp); vermeidet DSS-Rauschen. <strong>Physikalisch zuverlässig.</strong></td></tr>
+<tr><td>Naiver Linearfit</td><td>0,637</td><td class="warn">70 %</td><td>Alle 19 SL-Datenpunkte inkl. weit von p<sub>c</sub>; von DSS-Oszillationen dominiert. Nicht zuverlässig.</td></tr>
+</table>
+<div class="note ok"><strong>Ergebnis:</strong> &gamma; = 0,368 &plusmn; ~0,007 (Minima-Envelope), 1,8 % unter Choptuik-Referenzwert 0,37454. DSS-Oszillationen in M<sub>SL</sub>(dp) direkt beobachtet. Die 70 %-Abweichung des naiven Fits ist ein methodisches Artefakt.</div>
+<div class="note warn"><strong>Einschränkung:</strong> Hochauflösungslauf (N<sub>r</sub>=1025) lieferte nur 3 SL-Punkte vor der t<sub>max</sub>-Grenze nahe p<sub>c</sub>. Für weitere Reduktion der 1,8 %-Abweichung wäre höheres t<sub>max</sub> oder adaptives Zeitstepping erforderlich.</div>
+<h3>Skripte und Daten</h3>
+<ul class="items">
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/scripts/choptuik_bisect.jl</code> &mdash; 50-Schritt-Bisektion</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/scripts/choptuik_worker.jl</code> &mdash; Einzellauf-Worker</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/scripts/choptuik_gamma_fix.jl</code> &mdash; Hochauflösungs-&gamma;-Versuch</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/choptuik/choptuik_log.txt</code> &mdash; Vollständiges Bisektionsprotokoll</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/choptuik/mass_scaling.dat</code> &mdash; M<sub>SL</sub>(dp)-Daten</li>
+</ul>
+<hr>
+
+<div class="band p2">
+  <div class="num">Teilprojekt 2</div>
+  <div class="title">GR-PHASE: Phasendiagramm der Gravastar-Bildung (Jampolski&ndash;Rezzolla)</div>
+</div>
+<h3>Paper und Modell</h3>
+<p>Basierend auf Jampolski &amp; Rezzolla, arXiv:2509.15302. Drei Raumzeitregionen: Region I (de Sitter, p<sub>I</sub>=&minus;e<sub>I</sub>), Region II (Staubschale), Region III (Schwarzschild). Master-ODE steuert Junctions-Dynamik. Drei Kollapsausgänge: Schwarzes Loch (R<sub>2</sub>&lt;2M bevor &rho;<sub>1</sub>=&rho;<sub>2</sub>), Gravastar (Gleichgewicht bei R<sub>2</sub>=2M), Kein-Gleichgewicht. Freie Parameter: e<sub>I</sub>/e<sub>II</sub>, |k<sub>I</sub>|/k<sub>II</sub>, R&#772;<sub>2</sub>/M (Kompaktheit C&le;3/8). Implementierung: <code>grphase_core.py</code> (v3), SciPy Radau (rtol=1e-8, atol=1e-10).</p>
+<h3>Ergebnis 1: Phasendiagramm (Parameterscan)</h3>
+<table>
+<tr style="background:#f5f4f0;"><th>R&#772;<sub>2</sub>/M</th><th>C=M/R&#772;<sub>2</sub></th><th>Schwarze Löcher</th><th>Gravastare</th><th>Kein-Gleichgewicht</th></tr>
+<tr><td>9,0</td><td>0,111</td><td>0</td><td>0</td><td>625</td></tr>
+<tr><td>4,5</td><td>0,222</td><td>1</td><td>2</td><td>622</td></tr>
+<tr><td>3,0</td><td>0,333</td><td>78</td><td><strong>43</strong></td><td>504</td></tr>
+</table>
+<p>Gravastare entstehen bevorzugt bei hoher Kompaktheit C nahe 3/8. Bei niedriger Kompaktheit (C=0,111) dominiert Kein-Gleichgewicht. Bestätigt den zentralen Befund von Jampolski &amp; Rezzolla.</p>
+
+<h3>Ergebnis 2: Separatrix-Skalierungsexponent &gamma; &asymp; 1</h3>
+<p>Bei festem R&#772;<sub>2</sub>=3,0, Separatrix an 5 k<sub>I</sub>-Werten durch Bisektion (Genauigkeit &le;4&times;10<sup>&minus;7</sup>), dann Potenzgesetz-Fit |&delta;| &prop; |e<sub>I</sub>&minus;e<sub>I</sub><sup>c</sup>|<sup>&gamma;</sup>:</p>
+<table>
+<tr style="background:#f5f4f0;"><th>k<sub>I</sub></th><th>e<sub>I</sub><sup>c</sup></th><th>&gamma;<sub>SL</sub></th><th>R&sup2;</th><th>&gamma;<sub>KG</sub></th><th>R&sup2;</th></tr>
+<tr><td>0,080</td><td><code>0,26282096</code></td><td>1,0353</td><td>0,999</td><td>0,9754</td><td>1,000</td></tr>
+<tr><td>0,150</td><td><code>0,15914923</code></td><td>1,0330</td><td>0,999</td><td>0,9763</td><td>1,000</td></tr>
+<tr><td>0,250</td><td><code>0,09208269</code></td><td>1,0112</td><td>0,999</td><td>0,9982</td><td>0,999</td></tr>
+<tr><td>0,400</td><td><code>0,04297263</code></td><td>1,0245</td><td>1,000</td><td>0,9802</td><td>1,000</td></tr>
+<tr><td>0,600</td><td><code>0,00922827</code></td><td>0,9888</td><td>1,000</td><td>1,0154</td><td>0,999</td></tr>
+</table>
+<div class="result-box">
+<strong>&gamma;<sub>SL</sub> = 1,019 &plusmn; 0,017 &nbsp;|&nbsp; &gamma;<sub>KG</sub> = 0,989 &plusmn; 0,016</strong> (N=5, R&sup2;&gt;0,999 in allen Fällen)<br><br>
+Vergleich: Choptuik 1993 (Skalarfeld, D=4): &gamma;=0,374, Typ-II DSS &middot; Boson-Stern (CSS, D=4): &gamma;=0,26, Typ-II CSS &middot; <strong>Jampolski-ODE (SL&harr;Gravastar): &gamma;=1,0, Landau-Typ, generisch</strong>
+</div>
+<p><strong>Physikalische Schlussfolgerung:</strong> &gamma;&asymp;1,0 zeigt Landau-artiges (Molekularfeld-) kritisches Verhalten. Die SL&harr;Gravastar-Separatrix ist kein Typ-II-kritischer Punkt im Choptuik-Sinne: kein DSS/CSS-Echo-Mechanismus, keine universelle Skalierung. Der Übergang wird durch eine Kodimension-1-Fläche im Parameterraum mit glatter (nicht-universeller) Struktur kontrolliert.</p>
+
+<h3>Ergebnis 3: Separatrix-Geometrie &mdash; kein einfaches Potenzgesetz</h3>
+<p>Fit e<sub>I</sub><sup>c</sup>(k<sub>I</sub>) = A &times; k<sub>I</sub><sup>&alpha;</sup> für vier R&#772;<sub>2</sub>-Werte:</p>
+<table>
+<tr style="background:#f5f4f0;"><th>R&#772;<sub>2</sub>/M</th><th>&alpha; (freier Fit)</th><th>R&sup2;</th><th>RMS (&alpha;=&minus;3/2)</th><th>RMS (&alpha;=&minus;&pi;/2)</th></tr>
+<tr><td>2,8</td><td>&minus;0,886 &plusmn; 0,088</td><td>0,911</td><td>0,974</td><td>1,068</td></tr>
+<tr><td>3,0</td><td>&minus;0,837 &plusmn; 0,077</td><td>0,944</td><td>0,750</td><td>0,823</td></tr>
+<tr><td>3,5</td><td>&minus;0,933 &plusmn; 0,096</td><td>0,960</td><td>0,428</td><td>0,476</td></tr>
+<tr><td>4,0</td><td>&minus;1,393 &plusmn; 0,230</td><td>0,925</td><td>0,244</td><td>0,258</td></tr>
+</table>
+<p><strong>Schlussfolgerung:</strong> &alpha; variiert von &minus;0,84 bis &minus;1,39 mit R&#772;<sub>2</sub>. Kein universeller Exponent. &alpha;=&minus;3/2 ist in allen Fällen besser als &alpha;=&minus;&pi;/2, aber beide dem freien Fit unterlegen.</p>
+<div class="note info"><strong>Physikalischer Grund:</strong> Die Gravastar-Bedingung ist transzendental: T<sub>&#9733;</sub>(e<sub>I</sub>, k<sub>I</sub>) = (1/H<sub>I</sub>) arcsinh(2M H<sub>I</sub>/&radic;k<sub>I</sub>) und &tau;<sub>&#9733;</sub>&asymp;3,99. Junktions-Bedingungen koppeln T und &tau; nicht-trivial &rarr; kein geschlossener Ausdruck für e<sub>I</sub><sup>c</sup>(k<sub>I</sub>).</div>
+
+<h3>Skripte und Daten</h3>
+<ul class="items">
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/grphase_core.py</code> &mdash; ODE-System v3</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/grphase_scan.py</code> &mdash; paralleler Parameterscan</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/grphase_separatrix.py</code> &mdash; Bisektion + &gamma;-Analyse</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/grphase_separatrix_geometry.py</code> &mdash; Geometrie-Fits</li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/separatrix/separatrix_log.txt</code></li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/separatrix/slice_k*.json</code></li>
+<li><code>/Volumes/CLAUDE-DATA/GR-PHASE/results/separatrix_geometry/geometry_log.txt</code></li>
+</ul>
+<hr>
+
+<div class="band p4">
+  <div class="num">Teilprojekt 3 (geplant)</div>
+  <div class="title">EEG-DSS: Analytische DSS-Lösungen im Large-D-Limes</div>
+</div>
+<p>Basierend auf Ecker, Ecker &amp; Grumiller, arXiv:2601.14358. LO/NLO/NNLO-analytische Lösungen für das Choptuik-Problem im Grenzwert großer Raumdimensionen (1/D-Entwicklung). Echoperiode &Delta; durch NLO-Konsistenzbedingung fixiert. Choptuik-Exponent &gamma;&rarr;1/2 für D&rarr;&infin; (CSS-Limes). Python-Implementierung geplant: systematischer Scan über &beta;-Funktionsklassen, NEC-Linien-Vergleich bei D=300 und D=4, Konvergenzanalyse. <strong>Status: geplant, noch nicht ausgeführt.</strong></p>
+<hr>
+
+<h2>Gesamtbilanz</h2>
+<table>
+<tr style="background:#f5f4f0;"><th>Teilprojekt</th><th>Art</th><th>Abschluss</th></tr>
+<tr><td><strong>1 &mdash; Choptuik (SpheriCo.jl)</strong></td><td>Numerische Relativität</td><td>p<sub>c</sub>=0,16552476857... (Maschinenpräzision) &middot; &gamma;=0,368 (1,8 % von Lit.) &middot; DSS-Oszillationen beobachtet</td></tr>
+<tr><td><strong>2 &mdash; GR-PHASE ODE (Jampolski&ndash;Rezzolla)</strong></td><td>ODE-Parameterstudie</td><td>Phasendiagramm (3&times;625 Punkte) &middot; &gamma;&asymp;1,0 Landau-Typ (NICHT Choptuik) &middot; Separatrix: kein universelles Potenzgesetz</td></tr>
+<tr><td><strong>3 &mdash; EEG-DSS (Ecker et al.)</strong></td><td>Analytische Implementierung</td><td>Geplant, noch nicht ausgeführt</td></tr>
+</table>
+
+<div class="footnote">T. Riepe, Berlin. Juni 2026. Numerisch-relativistische Berechnungen auf Mac Studio M3 Ultra (256 GB). Paper: Jampolski &amp; Rezzolla arXiv:2509.15302; Ecker, Ecker &amp; Grumiller arXiv:2601.14358; Choptuik (1993) Phys. Rev. Lett. 70, 9. Software: SpheriCo.jl (Giannakopoulos et al., arXiv:2412.19722), NRPy+, SFcollapse1D.</div>
+</div>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-en-section').forEach(function(e){
+    e.style.display = l==='en' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.querySelectorAll('.lang-de-section').forEach(function(e){
+    e.style.display = l==='de' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-de').classList.toggle('active',l==='de');
+  document.documentElement.lang=l;
+  try{localStorage.setItem('site-lang',l);}catch(e){}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var l=null;try{l=localStorage.getItem('site-lang');}catch(e){}
+  setLang(l==='de'?'de':'en');
+});
+</script>
+<footer style="border-top:1px solid #21262d;padding:1.5rem 2rem;font-size:.78rem;color:#8892b0;margin-top:3rem"><a href="impressum.html" style="color:var(--fg-dim)">Impressum &amp; Datenschutz</a> &middot; &copy; Thomas Riepe, Berlin &middot; &sect; 5 DDG</footer>
+</body>
+</html>
