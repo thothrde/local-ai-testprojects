@@ -83,7 +83,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
   </div>
   <p class="header-desc lang-de">Vollständig lokale, cloud-unabhängige KI-Infrastruktur für strikt lokale, private, experimentelle KI-Experimente. Alle Berechnungen auf Mac Studio M3 Ultra (256 GB unified memory) — kein Cloud-Zugang, keine Daten verlassen den Rechner.</p>
   <p class="header-desc lang-en" style="display:none">Fully local, cloud-independent AI infrastructure for strictly local, private, experimental AI experiments. All computations on Mac Studio M3 Ultra (256 GB unified memory) — no cloud access, no data leaves the machine.</p>
-  <p class="version-note">Stand: Juni 2026 · v3.5</p>
+  <p class="version-note">Stand: Juni 2026 · v3.6</p>
 </div>
 </header><nav class="wrapper"><a href="#hardware"><span class="nav-num">00</span><span class="lang-de">Hardware</span><span class="lang-en" style="display:none">Hardware</span></a>
 <a href="#modelle"><span class="nav-num">01</span><span class="lang-de">LLM-Modelle</span><span class="lang-en" style="display:none">LLM Models</span></a>
@@ -115,7 +115,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>GPU</td><td>80-core (MPS-Beschleunigung für ML-Tools)</td></tr>
 <tr><td>CPU</td><td>24-core (16 Performance + 8 Efficiency)</td></tr>
 <tr><td>Betriebssystem</td><td>macOS Sequoia</td></tr>
-<tr><td>Externer SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — hält DeepSeek V4 Flash GGUF (164 GB)</td></tr>
+<tr><td>Externer SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — hält DeepSeek V4 Flash GGUF (164 GB) und R1-671B (202 GB)</td></tr>
 <tr><td>Memory Stick</td><td>/Volumes/CLAUDE-DATA — Backup, Bridge-Dateien, Session-Logs, Projekt-Persistenz</td></tr>
 </tbody></table></div>
 <p>RAM-Beschränkung: <code>MAX_LOADED_MODELS=1</code>, <code>NUM_PARALLEL=1</code> — DSV4 (~164 GB) +
@@ -137,7 +137,7 @@ qwen3:235b (~142 GB) = 306 GB &gt; 256 GB. Deshalb strikt sequenzieller Betrieb.
 <tr><td>GPU</td><td>80-core (MPS acceleration for ML tools)</td></tr>
 <tr><td>CPU</td><td>24-core (16 Performance + 8 Efficiency)</td></tr>
 <tr><td>Operating System</td><td>macOS Sequoia</td></tr>
-<tr><td>External SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — holds DeepSeek V4 Flash GGUF (164 GB)</td></tr>
+<tr><td>External SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — holds DeepSeek V4 Flash GGUF (164 GB) and R1-671B (202 GB)</td></tr>
 <tr><td>Memory stick</td><td>/Volumes/CLAUDE-DATA — backup, bridge files, session logs, project persistence</td></tr>
 </tbody></table></div>
 <p>RAM constraint: <code>MAX_LOADED_MODELS=1</code>, <code>NUM_PARALLEL=1</code> — DSV4 (~164 GB) +
@@ -148,8 +148,8 @@ qwen3:235b (~142 GB) = 306 GB > 256 GB. Strictly sequential operation therefore.
 <section id="modelle">
 <div class="col">
   <h2><span class="nav-num">01</span>
-    <span class="lang-de">Lokale Sprachmodelle (Ollama + DSV4)</span>
-    <span class="lang-en" style="display:none">Local Language Models (Ollama + DSV4)</span>
+    <span class="lang-de">Lokale Sprachmodelle (Ollama + DSV4 + R1-671B)</span>
+    <span class="lang-en" style="display:none">Local Language Models (Ollama + DSV4 + R1-671B)</span>
   </h2>
   <div class="lang-de">
 <div class="table-wrap"><table>
@@ -158,6 +158,7 @@ qwen3:235b (~142 GB) = 306 GB > 256 GB. Strictly sequential operation therefore.
 <tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — komplexe Analyse, Philosophie, Mathematik-Synthese</td></tr>
 <tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K Kontext-Fenster — lange Dokumente, Corpus-Ingestion (Port 8888)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarielle Prüfung, Chain-of-Thought, formale Verifikation</td></tr>
+<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 Shards)</td><td>Hochqualitäts-Reasoning, llama-server Port 8889 (~23 tok/s) — Flagship für Critic/Comparator in komitee_bewertung; auf TB5-WORK</td></tr>
 <tr><td>qwen3:32b</td><td>~20 GB</td><td>Coding, Standard-Reasoning, Nightly-Sync</td></tr>
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Schnelle All-Purpose, Routing-Interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K Kontext, MTP-Spekulation (~80 tok/s)</td></tr>
@@ -178,6 +179,7 @@ Ollama-API verfügbar.</p>
 <tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — complex analysis, philosophy, mathematics synthesis</td></tr>
 <tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K context window — long documents, corpus ingestion (port 8888)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarial checking, chain-of-thought, formal verification</td></tr>
+<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 shards)</td><td>High-quality reasoning, llama-server port 8889 (~23 tok/s) — flagship for Critic/Comparator in komitee_bewertung; on TB5-WORK</td></tr>
 <tr><td>qwen3:32b</td><td>~20 GB</td><td>Coding, standard reasoning, nightly sync</td></tr>
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Fast all-purpose, routing interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K context, MTP speculation (~80 tok/s)</td></tr>
@@ -299,12 +301,43 @@ In-memory cache TTL 1h, max. 200 entries.</p>
   <li><strong>C — Fehlertyp-Routing:</strong> Klassifikation nach Li et al. Table 7: <em>unfixierbar</em> (linarith failed, omega, nested error, max recursion depth — Frühabbruch ab Runde 2), <em>schwer</em> (unsolved goals, type mismatch — geringe, aber &gt;0 % Korrektierbarkeit), <em>reparierbar</em> (failed_to_synthesize ~4 %, unknown identifier ~1,4 %).</li>
   <li><strong>D — BFS/DFS-Balance + EVOLVE-BLOCK:</strong> Parameter <code>frische_versuche=N</code> streut alle N Runden einen unabhängigen Direktversuch ein (Random Tree Search nach Li et al.). <code>locked_regions=True</code> schützt die Theorem-Signatur vor LLM-Modifikation (EVOLVE-BLOCK, AlphaProof Nexus).</li>
   <li><strong>v4 — Verifikations-Bugfix:</strong> Lake ignoriert neu erstellte <code>.lean</code>-Dateien (statische Modulliste nach erstem Build). Fix: <code>_lean_kompiliere()</code> überschreibt <code>Test.lean</code> temporär und stellt sie nach jedem Build exakt wieder her. JSON-Fehlerformat bei <code>capture_output=True</code> (<code>--json</code>-Flag) wird korrekt geparst.</li>
+  <li><strong>E — Prä-Validierung (<code>lake env lean</code>):</strong> Neuer Schritt <em>vor</em> dem Ralph Loop: <code>_praeval_lean_env()</code> führt <code>lake env lean MathProject/Test.lean</code> aus (kein Build-Graph-Overhead). Strukturell unfixierbare Fehler (unknown package, file not found, parse error) → sofortiger Abbruch, spart max_runden × lake-build-Iterationen. Runde-1-Ergebnis wiederverwendet (kein Doppel-Build). Neue _FEHLER_UNFIXIERBAR-Muster: unknown package, file not found, unknown import, expected identifier/token.</li>
 </ul>
 <p><strong>Testergebnisse (5/5):</strong> Korrekter Beweis direkt erkannt (10 s) · <code>sorry</code> → LLM-Fix → Lean-Verifikation (93 s) · Falscher Beweis ohne <code>sorry</code> korrekt abgelehnt (77 s) · Ringidentität <code>(a+b)(a−b) = a²−b²</code> via <code>ring</code>-Taktik (212 s) · Log ohne Trace-Kontamination (64 s).</p>
 <div class="box confirmed">
   <div class="label">Signatur</div>
-  <p><code>lean_iterativ(aufgabe_oder_sketch, modell=&#39;deepseek-r1:70b&#39;, max_runden=8, frische_versuche=0, locked_regions=True)</code></p>
+  <p><code>lean_iterativ(aufgabe_oder_sketch, modell='deepseek-r1:70b', max_runden=8, frische_versuche=0, locked_regions=True)</code></p>
 </div>
+
+<h3>Open-WebUI-Tools — KI-Ökosystem-Erweiterungen (Juni 2026)</h3>
+<p>Basierend auf Sakka, Mizukami &amp; Mitarai, „An LLM System for Autonomous Variational Quantum Circuit Design" (arXiv, Osaka, Juni 2026): Drei neue bzw. substantiell erweiterte Tools implementieren die Kernarchitektur des Papers (Exploration → Discussion → Review-Memory) für mathematische und physikalische Forschung.</p>
+
+<h4>komitee_bewertung v2.0 — Inference-Time-Boosting mit Discussion-Phase</h4>
+<p>Drei-Rollen-Kritikzyklus nach Sakka et al. 2026 (Discussion-Komponente). Phase 2 nicht mehr generischer SCORE: X/10-Critic, sondern:</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li><strong>Expert 1 + 2</strong> (domänenspezifisch): Kritik aus Fachperspektive. Valve <code>expertenrollen_domaene</code>: mathematik (Arithmetischer Geometer · Homotopie-Theoretiker · Lean-4-Logiker · Falsifizierer), physik (Numerischer Relativist · Mathematischer Physiker · Kritiker), philosophie (Neoplatonist · Analytiker · Geisteshistoriker), allgemein.</li>
+  <li><strong>Advocate</strong>: Entscheidet selektiv — übernimmt berechtigte Kritiken, weist unbegründete zurück, liefert <em>verbesserten</em> Proposal.</li>
+</ul>
+<p>Comparator vergleicht verfeinerte Proposals (post-Discussion). R1-671B optional als Critic/Comparator-Backend (Port 8889). Ablationsstudien-Nachweis: Discussion &gt; Self-Reflection (Sakka et al. Fig. 6).</p>
+<div class="box confirmed">
+  <div class="label">Neue Valves (v2.0)</div>
+  <p><code>discussion_verwenden</code> · <code>expertenrollen_domaene</code> · <code>searxng_url</code> · <code>r1_671b_url</code></p>
+</div>
+
+<h4>komitee_exploration — Exploration-zuerst-Modus</h4>
+<p>Separate Funktion vor komitee_bewertung: Empirischer Befund aus Sakka et al. Ablation (Fig. 6) — Exploration stabilisiert die Optimierungstrajektorie <em>unabhängig</em> von der Startqualität. Ohne Exploration: Korrelation Startqualität ↔ Endqualität = −0,57. Mit Exploration: +0,003 (stabil).</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li>Optionale SearXNG-Recherche (Port 8080) → Hintergrundkontext</li>
+  <li>n_seeds=8 diverse Startideen (verschiedene Richtungen: Theorie, Methodik, Formalisierung, Analogien)</li>
+  <li>Quick-Evaluation → n_final=3 vielversprechendste ausgewählt</li>
+  <li>Handlungsanleitung: komitee_exploration → danach komitee_bewertung</li>
+</ul>
+
+<h4>forschungsgraph_neo4j — Kausales Review-Memory</h4>
+<p>Neo4j-basiertes Forschungsgedächtnis: speichert nicht nur WAS, sondern <em>WARUM</em> etwas funktionierte oder scheiterte. Implementiert das Review-Memory-Konzept aus Sakka et al. 2026.</p>
+<p>Kausalkette: <code>hypothese_neu</code> → <code>experiment_starten</code> → <code>ergebnis_erfassen</code> → <code>kritik_hinzufuegen</code> → <code>revision_erstellen</code>. Revision kann neue Hypothese für nächsten Zyklus generieren ([:REVIDIERT_ZU]-Kante). <code>forschungspfad_anzeigen(projekt)</code> erzeugt vollständigen ASCII-Textgraph ↓.</p>
+<p>Schema: 5 Knoten-Constraints (Hypothese, FExperiment, FErgebnis, FKritik, FRevision) + 2 Indizes. Projekt-Beispiele: ArithGaugeTheory, Anima-IV, FloerCondensed.</p>
+
 </div>
   <div class="lang-en" style="display:none">
 <div class="table-wrap"><table>
@@ -333,12 +366,43 @@ In-memory cache TTL 1h, max. 200 entries.</p>
   <li><strong>C — Error-type routing:</strong> Classification per Li et al. Table 7: <em>unfixable</em> (linarith failed, omega, nested error, max recursion depth — early abort from round 2 onward), <em>hard</em> (unsolved goals, type mismatch — low but &gt;0% repairability), <em>repairable</em> (failed_to_synthesize ~4%, unknown identifier ~1.4%).</li>
   <li><strong>D — BFS/DFS balance + EVOLVE-BLOCK:</strong> Parameter <code>frische_versuche=N</code> interleaves an independent fresh attempt every N rounds (Random Tree Search per Li et al.). <code>locked_regions=True</code> protects the theorem signature from LLM modification (EVOLVE-BLOCK, AlphaProof Nexus).</li>
   <li><strong>v4 — Verification bugfix:</strong> Lake ignores newly created <code>.lean</code> files (static module list after first build). Fix: <code>_lean_kompiliere()</code> temporarily overwrites <code>Test.lean</code> and restores it exactly after every build. JSON error format under <code>capture_output=True</code> (<code>--json</code> flag) correctly parsed.</li>
+  <li><strong>E — Pre-validation (<code>lake env lean</code>):</strong> New step <em>before</em> the Ralph Loop: <code>_praeval_lean_env()</code> runs <code>lake env lean MathProject/Test.lean</code> (no build-graph overhead). Structurally unfixable errors (unknown package, file not found, parse error) → immediate abort, saving max_runden × lake-build iterations. Round-1 result reused (no double build). New _FEHLER_UNFIXIERBAR patterns: unknown package, file not found, unknown import, expected identifier/token.</li>
 </ul>
 <p><strong>Test results (5/5):</strong> Correct proof recognized directly (10s) · <code>sorry</code> → LLM fix → Lean verification (93s) · Wrong proof without <code>sorry</code> correctly rejected (77s) · Ring identity <code>(a+b)(a−b) = a²−b²</code> via <code>ring</code> tactic (212s) · Log trace-free (64s).</p>
 <div class="box confirmed">
   <div class="label">Signature</div>
-  <p><code>lean_iterativ(aufgabe_oder_sketch, modell=&#39;deepseek-r1:70b&#39;, max_runden=8, frische_versuche=0, locked_regions=True)</code></p>
+  <p><code>lean_iterativ(aufgabe_oder_sketch, modell='deepseek-r1:70b', max_runden=8, frische_versuche=0, locked_regions=True)</code></p>
 </div>
+
+<h3>Open WebUI Tools — Ecosystem Extensions (June 2026)</h3>
+<p>Based on Sakka, Mizukami &amp; Mitarai, "An LLM System for Autonomous Variational Quantum Circuit Design" (arXiv, Osaka, June 2026): Three new or substantially extended tools implement the paper's core architecture (Exploration → Discussion → Review-Memory) for mathematical and physical research.</p>
+
+<h4>komitee_bewertung v2.0 — Inference-Time Boosting with Discussion Phase</h4>
+<p>Three-role critique cycle after Sakka et al. 2026 (Discussion component). Phase 2 no longer a generic SCORE: X/10 critic, but instead:</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li><strong>Expert 1 + 2</strong> (domain-specific): critique from expert perspective. Valve <code>expertenrollen_domaene</code>: mathematik (Arithmetic Geometer · Homotopy Theorist · Lean-4 Logician · Falsifier), physik (Numerical Relativist · Mathematical Physicist · Critic), philosophie (Neoplatonist · Analyst · Intellectual Historian), allgemein.</li>
+  <li><strong>Advocate</strong>: decides selectively — accepts valid critiques, rejects unjustified ones, delivers an <em>improved</em> proposal.</li>
+</ul>
+<p>Comparator compares refined proposals (post-Discussion). R1-671B optionally as Critic/Comparator backend (port 8889). Ablation study evidence: Discussion &gt; Self-Reflection (Sakka et al. Fig. 6).</p>
+<div class="box confirmed">
+  <div class="label">New valves (v2.0)</div>
+  <p><code>discussion_verwenden</code> · <code>expertenrollen_domaene</code> · <code>searxng_url</code> · <code>r1_671b_url</code></p>
+</div>
+
+<h4>komitee_exploration — Exploration-First Mode</h4>
+<p>Separate function before komitee_bewertung: Empirical finding from Sakka et al. ablation (Fig. 6) — Exploration stabilizes the optimization trajectory <em>independently</em> of start quality. Without Exploration: correlation start quality ↔ final quality = −0.57. With Exploration: +0.003 (stable).</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li>Optional SearXNG search (port 8080) → background context</li>
+  <li>n_seeds=8 diverse seed ideas (different directions: theory, methodology, formalization, analogies)</li>
+  <li>Quick evaluation → n_final=3 most promising selected</li>
+  <li>Action guide: komitee_exploration → then komitee_bewertung</li>
+</ul>
+
+<h4>forschungsgraph_neo4j — Causal Review Memory</h4>
+<p>Neo4j-based research memory: stores not only WHAT but <em>WHY</em> something worked or failed. Implements the Review-Memory concept from Sakka et al. 2026.</p>
+<p>Causal chain: <code>hypothese_neu</code> → <code>experiment_starten</code> → <code>ergebnis_erfassen</code> → <code>kritik_hinzufuegen</code> → <code>revision_erstellen</code>. Revision can generate a new hypothesis for the next cycle ([:REVIDIERT_ZU] edge). <code>forschungspfad_anzeigen(projekt)</code> produces a full ASCII text graph ↓.</p>
+<p>Schema: 5 node constraints (Hypothese, FExperiment, FErgebnis, FKritik, FRevision) + 2 indexes. Example projects: ArithGaugeTheory, Anima-IV, FloerCondensed.</p>
+
 </div>
 </div>
 </section>
@@ -411,6 +475,7 @@ LLM-Router-Proxy als zentrale Schaltstelle verbunden:</p>
 <tr><td>LLM-Router-Proxy</td><td>11435</td><td>Zentrale Middleware, Routing, Synthegy</td></tr>
 <tr><td>Ollama</td><td>11434</td><td>Modell-Backend (9 Modelle)</td></tr>
 <tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K Kontext</td></tr>
+<tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, Hochqualitäts-Reasoning (~23 tok/s)</td></tr>
 <tr><td>Open WebUI</td><td>3002</td><td>Chat-Interface, 20+ Python-Tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Lokale Suche</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta-Suchmaschine</td></tr>
@@ -425,7 +490,7 @@ philarchive, OSE-Wiki, Macrobius — für RAG-basierte Retrieval-Anfragen (BGE-M
 <h3>Slow Memory — Neo4j Knowledge Graph</h3>
 <p>Neo4j (Port 7687, Bolt): persistentes Wissensgraph-System als „Slow Memory".
 Labels: Person, MathConcept, Project, Text, Argument. Synthegy-Scores und
-Evaluationsergebnisse werden nach Neo4j persistiert. Verbindung: semantische Suche
+Evaluationsergebnisse werden nach Neo4j persistiert. Zusätzlich: Forschungsgraph-Schema (Hypothese · FExperiment · FErgebnis · FKritik · FRevision) für kausales Review-Memory nach Sakka et al. 2026. Verbindung: semantische Suche
 via Cypher-Queries, getrennt vom flüchtigen LLM-Kontext.</p>
 </div>
   <div class="lang-en" style="display:none">
@@ -437,6 +502,7 @@ the LLM router proxy as central switchboard:</p>
 <tr><td>LLM Router Proxy</td><td>11435</td><td>Central middleware, routing, Synthegy</td></tr>
 <tr><td>Ollama</td><td>11434</td><td>Model backend (9 models)</td></tr>
 <tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K context</td></tr>
+<tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, high-quality reasoning (~23 tok/s)</td></tr>
 <tr><td>Open WebUI</td><td>3002</td><td>Chat interface, 20+ Python tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Local search</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta search engine</td></tr>
@@ -451,7 +517,7 @@ philarchive, OSE-Wiki, Macrobius — for RAG-based retrieval queries (BGE-M3 emb
 <h3>Slow Memory — Neo4j Knowledge Graph</h3>
 <p>Neo4j (port 7687, Bolt): persistent knowledge graph system as "slow memory".
 Labels: Person, MathConcept, Project, Text, Argument. Synthegy scores and
-evaluation results are persisted to Neo4j. Connection: semantic search via Cypher
+evaluation results are persisted to Neo4j. Additionally: research graph schema (Hypothese · FExperiment · FErgebnis · FKritik · FRevision) for causal review memory per Sakka et al. 2026. Connection: semantic search via Cypher
 queries, separate from ephemeral LLM context.</p>
 </div>
 </div>
