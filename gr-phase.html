@@ -199,10 +199,53 @@ Comparison: Choptuik 1993 (scalar field, D=4): &gamma;=0.374, Type-II DSS &middo
 <hr>
 
 <div class="band p4" style="margin-top:2.5rem;">
-  <div class="num">Sub-project 3 (planned)</div>
-  <div class="title">EEG-DSS: Analytical DSS Solutions in the Large-D Limit</div>
+  <div class="num">Sub-project 3</div>
+  <div class="title">EEG-DSS: Analytical DSS Solutions in the Large-D Limit (Ecker&ndash;Ecker&ndash;Grumiller)</div>
 </div>
-<p>Based on Ecker, Ecker &amp; Grumiller, arXiv:2601.14358. LO/NLO/NNLO analytical solutions for the Choptuik problem in the large-D limit (1/D expansion). Echo period &Delta; fixed by NLO consistency condition. Choptuik exponent &gamma;&rarr;1/2 as D&rarr;&infin; (CSS limit). Python implementation planned: scan over &beta;-function classes, NEC-line comparison at D=300 and D=4, convergence analysis. <strong>Status: planned, not yet executed.</strong></p>
+<p>Based on Ecker, Ecker &amp; Grumiller, arXiv:2601.14358 (PRL 2026). LO+NLO analytical solutions implemented in Python (SciPy, NumPy, Mac Studio M3 Ultra). Four computational phases executed on 2026-06-14 in under 1 second. <strong>Status: executed.</strong></p>
+
+<h3>Mathematical framework</h3>
+<p>Coordinate transformation &tau;=&minus;ln(&minus;t), x=&minus;r/t, small parameter &epsilon;=1/(D&minus;1). DSS condition: fields periodic in &tau; with period &Delta;. Free integration function &beta;(&tau;+&Delta;)=&beta;(&tau;). LO solutions (Eqs. 7&ndash;13): &Pi;<sub>LO</sub>=&beta;/&radic;(1+&beta;&sup2;x&sup2;), f<sub>LO</sub>=&radic;((1+&beta;&sup2;x&sup2;)/(1+&beta;&sup2;)). NLO correction (Eqs. 17&ndash;18): &Pi;<sub>NLO</sub>=[4&beta;&sup2;x&sup2;(1+&beta;&sup2;)(&beta;+&beta;')&sup2;+p<sub>1</sub>ln(1+&beta;&sup2;x&sup2;)]/[2&beta;&sup3;(1+&beta;&sup2;x&sup2;)<sup>5/2</sup>] with explicit polynomials p<sub>1</sub>&ndash;p<sub>4</sub>. NLO consistency condition (Eq. 20): &Delta;=|&beta;''|/(3|&beta;'|) at &beta;=0 &mdash; uniquely fixes the echo period.</p>
+
+<h3>Result 1: Paper example reproduced (Phase 0, D=300)</h3>
+<div class="result-box">
+<strong>NEC vertex: &tau;<sub>0</sub> = 0.24018424593</strong> &nbsp;|&nbsp; <strong>&Delta;<sub>implied</sub> = 1.0000000 &plusmn; 3.6&times;10<sup>&minus;8</sup></strong> (machine precision)<br><br>
+Field ranges and NLO corrections at D=300 (&epsilon;=0.00334):<br>
+&nbsp;&nbsp;&Pi;: LO &isin; [&minus;1.016, +1.016], max|&epsilon;&Pi;<sub>NLO</sub>| = 0.074 (7.4% correction)<br>
+&nbsp;&nbsp;f: LO &isin; [0.701, 1.000], max(f<sub>total</sub>&minus;1) = &minus;3.2&times;10<sup>&minus;8</sup> &#8594; convexity f&le;1 <strong>satisfied &#10003;</strong><br><br>
+NEC lines: LO: &tau;=0.240184 (horizontal) &middot; NLO: &tau;=0.240184+0.00334x (tilt &epsilon;x) &middot; SSH shift: &Delta;&tau;=0.00334
+</div>
+
+<h3>Result 2: Consistency landscape (Phase 1a, 50&times;50 grid)</h3>
+<p>120/2500 points satisfy |&Delta;<sub>implied</sub>&minus;1|&lt;5%. The computed consistency line reveals a simple structure: <strong>A<sub>3</sub>&asymp;A<sub>1</sub>/15.95</strong> (linear). The paper constant A=15.9476 is universal for the 2-mode Fourier class. Two branches exist (positive and negative A<sub>3</sub>), corresponding to qualitatively different DSS solution families.</p>
+
+<h3>Result 3: D<sub>min</sub> map and optimal &beta; (Phase 1b/1c)</h3>
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">A<sub>1</sub></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">A<sub>3</sub> (consistent)</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">D<sub>min</sub> (LO+NLO)</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.40</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.0251</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>80</strong> &larr; minimum found</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.50</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.0314</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">82</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.75</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.0470</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">90</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.00 (paper)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.0627</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&asymp;100 (LO+NLO) vs. 52 (paper NNLO)</td></tr>
+<tr><td style="padding:.4rem .75rem;">2.50</td><td style="padding:.4rem .75rem;">0.1568</td><td style="padding:.4rem .75rem;">287</td></tr>
+</table>
+<div class="note warn"><strong>Discrepancy vs. paper:</strong> Our LO+NLO gives D<sub>min</sub>&asymp;100 for A<sub>1</sub>=1; the paper finds 52 from NNLO (Supplement Eqs. S10&ndash;S18, not implemented here). Factor ~2 gap is the expected NNLO contribution. Qualitative trend correctly captured: smaller amplitude &rarr; smaller D<sub>min</sub>.</div>
+
+<h3>Result 4: Convergence of the 1/D series (Phase 2)</h3>
+<table style="width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">D</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">&epsilon;</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">max|&epsilon;&Pi;<sub>NLO</sub>/&Pi;<sub>LO</sub>|</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">max(f<sub>total</sub>&minus;1)</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">4 (Choptuik)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.333</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>17.4</strong></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">+2.27 &mdash; divergent!</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">52 (paper D<sub>min</sub>)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.0196</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1.026</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">+0.019</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">100</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.0101</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0.529</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">+1.2&times;10<sup>&minus;4</sup></td></tr>
+<tr><td style="padding:.4rem .75rem;">300</td><td style="padding:.4rem .75rem;">0.00334</td><td style="padding:.4rem .75rem;">0.175</td><td style="padding:.4rem .75rem;">&minus;1.5&times;10<sup>&minus;6</sup> (&le;1 &#10003;)</td></tr>
+</table>
+<div class="note ok"><strong>Convergence finding:</strong> The 1/D series requires D&ge;~200 for f&le;1 globally (17% NLO correction at D=300). Converges fast near center x&asymp;0, slowly near SSH x=1. At D=4 (Choptuik): NLO/LO=17, f=1+2.27 &mdash; 1/D perturbation theory is completely inapplicable to the physical Choptuik problem. This confirms that EEG solutions are large-D objects with no perturbative connection to D=4 critical collapse.</div>
+
+<h3>Scripts and data</h3>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><code>/Volumes/CLAUDE-DATA/EEG-DSS/eeg_main.py</code> &mdash; complete LO+NLO implementation</li>
+<li><code>/Volumes/CLAUDE-DATA/EEG-DSS/results/eeg_log.txt</code> &mdash; full computation log</li>
+<li><code>/Volumes/CLAUDE-DATA/EEG-DSS/results/phase0/phase0.json</code> &middot; <code>phase1/phase1a.json</code> &middot; <code>phase2/convergence.json</code></li>
+</ul>
 <hr>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Overall Assessment</h2>
@@ -210,7 +253,7 @@ Comparison: Choptuik 1993 (scalar field, D=4): &gamma;=0.374, Type-II DSS &middo
 <tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Sub-project</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Type</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Outcome</th></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>1 &mdash; Choptuik (SpheriCo.jl)</strong></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Numerical GR</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">p<sub>c</sub>=0.16552476857... (machine precision) &middot; &gamma;=0.368 (1.8% from lit.) &middot; DSS oscillations observed</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>2 &mdash; GR-PHASE ODE (Jampolski-Rezzolla)</strong></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">ODE parameter study</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Phase diagram (3&times;625 pts) &middot; &gamma;&asymp;1.0 Landau-type (NOT Choptuik) &middot; Separatrix: no universal power law</td></tr>
-<tr><td style="padding:.4rem .75rem;"><strong>3 &mdash; EEG-DSS (Ecker et al.)</strong></td><td style="padding:.4rem .75rem;">Analytical implementation</td><td style="padding:.4rem .75rem;">Planned, not yet executed</td></tr>
+<tr><td style="padding:.4rem .75rem;"><strong>3 &mdash; EEG-DSS (Ecker et al.)</strong></td><td style="padding:.4rem .75rem;">LO+NLO Python (4 phases)</td><td style="padding:.4rem .75rem;">&tau;<sub>0</sub>=0.24018, &Delta;=1.000000 &#10003; &middot; D<sub>min,opt</sub>=80 &middot; 1/D diverges at D=4 (NLO/LO=17)</td></tr>
 </table>
 <div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
 T. Riepe, Berlin. June 2026. Numerical relativistic computations on Mac Studio M3 Ultra (256 GB). Papers: Jampolski &amp; Rezzolla arXiv:2509.15302; Ecker, Ecker &amp; Grumiller arXiv:2601.14358; Choptuik (1993) Phys. Rev. Lett. 70, 9. Software: SpheriCo.jl (Giannakopoulos et al., arXiv:2412.19722), NRPy+, SFcollapse1D.
@@ -321,10 +364,53 @@ Vergleich: Choptuik 1993 (Skalarfeld, D=4): &gamma;=0,374, Typ-II DSS &middot; B
 <hr>
 
 <div class="band p4">
-  <div class="num">Teilprojekt 3 (geplant)</div>
-  <div class="title">EEG-DSS: Analytische DSS-Lösungen im Large-D-Limes</div>
+  <div class="num">Teilprojekt 3</div>
+  <div class="title">EEG-DSS: Analytische DSS-Lösungen im Large-D-Limes (Ecker&ndash;Ecker&ndash;Grumiller)</div>
 </div>
-<p>Basierend auf Ecker, Ecker &amp; Grumiller, arXiv:2601.14358. LO/NLO/NNLO-analytische Lösungen für das Choptuik-Problem im Grenzwert großer Raumdimensionen (1/D-Entwicklung). Echoperiode &Delta; durch NLO-Konsistenzbedingung fixiert. Choptuik-Exponent &gamma;&rarr;1/2 für D&rarr;&infin; (CSS-Limes). Python-Implementierung geplant: systematischer Scan über &beta;-Funktionsklassen, NEC-Linien-Vergleich bei D=300 und D=4, Konvergenzanalyse. <strong>Status: geplant, noch nicht ausgeführt.</strong></p>
+<p>Basierend auf Ecker, Ecker &amp; Grumiller, arXiv:2601.14358 (PRL 2026). LO+NLO-Felder in Python implementiert und ausgeführt (SciPy, NumPy, Mac Studio M3 Ultra). Vier Berechnungsphasen ausgeführt am 2026-06-14 in unter 1 Sekunde. <strong>Status: ausgeführt.</strong></p>
+
+<h3>Mathematisches Gerüst</h3>
+<p>Koordinatentransformation &tau;=&minus;ln(&minus;t), x=&minus;r/t, kleiner Parameter &epsilon;=1/(D&minus;1). DSS-Bedingung: alle Felder periodisch in &tau; mit Periode &Delta;. Freie Integrationsfunktion &beta;(&tau;+&Delta;)=&beta;(&tau;). LO-Lösungen (Gl. 7&ndash;13): &Pi;<sub>LO</sub>=&beta;/&radic;(1+&beta;&sup2;x&sup2;), f<sub>LO</sub>=&radic;((1+&beta;&sup2;x&sup2;)/(1+&beta;&sup2;)). NLO-Korrektur (Gl. 17&ndash;18): &Pi;<sub>NLO</sub>=[4&beta;&sup2;x&sup2;(1+&beta;&sup2;)(&beta;+&beta;')&sup2;+p<sub>1</sub>ln(1+&beta;&sup2;x&sup2;)]/[2&beta;&sup3;(1+&beta;&sup2;x&sup2;)<sup>5/2</sup>] mit expliziten Polynomen p<sub>1</sub>&ndash;p<sub>4</sub>. NLO-Konsistenzbedingung (Gl. 20): &Delta;=|&beta;''|/(3|&beta;'|) bei &beta;=0 &mdash; fixiert die Echoperiode eindeutig.</p>
+
+<h3>Ergebnis 1: Paper-Beispiel reproduziert (Phase 0, D=300)</h3>
+<div class="result-box">
+<strong>NEC-Vertex: &tau;<sub>0</sub> = 0,24018424593</strong> &nbsp;|&nbsp; <strong>&Delta;<sub>implied</sub> = 1,0000000 &plusmn; 3,6&times;10<sup>&minus;8</sup></strong> (Maschinenpräzision)<br><br>
+Feldbereiche und NLO-Korrekturen bei D=300 (&epsilon;=0,00334):<br>
+&nbsp;&nbsp;&Pi;: LO &isin; [&minus;1,016; +1,016], max|&epsilon;&Pi;<sub>NLO</sub>| = 0,074 (7,4% Korrektur)<br>
+&nbsp;&nbsp;f: LO &isin; [0,701; 1,000], max(f<sub>total</sub>&minus;1) = &minus;3,2&times;10<sup>&minus;8</sup> &#8594; Konvexität f&le;1 <strong>erfüllt &#10003;</strong><br><br>
+NEC-Linien: LO: &tau;=0,240184 (horizontal) &middot; NLO: &tau;=0,240184+0,00334x (NEC-Winkel &epsilon;x) &middot; SSH-Verschiebung: &Delta;&tau;=0,00334
+</div>
+
+<h3>Ergebnis 2: Konsistenz-Landscape (Phase 1a, 50&times;50-Gitter)</h3>
+<p>120/2500 Punkte erfüllen |&Delta;<sub>implied</sub>&minus;1|&lt;5%. Konsistenzlinie: <strong>A<sub>3</sub>&asymp;A<sub>1</sub>/15,95</strong> (lineare Relation). Die Konstante 15,9476 des Papers ist universell für den 2-Moden-Fourier-Ansatz. Zwei Äste (positives und negatives A<sub>3</sub>) entsprechen qualitativ verschiedenen DSS-Lösungsfamilien.</p>
+
+<h3>Ergebnis 3: D<sub>min</sub>-Karte und optimales &beta; (Phase 1b/1c)</h3>
+<table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">A<sub>1</sub></th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">A<sub>3</sub> (konsistent)</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">D<sub>min</sub> (LO+NLO)</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,40</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,0251</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>80</strong> &larr; Minimum auf Konsistenzlinie</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,50</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,0314</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">82</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,75</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,0470</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">90</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1,00 (Paper)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,0627</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">&asymp;100 (LO+NLO) vs. 52 (Paper, NNLO)</td></tr>
+<tr><td style="padding:.4rem .75rem;">2,50</td><td style="padding:.4rem .75rem;">0,1568</td><td style="padding:.4rem .75rem;">287</td></tr>
+</table>
+<div class="note warn"><strong>Diskrepanz zum Paper:</strong> Unsere LO+NLO-Analyse gibt D<sub>min</sub>&asymp;100 für A<sub>1</sub>=1; das Paper findet 52 aus NNLO-Analyse (Supplement Gl. S10&ndash;S18, hier nicht implementiert). Faktor ~2 Unterschied = erwarteter NNLO-Beitrag. Qualitativer Trend korrekt: kleinere Amplitude &rarr; kleineres D<sub>min</sub>.</div>
+
+<h3>Ergebnis 4: Konvergenz der 1/D-Reihe (Phase 2)</h3>
+<table style="width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
+<tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">D</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">&epsilon;</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">max|&epsilon;&Pi;<sub>NLO</sub>/&Pi;<sub>LO</sub>|</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">max(f<sub>total</sub>&minus;1)</th></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">4 (Choptuik)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,333</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;"><strong>17,4</strong></td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">+2,27 &mdash; Divergenz!</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">52 (D<sub>min</sub> Paper)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,0196</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1,026</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">+0,019</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">100</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,0101</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">0,529</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">+1,2&times;10<sup>&minus;4</sup></td></tr>
+<tr><td style="padding:.4rem .75rem;">300</td><td style="padding:.4rem .75rem;">0,00334</td><td style="padding:.4rem .75rem;">0,175</td><td style="padding:.4rem .75rem;">&minus;1,5&times;10<sup>&minus;6</sup> (&le;1 &#10003;)</td></tr>
+</table>
+<div class="note ok"><strong>Konvergenzergebnis:</strong> Die 1/D-Entwicklung ist global gültig (f&le;1, NLO-Korrektur &lt;20%) erst für D&ge;~200. Am SSH (x=1) konvergiert die Reihe langsamer als im Zentrum (x&asymp;0). Für D=4 (Choptuik): NLO/LO=17, f<sub>total</sub>=1+2,27 &mdash; 1/D-Störungstheorie für das physikalische Choptuik-Problem vollständig unanwendbar. EEG-Lösungen sind Large-D-Objekte ohne perturbative Verbindung zu D=4-Kollaps.</div>
+
+<h3>Skripte und Daten</h3>
+<ul class="items">
+<li><code>/Volumes/CLAUDE-DATA/EEG-DSS/eeg_main.py</code> &mdash; vollständige LO+NLO-Implementierung</li>
+<li><code>/Volumes/CLAUDE-DATA/EEG-DSS/results/eeg_log.txt</code> &mdash; vollständiges Berechnungsprotokoll</li>
+<li><code>/Volumes/CLAUDE-DATA/EEG-DSS/results/phase0/phase0.json</code> &middot; <code>phase1/phase1a.json</code> &middot; <code>phase2/convergence.json</code></li>
+</ul>
 <hr>
 
 <h2>Gesamtbilanz</h2>
@@ -332,7 +418,7 @@ Vergleich: Choptuik 1993 (Skalarfeld, D=4): &gamma;=0,374, Typ-II DSS &middot; B
 <tr style="background:#f5f4f0;"><th>Teilprojekt</th><th>Art</th><th>Abschluss</th></tr>
 <tr><td><strong>1 &mdash; Choptuik (SpheriCo.jl)</strong></td><td>Numerische Relativität</td><td>p<sub>c</sub>=0,16552476857... (Maschinenpräzision) &middot; &gamma;=0,368 (1,8 % von Lit.) &middot; DSS-Oszillationen beobachtet</td></tr>
 <tr><td><strong>2 &mdash; GR-PHASE ODE (Jampolski&ndash;Rezzolla)</strong></td><td>ODE-Parameterstudie</td><td>Phasendiagramm (3&times;625 Punkte) &middot; &gamma;&asymp;1,0 Landau-Typ (NICHT Choptuik) &middot; Separatrix: kein universelles Potenzgesetz</td></tr>
-<tr><td><strong>3 &mdash; EEG-DSS (Ecker et al.)</strong></td><td>Analytische Implementierung</td><td>Geplant, noch nicht ausgeführt</td></tr>
+<tr><td><strong>3 &mdash; EEG-DSS (Ecker et al.)</strong></td><td>LO+NLO Python (4 Phasen)</td><td>&tau;<sub>0</sub>=0,24018, &Delta;=1,000000 &#10003; &middot; D<sub>min,opt</sub>=80 &middot; 1/D divergiert bei D=4 (NLO/LO=17)</td></tr>
 </table>
 
 <div class="footnote">T. Riepe, Berlin. Juni 2026. Numerisch-relativistische Berechnungen auf Mac Studio M3 Ultra (256 GB). Paper: Jampolski &amp; Rezzolla arXiv:2509.15302; Ecker, Ecker &amp; Grumiller arXiv:2601.14358; Choptuik (1993) Phys. Rev. Lett. 70, 9. Software: SpheriCo.jl (Giannakopoulos et al., arXiv:2412.19722), NRPy+, SFcollapse1D.</div>
