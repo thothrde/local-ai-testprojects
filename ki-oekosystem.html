@@ -251,6 +251,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>SpheriCo.jl</td><td>0.1.0 (Julia)</td><td>Numerische Relativität: sphär. symmetrischer Skalarfeld-Kollaps (Choptuik-Projekt)</td></tr>
 <tr><td>NRPy+</td><td>2.1.1 (conda nr_env)</td><td>Symbolische GR-Codegenerierung; Jupyter-Kernel registriert</td></tr>
 <tr><td>SFcollapse1D</td><td>arm64-Binary</td><td>Skalarfeld-Kollaps in C++ (GCC 15.2.0, -O2 -fopenmp)</td></tr>
+<tr><td>msolve</td><td>0.10.0</td><td>Polynomiales Gleichungssystem-Löser — Gröbner-Basen über ℤ/pℤ (LIP6, algebraische Geometrie)</td></tr>
 </tbody></table></div>
 <h3>lean_iterativ v4 — Iterativer Proof-Refinement-Loop</h3>
 <p>Open-WebUI-Tool für iterative Lean 4-Beweisverifikation (Ralph Loop, arXiv:2605.22763). Implementierungsgrundlage: Li et al. "Compile to Compress" (ICML 2026).</p>
@@ -298,6 +299,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>SpheriCo.jl</td><td>0.1.0 (Julia)</td><td>Numerical GR: scalar field collapse (Choptuik project)</td></tr>
 <tr><td>NRPy+</td><td>2.1.1</td><td>Symbolic GR code generation</td></tr>
 <tr><td>SFcollapse1D</td><td>arm64 binary</td><td>Scalar field collapse in C++ (GCC 15.2.0)</td></tr>
+<tr><td>msolve</td><td>0.10.0</td><td>Polynomial system solver — Gröbner bases over ℤ/pℤ (LIP6, algebraic geometry)</td></tr>
 </tbody></table></div>
 <h3>lean_iterativ v4 — Iterative Proof Refinement Loop</h3>
 <p>Open WebUI tool for iterative Lean 4 proof verification (Ralph Loop, arXiv:2605.22763). Based on Li et al. "Compile to Compress" (ICML 2026): A — inline error injection (+3% MiniF2F), B — Markovian discipline, C — error-type routing, D — BFS/DFS + EVOLVE-BLOCK, E — pre-validation via <code>lake env lean</code> (saves N x lake-build iterations on structural failures).</p>
@@ -367,6 +369,49 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 </div>
 </div>
 </section>
+
+<section id="physik">
+<div class="col">
+  <h2><span class="nav-num">05b</span>
+    <span class="lang-de">Physik-Simulation &amp; Tensor-Kalkül</span>
+    <span class="lang-en" style="display:none">Physics Simulation &amp; Tensor Calculus</span>
+  </h2>
+
+  <div class="lang-de">
+  <p>Physik-Stack für Quantenmechanik, Allgemeine Relativitätstheorie und Numerische Relativität.
+  Ergänzt den Chemie/Bio-Stack durch spezialisierte GR-Werkzeuge (Cadabra2, EinsteinPy)
+  und den Julia/NRPy+-Stack für numerischen Gravitationskollaps.</p>
+  <div class="table-wrap"><table>
+  <thead><tr><th>Werkzeug</th><th>Version</th><th>Einsatzbereich</th></tr></thead>
+  <tbody>
+  <tr><td>QuTiP</td><td>5.2.3</td><td>Quantenmechanik — Qubits, Lindblad-Evolution, offene Quantensysteme, Dekohärenz (Python 3.12)</td></tr>
+  <tr><td>Cadabra2</td><td>2.5.14 (headless)</td><td>Tensor-Kalkül für ART — symbolische Indexmanipulation, Riemann-/Ricci-Tensor, Einstein-Gleichungen; aus Quellcode gebaut (Python 3.14)</td></tr>
+  <tr><td>EinsteinPy</td><td>0.4.0</td><td>Allgemeine Relativitätstheorie — Geodäten, Schwarzschild/Kerr-Raumzeiten, Christoffel-Symbole (chem_env)</td></tr>
+  <tr><td>Julia DifferentialEquations</td><td>8.0.0</td><td>ODE/DDE/SDE-Ökosystem — Kerr-Geodäten, Post-Newton-Inspirale, N-Körper (OrdinaryDiffEq 7.0.0)</td></tr>
+  <tr><td>NeuralPDE.jl / DiffEqFlux.jl</td><td>on-demand</td><td>Physics-Informed Neural Networks für PDEs; kann mit <code>Pkg.add</code> aktiviert werden</td></tr>
+  </tbody></table></div>
+  <p>Open-WebUI-Werkzeuge: <code>physik_simulation</code> (Julia+QuTiP), <code>qutip_simulation</code> (Lindblad-Meister-Gleichung), <code>physik_simulation_generieren</code> (LLM→Code→Ausführung).</p>
+  <p class="box confirmed">&#10003; Cadabra2 Tensor-Test: <code>Ex('R^{a}_{b c d}')</code> → Riemann-Tensor korrekt. EinsteinPy: Geodäten-Import OK.</p>
+  </div>
+
+  <div class="lang-en" style="display:none">
+  <p>Physics stack for quantum mechanics, general relativity, and numerical relativity.
+  Extends the chem/bio stack with specialized GR tools (Cadabra2, EinsteinPy)
+  and the Julia/NRPy+ stack for numerical gravitational collapse.</p>
+  <div class="table-wrap"><table>
+  <thead><tr><th>Tool</th><th>Version</th><th>Domain</th></tr></thead>
+  <tbody>
+  <tr><td>QuTiP</td><td>5.2.3</td><td>Quantum mechanics — qubits, Lindblad evolution, open quantum systems, decoherence (Python 3.12)</td></tr>
+  <tr><td>Cadabra2</td><td>2.5.14 (headless)</td><td>Tensor calculus for GR — symbolic index manipulation, Riemann/Ricci tensors, Einstein equations; built from source (Python 3.14)</td></tr>
+  <tr><td>EinsteinPy</td><td>0.4.0</td><td>General relativity — geodesics, Schwarzschild/Kerr spacetimes, Christoffel symbols (chem_env)</td></tr>
+  <tr><td>Julia DifferentialEquations</td><td>8.0.0</td><td>ODE/DDE/SDE ecosystem — Kerr geodesics, post-Newtonian inspirals, N-body (OrdinaryDiffEq 7.0.0)</td></tr>
+  <tr><td>NeuralPDE.jl / DiffEqFlux.jl</td><td>on-demand</td><td>Physics-informed neural networks for PDEs; activatable via <code>Pkg.add</code></td></tr>
+  </tbody></table></div>
+  <p>Open WebUI tools: <code>physik_simulation</code> (Julia+QuTiP), <code>qutip_simulation</code> (Lindblad master equation), <code>physik_simulation_generieren</code> (LLM→code→execution).</p>
+  <p class="box confirmed">&#10003; Cadabra2 tensor test: <code>Ex('R^{a}_{b c d}')</code> → Riemann tensor correct. EinsteinPy: geodesics import OK.</p>
+  </div>
+</div>
+</section>
 <section id="architektur">
 <div class="col">
   <h2><span class="nav-num">06</span>
@@ -391,6 +436,18 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Lean 4 Verifier</td><td>Lokal</td><td>lake build für Mathlib-PRs</td></tr>
 <tr><td>Master-Orchestrator</td><td>LaunchAgent</td><td>21 Projekte, 100 Phasen automatisch</td></tr>
 </tbody></table></div>
+
+<h3>Developer- &amp; Build-Tools</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Werkzeug</th><th>Version</th><th>Funktion</th></tr></thead>
+<tbody>
+<tr><td>Git</td><td>2.50.1 (Apple Git-155)</td><td>Versionskontrolle — Mathlib-Fork, alle Projekte</td></tr>
+<tr><td>GitHub CLI (gh)</td><td>2.94.0</td><td>GitHub-Integration, PR-Management, API-Zugriff</td></tr>
+<tr><td>uv</td><td>0.11.21</td><td>Schneller Python-Paketmanager (Homebrew)</td></tr>
+<tr><td>Node.js</td><td>26.3.0 (via nvm 0.40.5)</td><td>Frontend-Build, Perplexica, diverse Tools</td></tr>
+<tr><td>Aider</td><td>—</td><td>KI-Coding-Assistent (qwen3.6:35b-a3b als Backend, CONVENTIONS.md in 9 Projekten)</td></tr>
+</tbody></table></div>
+
 <p>Vektordatenbanken (LanceDB): plotinus_multilingual (78.674 Chunks), latin_passages, cardano_hybrid, philarchive, OSE-Wiki, Macrobius — BGE-M3-Embeddings, multilingual.</p>
 <h3>Slow Memory — Neo4j Knowledge Graph</h3>
 <p>Neo4j (Port 7687, Bolt): persistentes Wissensgraph-System als "Slow Memory". Labels: Person, MathConcept, Project, Text, Argument. Synthegy-Scores und Evaluationsergebnisse persistiert. Zusätzlich: Forschungsgraph-Schema (Hypothese · FExperiment · FErgebnis · FKritik · FRevision) für kausales Review-Memory nach Sakka et al. 2026.</p>
@@ -413,6 +470,18 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Lean 4 Verifier</td><td>Local</td><td>lake build for Mathlib PRs</td></tr>
 <tr><td>Master Orchestrator</td><td>LaunchAgent</td><td>21 projects, 100 phases automated</td></tr>
 </tbody></table></div>
+
+<h3>Developer &amp; Build Tools</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Tool</th><th>Version</th><th>Function</th></tr></thead>
+<tbody>
+<tr><td>Git</td><td>2.50.1 (Apple Git-155)</td><td>Version control — Mathlib fork, all projects</td></tr>
+<tr><td>GitHub CLI (gh)</td><td>2.94.0</td><td>GitHub integration, PR management, API access</td></tr>
+<tr><td>uv</td><td>0.11.21</td><td>Fast Python package manager (Homebrew)</td></tr>
+<tr><td>Node.js</td><td>26.3.0 (via nvm 0.40.5)</td><td>Frontend build, Perplexica, miscellaneous tools</td></tr>
+<tr><td>Aider</td><td>—</td><td>AI coding assistant (qwen3.6:35b-a3b backend, CONVENTIONS.md in 9 projects)</td></tr>
+</tbody></table></div>
+
 <p>Vector databases (LanceDB): plotinus_multilingual (78,674 chunks), latin_passages, cardano_hybrid, philarchive, OSE-Wiki, Macrobius — BGE-M3 embeddings, multilingual.</p>
 <h3>Slow Memory — Neo4j Knowledge Graph</h3>
 <p>Neo4j (port 7687, Bolt): persistent knowledge graph system as "slow memory". Labels: Person, MathConcept, Project, Text, Argument. Synthegy scores and evaluation results persisted. Additionally: research graph schema (Hypothese · FExperiment · FErgebnis · FKritik · FRevision) for causal review memory per Sakka et al. 2026.</p>
