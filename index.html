@@ -23,12 +23,10 @@ h2::after{content:'';flex:1;height:1px;background:var(--rule)}
 h3{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--fg);margin:1.5rem 0 .5rem}
 p{margin-bottom:1.2em;font-size:1rem}
 section{margin-bottom:4rem}
-/* Lang tabs */
 .lang-tabs{display:flex;gap:.5rem;margin-bottom:2rem;font-family:var(--sans);font-size:.75rem}
 .lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
 .lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
 .lang-de{display:block}
-/* Project grid */
 .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin:1.5rem 0}
 .proj-card{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.4rem 1.6rem;border-radius:2px;text-decoration:none;display:block;transition:border-color .2s,background .2s}
 .proj-card:hover{border-color:var(--gold);background:var(--bg3)}
@@ -36,7 +34,6 @@ section{margin-bottom:4rem}
 .proj-title{font-family:var(--serif);font-size:1.08rem;font-weight:500;color:var(--fg);margin-bottom:.5rem;line-height:1.4}
 .proj-desc{font-family:var(--sans);font-size:.8rem;color:var(--fg-dim);line-height:1.5}
 .proj-status{font-family:var(--mono);font-size:.6rem;color:var(--green);letter-spacing:.08em;margin-top:.6rem}
-/* Section headings */
 .sect-group{margin:3rem 0 1rem;font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);border-bottom:1px solid var(--rule);padding-bottom:.5rem}
 footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
 @media(max-width:640px){html{font-size:15px}.wrapper{padding:0 1.2rem}.proj-grid{grid-template-columns:1fr}}
@@ -70,22 +67,17 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 
 <section>
 <div class="col">
-
-<!-- DE -->
 <div class="lang-de">
 <h2>Entstehungskontext</h2>
 <p>Dieses System ist ein <em>just-for-fun</em>-Experiment: Ich bin kein Programmierer und finde Coden äußerst lästig — mache es also minimalistisch und nur wenn es anders nicht geht. Ausgangspunkt war Neugier auf lokale KI-Infrastruktur, verbunden mit einer selbstironischen Aktion: In meinen Schulungen neige ich zu genau jenem Frontalunterricht, den ich vor 50 Jahren gräßlich fand. Ich versprach den TeilnehmerInnen kompensatorische Selbstapplikation — was mich in ein Bootcamp für neuronale Netze, KI und Verwandtes brachte. Das klappte erstaunlicherweise und führte zu explorativem Tinkering über mehrere Monate. Claude AI war dabei mein Implementierungsassistent.</p>
 <p>Über Infos und Anregungen würde ich mich freuen — Profis werden zahlreiche Schwachstellen entdecken, die mir völlig entgangen sind.</p>
 </div>
-
-<!-- EN -->
 <div class="lang-en" style="display:none">
 <h2>Background</h2>
 <p>This system is a <em>just-for-fun</em> experiment. I am not a programmer and find coding extraordinarily tedious — so I keep it minimal and only do it when there is no other way. The starting point was curiosity about local AI infrastructure combined with a certain self-ironic impulse: in my teaching I tend toward precisely the kind of frontal instruction I found dreadful fifty-plus years ago, and I had half-jokingly promised participants some compensatory self-application. That turned into a bootcamp for neural networks, AI, and related topics. Surprisingly, it worked, and led to exploratory tinkering over several months. Claude AI was my implementation assistant throughout.</p>
 <p>I would be happy about feedback and suggestions — professionals will undoubtedly spot numerous weaknesses I missed entirely.</p>
 </div>
-
-</div><!-- .col -->
+</div>
 </section>
 
 <section>
@@ -101,6 +93,15 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
     <p class="proj-desc lang-de">Technische Dokumentation der Mac-Studio-M3-Ultra-Infrastruktur: LLM-Routing, RAG-Systeme, Vektordatenbanken, Master-Orchestrator, Chemie-/Neuro-Stack (Mai/Juni 2026).</p>
     <p class="proj-desc lang-en" style="display:none">Technical documentation of the Mac Studio M3 Ultra infrastructure: LLM routing, RAG systems, vector databases, Master Orchestrator, chemistry/neuro stack (May/June 2026).</p>
     <p class="proj-status">✓ AKTUELL · June 2026</p>
+  </a>
+
+  <a class="proj-card" href="grayscott.html">
+    <p class="proj-num">22</p>
+    <p class="proj-title lang-de">Gray-Scott × LLM-Agent</p>
+    <p class="proj-title lang-en" style="display:none">Gray-Scott × LLM-Agent</p>
+    <p class="proj-desc lang-de">Erkundet ein Sprachmodell ein dynamisches System — oder ruft es nur sein Training ab? Verhaltenstest mit Gray-Scott-Reaktions-Diffusion, zwei Modellen, live im Browser simulierbar.</p>
+    <p class="proj-desc lang-en" style="display:none">Does a language model explore a dynamical system — or retrieve its training? Behavioral test with Gray-Scott reaction-diffusion and two local models; live in-browser simulation included.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · Juni 2026</p>
   </a>
 </div>
 
