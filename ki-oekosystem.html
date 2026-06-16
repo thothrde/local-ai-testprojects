@@ -144,8 +144,8 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <section id="modelle">
 <div class="col">
   <h2><span class="nav-num">01</span>
-    <span class="lang-de">Lokale Sprachmodelle (Ollama + DSV4 + R1-671B)</span>
-    <span class="lang-en" style="display:none">Local Language Models (Ollama + DSV4 + R1-671B)</span>
+    <span class="lang-de">Lokale Sprachmodelle (Ollama 0.30.8 + DSV4 + R1-671B)</span>
+    <span class="lang-en" style="display:none">Local Language Models (Ollama 0.30.8 + DSV4 + R1-671B)</span>
   </h2>
   <div class="lang-de">
 <div class="table-wrap"><table>
@@ -155,7 +155,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K Kontext-Fenster — lange Dokumente, Corpus-Ingestion (Port 8888)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarielle Prüfung, Chain-of-Thought, formale Verifikation</td></tr>
 <tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 Shards)</td><td>Hochqualitäts-Reasoning, llama-server Port 8889 (~23 tok/s) — Flagship für Critic/Comparator in komitee_bewertung; auf TB5-WORK</td></tr>
-<tr><td>qwen3:32b</td><td>~20 GB</td><td>Coding, Standard-Reasoning, Nightly-Sync</td></tr>
+
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Schnelle All-Purpose, Routing-Interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K Kontext, MTP-Spekulation (~80 tok/s)</td></tr>
 <tr><td>mistral-small3.1:24b</td><td>~15 GB</td><td>Leichtgewicht, Commit-Messages (Aider weak model)</td></tr>
@@ -176,7 +176,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K context window — long documents, corpus ingestion (port 8888)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarial checking, chain-of-thought, formal verification</td></tr>
 <tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 shards)</td><td>High-quality reasoning, llama-server port 8889 (~23 tok/s) — flagship for Critic/Comparator in komitee_bewertung; on TB5-WORK</td></tr>
-<tr><td>qwen3:32b</td><td>~20 GB</td><td>Coding, standard reasoning, nightly sync</td></tr>
+
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Fast all-purpose, routing interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K context, MTP speculation (~80 tok/s)</td></tr>
 <tr><td>mistral-small3.1:24b</td><td>~15 GB</td><td>Lightweight, commit messages (Aider weak model)</td></tr>
@@ -241,13 +241,13 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Lean 4 + Mathlib</td><td>4.31.0-rc2</td><td>Formale Verifikation; PR #39701 (kondensierte Moduln) &middot; CI Build ✅ Lint ✅</td></tr>
 <tr><td>SageMath</td><td>10.9 (ARM64)</td><td>Algebraische Geometrie, Berechnungen</td></tr>
 <tr><td>PARI/GP</td><td>2.17.3</td><td>Zahlentheorie, Fundamentaleinheiten, Iwasawa</td></tr>
-<tr><td>Julia + Hecke.jl</td><td>aktuell</td><td>Algebraische Zahlentheorie, schnelle Berechnungen</td></tr>
-<tr><td>Macaulay2</td><td>1.26</td><td>Kommutative Algebra, Gröbner-Basen</td></tr>
+<tr><td>Julia 1.12.6 + Hecke.jl</td><td>0.39.15</td><td>Algebraische Zahlentheorie (ITensorNetworks 0.21.2, Nemo 0.54.2)</td></tr>
+<tr><td>Macaulay2</td><td>1.26.05</td><td>Kommutative Algebra, Gröbner-Basen</td></tr>
 <tr><td>Kenzo (SBCL)</td><td>7.0 (Common Lisp)</td><td>Effektive Homotopieberechnungen (K(Z/2,n))</td></tr>
 <tr><td>Lean 4 lean-liquid</td><td>aktuell</td><td>Formalisiertes LTE-Fundament (liquid Tensor)</td></tr>
-<tr><td>Z3 Prover</td><td>aktuell</td><td>SMT-Solving, formale Verifikation</td></tr>
-<tr><td>Singular</td><td>aktuell</td><td>Algebraische Geometrie, Normalen</td></tr>
-<tr><td>Agda / Rocq</td><td>aktuell</td><td>Typentheoretische Formalisierung</td></tr>
+<tr><td>Z3 Prover</td><td>4.15.4</td><td>SMT-Solving, formale Verifikation</td></tr>
+<tr><td>Singular</td><td>4.4.1</td><td>Algebraische Geometrie, Normalen</td></tr>
+<tr><td>Agda 2.8.0 / Rocq</td><td>aktuell</td><td>Typentheoretische Formalisierung</td></tr>
 <tr><td>SpheriCo.jl</td><td>0.1.0 (Julia)</td><td>Numerische Relativität: sphär. symmetrischer Skalarfeld-Kollaps (Choptuik-Projekt)</td></tr>
 <tr><td>NRPy+</td><td>2.1.1 (conda nr_env)</td><td>Symbolische GR-Codegenerierung; Jupyter-Kernel registriert</td></tr>
 <tr><td>SFcollapse1D</td><td>arm64-Binary</td><td>Skalarfeld-Kollaps in C++ (GCC 15.2.0, -O2 -fopenmp)</td></tr>
@@ -291,10 +291,10 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Lean 4 + Mathlib</td><td>4.31.0-rc2</td><td>Formal verification; PR #39701 (condensed modules) &middot; CI Build ✅ Lint ✅</td></tr>
 <tr><td>SageMath</td><td>10.9 (ARM64)</td><td>Algebraic geometry, computations</td></tr>
 <tr><td>PARI/GP</td><td>2.17.3</td><td>Number theory, fundamental units, Iwasawa</td></tr>
-<tr><td>Julia + Hecke.jl</td><td>current</td><td>Algebraic number theory, fast computations</td></tr>
-<tr><td>Macaulay2</td><td>1.26</td><td>Commutative algebra, Gröbner bases</td></tr>
+<tr><td>Julia 1.12.6 + Hecke.jl</td><td>0.39.15</td><td>Algebraic number theory (ITensorNetworks 0.21.2, Nemo 0.54.2)</td></tr>
+<tr><td>Macaulay2</td><td>1.26.05</td><td>Commutative algebra, Gröbner bases</td></tr>
 <tr><td>Kenzo (SBCL)</td><td>7.0 (Common Lisp)</td><td>Effective homotopy computations</td></tr>
-<tr><td>Z3 Prover</td><td>current</td><td>SMT solving, formal verification</td></tr>
+<tr><td>Z3 Prover</td><td>4.15.4</td><td>SMT solving, formal verification</td></tr>
 <tr><td>SpheriCo.jl</td><td>0.1.0 (Julia)</td><td>Numerical GR: scalar field collapse (Choptuik project)</td></tr>
 <tr><td>NRPy+</td><td>2.1.1</td><td>Symbolic GR code generation</td></tr>
 <tr><td>SFcollapse1D</td><td>arm64 binary</td><td>Scalar field collapse in C++ (GCC 15.2.0)</td></tr>
@@ -326,15 +326,15 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <div class="table-wrap"><table>
 <thead><tr><th>Tool</th><th>Version</th><th>Domäne</th><th>Status</th></tr></thead>
 <tbody>
-<tr><td>PySCF</td><td>aktuell (conda-forge ARM64)</td><td>Quantenchemie: HF/DFT/CCSD</td><td class="ok">✓ Getestet</td></tr>
-<tr><td>MACE-OFF23</td><td>small (7 MB Modell)</td><td>ML-Kraftfeld organische Moleküle</td><td class="ok">✓ MPS-GPU</td></tr>
+<tr><td>PySCF</td><td>2.13.1</td><td>Quantenchemie: HF/DFT/CCSD</td><td class="ok">✓ Getestet</td></tr>
+<tr><td>MACE-OFF23</td><td>0.3.16</td><td>ML-Kraftfeld organische Moleküle</td><td class="ok">✓ MPS-GPU</td></tr>
 <tr><td>ASE</td><td>3.28.0</td><td>Molekülstruktur-Framework</td><td class="ok">✓</td></tr>
-<tr><td>OpenMM</td><td>8.5.2</td><td>Molekulardynamik (OpenCL/GPU)</td><td class="ok">✓ OpenCL</td></tr>
+<tr><td>OpenMM</td><td>8.4</td><td>Molekulardynamik (OpenCL/GPU)</td><td class="ok">✓ OpenCL</td></tr>
 <tr><td>NEURON</td><td>9.0.1</td><td>Kompartiment-Neuronenmodelle, HH</td><td class="ok">✓</td></tr>
 <tr><td>Brian2</td><td>2.10.1</td><td>Spiking Neural Networks</td><td class="ok">✓</td></tr>
 <tr><td>Nengo</td><td>4.1.0</td><td>Neural Engineering Framework</td><td class="ok">✓ NEF</td></tr>
 <tr><td>MNE</td><td>1.12.1</td><td>EEG/MEG-Signalanalyse</td><td class="ok">✓</td></tr>
-<tr><td>RDKit</td><td>aktuell</td><td>Cheminformatik, SMILES-Parsing</td><td class="ok">✓</td></tr>
+<tr><td>RDKit</td><td>2026.03.3</td><td>Cheminformatik, SMILES-Parsing</td><td class="ok">✓</td></tr>
 <tr><td>MDAnalysis</td><td>2.10.0</td><td>MD-Trajektorienanalyse</td><td class="ok">✓</td></tr>
 <tr><td>NetworkX</td><td>3.6.1</td><td>Graphentheorie, Konnektomics</td><td class="ok">✓</td></tr>
 <tr><td>nilearn/nibabel/dipy</td><td>aktuell</td><td>Neuroimaging, fMRI</td><td class="ok">✓</td></tr>
@@ -348,15 +348,15 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <div class="table-wrap"><table>
 <thead><tr><th>Tool</th><th>Version</th><th>Domain</th><th>Status</th></tr></thead>
 <tbody>
-<tr><td>PySCF</td><td>current (conda-forge ARM64)</td><td>Quantum chemistry: HF/DFT/CCSD</td><td class="ok">✓ Tested</td></tr>
-<tr><td>MACE-OFF23</td><td>small (7 MB model)</td><td>ML force field organic molecules</td><td class="ok">✓ MPS-GPU</td></tr>
+<tr><td>PySCF</td><td>2.13.1</td><td>Quantum chemistry: HF/DFT/CCSD</td><td class="ok">✓ Tested</td></tr>
+<tr><td>MACE-OFF23</td><td>0.3.16</td><td>ML force field organic molecules</td><td class="ok">✓ MPS-GPU</td></tr>
 <tr><td>ASE</td><td>3.28.0</td><td>Molecular structure framework</td><td class="ok">✓</td></tr>
-<tr><td>OpenMM</td><td>8.5.2</td><td>Molecular dynamics (OpenCL/GPU)</td><td class="ok">✓ OpenCL</td></tr>
+<tr><td>OpenMM</td><td>8.4</td><td>Molecular dynamics (OpenCL/GPU)</td><td class="ok">✓ OpenCL</td></tr>
 <tr><td>NEURON</td><td>9.0.1</td><td>Compartment neuron models, HH</td><td class="ok">✓</td></tr>
 <tr><td>Brian2</td><td>2.10.1</td><td>Spiking neural networks</td><td class="ok">✓</td></tr>
 <tr><td>Nengo</td><td>4.1.0</td><td>Neural engineering framework</td><td class="ok">✓ NEF</td></tr>
 <tr><td>MNE</td><td>1.12.1</td><td>EEG/MEG signal analysis</td><td class="ok">✓</td></tr>
-<tr><td>RDKit</td><td>current</td><td>Cheminformatics, SMILES parsing</td><td class="ok">✓</td></tr>
+<tr><td>RDKit</td><td>2026.03.3</td><td>Cheminformatics, SMILES parsing</td><td class="ok">✓</td></tr>
 <tr><td>MDAnalysis</td><td>2.10.0</td><td>MD trajectory analysis</td><td class="ok">✓</td></tr>
 <tr><td>NetworkX</td><td>3.6.1</td><td>Graph theory, connectomics</td><td class="ok">✓</td></tr>
 <tr><td>nilearn/nibabel/dipy</td><td>current</td><td>Neuroimaging, fMRI</td><td class="ok">✓</td></tr>
@@ -381,12 +381,13 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Ollama</td><td>11434</td><td>Modell-Backend (9 Modelle)</td></tr>
 <tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K Kontext</td></tr>
 <tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, Hochqualitäts-Reasoning (~23 tok/s)</td></tr>
-<tr><td>Open WebUI</td><td>3002</td><td>Chat-Interface, 20+ Python-Tools</td></tr>
+<tr><td>Open WebUI 0.9.5</td><td>3002</td><td>Chat-Interface, 26 Python-Tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Lokale Suche</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta-Suchmaschine</td></tr>
-<tr><td>Neo4j</td><td>7687</td><td>Knowledge Graph (Slow Memory)</td></tr>
-<tr><td>PostgreSQL</td><td>5432</td><td>Daten-Backend</td></tr>
-<tr><td>ComfyUI + FLUX.1</td><td>8188</td><td>Bildgenerierung</td></tr>
+<tr><td>Neo4j 2026.01.3</td><td>7687</td><td>Knowledge Graph + Forschungsgraph (Slow Memory)</td></tr>
+<tr><td>PostgreSQL 15</td><td>5432</td><td>Daten-Backend (Homebrew LaunchAgent)</td></tr>
+<tr><td>ComfyUI (SDXL)</td><td>8188</td><td>Bildgenerierung on-device (SDXL Base 1.0; FLUX.1-dev entfernt)</td></tr>
+<tr><td>Draw Things</td><td>1.20260520</td><td>Weitere Bildgenerierung on-device (SDXL); vollständig lokal</td></tr>
 <tr><td>Lean 4 Verifier</td><td>Lokal</td><td>lake build für Mathlib-PRs</td></tr>
 <tr><td>Master-Orchestrator</td><td>LaunchAgent</td><td>21 Projekte, 100 Phasen automatisch</td></tr>
 </tbody></table></div>
@@ -402,12 +403,13 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Ollama</td><td>11434</td><td>Model backend (9 models)</td></tr>
 <tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K context</td></tr>
 <tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, high-quality reasoning (~23 tok/s)</td></tr>
-<tr><td>Open WebUI</td><td>3002</td><td>Chat interface, 20+ Python tools</td></tr>
+<tr><td>Open WebUI 0.9.5</td><td>3002</td><td>Chat interface, 26 Python tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Local search</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta search engine</td></tr>
-<tr><td>Neo4j</td><td>7687</td><td>Knowledge graph (slow memory)</td></tr>
-<tr><td>PostgreSQL</td><td>5432</td><td>Data backend</td></tr>
-<tr><td>ComfyUI + FLUX.1</td><td>8188</td><td>Image generation</td></tr>
+<tr><td>Neo4j 2026.01.3</td><td>7687</td><td>Knowledge graph + research graph (slow memory)</td></tr>
+<tr><td>PostgreSQL 15</td><td>5432</td><td>Data backend (Homebrew LaunchAgent)</td></tr>
+<tr><td>ComfyUI (SDXL)</td><td>8188</td><td>On-device image generation (SDXL Base 1.0; FLUX.1-dev removed)</td></tr>
+<tr><td>Draw Things</td><td>1.20260520</td><td>Additional on-device image generation (SDXL); fully local</td></tr>
 <tr><td>Lean 4 Verifier</td><td>Local</td><td>lake build for Mathlib PRs</td></tr>
 <tr><td>Master Orchestrator</td><td>LaunchAgent</td><td>21 projects, 100 phases automated</td></tr>
 </tbody></table></div>
