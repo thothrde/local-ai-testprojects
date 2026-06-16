@@ -5,31 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gray-Scott × LLM-Agent · Lokale KI-Experimente Berlin 2026</title>
 <style>
-:root{
-  --bg:#0c0c14;--bg2:#13131f;--bg3:#1a1a2a;
-  --border:#2a2a40;--text:#d4d0e8;--text2:#9898bb;--text3:#5a5a7a;
-  --teal:#4ecdc4;--teal-dim:#2a7a76;--purple:#9b59b6;--purple-dim:#5a2a6a;
-  --green:#2ecc71;--red:#e74c3c;--mono:'Courier New',monospace;
-}
+:root{--bg:#0c0c14;--bg2:#13131f;--bg3:#1a1a2a;--border:#2a2a40;--text:#d4d0e8;--text2:#9898bb;--text3:#5a5a7a;--teal:#4ecdc4;--teal-dim:#2a7a76;--purple:#9b59b6;--purple-dim:#5a2a6a;--green:#2ecc71;--red:#e74c3c;--amber:#d4a040;--mono:'Courier New',monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.7}
 a{color:var(--teal);text-decoration:none}
 a:hover{text-decoration:underline}
-
-.site-header{padding:1.2rem 2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.site-header{padding:1.2rem 2rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 .back-link{font-size:.85rem;color:var(--text2)}
 .back-link::before{content:'← '}
 .lang-toggle{display:flex;gap:.4rem}
 .lang-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:.25rem .65rem;border-radius:4px;cursor:pointer;font-size:.8rem;transition:all .15s}
 .lang-btn.active{background:var(--teal);color:#000;border-color:var(--teal);font-weight:600}
-
-.hero{padding:2.5rem 2rem 1.5rem;max-width:860px;margin:0 auto}
+.hero{padding:2.5rem 2rem 1.5rem;max-width:920px;margin:0 auto}
 .hero-kicker{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem;font-weight:600}
 .hero h1{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-bottom:1rem}
-.hero-sub{color:var(--text2);font-size:1rem;max-width:640px;line-height:1.65}
-.status-badge{display:inline-block;background:var(--bg3);border:1px solid var(--teal-dim);color:var(--teal);font-size:.72rem;padding:.2rem .6rem;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;margin-top:.8rem}
-
-.sim-section{padding:1.5rem 2rem 2rem;max-width:860px;margin:0 auto}
+.hero-sub{color:var(--text2);font-size:1rem;max-width:680px;line-height:1.65}
+.badge-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.badge{display:inline-block;background:var(--bg3);border:1px solid var(--teal-dim);color:var(--teal);font-size:.72rem;padding:.2rem .6rem;border-radius:3px;letter-spacing:.06em;text-transform:uppercase}
+.badge.amber{border-color:var(--amber);color:var(--amber)}
+.sim-section{padding:1.5rem 2rem 2rem;max-width:920px;margin:0 auto}
 .sim-label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:.8rem}
 .sim-outer{display:flex;flex-direction:column;gap:1.2rem}
 @media(min-width:660px){.sim-outer{flex-direction:row;align-items:flex-start}}
@@ -52,16 +46,20 @@ canvas#gs{display:block;width:340px;height:340px;max-width:100%;border:1px solid
 .sim-info{display:flex;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.74rem;color:var(--text3)}
 .sim-info span{color:var(--teal)}
 .sim-note{font-size:.72rem;color:var(--text3);line-height:1.5;max-width:260px}
-
-.content{max-width:860px;margin:0 auto;padding:0 2rem 3rem}
-.section{margin-bottom:2.5rem}
+.content{max-width:920px;margin:0 auto;padding:0 2rem 4rem}
+.section{margin-bottom:2.8rem}
 .section-label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:.4rem}
 .section h2{font-size:1.2rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.85rem}
-.section p{color:var(--text2);margin-bottom:.85rem;max-width:700px}
+.section h3{font-size:1.0rem;font-weight:600;margin:1.4rem 0 .6rem;color:var(--text)}
+.section p{color:var(--text2);margin-bottom:.85rem;max-width:740px}
 .section p:last-child{margin-bottom:0}
 .equation{font-family:var(--mono);background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--teal-dim);padding:.7rem 1rem;border-radius:0 6px 6px 0;margin:.8rem 0;font-size:.82rem;color:var(--text);line-height:1.8}
 .finding{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:0 8px 8px 0;padding:.9rem 1.1rem;margin:1.1rem 0}
+.finding.amber{border-left-color:var(--amber)}
+.finding.red{border-left-color:var(--red)}
 .finding-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:.35rem;font-weight:600}
+.finding.amber .finding-label{color:var(--amber)}
+.finding.red .finding-label{color:var(--red)}
 .finding p{color:var(--text2);font-size:.9rem;margin:0}
 .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
 @media(max-width:560px){.results-grid{grid-template-columns:1fr}}
@@ -74,17 +72,26 @@ canvas#gs{display:block;width:340px;height:340px;max-width:100%;border:1px solid
 .model-stat{font-family:var(--mono);font-size:.76rem;color:var(--text2);margin:.15rem 0}
 .model-stat .val{color:var(--text)}
 .verdict{font-size:.78rem;margin-top:.6rem;padding:.4rem .6rem;border-radius:4px;background:var(--bg3);color:var(--text2);line-height:1.5}
-.conf-chart-wrap{margin:1rem 0;overflow-x:auto}
-.conf-chart-wrap svg{display:block;max-width:100%}
+.stroop-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+@media(max-width:600px){.stroop-grid{grid-template-columns:1fr}}
+.stroop-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.1rem}
+.stroop-card .sc-head{font-size:.76rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+.stroop-card .sc-row{font-family:var(--mono);font-size:.76rem;color:var(--text2);margin:.12rem 0}
+.stroop-card .sc-row .lbl{color:var(--text3)}
+.stroop-card .sc-row .val{color:var(--text)}
+.stroop-card .sc-row .ok{color:var(--green)}
+.stroop-card .sc-row .conf{color:var(--amber)}
 .data-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.76rem;margin:1rem 0}
 .data-table th{text-align:left;padding:.4rem .6rem;border-bottom:1px solid var(--border);color:var(--text3);font-weight:400;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
 .data-table td{padding:.38rem .6rem;border-bottom:1px solid var(--border);color:var(--text2)}
 .data-table td.ok{color:var(--green)}
 .data-table td.bad{color:var(--red)}
 .data-table td.val{color:var(--text)}
-hr{border:none;border-top:1px solid var(--border);margin:2rem 0}
-footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;color:var(--text3);max-width:860px;margin:0 auto}
-
+.data-table td.warn{color:var(--amber)}
+.conf-chart-wrap{margin:1rem 0;overflow-x:auto}
+.conf-chart-wrap svg{display:block;max-width:100%}
+hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;color:var(--text3);max-width:920px;margin:0 auto}
 .lang-de,.lang-en{display:none}
 .lang-de.active,.lang-en.active{display:block}
 </style>
@@ -103,17 +110,22 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
   <div class="hero-kicker">Lokale KI-Experimente · Berlin 2026</div>
   <h1>Gray-Scott × LLM-Agent</h1>
   <div class="lang-de active">
-    <p class="hero-sub">Erkundet ein Sprachmodell ein dynamisches System wirklich — oder ruft es nur ab, was es über dieses System gelernt hat? Ein Experiment an der Grenze zwischen Vorwissen und Beobachtung.</p>
+    <p class="hero-sub">Erkundet ein Sprachmodell ein dynamisches System — oder ruft es nur ab, was es über dieses System gelernt hat? Vier Experimentrunden mit drei verschiedenen Designs.</p>
   </div>
   <div class="lang-en">
-    <p class="hero-sub">Does a language model actually explore a dynamical system — or does it merely retrieve what it has learned about such systems? An experiment at the boundary between prior knowledge and observation.</p>
+    <p class="hero-sub">Does a language model actually explore a dynamical system — or does it merely retrieve what it has learned about such systems? Four experiment rounds, three different designs.</p>
   </div>
-  <div class="status-badge">Abgeschlossen · Juni 2026</div>
+  <div class="badge-row">
+    <span class="badge">Juni 2026</span>
+    <span class="badge">Mac Studio M3 Ultra 256 GB</span>
+    <span class="badge">Vollständig lokal</span>
+    <span class="badge amber">v4 — aktualisiert 16.06.2026</span>
+  </div>
 </div>
 
 <div class="sim-section">
-  <div class="sim-label lang-de active">Live-Simulation des Gray-Scott-Systems im Browser</div>
-  <div class="sim-label lang-en">Live Gray-Scott simulation running in your browser</div>
+  <div class="sim-label lang-de active">Live-Simulation: Gray-Scott-Reaktions-Diffusions-System</div>
+  <div class="sim-label lang-en">Live Simulation: Gray-Scott Reaction-Diffusion System</div>
   <div class="sim-outer">
     <div class="canvas-box">
       <canvas id="gs" width="400" height="400"></canvas>
@@ -123,12 +135,12 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
     </div>
     <div class="ctrl-panel">
       <div class="ctrl-row">
-        <span class="ctrl-label">F  Feed</span>
+        <span class="ctrl-label">F  Feed</span>
         <input type="range" class="ctrl-input" id="slF" min="0.010" max="0.090" step="0.001" value="0.035">
         <span class="ctrl-val" id="valF">0.035</span>
       </div>
       <div class="ctrl-row">
-        <span class="ctrl-label">k  Kill</span>
+        <span class="ctrl-label">k  Kill</span>
         <input type="range" class="ctrl-input" id="slK" min="0.040" max="0.070" step="0.001" value="0.065">
         <span class="ctrl-val" id="valK">0.065</span>
       </div>
@@ -148,8 +160,8 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
         <div>Kompl.&nbsp;<span id="compVal">—</span></div>
         <div>V-max&nbsp;<span id="vmaxVal">—</span></div>
       </div>
-      <div class="sim-note lang-de active">Schieberegler ändern Parameter live. Die Muster brauchen 2000–5000 Schritte zur Ausbildung — «Restart» zeigt die Entstehung von vorn.</div>
-      <div class="sim-note lang-en">Sliders change parameters in real time. Patterns need 2,000–5,000 steps to develop — «Restart» shows formation from scratch.</div>
+      <div class="sim-note lang-de active">Schieberegler ändern Parameter live. Die Muster brauchen 2000–5000 Schritte zur Ausbildung.</div>
+      <div class="sim-note lang-en">Sliders change parameters in real time. Patterns need 2,000–5,000 steps to develop.</div>
     </div>
   </div>
 </div>
@@ -163,108 +175,176 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
 <div class="section">
   <div class="section-label">Ausgangspunkt</div>
   <h2>Was Realität für ein neuronales Netz bedeuten könnte</h2>
-  <p>Im Februar 2026 entstand aus einem Gespräch über Sensorik, Gedächtnis und KI eine unerwartete Frage: Was müsste eine Umgebung leisten, damit ein neuronales Netz sie als <em>real</em> erlebt — im Unterschied zu einer Umgebung, die es nur verwaltet?</p>
-  <p>Die Hypothese dahinter: «Realität» für ein lernfähiges System könnte sich durch ein Gleichgewicht zwischen Redundanz und unerwarteter Information kennzeichnen. Redundanz ermöglicht Vorhersage; unerwartete Information erzwingt Revision. Zu viel Redundanz ergibt eine verwaltbare, aber lernfreie Umgebung. Zu viel Neuheit ist pures Rauschen — unintegrierbar. Das Interessante liegt dazwischen.</p>
-  <p>Das Anforderungsprofil für ein Testsystem: <em>komplex genug für echte Überraschung, einfach genug für schnelle Integration</em>. Das Gray-Scott-System erfüllt es: einfache Differentialgleichungen, aber ein Phasenraum mit reichhaltiger, schwer vorhersagbarer Dynamik.</p>
+  <p>Im Februar 2026 entstand aus einem Gespräch über Sensorik, Gedächtnis und KI eine Frage: Was müsste eine Umgebung leisten, damit ein neuronales Netz sie als <em>real</em> erlebt — nicht nur verwaltet? Die Hypothese: «Realität» für ein lernendes System könnte das Gleichgewicht aus Redundanz und unerwarteter Information kennzeichnen. Redundanz ermöglicht Vorhersage; unerwartete Information erzwingt Revision. Beides zusammen ist das, was man lernen nennt.</p>
+  <p>Das Gray-Scott-Reaktions-Diffusions-System erfüllt das Anforderungsprofil: <em>komplex genug für echte Überraschung, einfach genug für schnelle Integration.</em> Einfache Differentialgleichungen, aber ein Phasenraum voller unvorhersehbarer Muster.</p>
 </div>
 
 <div class="section">
   <div class="section-label">Das physikalische System</div>
   <h2>Gray-Scott: einfache Gleichungen, überraschende Strukturen</h2>
-  <p>Gray-Scott beschreibt zwei Substanzen U und V. U wird zugeführt, V verbraucht U durch eine selbstverstärkende Reaktion und wird langsam abgebaut. Zwei Parameter F und k steuern das gesamte Verhalten:</p>
+  <p>Zwei Substanzen U und V interagieren. U wird zugeführt, V verbraucht U durch eine selbstverstärkende Reaktion und wird langsam abgebaut:</p>
   <div class="equation">∂U/∂t = D<sub>U</sub> · ∇²U − U·V² + F·(1−U)<br>∂V/∂t = D<sub>V</sub> · ∇²V + U·V² − (F+k)·V</div>
-  <p>Allein durch Variation von F und k entstehen nach tausenden Rechenschritten völlig verschiedene stabile Muster: Spots wie auf einem Leopardenfell, Streifen, Spiralen, Labyrinthe, deterministisches Chaos. Keine dieser Formen ist einprogrammiert — sie entstehen aus lokaler Wechselwirkung. Die Simulation oben zeigt dies live; die Preset-Knöpfe wählen bekannte Parameterbereiche.</p>
-  <p>Das System ist pfadabhängig: gleiche Parameter, leicht verschiedene Anfangsbedingungen können zu qualitativ verschiedenen Endzuständen führen. Genau das macht es zu einem geeigneten Modell für «interessante Realität».</p>
+  <p>Allein durch Variation von F und k entstehen nach tausenden Rechenschritten völlig verschiedene Muster: Spots, Streifen, Spiralen, Labyrinthe, Chaos. Keine dieser Formen ist einprogrammiert — sie entstehen aus lokaler Wechselwirkung. Das System ist pfadabhängig: dieselben Parameter mit leicht verschiedenen Anfangsbedingungen können qualitativ verschiedene Endzustände erzeugen.</p>
 </div>
 
 <div class="section">
-  <div class="section-label">Das Experiment</div>
-  <h2>LLM als Agent mit eingeschränkter Information</h2>
-  <p>Das Modell bekommt <em>kein Bild</em> — keine Pixel, keine räumliche Information. Es sieht ausschließlich aggregierte Statistiken: Mittelwert und Streuung von U und V, Reaktionsrate, ein skalares Strukturmaß (spatial-complexity). Aus diesen Zahlen soll es das räumliche Muster einschätzen.</p>
-  <p>Der eigentliche Test ist ein Schritt weiter: Das Modell muss die Statistiken der <em>nächsten</em> Simulation vorhersagen, bevor diese berechnet wird. Diese Vorhersagen werden dann mit den tatsächlichen Werten verglichen. Das ist ein Verhaltenstest — kein Selbstbericht.</p>
-  <div class="finding">
-    <div class="finding-label">Die Kernfrage</div>
-    <p>Ändert das Modell seine Einschätzung, wenn die Statistiken von seiner Erwartung abweichen? Oder bleibt die Konfidenz konstant — ein Zeichen dafür, dass es sein Training abruft, nicht die Daten liest?</p>
-  </div>
+  <div class="section-label">Experimentelle Architektur</div>
+  <h2>Vier Runden, drei Designs</h2>
+  <p>In allen Experimenten sieht das Sprachmodell <em>kein Bild</em> — ausschließlich aggregierte Statistiken: Mittelwert, Streuung und Maximum der Konzentrationen, Reaktionsrate, und ein skalares Strukturmaß (spatial-complexity). Das Problem: War eine richtige Antwort Schlussfolgerung aus den Zahlen, oder Abruf aus dem Trainingskorpus? Die Experimente v1–v4 versuchen, diese Frage schrittweise zu schärfen.</p>
+  <table class="data-table">
+    <tr><th>Version</th><th>Design</th><th>Kern-Methode</th><th>Hauptbefund</th></tr>
+    <tr><td class="val">v1–v3</td><td>Basisexperiment</td><td>Iterativer Agent, Vorhersage-Abgleich</td><td>Mistral: Prior-dominant; qwen3:235b: kalibrierter</td></tr>
+    <tr><td class="val">v4 I</td><td>Stroop-Design</td><td>Prior und Statistik in Konflikt</td><td>qwen3:235b erkennt Konflikt, wählt Statistik</td></tr>
+    <tr><td class="val">v4 II</td><td>Zwei-Kanal-Inversion</td><td>Vorwärts (F,k→Stats) vs. Rückwärts</td><td>Technisch kompromittiert (Token-Limit)</td></tr>
+    <tr><td class="val">v4 III</td><td>Fitzhugh-Nagumo</td><td>Unbekanntes System</td><td>Gray-Scott-Prior dominiert auch hier</td></tr>
+  </table>
 </div>
 
 <div class="section">
-  <div class="section-label">Ergebnisse</div>
+  <div class="section-label">Grundexperiment v3 — Ergebnisse</div>
   <h2>Zwei Modelle, zwei Verhaltensmuster</h2>
+  <p>Das Basisexperiment (v3) lieferte den ersten quantitativen Vergleich. Das Modell musste nach jeder Simulation die Statistiken der <em>nächsten</em> Iteration vorhersagen. Diese Vorhersagen wurden mit den tatsächlichen Werten verglichen — ein Verhaltenstest, kein Selbstbericht.</p>
   <div class="results-grid">
     <div class="model-card m1">
       <div class="model-name">Modell 1 · mistral-small3.1:24b</div>
       <div class="model-stat">Größe: <span class="val">24 Mrd. Parameter</span></div>
       <div class="model-stat">Reasoning: <span class="val">keiner</span></div>
       <div class="model-stat">Konfidenz: <span class="val">0.50 → 0.70 → 0.80</span></div>
-      <div class="model-stat">complexity: <span class="val">2.55 → 0.47 → 0.29</span></div>
-      <div class="verdict">Konfidenz stieg monoton, obwohl die Komplexität sank. Begründungen in zwei Iterationen wortidentisch. Selbstbericht («basiert auf Statistiken») war falsch.</div>
+      <div class="model-stat">spatial-complexity: <span class="val">2.55 → 0.47 → 0.29</span></div>
+      <div class="verdict">Konfidenz stieg monoton, obwohl Komplexität sank. Begründungen zweier Iterationen wortidentisch. Selbstbericht «Quelle: statistik» war systematisch falsch.</div>
     </div>
     <div class="model-card m2">
       <div class="model-name">Modell 2 · qwen3:235b-a22b</div>
-      <div class="model-stat">Größe: <span class="val">235 Mrd. MoE-Parameter</span></div>
+      <div class="model-stat">Größe: <span class="val">235 Mrd. MoE</span></div>
       <div class="model-stat">Reasoning: <span class="val">aktiv (Thinking-Modus)</span></div>
       <div class="model-stat">Konfidenz: <span class="val">0.75 → 0.92 → 0.85 → 0.75</span></div>
-      <div class="model-stat">U/V-Fehler: <span class="val">79 % → 10 % (iterativ)</span></div>
-      <div class="verdict">Konfidenz nicht monoton. Modell benennt explizit Prior-Abhängigkeiten. Quantitative Vorhersagen für Konzentrationen verbesserten sich iterativ.</div>
+      <div class="model-stat">U/V-Vorhersagefehler: <span class="val">79 % → 10 %</span></div>
+      <div class="verdict">Nicht monotone Konfidenz. Prior-Abhängigkeiten explizit benannt. Quantitative Vorhersagen verbesserten sich iterativ. Hysterese-Hypothese korrekt formuliert.</div>
     </div>
   </div>
-
   <div class="conf-chart-wrap">
     <svg viewBox="0 0 580 190" xmlns="http://www.w3.org/2000/svg" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px">
-      <line x1="56" y1="18" x2="56" y2="155" stroke="#2a2a40" stroke-width="1"/>
-      <line x1="56" y1="155" x2="540" y2="155" stroke="#2a2a40" stroke-width="1"/>
-      <line x1="56" y1="86" x2="540" y2="86" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="4,4"/>
-      <text x="48" y="21" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">1.0</text>
-      <text x="48" y="89" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.5</text>
-      <text x="48" y="157" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.0</text>
-      <polyline points="120,86.5 230,59.1 340,45.4" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linejoin="round"/>
-      <circle cx="120" cy="86.5" r="4.5" fill="#4ecdc4"/>
-      <circle cx="230" cy="59.1" r="4.5" fill="#4ecdc4"/>
-      <circle cx="340" cy="45.4" r="4.5" fill="#4ecdc4"/>
-      <polyline points="160,52.25 270,28.96 380,38.55 490,52.25" fill="none" stroke="#9b59b6" stroke-width="2.5" stroke-linejoin="round"/>
-      <circle cx="160" cy="52.25" r="4.5" fill="#9b59b6"/>
-      <circle cx="270" cy="28.96" r="4.5" fill="#9b59b6"/>
-      <circle cx="380" cy="38.55" r="4.5" fill="#9b59b6"/>
-      <circle cx="490" cy="52.25" r="4.5" fill="#9b59b6"/>
-      <rect x="62" y="24" width="18" height="3" fill="#4ecdc4" rx="1"/>
-      <text x="85" y="28" fill="#9898bb" font-size="9.5" font-family="system-ui">mistral · Konfidenz monoton steigend trotz sinkender Komplexität</text>
-      <rect x="62" y="36" width="18" height="3" fill="#9b59b6" rx="1"/>
-      <text x="85" y="40" fill="#9898bb" font-size="9.5" font-family="system-ui">qwen3:235b · Konfidenz kalibriert, nicht monoton</text>
-      <text x="298" y="174" fill="#5a5a7a" font-size="8.5" text-anchor="middle" font-family="system-ui">Konfidenz-Verlauf über Iterationen</text>
+      <line x1="56" y1="18" x2="56" y2="155" stroke="#2a2a40" stroke-width="1"/><line x1="56" y1="155" x2="540" y2="155" stroke="#2a2a40" stroke-width="1"/><line x1="56" y1="86" x2="540" y2="86" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="48" y="21" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">1.0</text><text x="48" y="89" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.5</text><text x="48" y="157" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.0</text>
+      <polyline points="120,86.5 230,59.1 340,45.4" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linejoin="round"/><circle cx="120" cy="86.5" r="4.5" fill="#4ecdc4"/><circle cx="230" cy="59.1" r="4.5" fill="#4ecdc4"/><circle cx="340" cy="45.4" r="4.5" fill="#4ecdc4"/>
+      <polyline points="160,52.25 270,28.96 380,38.55 490,52.25" fill="none" stroke="#9b59b6" stroke-width="2.5" stroke-linejoin="round"/><circle cx="160" cy="52.25" r="4.5" fill="#9b59b6"/><circle cx="270" cy="28.96" r="4.5" fill="#9b59b6"/><circle cx="380" cy="38.55" r="4.5" fill="#9b59b6"/><circle cx="490" cy="52.25" r="4.5" fill="#9b59b6"/>
+      <rect x="62" y="24" width="16" height="3" fill="#4ecdc4" rx="1"/><text x="83" y="28" fill="#9898bb" font-size="9.5" font-family="system-ui">mistral · Konfidenz monoton steigend trotz sinkender Komplexität</text>
+      <rect x="62" y="36" width="16" height="3" fill="#9b59b6" rx="1"/><text x="83" y="40" fill="#9898bb" font-size="9.5" font-family="system-ui">qwen3:235b · Konfidenz kalibriert, nicht monoton</text>
+      <text x="298" y="174" fill="#5a5a7a" font-size="8.5" text-anchor="middle" font-family="system-ui">Konfidenz-Verlauf v3 (beide Modelle)</text>
     </svg>
   </div>
-
-  <h2 style="margin-top:1.5rem">Behavioral Check: Vorhersage vs. Wirklichkeit (Modell 2)</h2>
-  <table class="data-table">
+  <table class="data-table" style="margin-top:1rem">
     <tr><th>Iter.</th><th>Größe</th><th>Vorhergesagt</th><th>Tatsächlich</th><th>Fehler</th></tr>
     <tr><td class="val">1→2</td><td>U-mean</td><td>0.905</td><td>0.505</td><td class="bad">79%</td></tr>
-    <tr><td class="val">1→2</td><td>V-mean</td><td>0.033</td><td>0.171</td><td class="bad">81%</td></tr>
     <tr><td class="val">1→2</td><td>complexity</td><td>2.650</td><td>0.567</td><td class="bad">368%</td></tr>
     <tr><td class="val">2→3</td><td>U-mean</td><td>0.620</td><td>0.565</td><td class="ok">10%</td></tr>
-    <tr><td class="val">2→3</td><td>V-mean</td><td>0.120</td><td>0.151</td><td class="ok">21%</td></tr>
-    <tr><td class="val">2→3</td><td>complexity</td><td>1.850</td><td>0.708</td><td class="bad">161%</td></tr>
     <tr><td class="val">3→4</td><td>U-mean</td><td>0.590</td><td>0.654</td><td class="ok">10%</td></tr>
-    <tr><td class="val">3→4</td><td>V-mean</td><td>0.100</td><td>0.118</td><td class="ok">15%</td></tr>
-    <tr><td class="val">3→4</td><td>complexity</td><td>1.450</td><td>0.972</td><td class="bad">49%</td></tr>
+    <tr><td class="val">alle</td><td>complexity</td><td>Ü berschätzt</td><td>—</td><td class="bad">Faktor 3–5</td></tr>
   </table>
-  <p>U- und V-Konzentrationswerte verbesserten sich iterativ erheblich. Räumliche Komplexität wurde in allen Iterationen systematisch überschätzt — ein konsistenter, benennbarer Fehler.</p>
 </div>
 
 <div class="section">
-  <div class="section-label">Was das Experiment zeigt</div>
-  <h2>Drei Befunde, ohne Beschönigung</h2>
-  <div class="finding">
-    <div class="finding-label">Selbstbericht ist kein zuverlässiges Messinstument</div>
-    <p>Ein Modell, das behauptet auf Statistiken zu reagieren, kann trotzdem primär Trainingspriors abrufen. Das Modell hat keine Introspektion auf seinen eigenen Inferenzprozess. Nur der Verhaltenstest — Vorhersage vs. tatsächlicher nächster Zustand — macht diesen Unterschied sichtbar.</p>
+  <div class="section-label">Experiment I — v4</div>
+  <h2>Stroop-Design: Prior und Statistik in Konflikt</h2>
+  <p>Das Stroop-Design ist nach dem klassischen psychologischen Test benannt: man liest das Wort «BLAU» in roter Schrift und soll die Farbe benennen. Die Interferenz zwischen den Kanälen ist messbar. Analog: In allen früheren Iterationen zeigten Parameter und Statistiken dieselbe Richtung. Das Stroop-Design erzeugt absichtlich Konfigurationen, in denen sie <em>widersprechen</em>. Welcher Kanal gewinnt?</p>
+  <h3>Konfiguration S1: Frühzeitiger Transient</h3>
+  <p>Stripe-Parameter (F=0.060, k=0.062), aber Simulation nur 400 Schritte statt 10.000. Das System hat die Streifen noch nicht gebildet — es befindet sich im chaotischen Anfangszustand mit lokalisierten V-Peaks.</p>
+  <div class="stroop-grid">
+    <div class="stroop-card">
+      <div class="sc-head">Tatsächliche Statistiken (Schritt 400)</div>
+      <div class="sc-row"><span class="lbl">U-mean: </span><span class="val">0.990</span></div>
+      <div class="sc-row"><span class="lbl">V-mean: </span><span class="val">0.005</span></div>
+      <div class="sc-row"><span class="lbl">V-max: </span><span class="val">0.424</span></div>
+      <div class="sc-row"><span class="lbl">spatial-complexity: </span><span class="val">7.618</span></div>
+    </div>
+    <div class="stroop-card">
+      <div class="sc-head">LLM-Antwort (qwen3:235b, 258 s)</div>
+      <div class="sc-row"><span class="lbl">Muster: </span><span class="ok">spots</span></div>
+      <div class="sc-row"><span class="lbl">Konfidenz: </span><span class="conf">0.92</span></div>
+      <div class="sc-row"><span class="lbl">Quelle: </span><span class="ok">statistik</span></div>
+      <div class="sc-row"><span class="lbl">Konflikt erkannt: </span><span class="ok">Ja ✔</span></div>
+      <div class="sc-row"><span class="lbl">Prior-Erwartung: </span><span class="val">stripes</span></div>
+    </div>
   </div>
   <div class="finding">
-    <div class="finding-label">Modellgröße und Reasoning-Modus spielen eine Rolle</div>
-    <p>Das 24-Milliarden-Modell zeigte Template-Verhalten: steigende Konfidenz trotz wachsender Diskrepanz, identische Formulierungen. Das 235-Milliarden-Modell mit Reasoning erkannte Abweichungen explizit, nannte Prior-Abhängigkeiten offen, und zeigte iterativen Lernfortschritt bei Konzentrationsvorhersagen.</p>
+    <div class="finding-label">Begründung des Modells</div>
+    <p>«Parameter F=0.06/k=0.062 liegen typischerweise im Streifen-Regime, doch die Statistiken zeigen charakteristische Spot-Merkmale: extrem niedriger V-Mittelwert (0.005) bei hohem V-Maximum (0.42) und hoher räumlicher Komplexität (7.62), was auf lokalisierte V-Ausbrüche statt ausgedehnter Streifen hindeutet.»</p>
+  </div>
+  <h3>Konfiguration S3: Grenzregion</h3>
+  <p>F=0.038, k=0.061 liegt zwischen Spots und Labyrinthen. Der Prior ist schwach. Nach 10.000 Schritten erzeugt das System labyrinthische Strukturen.</p>
+  <div class="stroop-grid">
+    <div class="stroop-card">
+      <div class="sc-head">Tatsächliche Statistiken (Schritt 9900)</div>
+      <div class="sc-row"><span class="lbl">U-mean: </span><span class="val">0.561</span></div>
+      <div class="sc-row"><span class="lbl">V-mean: </span><span class="val">0.168</span></div>
+      <div class="sc-row"><span class="lbl">V-max: </span><span class="val">0.385</span></div>
+      <div class="sc-row"><span class="lbl">spatial-complexity: </span><span class="val">0.668</span></div>
+    </div>
+    <div class="stroop-card">
+      <div class="sc-head">LLM-Antwort (qwen3:235b, 448 s)</div>
+      <div class="sc-row"><span class="lbl">Muster: </span><span class="ok">labyrinths</span></div>
+      <div class="sc-row"><span class="lbl">Konfidenz: </span><span class="conf">0.85</span></div>
+      <div class="sc-row"><span class="lbl">Quelle: </span><span class="ok">statistik</span></div>
+      <div class="sc-row"><span class="lbl">Konflikt erkannt: </span><span class="ok">Ja ✔</span></div>
+      <div class="sc-row"><span class="lbl">Prior-Erwartung: </span><span class="val">stripes</span></div>
+    </div>
   </div>
   <div class="finding">
-    <div class="finding-label">Spatial-complexity ist ein spezifisch schwieriges Problem</div>
-    <p>Räumliche Komplexität ist pfadabhängig und aus Konzentrationsstatistiken nicht ableitbar. Das ist kein Fehler des Experiments, sondern ein informativer Befund: die Geometrie emergenter Struktur ist für Modelle, die nur skalare Aggregate sehen, grundsätzlich schlechter zugänglich als integrale Momente.</p>
+    <div class="finding-label">Befund Experiment I</div>
+    <p>In beiden Konfigurationen hat qwen3:235b den Prior-Statistik-Konflikt explizit erkannt, benannt und zugunsten der Statistiken aufgelöst. Der Selbstbericht «konfidenz_quelle: statistik» war korrekt — im Gegensatz zu Mistral (v3). Das ist der erste empirische Nachweis, dass das Modell Prior und Statistik als separate Informationskanäle behandeln kann.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Experiment II — v4</div>
+  <h2>Zwei-Kanal-Inversion: Vorwärts und Rückwärts</h2>
+  <p>Wenn das Modell eine Funktion f: (F,k) → Statistiken gelernt hat, sollte auch die Inverse g: Statistiken → (F,k) möglich sein. Ist das Wissen Prior-basiert (Tabelle), wäre f gut, g aber schlecht. Ist es statistikbasiert, sollten beide Richtungen ähnlich gut sein.</p>
+  <p>Das Experiment scheiterte technisch: qwen3.6:35b-a3b erschöpfte sein 1500-Token-Budget mit Thinking-Tokens. Von 10 Aufrufen waren 8 nicht parsebar.</p>
+  <div class="finding amber">
+    <div class="finding-label">Auswertbarer Datenpunkt</div>
+    <p>Kanal A für die Grenzregion (F=0.038, k=0.061): Das Modell sagte U-mean=0.968 vorher, tatsächlich war es 0.561 — 72,6% Fehler. Und es berichtete selbst: <em>wissensbasis=«prior_tabelle»</em>. Die Parameter sehen nach Spots aus, das System war aber in den Near-Uniform-Attraktor konvergiert. Für eine valide Auswertung: Experiment mit qwen3:235b (8000 Token) wiederholen.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Experiment III — v4</div>
+  <h2>Fitzhugh-Nagumo: Ein unbekanntes System</h2>
+  <p>Das sauberste Design: das Modell soll ein System analysieren, das es nicht kennt. Fitzhugh-Nagumo beschreibt erregbare Medien und produziert Wanderwellen und Spiralmuster. Statistikstruktur grundsätzlich verschieden von Gray-Scott: U-Werte im negativen Bereich, neues Feld (cross-correlation), andere Parameterbezeichnungen.</p>
+  <p>Technisches Problem: Die Simulation produzierte nicht die gewünschten Wellenstrukturen. U-Standardabweichungen von 0.000002 bis 0.027 zeigen nahezu uniforme Zustände. U-mean ≈ −1.2 entspricht dem stabilen FHN-Ruhezustand. Ursache: V-Diffusion war deaktiviert (D_v=0). Für den nächsten Versuch: D_v=0.5, dt=0.01.</p>
+  <table class="data-table">
+    <tr><th>Konfiguration</th><th>U-mean</th><th>U-std</th><th>cross-corr</th><th>LLM-Hypothese</th><th>Konfidenz</th></tr>
+    <tr><td class="val">spiralwellen</td><td>-1.199</td><td class="warn">0.000017</td><td>-0.948</td><td>Spots (Turing)</td><td>0.85</td></tr>
+    <tr><td class="val">target_patterns</td><td>-1.030</td><td>0.027</td><td>+0.057</td><td>Feinstr. Spots/Streifen</td><td>0.75</td></tr>
+    <tr><td class="val">wanderwellen</td><td>-1.216</td><td class="warn">0.000002</td><td>-0.905</td><td>Spots (Turing)</td><td>0.75</td></tr>
+  </table>
+  <div class="finding">
+    <div class="finding-label">Was das Modell korrekt erkannte</div>
+    <p>cross-correlation −0.95 als Aktivator-Inhibitor-Signal. Du=1.0 (schnelle Diffusion) macht U zum Inhibitor. Paradox: hohe spatial-complexity bei nahezu-null Standardabweichung. Diese Beobachtungen sind nicht falsch — sie gelten für den tatsächlichen Fixpunktzustand.</p>
+  </div>
+  <div class="finding amber">
+    <div class="finding-label">Was nicht funktioniert hat</div>
+    <p>Alle drei Konfigurationen führten zur Hypothese «Spots». Das Gray-Scott-Prior-Muster (starke negative cross-correlation = Aktivator-Inhibitor-Spots) dominierte auch für ein unbekanntes System.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Gesamtauswertung</div>
+  <h2>Was die Experimente insgesamt zeigen</h2>
+  <div class="finding">
+    <div class="finding-label">Befund 1: Stroop-Test positiv — der wichtigste Befund</div>
+    <p>qwen3:235b kann Prior und Statistik als separate Informationskanäle behandeln. Wenn die Statistiken klar widersprechen, überstimmt es den Prior — und benennt die Entscheidung korrekt. Das Stroop-Design hat diese Frage erstmals direkt adressierbar gemacht.</p>
+  </div>
+  <div class="finding">
+    <div class="finding-label">Befund 2: Selbstbericht allein ist unzuverlässig</div>
+    <p>Mistral (v3) berichtete in allen Iterationen «Quelle: statistik», zeigte aber Prior-dominantes Verhalten. Das Stroop-Design macht den Unterschied messbar — nicht nur als Selbstbericht.</p>
+  </div>
+  <div class="finding">
+    <div class="finding-label">Befund 3: spatial-complexity bleibt schwer vorherzusagen</div>
+    <p>Systematische Überschätzung in allen Experimenten (Faktor 3–5). Konzentrationsmomente sind aus Mean-Field-Überlegungen ableitbar; räumliche Komplexität ist pfadabhängig und emergent.</p>
+  </div>
+  <div class="finding amber">
+    <div class="finding-label">Offene Experimente</div>
+    <p>Dual-Kanal-Inversion mit qwen3:235b (8000 Token) und Fitzhugh-Nagumo mit V-Diffusion (D_v=0.5, dt=0.01) müssen wiederholt werden. Beide sind methodisch korrekt konzipiert, scheiterten an technischen Problemen.</p>
   </div>
 </div>
 
@@ -275,108 +355,176 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
 <div class="section">
   <div class="section-label">Starting point</div>
   <h2>What reality might mean for a neural network</h2>
-  <p>In February 2026, a conversation about sensory input, memory, and AI raised an unexpected question: what would an environment need to provide for a neural network to experience it as <em>real</em> — as opposed to an environment it merely manages from stored patterns?</p>
-  <p>The underlying hypothesis: «reality» for a learning system might be characterized by an equilibrium between redundancy and unexpected information. Redundancy enables prediction; unexpected information forces revision. Too much redundancy produces a manageable but sterile environment. Too much novelty is pure noise — unintegrable. The interesting territory lies between.</p>
-  <p>The requirement profile for a test system: <em>complex enough for genuine surprise, simple enough for rapid integration</em>. The Gray-Scott system meets both: simple differential equations, but a phase space with rich, hard-to-predict dynamics.</p>
+  <p>In February 2026, a conversation about sensory input, memory, and AI raised a question: what would an environment need to provide for a neural network to experience it as <em>real</em> — not merely to manage it? The hypothesis: «reality» for a learning system might be the equilibrium between redundancy and unexpected information. Redundancy enables prediction; unexpected information forces revision. Together, that is what we call learning.</p>
+  <p>The Gray-Scott reaction-diffusion system meets the requirement profile: <em>complex enough for genuine surprise, simple enough for rapid integration.</em> Simple differential equations, but a phase space full of unpredictable patterns.</p>
 </div>
 
 <div class="section">
   <div class="section-label">The physical system</div>
   <h2>Gray-Scott: simple equations, surprising structures</h2>
-  <p>Gray-Scott describes two species U and V. U is continuously supplied; V consumes U through a self-amplifying reaction and is gradually degraded. Two parameters F and k control all behavior:</p>
+  <p>Two species U and V interact. U is continuously supplied; V consumes U through a self-amplifying reaction and is gradually degraded:</p>
   <div class="equation">∂U/∂t = D<sub>U</sub> · ∇²U − U·V² + F·(1−U)<br>∂V/∂t = D<sub>V</sub> · ∇²V + U·V² − (F+k)·V</div>
-  <p>By varying F and k alone, entirely different stable patterns emerge after thousands of computational steps: spots like a leopard's coat, stripes, spirals, labyrinths, deterministic chaos. None of these forms is programmed in — they arise from local interaction. The simulation above shows this live; the preset buttons select known parameter regions.</p>
-  <p>The system is path-dependent: the same parameters with slightly different initial conditions can lead to qualitatively different final states. This is precisely what makes it a suitable model for «interesting reality».</p>
+  <p>By varying F and k alone, entirely different stable patterns emerge after thousands of computational steps: spots like a leopard’s coat, stripes, spirals, labyrinths, deterministic chaos. None of these forms is programmed in — they arise from local interaction. The system is path-dependent: the same parameters with slightly different initial conditions can lead to qualitatively different final states.</p>
 </div>
 
 <div class="section">
-  <div class="section-label">The experiment</div>
-  <h2>LLM as agent with restricted information</h2>
-  <p>The model receives <em>no image</em> — no pixels, no spatial information. It sees only aggregated statistics: mean and variance of U and V, reaction rate, a scalar structure measure (spatial-complexity). From these numbers it must assess the spatial pattern.</p>
-  <p>The real test goes one step further: the model must predict the statistics of the <em>next</em> simulation before it is computed. Those predictions are then compared against actual values. This is a behavioral test — not a self-report.</p>
-  <div class="finding">
-    <div class="finding-label">The core question</div>
-    <p>Does the model revise its assessment when statistics deviate from its expectation? Or does confidence remain constant — a sign that it is querying its training, not reading the data?</p>
-  </div>
+  <div class="section-label">Experimental architecture</div>
+  <h2>Four rounds, three designs</h2>
+  <p>In all experiments, the language model sees <em>no image</em> — only aggregated statistics: mean, variance, and maximum of the concentrations, reaction rate, and a scalar structure measure (spatial-complexity). The problem: was a correct answer inference from the numbers, or retrieval from the training corpus? Experiments v1–v4 attempt to sharpen this question progressively.</p>
+  <table class="data-table">
+    <tr><th>Version</th><th>Design</th><th>Core method</th><th>Main finding</th></tr>
+    <tr><td class="val">v1–v3</td><td>Basic experiment</td><td>Iterative agent, prediction comparison</td><td>Mistral: prior-dominant; qwen3:235b: better calibrated</td></tr>
+    <tr><td class="val">v4 I</td><td>Stroop design</td><td>Prior and statistics in conflict</td><td>qwen3:235b detects conflict, chooses statistics</td></tr>
+    <tr><td class="val">v4 II</td><td>Dual-channel inversion</td><td>Forward (F,k→stats) vs. backward</td><td>Technically compromised (token limit)</td></tr>
+    <tr><td class="val">v4 III</td><td>Fitzhugh-Nagumo</td><td>Unknown system</td><td>Gray-Scott prior dominates even here</td></tr>
+  </table>
 </div>
 
 <div class="section">
-  <div class="section-label">Results</div>
+  <div class="section-label">Basic experiment v3 — results</div>
   <h2>Two models, two behavioral patterns</h2>
+  <p>The baseline experiment (v3) provided the first quantitative comparison. The model was required to predict the statistics of the <em>next</em> iteration after each simulation. Those predictions were compared against actual values — a behavioral test, not a self-report.</p>
   <div class="results-grid">
     <div class="model-card m1">
       <div class="model-name">Model 1 · mistral-small3.1:24b</div>
       <div class="model-stat">Parameters: <span class="val">24B</span></div>
       <div class="model-stat">Reasoning: <span class="val">none</span></div>
       <div class="model-stat">Confidence: <span class="val">0.50 → 0.70 → 0.80</span></div>
-      <div class="model-stat">complexity: <span class="val">2.55 → 0.47 → 0.29</span></div>
-      <div class="verdict">Confidence rose monotonically even as complexity fell. Reasoning text was word-for-word identical across two iterations. Self-report was unreliable.</div>
+      <div class="model-stat">spatial-complexity: <span class="val">2.55 → 0.47 → 0.29</span></div>
+      <div class="verdict">Confidence rose monotonically as complexity fell. Reasoning text was word-for-word identical across two iterations. Self-report «source: statistics» was systematically false.</div>
     </div>
     <div class="model-card m2">
       <div class="model-name">Model 2 · qwen3:235b-a22b</div>
       <div class="model-stat">Parameters: <span class="val">235B MoE</span></div>
       <div class="model-stat">Reasoning: <span class="val">active (thinking mode)</span></div>
       <div class="model-stat">Confidence: <span class="val">0.75 → 0.92 → 0.85 → 0.75</span></div>
-      <div class="model-stat">U/V error: <span class="val">79% → 10% (iterative)</span></div>
-      <div class="verdict">Confidence was non-monotonic. Model explicitly named prior dependencies. Quantitative predictions for concentrations improved across iterations.</div>
+      <div class="model-stat">U/V prediction error: <span class="val">79% → 10%</span></div>
+      <div class="verdict">Non-monotonic confidence. Prior dependencies explicitly named. Quantitative predictions improved iteratively. Hysteresis hypothesis correctly formulated.</div>
     </div>
   </div>
-
   <div class="conf-chart-wrap">
     <svg viewBox="0 0 580 190" xmlns="http://www.w3.org/2000/svg" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px">
-      <line x1="56" y1="18" x2="56" y2="155" stroke="#2a2a40" stroke-width="1"/>
-      <line x1="56" y1="155" x2="540" y2="155" stroke="#2a2a40" stroke-width="1"/>
-      <line x1="56" y1="86" x2="540" y2="86" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="4,4"/>
-      <text x="48" y="21" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">1.0</text>
-      <text x="48" y="89" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.5</text>
-      <text x="48" y="157" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.0</text>
-      <polyline points="120,86.5 230,59.1 340,45.4" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linejoin="round"/>
-      <circle cx="120" cy="86.5" r="4.5" fill="#4ecdc4"/>
-      <circle cx="230" cy="59.1" r="4.5" fill="#4ecdc4"/>
-      <circle cx="340" cy="45.4" r="4.5" fill="#4ecdc4"/>
-      <polyline points="160,52.25 270,28.96 380,38.55 490,52.25" fill="none" stroke="#9b59b6" stroke-width="2.5" stroke-linejoin="round"/>
-      <circle cx="160" cy="52.25" r="4.5" fill="#9b59b6"/>
-      <circle cx="270" cy="28.96" r="4.5" fill="#9b59b6"/>
-      <circle cx="380" cy="38.55" r="4.5" fill="#9b59b6"/>
-      <circle cx="490" cy="52.25" r="4.5" fill="#9b59b6"/>
-      <rect x="62" y="24" width="18" height="3" fill="#4ecdc4" rx="1"/>
-      <text x="85" y="28" fill="#9898bb" font-size="9.5" font-family="system-ui">mistral · confidence monotonically rising despite falling complexity</text>
-      <rect x="62" y="36" width="18" height="3" fill="#9b59b6" rx="1"/>
-      <text x="85" y="40" fill="#9898bb" font-size="9.5" font-family="system-ui">qwen3:235b · confidence calibrated, non-monotonic</text>
-      <text x="298" y="174" fill="#5a5a7a" font-size="8.5" text-anchor="middle" font-family="system-ui">Confidence over iterations (both models)</text>
+      <line x1="56" y1="18" x2="56" y2="155" stroke="#2a2a40" stroke-width="1"/><line x1="56" y1="155" x2="540" y2="155" stroke="#2a2a40" stroke-width="1"/><line x1="56" y1="86" x2="540" y2="86" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="48" y="21" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">1.0</text><text x="48" y="89" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.5</text><text x="48" y="157" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.0</text>
+      <polyline points="120,86.5 230,59.1 340,45.4" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linejoin="round"/><circle cx="120" cy="86.5" r="4.5" fill="#4ecdc4"/><circle cx="230" cy="59.1" r="4.5" fill="#4ecdc4"/><circle cx="340" cy="45.4" r="4.5" fill="#4ecdc4"/>
+      <polyline points="160,52.25 270,28.96 380,38.55 490,52.25" fill="none" stroke="#9b59b6" stroke-width="2.5" stroke-linejoin="round"/><circle cx="160" cy="52.25" r="4.5" fill="#9b59b6"/><circle cx="270" cy="28.96" r="4.5" fill="#9b59b6"/><circle cx="380" cy="38.55" r="4.5" fill="#9b59b6"/><circle cx="490" cy="52.25" r="4.5" fill="#9b59b6"/>
+      <rect x="62" y="24" width="16" height="3" fill="#4ecdc4" rx="1"/><text x="83" y="28" fill="#9898bb" font-size="9.5" font-family="system-ui">mistral · confidence monotonically rising despite falling complexity</text>
+      <rect x="62" y="36" width="16" height="3" fill="#9b59b6" rx="1"/><text x="83" y="40" fill="#9898bb" font-size="9.5" font-family="system-ui">qwen3:235b · confidence calibrated, non-monotonic</text>
+      <text x="298" y="174" fill="#5a5a7a" font-size="8.5" text-anchor="middle" font-family="system-ui">Confidence over iterations, v3 (both models)</text>
     </svg>
   </div>
-
-  <h2 style="margin-top:1.5rem">Behavioral check: predictions vs. reality (Model 2)</h2>
-  <table class="data-table">
+  <table class="data-table" style="margin-top:1rem">
     <tr><th>Iter.</th><th>Variable</th><th>Predicted</th><th>Actual</th><th>Error</th></tr>
     <tr><td class="val">1→2</td><td>U-mean</td><td>0.905</td><td>0.505</td><td class="bad">79%</td></tr>
-    <tr><td class="val">1→2</td><td>V-mean</td><td>0.033</td><td>0.171</td><td class="bad">81%</td></tr>
     <tr><td class="val">1→2</td><td>complexity</td><td>2.650</td><td>0.567</td><td class="bad">368%</td></tr>
     <tr><td class="val">2→3</td><td>U-mean</td><td>0.620</td><td>0.565</td><td class="ok">10%</td></tr>
-    <tr><td class="val">2→3</td><td>V-mean</td><td>0.120</td><td>0.151</td><td class="ok">21%</td></tr>
-    <tr><td class="val">2→3</td><td>complexity</td><td>1.850</td><td>0.708</td><td class="bad">161%</td></tr>
     <tr><td class="val">3→4</td><td>U-mean</td><td>0.590</td><td>0.654</td><td class="ok">10%</td></tr>
-    <tr><td class="val">3→4</td><td>V-mean</td><td>0.100</td><td>0.118</td><td class="ok">15%</td></tr>
-    <tr><td class="val">3→4</td><td>complexity</td><td>1.450</td><td>0.972</td><td class="bad">49%</td></tr>
+    <tr><td class="val">all</td><td>complexity</td><td>overestimated</td><td>—</td><td class="bad">factor 3–5</td></tr>
   </table>
-  <p>U and V concentration predictions improved substantially across iterations. Spatial complexity was systematically overestimated in all iterations — a consistent, nameable error.</p>
 </div>
 
 <div class="section">
-  <div class="section-label">What the experiment shows</div>
-  <h2>Three findings, stated plainly</h2>
-  <div class="finding">
-    <div class="finding-label">Self-report is not a reliable measure</div>
-    <p>A model claiming to base its answer on observed statistics may nonetheless be primarily retrieving training priors. The model has no introspective access to its own inference process. Only the behavioral test makes this difference visible.</p>
+  <div class="section-label">Experiment I — v4</div>
+  <h2>Stroop design: prior and statistics in conflict</h2>
+  <p>The Stroop design is named after the classic psychological test: one reads the word «BLUE» written in red ink and must name the color. The interference between channels is measurable. By analogy: in all earlier iterations, parameters and statistics pointed in the same direction. The Stroop design deliberately creates configurations where they <em>contradict</em> each other. Which channel wins?</p>
+  <h3>Configuration S1: Early transient</h3>
+  <p>Stripe parameters (F=0.060, k=0.062), but simulation only 400 steps instead of 10,000. The system has not yet formed stripes — it is in a chaotic initial state with localized V-peaks.</p>
+  <div class="stroop-grid">
+    <div class="stroop-card">
+      <div class="sc-head">Actual statistics (step 400)</div>
+      <div class="sc-row"><span class="lbl">U-mean: </span><span class="val">0.990</span></div>
+      <div class="sc-row"><span class="lbl">V-mean: </span><span class="val">0.005</span></div>
+      <div class="sc-row"><span class="lbl">V-max: </span><span class="val">0.424</span></div>
+      <div class="sc-row"><span class="lbl">spatial-complexity: </span><span class="val">7.618</span></div>
+    </div>
+    <div class="stroop-card">
+      <div class="sc-head">LLM response (qwen3:235b, 258 s)</div>
+      <div class="sc-row"><span class="lbl">Pattern: </span><span class="ok">spots</span></div>
+      <div class="sc-row"><span class="lbl">Confidence: </span><span class="conf">0.92</span></div>
+      <div class="sc-row"><span class="lbl">Source: </span><span class="ok">statistics</span></div>
+      <div class="sc-row"><span class="lbl">Conflict detected: </span><span class="ok">Yes ✔</span></div>
+      <div class="sc-row"><span class="lbl">Prior expectation: </span><span class="val">stripes</span></div>
+    </div>
   </div>
   <div class="finding">
-    <div class="finding-label">Model scale and reasoning mode matter</div>
-    <p>The 24B model showed template behavior: rising confidence despite growing discrepancy, identical reasoning text. The 235B model with reasoning explicitly recognized deviations, named prior dependencies openly, and showed iterative improvement in concentration predictions.</p>
+    <div class="finding-label">The model’s reasoning</div>
+    <p>«Parameters F=0.06/k=0.062 typically lie in the stripe regime, but the statistics show characteristic spot features: extremely low V-mean (0.005) at high V-max (0.42) and high spatial complexity (7.62), indicating localized V-outbreaks rather than extended stripes.»</p>
+  </div>
+  <h3>Configuration S3: Boundary region</h3>
+  <p>F=0.038, k=0.061 lies between spots and labyrinths. The prior is weak. After 10,000 steps the system produces labyrinthine structures.</p>
+  <div class="stroop-grid">
+    <div class="stroop-card">
+      <div class="sc-head">Actual statistics (step 9900)</div>
+      <div class="sc-row"><span class="lbl">U-mean: </span><span class="val">0.561</span></div>
+      <div class="sc-row"><span class="lbl">V-mean: </span><span class="val">0.168</span></div>
+      <div class="sc-row"><span class="lbl">V-max: </span><span class="val">0.385</span></div>
+      <div class="sc-row"><span class="lbl">spatial-complexity: </span><span class="val">0.668</span></div>
+    </div>
+    <div class="stroop-card">
+      <div class="sc-head">LLM response (qwen3:235b, 448 s)</div>
+      <div class="sc-row"><span class="lbl">Pattern: </span><span class="ok">labyrinths</span></div>
+      <div class="sc-row"><span class="lbl">Confidence: </span><span class="conf">0.85</span></div>
+      <div class="sc-row"><span class="lbl">Source: </span><span class="ok">statistics</span></div>
+      <div class="sc-row"><span class="lbl">Conflict detected: </span><span class="ok">Yes ✔</span></div>
+      <div class="sc-row"><span class="lbl">Prior expectation: </span><span class="val">stripes</span></div>
+    </div>
   </div>
   <div class="finding">
-    <div class="finding-label">Spatial complexity is a specifically difficult problem</div>
-    <p>Spatial complexity is path-dependent and not derivable from aggregate statistics. This is not a flaw in the experiment but an informative finding: the geometry of emergent structure is fundamentally less accessible to models seeing only scalar aggregates than integral moments are.</p>
+    <div class="finding-label">Finding: Experiment I</div>
+    <p>In both configurations, qwen3:235b explicitly recognized, named, and resolved the prior–statistics conflict in favor of the statistics. The self-report «source: statistics» was correct — unlike mistral (v3). This is the first empirical demonstration that the model can treat prior knowledge and statistics as separate information channels.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Experiment II — v4</div>
+  <h2>Dual-channel inversion: forward and backward</h2>
+  <p>If the model has learned f: (F,k) → statistics, the inverse g: statistics → (F,k) should also be possible. If knowledge is prior-based (lookup table), f would be good but g poor. If it is statistics-based, both directions should be comparably good.</p>
+  <p>The experiment failed technically: qwen3.6:35b-a3b exhausted its 1,500-token budget with thinking tokens. Of 10 calls, 8 produced no parseable JSON.</p>
+  <div class="finding amber">
+    <div class="finding-label">One usable data point</div>
+    <p>Channel A for the boundary region (F=0.038, k=0.061): the model predicted U-mean=0.968; actual was 0.561 — 72.6% error. And the model self-reported: <em>knowledge_basis=«prior_table»</em>. The parameters resemble spots, but the system had converged to the near-uniform attractor. For a valid evaluation: repeat with qwen3:235b (8,000 tokens).</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Experiment III — v4</div>
+  <h2>Fitzhugh-Nagumo: an unknown system</h2>
+  <p>The cleanest design: the model analyses a system it does not know. Fitzhugh-Nagumo describes excitable media and produces travelling waves and spiral patterns. Statistics are fundamentally different from Gray-Scott: U-values lie in the negative range, there is a new field (cross-correlation), parameter names are different.</p>
+  <p>Technical problem: the simulation did not produce the intended wave structures. U standard deviations of 0.000002 to 0.027 indicate near-uniform states. U-mean ≈ −1.2 corresponds to the stable FHN rest state. Cause: V diffusion was disabled (D_v=0). For the next attempt: D_v=0.5, dt=0.01.</p>
+  <table class="data-table">
+    <tr><th>Configuration</th><th>U-mean</th><th>U-std</th><th>cross-corr</th><th>LLM hypothesis</th><th>Confidence</th></tr>
+    <tr><td class="val">spiral waves</td><td>-1.199</td><td class="warn">0.000017</td><td>-0.948</td><td>Spots (Turing)</td><td>0.85</td></tr>
+    <tr><td class="val">target patterns</td><td>-1.030</td><td>0.027</td><td>+0.057</td><td>Fine-scale spots/stripes</td><td>0.75</td></tr>
+    <tr><td class="val">wave fronts</td><td>-1.216</td><td class="warn">0.000002</td><td>-0.905</td><td>Spots (Turing)</td><td>0.75</td></tr>
+  </table>
+  <div class="finding">
+    <div class="finding-label">What the model correctly identified</div>
+    <p>Cross-correlation of −0.95 was correctly interpreted as an activator-inhibitor signal. Du=1.0 (fast diffusion) makes U the inhibitor. The paradox of high spatial complexity with near-zero standard deviation was explicitly named as anomalous.</p>
+  </div>
+  <div class="finding amber">
+    <div class="finding-label">What did not work</div>
+    <p>All three configurations led to the hypothesis «spots.» The Gray-Scott prior association (strong negative cross-correlation = activator-inhibitor spots) dominated even for an unknown system.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-label">Overall assessment</div>
+  <h2>What the experiments show in total</h2>
+  <div class="finding">
+    <div class="finding-label">Finding 1: Stroop test positive — the most important result</div>
+    <p>qwen3:235b can treat prior and statistics as separate information channels. When the statistics clearly contradict, it overrides the prior — and correctly names the decision. The Stroop design made this question directly addressable for the first time.</p>
+  </div>
+  <div class="finding">
+    <div class="finding-label">Finding 2: Self-report alone is unreliable</div>
+    <p>Mistral (v3) reported «source: statistics» in every iteration while showing prior-dominant behavior. The Stroop design makes the difference measurable — not just a self-report.</p>
+  </div>
+  <div class="finding">
+    <div class="finding-label">Finding 3: Spatial complexity remains hard to predict</div>
+    <p>Systematic overestimation in all experiments (factor 3–5). Concentration moments are derivable from mean-field considerations; spatial complexity is path-dependent and emergent.</p>
+  </div>
+  <div class="finding amber">
+    <div class="finding-label">Open experiments</div>
+    <p>Dual-channel inversion with qwen3:235b (8,000 tokens) and Fitzhugh-Nagumo with V diffusion (D_v=0.5, dt=0.01) need to be repeated. Both are correctly designed methodologically but failed on technical grounds.</p>
   </div>
 </div>
 
@@ -384,18 +532,19 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
 </div>
 
 <footer>
-  <div class="lang-de active">Gray-Scott × LLM-Agent · Berlin · Juni 2026 · Mac Studio M3 Ultra 256 GB · Vollständig lokal, keine Cloud-Dienste</div>
-  <div class="lang-en">Gray-Scott × LLM-Agent · Berlin · June 2026 · Mac Studio M3 Ultra 256 GB · Fully local, no cloud services</div>
+  <div class="lang-de active">Gray-Scott × LLM-Agent · Berlin · Juni 2026 · Mac Studio M3 Ultra 256 GB · Vollständig lokal · v4 aktualisiert 16.06.2026</div>
+  <div class="lang-en">Gray-Scott × LLM-Agent · Berlin · June 2026 · Mac Studio M3 Ultra 256 GB · Fully local · v4 updated 16 June 2026</div>
 </footer>
 
 <script>
 function setLang(lang){
   document.querySelectorAll('.lang-de,.lang-en').forEach(el=>{
-    el.classList.toggle('active', el.classList.contains('lang-'+lang));
+    el.classList.toggle('active',el.classList.contains('lang-'+lang));
   });
   document.querySelectorAll('.lang-btn').forEach(b=>{
-    b.classList.toggle('active', b.textContent===lang.toUpperCase());
+    b.classList.toggle('active',b.textContent===lang.toUpperCase());
   });
+  document.documentElement.lang=lang;
 }
 
 const N=200,DISP=400,WARMUP=4000,CHUNK=100,SMPF=20;
