@@ -159,11 +159,14 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Schnelle All-Purpose, Routing-Interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K Kontext, MTP-Spekulation (~80 tok/s)</td></tr>
 <tr><td>mistral-small3.1:24b</td><td>~15 GB</td><td>Leichtgewicht, Commit-Messages (Aider weak model)</td></tr>
+<tr><td>bge-m3:latest</td><td>1,2 GB</td><td>Multilinguales Embedding-Modell — prim&auml;r f&uuml;r RAG, LanceDB-Indexe und Primärtext-Retrieval</td></tr>
 <tr><td>mxbai-embed-large</td><td>669 MB</td><td>Embedding-Modell (Vektordatenbanken)</td></tr>
 <tr><td>llama-guard3:8b</td><td>4.9 GB</td><td>Safety-Klassifikator</td></tr>
 </tbody></table></div>
 <h3>DeepSeek V4 Flash (DSV4) — separater llama-server</h3>
 <p>284B MoE, 153 GB GGUF, gemischte Quantisierung (Q4KExperts/F16HC), auf TB5-WORK. Eigener llama-server auf Port 8888 — <strong>256K Kontext</strong>, 99 GPU-Lagen. Automatisch via Router für sehr lange Eingaben (&gt;400-Token-Komplexitätsschwelle) gestartet.</p>
+<h3>MLX-LM 0.31.3 — Apple-Silicon-nativer Inferenz-Layer</h3>
+<p>Zus&auml;tzlich zu Ollama ist MLX-LM 0.31.3 (Apple MLX-Bibliothek) installiert. <code>OLLAMA_BACKEND=mlx</code> ist dauerhaft in <code>~/.zshrc</code> gesetzt — ca. 26&ndash;30&nbsp;% Geschwindigkeitsgewinn bei langen Prompts durch Apple-Silicon-optimierte Kernel. Verwendbar auch direkt via <code>mlx_lm.generate</code> oder <code>mlx_lm.server</code>.</p>
 </div>
   <div class="lang-en" style="display:none">
 <div class="table-wrap"><table>
@@ -177,11 +180,14 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Fast all-purpose, routing interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K context, MTP speculation (~80 tok/s)</td></tr>
 <tr><td>mistral-small3.1:24b</td><td>~15 GB</td><td>Lightweight, commit messages (Aider weak model)</td></tr>
+<tr><td>bge-m3:latest</td><td>1.2 GB</td><td>Multilingual embedding model — primary for RAG, LanceDB indexes and primary-text retrieval</td></tr>
 <tr><td>mxbai-embed-large</td><td>669 MB</td><td>Embedding model (vector databases)</td></tr>
 <tr><td>llama-guard3:8b</td><td>4.9 GB</td><td>Safety classifier</td></tr>
 </tbody></table></div>
 <h3>DeepSeek V4 Flash (DSV4) — dedicated llama-server</h3>
 <p>284B MoE, 153 GB GGUF, mixed quantization (Q4KExperts/F16HC), on TB5-WORK. Dedicated llama-server on port 8888 — <strong>256K context</strong>, 99 GPU layers. Automatically started via router for very long inputs (&gt;400-token complexity threshold).</p>
+<h3>MLX-LM 0.31.3 — Apple Silicon native inference layer</h3>
+<p>In addition to Ollama, MLX-LM 0.31.3 (Apple MLX library) is installed. <code>OLLAMA_BACKEND=mlx</code> is permanently set in <code>~/.zshrc</code> &mdash; approximately 26&ndash;30&nbsp;% speed gain on long prompts via Apple-Silicon-optimized kernels. Also usable directly via <code>mlx_lm.generate</code> or <code>mlx_lm.server</code>.</p>
 </div>
 </div>
 </section>
