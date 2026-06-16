@@ -154,7 +154,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — komplexe Analyse, Philosophie, Mathematik-Synthese</td></tr>
 <tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K Kontext-Fenster — lange Dokumente, Corpus-Ingestion (Port 8888)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarielle Prüfung, Chain-of-Thought, formale Verifikation</td></tr>
-<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 Shards)</td><td>Hochqualitäts-Reasoning, llama-server Port 8889 (~23 tok/s) — Flagship für Critic/Comparator in komitee_bewertung; auf TB5-WORK</td></tr>
+<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 Shards)</td><td>Hochqualitäts-Reasoning, llama-server 9650 Port 8889 (~23 tok/s) — Flagship für Critic/Comparator in komitee_bewertung; auf TB5-WORK</td></tr>
 
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Schnelle All-Purpose, Routing-Interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K Kontext, MTP-Spekulation (~80 tok/s)</td></tr>
@@ -164,7 +164,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>llama-guard3:8b</td><td>4.9 GB</td><td>Safety-Klassifikator</td></tr>
 </tbody></table></div>
 <h3>DeepSeek V4 Flash (DSV4) — separater llama-server</h3>
-<p>284B MoE, 153 GB GGUF, gemischte Quantisierung (Q4KExperts/F16HC), auf TB5-WORK. Eigener llama-server auf Port 8888 — <strong>256K Kontext</strong>, 99 GPU-Lagen. Automatisch via Router für sehr lange Eingaben (&gt;400-Token-Komplexitätsschwelle) gestartet.</p>
+<p>284B MoE, 153 GB GGUF, gemischte Quantisierung (Q4KExperts/F16HC), auf TB5-WORK. Eigener llama-server 9650 auf Port 8888 — <strong>256K Kontext</strong>, 99 GPU-Lagen. Automatisch via Router für sehr lange Eingaben (&gt;400-Token-Komplexitätsschwelle) gestartet.</p>
 <h3>MLX-LM 0.31.3 — Apple-Silicon-nativer Inferenz-Layer</h3>
 <p>Zus&auml;tzlich zu Ollama ist MLX-LM 0.31.3 (Apple MLX-Bibliothek) installiert. <code>OLLAMA_BACKEND=mlx</code> ist dauerhaft in <code>~/.zshrc</code> gesetzt — ca. 26&ndash;30&nbsp;% Geschwindigkeitsgewinn bei langen Prompts durch Apple-Silicon-optimierte Kernel. Verwendbar auch direkt via <code>mlx_lm.generate</code> oder <code>mlx_lm.server</code>.</p>
 </div>
@@ -175,7 +175,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — complex analysis, philosophy, mathematics synthesis</td></tr>
 <tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K context window — long documents, corpus ingestion (port 8888)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarial checking, chain-of-thought, formal verification</td></tr>
-<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 shards)</td><td>High-quality reasoning, llama-server port 8889 (~23 tok/s) — flagship for Critic/Comparator in komitee_bewertung; on TB5-WORK</td></tr>
+<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 shards)</td><td>High-quality reasoning, llama-server 9650 port 8889 (~23 tok/s) — flagship for Critic/Comparator in komitee_bewertung; on TB5-WORK</td></tr>
 
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Fast all-purpose, routing interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K context, MTP speculation (~80 tok/s)</td></tr>
@@ -185,7 +185,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>llama-guard3:8b</td><td>4.9 GB</td><td>Safety classifier</td></tr>
 </tbody></table></div>
 <h3>DeepSeek V4 Flash (DSV4) — dedicated llama-server</h3>
-<p>284B MoE, 153 GB GGUF, mixed quantization (Q4KExperts/F16HC), on TB5-WORK. Dedicated llama-server on port 8888 — <strong>256K context</strong>, 99 GPU layers. Automatically started via router for very long inputs (&gt;400-token complexity threshold).</p>
+<p>284B MoE, 153 GB GGUF, mixed quantization (Q4KExperts/F16HC), on TB5-WORK. Dedicated llama-server 9650 on port 8888 — <strong>256K context</strong>, 99 GPU layers. Automatically started via router for very long inputs (&gt;400-token complexity threshold).</p>
 <h3>MLX-LM 0.31.3 — Apple Silicon native inference layer</h3>
 <p>In addition to Ollama, MLX-LM 0.31.3 (Apple MLX library) is installed. <code>OLLAMA_BACKEND=mlx</code> is permanently set in <code>~/.zshrc</code> &mdash; approximately 26&ndash;30&nbsp;% speed gain on long prompts via Apple-Silicon-optimized kernels. Also usable directly via <code>mlx_lm.generate</code> or <code>mlx_lm.server</code>.</p>
 </div>
@@ -245,7 +245,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Macaulay2</td><td>1.26.05</td><td>Kommutative Algebra, Gröbner-Basen</td></tr>
 <tr><td>Kenzo (SBCL)</td><td>7.0 (Common Lisp)</td><td>Effektive Homotopieberechnungen (K(Z/2,n))</td></tr>
 <tr><td>Lean 4 lean-liquid</td><td>aktuell</td><td>Formalisiertes LTE-Fundament (liquid Tensor)</td></tr>
-<tr><td>Z3 Prover</td><td>4.15.4</td><td>SMT-Solving, formale Verifikation</td></tr>
+<tr><td>Z3 Prover</td><td>4.16.0</td><td>SMT-Solving, formale Verifikation</td></tr>
 <tr><td>Singular</td><td>4.4.1</td><td>Algebraische Geometrie, Normalen</td></tr>
 <tr><td>Agda 2.8.0 / Rocq</td><td>aktuell</td><td>Typentheoretische Formalisierung</td></tr>
 <tr><td>SpheriCo.jl</td><td>0.1.0 (Julia)</td><td>Numerische Relativität: sphär. symmetrischer Skalarfeld-Kollaps (Choptuik-Projekt)</td></tr>
@@ -294,7 +294,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Julia 1.12.6 + Hecke.jl</td><td>0.39.15</td><td>Algebraic number theory (ITensorNetworks 0.21.2, Nemo 0.54.2)</td></tr>
 <tr><td>Macaulay2</td><td>1.26.05</td><td>Commutative algebra, Gröbner bases</td></tr>
 <tr><td>Kenzo (SBCL)</td><td>7.0 (Common Lisp)</td><td>Effective homotopy computations</td></tr>
-<tr><td>Z3 Prover</td><td>4.15.4</td><td>SMT solving, formal verification</td></tr>
+<tr><td>Z3 Prover</td><td>4.16.0</td><td>SMT solving, formal verification</td></tr>
 <tr><td>SpheriCo.jl</td><td>0.1.0 (Julia)</td><td>Numerical GR: scalar field collapse (Choptuik project)</td></tr>
 <tr><td>NRPy+</td><td>2.1.1</td><td>Symbolic GR code generation</td></tr>
 <tr><td>SFcollapse1D</td><td>arm64 binary</td><td>Scalar field collapse in C++ (GCC 15.2.0)</td></tr>
@@ -379,13 +379,13 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tbody>
 <tr><td>LLM-Router-Proxy</td><td>11435</td><td>Zentrale Middleware, Routing, Synthegy</td></tr>
 <tr><td>Ollama</td><td>11434</td><td>Modell-Backend (9 Modelle)</td></tr>
-<tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K Kontext</td></tr>
+<tr><td>DSV4 llama-server 9650</td><td>8888</td><td>DeepSeek V4 Flash, 256K Kontext</td></tr>
 <tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, Hochqualitäts-Reasoning (~23 tok/s)</td></tr>
-<tr><td>Open WebUI 0.9.5</td><td>3002</td><td>Chat-Interface, 26 Python-Tools</td></tr>
+<tr><td>Open WebUI 0.9.6</td><td>3002</td><td>Chat-Interface, 26 Python-Tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Lokale Suche</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta-Suchmaschine</td></tr>
-<tr><td>Neo4j 2026.01.3</td><td>7687</td><td>Knowledge Graph + Forschungsgraph (Slow Memory)</td></tr>
-<tr><td>PostgreSQL 15</td><td>5432</td><td>Daten-Backend (Homebrew LaunchAgent)</td></tr>
+<tr><td>Neo4j 2026.05.0</td><td>7687</td><td>Knowledge Graph + Forschungsgraph (Slow Memory)</td></tr>
+<tr><td>PostgreSQL 15.18</td><td>5432</td><td>Daten-Backend (Homebrew LaunchAgent)</td></tr>
 <tr><td>ComfyUI (SDXL)</td><td>8188</td><td>Bildgenerierung on-device (SDXL Base 1.0; FLUX.1-dev entfernt)</td></tr>
 <tr><td>Draw Things</td><td>1.20260520</td><td>Weitere Bildgenerierung on-device (SDXL); vollständig lokal</td></tr>
 <tr><td>Lean 4 Verifier</td><td>Lokal</td><td>lake build für Mathlib-PRs</td></tr>
@@ -403,11 +403,11 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Ollama</td><td>11434</td><td>Model backend (9 models)</td></tr>
 <tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K context</td></tr>
 <tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, high-quality reasoning (~23 tok/s)</td></tr>
-<tr><td>Open WebUI 0.9.5</td><td>3002</td><td>Chat interface, 26 Python tools</td></tr>
+<tr><td>Open WebUI 0.9.6</td><td>3002</td><td>Chat interface, 26 Python tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Local search</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta search engine</td></tr>
-<tr><td>Neo4j 2026.01.3</td><td>7687</td><td>Knowledge graph + research graph (slow memory)</td></tr>
-<tr><td>PostgreSQL 15</td><td>5432</td><td>Data backend (Homebrew LaunchAgent)</td></tr>
+<tr><td>Neo4j 2026.05.0</td><td>7687</td><td>Knowledge graph + research graph (slow memory)</td></tr>
+<tr><td>PostgreSQL 15.18</td><td>5432</td><td>Data backend (Homebrew LaunchAgent)</td></tr>
 <tr><td>ComfyUI (SDXL)</td><td>8188</td><td>On-device image generation (SDXL Base 1.0; FLUX.1-dev removed)</td></tr>
 <tr><td>Draw Things</td><td>1.20260520</td><td>Additional on-device image generation (SDXL); fully local</td></tr>
 <tr><td>Lean 4 Verifier</td><td>Local</td><td>lake build for Mathlib PRs</td></tr>
