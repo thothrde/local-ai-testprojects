@@ -295,6 +295,9 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Julia 1.12.6 + Hecke.jl</td><td>0.39.15</td><td>Algebraic number theory (ITensorNetworks 0.21.2, Nemo 0.54.2)</td></tr>
 <tr><td>Macaulay2</td><td>1.26.05</td><td>Commutative algebra, Gröbner bases</td></tr>
 <tr><td>Kenzo (SBCL)</td><td>7.0 (Common Lisp)</td><td>Effective homotopy computations</td></tr>
+<tr><td>Lean 4 lean-liquid</td><td>current</td><td>Formalized LTE foundation (liquid Tensor)</td></tr>
+<tr><td>Singular</td><td>4.4.1</td><td>Algebraic geometry, normalization</td></tr>
+<tr><td>Agda 2.8.0 / Rocq</td><td>current</td><td>Type-theoretic formalization</td></tr>
 <tr><td>Z3 Prover</td><td>4.16.0</td><td>SMT solving, formal verification</td></tr>
 <tr><td>SpheriCo.jl</td><td>0.1.0 (Julia)</td><td>Numerical GR: scalar field collapse (Choptuik project)</td></tr>
 <tr><td>NRPy+</td><td>2.1.1</td><td>Symbolic GR code generation</td></tr>
@@ -308,7 +311,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
   <p><code>lean_iterativ(aufgabe_oder_sketch, modell='deepseek-r1:70b', max_runden=8, frische_versuche=0, locked_regions=True)</code></p>
 </div>
 <h3>Open WebUI Tools — Ecosystem Extensions (June 2026)</h3>
-<p>Based on Sakka et al. 2026 (Osaka): three tools implement Exploration → Discussion → Review-Memory architecture.</p>
+<p>Based on Sakka et al. 2026 (Osaka): three tools implement the Exploration → Discussion → Review-Memory architecture (komitee_bewertung v2.0, komitee_exploration, forschungsgraph_neo4j). Two additional tools implement the QUEST epistemic framework (Xie et al., arXiv:2605.24218): context_state_condenser and rubrik_baum_komitee.</p>
 <ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
   <li><strong>komitee_bewertung v2.0:</strong> Expert 1+2 (domain-specific) + Advocate cycle. Valves: discussion_verwenden, expertenrollen_domaene (mathematik/physik/philosophie), r1_671b_url (port 8889).</li>
   <li><strong>komitee_exploration:</strong> SearXNG search → 8 seed ideas → 3 selected → then komitee_bewertung. Stabilizes trajectory (ablation: -0.57 vs +0.003 correlation).</li>
