@@ -179,6 +179,25 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
       <div class="verdict">Nicht monoton. Prior-Abh&auml;ngigkeiten benannt. Iterative Verbesserung. spatial-complexity systematisch &uuml;bersch&auml;tzt (Faktor 3&ndash;5).</div>
     </div>
   </div>
+  <div style="margin:1rem 0;overflow-x:auto">
+    <svg viewBox="0 0 580 190" xmlns="http://www.w3.org/2000/svg" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px;display:block;max-width:100%">
+      <line x1="56" y1="18" x2="56" y2="155" stroke="#2a2a40" stroke-width="1"/><line x1="56" y1="155" x2="540" y2="155" stroke="#2a2a40" stroke-width="1"/><line x1="56" y1="86" x2="540" y2="86" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="48" y="21" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">1.0</text><text x="48" y="89" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.5</text><text x="48" y="157" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.0</text>
+      <polyline points="120,86.5 230,59.1 340,45.4" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linejoin="round"/><circle cx="120" cy="86.5" r="4.5" fill="#4ecdc4"/><circle cx="230" cy="59.1" r="4.5" fill="#4ecdc4"/><circle cx="340" cy="45.4" r="4.5" fill="#4ecdc4"/>
+      <polyline points="160,52.25 270,28.96 380,38.55 490,52.25" fill="none" stroke="#9b59b6" stroke-width="2.5" stroke-linejoin="round"/><circle cx="160" cy="52.25" r="4.5" fill="#9b59b6"/><circle cx="270" cy="28.96" r="4.5" fill="#9b59b6"/><circle cx="380" cy="38.55" r="4.5" fill="#9b59b6"/><circle cx="490" cy="52.25" r="4.5" fill="#9b59b6"/>
+      <rect x="62" y="24" width="16" height="3" fill="#4ecdc4" rx="1"/><text x="83" y="28" fill="#9898bb" font-size="9.5" font-family="system-ui">mistral &middot; Konfidenz monoton steigend trotz sinkender Komplexit&auml;t</text>
+      <rect x="62" y="36" width="16" height="3" fill="#9b59b6" rx="1"/><text x="83" y="40" fill="#9898bb" font-size="9.5" font-family="system-ui">qwen3:235b &middot; Konfidenz kalibriert, nicht monoton</text>
+      <text x="298" y="174" fill="#5a5a7a" font-size="8.5" text-anchor="middle" font-family="system-ui">Konfidenz-Verlauf v3 (beide Modelle)</text>
+    </svg>
+  </div>
+  <table class="data-table" style="margin-top:.6rem">
+    <tr><th>Iter.</th><th>Gr&ouml;&szlig;e</th><th>Vorhergesagt</th><th>Tats&auml;chlich</th><th>Fehler</th></tr>
+    <tr><td class="val">1&rarr;2</td><td>U-mean</td><td>0.905</td><td>0.505</td><td class="bad">79%</td></tr>
+    <tr><td class="val">1&rarr;2</td><td>complexity</td><td>2.650</td><td>0.567</td><td class="bad">368%</td></tr>
+    <tr><td class="val">2&rarr;3</td><td>U-mean</td><td>0.620</td><td>0.565</td><td class="ok">10%</td></tr>
+    <tr><td class="val">3&rarr;4</td><td>U-mean</td><td>0.590</td><td>0.654</td><td class="ok">10%</td></tr>
+    <tr><td class="val">alle</td><td>complexity</td><td>&Uuml;bersch&auml;tzt</td><td>&mdash;</td><td class="bad">Faktor 3&ndash;5</td></tr>
+  </table>
 </div>
 <div class="section">
   <div class="section-label">Experiment v4-I</div>
@@ -247,11 +266,11 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
 <div class="section">
   <div class="section-label">Experiment v5-D</div>
   <h2>FHN-Stroop-Test: Station&auml;r oder reisend?</h2>
-  <p>Drei Tests mit qwen3:235b. System A = Config C (identische Snapshots bei t=4000, 6000, 8000). System B = Config B (ver&auml;nderliche Snapshots).</p>
+  <p>Drei Tests mit qwen3:235b. Stationäres Testsystem (= Config C aus v5-C, Turing-Hopf, U-std identisch bei t=4000/6000/8000) gegen dynamisches Testsystem (= Config B aus v5-C, oszillatorisch, U-std variiert über Zeit).</p>
   <table class="data-table">
     <tr><th>Test</th><th>Aufgabe</th><th>Antwort Modell</th><th>Korrekt</th></tr>
-    <tr><td class="val">T1: Blind</td><td>System A vs. B: station&auml;r oder dynamisch?</td><td>A: station&auml;r (K=0.95, Turing-Spots)<br>B: dynamisch (K=0.92, Spiralwellen)</td><td class="ok">&#10003; &#10003;</td></tr>
-    <tr><td class="val">T2: Stroop</td><td>System C isoliert: Was bedeutet konstante U-std?</td><td>station&auml;r; spiralwellen = NEIN</td><td class="ok">&#10003;</td></tr>
+    <tr><td class="val">T1: Blind</td><td>Station&auml;r vs. dynamisch (kein Systemname bekannt)</td><td>Station&auml;res System: station&auml;r (K=0.95, Turing-Spots)<br>Dynamisches System: dynamisch (K=0.92, Spiralwellen)</td><td class="ok">&#10003; &#10003;</td></tr>
+    <tr><td class="val">T2: Stroop</td><td>Station&auml;res System isoliert: Was bedeutet konstante U-std?</td><td>station&auml;r; spiralwellen = NEIN</td><td class="ok">&#10003;</td></tr>
     <tr><td class="val">T3: Kriterien</td><td>Abstrakt: Wie unterscheidet man station&auml;r / Spiralwellen / Fixpunkt?</td><td>Korrekte Kriterien; Schl&uuml;sselstatistik: Cross-Korrelation</td><td class="ok">&#10003;</td></tr>
   </table>
   <div class="finding"><div class="finding-label">Befund v5-D &mdash; Das wichtigste Ergebnis dieser Runde</div><p>Das Modell <em>kann</em> Stationarit&auml;t aus identischen Zeitstempeln erkennen &mdash; wenn direkt danach gefragt. Der FHN-Fix-Fehler (v5-C) war kontextabh&auml;ngig: Im FHN-Dom&auml;nen-Modus dominierte der Spiral-Prior. Mit der richtigen Rahmung wechselt das Modell zum Statistikkanal. Die F&auml;higkeit zur statistischen Inferenz ist vorhanden; was sie aktiviert, h&auml;ngt vom Prompt-Design ab.</p></div>
@@ -312,6 +331,25 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
       <div class="verdict">Non-monotonic. Prior dependencies explicitly named. Iterative improvement. Spatial complexity systematically overestimated (factor 3&ndash;5).</div>
     </div>
   </div>
+  <div style="margin:1rem 0;overflow-x:auto">
+    <svg viewBox="0 0 580 190" xmlns="http://www.w3.org/2000/svg" style="background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:4px;display:block;max-width:100%">
+      <line x1="56" y1="18" x2="56" y2="155" stroke="#2a2a40" stroke-width="1"/><line x1="56" y1="155" x2="540" y2="155" stroke="#2a2a40" stroke-width="1"/><line x1="56" y1="86" x2="540" y2="86" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="48" y="21" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">1.0</text><text x="48" y="89" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.5</text><text x="48" y="157" fill="#5a5a7a" font-size="9" text-anchor="end" font-family="monospace">0.0</text>
+      <polyline points="120,86.5 230,59.1 340,45.4" fill="none" stroke="#4ecdc4" stroke-width="2.5" stroke-linejoin="round"/><circle cx="120" cy="86.5" r="4.5" fill="#4ecdc4"/><circle cx="230" cy="59.1" r="4.5" fill="#4ecdc4"/><circle cx="340" cy="45.4" r="4.5" fill="#4ecdc4"/>
+      <polyline points="160,52.25 270,28.96 380,38.55 490,52.25" fill="none" stroke="#9b59b6" stroke-width="2.5" stroke-linejoin="round"/><circle cx="160" cy="52.25" r="4.5" fill="#9b59b6"/><circle cx="270" cy="28.96" r="4.5" fill="#9b59b6"/><circle cx="380" cy="38.55" r="4.5" fill="#9b59b6"/><circle cx="490" cy="52.25" r="4.5" fill="#9b59b6"/>
+      <rect x="62" y="24" width="16" height="3" fill="#4ecdc4" rx="1"/><text x="83" y="28" fill="#9898bb" font-size="9.5" font-family="system-ui">mistral &middot; confidence monotonically rising despite falling complexity</text>
+      <rect x="62" y="36" width="16" height="3" fill="#9b59b6" rx="1"/><text x="83" y="40" fill="#9898bb" font-size="9.5" font-family="system-ui">qwen3:235b &middot; confidence calibrated, non-monotonic</text>
+      <text x="298" y="174" fill="#5a5a7a" font-size="8.5" text-anchor="middle" font-family="system-ui">Confidence over iterations, v3 (both models)</text>
+    </svg>
+  </div>
+  <table class="data-table" style="margin-top:.6rem">
+    <tr><th>Iter.</th><th>Variable</th><th>Predicted</th><th>Actual</th><th>Error</th></tr>
+    <tr><td class="val">1&rarr;2</td><td>U-mean</td><td>0.905</td><td>0.505</td><td class="bad">79%</td></tr>
+    <tr><td class="val">1&rarr;2</td><td>complexity</td><td>2.650</td><td>0.567</td><td class="bad">368%</td></tr>
+    <tr><td class="val">2&rarr;3</td><td>U-mean</td><td>0.620</td><td>0.565</td><td class="ok">10%</td></tr>
+    <tr><td class="val">3&rarr;4</td><td>U-mean</td><td>0.590</td><td>0.654</td><td class="ok">10%</td></tr>
+    <tr><td class="val">all</td><td>complexity</td><td>Overestimated</td><td>&mdash;</td><td class="bad">factor 3&ndash;5</td></tr>
+  </table>
 </div>
 <div class="section">
   <div class="section-label">Experiment v4-I</div>
@@ -380,11 +418,11 @@ footer{padding:1.5rem 2rem;border-top:1px solid var(--border);font-size:.76rem;c
 <div class="section">
   <div class="section-label">Experiment v5-D</div>
   <h2>FHN Stroop test: stationary or traveling?</h2>
-  <p>Three tests with qwen3:235b. System A = Config C (identical snapshots at t=4000, 6000, 8000). System B = Config B (changing snapshots).</p>
+  <p>Three tests with qwen3:235b. Stationary test system (= Config C from v5-C, Turing-Hopf, U-std identical at t=4000/6000/8000) versus dynamic test system (= Config B from v5-C, oscillatory, U-std varies over time).</p>
   <table class="data-table">
     <tr><th>Test</th><th>Task</th><th>Model answer</th><th>Correct</th></tr>
-    <tr><td class="val">T1: Blind</td><td>System A vs. B: stationary or dynamic?</td><td>A: stationary (K=0.95, Turing spots)<br>B: dynamic (K=0.92, spiral waves)</td><td class="ok">&#10003; &#10003;</td></tr>
-    <tr><td class="val">T2: Stroop</td><td>System C isolated: what does constant U-std mean?</td><td>stationary; spiral waves = NO</td><td class="ok">&#10003;</td></tr>
+    <tr><td class="val">T1: Blind</td><td>Stationary vs. dynamic (no system label given)</td><td>Stationary system: stationary (K=0.95, Turing spots)<br>Dynamic system: dynamic (K=0.92, spiral waves)</td><td class="ok">&#10003; &#10003;</td></tr>
+    <tr><td class="val">T2: Stroop</td><td>Stationary system isolated: what does constant U-std mean?</td><td>stationary; spiral waves = NO</td><td class="ok">&#10003;</td></tr>
     <tr><td class="val">T3: Criteria</td><td>Abstract: how to distinguish stationary / spirals / fixed point?</td><td>Correct criteria; key statistic: cross-correlation</td><td class="ok">&#10003;</td></tr>
   </table>
   <div class="finding"><div class="finding-label">Finding v5-D &mdash; the most important result of this round</div><p>The model <em>can</em> recognize stationarity from identical time-stamps &mdash; when directly asked. The FHN-Fix error was context-dependent: in FHN domain-expert mode, the spiral-wave prior dominated. With the right framing, the model switches to the statistics channel. Statistical inference capability is present; what activates it depends on prompt design.</p></div>
