@@ -82,7 +82,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
   </div>
   <p class="header-desc lang-de">Vollständig lokale, cloud-unabhängige KI-Infrastruktur für strikt lokale, private, experimentelle KI-Experimente. Alle Berechnungen auf Mac Studio M3 Ultra (256 GB unified memory) — kein Cloud-Zugang, keine Daten verlassen den Rechner.</p>
   <p class="header-desc lang-en" style="display:none">Fully local, cloud-independent AI infrastructure for strictly local, private, experimental AI experiments. All computations on Mac Studio M3 Ultra (256 GB unified memory) — no cloud access, no data leaves the machine.</p>
-  <p class="version-note">Stand: Juni 2026 · v3.6</p>
+  <p class="version-note">Stand: Juni 2026 · v3.7</p>
 </div>
 </header><nav class="wrapper"><a href="#hardware"><span class="nav-num">00</span><span class="lang-de">Hardware</span><span class="lang-en" style="display:none">Hardware</span></a>
 <a href="#modelle"><span class="nav-num">01</span><span class="lang-de">LLM-Modelle</span><span class="lang-en" style="display:none">LLM Models</span></a>
@@ -283,7 +283,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <h4>komitee_exploration — Exploration-zuerst-Modus</h4>
 <p>Sakka et al. Ablation (Fig. 6): Exploration stabilisiert Optimierungstrajektorie unabhängig von Startqualität. Ohne: Korrelation = -0,57. Mit: +0,003 (stabil). SearXNG-Recherche → n_seeds=8 diverse Ideen → n_final=3 ausgewählt → danach komitee_bewertung.</p>
 <h4>forschungsgraph_neo4j — Kausales Review-Memory</h4>
-<p>Kausalkette: <code>hypothese_neu</code> → <code>experiment_starten</code> → <code>ergebnis_erfassen</code> → <code>kritik_hinzufuegen</code> → <code>revision_erstellen</code>. Speichert nicht nur WAS, sondern WARUM etwas funktionierte/scheiterte. Schema: 5 Knoten-Constraints (Hypothese, FExperiment, FErgebnis, FKritik, FRevision). Projekte: ArithGaugeTheory, Anima-IV, FloerCondensed.</p>
+<p>Kausalkette: <code>hypothese_neu</code> → <code>experiment_starten</code> → <code>ergebnis_erfassen</code> → <code>kritik_hinzufuegen</code> → <code>revision_erstellen</code>. Speichert nicht nur WAS, sondern WARUM etwas funktionierte/scheiterte. Schema: 5 Knoten-Constraints (Hypothese, FExperiment, FErgebnis, FKritik, FRevision). Projekte: ArithGaugeTheory, Anima-IV, FloerCondensed.</p><h4>context_state_condenser — Epistemischer Context State (QUEST-Paradigma)</h4><p>Implementiert das Context-State-Schema aus Xie et al., Quest: Training Frontier Deep Research Agents with Fully Synthetic Tasks (arXiv:2605.24218, Mai 2026). Komprimiert lange Konversationsverläufe in ein strukturiertes JSON mit drei Buckets: <code>trusted</code> (verifizierte Fakten mit Quellenangabe), <code>untrusted</code> (widerlegte Claims), <code>uncertain</code> (offene Punkte mit explizitem <code>need</code>-Feld als konkrete Handlungsanweisung). Bestehende States werden gemergt, nie überschrieben.</p><ul style='margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem'>  <li><strong>kontext_kondensieren:</strong> Hauptfunktion, Modellwahl über Valve (qwen3:235b-a22b voll, qwen3.6:35b-a3b schnell).</li>  <li><strong>state_lesen:</strong> Markdown-Zusammenfassung eines States, farbcodiert nach Bucket.</li>  <li><strong>uncertain_aktionen:</strong> extrahiert offene Verifikationsschritte als Checkliste.</li></ul><div class='box confirmed'>  <div class='label'>Endpunkt</div>  <p>Router-Proxy (Port 11435, OpenAI-kompatibel) mit Fallback auf Ollama direkt (Port 11434)</p></div><h4>rubrik_baum_komitee — Rubrik-Baum-Erweiterung von komitee_bewertung</h4><p>Erweitert komitee_bewertung um hierarchische Rubrik-Bäume nach QUEST (Xie et al., arXiv:2605.24218, Abschnitt 2.1). Jeder Knoten trägt eine critical-Markierung (kritisches Versagen nullt den Elternknoten) und eine aggregation_strategy (sequential oder parallel). Blattknoten-Bewertung erfolgt als ein einzelner Batch-Aufruf statt n Einzelaufrufen — alle Kriterien eines Proposals werden in einem LLM-Call bewertet, danach rekursiv durch den Baum aggregiert.</p><ul style='margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem'>  <li><strong>rubrik_baum_definieren:</strong> generiert Rubrik-Baum automatisch aus Aufgabenbeschreibung (qwen3:235b-a22b).</li>  <li><strong>antwort_bewerten:</strong> Batch-Bewertung aller Blattknoten gegen einen Text, rekursive Aggregation.</li>  <li><strong>komitee_mit_rubrik:</strong> vollständiges Verfahren — k Proposals aus vier epistemischen Perspektiven (analytisch, synthetisch, adversariell, pragmatisch), Rubrik-Bewertung, Ranking.</li>  <li><strong>rubrik_analyse_lesen:</strong> lesbare Markdown-Analyse mit farbcodierten Score-Balken.</li></ul><div class='box confirmed'>  <div class='label'>Modellrollen</div>  <p>qwen3:235b-a22b für Rubrik-Generierung und Proposals, qwen3.6:35b-a3b für Blattknoten-Batch-Evaluierung</p></div>
 </div>
   <div class="lang-en" style="display:none">
 <div class="table-wrap"><table>
@@ -312,7 +312,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
   <li><strong>komitee_bewertung v2.0:</strong> Expert 1+2 (domain-specific) + Advocate cycle. Valves: discussion_verwenden, expertenrollen_domaene (mathematik/physik/philosophie), r1_671b_url (port 8889).</li>
   <li><strong>komitee_exploration:</strong> SearXNG search → 8 seed ideas → 3 selected → then komitee_bewertung. Stabilizes trajectory (ablation: -0.57 vs +0.003 correlation).</li>
-  <li><strong>forschungsgraph_neo4j:</strong> Causal research memory. Chain: hypothese_neu → experiment_starten → ergebnis_erfassen → kritik_hinzufuegen → revision_erstellen. 5 node constraints, [:REVIDIERT_ZU] edges.</li>
+  <li><strong>forschungsgraph_neo4j:</strong> Causal research memory. Chain: hypothese_neu → experiment_starten → ergebnis_erfassen → kritik_hinzufuegen → revision_erstellen. 5 node constraints, [:REVIDIERT_ZU] edges.</li>  <li><strong>context_state_condenser:</strong> QUEST-style epistemic context state (arXiv:2605.24218) — trusted/untrusted/uncertain buckets, merge not overwrite, uncertain entries carry an explicit follow-up action.</li>  <li><strong>rubrik_baum_komitee:</strong> hierarchical rubric-tree extension of komitee_bewertung (QUEST Sec. 2.1) — critical/non-critical nodes, sequential/parallel aggregation, single-batch leaf scoring.</li>
 </ul>
 </div>
 </div>
@@ -426,7 +426,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Ollama</td><td>11434</td><td>Modell-Backend (9 Modelle)</td></tr>
 <tr><td>DSV4 llama-server 9650</td><td>8888</td><td>DeepSeek V4 Flash, 256K Kontext</td></tr>
 <tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, Hochqualitäts-Reasoning (~23 tok/s)</td></tr>
-<tr><td>Open WebUI 0.9.6</td><td>3002</td><td>Chat-Interface, 26 Python-Tools</td></tr>
+<tr><td>Open WebUI 0.9.6</td><td>3002</td><td>Chat-Interface, 28 Python-Tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Lokale Suche</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta-Suchmaschine</td></tr>
 <tr><td>Neo4j 2026.05.0</td><td>7687</td><td>Knowledge Graph + Forschungsgraph (Slow Memory)</td></tr>
@@ -460,7 +460,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Ollama</td><td>11434</td><td>Model backend (9 models)</td></tr>
 <tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K context</td></tr>
 <tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, high-quality reasoning (~23 tok/s)</td></tr>
-<tr><td>Open WebUI 0.9.6</td><td>3002</td><td>Chat interface, 26 Python tools</td></tr>
+<tr><td>Open WebUI 0.9.6</td><td>3002</td><td>Chat interface, 28 Python tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Local search</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta search engine</td></tr>
 <tr><td>Neo4j 2026.05.0</td><td>7687</td><td>Knowledge graph + research graph (slow memory)</td></tr>
