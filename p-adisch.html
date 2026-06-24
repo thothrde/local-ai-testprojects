@@ -120,7 +120,7 @@ div.lang-de-section p  { color:var(--text) !important; }
 <div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Test Project &middot; Local AI Infrastructure &middot; Berlin &middot; May 2026</div>
 <h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">p-adic Theory and Condensed Mathematics: a Test Project in Three Parts</h1>
 <p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">Three interconnected sub-projects with a common mathematical background: formal verification in Lean&nbsp;4 (condensed modules), classification-theoretic analysis (Dieudonné&ndash;Manin), and computer-algebraic experiments (formal groups).</p>
-<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:1.5rem;">Lean 4.31.0-rc2 + Mathlib &middot; PARI/GP 2.17.3 &middot; Hecke.jl / Julia 1.12 &middot; Singular &middot; deepseek-r1:70b &middot; qwen3:235b-a22b &middot; Mac Studio M3 Ultra (256 GB) &middot; Stand: Juni 2026</p>
+<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:1.5rem;">Lean 4.32.0-rc1 + Mathlib &middot; PARI/GP 2.17.3 &middot; Hecke.jl / Julia 1.12 &middot; Singular &middot; deepseek-r1:70b &middot; qwen3:235b-a22b &middot; Mac Studio M3 Ultra (256 GB) &middot; Stand: Juni 2026</p>
 </div>
 <div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
 
@@ -208,7 +208,7 @@ Lean 4.32.0-rc1. PR #39701 on leanprover-community/mathlib4. Ready for review.
 <p><strong>Note on axiom vs. sorry:</strong> An <code>axiom</code> entry in Lean 4 is not a gap in the sense of a sorry, but an explicit, named and documented assumption. <code>#print axioms</code> shows it transparently. For a Mathlib PR, a project-specific axiom is not acceptable &mdash; the TODO thus remains open, supplemented by the proof infrastructure elaborated here.</p>
 
 <h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;">Build status</h3>
-<p>All 4 MathProject .lean files build successfully with <code>lake build</code> (Lean 4.31.0-rc2 + Mathlib). 0 sorry in any file. In the MathProject, <code>sol_leftCancel</code> is the only project-specific axiom; <code>surj_factor</code> is fully proved. In <code>Mathlib/Condensed/Solid.lean</code> (PR branch), both <code>sol_leftCancel</code> and <code>surj_factor</code> are declared as <code>axiom</code> because the required colimit infrastructure (<code>finFree_isColimit_at</code>) and the CondensedMod &harr; TopMod equivalence are not yet in Mathlib. <code>#print axioms</code> shows them transparently; for a full Mathlib PR both axioms must be eliminated.</p>
+<p>All 4 MathProject .lean files build successfully with <code>lake build</code> (Lean 4.32.0-rc1 + Mathlib). 0 sorry in any file. In the MathProject, <code>sol_leftCancel</code> is the only project-specific axiom; <code>surj_factor</code> is fully proved. In <code>Mathlib/Condensed/Solid.lean</code> (PR branch), both <code>sol_leftCancel</code> and <code>surj_factor</code> are declared as <code>axiom</code> because the required colimit infrastructure (<code>finFree_isColimit_at</code>) and the CondensedMod &harr; TopMod equivalence are not yet in Mathlib. <code>#print axioms</code> shows them transparently; for a full Mathlib PR both axioms must be eliminated.</p>
 
 <h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;">Why the axiom is not formalisable</h3>
 <p>The step &ldquo;discrete condensed modules are tiny&rdquo; requires the following Lean lemma, which does not exist in Mathlib:</p>
@@ -274,14 +274,14 @@ F mod 5 = &minus;t&#8321;&#8308;t&#8322; + 2t&#8321;&#179;t&#8322;&#178; + 2t&#8
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Overall Assessment</h2>
 <table style="width:100%;border-collapse:collapse;font-size:.86rem;margin:.75rem 0 1.25rem;font-family:sans-serif;">
 <tr style="background:#f5f4f0;"><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Sub-project</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Type</th><th style="padding:.4rem .75rem;text-align:left;border-bottom:1px solid #dddbd3;">Outcome</th></tr>
-<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1 &mdash; Solid Modules (Lean 4)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Formal verification</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">8 theorems proved in Solid.lean &middot; 0 sorries &middot; 2 axioms: <code>sol_leftCancel</code> (injectivity) + <code>surj_factor</code> (surjectivity, proved in MathProject/P2) &middot; CI Build ✅ Lint ✅ &middot; commit <code>5874e87ae1</code> &middot; Lean 4.31.0-rc2 &middot; PR #39701 on leanprover-community/mathlib4</td></tr>
+<tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">1 &mdash; Solid Modules (Lean 4)</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Formal verification</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">8 theorems proved in Solid.lean &middot; 0 sorries &middot; 2 axioms: <code>sol_leftCancel</code> (injectivity) + <code>surj_factor</code> (surjectivity, proved in MathProject/P2) &middot; CI Build ✅ Lint ✅ &middot; commit <code>07da75fe3880</code> &middot; Lean 4.32.0-rc1 &middot; PR #39701 on leanprover-community/mathlib4</td></tr>
 <tr><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">2 &mdash; Dieudonné&ndash;Manin</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Analysis and proof architecture</td><td style="padding:.4rem .75rem;border-bottom:1px solid #dddbd3;">Mathlib status mapped &middot; three-step proof architecture elaborated &middot; missing Lean lemmas precisely identified</td></tr>
 <tr><td style="padding:.4rem .75rem;">3 &mdash; Formal Groups</td><td style="padding:.4rem .75rem;">Computer-algebraic experiment</td><td style="padding:.4rem .75rem;">F(X,Y) to degree 5 &middot; L(t) to degree 22 &middot; [3](t) and [5](t) &middot; heights h=2/h=1 &middot; a<sub>p</sub> to 43 &middot; CM structure confirmed &middot; Singular representations mod 3 and mod 5</td></tr>
 </table>
 <p><em>Philosophical aspects:</em> None of the three sub-projects had an independent philosophical research question. The mathematical background &mdash; condensed mathematics as a new foundation of analysis and algebra (Clausen&ndash;Scholze), the classification by slopes as an ordering principle in p-adic Hodge theory &mdash; has philosophical dimensions that were not, however, the subject of this project.</p>
 
 <div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
-T. Riepe, Berlin. May 2026 (updated June 2026). GitHub: thothrde/mathlib4 &middot; MathProject/ &middot; PR #39701 on leanprover-community/mathlib4. Lean 4.31.0-rc2. CI Build ✅ Lint ✅. Condensed mathematics after Clausen&ndash;Scholze [CS19]. Dieudonné&ndash;Manin after Katz (1979).
+T. Riepe, Berlin. May 2026 (updated June 2026). GitHub: thothrde/mathlib4 &middot; MathProject/ &middot; PR #39701 on leanprover-community/mathlib4. Lean 4.32.0-rc1. CI Build ✅ Lint ✅. Condensed mathematics after Clausen&ndash;Scholze [CS19]. Dieudonné&ndash;Manin after Katz (1979).
 </div>
 </div>
 
@@ -290,7 +290,7 @@ T. Riepe, Berlin. May 2026 (updated June 2026). GitHub: thothrde/mathlib4 &middo
 <div class="kicker">Testprojekt · Lokale KI-Infrastruktur · Berlin · Mai 2026</div>
 <h1>p-adische Theorie und kondensierte Mathematik:<br>ein Testprojekt in drei Teilen</h1>
 <p style="font-size:.97rem;color:var(--text2);line-height:1.7;margin:.5rem 0 1rem">Drei zusammenhängende Teilprojekte mit gemeinsamem mathematischem Hintergrund: formale Verifikation in Lean 4 (kondensierte Moduln), klassifikationstheoretische Analyse (Dieudonné-Manin) und computeralgebraisches Experiment (formale Gruppen). Die Werkzeuge: Lean 4 + Mathlib, PARI/GP, Hecke.jl, Singular, deepseek-r1:70b.</p>
-<div class="byline">Lean 4.31.0-rc2 + Mathlib &middot; PARI/GP 2.17.3 &middot; Hecke.jl / Julia 1.12 &middot; Singular &middot; deepseek-r1:70b &middot; qwen3:235b-a22b &middot; Mac Studio M3 Ultra (256 GB) &middot; Stand: Juni 2026</div>
+<div class="byline">Lean 4.32.0-rc1 + Mathlib &middot; PARI/GP 2.17.3 &middot; Hecke.jl / Julia 1.12 &middot; Singular &middot; deepseek-r1:70b &middot; qwen3:235b-a22b &middot; Mac Studio M3 Ultra (256 GB) &middot; Stand: Juni 2026</div>
 
 <hr>
 
@@ -369,7 +369,7 @@ T. Riepe, Berlin. May 2026 (updated June 2026). GitHub: thothrde/mathlib4 &middo
 <ul class="items">
   <li><code>profiniteSolidCounit_isIso</code>, <code>profiniteSolidification_isIso_at_fintype</code>, <code>finFreeIsoSolid</code>, <code>sol_map_counit</code>, <code>profiniteSolid_fintype_isSolid</code>, <code>isSolid_of_isLimit_gen</code>, <code>finFree_isSolid</code>, <code>profiniteSolid_obj_isSolid</code></li>
 </ul>
-<p><strong>Axiome in Solid.lean (PR-Branch):</strong> <code>sol_leftCancel</code> (Injektivität) + <code>surj_factor</code> (Surjektivitätsfaktorisierung; in MathProject/P2 vollständig bewiesen, aber <code>finFree_isColimit_at</code>-Infrastruktur noch nicht in Mathlib). CI: Build ✅ · Lint ✅ · Lean 4.31.0-rc2 · Commit <code>5874e87ae1</code>.</p>
+<p><strong>Axiome in Solid.lean (PR-Branch):</strong> <code>sol_leftCancel</code> (Injektivität) + <code>surj_factor</code> (Surjektivitätsfaktorisierung; in MathProject/P2 vollständig bewiesen, aber <code>finFree_isColimit_at</code>-Infrastruktur noch nicht in Mathlib). CI: Build ✅ · Lint ✅ · Test and lint ✅ · Lean 4.32.0-rc1 · Commit <code>07da75fe3880</code>. PR ready for review.</p>
 
 <h3>Hauptresultat und Beweisstruktur</h3>
 
@@ -455,7 +455,7 @@ Gegeben h : freeX → finFree T:
   <tr><td><code>lake build MathProject.P2_finFree_Solid</code></td><td>2193</td><td class="ax">✓ + Axiom-Hinweis</td></tr>
   <tr><td><code>lake build MathProject.P4_Solid_Progress</code></td><td>2194</td><td class="ok">✓ erfolgreich</td></tr>
 </table>
-<p style="font-size:.83rem;color:var(--text3)">Lean 4.31.0-rc2, Mathlib 4, Mac Studio M3 Ultra 256 GB. Kein <code class="i">sorry</code> in keiner Datei (MathProject P0–P4). <code>#print axioms profiniteSolid_obj_isSolid_full</code> (MathProject): einziges projektspezifisches Axiom <code>CondensedMod.sol_leftCancel</code> — <code>surj_factor</code> dort vollständig bewiesen.</p>
+<p style="font-size:.83rem;color:var(--text3)">Lean 4.32.0-rc1, Mathlib 4, Mac Studio M3 Ultra 256 GB. Kein <code class="i">sorry</code> in keiner Datei (MathProject P0–P4). <code>#print axioms profiniteSolid_obj_isSolid_full</code> (MathProject): einziges projektspezifisches Axiom <code>CondensedMod.sol_leftCancel</code> — <code>surj_factor</code> dort vollständig bewiesen.</p>
 <p style="font-size:.83rem;color:var(--text3)"><strong>PR-Branch (Mathlib/Condensed/Solid.lean):</strong> Letzter Commit <code class="i">07da75fe3880</code> &middot; CI Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; 0 sorries &middot; <strong>2 Axiome</strong>: <code>sol_leftCancel</code> + <code>surj_factor</code> (Colimit-Infrastruktur noch nicht in Mathlib). PR #39701 auf leanprover-community/mathlib4. Lean 4.32.0-rc1. PR zur Überprüfung bereit.</p>
 
 <div class="note warn"><strong>Hinweis zu Axiom vs. sorry:</strong> Ein <code class="i">axiom</code>-Eintrag in Lean 4 ist keine Lücke im Sinn eines <code class="i">sorry</code>, sondern eine explizite, benannte und dokumentierte Annahme. <code class="i">#print axioms</code> zeigt sie transparent. Für einen Mathlib-PR ist ein projektspezifisches Axiom nicht akzeptabel — das TODO bleibt dann weiterhin offen, ergänzt um die hier ausgearbeitete Beweis-Infrastruktur.</div>
@@ -576,7 +576,7 @@ F mod 5 = −t₁⁴t₂ + 2t₁³t₂² + 2t₁²t₂³ − t₁t₂⁴ − t�
   <tr>
     <td><strong>1 — Solid Modules (Lean 4)</strong></td>
     <td>Formale Verifikation</td>
-    <td>8 Theoreme in Solid.lean bewiesen · 0 sorries · 2 Axiome: <code>sol_leftCancel</code> (Injektivität) + <code>surj_factor</code> (Surjektivität, in MathProject/P2 bewiesen) · CI Build ✅ Lint ✅ · Commit <code>5874e87ae1</code> · Lean 4.31.0-rc2 · PR #39701 auf leanprover-community/mathlib4</td>
+    <td>8 Theoreme in Solid.lean bewiesen · 0 sorries · 2 Axiome: <code>sol_leftCancel</code> (Injektivität) + <code>surj_factor</code> (Surjektivität, in MathProject/P2 bewiesen) · CI Build ✅ Lint ✅ Test and lint ✅ · Commit <code>07da75fe3880</code> · Lean 4.32.0-rc1 · PR #39701 auf leanprover-community/mathlib4</td>
   </tr>
   <tr>
     <td><strong>2 — Dieudonné-Manin</strong></td>
@@ -592,7 +592,7 @@ F mod 5 = −t₁⁴t₂ + 2t₁³t₂² + 2t₁²t₂³ − t₁t₂⁴ − t�
 
 <p>Philosophische Aspekte: Keine der drei Teilprojekte hatte eine eigenständig philosophische Fragestellung. Der mathematische Hintergrund — kondensierte Mathematik als neue Grundlegung der Analysis und Algebra (Clausen-Scholze), die Klassifikation durch Slopes als Ordnungsprinzip in der p-adischen Hodge-Theorie — hat philosophische Dimensionen, die aber nicht Gegenstand dieses Projekts waren.</p>
 
-<div class="footnote">T. Riepe, Berlin. Mai 2026 (aktualisiert Juni 2026). GitHub: <a href="https://github.com/thothrde/mathlib4/tree/feat/condensed-solid-isSolid-profiniteSolid/MathProject">thothrde/mathlib4 · MathProject/</a> · PR #39701 auf leanprover-community/mathlib4. Lean 4.31.0-rc2. CI Build ✅ Lint ✅. Kondensierte Mathematik nach Clausen-Scholze [CS19]. Dieudonné-Manin nach Katz (1979). — Ausgangspunkt für eine öffentliche Website-Dokumentation.</div>
+<div class="footnote">T. Riepe, Berlin. Mai 2026 (aktualisiert Juni 2026). GitHub: <a href="https://github.com/thothrde/mathlib4/tree/feat/condensed-solid-isSolid-profiniteSolid/MathProject">thothrde/mathlib4 · MathProject/</a> · PR #39701 auf leanprover-community/mathlib4. Lean 4.32.0-rc1. CI Build ✅ Lint ✅. Kondensierte Mathematik nach Clausen-Scholze [CS19]. Dieudonné-Manin nach Katz (1979). — Ausgangspunkt für eine öffentliche Website-Dokumentation.</div>
 </div>
 <script>
 function setLang(l){
