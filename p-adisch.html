@@ -202,8 +202,8 @@ Dependencies: P2 imports P0 + P1. P4 imports P2. No circular imports.</div>
 -- &nbsp;&nbsp;Quot.sound &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Lean standard)<br>
 -- &nbsp;&nbsp;CondensedMod.sol_leftCancel &larr; only project-specific axiom (surj_factor is fully proved in P2)<br><br>
 <strong>MathProject build status (P0&ndash;P4):</strong> All 4 files build successfully. 0 sorries in any file.<br>
-<strong>PR branch (Mathlib/Condensed/Solid.lean):</strong> Latest commit <code>5874e87ae1</code> &middot; CI Build ✅ &middot; Lint style ✅ &middot; 0 sorries &middot; <strong>2 axioms</strong>: <code>sol_leftCancel</code> + <code>surj_factor</code> (see below).<br>
-Lean 4.31.0-rc2. PR #39701 on leanprover-community/mathlib4.
+<strong>PR branch (Mathlib/Condensed/Solid.lean):</strong> Latest commit <code>07da75fe3880</code> &middot; CI Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; 0 sorries &middot; <strong>2 axioms</strong>: <code>sol_leftCancel</code> + <code>surj_factor</code> (see below).<br>
+Lean 4.32.0-rc1. PR #39701 on leanprover-community/mathlib4. Ready for review.
 </div>
 <p><strong>Note on axiom vs. sorry:</strong> An <code>axiom</code> entry in Lean 4 is not a gap in the sense of a sorry, but an explicit, named and documented assumption. <code>#print axioms</code> shows it transparently. For a Mathlib PR, a project-specific axiom is not acceptable &mdash; the TODO thus remains open, supplemented by the proof infrastructure elaborated here.</p>
 
@@ -618,9 +618,9 @@ document.addEventListener('DOMContentLoaded',function(){
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">PR #39701 &mdash; Current Status (June 2026)</h2>
 <div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
 <strong>Continuous Integration: all checks passing</strong><br>
-Build ✅ &middot; Lint style ✅ &middot; Post-Build ✅ &middot; Upload to cache ✅ &middot; Verify Transient and Automated Commits ✅<br>
-Latest commit on PR branch: <code>5874e87ae1</code> &middot; Branch: <code>feat/condensed-solid-isSolid-profiniteSolid</code> &middot; Fork: <code>thothrde/mathlib4</code><br>
-Lean toolchain: v4.31.0-rc2 (rebased onto upstream master 2026-06-14). 0 sorries in Solid.lean.
+Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; Post-Build ✅ &middot; Upload to cache ✅ &middot; Verify Transient and Automated Commits ✅<br>
+Latest commit on PR branch: <code>07da75fe3880</code> &middot; Branch: <code>feat/condensed-solid-isSolid-profiniteSolid</code> &middot; Fork: <code>thothrde/mathlib4</code><br>
+Lean toolchain: v4.32.0-rc1 (updated for Lean 4.32 module compatibility, 2026-06-24). 0 sorries in Solid.lean. PR marked ready for review.
 </div>
 <h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;">Two axioms in Mathlib/Condensed/Solid.lean (PR branch)</h3>
 <p style="font-size:.94rem;">Both are declared as <code>axiom</code> (not <code>sorry</code>), fully documented in the file header:</p>
@@ -644,9 +644,9 @@ Lean toolchain: v4.31.0-rc2 (rebased onto upstream master 2026-06-14). 0 sorries
 <h2 style="font-size:1.2rem;font-weight:700;margin:2.5rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">PR #39701 &mdash; Aktueller Stand (Juni 2026)</h2>
 <div style="background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.65;">
 <strong>Continuous Integration: alle Prüfungen bestanden</strong><br>
-Build ✅ &middot; Lint style ✅ &middot; Post-Build ✅ &middot; Upload to cache ✅ &middot; Verify Transient and Automated Commits ✅<br>
-Letzter Commit auf dem PR-Branch: <code>5874e87ae1</code> &middot; Branch: <code>feat/condensed-solid-isSolid-profiniteSolid</code> &middot; Fork: <code>thothrde/mathlib4</code><br>
-Lean-Toolchain: v4.31.0-rc2 (Rebase auf upstream master, 14. Juni 2026). 0 sorries in Solid.lean.
+Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; Post-Build ✅ &middot; Upload to cache ✅ &middot; Verify Transient and Automated Commits ✅<br>
+Letzter Commit auf dem PR-Branch: <code>07da75fe3880</code> &middot; Branch: <code>feat/condensed-solid-isSolid-profiniteSolid</code> &middot; Fork: <code>thothrde/mathlib4</code><br>
+Lean-Toolchain: v4.32.0-rc1 (Lean-4.32-Modulkompatibilität hergestellt, 24. Juni 2026). 0 sorries in Solid.lean. PR zur Überprüfung bereit.
 </div>
 <h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;">Zwei Axiome in Mathlib/Condensed/Solid.lean (PR-Branch)</h3>
 <p style="font-size:.94rem;">Beide als <code>axiom</code> (nicht <code>sorry</code>) deklariert, vollständig im File-Header dokumentiert:</p>
