@@ -82,7 +82,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
   </div>
   <p class="header-desc lang-de">Vollständig lokale, cloud-unabhängige KI-Infrastruktur für strikt lokale, private, experimentelle KI-Experimente. Alle Berechnungen auf Mac Studio M3 Ultra (256 GB unified memory) — kein Cloud-Zugang, keine Daten verlassen den Rechner.</p>
   <p class="header-desc lang-en" style="display:none">Fully local, cloud-independent AI infrastructure for strictly local, private, experimental AI experiments. All computations on Mac Studio M3 Ultra (256 GB unified memory) — no cloud access, no data leaves the machine.</p>
-  <p class="version-note">Stand: Juni 2026 · v3.8</p>
+  <p class="version-note">Stand: Juni 2026 · v3.9</p>
 </div>
 </header><nav class="wrapper"><a href="#hardware"><span class="nav-num">00</span><span class="lang-de">Hardware</span><span class="lang-en" style="display:none">Hardware</span></a>
 <a href="#modelle"><span class="nav-num">01</span><span class="lang-de">LLM-Modelle</span><span class="lang-en" style="display:none">LLM Models</span></a>
@@ -194,8 +194,8 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <section id="router">
 <div class="col">
   <h2><span class="nav-num">02</span>
-    <span class="lang-de">LLM-Router-Proxy v3.3</span>
-    <span class="lang-en" style="display:none">LLM Router Proxy v3.3</span>
+    <span class="lang-de">LLM-Router-Proxy v3.5</span>
+    <span class="lang-en" style="display:none">LLM Router Proxy v3.5</span>
   </h2>
   <div class="lang-de">
 <p>FastAPI-Middleware auf Port 11435 (<code>~/llm_router/llm_proxy.py</code>). Jede Anfrage von Open WebUI und allen anderen Clients läuft ausschließlich über diesen Proxy.</p>
@@ -212,6 +212,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>arXiv</td><td>Mathematik/Physik-Preprints</td><td>25s</td></tr>
 </tbody></table></div>
 <p><strong>Spezialbefehle:</strong> /ensemble, /kreativ, /navigator, /destilliere, /speichere, /journal.</p>
+<div class="subsection"><h3>v3.5-Erweiterungen (Juni 2026)</h3><p><strong>Neue Befehle:</strong></p><ul><li><code>nimm 671b</code> — Tier-3-Route: DeepSeek R1-0528-671B (Port 8889)</li><li><code>/komitee &lt;Frage&gt;</code> — Drei-Modell-Komitee mit Tiefenkonsolidierung (Blind-Spot-Theorem)</li><li><code>/compute pari|sage|lean|julia: &lt;code&gt;</code> — Lokale CAS-Ausführung (PARI/GP, SageMath, Lean 4, Julia), Timeout 45 s</li><li><code>/lean &lt;code&gt;</code> — Lean 4 Type-Check mit LLM-Erklärung</li><li><code>/projekte</code> / <code>/projekt &lt;id&gt;</code> / <code>/projekt &lt;id&gt; :: &lt;notiz&gt;</code> — Forschungsprojekt-Zustandsanzeige und -verwaltung</li><li><code>/mathlib-changes</code> — Tagesaktuell: relevante Mathlib4-Commits (condensed/solid)</li><li><code>/scores</code> — Routing-Qualitäts-Scores (Synthegy-Feedback-Loop)</li></ul><p><strong>Automatisch aktive Module:</strong></p><ul><li><strong>DMP Slow State</strong> (20 Dim, 5 Features × 4 Timescales, JSON-Persistenz): Sitzungsprofil, injiziert ab ca. 3 Exchanges, 8 h TTL.</li><li><strong>Modus-Modulator</strong>: erkennt BEWEIS- / VERIFIZIERUNGS- / ERKUNDUNGS-MODUS aus Query-Signalen.</li><li><strong>Query-Expansion</strong>: Bibliothekssuche generiert Synonym-Terme via qwen3.6 für besseres Retrieval.</li><li><strong>Score-Tracking</strong>: Synthegy-Qualitätsscores per Modell × Domäne, Upgrade-Vorschlag ab Score &lt; 3,0.</li><li><strong>C1 Session-End-Hook</strong> (dreischichtig): <code>/speichere</code> → Projekt-Extraktion; TTL-Ablauf → Harvest-Queue; Session-Harvester alle 30 Min → <code>projekt_zustand.json</code>.</li></ul><p><strong>Drei neue LaunchAgents:</strong></p><ul><li><code>com.autarkdata.claudedata-backup</code> — täglich 03:00, CLAUDE-DATA → TB5-WORK (rsync)</li><li><code>com.autarkdata.mathlib4-watcher</code> — täglich 07:30, Mathlib4-Commits → <code>mathlib4_changes.txt</code></li><li><code>com.autarkdata.session-harvester</code> — alle 30 Min, WebUI-DB → <code>projekt_zustand.json</code></li></ul></div>
 </div>
   <div class="lang-en" style="display:none">
 <p>FastAPI middleware on port 11435. Two-stage routing: Stage 1 — rule-based dispatcher (&lt;1 ms). Stage 2 — L1 reformulator. Anti-hallucination: P4 structure + Synthegy evaluator.</p>
@@ -225,6 +226,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Open Library</td><td>Books</td><td>12s</td></tr>
 <tr><td>arXiv</td><td>Math/physics preprints</td><td>25s</td></tr>
 </tbody></table></div>
+<div class="subsection"><h3>v3.5 Extensions (June 2026)</h3><p><strong>New commands:</strong></p><ul><li><code>nimm 671b</code> — Tier-3 route: DeepSeek R1-0528-671B (port 8889)</li><li><code>/komitee &lt;question&gt;</code> — Three-model committee with deep consolidation (Blind-Spot Theorem)</li><li><code>/compute pari|sage|lean|julia: &lt;code&gt;</code> — Local CAS execution (PARI/GP, SageMath, Lean 4, Julia), 45 s timeout</li><li><code>/lean &lt;code&gt;</code> — Lean 4 type-check with LLM explanation</li><li><code>/projekte</code> / <code>/projekt &lt;id&gt;</code> / <code>/projekt &lt;id&gt; :: &lt;note&gt;</code> — Research project state display and management</li><li><code>/mathlib-changes</code> — Daily: relevant Mathlib4 commits (condensed/solid)</li><li><code>/scores</code> — Routing quality scores (Synthegy feedback loop)</li></ul><p><strong>Automatically active modules:</strong></p><ul><li><strong>DMP Slow State</strong> (20 dims, 5 features × 4 timescales, JSON persistence): session profile, auto-injected from ~3 exchanges, 8 h TTL.</li><li><strong>Mode Modulator</strong>: detects PROOF / VERIFICATION / EXPLORATION mode from query signals.</li><li><strong>Query Expansion</strong>: library search generates synonym terms via qwen3.6 for better retrieval coverage.</li><li><strong>Score Tracking</strong>: Synthegy quality scores per model × domain, upgrade suggestion if score &lt; 3.0.</li><li><strong>C1 Session-End Hook</strong> (three layers): <code>/speichere</code> → project extraction; session TTL expiry → harvest queue; harvester every 30 min → <code>projekt_zustand.json</code>.</li></ul><p><strong>Three new LaunchAgents:</strong></p><ul><li><code>com.autarkdata.claudedata-backup</code> — daily 03:00, CLAUDE-DATA → TB5-WORK (rsync)</li><li><code>com.autarkdata.mathlib4-watcher</code> — daily 07:30, Mathlib4 commits → <code>mathlib4_changes.txt</code></li><li><code>com.autarkdata.session-harvester</code> — every 30 min, WebUI DB → <code>projekt_zustand.json</code></li></ul></div>
 </div>
 </div>
 </section>
