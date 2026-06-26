@@ -203,7 +203,7 @@ Dependencies: P2 imports P0 + P1. P4 imports P2. No circular imports.</div>
 -- &nbsp;&nbsp;CondensedMod.sol_leftCancel &larr; only project-specific axiom (surj_factor is fully proved in P2)<br><br>
 <strong>MathProject build status (P0&ndash;P4):</strong> All 4 files build successfully. 0 sorries in any file.<br>
 <strong>PR branch (Mathlib/Condensed/Solid.lean):</strong> Latest commit <code>07da75fe3880</code> &middot; CI Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; 0 sorries &middot; <strong>2 axioms</strong>: <code>sol_leftCancel</code> + <code>surj_factor</code> (see below).<br>
-Lean 4.32.0-rc1. PR #39701 on leanprover-community/mathlib4. Ready for review.
+Lean 4.32.0-rc1. PR #39701 on leanprover-community/mathlib4. PR #39701 geschlossen 2026-06-24 — »code is full of axiom« (sol_leftCancel, surj_factor; IsDiscrete → IsTiny fehlt in Mathlib). Lokales MathProject bleibt valide.
 </div>
 <p><strong>Note on axiom vs. sorry:</strong> An <code>axiom</code> entry in Lean 4 is not a gap in the sense of a sorry, but an explicit, named and documented assumption. <code>#print axioms</code> shows it transparently. For a Mathlib PR, a project-specific axiom is not acceptable &mdash; the TODO thus remains open, supplemented by the proof infrastructure elaborated here.</p>
 
@@ -369,7 +369,7 @@ T. Riepe, Berlin. May 2026 (updated June 2026). GitHub: thothrde/mathlib4 &middo
 <ul class="items">
   <li><code>profiniteSolidCounit_isIso</code>, <code>profiniteSolidification_isIso_at_fintype</code>, <code>finFreeIsoSolid</code>, <code>sol_map_counit</code>, <code>profiniteSolid_fintype_isSolid</code>, <code>isSolid_of_isLimit_gen</code>, <code>finFree_isSolid</code>, <code>profiniteSolid_obj_isSolid</code></li>
 </ul>
-<p><strong>Axiome in Solid.lean (PR-Branch):</strong> <code>sol_leftCancel</code> (Injektivität) + <code>surj_factor</code> (Surjektivitätsfaktorisierung; in MathProject/P2 vollständig bewiesen, aber <code>finFree_isColimit_at</code>-Infrastruktur noch nicht in Mathlib). CI: Build ✅ · Lint ✅ · Test and lint ✅ · Lean 4.32.0-rc1 · Commit <code>07da75fe3880</code>. PR ready for review.</p>
+<p><strong>Axiome in Solid.lean (PR-Branch):</strong> <code>sol_leftCancel</code> (Injektivität) + <code>surj_factor</code> (Surjektivitätsfaktorisierung; in MathProject/P2 vollständig bewiesen, aber <code>finFree_isColimit_at</code>-Infrastruktur noch nicht in Mathlib). CI: Build ✅ · Lint ✅ · Test and lint ✅ · Lean 4.32.0-rc1 · Commit <code>07da75fe3880</code>. PR #39701 geschlossen 2026-06-24 — »code is full of axiom« (sol_leftCancel, surj_factor; IsDiscrete → IsTiny fehlt in Mathlib). Lokales MathProject bleibt valide.</p>
 
 <h3>Hauptresultat und Beweisstruktur</h3>
 
@@ -456,7 +456,7 @@ Gegeben h : freeX → finFree T:
   <tr><td><code>lake build MathProject.P4_Solid_Progress</code></td><td>2194</td><td class="ok">✓ erfolgreich</td></tr>
 </table>
 <p style="font-size:.83rem;color:var(--text3)">Lean 4.32.0-rc1, Mathlib 4, Mac Studio M3 Ultra 256 GB. Kein <code class="i">sorry</code> in keiner Datei (MathProject P0–P4). <code>#print axioms profiniteSolid_obj_isSolid_full</code> (MathProject): einziges projektspezifisches Axiom <code>CondensedMod.sol_leftCancel</code> — <code>surj_factor</code> dort vollständig bewiesen.</p>
-<p style="font-size:.83rem;color:var(--text3)"><strong>PR-Branch (Mathlib/Condensed/Solid.lean):</strong> Letzter Commit <code class="i">07da75fe3880</code> &middot; CI Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; 0 sorries &middot; <strong>2 Axiome</strong>: <code>sol_leftCancel</code> + <code>surj_factor</code> (Colimit-Infrastruktur noch nicht in Mathlib). PR #39701 auf leanprover-community/mathlib4. Lean 4.32.0-rc1. PR zur Überprüfung bereit.</p>
+<p style="font-size:.83rem;color:var(--text3)"><strong>PR-Branch (Mathlib/Condensed/Solid.lean):</strong> Letzter Commit <code class="i">07da75fe3880</code> &middot; CI Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; 0 sorries &middot; <strong>2 Axiome</strong>: <code>sol_leftCancel</code> + <code>surj_factor</code> (Colimit-Infrastruktur noch nicht in Mathlib). PR #39701 auf leanprover-community/mathlib4. Lean 4.32.0-rc1. PR #39701 geschlossen 24. Juni 2026 — »code is full of axiom« (sol_leftCancel, surj_factor; IsDiscrete → IsTiny fehlt in Mathlib). Lokales MathProject bleibt valide.</p>
 
 <div class="note warn"><strong>Hinweis zu Axiom vs. sorry:</strong> Ein <code class="i">axiom</code>-Eintrag in Lean 4 ist keine Lücke im Sinn eines <code class="i">sorry</code>, sondern eine explizite, benannte und dokumentierte Annahme. <code class="i">#print axioms</code> zeigt sie transparent. Für einen Mathlib-PR ist ein projektspezifisches Axiom nicht akzeptabel — das TODO bleibt dann weiterhin offen, ergänzt um die hier ausgearbeitete Beweis-Infrastruktur.</div>
 
@@ -620,7 +620,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <strong>Continuous Integration: all checks passing</strong><br>
 Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; Post-Build ✅ &middot; Upload to cache ✅ &middot; Verify Transient and Automated Commits ✅<br>
 Latest commit on PR branch: <code>07da75fe3880</code> &middot; Branch: <code>feat/condensed-solid-isSolid-profiniteSolid</code> &middot; Fork: <code>thothrde/mathlib4</code><br>
-Lean toolchain: v4.32.0-rc1 (updated for Lean 4.32 module compatibility, 2026-06-24). 0 sorries in Solid.lean. PR marked ready for review.
+Lean toolchain: v4.32.0-rc1 (updated for Lean 4.32 module compatibility, 2026-06-24). 0 sorries in Solid.lean. PR #39701 geschlossen 2026-06-24 — »code is full of axiom« (sol_leftCancel, surj_factor; IsDiscrete → IsTiny fehlt in Mathlib). Lokales MathProject bleibt valide.
 </div>
 <h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;">Two axioms in Mathlib/Condensed/Solid.lean (PR branch)</h3>
 <p style="font-size:.94rem;">Both are declared as <code>axiom</code> (not <code>sorry</code>), fully documented in the file header:</p>
@@ -646,7 +646,7 @@ Lean toolchain: v4.32.0-rc1 (updated for Lean 4.32 module compatibility, 2026-06
 <strong>Continuous Integration: alle Prüfungen bestanden</strong><br>
 Build ✅ &middot; Lint style ✅ &middot; Test and lint ✅ &middot; Post-Build ✅ &middot; Upload to cache ✅ &middot; Verify Transient and Automated Commits ✅<br>
 Letzter Commit auf dem PR-Branch: <code>07da75fe3880</code> &middot; Branch: <code>feat/condensed-solid-isSolid-profiniteSolid</code> &middot; Fork: <code>thothrde/mathlib4</code><br>
-Lean-Toolchain: v4.32.0-rc1 (Lean-4.32-Modulkompatibilität hergestellt, 24. Juni 2026). 0 sorries in Solid.lean. PR zur Überprüfung bereit.
+Lean-Toolchain: v4.32.0-rc1 (Lean-4.32-Modulkompatibilität hergestellt, 24. Juni 2026). 0 sorries in Solid.lean. PR #39701 geschlossen 24. Juni 2026 — »code is full of axiom« (sol_leftCancel, surj_factor; IsDiscrete → IsTiny fehlt in Mathlib). Lokales MathProject bleibt valide.
 </div>
 <h3 style="font-size:1rem;font-weight:700;margin:1.35rem 0 .45rem;">Zwei Axiome in Mathlib/Condensed/Solid.lean (PR-Branch)</h3>
 <p style="font-size:.94rem;">Beide als <code>axiom</code> (nicht <code>sorry</code>) deklariert, vollständig im File-Header dokumentiert:</p>
