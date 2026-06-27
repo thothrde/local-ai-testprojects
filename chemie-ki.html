@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chemie &amp; KI-Methodik · Berlin 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--max:740px;--wide:1100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+header{border-bottom:1px solid var(--rule);padding:4.5rem 0 3rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:3rem 0 1.2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--fg);margin:2rem 0 .6rem}
+p{margin-bottom:1.2em;font-size:1rem}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:var(--mono);font-size:.82em;background:var(--bg3);padding:.1em .35em;border-radius:2px;color:var(--amber)}
+pre{font-family:var(--mono);font-size:.8rem;background:var(--bg2);border:1px solid var(--rule);padding:1.2rem 1.4rem;border-radius:3px;overflow-x:auto;color:var(--fg);line-height:1.6;margin:1.2rem 0}
+.lang-tabs{display:flex;gap:.5rem;margin-bottom:2rem;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-de{display:block}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem;margin:1.2rem 0}
+.result-box{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1rem 1.2rem;border-radius:2px}
+.result-label{font-family:var(--mono);font-size:.62rem;color:var(--fg-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
+.result-value{font-family:var(--mono);font-size:1.05rem;color:var(--green);font-weight:500}
+.result-note{font-family:var(--sans);font-size:.72rem;color:var(--fg-dim);margin-top:.3rem}
+.proj-section{border-left:2px solid var(--rule);padding-left:1.5rem;margin:2.5rem 0}
+.proj-section h3{margin-top:0}
+.fact-list{list-style:none;padding:0;margin:.8rem 0}
+.fact-list li{font-family:var(--sans);font-size:.85rem;color:var(--fg-dim);padding:.25rem 0;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:baseline}
+.fact-list li:last-child{border-bottom:none}
+.fact-list .k{color:var(--fg-dim)}
+.fact-list .v{font-family:var(--mono);font-size:.8rem;color:var(--fg)}
+.note-box{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--amber);padding:.9rem 1.1rem;border-radius:2px;margin:1rem 0;font-family:var(--sans);font-size:.82rem;color:var(--fg-dim);line-height:1.6}
+.status-ok{font-family:var(--mono);font-size:.62rem;color:var(--green);letter-spacing:.08em}
+.viz-container{background:var(--bg2);border:1px solid var(--rule);border-radius:3px;padding:1rem;margin:1.5rem 0;overflow-x:auto}
+.viz-title{font-family:var(--sans);font-size:.7rem;color:var(--fg-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+@media(max-width:640px){html{font-size:15px}.wrapper{padding:0 1.2rem}.result-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<header>
+<div class="col">
+  <p class="header-meta"><a href="index.html">← Lokales KI-Ökosystem &amp; Forschungsprojekte</a></p>
+  <p class="header-meta" style="margin-top:.5rem">Projekt 23 · Chemie &amp; KI-Methodik</p>
+  <h1>Lokaler Chemie- &amp; KI-Forschungsstack
+    <span class="sub">Local Chemistry &amp; AI Research Stack</span>
+  </h1>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
+  </div>
+  <p class="lang-de" style="font-family:var(--sans);font-size:.85rem;color:var(--fg-dim);max-width:560px;margin-top:.5rem">
+    Sechs abgeschlossene Experimente mit dem lokalen Chemie-Werkzeugstack (Tellurium, MACE-OFF, PySCF, RDKit, ASE).
+    Alle Ergebnisse aus tatsächlichen Berechnungen auf dem Mac Studio M3 Ultra, Juni 2026.
+    Keine simulierten oder interpolierten Werte.
+  </p>
+  <p class="lang-en" style="display:none;font-family:var(--sans);font-size:.85rem;color:var(--fg-dim);max-width:560px;margin-top:.5rem">
+    Six completed experiments using the local chemistry tool stack (Tellurium, MACE-OFF, PySCF, RDKit, ASE).
+    All results from actual computations on the Mac Studio M3 Ultra, June 2026.
+    No simulated or interpolated values.
+  </p>
+  <p class="status-ok" style="margin-top:1rem">✓ ABGESCHLOSSEN · Juni 2026 · 6 Projekte · Python 3.12</p>
+</div>
+</header>
+
+<section>
+<div class="col">
+
+<h2 class="lang-de">Werkzeugstack &amp; Paketversionen</h2>
+<h2 class="lang-en" style="display:none">Tool Stack &amp; Package Versions</h2>
+
+<ul class="fact-list">
+  <li><span class="k">Tellurium (SBML/ODE-Simulation)</span><span class="v">2.2.13</span></li>
+  <li><span class="k">MACE-OFF (ML-Kraftfeld)</span><span class="v">0.3.16 · Modell: MACE-OFF23_medium (17,5 MB)</span></li>
+  <li><span class="k">PySCF (DFT)</span><span class="v">2.13.1 · Funktional: B3LYP/6-31G*</span></li>
+  <li><span class="k">RDKit (Molekülgenerierung)</span><span class="v">2026.3.3</span></li>
+  <li><span class="k">ASE (Atomsimulation)</span><span class="v">3.29.0</span></li>
+  <li><span class="k">NetworkX</span><span class="v">3.4.2</span></li>
+  <li><span class="k">Neo4j (Graphdatenbank)</span><span class="v">2026.05.0 · bolt://localhost:7687</span></li>
+  <li><span class="k">LLM: Taxonomie</span><span class="v">qwen3:235b-a22b (lokal, Ollama)</span></li>
+  <li><span class="k">LLM: JSON-Analyse</span><span class="v">mistral-small3.1:24b (lokal, Ollama)</span></li>
+</ul>
+
+<h2 class="lang-de">C1 · Tellurium: Topologie-Dynamik-Atlas</h2>
+<h2 class="lang-en" style="display:none">C1 · Tellurium: Topology-Dynamics Atlas</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Welche Verbindung besteht zwischen der topologischen Struktur eines biochemischen Reaktionsnetzwerks und seiner Langzeitdynamik? Feinbergs Deficiency-Zero-Theorem (1972) sagt: Netzwerke mit Deficiency &delta;=0 und schwacher Reversibilität haben genau einen stabilen Fixpunkt — unabhängig von den Ratenkonstanten. Was gilt für &delta;&nbsp;&gt;&nbsp;0?</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> What is the relationship between the topological structure of a biochemical reaction network and its long-term dynamics? Feinberg's Deficiency-Zero Theorem (1972) states: networks with deficiency &delta;=0 and weak reversibility have exactly one stable fixed point &mdash; independent of rate constants. What holds for &delta;&nbsp;&gt;&nbsp;0?</p>
+<p class="lang-de"><strong>Methode:</strong> Simulation bekannter Netzwerke (Brusselator, Oregonator, Selkov, Toggle-Switch) mit Tellurium 2.2.13; Klassifikation der Langzeitdynamik nach Fixpunkt, Grenzzyklus, Bistabilität; anschließend Zufallsscan von 30 Netzwerken mit 2–3 Spezies. Deficiency-Näherung: &delta; = 2&thinsp;&middot;&thinsp;n<sub>rx</sub> &minus; 1 &minus; rank(S).</p>
+<p class="lang-en" style="display:none"><strong>Method:</strong> Simulation of known networks (Brusselator, Oregonator, Selkov, Toggle-Switch) with Tellurium 2.2.13; classification into fixed point, limit cycle, bistability; followed by random scan of 30 networks with 2&ndash;3 species. Deficiency approximation: &delta; = 2&thinsp;&middot;&thinsp;n<sub>rx</sub> &minus; 1 &minus; rank(S).</p>
+<div class="viz-container">
+<p class="viz-title lang-de">Dynamik-Klassifikation · je 6 zufällige Anfangsbedingungen</p>
+<p class="viz-title lang-en" style="display:none">Dynamics Classification · 6 random initial conditions each</p>
+<svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:620px;display:block">
+  <text x="10" y="20" font-family="DM Mono,monospace" font-size="10" fill="#9a9188">Netzwerk</text>
+  <text x="220" y="20" font-family="DM Mono,monospace" font-size="10" fill="#9a9188">&delta; (Näherung)</text>
+  <text x="340" y="20" font-family="DM Mono,monospace" font-size="10" fill="#9a9188">Dynamik</text>
+  <text x="480" y="20" font-family="DM Mono,monospace" font-size="10" fill="#9a9188">Konsistenz</text>
+  <line x1="10" y1="28" x2="610" y2="28" stroke="#2a2620" stroke-width="1"/>
+  <text x="10" y="48" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">simple_decay</text>
+  <text x="220" y="48" font-family="DM Mono,monospace" font-size="12" fill="#c8903a">1</text>
+  <text x="340" y="48" font-family="DM Mono,monospace" font-size="12" fill="#7aad7a">FIXPOINT</text>
+  <text x="480" y="48" font-family="DM Mono,monospace" font-size="11" fill="#7aad7a">6/6</text>
+  <text x="10" y="72" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">brusselator</text>
+  <text x="220" y="72" font-family="DM Mono,monospace" font-size="12" fill="#c8903a">5</text>
+  <text x="340" y="72" font-family="DM Mono,monospace" font-size="12" fill="#d4a040">LIMIT_CYCLE</text>
+  <text x="480" y="72" font-family="DM Mono,monospace" font-size="11" fill="#7aad7a">6/6</text>
+  <text x="10" y="96" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">oregonator</text>
+  <text x="220" y="96" font-family="DM Mono,monospace" font-size="12" fill="#c8903a">6</text>
+  <text x="340" y="96" font-family="DM Mono,monospace" font-size="12" fill="#d4a040">LIMIT_CYCLE</text>
+  <text x="480" y="96" font-family="DM Mono,monospace" font-size="11" fill="#7aad7a">6/6</text>
+  <text x="10" y="120" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">selkov</text>
+  <text x="220" y="120" font-family="DM Mono,monospace" font-size="12" fill="#c8903a">5</text>
+  <text x="340" y="120" font-family="DM Mono,monospace" font-size="12" fill="#d4a040">LIMIT_CYCLE</text>
+  <text x="480" y="120" font-family="DM Mono,monospace" font-size="11" fill="#7aad7a">6/6</text>
+  <text x="10" y="144" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">toggle_switch</text>
+  <text x="220" y="144" font-family="DM Mono,monospace" font-size="12" fill="#c8903a">5</text>
+  <text x="340" y="144" font-family="DM Mono,monospace" font-size="12" fill="#7aad7a">FIXPOINT</text>
+  <text x="480" y="144" font-family="DM Mono,monospace" font-size="11" fill="#7aad7a">6/6</text>
+  <text x="10" y="175" font-family="Instrument Sans,sans-serif" font-size="9" fill="#9a9188">Deficiency-Näherung: n = 2·n_rx Komplexe, l = 1 Linkage-Klasse</text>
+  <text x="10" y="188" font-family="Instrument Sans,sans-serif" font-size="9" fill="#9a9188">Alle Klassifikationen 6/6 konsistent über zufällige Anfangsbedingungen.</text>
+</svg>
+</div>
+<div class="result-grid">
+  <div class="result-box"><p class="result-label">Zufallsscan</p><p class="result-value">30 Netzwerke</p><p class="result-note">2–3 Spezies, 2–4 Reaktionen</p></div>
+  <div class="result-box"><p class="result-label">Klassen beobachtet</p><p class="result-value">FIXPOINT, BISTABLE</p><p class="result-note">UNKNOWN bei hohem &delta;</p></div>
+</div>
+</div>
+
+<h2 class="lang-de">C2 · MACE-OFF / PySCF: Energievergleich</h2>
+<h2 class="lang-en" style="display:none">C2 · MACE-OFF / PySCF: Energy Comparison</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Wie verhalten sich die Energieausgaben des MACE-OFF23-Kraftfelds gegenüber DFT-Referenzwerten (PySCF B3LYP/6-31G*) für verschiedene organische Molekülklassen?</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> How do the energy outputs of the MACE-OFF23 force field compare to DFT reference values (PySCF B3LYP/6-31G*) across different organic molecule classes?</p>
+<div class="note-box lang-de"><strong>Methodischer Hinweis:</strong> MACE-OFF und PySCF verwenden unterschiedliche Energiereferenzrahmen. MACE-OFF gibt Energien relativ zu atomaren Referenzen zurück; PySCF liefert absolute elektronische Totalenergien. Die ausgewiesenen |&Delta;E|-Werte spiegeln daher primär diesen systematischen Offset wider. Sinnvoll vergleichbar sind <em>relative</em> Differenzen innerhalb einer Serie.</div>
+<div class="note-box lang-en" style="display:none"><strong>Methodological note:</strong> MACE-OFF and PySCF use different energy reference frames. MACE-OFF returns energies relative to atomic references; PySCF returns absolute electronic total energies. The reported |&Delta;E| values therefore primarily reflect this systematic offset. Meaningfully comparable are <em>relative</em> differences within a series.</div>
+<ul class="fact-list">
+  <li><span class="k">Cycloalkane C3–C8 |&Delta;E|</span><span class="v">49,2 – 133,4 kcal/mol</span></li>
+  <li><span class="k">Heteroatom-Substitution |&Delta;E|</span><span class="v">98,3 – 118,0 kcal/mol (6 Systeme)</span></li>
+  <li><span class="k">C-C Bindungsstreckung Ethan |&Delta;E|</span><span class="v">57,7 – 100,9 kcal/mol (r=1,20–2,50 Å)</span></li>
+  <li><span class="k">Werkzeuge</span><span class="v">MACE-OFF 0.3.16 · PySCF 2.13.1 · RDKit 2026.3.3 · ASE 3.29.0</span></li>
+</ul>
+</div>
+
+<h2 class="lang-de">C3 · Reaktions-Diffusions-Brücke: Turing-Analyse</h2>
+<h2 class="lang-en" style="display:none">C3 · Reaction-Diffusion Bridge: Turing Analysis</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Welche Reaktionsnetzwerke können durch Diffusion destabilisiert werden und räumliche Muster bilden (Turing-Instabilität)? Turings Resultat (1952) gilt für zwei Spezies; die allgemeine Bedingung ist ein algebraisches Problem über der Jacobi-Matrix und der Diffusionsmatrix.</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> Which reaction networks can be destabilized by diffusion and form spatial patterns (Turing instability)? Turing's result (1952) holds for two species; the general condition is an algebraic problem over the Jacobian matrix and the diffusion matrix.</p>
+<h3 class="lang-de">Symbolische Turing-Bedingungen (2×2, abgeleitet mit SymPy)</h3>
+<h3 class="lang-en" style="display:none">Symbolic Turing Conditions (2×2, derived with SymPy)</h3>
+<pre>h(q) = d₁d₂q² − (a·d₂ + d·d₁)q + (ad−bc)
+
+Stabilitätsbedingungen (ohne Diffusion):
+  (S1) tr(J) = a + d &lt; 0
+  (S2) det(J) = ad − bc &gt; 0
+
+Turing-Bedingungen (notwendig und hinreichend für 2 Spezies):
+  (T1) a·d₂ + d·d₁ &gt; 0     [Aktivator diffundiert langsamer]
+  (T2) (a·d₂ + d·d₁)² − 4·d₁·d₂·(ad−bc) &gt; 0</pre>
+<h3 class="lang-de">Turing-Screening: 5 Netzwerke</h3>
+<h3 class="lang-en" style="display:none">Turing Screening: 5 Networks</h3>
+<div class="viz-container">
+<p class="viz-title lang-de">Fixpunkt-Stabilität und Turing-Fähigkeit (via rr.getFullJacobian())</p>
+<p class="viz-title lang-en" style="display:none">Fixed-point stability and Turing capability (via rr.getFullJacobian())</p>
+<svg viewBox="0 0 620 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:620px;display:block">
+  <text x="10" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Netzwerk</text>
+  <text x="185" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Eigenwerte (Re)</text>
+  <text x="340" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">FP stabil</text>
+  <text x="420" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Turing-fähig</text>
+  <line x1="10" y1="24" x2="610" y2="24" stroke="#2a2620" stroke-width="1"/>
+  <text x="10" y="44" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">simple_decay</text>
+  <text x="185" y="44" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">−0.50, −0.30</text>
+  <text x="340" y="44" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">✓ ja</text>
+  <text x="420" y="44" font-family="DM Mono,monospace" font-size="10" fill="#b86060">nein (T2)</text>
+  <text x="10" y="70" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">brusselator (k₃=3)</text>
+  <text x="185" y="70" font-family="DM Mono,monospace" font-size="10" fill="#b86060">+0.50, +0.50</text>
+  <text x="340" y="70" font-family="DM Mono,monospace" font-size="10" fill="#b86060">✗ nein</text>
+  <text x="420" y="70" font-family="DM Mono,monospace" font-size="10" fill="#9a9188">— (instabiler FP)</text>
+  <text x="10" y="96" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">oregonator</text>
+  <text x="185" y="96" font-family="DM Mono,monospace" font-size="10" fill="#b86060">+40.0, −0.90, −0.90</text>
+  <text x="340" y="96" font-family="DM Mono,monospace" font-size="10" fill="#b86060">✗ nein</text>
+  <text x="420" y="96" font-family="DM Mono,monospace" font-size="10" fill="#9a9188">— (instabiler FP)</text>
+  <text x="10" y="122" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">selkov</text>
+  <text x="185" y="122" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">−0.0011, −0.0011</text>
+  <text x="340" y="122" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">✓ ja</text>
+  <text x="420" y="122" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">✓ ja · d₂/d₁ = 5,27</text>
+  <text x="10" y="148" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">toggle_switch</text>
+  <text x="185" y="148" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">−0.29, −1.71</text>
+  <text x="340" y="148" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">✓ ja</text>
+  <text x="420" y="148" font-family="DM Mono,monospace" font-size="10" fill="#b86060">nein (T2)</text>
+  <line x1="10" y1="163" x2="610" y2="163" stroke="#2a2620" stroke-width="1"/>
+  <text x="10" y="178" font-family="Instrument Sans,sans-serif" font-size="9" fill="#9a9188">Selkov (Glykolyse-Modell) ist das einzige Turing-fähige Netzwerk in diesem Satz.</text>
+  <text x="10" y="191" font-family="Instrument Sans,sans-serif" font-size="9" fill="#9a9188">Brusselator bei k₃=3 liegt oberhalb der Hopf-Bifurkation — Grenzzyklus, kein Turing-System.</text>
+  <text x="10" y="204" font-family="Instrument Sans,sans-serif" font-size="9" fill="#9a9188">Jacobian exakt via rr.getFullJacobian() nach rr.steadyState() (nicht finite Differenzen).</text>
+  <text x="10" y="220" font-family="Instrument Sans,sans-serif" font-size="9" fill="#c8903a">PDE-Simulation: D₁=0.01, D₂=2.0 (d₂/d₁=200 ≫ Schwelle 5.27) → Musterbildung beobachtet</text>
+</svg>
+</div>
+</div>
+
+<h2 class="lang-de">C4 · Naturalist AI: Kognitionsexperiment</h2>
+<h2 class="lang-en" style="display:none">C4 · Naturalist AI: Cognition Experiment</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Wenn ein Sprachmodell unlabeled Zeitreihen aus chemischen Simulationen sieht — ohne zu wissen, was sie darstellen — bildet es dann Kategorien, die mit bekannten dynamischen Klassen übereinstimmen? Die Abweichungen sind das Interessante: der Unterschied zwischen Muster<em>erkennung</em> (Zuordnung zu Trainingsdaten) und Muster<em>erfassung</em> (strukturelle Beschreibung des Beobachteten).</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> When a language model sees unlabeled time series from chemical simulations, does it form categories that correspond to known dynamical classes? The divergences are the interesting result: the difference between pattern <em>recognition</em> (matching to training data) and pattern <em>apprehension</em> (structural description of what is observed).</p>
+<div class="result-grid">
+  <div class="result-box"><p class="result-label">Datensatz</p><p class="result-value">80 Zeitreihen</p><p class="result-note">20 × 4 Klassen: FIXPOINT, LIMIT_CYCLE, BISTABLE, CHAOS</p></div>
+  <div class="result-box"><p class="result-label">LLM-Kategorien</p><p class="result-value">26</p><p class="result-note">gegenüber 4 Grundwahrheits-Klassen</p></div>
+  <div class="result-box"><p class="result-label">Klassifiziert</p><p class="result-value">66 / 80</p><p class="result-note">14 ohne Klassifikation</p></div>
+  <div class="result-box"><p class="result-label">qwen3 Taxonomie</p><p class="result-value">7.158 Zeichen</p><p class="result-note">via thinking-Feld (Streaming), aus Pilotsatz von 8 Zeitreihen</p></div>
+</div>
+</div>
+
+<h2 class="lang-de">X1 · Reaktionsnetzwerk-Evolution</h2>
+<h2 class="lang-en" style="display:none">X1 · Reaction Network Evolution</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Konvergieren zufällig mutierende Reaktionsnetzwerke unter dem einzigen Überlebenskriterium „stabiler Fixpunkt“ bevorzugt gegen Netzwerke mit Feinberg-Deficiency &delta;=0? Das würde bedeuten: Topologische Robustheit ist ein evolutionärer Attraktor.</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> Do randomly mutating reaction networks, subject only to the criterion of a stable fixed point, preferentially converge toward networks with Feinberg deficiency &delta;=0? This would mean topological robustness is an evolutionary attractor.</p>
+<p class="lang-de"><strong>Pilotstudie:</strong> 20 Linien × 200 Mutationsschritte, 4 Kerne (multiprocessing). Mutationsoperatoren: Reaktion hinzufügen/entfernen, Ratenkonstante ändern, Stöchiometrie ändern. Überlebenskriterium: stabiler Fixpunkt bei ≥ 3 von 5 Anfangsbedingungen.</p>
+<p class="lang-en" style="display:none"><strong>Pilot study:</strong> 20 lineages × 200 mutation steps, 4 cores (multiprocessing). Mutation operators: add/remove reaction, change rate constant, change stoichiometry. Survival criterion: stable fixed point for ≥ 3 of 5 initial conditions.</p>
+<div class="result-grid">
+  <div class="result-box"><p class="result-label">Linien erfolgreich</p><p class="result-value">20 / 20</p><p class="result-note">CVODE-Fehler = korrekt abgelehnte instabile Netzwerke</p></div>
+  <div class="result-box"><p class="result-label">Finale &delta; = 0</p><p class="result-value">3 / 20 (15 %)</p><p class="result-note">kein statistisch signifikanter Drift</p></div>
+  <div class="result-box"><p class="result-label">Mittlere Deficiency</p><p class="result-value">1,30 ± 0,84</p><p class="result-note">nach 200 Schritten</p></div>
+  <div class="result-box"><p class="result-label">Akzeptanzrate</p><p class="result-value">0,984</p><p class="result-note">fast alle Mutationen überleben</p></div>
+</div>
+<div class="note-box lang-de"><strong>Befund:</strong> Die Feinberg-Attraktor-Hypothese wird in dieser Pilotstudie <strong>nicht bestätigt</strong>. 15 % &delta;=0 am Ende entspricht ungefähr der Startverteilung. Einschränkung: 20 Linien × 200 Schritte sind statistisch dünn. Vollstudie: 100 Linien × 1000 Schritte.</div>
+<div class="note-box lang-en" style="display:none"><strong>Finding:</strong> The Feinberg attractor hypothesis is <strong>not confirmed</strong> in this pilot study. 15 % &delta;=0 corresponds approximately to the initial distribution. Limitation: 20 lineages × 200 steps is statistically thin. Full study: 100 lineages × 1,000 steps.</div>
+</div>
+
+<h2 class="lang-de">X2 · Annahmen-Abhängigkeitsgraph (Isichei–Magueijo 2026)</h2>
+<h2 class="lang-en" style="display:none">X2 · Assumption Dependency Graph (Isichei–Magueijo 2026)</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Paper:</strong> Isichei &amp; Magueijo, <em>Phys.&thinsp;Rev.&thinsp;Lett.</em>&thinsp;136,&thinsp;231501 (2026). Emergente Gravitation aus einem thermodynamischen Otto-Zyklus über kausal-konvexen Diamonds; führt zu Lorentz-Verletzung mit bevorzugtem Bezugssystem.</p>
+<p class="lang-en" style="display:none"><strong>Paper:</strong> Isichei &amp; Magueijo, <em>Phys.&thinsp;Rev.&thinsp;Lett.</em>&thinsp;136,&thinsp;231501 (2026). Emergent gravity from a thermodynamic Otto cycle over causally convex diamonds; leads to Lorentz violation with a preferred frame.</p>
+<p class="lang-de"><strong>Frage:</strong> Welche der 8 Annahmen (A1–A8) des Papers ist für welche Gleichungen (E1–E10) notwendig? Welche Annahmen sind der eigentliche konstruktive Freiheitsgrad?</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> Which of the paper’s 8 assumptions (A1–A8) is necessary for which equations (E1–E10)? Which assumptions are the actual constructive degrees of freedom?</p>
+<div class="result-grid">
+  <div class="result-box"><p class="result-label">Graphknoten</p><p class="result-value">23</p><p class="result-note">8 Annahmen + 10 Gleichungen + 5 Schlussfolgerungen</p></div>
+  <div class="result-box"><p class="result-label">Kanten gesamt</p><p class="result-value">41</p><p class="result-note">25 Vorwissen + 10 Mistral-LLM + 6 Schlussfolgerungen</p></div>
+  <div class="result-box"><p class="result-label">Höchste Eingangs-Zentralität</p><p class="result-value">E3: 0,227</p><p class="result-note">&eta;-Formel: 5 Annahmen münden ein (A3, A4, A5, A8 + LLM)</p></div>
+  <div class="result-box"><p class="result-label">Höchste Betweenness</p><p class="result-value">E7: 0,017</p><p class="result-note">FRW-Gleichung 2 — kritischste Vermittlergleichung</p></div>
+</div>
+<p class="lang-de"><strong>Zentrales Ergebnis:</strong> Annahme A5 (&eta; ∝ l, die Skalierungsannahme für die Zykluseffizienz) ist der einzige Knoten im Graphen, der sich nicht aus Stokes-Theorem (A2) oder Thermodynamik (A1, A3, A4, A7, A8) ableitet. Sie ist der eigentliche konstruktive Freiheitsgrad — und erklärt, warum L₂ als neue Fundamentalkonstante auftaucht.</p>
+<p class="lang-en" style="display:none"><strong>Central finding:</strong> Assumption A5 (&eta; ∝ l) is the only node in the graph not derivable from Stokes’ theorem (A2) or thermodynamics (A1, A3, A4, A7, A8). It is the actual constructive degree of freedom — explaining why L₂ appears as a new fundamental constant.</p>
+<div class="viz-container">
+  <p class="viz-title lang-de">Annahmen-Abhängigkeitsgraph (interaktiv, hover über Knoten)</p>
+  <p class="viz-title lang-en" style="display:none">Assumption dependency graph (interactive, hover over nodes)</p>
+  <canvas id="graphCanvas" width="580" height="280" style="width:100%;max-width:580px;display:block;cursor:pointer"></canvas>
+  <p style="font-family:var(--mono);font-size:.68rem;color:var(--fg-dim);margin-top:.4rem">Orange = Annahmen (A1–A8) · Grün = Gleichungen (E1–E10) · Lila = Schlussfolgerungen (C1–C5)</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="col">
+<h2 class="lang-de">Technische Details</h2>
+<h2 class="lang-en" style="display:none">Technical Details</h2>
+<ul class="fact-list">
+  <li><span class="k">Ausführungsumgebung</span><span class="v">Mac Studio M3 Ultra, 256 GB, Python 3.12</span></li>
+  <li><span class="k">Keine Cloud-Dienste</span><span class="v">Alle Berechnungen vollständig lokal</span></li>
+  <li><span class="k">Skripte</span><span class="v">/Volumes/CLAUDE-DATA/Projekte/ (C1–C4, X1, X2)</span></li>
+  <li><span class="k">LLM-Infrastruktur</span><span class="v">Ollama Port 11434 · qwen3:235b-a22b · mistral-small3.1:24b</span></li>
+  <li><span class="k">Graphdatenbank</span><span class="v">Neo4j 2026.05.0 · bolt://localhost:7687</span></li>
+  <li><span class="k">Implementierungsassistent</span><span class="v">Claude Sonnet 4.6 (Anthropic)</span></li>
+  <li><span class="k">Laufzeitwarnungen</span><span class="v">CVODE-Fehler in X1/C4: korrekt gefangene instabile Netzwerke, kein Datenfehler</span></li>
+</ul>
+</div>
+</section>
+
+<footer class="wrapper">
+  <span><a href="index.html" style="color:var(--fg-dim)">← Zurück zur Übersicht</a></span>
+  <span>Thomas Riepe · Berlin · Juni 2026</span>
+  <span><a href="impressum.html" style="color:var(--fg-dim)">Impressum &amp; Datenschutz</a></span>
+</footer>
+</div>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>{e.style.removeProperty('display')});
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
+}
+(function(){
+  const canvas=document.getElementById('graphCanvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,H=canvas.height;
+  const nodes={
+    A1:{x:55,y:45,color:'#e8a040'},A2:{x:55,y:90,color:'#e8a040'},
+    A3:{x:55,y:135,color:'#e8a040'},A4:{x:55,y:180,color:'#e8a040'},
+    A5:{x:55,y:225,color:'#e8a040'},A6:{x:125,y:68,color:'#e8a040'},
+    A7:{x:125,y:125,color:'#e8a040'},A8:{x:125,y:195,color:'#e8a040'},
+    E1:{x:260,y:30,color:'#3ecf8e'},E2:{x:260,y:75,color:'#3ecf8e'},
+    E3:{x:260,y:120,color:'#3ecf8e'},E4:{x:260,y:165,color:'#3ecf8e'},
+    E5:{x:260,y:210,color:'#3ecf8e'},E6:{x:370,y:55,color:'#3ecf8e'},
+    E7:{x:370,y:110,color:'#3ecf8e'},E8:{x:370,y:165,color:'#3ecf8e'},
+    E9:{x:370,y:220,color:'#3ecf8e'},E10:{x:260,y:255,color:'#3ecf8e'},
+    C1:{x:490,y:50,color:'#9b7cf8'},C2:{x:490,y:110,color:'#9b7cf8'},
+    C3:{x:490,y:170,color:'#9b7cf8'},C4:{x:490,y:225,color:'#9b7cf8'},
+    C5:{x:490,y:268,color:'#9b7cf8'},
+  };
+  const edges=[
+    ['A1','E1'],['A2','E1'],['A8','E1'],['A1','E4'],['A2','E4'],['A5','E4'],
+    ['A3','E3'],['A4','E3'],['A5','E3'],['A8','E3'],
+    ['A6','E2'],['A7','E2'],['A5','E5'],['A6','E5'],['A5','E7'],['A6','E10'],
+    ['E5','E7'],['E2','E6'],['E6','E8'],['E7','E8'],['E5','E9'],['E2','E10'],
+    ['A6','C1'],['E5','C2'],['E7','C3'],['E2','C4'],['A7','C4'],['E10','C5'],
+  ];
+  let hov=null;
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle='#161410';ctx.fillRect(0,0,W,H);
+    edges.forEach(([a,b])=>{
+      const na=nodes[a],nb=nodes[b];
+      const hot=hov&&(hov===a||hov===b);
+      ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(nb.x,nb.y);
+      ctx.strokeStyle=hot?'#c8903a':'#2a2620';ctx.lineWidth=hot?1.5:.8;ctx.stroke();
+      const ang=Math.atan2(nb.y-na.y,nb.x-na.x);
+      const tx=nb.x-9*Math.cos(ang),ty=nb.y-9*Math.sin(ang);
+      ctx.beginPath();ctx.moveTo(tx,ty);
+      ctx.lineTo(tx-5*Math.cos(ang-.4),ty-5*Math.sin(ang-.4));
+      ctx.lineTo(tx-5*Math.cos(ang+.4),ty-5*Math.sin(ang+.4));
+      ctx.closePath();ctx.fillStyle=hot?'#c8903a':'#3a3530';ctx.fill();
+    });
+    Object.entries(nodes).forEach(([id,n])=>{
+      const hot=hov===id;
+      ctx.beginPath();ctx.arc(n.x,n.y,7,0,Math.PI*2);
+      ctx.fillStyle=hot?n.color:n.color+'88';ctx.fill();
+      ctx.strokeStyle=hot?n.color:n.color+'44';ctx.lineWidth=hot?2:1;ctx.stroke();
+      ctx.fillStyle=hot?'#e2ddd4':'#9a9188';
+      ctx.font=(hot?'bold ':'')+' 8px DM Mono,monospace';
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(id,n.x,n.y);
+    });
+  }
+  canvas.addEventListener('mousemove',e=>{
+    const r=canvas.getBoundingClientRect(),sx=W/r.width,sy=H/r.height;
+    const mx=(e.clientX-r.left)*sx,my=(e.clientY-r.top)*sy;
+    hov=null;
+    Object.entries(nodes).forEach(([id,n])=>{if(Math.hypot(mx-n.x,my-n.y)<11)hov=id;});
+    draw();
+  });
+  canvas.addEventListener('mouseleave',()=>{hov=null;draw();});
+  draw();
+})();
+</script>
+</body>
+</html>
