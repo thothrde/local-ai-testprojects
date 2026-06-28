@@ -29,6 +29,8 @@
   footer{border-top:1px solid var(--rule);padding:2rem 0;margin-top:3rem;
          font-size:.8rem;color:var(--fg-dim)}
   strong{color:#e6edf3}
+  .warn{background:#1c1a0a;border-left:3px solid #d4a040;padding:.75rem 1rem;
+        margin:1rem 0;font-size:.9rem;color:#c8b870}
 </style>
 </head>
 <body>
@@ -67,25 +69,64 @@
   <p>Thomas Riepe, Heinz-Kapelle-Straße 12, 10407 Berlin<br>
   E-Mail: <a href="mailto:thomasriepe@gmail.com">thomasriepe(at)gmail.com</a></p>
 
-  <h3>2. Verarbeitung personenbezogener Daten</h3>
+  <h3>2. Verarbeitung personenbezogener Daten durch den Betreiber</h3>
   <p>Diese Website wird als statisches GitHub Pages-Projekt betrieben. Es werden
-  <strong>keinerlei personenbezogene Daten</strong> aktiv erhoben, gespeichert oder
-  verarbeitet:</p>
+  <strong>keinerlei personenbezogene Daten</strong> aktiv durch den Betreiber erhoben,
+  gespeichert oder verarbeitet:</p>
   <ul>
     <li>Keine Cookies</li>
     <li>Kein Tracking, keine Analyse-Tools (kein Google Analytics o.ä.)</li>
     <li>Keine Nutzerprofile</li>
     <li>Kein Kontaktformular, keine Newsletter</li>
-    <li>Keine serverseitige Verarbeitung (rein statische HTML-Dateien)</li>
+    <li>Keine serverseitige Verarbeitung durch den Betreiber (rein statische HTML-Dateien)</li>
   </ul>
-  <p>Die Website wird über <strong>GitHub Pages (GitHub Inc., USA)</strong> gehostet.
-  GitHub kann beim Aufruf technische Daten (IP-Adresse, Zeitstempel, Browser-Typ)
-  in Server-Logs erfassen. Diese Verarbeitung unterliegt
+
+  <h3>2a. Hosting: GitHub Pages</h3>
+  <p>Die Website wird über <strong>GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St,
+  San Francisco, CA 94107, USA)</strong> gehostet. GitHub kann beim Aufruf technische
+  Daten (IP-Adresse, Zeitstempel, Browser-Typ, Referrer) in Server-Logs erfassen.
+  Diese Verarbeitung unterliegt
   <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank">
   GitHubs Datenschutzerklärung</a>. Der Betreiber dieser Website hat darauf keinen
-  Einfluss und keinen Zugriff auf diese Logs.</p>
+  Einfluss und keinen Zugriff auf diese Logs.
+  Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb
+  einer öffentlich zugänglichen Website).</p>
 
-  <h3>2a. Transparenzforschung: Angaben zu Personen in öffentlicher Funktion</h3>
+  <h3>2b. Externe Ressourcen: Google Fonts und Cloudflare CDN</h3>
+  <div class="warn">
+    Beim Aufruf der Seiten dieser Website werden externe Ressourcen von Drittanbietern
+    geladen. Dabei wird die IP-Adresse der Besucher an die jeweiligen Anbieter übertragen.
+  </div>
+
+  <p><strong>Google Fonts (Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043,
+  USA):</strong><br>
+  Für die typografische Darstellung dieser Website werden Schriftarten (EB&nbsp;Garamond,
+  DM&nbsp;Mono, Instrument&nbsp;Sans) über den Dienst Google Fonts eingebunden. Beim Laden
+  der Seite stellt der Browser des Besuchers eine Verbindung zu den Servern von Google her
+  (<code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code>), wodurch die
+  IP-Adresse an Google übermittelt wird. Google kann diese Daten mit anderen
+  Nutzerdaten verknüpfen.<br>
+  Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+  einheitlichen, barrierefreien typografischen Darstellung).<br>
+  Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank">
+  Google Datenschutzerklärung</a>.
+  Nutzer können das Laden externer Fonts in den Browser-Einstellungen oder durch
+  entsprechende Browser-Erweiterungen (z.&nbsp;B. uBlock Origin) unterbinden.</p>
+
+  <p><strong>Cloudflare CDN (Cloudflare Inc., 101 Townsend St., San Francisco,
+  CA 94107, USA):</strong><br>
+  Die Diagrammbibliothek Chart.js wird über das Content Delivery Network von Cloudflare
+  (<code>cdnjs.cloudflare.com</code>) eingebunden. Beim Laden der Seite wird eine
+  Verbindung zu Cloudflare-Servern hergestellt, wobei die IP-Adresse übertragen wird.
+  Cloudflare betreibt Server innerhalb der EU; ein Datentransfer in die USA ist gemäß
+  Cloudflares Datenschutzrichtlinien auf Basis von Standardvertragsklauseln (SCCs)
+  abgesichert.<br>
+  Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der
+  Einbindung einer quelloffenen Visualisierungsbibliothek).<br>
+  Weitere Informationen: <a href="https://www.cloudflare.com/de-de/privacypolicy/" target="_blank">
+  Cloudflare Datenschutzerklärung</a>.</p>
+
+  <h3>2c. Transparenzforschung: Angaben zu Personen in öffentlicher Funktion</h3>
   <p>Der GKV-Monitor (gkv-monitor.html) enthält Informationen zu Verbänden und Personen,
   die im gesundheitspolitischen Kontext öffentliche oder verbandliche Funktionen
   ausüben oder ausgeübt haben. Diese Angaben entstammen ausschließlich:</p>
@@ -112,10 +153,12 @@
   und unverzüglich geprüft.</p>
 
   <h3>3. Rechtsgrundlage</h3>
-  <p>Da keine personenbezogenen Daten aktiv verarbeitet werden, besteht keine
-  eigenständige Rechtsgrundlage im Sinne von Art. 6 DSGVO seitens des Betreibers.
-  Für die Hosting-Verarbeitung durch GitHub: berechtigtes Interesse (Art. 6 Abs. 1
-  lit. f DSGVO) am Betrieb einer öffentlich zugänglichen Website.</p>
+  <p>Für die aktive Datenverarbeitung durch den Betreiber: keine, da keine eigene
+  Verarbeitung stattfindet. Für das Hosting durch GitHub: berechtigtes Interesse
+  (Art. 6 Abs. 1 lit. f DSGVO). Für externe Ressourcen (Google Fonts, Cloudflare CDN):
+  berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO); Empfänger: Google LLC, USA
+  (Drittlandtransfer); Cloudflare Inc., USA (SCC-abgesichert).
+  Für Transparenzforschung: Art. 6 Abs. 1 lit. f DSGVO i.V.m. § 23 BDSG.</p>
 
   <h3>4. Betroffenenrechte (Art. 15–21 DSGVO)</h3>
   <p>Auskunft, Berichtigung, Löschung, Einschränkung und Widerspruch:
@@ -144,8 +187,9 @@
 
   <h3>7. Externe Links</h3>
   <p>Diese Website enthält Links zu externen Seiten (arXiv, MathOverflow,
-  GitHub, etc.). Für deren Inhalte sind die jeweiligen Betreiber verantwortlich.
-  Zum Zeitpunkt der Verlinkung waren keine rechtswidrigen Inhalte erkennbar.</p>
+  GitHub, OECD, BMG, G-BA etc.). Für deren Inhalte sind die jeweiligen Betreiber
+  verantwortlich. Zum Zeitpunkt der Verlinkung waren keine rechtswidrigen Inhalte
+  erkennbar.</p>
 
   <footer>
     <span>Thomas Riepe · Heinz-Kapelle-Straße 12 · 10407 Berlin ·
