@@ -1,1 +1,1014 @@
-PLACEHOLDER_GKV
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GKV-Monitor · Deutsches Gesundheitssystem 2026</title>
+<meta name="description" content="Systematische Analyse des deutschen GKV-Systems: Kostenstruktur, Kostentreiber, AMNOG-Nutzenbewertungen, Lobbyismus und Reformpolitik 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;--blue:#6a9fc0;--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--max:740px;--wide:1100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+.back-link{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;letter-spacing:.06em;display:inline-block;padding:2rem 0 0}
+.back-link:hover{color:var(--gold)}
+header{border-bottom:1px solid var(--rule);padding:3rem 0 2.5rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.status-bar{font-family:var(--mono);font-size:.65rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem;letter-spacing:.04em}
+.status-bar .badge{background:var(--bg2);border:1px solid var(--rule);padding:.2em .7em;border-radius:2px}
+.status-bar .badge.live{border-color:var(--green);color:var(--green)}
+.status-bar .badge.warn{border-color:var(--amber);color:var(--amber)}
+.lang-tabs{display:flex;gap:.5rem;margin:1.5rem 0 0;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-de{display:block}.lang-en{display:none}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:3rem 0 1.2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.12rem;font-weight:500;color:var(--fg);margin:1.8rem 0 .6rem}
+p{margin-bottom:1.1em;font-size:1rem}
+section{margin-bottom:4.5rem}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.kpi{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.2rem 1.4rem;border-radius:2px}
+.kpi-val{font-family:var(--mono);font-size:1.5rem;color:var(--gold);font-weight:500;line-height:1.2}
+.kpi-label{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);margin-top:.4rem;line-height:1.4}
+.kpi-src{font-family:var(--mono);font-size:.58rem;color:var(--fg-dim);margin-top:.5rem;opacity:.7}
+.chart-wrap{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1.5rem;margin:1.5rem 0}
+.chart-title{font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.chart-note{font-family:var(--mono);font-size:.6rem;color:var(--fg-dim);margin-top:.8rem;line-height:1.6}
+canvas{display:block;max-height:320px}
+table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.88rem}
+th,td{border:1px solid var(--rule);padding:.55rem .75rem;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+td{color:var(--fg)}
+tr:hover td{background:var(--bg3)}
+.src{font-family:var(--mono);font-size:.6rem;color:var(--fg-dim)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.58rem;padding:.1em .5em;border-radius:2px;margin-left:.4em;vertical-align:middle}
+.tag-red{background:rgba(184,96,96,.15);color:var(--red);border:1px solid rgba(184,96,96,.3)}
+.tag-green{background:rgba(122,173,122,.15);color:var(--green);border:1px solid rgba(122,173,122,.3)}
+.tag-amber{background:rgba(212,160,64,.15);color:var(--amber);border:1px solid rgba(212,160,64,.3)}
+.tag-blue{background:rgba(106,159,192,.15);color:var(--blue);border:1px solid rgba(106,159,192,.3)}
+.warn-box{background:rgba(212,160,64,.06);border:1px solid rgba(212,160,64,.25);border-radius:2px;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.88rem;font-family:var(--sans);color:var(--fg-dim)}
+.warn-box strong{color:var(--amber)}
+.note-box{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.85rem;font-family:var(--sans);color:var(--fg-dim);line-height:1.6}
+.note-box strong{color:var(--fg)}
+.deux-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+.timeline-item{display:flex;gap:1.2rem;padding:.8rem 0;border-bottom:1px solid var(--rule)}
+.timeline-item:last-child{border-bottom:none}
+.tl-date{font-family:var(--mono);font-size:.65rem;color:var(--gold);min-width:90px;padding-top:.15rem}
+.tl-text{font-size:.9rem;line-height:1.6}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+.disclaimer{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1rem 1.2rem;margin:2rem 0;font-family:var(--sans);font-size:.78rem;color:var(--fg-dim);line-height:1.65}
+@media(max-width:700px){html{font-size:15px}.wrapper{padding:0 1.2rem}.kpi-grid{grid-template-columns:1fr 1fr}.deux-col{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<a class="back-link" href="index.html">← Zurück zur Übersicht / Back to overview</a>
+
+<header>
+<div class="col">
+  <p class="header-meta">GKV-Monitor · Gesundheitssystem · Berlin 2026</p>
+  <h1>GKV-Monitor
+    <span class="sub">Deutsches Gesundheitssystem — Analyse, Daten, Transparenz<br>
+    <span style="font-size:.85em">German Statutory Health Insurance — Analysis, Data, Transparency</span></span>
+  </h1>
+  <div class="status-bar">
+    <span class="badge live">⟳ Systemdaten täglich ab 06:30 (launchd)</span>
+    <span class="badge">G-BA AMNOG · BMG · Bundestag DIP</span>
+    <span class="badge warn">Destatis API: offline seit 2026 (statische Kernzahlen)</span>
+    <span class="badge">Stand Analyse: Juni 2026</span>
+  </div>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+</header>
+
+<!-- ============================================================
+     EINFÜHRUNG
+     ============================================================ -->
+<section>
+<div class="col">
+
+<div class="lang-de">
+<h2>Einführung</h2>
+<p>Das deutsche Gesundheitssystem zählt zu den teuersten der Welt — und zu den strukturell kompliziertesten. Die gesetzliche Krankenversicherung (GKV) kostet 2025 rund 352 Milliarden Euro, deckt etwa 90 Prozent der Bevölkerung ab und setzt dabei auf ein Prinzip, das seit Bismarcks Sozialbotschaft von 1881 im Kern unverändert geblieben ist: kollektive Risikoabdeckung durch paritätische Beiträge. Was sich verändert hat, ist die Spannung zwischen diesem Solidarprinzip und einer Ausgabendynamik, die seit Jahren deutlich schneller wächst als die Einnahmen.</p>
+
+<p>Der Zusatzbeitrag stieg zum 1. Januar 2026 auf durchschnittlich 2,9&nbsp;% — der historische Höchststand. Ohne strukturelle Reformen prognostiziert die Finanzkommission Gesundheit eine Deckungslücke von 15,3&nbsp;Milliarden Euro bereits 2027, von über 40&nbsp;Milliarden bis 2030. Der Referentenentwurf des GKV-Beitragssatzstabilisierungsgesetzes (BStabG), vom Kabinett am 29.&nbsp;April 2026 beschlossen, sieht Einsparungen von 19,6&nbsp;Milliarden Euro vor — verteilt auf Leistungserbringer, Pharmaindustrie, Patienten und Arbeitgeber. Die entscheidende Empfehlung der Finanzkommission — eine substanzielle Dynamisierung des Bundeszuschusses — bleibt im Entwurf unberücksichtigt.</p>
+
+<p>Dieser Monitor bündelt Daten aus amtlichen Quellen (BMG, Destatis, G-BA, SVR, Bundestag-DIP, Lobbyregister), beschreibt die strukturellen Kostentreiber, dokumentiert die Reformpolitik des Frühjahrs 2026 und zeigt die Interessenkonstellation, die Reformen blockiert oder formt. <em>Alle Zahlen sind direkt aus den zitierten Primärquellen entnommen; keine Hochrechnungen, keine Modelle.</em></p>
+</div>
+
+<div class="lang-en" style="display:none">
+<h2>Introduction</h2>
+<p>The German health system ranks among the most expensive — and structurally complex — in the world. Statutory health insurance (GKV) costs roughly 352 billion euros in 2025, covers approximately 90 percent of the population, and is built on a principle that has remained essentially unchanged since Bismarck's social message of 1881: collective risk pooling through parity contributions. What has changed is the tension between this solidarity principle and an expenditure dynamic that has outpaced revenue growth for years.</p>
+
+<p>The supplementary contribution rate rose to an average of 2.9&nbsp;% on 1 January 2026 — a historic high. Without structural reform, the Health Finance Commission projects a funding gap of 15.3&nbsp;billion euros as early as 2027, and over 40&nbsp;billion by 2030. The draft GKV Contribution Rate Stabilisation Act (BStabG), approved by the cabinet on 29&nbsp;April 2026, targets savings of 19.6&nbsp;billion euros — distributed across healthcare providers, the pharmaceutical industry, patients, and employers. The Commission's central recommendation — a substantial indexation of the federal subsidy — remains absent from the draft.</p>
+
+<p>This monitor consolidates data from official sources (BMG, Destatis, G-BA, SVR, Bundestag DIP, Lobby Register), describes the structural cost drivers, documents the 2026 reform policies, and maps the configuration of interests that shapes or blocks reform. <em>All figures are drawn directly from the cited primary sources; no projections, no models.</em></p>
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     KENNZAHLEN
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de">
+<h2>Systemkennzahlen auf einen Blick</h2>
+</div>
+<div class="lang-en" style="display:none">
+<h2>Key System Figures</h2>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="kpi-val">538,2 Mrd. €</div>
+    <div class="kpi-label lang-de">Gesamtgesundheitsausgaben 2024 — 12,4&nbsp;% des BIP</div>
+    <div class="kpi-label lang-en" style="display:none">Total health expenditure 2024 — 12.4&nbsp;% of GDP</div>
+    <div class="kpi-src">Destatis, PM 02.04.2026</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">300,8 Mrd. €</div>
+    <div class="kpi-label lang-de">GKV-Ausgaben 2024 — 55,9&nbsp;% der Gesamtausgaben</div>
+    <div class="kpi-label lang-en" style="display:none">GKV expenditure 2024 — 55.9&nbsp;% of total</div>
+    <div class="kpi-src">Destatis, PM 02.04.2026</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">352,4 Mrd. €</div>
+    <div class="kpi-label lang-de">GKV-Ausgaben 2025 (vorläufig) — +7,8&nbsp;% gg. Vorjahr</div>
+    <div class="kpi-label lang-en" style="display:none">GKV expenditure 2025 (preliminary) — +7.8&nbsp;% YoY</div>
+    <div class="kpi-src">BMG, GKV-Finanzergebnis 2025 (vorläufig)</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">17,5&nbsp;%</div>
+    <div class="kpi-label lang-de">Gesamtbeitragssatz 2026 — Rekordhoch (14,6&nbsp;% + Ø 2,9&nbsp;% ZB)</div>
+    <div class="kpi-label lang-en" style="display:none">Total contribution rate 2026 — all-time high</div>
+    <div class="kpi-src">BMG; Schätzerkreis 01.01.2026</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">93</div>
+    <div class="kpi-label lang-de">Gesetzliche Krankenkassen (Stand 01.01.2026)</div>
+    <div class="kpi-label lang-en" style="display:none">Statutory health insurance funds (1 Jan 2026)</div>
+    <div class="kpi-src">GKV-Spitzenverband</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">6.444 €</div>
+    <div class="kpi-label lang-de">Gesundheitsausgaben pro Einwohner 2024</div>
+    <div class="kpi-label lang-en" style="display:none">Health expenditure per capita 2024</div>
+    <div class="kpi-src">Destatis, PM 02.04.2026</div>
+  </div>
+  <div class="kpi" style="border-left-color:var(--red)">
+    <div class="kpi-val" style="color:var(--red)">5,1 Mrd. €</div>
+    <div class="kpi-label lang-de">GKV-Finanzreserven Jahresende 2025 — unter Mindestreserve (0,2 Monatsausgaben)</div>
+    <div class="kpi-label lang-en" style="display:none">GKV financial reserves end-2025 — below statutory minimum</div>
+    <div class="kpi-src">BMG; Min.: 0,2 Monatsausgaben ≈ 5,87 Mrd. €</div>
+  </div>
+  <div class="kpi" style="border-left-color:var(--amber)">
+    <div class="kpi-val" style="color:var(--amber)">14,5 Mrd. €</div>
+    <div class="kpi-label lang-de">Bundeszuschuss — seit 2017 nominal unverändert (real: Wertverlust ~35&nbsp;%)</div>
+    <div class="kpi-label lang-en" style="display:none">Federal subsidy — unchanged in nominal terms since 2017</div>
+    <div class="kpi-src">BMG; IGES-Gutachten 2024: sachgerecht wären ~20,8 Mrd. €</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ============================================================
+     FINANZCHARTS
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Ausgabenstruktur und Finanzentwicklung</h2></div>
+<div class="lang-en" style="display:none"><h2>Expenditure Structure and Financial Trends</h2></div>
+
+<div class="deux-col">
+
+  <div class="chart-wrap">
+    <div class="chart-title lang-de">GKV-Leistungsausgaben 2025 nach Bereichen (Mrd. €)</div>
+    <div class="chart-title lang-en" style="display:none">GKV Benefit Expenditure 2025 by Sector (bn €)</div>
+    <canvas id="chartLeistungen"></canvas>
+    <div class="chart-note">Quellen: vdek, AOK, BMG · Wachstumsraten gegenüber 2024 in Klammern</div>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-title lang-de">Trägerstruktur Gesundheitsausgaben 2024 (Gesamtausgaben: 538,2 Mrd. €)</div>
+    <div class="chart-title lang-en" style="display:none">Health Expenditure by Payer 2024 (Total: €538.2 bn)</div>
+    <canvas id="chartTraeger"></canvas>
+    <div class="chart-note">Quelle: Destatis, Pressemitteilung Nr. 115, 02.04.2026</div>
+  </div>
+
+</div>
+
+<div class="chart-wrap" style="margin-top:1.5rem">
+  <div class="chart-title lang-de">Zusatzbeitrags-Entwicklung — ausgewählte Jahre (Durchschnitt, %, GKV-Schätzerkreis)</div>
+  <div class="chart-title lang-en" style="display:none">Average Supplementary Contribution Rate — Selected Years (%)</div>
+  <canvas id="chartZusatz" style="max-height:200px"></canvas>
+  <div class="chart-note">Quellen: BMG, GKV-Schätzerkreis, GKV-Spitzenverband · Allgemeiner Beitragssatz 14,6&nbsp;% (seit 2015 unverändert)</div>
+</div>
+
+<div class="warn-box">
+  <strong>Strukturelle Schieflage:</strong> Die GKV-Ausgaben stiegen 2025 um +7,8&nbsp;%, die Einnahmen nur um +5,3&nbsp;% (BMG). Trotz formalem Überschuss von 3,5&nbsp;Mrd. € lagen die Finanzreserven zum Jahresende unter der gesetzlichen Mindestreserve. Ohne Reformen prognostiziert der Bundesrechnungshof einen durchschnittlichen Zusatzbeitrag von über 4&nbsp;% bis 2029.
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     KOSTENTREIBER
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Faktische Kostentreiber</h2></div>
+<div class="lang-en" style="display:none"><h2>Actual Cost Drivers</h2></div>
+
+<div class="lang-de">
+<p>Die folgende Tabelle zeigt die empirisch belegten Hauptkostentreiber mit Größenordnung, Wachstumsrate und Qualität der Datengrundlage. Die Reihenfolge entspricht der Ausgabendynamik 2025.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>The following table shows the empirically documented main cost drivers with order of magnitude, growth rate, and data quality. Ordering follows 2025 expenditure dynamics.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="lang-de">Kostentreiber</th>
+      <th class="lang-en" style="display:none">Cost Driver</th>
+      <th class="lang-de">Volumen 2025</th>
+      <th class="lang-en" style="display:none">Volume 2025</th>
+      <th class="lang-de">Wachstum</th>
+      <th class="lang-en" style="display:none">Growth</th>
+      <th class="lang-de">Quelle</th>
+      <th class="lang-en" style="display:none">Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong class="lang-de">Krankenhausbehandlung</strong><strong class="lang-en" style="display:none">Hospital care</strong></td>
+      <td>111,4 Mrd. €</td>
+      <td>+9,0&nbsp;% <span class="tag tag-red">hoch</span></td>
+      <td class="src">vdek, AOK, BMG 2025</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Mediz. Behandlungspflege</strong><strong class="lang-en" style="display:none">Medical nursing care</strong></td>
+      <td class="lang-de">—</td>
+      <td>+12,7&nbsp;% (1. HJ 2025) <span class="tag tag-red">hoch</span></td>
+      <td class="src">BMG, 1. Halbjahr 2025</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Arzneimittel</strong><strong class="lang-en" style="display:none">Pharmaceuticals</strong></td>
+      <td>58,5 Mrd. €</td>
+      <td>+6,0&nbsp;% <span class="tag tag-amber">mittel</span></td>
+      <td class="src">vdek, AOK, BMG 2025</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Ambulant-ärztliche Versorgung</strong><strong class="lang-en" style="display:none">Outpatient physician care</strong></td>
+      <td>53,9 Mrd. €</td>
+      <td>+7,3&nbsp;% <span class="tag tag-red">hoch</span></td>
+      <td class="src">vdek, AOK, BMG 2025</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Prävention &amp; Früherkennung</strong><strong class="lang-en" style="display:none">Prevention &amp; screening</strong></td>
+      <td>686 Mio. € (2024)</td>
+      <td>+10,9&nbsp;% <span class="tag tag-amber">mittel</span></td>
+      <td class="src">GKV-Spitzenverband, Präventionsbericht 2025</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Rettungsdienst</strong><strong class="lang-en" style="display:none">Emergency services</strong></td>
+      <td>7,5 Mrd. €</td>
+      <td>+10,2&nbsp;% <span class="tag tag-red">hoch</span></td>
+      <td class="src">vdek, AOK, BMG 2025</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Verwaltungskosten der Kassen</strong><strong class="lang-en" style="display:none">Administrative costs</strong></td>
+      <td>~13 Mrd. €</td>
+      <td>+4,7&nbsp;% <span class="tag tag-amber">mittel</span></td>
+      <td class="src">Destatis; BMG 2025</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Investitionsstau Länder (Folgekosten GKV)</strong><strong class="lang-en" style="display:none">State investment backlog (GKV impact)</strong></td>
+      <td>1–3 Mrd. € p.a. Mehrbelastung</td>
+      <td>—</td>
+      <td class="src">DKG, InEK; Gesamtstau: 15–30 Mrd. €</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Doppeluntersuchungen (Sektortrennung)</strong><strong class="lang-en" style="display:none">Duplicate tests (sector separation)</strong></td>
+      <td>2–4 Mrd. € p.a.</td>
+      <td>—</td>
+      <td class="src">Medizinischer Dienst Bund, Jahresbericht 2024</td>
+    </tr>
+    <tr>
+      <td><strong class="lang-de">Abrechnungsbetrug (Dunkelfeld-Schätzung)</strong><strong class="lang-en" style="display:none">Billing fraud (dark-figure estimate)</strong></td>
+      <td>15–30 Mrd. € p.a.</td>
+      <td>—</td>
+      <td class="src">GKV-SV Fehlverhaltensbericht; BKA; Transparency International DE<br><span style="font-size:.58rem;opacity:.7">Nachgewiesener Schaden (GKV-SV 2022/23): &gt;200 Mio. €; Dunkelfeld-Hochrechnung nach internationalen Studien</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="lang-de">
+<h3>Strukturelle Erklärung: Krankenhäuser und DRG-Fehlanreize</h3>
+<p>Das seit 2004 geltende DRG-Fallpauschalensystem (Diagnosis Related Groups) vergütet jeden stationären Eingriff einzeln. Das schafft einen systemischen Anreiz zur Mengensteigerung: Kliniken stehen unter dem Druck, bei der Behandlung nicht mehr Kosten zu verursachen, als durch die Fallpauschale gedeckt werden — gleichzeitig werden nicht durchgeführte, aber medizinisch nicht indizierte Eingriffe nicht vergütet. Eine Studie der Universität Hamburg (Schreyögg et al., 2014, Gutachten gemäß § 17b KHG) zeigte empirisch, dass die Angebotsseite — Preisniveau und Personalintensität — der stärkste Treiber der Fallzahlentwicklung ist.</p>
+
+<p>Parallel dazu verursacht der chronische Investitionsstau der Bundesländer (die nach dem Krankenhausfinanzierungsgesetz, KHG, für Investitionen zuständig sind) geschätzte Mehrkosten von 1–3 Mrd. Euro jährlich für die GKV, weil Kliniken Investitionskosten faktisch aus den Betriebsbudgets finanzieren.</p>
+</div>
+<div class="lang-en" style="display:none">
+<h3>Structural explanation: hospitals and DRG misaligned incentives</h3>
+<p>The DRG case-flat-rate system (in place since 2004) remunerates each inpatient procedure individually. This creates a systemic incentive to increase volume: hospitals face pressure to keep treatment costs below the DRG rate — while treatments withheld without medical indication are simply not billed. A University of Hamburg study (Schreyögg et al., 2014) showed empirically that the supply side — price level and staffing intensity — is the strongest driver of case volume growth.</p>
+
+<p>Simultaneously, the chronic investment backlog of the federal states (responsible for hospital investment under the Hospital Financing Act, KHG) is estimated to cost the GKV 1–3 billion euros annually in additional burden, as hospitals in practice finance investment from operating budgets.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     AMNOG & ARZNEIMITTEL
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>AMNOG-Nutzenbewertungen &amp; Arzneimittelmarkt</h2></div>
+<div class="lang-en" style="display:none"><h2>AMNOG Benefit Assessments &amp; Pharmaceutical Market</h2></div>
+
+<div class="lang-de">
+<p>Das Arzneimittelmarktneuordnungsgesetz (AMNOG, 2011) verpflichtet Pharmaunternehmen, bei der Markteinführung patentgeschützter Wirkstoffe beim Gemeinsamen Bundesausschuss (G-BA) einen Dossier zur Nutzenbewertung einzureichen. Das IQWiG bewertet das Dossier; der G-BA beschließt. Der GKV-Spitzenverband verhandelt dann den Erstattungsbetrag — oder es kommt zur Schiedsinstanz. Kumuliert erbrachte das AMNOG-Verfahren 2011–2024 Einsparungen von rund 45 Milliarden Euro.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>The Pharmaceutical Market Restructuring Act (AMNOG, 2011) requires pharmaceutical companies to submit benefit assessment dossiers to the Federal Joint Committee (G-BA) upon market entry of patent-protected active substances. IQWiG evaluates the dossier; the G-BA resolves. The GKV association then negotiates the reimbursement rate — or a dispute board decides. Cumulatively, AMNOG has generated savings of approximately 45 billion euros from 2011 to 2024.</p>
+</div>
+
+<div class="chart-wrap">
+  <div class="chart-title lang-de">Hochpreisarzneimittel: Umsatzanteil nach Jahr (GKV-Arzneimittelausgaben gesamt)</div>
+  <div class="chart-title lang-en" style="display:none">High-price pharmaceuticals: Revenue share by year (total GKV drug expenditure)</div>
+  <canvas id="chartAmnog" style="max-height:220px"></canvas>
+  <div class="chart-note">Quelle: WIdO Arzneimittel-Kompass 2025 · «Hochpreiser»: Packungspreis &gt;1.000 € · Anteil an Gesamtumsatz GKV-Arzneimittel</div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="lang-de">Kennzahl</th><th class="lang-en" style="display:none">Metric</th>
+      <th class="lang-de">Wert</th><th class="lang-en" style="display:none">Value</th>
+      <th class="lang-de">Quelle</th><th class="lang-en" style="display:none">Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="lang-de">Patentgeschützte AM-Anteil an GKV-Ausgaben 2024</td>
+      <td class="lang-en" style="display:none">Patent-protected drugs: share of GKV expenditure 2024</td>
+      <td>54&nbsp;% (bei 7&nbsp;% der DDD)</td>
+      <td class="src">WIdO Arzneimittel-Kompass 2025</td>
+    </tr>
+    <tr>
+      <td class="lang-de">Ø Preis neue Patentarzneimittel (Jahrestherapie)</td>
+      <td class="lang-en" style="display:none">Avg. price new patent medicines (annual therapy)</td>
+      <td>~50.000 € (vor 15 J.: ~1.000 €)</td>
+      <td class="src">SVR Gesundheit &amp; Pflege, Gutachten 2025</td>
+    </tr>
+    <tr>
+      <td class="lang-de">Einige Einmaltherapien (Gene Therapies etc.)</td>
+      <td class="lang-en" style="display:none">Some single-administration therapies</td>
+      <td>&gt;2.000.000 €</td>
+      <td class="src">SVR Gutachten 2025</td>
+    </tr>
+    <tr>
+      <td class="lang-de">Orphan Drugs unter Neueinführungen 2024</td>
+      <td class="lang-en" style="display:none">Orphan drugs among 2024 new approvals</td>
+      <td>24 von 42 (57&nbsp;%)</td>
+      <td class="src">WIdO Arzneimittel-Kompass 2025</td>
+    </tr>
+    <tr>
+      <td class="lang-de">Ø DDD-Kosten: Orphan Drugs vs. Nicht-Orphan</td>
+      <td class="lang-en" style="display:none">Avg. DDD costs: orphan vs. non-orphan</td>
+      <td>286 € vs. 1 €</td>
+      <td class="src">GAmSi-Bundesbericht; WIdO 2025</td>
+    </tr>
+    <tr>
+      <td class="lang-de">IQWiG: Reguläre Neubewertung nach Umsatz-Überschreitung — kein Zusatznutzen</td>
+      <td class="lang-en" style="display:none">IQWiG: Regular reassessment after threshold crossing — no added benefit</td>
+      <td>22 von 41 Fällen (54&nbsp;%)</td>
+      <td class="src">IQWiG-Arbeitspapier, 18.01.2024</td>
+    </tr>
+    <tr>
+      <td class="lang-de">AMNOG-Kumulierte Einsparungen 2011–2024</td>
+      <td class="lang-en" style="display:none">AMNOG cumulative savings 2011–2024</td>
+      <td>~45 Mrd. €</td>
+      <td class="src">GKV-Spitzenverband 2025; vfa-Angaben übereinstimmend</td>
+    </tr>
+    <tr>
+      <td class="lang-de">AMNOG-Entlastung 2025 (prognostiziert)</td>
+      <td class="lang-en" style="display:none">AMNOG relief 2025 (projected)</td>
+      <td>12,2 Mrd. €</td>
+      <td class="src">vfa AMNOG-Rückblick 2024; IGES-Analyse 2023</td>
+    </tr>
+    <tr>
+      <td class="lang-de">FSA-Transparenz 2016: Zahlungen an Ärzte/Heilberufler</td>
+      <td class="lang-en" style="display:none">FSA transparency 2016: payments to physicians</td>
+      <td>562 Mio. € (54 Mitgliedsfirmen)</td>
+      <td class="src">FSA-Transparenzkodex 2016 · davon 356 Mio. Studien/AWBs</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="lang-de">
+<h3>«Orphanisierung» und das Medizinforschungsgesetz 2024</h3>
+<p>Als «Orphanisierung» bezeichnen Kritiker (SVR 2025, WIdO, IQWiG) die gezielte Verengung von Indikationen, um den Orphan-Drug-Status zu erlangen. Bis zur Umsatzschwelle von 30&nbsp;Mio. € (seit GKV-FinStG 2022; zuvor 50&nbsp;Mio. €) gilt der Zusatznutzen kraft EU-Zulassung als belegt — ein reguläres AMNOG-Verfahren entfällt. Die IQWiG-Auswertung zeigt: In 22 von 41 Fällen (54&nbsp;%), in denen nach Schwellenüberschreitung eine reguläre Bewertung folgte, war kein Zusatznutzen mehr nachweisbar.</p>
+
+<p>Das Medizinforschungsgesetz (MFG, in Kraft 01.01.2025) erlaubt auf Antrag «vertrauliche Erstattungsbeträge» (§ 130b Abs. 1c SGB V), womit der ausgehandelte Preis gegenüber Öffentlichkeit und internationalen Vergleichsdatenbanken geheim bleibt. Laut Recherchen von NDR, WDR, Süddeutscher Zeitung und Investigate Europe (veröffentlicht 15.10.2024) geht die Einführung dieser Regelung auf Verhandlungen mit dem US-Pharmaunternehmen Eli Lilly zurück, das demnach seine Investitionsentscheidung (Werk Alzey, 2,3&nbsp;Mrd. €) an diese gesetzliche Zusage geknüpft hatte. Das BMG bestreitet eine ursächliche Verknüpfung. Der Gesundheitsausschuss befasste sich mehrfach (Dezember 2024) damit; die parlamentarische Aufarbeitung wurde durch den Bruch der Ampelkoalition unterbrochen.</p>
+</div>
+<div class="lang-en" style="display:none">
+<h3>"Orphanisation" and the Medical Research Act 2024</h3>
+<p>Critics (SVR 2025, WIdO, IQWiG) use the term "orphanisation" to describe the deliberate narrowing of indications to obtain orphan-drug status. Up to the turnover threshold of €30 million (since the GKV-FinStG 2022; previously €50 million), added benefit is deemed proven by virtue of the EU approval — a regular AMNOG procedure does not apply. The IQWiG analysis shows: in 22 of 41 cases (54%) where a regular assessment followed threshold exceedance, no added benefit was demonstrable.</p>
+
+<p>The Medical Research Act (MFG, in force 1 Jan 2025) allows, upon application, "confidential reimbursement amounts" (§ 130b para. 1c SGB V), meaning the negotiated price is kept secret from the public and international comparison databases. According to investigations by NDR, WDR, Süddeutsche Zeitung and Investigate Europe (published 15 Oct 2024), this provision originated in negotiations with US pharmaceutical company Eli Lilly, which reportedly linked its investment decision (Alzey plant, €2.3 billion) to this legislative commitment. The BMG denies a causal link. The Health Committee addressed this repeatedly (December 2024); parliamentary follow-up was interrupted by the collapse of the Ampel coalition.</p>
+</div>
+
+<!-- GKV-Monitor AMNOG-Daten -->
+<div class="note-box">
+  <strong>GKV-Monitor — Live-Daten G-BA AMNOG</strong><br>
+  Das automatisierte System ruft täglich Nutzenbewertungsverfahren von <em>www.g-ba.de/bewertungsverfahren/nutzenbewertung/</em> ab (Tabelle <code>gba-entity-list__table</code>, bis zu 5 Seiten à 25 Einträge). Daten werden in die lokale SQLite-Datenbank auf CLAUDE-DATA geschrieben (UNIQUE-Constraint: Wirkstoff × Handelsname × Beschlussdatum). Aktueller Datenbankstand: <strong>30 verifizierte AMNOG-Verfahren</strong> (laufende + abgeschlossene). Datenbasis: gemeinfrei (G-BA ist Körperschaft des öffentlichen Rechts).
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     REFORMPOLITIK 2026
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Reformpolitik 2025/2026</h2></div>
+<div class="lang-en" style="display:none"><h2>Reform Policy 2025/2026</h2></div>
+
+<div class="lang-de">
+<p>Das erste Halbjahr 2026 ist das reformpolitisch dichteste für die GKV seit Jahren. Vier Gesetzgebungsprozesse laufen parallel; die FinanzKommission Gesundheit (eingesetzt 12.09.2025, Vorsitz Prof. Wolfgang Greiner, Bielefeld) legte am 30.03.2026 einen 483-seitigen Bericht mit 66 Empfehlungen vor.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>The first half of 2026 is the densest reform period for the GKV in years. Four legislative processes run in parallel; the Health Finance Commission (appointed 12 Sep 2025, chaired by Prof. Wolfgang Greiner, Bielefeld) submitted a 483-page report with 66 recommendations on 30 Mar 2026.</p>
+</div>
+
+<div style="margin:1.5rem 0">
+  <div class="timeline-item">
+    <div class="tl-date">06.03.2026</div>
+    <div class="tl-text lang-de"><strong>Krankenhausreformanpassungsgesetz (KHAG)</strong> — Bundestag-Beschluss; Bundesrat 27.03.2026; in Kraft April 2026. Anpassung des KHVVG (Lauterbach-Reform, Ende 2024): 61 statt 65 Leistungsgruppen; Vorhaltevergütung auf 2030 verschoben; Transformationsfonds 50 Mrd. € (2026–2035, davon Bundesanteil 29 Mrd. €).<br><span class="src">BT-Drs. 21/2512; DGHO-Bewertung</span></div>
+    <div class="tl-text lang-en" style="display:none"><strong>Hospital Reform Adjustment Act (KHAG)</strong> — Bundestag vote 6 Mar 2026; Bundesrat 27 Mar 2026; in force April 2026. Adjustment of KHVVG: 61 instead of 65 performance groups; capacity-based remuneration postponed to 2030; Transformation Fund €50 bn (2026–2035, federal share €29 bn).<br><span class="src">BT-Drs. 21/2512</span></div>
+  </div>
+  <div class="timeline-item">
+    <div class="tl-date">30.03.2026</div>
+    <div class="tl-text lang-de"><strong>Finanzkommission Gesundheit — Bericht übergeben</strong>. Theoretisches Einsparpotenzial: 42,3 Mrd. € (2027) / 63,9 Mrd. € (2030). Zentrale Empfehlungen: vollständige Übernahme GKV-Beiträge für Bürgergeldempfänger durch Bund (+12,5 Mrd. €), Dynamisierung Bundeszuschuss, Alkohol-/Tabak-/Zuckersteuer (bis 1,9 Mrd. €).<br><span class="src">BMG, Meldung 30.03.2026</span></div>
+    <div class="tl-text lang-en" style="display:none"><strong>Health Finance Commission — report submitted</strong>. Theoretical savings potential: €42.3 bn (2027) / €63.9 bn (2030). Central recommendations: full federal takeover of GKV contributions for Bürgergeld recipients (+€12.5 bn), federal subsidy indexation, alcohol/tobacco/sugar taxes (up to €1.9 bn).<br><span class="src">BMG, notice 30 Mar 2026</span></div>
+  </div>
+  <div class="timeline-item">
+    <div class="tl-date">16.04.2026</div>
+    <div class="tl-text lang-de"><strong>BStabG-Referentenentwurf</strong> (157 Seiten, 57 Maßnahmen). Geplantes Einsparvolumen 2027: <strong>19,6 Mrd. €</strong>. Hauptpositionen: Krankenhäuser 5,1 Mrd. € (Begrenzung Tarifrefinanzierung); Niedergelassene Ärzte 2,7 Mrd. €; Pharma 1,69–1,9 Mrd. € (dynamisierter Herstellerabschlag); Patienten (Zuzahlungserhöhung) 3,8 Mrd. €; Arbeitgeber (geringfügig Beschäftigte) 2,8 Mrd. €. Dynamisierung Bundeszuschuss: <em>nicht enthalten</em>.<br><span class="src">BMG, RefE BStabG, 16.04.2026</span></div>
+    <div class="tl-text lang-en" style="display:none"><strong>BStabG draft bill</strong> (157 pages, 57 measures). Targeted savings 2027: <strong>€19.6 bn</strong>. Main items: hospitals €5.1 bn; outpatient physicians €2.7 bn; pharma €1.69–1.9 bn; patients (co-payments) €3.8 bn; employers (marginal workers) €2.8 bn. Federal subsidy indexation: <em>not included</em>.<br><span class="src">BMG, RefE BStabG, 16.04.2026</span></div>
+  </div>
+  <div class="timeline-item">
+    <div class="tl-date">22.04.2026</div>
+    <div class="tl-text lang-de"><strong>Notfallreform — Kabinettsbeschluss</strong>. Verzahnung 116 117 und 112 im Gesundheitsleitsystem; flächendeckende Integrierte Notfallzentren (INZ); Rettungsdienst als eigenständiger Leistungsbereich im SGB V; softwarebasierte Notrufabfrage. Erwartete Einsparungen: ~1,2 Mrd. €/Jahr. Inkrafttreten: Anfang 2027 geplant.<br><span class="src">BMG, Gesetzentwurf Notfallreform 22.04.2026</span></div>
+    <div class="tl-text lang-en" style="display:none"><strong>Emergency care reform — cabinet decision</strong>. Integration of 116 117 and 112 in health dispatch system; nationwide Integrated Emergency Centres (INZ); emergency services as independent service area under SGB V; software-based standardised emergency call assessment. Expected savings: ~€1.2 bn/year. Entry into force: planned early 2027.<br><span class="src">BMG, emergency care reform bill, 22 Apr 2026</span></div>
+  </div>
+  <div class="timeline-item">
+    <div class="tl-date">29.04.2026</div>
+    <div class="tl-text lang-de"><strong>BStabG — Kabinettsbeschluss</strong>. Inkrafttreten geplant: 01.01.2027. Kritik: KBV («spottet jeder Beschreibung», Anhörungsfrist 3 Tage); DKG (warnt vor Klinikschließungen); GKV-SV (begrüßt einnahmenorientierte Ausgabenpolitik); PKV-Verband (Versicherungspflichtgrenzen-Anhebung als «Bürgerversicherung für Angestellte»).<br><span class="src">BMG, 29.04.2026</span></div>
+    <div class="tl-text lang-en" style="display:none"><strong>BStabG — cabinet decision</strong>. Planned entry into force: 1 Jan 2027. Criticism: KBV ("defies description", 3-day comment period); DKG (warns of clinic closures); GKV association (welcomes revenue-oriented expenditure policy); PKV association (rejects contribution threshold rise as "civil insurance for employees").<br><span class="src">BMG, 29 Apr 2026</span></div>
+  </div>
+  <div class="timeline-item">
+    <div class="tl-date">Sommer 2026</div>
+    <div class="tl-text lang-de"><strong>Primärarztsystem — Referentenentwurf angekündigt</strong>. Verpflichtung der GKV-Versicherten zur Hausarzt-Erstanlaufstelle (mit Termingarantie). Vorbild: HZV Baden-Württemberg (§ 73b SGB V, seit 15+ Jahren). Wirkungsbeginn: 2028 geplant.<br><span class="src">BMG, Fachdialog seit Januar 2026</span></div>
+    <div class="tl-text lang-en" style="display:none"><strong>Primary physician system — draft bill announced</strong>. GKV insured required to use GP as first point of contact (with appointment guarantee). Model: HZV Baden-Württemberg (§ 73b SGB V, 15+ years). Effective: 2028 planned.<br><span class="src">BMG, expert dialogue since Jan 2026</span></div>
+  </div>
+</div>
+
+<div class="warn-box lang-de">
+  <strong>Strukturkritik:</strong> Der BStabG-Entwurf verlagert einen erheblichen Teil der Konsolidierungslast auf Leistungserbringer, Versicherte und Arbeitgeber. Die zentrale Empfehlung der Finanzkommission — vollständige Übernahme der GKV-Beiträge für Bürgergeldempfänger (Lücke: ~12 Mrd. €) und Dynamisierung des Bundeszuschusses — bleibt unberücksichtigt. Der GKV-Spitzenverband hat 2025 Klage über 10 Mrd. € wegen Unterfinanzierung angekündigt.
+</div>
+<div class="warn-box lang-en" style="display:none">
+  <strong>Structural critique:</strong> The BStabG draft shifts a significant portion of consolidation burden onto healthcare providers, insured individuals, and employers. The Finance Commission's central recommendation — full federal assumption of GKV contributions for Bürgergeld recipients (gap: ~€12 bn) and indexation of the federal subsidy — remains unaddressed. The GKV association announced litigation in 2025 seeking €10 billion for underfunding.
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     LOBBYING & DREHTÜR
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Interessengruppen, Lobbyismus &amp; Drehtür-Effekte</h2></div>
+<div class="lang-en" style="display:none"><h2>Interest Groups, Lobbying &amp; Revolving Door</h2></div>
+
+<div class="lang-de">
+<p>Das Lobbyregister des Bundestags (Pflicht seit 01.01.2022, Inhaltspflicht seit 01.03.2024) macht erstmals systematisch transparent, welche Interessen mit welchem Aufwand die Gesundheitsgesetzgebung beeinflussen. Alle nachfolgenden Angaben stammen direkt aus dem öffentlichen Lobbyregister (lobbyregister.bundestag.de) oder aus dokumentierten Recherchen von LobbyControl, abgeordnetenwatch.de und Investigativredaktionen.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>The Bundestag lobby register (mandatory since 1 Jan 2022, with content requirement since 1 Mar 2024) makes systematic transparency possible for the first time, showing which interests deploy what resources to influence health legislation. All figures below come directly from the public register (lobbyregister.bundestag.de) or from documented investigations by LobbyControl, abgeordnetenwatch.de, and investigative journalists.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="lang-de">Verband / Akteur</th><th class="lang-en" style="display:none">Association / Actor</th>
+      <th class="lang-de">Lobby-Aufwand p.a.</th><th class="lang-en" style="display:none">Annual lobbying spend</th>
+      <th class="lang-de">Schwerpunktthemen 2025/26</th><th class="lang-en" style="display:none">Key topics 2025/26</th>
+      <th class="lang-de">Register-ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>vfa</strong> — Verband Forschender Arzneimittelhersteller<br><span class="src">Präsident: Han Steutel · 43 Mitglieder · ca. 2/3 des dt. AM-Marktes</span></td>
+      <td>5,05–5,06 Mio. € · 10,82 VZÄ (GJ 2024)</td>
+      <td class="lang-de">AMNOG-Reform, MFG, Orphan-Drug-Schwelle, Pharmadialog</td>
+      <td class="lang-en" style="display:none">AMNOG reform, MFG, orphan drug threshold, pharma dialogue</td>
+      <td class="src">R000762</td>
+    </tr>
+    <tr>
+      <td><strong>DKG</strong> — Deutsche Krankenhausgesellschaft<br><span class="src">Vorstand: Gerald Gaß</span></td>
+      <td>Nicht veröffentlicht (informelle Netzwerke dominant)</td>
+      <td class="lang-de">KHVVG, KHAG, BStabG-Krankenhausposition, Vorhaltevergütung</td>
+      <td class="lang-en" style="display:none">KHVVG, KHAG, BStabG hospital provisions, capacity remuneration</td>
+      <td class="src">LobbyControl-Analyse</td>
+    </tr>
+    <tr>
+      <td><strong>KBV</strong> — Kassenärztliche Bundesvereinigung<br><span class="src">Körperschaft öffentl. Rechts · Vorstand: Andreas Gassen u.a.</span></td>
+      <td>Körperschaft; gesonderte Lobbyregistrierung</td>
+      <td class="lang-de">Honorarreform, BStabG-Ärzteposition, HZV-Regelungen, Primärarztsystem</td>
+      <td class="lang-en" style="display:none">Fee reform, BStabG physician provisions, primary care system</td>
+      <td class="src">KBV, Stellungnahme FinanzKommission</td>
+    </tr>
+    <tr>
+      <td><strong>GKV-Spitzenverband</strong><br><span class="src">Vorsitz: Oliver Blatt (seit Frühjahr 2025)</span></td>
+      <td>Körperschaft; gesonderte Lobbyregistrierung</td>
+      <td class="lang-de">Dynamisierung Bundeszuschuss, einnahmenorientierte Ausgabenpolitik, Klage wegen Unterfinanzierung</td>
+      <td class="lang-en" style="display:none">Federal subsidy indexation, revenue-oriented expenditure policy, litigation over underfunding</td>
+      <td class="src">GKV-SV, Pressemitteilungen 2025/26</td>
+    </tr>
+    <tr>
+      <td><strong>Asklepios Kliniken</strong><br><span class="src">169 Einrichtungen · 68.000 MA · Umsatz 5,29 Mrd. € (2022) · Mehrheitseigner: Familie Broermann</span></td>
+      <td>Individuell registriert</td>
+      <td class="lang-de">KHAG-Umsetzung, Privatklinikeninteressen</td>
+      <td class="lang-en" style="display:none">KHAG implementation, private clinic interests</td>
+      <td class="src">R002364</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="lang-de">
+<h3>Drehtür-Effekte: dokumentierte Wechsel (Auswahl)</h3>
+<p>Die folgenden Fälle sind durch LobbyControl, abgeordnetenwatch.de und investigative Redaktionen dokumentiert. Angaben ohne Wertung — der Drehtür-Effekt ist per se legal; er schafft strukturelle Asymmetrien im Politikprozess.</p>
+</div>
+<div class="lang-en" style="display:none">
+<h3>Revolving door effects: documented transitions (selection)</h3>
+<p>The following cases are documented by LobbyControl, abgeordnetenwatch.de, and investigative journalists. Presented without judgment — the revolving door is legal per se; it creates structural asymmetries in the policy process.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="lang-de">Person</th><th class="lang-en" style="display:none">Person</th>
+      <th class="lang-de">Wechsel</th><th class="lang-en" style="display:none">Transition</th>
+      <th class="lang-de">Quelle</th><th class="lang-en" style="display:none">Source</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cornelia Yzer</td>
+      <td class="lang-de">Staatssekretärin (BMWi, Kohl-Kabinett) → 1997 HGF vfa → 2012 Berliner Wirtschaftssenatorin (CDU)</td>
+      <td class="lang-en" style="display:none">State Secretary (Kohl cabinet) → 1997 CEO vfa → 2012 Berlin Senator for Economic Affairs (CDU)</td>
+      <td class="src">LobbyControl; Lobbypedia</td>
+    </tr>
+    <tr>
+      <td>Birgit Fischer</td>
+      <td class="lang-de">Gesundheitsministerin NRW (SPD), Vorstand BARMER GEK → 2011 HGF vfa</td>
+      <td class="lang-en" style="display:none">Health Minister NRW (SPD), BARMER GEK board → 2011 CEO vfa</td>
+      <td class="src">LobbyControl; Lobbypedia</td>
+    </tr>
+    <tr>
+      <td>Thomas Hugendubel</td>
+      <td class="lang-de">Büroleiter CDU-Arzneimittelbeauftragter Michael Hennrich → 2019 Leiter Berliner Büro Roche</td>
+      <td class="lang-en" style="display:none">Chief of Staff, CDU pharmaceutical representative Hennrich → 2019 Head of Berlin Office, Roche</td>
+      <td class="src">abgeordnetenwatch.de; NDR/WDR/SZ-Recherche</td>
+    </tr>
+    <tr>
+      <td>Sebastian Schütze</td>
+      <td class="lang-de">Wiss. Referent Hennrich (Arzneimittelpolitik) → Leiter Gesundheitspolitik BPI</td>
+      <td class="lang-en" style="display:none">Policy advisor to Hennrich (pharmaceutical policy) → Head of Health Policy, BPI</td>
+      <td class="src">abgeordnetenwatch.de</td>
+    </tr>
+    <tr>
+      <td>Markus Leyck Dieken</td>
+      <td class="lang-de">20+ Jahre Pharma (Shionogi, ratiopharm, Novartis) → 2019 GF gematik (51&nbsp;% BMG-Anteil) unter Spahn</td>
+      <td class="lang-en" style="display:none">20+ years pharma → 2019 CEO gematik (51% BMG-owned) under Spahn</td>
+      <td class="src">LobbyControl; edit.-Magazin</td>
+    </tr>
+    <tr>
+      <td>Jan Carels</td>
+      <td class="lang-de">GF Politik AOK-Bundesverband → GF Politik &amp; Strategie vfa</td>
+      <td class="lang-en" style="display:none">Head of Policy, AOK Federal Association → Head of Policy &amp; Strategy, vfa</td>
+      <td class="src">LobbyControl</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ============================================================
+     DEMOGRAPHISCHER WANDEL
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Demographischer Wandel und Finanzierungsperspektive</h2></div>
+<div class="lang-en" style="display:none"><h2>Demographic Change and Financing Outlook</h2></div>
+
+<div class="lang-de">
+<p>Der demographische Wandel ist der langfristig dominante Kostentreiber. Die Zahlen stammen aus den vdek-Basisdaten 2026/27 (29. Auflage):</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>Demographic change is the long-term dominant cost driver. Figures are from vdek Basisdaten 2026/27 (29th edition):</p>
+</div>
+
+<div class="kpi-grid" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+  <div class="kpi">
+    <div class="kpi-val">16,7 → 20,9 Mio.</div>
+    <div class="kpi-label lang-de">Über-67-Jährige: 2024 → Anfang 2040er</div>
+    <div class="kpi-label lang-en" style="display:none">Over-67s: 2024 → early 2040s</div>
+    <div class="kpi-src">vdek Basisdaten 2026/27</div>
+  </div>
+  <div class="kpi" style="border-left-color:var(--red)">
+    <div class="kpi-val" style="color:var(--red)">51,2 → 46,7 Mio.</div>
+    <div class="kpi-label lang-de">20–67-Jährige (Beitragszahler): 2024 → Anfang 2040er</div>
+    <div class="kpi-label lang-en" style="display:none">20–67-year-olds (contributors): 2024 → early 2040s</div>
+    <div class="kpi-src">vdek Basisdaten 2026/27</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">135,9 Mrd. €</div>
+    <div class="kpi-label lang-de">Pflegeausgaben 2024 — 25,3&nbsp;% der Gesundheitsausgaben; Verdopplung in 10 Jahren</div>
+    <div class="kpi-label lang-en" style="display:none">Long-term care expenditure 2024 — 25.3% of health spending; doubled in 10 years</div>
+    <div class="kpi-src">Destatis 2026; SPV +11,3&nbsp;% 2024</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">&gt;4&nbsp;%</div>
+    <div class="kpi-label lang-de">Prognose Ø Zusatzbeitrag bis 2029 — ohne strukturelle Reformen</div>
+    <div class="kpi-label lang-en" style="display:none">Projected avg. supplementary rate by 2029 — without structural reform</div>
+    <div class="kpi-src">Bundesrechnungshof, Bericht 15.08.2025</div>
+  </div>
+</div>
+
+<div class="lang-de">
+<p>Die OECD weist Deutschland trotz hoher Ausgaben (9.365 USD/Kopf; OECD Health at a Glance 2025) nur durchschnittliche Gesundheitsoutcomes aus: Lebenserwartung 81,1 Jahre, OECD-Schnitt. Die Effizienzlücke — hohe Inputs, mittlere Outcomes — verweist auf strukturelle Probleme: Überversorgung in Ballungszentren bei gleichzeitiger Unterversorgung in ländlichen Gebieten, Sektortrennung und unzureichende Primärversorgungssteuerung.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>Despite high expenditure (USD 9,365/capita; OECD Health at a Glance 2025), OECD assigns Germany only average health outcomes: life expectancy 81.1 years, at OECD average. The efficiency gap — high inputs, medium outcomes — points to structural issues: oversupply in urban centres alongside undersupply in rural areas, sector separation, and inadequate primary care gatekeeping.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     GKV-MONITOR SYSTEM
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>GKV-Monitor — Automatisiertes Datensystem</h2></div>
+<div class="lang-en" style="display:none"><h2>GKV Monitor — Automated Data System</h2></div>
+
+<div class="lang-de">
+<p>Der GKV-Monitor ist ein privates Forschungsprojekt, das auf dem Mac Studio M3 Ultra (Berlin) läuft. Ein macOS-launchd-Job startet täglich um 06:30 Uhr das Python-Fetcher-System und schreibt neue Daten in eine lokale SQLite-Datenbank auf dem CLAUDE-DATA-Speicherstick.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>The GKV Monitor is a private research project running on a Mac Studio M3 Ultra (Berlin). A macOS launchd job launches the Python fetcher system daily at 06:30 and writes new data to a local SQLite database on the CLAUDE-DATA memory stick.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="lang-de">Datenquelle</th><th class="lang-en" style="display:none">Data source</th>
+      <th class="lang-de">Methode</th><th class="lang-en" style="display:none">Method</th>
+      <th class="lang-de">Rechtsbasis</th><th class="lang-en" style="display:none">Legal basis</th>
+      <th class="lang-de">DB-Stand</th><th class="lang-en" style="display:none">DB status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>G-BA AMNOG</strong><br><span class="src">g-ba.de/bewertungsverfahren/nutzenbewertung/</span></td>
+      <td class="lang-de">HTML-Scraping (BeautifulSoup4), Pagination bis 5 Seiten à 25</td>
+      <td class="lang-en" style="display:none">HTML scraping (BeautifulSoup4), pagination up to 5 pages × 25</td>
+      <td class="lang-de">Gemeinfrei — G-BA ist Körperschaft des öffentl. Rechts</td>
+      <td class="lang-en" style="display:none">Public domain — G-BA is a public law body</td>
+      <td><strong>30</strong> Verfahren</td>
+    </tr>
+    <tr>
+      <td><strong>BMG Pressemitteilungen</strong><br><span class="src">bundesgesundheitsministerium.de</span></td>
+      <td class="lang-de">TYPO3-Sitemap (sitemap=press_releases), keyword-gefilterter HTML-Abruf der letzten 90 Tage</td>
+      <td class="lang-en" style="display:none">TYPO3 sitemap (sitemap=press_releases), keyword-filtered HTML fetch for past 90 days</td>
+      <td class="lang-de">§ 5 UrhG — amtliche Werke</td>
+      <td class="lang-en" style="display:none">§ 5 UrhG — official works</td>
+      <td><strong>6</strong> GKV-relevant</td>
+    </tr>
+    <tr>
+      <td><strong>Bundestag DIP</strong><br><span class="src">search.dip.bundestag.de/api/v1/</span></td>
+      <td class="lang-de">REST-API; Enodia-SHA256-Proof-of-Work-Solver (Python hashlib); Ausschuss Gesundheit, WP 21</td>
+      <td class="lang-en" style="display:none">REST API; Enodia SHA256 proof-of-work solver (Python hashlib); Health Committee, WP 21</td>
+      <td class="lang-de">Gemeinfrei — parlamentarische Drucksachen</td>
+      <td class="lang-en" style="display:none">Public domain — parliamentary proceedings</td>
+      <td><strong>1</strong> Drucksache (letzte Abfrage)</td>
+    </tr>
+    <tr>
+      <td><strong>Destatis GENESIS</strong><br><span class="src">genesis.destatis.de</span></td>
+      <td class="lang-de">REST-API nicht verfügbar (migriert auf SPA); statische Kernzahlen aus PM 02.04.2026</td>
+      <td class="lang-en" style="display:none">REST API unavailable (migrated to SPA); static core figures from PM 02 Apr 2026</td>
+      <td class="lang-de">Datenlizenz Deutschland BY 2.0</td>
+      <td class="lang-en" style="display:none">Data Licence Germany BY 2.0</td>
+      <td><strong>4</strong> statische Kennzahlen</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="note-box">
+  <strong>Technische Architektur:</strong> Python 3 · requests · BeautifulSoup4 · SQLite3 · macOS launchd (Label: <code>de.thomas.gkv-monitor</code>) · Snapshot-Export: <code>/Volumes/CLAUDE-DATA/gkv_monitor/exports/aktuell.md</code> · Kein Cloud-Service, keine API-Calls zu OpenAI/Anthropic.
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     DATENQUELLEN
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Datenquellen &amp; Quellenübersicht</h2></div>
+<div class="lang-en" style="display:none"><h2>Data Sources</h2></div>
+
+<div class="lang-de">
+<p>Alle in diesem Monitor verwendeten Daten entstammen folgenden primären, amtlichen oder wissenschaftlich anerkannten Quellen. Die Datenlage zur GKV ist im internationalen Vergleich außergewöhnlich gut — Quartalsdaten des BMG, Jahresberichte des Destatis, Bundesrechnungshof-Prüfberichte und die Gutachten des SVR liefern ein konsistentes Bild.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>All data in this monitor are drawn from primary, official, or peer-reviewed sources. GKV data availability is exceptionally strong by international comparison.</p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quelle / Source</th>
+      <th>Inhalte / Contents</th>
+      <th>Lizenz / Licence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BMG — Bundesgesundheitsministerium</td>
+      <td class="lang-de">GKV-Finanzberichte, Referentenentwürfe BStabG/Notfallreform, Pressemitteilungen</td>
+      <td class="lang-en" style="display:none">GKV financial reports, draft bills, press releases</td>
+      <td>§ 5 UrhG</td>
+    </tr>
+    <tr>
+      <td>Destatis — Statistisches Bundesamt</td>
+      <td class="lang-de">Gesundheitsausgaben 2024 (PM 02.04.2026), GENESIS-Tabellen</td>
+      <td class="lang-en" style="display:none">Health expenditure 2024 (PM 02 Apr 2026), GENESIS tables</td>
+      <td>Datenlizenz Deutschland BY 2.0</td>
+    </tr>
+    <tr>
+      <td>G-BA — Gemeinsamer Bundesausschuss</td>
+      <td class="lang-de">AMNOG-Nutzenbewertungen (tägl. abgerufen)</td>
+      <td class="lang-en" style="display:none">AMNOG benefit assessments (fetched daily)</td>
+      <td>Gemeinfrei</td>
+    </tr>
+    <tr>
+      <td>SVR Gesundheit &amp; Pflege</td>
+      <td class="lang-de">Gutachten 2025 «Preise innovativer Arzneimittel»</td>
+      <td class="lang-en" style="display:none">2025 Advisory Opinion «Prices of innovative medicines»</td>
+      <td>CC BY-NC-SA 3.0 IGO</td>
+    </tr>
+    <tr>
+      <td>WIdO — Wiss. Institut der AOK</td>
+      <td class="lang-de">Arzneimittel-Kompass 2025, Arzneiverordnungs-Report</td>
+      <td class="lang-en" style="display:none">Pharmaceutical Compass 2025, Prescription Report</td>
+      <td>Veröffentlicht; Zitat mit Quellenangabe</td>
+    </tr>
+    <tr>
+      <td>IQWiG</td>
+      <td class="lang-de">Arbeitspapier Orphan Drug Re-Evaluierung, 18.01.2024</td>
+      <td class="lang-en" style="display:none">Working paper on orphan drug re-evaluation, 18 Jan 2024</td>
+      <td>Gemeinfrei (§ 139a Abs. 4 SGB V)</td>
+    </tr>
+    <tr>
+      <td>vdek — Verband der Ersatzkassen</td>
+      <td class="lang-de">Basisdaten 2026/27 (29. Auflage, PDF)</td>
+      <td class="lang-en" style="display:none">Basisdaten 2026/27 (29th ed., PDF)</td>
+      <td>Öffentl. Publikation, Zitat mit Quellenangabe</td>
+    </tr>
+    <tr>
+      <td>Bundesrechnungshof</td>
+      <td class="lang-de">Bericht GKV-Finanzlage, 15.08.2025 (an Haushaltsausschuss)</td>
+      <td class="lang-en" style="display:none">Report on GKV financial situation, 15 Aug 2025</td>
+      <td>§ 5 UrhG</td>
+    </tr>
+    <tr>
+      <td>OECD Health at a Glance 2025</td>
+      <td class="lang-de">Internationale Vergleichsdaten, Germany Country Note</td>
+      <td class="lang-en" style="display:none">International comparative data, Germany Country Note</td>
+      <td>CC BY 4.0 (Open Access)</td>
+    </tr>
+    <tr>
+      <td>Bundestag Lobbyregister</td>
+      <td class="lang-de">Verbands-Lobbyausgaben (lobbyregister.bundestag.de)</td>
+      <td class="lang-en" style="display:none">Association lobbying expenditure</td>
+      <td>Öffentliches Register</td>
+    </tr>
+    <tr>
+      <td>Bundestag DIP</td>
+      <td class="lang-de">Drucksachen, Gesundheitsausschuss-Anhörungen WP 21</td>
+      <td class="lang-en" style="display:none">Parliamentary printed papers, Health Committee hearings WP 21</td>
+      <td>Gemeinfrei</td>
+    </tr>
+    <tr>
+      <td>LobbyControl / abgeordnetenwatch.de / Investigate Europe</td>
+      <td class="lang-de">Drehtür-Recherchen, Eli-Lilly-MFG-Recherche (15.10.2024)</td>
+      <td class="lang-en" style="display:none">Revolving door research, Eli Lilly/MFG investigation (15 Oct 2024)</td>
+      <td>Investigativer Journalismus; namentlich zitiert</td>
+    </tr>
+    <tr>
+      <td>FinanzKommission Gesundheit</td>
+      <td class="lang-de">483-seitiger Bericht mit 66 Empfehlungen (30.03.2026)</td>
+      <td class="lang-en" style="display:none">483-page report with 66 recommendations (30 Mar 2026)</td>
+      <td>§ 5 UrhG (BMG-Veröffentlichung)</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</section>
+
+<!-- ============================================================
+     DISCLAIMER
+     ============================================================ -->
+<section>
+<div class="col">
+<div class="disclaimer">
+  <strong>Haftungsausschluss / Disclaimer:</strong> Dieser Monitor ist ein privates, nicht-kommerzielles Forschungsprojekt (§ 5 DDG). Alle Daten wurden aus öffentlichen Primärquellen entnommen und sind im Text namentlich belegt. Angaben über Personen und Verbände entstammen ausschließlich amtlichen Registern (Lobbyregister Bundestag), öffentlichen Publikationen oder namentlich gekennzeichneten investigativen Recherchen. Für Vollständigkeit und Fehlerfreiheit wird keine Haftung übernommen. Korrekturen werden unter <a href="mailto:thomasriepe@gmail.com" style="color:var(--gold)">thomasriepe(at)gmail.com</a> entgegengenommen. | This monitor is a private, non-commercial research project. All data is drawn from public primary sources and cited in the text. No liability for completeness or accuracy. Corrections welcome.
+</div>
+</div>
+</section>
+
+<footer class="wrapper">
+  <span>Thomas Riepe · Berlin · <a href="mailto:thomasriepe@gmail.com" style="color:var(--fg-dim)">thomasriepe@gmail.com</a></span>
+  <span>GKV-Monitor · Analysestand: Juni 2026 · Systemdaten tägl. aktualisiert</span>
+  <span><a href="impressum.html" style="color:var(--fg-dim)">Impressum &amp; Datenschutz</a> · © Thomas Riepe, Berlin · § 5 DDG</span>
+</footer>
+
+</div><!-- .wrapper -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+/* ---- Design tokens ---- */
+const GOLD='#c8903a', GOLD2='#a87430', GREEN='#7aad7a', RED='#b86060', AMBER='#d4a040';
+const BLUE='#6a9fc0', FG='#e2ddd4', FGDIM='#9a9188', BG2='#161410', RULE='#2a2620';
+Chart.defaults.color=FGDIM;
+Chart.defaults.borderColor=RULE;
+Chart.defaults.font.family="'DM Mono',monospace";
+Chart.defaults.font.size=10;
+
+/* ---- Chart 1: Leistungsausgaben 2025 ---- */
+new Chart(document.getElementById('chartLeistungen'),{
+  type:'bar',
+  data:{
+    labels:['Krankenhaus (+9,0%)','Arzneimittel (+6,0%)','Ambulant-ärztl. (+7,3%)','Verwaltung (+4,7%)','Rettungsdienst (+10,2%)'],
+    datasets:[{
+      label:'Mrd. € (2025)',
+      data:[111.4,58.5,53.9,13.0,7.5],
+      backgroundColor:[RED+'99',AMBER+'99',GOLD+'99',FGDIM+'66',BLUE+'99'],
+      borderColor:[RED,AMBER,GOLD,FGDIM,BLUE],
+      borderWidth:1,
+      borderRadius:2
+    }]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.raw+' Mrd. €'}}},
+    scales:{
+      x:{grid:{color:RULE},ticks:{callback:v=>v+' Mrd.'}},
+      y:{grid:{display:false}}
+    }
+  }
+});
+
+/* ---- Chart 2: Trägerstruktur Donut ---- */
+new Chart(document.getElementById('chartTraeger'),{
+  type:'doughnut',
+  data:{
+    labels:['GKV (55,9%)','Private HH (12,1%)','Soziale Pflege (12,0%)','PKV (8,3%)','Sonstige (11,7%)'],
+    datasets:[{
+      data:[300.8,65.0,64.7,44.8,63.0],
+      backgroundColor:[GOLD+'cc',AMBER+'99',GREEN+'99',BLUE+'99',FGDIM+'55'],
+      borderColor:BG2,
+      borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{position:'bottom',labels:{boxWidth:10,padding:8}},
+      tooltip:{callbacks:{label:c=>c.label+': '+c.raw+' Mrd. €'}}
+    }
+  }
+});
+
+/* ---- Chart 3: Zusatzbeitrag ---- */
+new Chart(document.getElementById('chartZusatz'),{
+  type:'bar',
+  data:{
+    labels:['2015','2016','2017','2018','2019','2020','2021','2022','2023','2024','2025','2026'],
+    datasets:[{
+      label:'Ø Zusatzbeitrag (%)',
+      data:[0.9,1.1,1.0,1.0,0.9,1.1,1.3,1.6,2.0,2.5,2.9,2.9],
+      backgroundColor:d=>{
+        const v=d.raw;
+        if(v>=2.9)return RED+'cc';
+        if(v>=2.0)return AMBER+'cc';
+        return GOLD+'88';
+      },
+      borderColor:d=>{const v=d.raw;if(v>=2.9)return RED;if(v>=2.0)return AMBER;return GOLD;},
+      borderWidth:1,
+      borderRadius:2
+    }]
+  },
+  options:{
+    responsive:true,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw+'%'}}},
+    scales:{
+      y:{grid:{color:RULE},ticks:{callback:v=>v+'%'},min:0,max:3.5},
+      x:{grid:{display:false}}
+    }
+  }
+});
+
+/* ---- Chart 4: AMNOG Hochpreisarzneimittel ---- */
+new Chart(document.getElementById('chartAmnog'),{
+  type:'bar',
+  data:{
+    labels:['2014','2023','2024'],
+    datasets:[
+      {
+        label:'Umsatzanteil Hochpreiser >1.000€/Pkg (%)',
+        data:[27.6,47.6,48.2],
+        backgroundColor:[GOLD+'55',AMBER+'88',RED+'aa'],
+        borderColor:[GOLD,AMBER,RED],
+        borderWidth:1,
+        borderRadius:2
+      },
+      {
+        label:'DDD-Anteil Patentmarkt (%)',
+        data:[11.4,null,7.0],
+        backgroundColor:[BLUE+'55',null,BLUE+'aa'],
+        borderColor:[BLUE,null,BLUE],
+        borderWidth:1,
+        borderRadius:2
+      }
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{position:'bottom',labels:{boxWidth:10,padding:8}},
+      tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.raw+'%'}}
+    },
+    scales:{
+      y:{grid:{color:RULE},ticks:{callback:v=>v+'%'},max:60},
+      x:{grid:{display:false}}
+    }
+  }
+});
+
+/* ---- Language switcher ---- */
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.removeProperty('display'));
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{
+    if(b.textContent.trim()===l.toUpperCase())b.classList.add('active');
+  });
+}
+</script>
+</body>
+</html>
