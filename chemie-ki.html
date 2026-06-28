@@ -42,8 +42,44 @@ pre{font-family:var(--mono);font-size:.8rem;background:var(--bg2);border:1px sol
 .status-ok{font-family:var(--mono);font-size:.62rem;color:var(--green);letter-spacing:.08em}
 .viz-container{background:var(--bg2);border:1px solid var(--rule);border-radius:3px;padding:1rem;margin:1.5rem 0;overflow-x:auto}
 .viz-title{font-family:var(--sans);font-size:.7rem;color:var(--fg-dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem}
+/* Interactive elements */
+.btn-row{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
+.net-btn{font-family:var(--mono);font-size:.68rem;padding:.3em .7em;border:1px solid var(--rule);border-radius:2px;background:var(--bg2);color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.05em}
+.net-btn:hover{border-color:var(--gold2);color:var(--fg)}
+.net-btn.active{border-color:var(--gold);color:var(--gold);background:var(--bg3)}
+.net-btn.fp{border-left:2px solid var(--green)}
+.net-btn.lc{border-left:2px solid var(--amber)}
+.ode-canvas{width:100%;max-width:580px;display:block;border:1px solid var(--rule);border-radius:2px;background:#0a0908}
+.ode-legend{display:flex;gap:1.2rem;font-family:var(--mono);font-size:.65rem;color:var(--fg-dim);margin-top:.4rem}
+.ode-legend span{display:flex;align-items:center;gap:.3em}
+.ode-legend span::before{content:'';display:inline-block;width:14px;height:2px;border-radius:1px}
+.sp1::before{background:#3ecf8e}.sp2::before{background:#c8903a}
+/* Tabs */
+.chart-tabs{display:flex;gap:.4rem;margin:.8rem 0}
+.chart-tab{font-family:var(--mono);font-size:.65rem;padding:.25em .65em;border:1px solid var(--rule);border-radius:2px;background:var(--bg2);color:var(--fg-dim);cursor:pointer;transition:all .15s}
+.chart-tab:hover{border-color:var(--gold2)}
+.chart-tab.active{border-color:var(--gold);color:var(--gold);background:var(--bg3)}
+/* Slider */
+.slider-row{display:flex;align-items:center;gap:.8rem;margin:.8rem 0;font-family:var(--sans);font-size:.82rem;color:var(--fg-dim)}
+.slider-row input[type=range]{flex:1;accent-color:var(--gold);background:transparent;max-width:300px}
+.slider-val{font-family:var(--mono);font-size:.9rem;color:var(--gold);min-width:3em}
+.turing-indicators{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin:.6rem 0}
+.t-ind{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:.5rem .8rem;font-family:var(--mono);font-size:.72rem}
+.t-ind .label{color:var(--fg-dim);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.2rem}
+.t-ind .val{color:var(--fg)}
+.t-ind.ok{border-left:2px solid var(--green)}.t-ind.ok .val{color:var(--green)}
+.t-ind.fail{border-left:2px solid var(--red)}.t-ind.fail .val{color:var(--red)}
+/* C4 grid */
+.cat-grid-outer{margin:1rem 0}
+.cat-grid{display:flex;flex-wrap:wrap;gap:2px;padding:.6rem;background:var(--bg2);border:1px solid var(--rule);border-radius:3px;max-width:440px}
+.cat-cell{width:14px;height:14px;border-radius:2px;cursor:pointer;transition:transform .15s}
+.cat-cell:hover{transform:scale(1.4);z-index:10;position:relative}
+.cat-legend{display:flex;flex-wrap:wrap;gap:.8rem;margin:.6rem 0;font-family:var(--sans);font-size:.78rem;color:var(--fg-dim)}
+.cat-legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:.3em;vertical-align:middle}
+/* Tooltip */
+.tooltip-box{position:fixed;background:var(--bg3);border:1px solid var(--gold2);border-radius:3px;padding:.4rem .7rem;font-family:var(--mono);font-size:.72rem;color:var(--fg);pointer-events:none;opacity:0;transition:opacity .15s;z-index:100;max-width:200px}
 footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
-@media(max-width:640px){html{font-size:15px}.wrapper{padding:0 1.2rem}.result-grid{grid-template-columns:1fr}}
+@media(max-width:640px){html{font-size:15px}.wrapper{padding:0 1.2rem}.result-grid{grid-template-columns:1fr}.turing-indicators{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -51,28 +87,1004 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <header>
 <div class="col">
   <p class="header-meta"><a href="index.html">← Lokales KI-Ökosystem &amp; Forschungsprojekte</a></p>
+  <p class="header-meta" style="margin-top:.5rem">Projekt 23 · Chemie &amp; KI-Methodik</p>
   <h1>Lokaler Chemie- &amp; KI-Forschungsstack
     <span class="sub">Local Chemistry &amp; AI Research Stack</span>
   </h1>
+  <div class="lang-tabs">
+    <button class="lang-tab active" onclick="setLang('de')">DE</button>
+    <button class="lang-tab" onclick="setLang('en')">EN</button>
+  </div>
+  <p class="lang-de" style="font-family:var(--sans);font-size:.85rem;color:var(--fg-dim);max-width:560px;margin-top:.5rem">
+    Sechs abgeschlossene Experimente mit dem lokalen Chemie-Werkzeugstack. Alle Messwerte aus
+    tatsächlichen Berechnungen auf dem Mac Studio M3 Ultra (256 GB), Juni 2026.
+  </p>
+  <p class="lang-en" style="display:none;font-family:var(--sans);font-size:.85rem;color:var(--fg-dim);max-width:560px;margin-top:.5rem">
+    Six completed experiments using the local chemistry tool stack. All values from actual computations
+    on the Mac Studio M3 Ultra (256 GB), June 2026.
+  </p>
   <p class="status-ok" style="margin-top:1rem">✓ ABGESCHLOSSEN · Juni 2026 · 6 Projekte · Python 3.12</p>
 </div>
 </header>
+
 <section>
 <div class="col">
-<h2>C1 · C2 · C3 · C4 · X1 · X2</h2>
-<p>Interaktive Version — Push via github:push_files in Arbeit. Vollständige v2 folgt.</p>
-<div class="result-grid">
-  <div class="result-box"><p class="result-label">C1 ODE-Simulator</p><p class="result-value">✓ Canvas</p></div>
-  <div class="result-box"><p class="result-label">C2 Energiediagramm</p><p class="result-value">✓ Tabs</p></div>
-  <div class="result-box"><p class="result-label">C3 Turing PDE</p><p class="result-value">✓ Slider</p></div>
-  <div class="result-box"><p class="result-label">C4 Kategorie-Grid</p><p class="result-value">✓ Toggle</p></div>
+
+<!-- WERKZEUGSTACK -->
+<h2 class="lang-de">Werkzeugstack &amp; Paketversionen</h2>
+<h2 class="lang-en" style="display:none">Tool Stack &amp; Package Versions</h2>
+<ul class="fact-list" style="max-width:580px">
+  <li><span class="k">Tellurium / roadrunner</span><span class="v">2.2.13</span></li>
+  <li><span class="k">MACE-OFF (ML-Kraftfeld)</span><span class="v">0.3.16 · MACE-OFF23_medium 17,5 MB</span></li>
+  <li><span class="k">PySCF (DFT)</span><span class="v">2.13.1 · B3LYP/6-31G*</span></li>
+  <li><span class="k">RDKit</span><span class="v">2026.3.3</span></li>
+  <li><span class="k">ASE</span><span class="v">3.29.0</span></li>
+  <li><span class="k">LLM Taxonomie</span><span class="v">qwen3:235b-a22b (lokal)</span></li>
+  <li><span class="k">LLM JSON-Analyse</span><span class="v">mistral-small3.1:24b (lokal)</span></li>
+</ul>
+
+<!-- C1 -->
+<h2 class="lang-de">C1 · Tellurium: Topologie-Dynamik-Atlas</h2>
+<h2 class="lang-en" style="display:none">C1 · Tellurium: Topology-Dynamics Atlas</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Welche Verbindung besteht zwischen der topologischen Struktur eines
+biochemischen Reaktionsnetzwerks und seiner Langzeitdynamik? Feinbergs Deficiency-Zero-Theorem (1972)
+sagt für δ=0 genau einen stabilen Fixpunkt voraus — unabhängig von Ratenkonstanten.</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> How does the topological structure of a biochemical
+reaction network determine its long-term dynamics? Feinberg's Deficiency-Zero Theorem (1972)
+predicts exactly one stable fixed point for δ=0, independent of rate constants.</p>
+
+<h3 class="lang-de">Gemessene Ergebnisse (je 6 zufällige Anfangsbedingungen)</h3>
+<h3 class="lang-en" style="display:none">Measured Results (6 random initial conditions each)</h3>
+
+<div class="viz-container">
+<svg viewBox="0 0 620 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:620px;display:block">
+  <text x="10" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Netzwerk</text>
+  <text x="195" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Typ</text>
+  <text x="290" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">δ (Näh.)</text>
+  <text x="370" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Dynamik</text>
+  <text x="500" y="18" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Konsistenz</text>
+  <line x1="10" y1="24" x2="610" y2="24" stroke="#2a2620" stroke-width="1"/>
+  <!-- simple_decay -->
+  <text x="10" y="44" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">simple_decay</text>
+  <text x="195" y="44" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Abbau</text>
+  <text x="290" y="44" font-family="DM Mono,monospace" font-size="11" fill="#c8903a">1</text>
+  <rect x="368" y="33" width="80" height="14" rx="2" fill="#7aad7a22"/>
+  <text x="372" y="44" font-family="DM Mono,monospace" font-size="11" fill="#7aad7a">FIXPOINT</text>
+  <text x="500" y="44" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">6/6 ✓</text>
+  <!-- brusselator -->
+  <text x="10" y="68" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">brusselator</text>
+  <text x="195" y="68" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Autokatalyse</text>
+  <text x="290" y="68" font-family="DM Mono,monospace" font-size="11" fill="#c8903a">5</text>
+  <rect x="368" y="57" width="90" height="14" rx="2" fill="#d4a04022"/>
+  <text x="372" y="68" font-family="DM Mono,monospace" font-size="11" fill="#d4a040">LIMIT_CYCLE</text>
+  <text x="500" y="68" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">6/6 ✓</text>
+  <!-- oregonator -->
+  <text x="10" y="92" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">oregonator</text>
+  <text x="195" y="92" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">3 Spezies</text>
+  <text x="290" y="92" font-family="DM Mono,monospace" font-size="11" fill="#c8903a">6</text>
+  <rect x="368" y="81" width="90" height="14" rx="2" fill="#d4a04022"/>
+  <text x="372" y="92" font-family="DM Mono,monospace" font-size="11" fill="#d4a040">LIMIT_CYCLE</text>
+  <text x="500" y="92" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">6/6 ✓</text>
+  <!-- selkov -->
+  <text x="10" y="116" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">selkov</text>
+  <text x="195" y="116" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Glykolyse</text>
+  <text x="290" y="116" font-family="DM Mono,monospace" font-size="11" fill="#c8903a">5</text>
+  <rect x="368" y="105" width="90" height="14" rx="2" fill="#d4a04022"/>
+  <text x="372" y="116" font-family="DM Mono,monospace" font-size="11" fill="#d4a040">LIMIT_CYCLE</text>
+  <text x="500" y="116" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">6/6 ✓</text>
+  <!-- toggle -->
+  <text x="10" y="140" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">toggle_switch</text>
+  <text x="195" y="140" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Genregulation</text>
+  <text x="290" y="140" font-family="DM Mono,monospace" font-size="11" fill="#c8903a">5</text>
+  <rect x="368" y="129" width="80" height="14" rx="2" fill="#7aad7a22"/>
+  <text x="372" y="140" font-family="DM Mono,monospace" font-size="11" fill="#7aad7a">FIXPOINT</text>
+  <text x="500" y="140" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">6/6 ✓</text>
+  <line x1="10" y1="152" x2="610" y2="152" stroke="#2a2620" stroke-width="1"/>
+  <text x="10" y="164" font-family="Instrument Sans,sans-serif" font-size="9" fill="#9a9188">Deficiency δ = 2·n_rx − 1 − rank(S) (Näherung, l=1). Zufallsscan: 30 Netzwerke → FIXPOINT und BISTABLE beobachtet.</text>
+</svg>
 </div>
+
+<!-- ODE SIMULATOR -->
+<h3 class="lang-de">▶ Interaktive ODE-Simulation</h3>
+<h3 class="lang-en" style="display:none">▶ Interactive ODE Simulation</h3>
+<p class="lang-de" style="font-family:var(--sans);font-size:.82rem;color:var(--fg-dim)">
+  Netzwerk auswählen → Euler-Integration (Δt=0.05, 500 Schritte) zeigt Langzeitdynamik.
+  Grün: Spezies 1 · Orange: Spezies 2. Parameter identisch mit Python-Skript.
+</p>
+<p class="lang-en" style="display:none;font-family:var(--sans);font-size:.82rem;color:var(--fg-dim)">
+  Select network → Euler integration (Δt=0.05, 500 steps) shows long-term dynamics.
+  Green: species 1 · Orange: species 2. Parameters identical to Python script.
+</p>
+<div class="btn-row">
+  <button class="net-btn fp active" data-net="decay" onclick="c1Select(this,'decay')">simple_decay <span style="color:var(--green)">FP</span></button>
+  <button class="net-btn lc" data-net="bruss" onclick="c1Select(this,'bruss')">brusselator <span style="color:var(--amber)">LC</span></button>
+  <button class="net-btn lc" data-net="selkov" onclick="c1Select(this,'selkov')">selkov <span style="color:var(--amber)">LC</span></button>
+  <button class="net-btn fp" data-net="toggle" onclick="c1Select(this,'toggle')">toggle_switch <span style="color:var(--green)">FP</span></button>
+</div>
+<canvas id="c1Canvas" class="ode-canvas" width="580" height="200"></canvas>
+<div class="ode-legend">
+  <span class="sp1" id="c1Leg1">S₁</span>
+  <span class="sp2" id="c1Leg2">S₂</span>
+  <span id="c1TypeLabel" style="margin-left:auto;color:var(--gold);font-size:.65rem;letter-spacing:.06em"></span>
+</div>
+</div>
+
+<!-- C2 -->
+<h2 class="lang-de">C2 · MACE-OFF / PySCF: Energievergleich</h2>
+<h2 class="lang-en" style="display:none">C2 · MACE-OFF / PySCF: Energy Comparison</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Wie verhalten sich die Energieausgaben von MACE-OFF23 gegenüber
+PySCF B3LYP/6-31G* für verschiedene organische Molekülklassen?</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> How do MACE-OFF23 force-field energies compare
+to PySCF B3LYP/6-31G* DFT values across different organic molecule classes?</p>
+<div class="note-box lang-de"><strong>Methodischer Hinweis:</strong> MACE-OFF und PySCF verwenden unterschiedliche
+Energiereferenzrahmen. |ΔE| spiegelt daher primär den systematischen Offset wider. Sinnvoll
+vergleichbar sind <em>relative</em> Differenzen innerhalb einer Serie — z.B. der Anstieg
+pro CH₂-Gruppe oder die Ringspannungskorrektur.</div>
+<div class="note-box lang-en" style="display:none"><strong>Methodological note:</strong> MACE-OFF and PySCF use
+different energy reference frames. |ΔE| primarily reflects the systematic offset. Meaningful
+comparisons are <em>relative</em> differences within a series.</div>
+
+<h3 class="lang-de">▶ Interaktives Energiediagramm</h3>
+<h3 class="lang-en" style="display:none">▶ Interactive Energy Chart</h3>
+<div class="chart-tabs">
+  <button class="chart-tab active" onclick="c2Switch(this,'cyclo')">Cycloalkane C3–C8</button>
+  <button class="chart-tab" onclick="c2Switch(this,'hetero')">Heteroatome</button>
+  <button class="chart-tab" onclick="c2Switch(this,'stretch')">Bindungsstreckung</button>
+</div>
+<div class="viz-container" style="position:relative">
+  <canvas id="c2Canvas" width="580" height="240" style="width:100%;max-width:580px;display:block;cursor:crosshair"></canvas>
+  <div id="c2Tip" class="tooltip-box"></div>
+</div>
+<div id="c2Note" style="font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);margin-top:.4rem"></div>
+</div>
+
+<!-- C3 -->
+<h2 class="lang-de">C3 · Reaktions-Diffusions-Brücke: Turing-Analyse</h2>
+<h2 class="lang-en" style="display:none">C3 · Reaction-Diffusion Bridge: Turing Analysis</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Welche Reaktionsnetzwerke können durch Diffusion destabilisiert werden
+und räumliche Muster bilden? Turing (1952): Ein stabiles System kann durch unterschiedliche
+Diffusionsgeschwindigkeiten der Reaktanden instabil werden.</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> Which reaction networks can be destabilized by
+diffusion to form spatial patterns? Turing (1952): a stable system can become unstable through
+differential diffusion of reactants.</p>
+
+<h3 class="lang-de">Gemessene Eigenwerte &amp; Turing-Screening</h3>
+<h3 class="lang-en" style="display:none">Measured Eigenvalues &amp; Turing Screening</h3>
+<div class="viz-container">
+<svg viewBox="0 0 620 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:620px;display:block">
+  <text x="10" y="17" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Netzwerk</text>
+  <text x="175" y="17" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Eigenwerte Re(λ)</text>
+  <text x="340" y="17" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">FP stabil</text>
+  <text x="420" y="17" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">Turing-fähic</text>
+  <line x1="10" y1="23" x2="610" y2="23" stroke="#2a2620" stroke-width="1"/>
+  <text x="10" y="41" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">simple_decay</text>
+  <text x="175" y="41" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">−0.50, −0.30</text>
+  <text x="340" y="41" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">✓</text>
+  <text x="420" y="41" font-family="DM Mono,monospace" font-size="10" fill="#b86060">nein (T2)</text>
+  <text x="10" y="65" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">brusselator (k₃=3)</text>
+  <text x="175" y="65" font-family="DM Mono,monospace" font-size="10" fill="#b86060">+0.50, +0.50</text>
+  <text x="340" y="65" font-family="DM Mono,monospace" font-size="10" fill="#b86060">✗ Hopf</text>
+  <text x="420" y="65" font-family="DM Mono,monospace" font-size="10" fill="#9a9188">—</text>
+  <text x="10" y="89" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">oregonator</text>
+  <text x="175" y="89" font-family="DM Mono,monospace" font-size="10" fill="#b86060">+40.0, −0.90, −0.90</text>
+  <text x="340" y="89" font-family="DM Mono,monospace" font-size="10" fill="#b86060">✗</text>
+  <text x="420" y="89" font-family="DM Mono,monospace" font-size="10" fill="#9a9188">—</text>
+  <!-- Selkov highlight -->
+  <rect x="5" y="98" width="610" height="22" rx="2" fill="#7aad7a0a" stroke="#7aad7a33" stroke-width="1"/>
+  <text x="10" y="113" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">selkov ★</text>
+  <text x="175" y="113" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">−0.0011, −0.0011</text>
+  <text x="340" y="113" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">✓</text>
+  <text x="420" y="113" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">✓ d₂/d₁ ≥ 5,27</text>
+  <text x="10" y="137" font-family="EB Garamond,serif" font-size="13" fill="#e2ddd4">toggle_switch</text>
+  <text x="175" y="137" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">−0.29, −1.71</text>
+  <text x="340" y="137" font-family="DM Mono,monospace" font-size="10" fill="#7aad7a">✓</text>
+  <text x="420" y="137" font-family="DM Mono,monospace" font-size="10" fill="#b86060">nein (T2)</text>
+  <line x1="10" y1="150" x2="610" y2="150" stroke="#2a2620" stroke-width="1"/>
+  <text x="10" y="165" font-family="Instrument Sans,sans-serif" font-size="9" fill="#9a9188">★ Selkov-Jacobian am Fixpunkt (S₁*=0.8303, S₂*=0.7226) via rr.getFullJacobian():</text>
+  <text x="10" y="178" font-family="DM Mono,monospace" font-size="9" fill="#9a9188">a=−0.6021  b=−1.2001  c=+0.5221  d=+0.6001  det=0.2652</text>
+</svg>
+</div>
+
+<pre class="lang-de">Turing-Bedingungen (analytisch, SymPy):
+  (S1) tr(J) = a + d &lt; 0  →  −0.6021 + 0.6001 = −0.002 &lt; 0 ✓
+  (S2) det(J) = ad − bc &gt; 0  →  0.2652 &gt; 0 ✓
+  (T1) a + d·(d₂/d₁) &gt; 0  →  erfüllt für d₂/d₁ &gt; 1.003
+  (T2) (a + d·δ)² − 4δ·det &gt; 0  →  erfüllt für d₂/d₁ &gt; 5.27 (Schwelle)</pre>
+<pre class="lang-en" style="display:none">Turing conditions (analytical, SymPy):
+  (S1) tr(J) = a + d &lt; 0  →  −0.002 &lt; 0 ✓
+  (S2) det(J) = ad − bc &gt; 0  →  0.2652 &gt; 0 ✓
+  (T1) a + d·(d₂/d₁) &gt; 0  →  met for d₂/d₁ &gt; 1.003
+  (T2) (a + d·δ)² − 4δ·det &gt; 0  →  met for d₂/d₁ &gt; 5.27 (threshold)</pre>
+
+<h3 class="lang-de">▶ Turing-Parameter-Explorer + Reaktions-Diffusions-Simulation</h3>
+<h3 class="lang-en" style="display:none">▶ Turing Parameter Explorer + Reaction-Diffusion Simulation</h3>
+<p class="lang-de" style="font-family:var(--sans);font-size:.82rem;color:var(--fg-dim)">
+  Selkov-Parameter (k₀=0.5, k₁=0.08, k₂=1.0, k₃=0.6) · D₁=0.005 fest · D₂=Slider·D₁ · N=80 Zellen.
+  Unterhalb des Schwellenwerts: homogenes Gleichgewicht. Oberhalb: Turing-Musterbildung.
+</p>
+<p class="lang-en" style="display:none;font-family:var(--sans);font-size:.82rem;color:var(--fg-dim)">
+  Selkov parameters (k₀=0.5, k₁=0.08, k₂=1.0, k₃=0.6) · D₁=0.005 fixed · D₂=Slider·D₁ · N=80 cells.
+  Below threshold: homogeneous equilibrium. Above: Turing pattern formation.
+</p>
+<div class="slider-row">
+  <span class="lang-de">d₂/d₁ Verhältnis:</span>
+  <span class="lang-en" style="display:none">d₂/d₁ ratio:</span>
+  <input type="range" id="turingSlider" min="0.5" max="20" step="0.1" value="1.0" oninput="turingUpdate()">
+  <span class="slider-val" id="turingVal">1.0</span>
+</div>
+<div class="turing-indicators">
+  <div class="t-ind" id="tT1"><div class="label">T1 = a + d·δ</div><div class="val" id="tT1v">—</div></div>
+  <div class="t-ind" id="tT2"><div class="label">T2 = T1² − 4δ·det</div><div class="val" id="tT2v">—</div></div>
+  <div class="t-ind" id="tStatus"><div class="label">Turing-Status</div><div class="val" id="tStatusV">—</div></div>
+</div>
+<div class="viz-container" style="padding:.6rem">
+  <p class="viz-title" id="pdeTitle">1D Reaktions-Diffusion · Selkov · d₂/d₁ = 1.0</p>
+  <canvas id="c3PDE" width="560" height="90" style="width:100%;max-width:560px;display:block"></canvas>
+  <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:.62rem;color:var(--fg-dim);margin-top:.3rem">
+    <span>S₁ (Aktivator) — blau</span><span>S₂ (Produkt) — orange</span><span>t = <span id="pdeTime">0</span></span>
+  </div>
+</div>
+<div style="display:flex;gap:.6rem;margin:.6rem 0">
+  <button class="net-btn" id="pdePlayBtn" onclick="pdeToggle()">▶ Start</button>
+  <button class="net-btn" onclick="pdeReset()">↺ Neustart</button>
+</div>
+</div>
+
+<!-- C4 -->
+<h2 class="lang-de">C4 · Naturalist AI: Kognitionsexperiment</h2>
+<h2 class="lang-en" style="display:none">C4 · Naturalist AI: Cognition Experiment</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Bildet ein Sprachmodell beim Betrachten unlabeled chemischer
+Zeitreihen Kategorien, die bekannten dynamischen Klassen entsprechen?
+Das Interessante sind die <em>Abweichungen</em>: Mustererkennung vs. Mustererfassung.</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> Does a language model, observing unlabeled
+chemical time series, form categories matching known dynamical classes?
+The <em>divergences</em> are the scientifically interesting result.</p>
+
+<h3 class="lang-de">Gemessene Ergebnisse</h3>
+<h3 class="lang-en" style="display:none">Measured Results</h3>
+<div class="result-grid">
+  <div class="result-box"><p class="result-label">Datensatz</p><p class="result-value">80 Zeitreihen</p><p class="result-note">20 × 4 Klassen · Tellurium 2.2.13</p></div>
+  <div class="result-box"><p class="result-label">qwen3 Taxonomie</p><p class="result-value">7.158 Zeichen</p><p class="result-note">thinking-Feld · aus Pilotsatz 8 Zeitreihen</p></div>
+  <div class="result-box"><p class="result-label">Klassifiziert</p><p class="result-value">66 / 80</p><p class="result-note">14 ohne Klassifikation (leere Batch-Antworten)</p></div>
+  <div class="result-box"><p class="result-label">LLM-Kategorien</p><p class="result-value">26 ≠ 4</p><p class="result-note">Modell bildet 6,5× mehr Distinktionen als GT</p></div>
+</div>
+
+<h3 class="lang-de">▶ Kategorie-Divergenz-Visualisierung</h3>
+<h3 class="lang-en" style="display:none">▶ Category Divergence Visualization</h3>
+<p class="lang-de" style="font-family:var(--sans);font-size:.82rem;color:var(--fg-dim)">
+  80 Zeitreihen als Kacheln (4 Farben = Ground-Truth-Klassen). Umschalten zeigt, wie das LLM
+  diese in 26 Unterkategorien aufteilt. Grau = 14 nicht klassifizierte Zeitreihen.
+</p>
+<p class="lang-en" style="display:none;font-family:var(--sans);font-size:.82rem;color:var(--fg-dim)">
+  80 time series as tiles (4 colors = ground-truth classes). Toggle shows how the LLM
+  splits these into 26 sub-categories. Grey = 14 unclassified time series.
+</p>
+<div class="btn-row">
+  <button class="net-btn active" onclick="c4View('gt',this)">Ground Truth (4 Klassen)</button>
+  <button class="net-btn" onclick="c4View('llm',this)">LLM-Sicht (26 Kategorien)</button>
+</div>
+<div class="cat-grid-outer">
+  <div class="cat-grid" id="c4Grid"></div>
+  <div class="cat-legend" id="c4Legend"></div>
+</div>
+<div class="viz-container" style="margin-top:1rem">
+  <p class="viz-title">Klassenverteilung: Ground Truth vs. LLM</p>
+  <canvas id="c4Bar" width="560" height="180" style="width:100%;max-width:560px;display:block"></canvas>
+</div>
+<div class="note-box lang-de" style="margin-top:.8rem">
+  Vollständige qwen3-Taxonomie (7.158 Zeichen) gespeichert in:<br>
+  <code>/Volumes/CLAUDE-DATA/Projekte/C4_Naturalist_AI/output/taxonomy_raw.txt</code><br>
+  Die 26 LLM-Kategorienamen wurden aus strukturellen Beschreibungen der Zeitreihen entwickelt
+  (keine mathematischen Fachbegriffe verwendet). LLM-Modell: mistral-small3.1:24b für JSON.
+</div>
+<div class="note-box lang-en" style="display:none">
+  Full qwen3 taxonomy (7,158 characters) saved to:<br>
+  <code>/Volumes/CLAUDE-DATA/Projekte/C4_Naturalist_AI/output/taxonomy_raw.txt</code><br>
+  The 26 LLM category names were developed from structural descriptions of the time series
+  (no mathematical terminology). LLM model: mistral-small3.1:24b for JSON.
+</div>
+</div>
+
+<!-- X1 -->
+<h2 class="lang-de">X1 · Reaktionsnetzwerk-Evolution</h2>
+<h2 class="lang-en" style="display:none">X1 · Reaction Network Evolution</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Frage:</strong> Konvergieren zufällig mutierende Reaktionsnetzwerke bevorzugt gegen
+Netzwerke mit Feinberg-Deficiency δ=0? Das würde bedeuten: Topologische Robustheit ist ein
+evolutionärer Attraktor.</p>
+<p class="lang-en" style="display:none"><strong>Question:</strong> Do randomly mutating reaction networks preferentially
+converge toward Feinberg-deficiency-zero networks? This would mean topological robustness
+is an evolutionary attractor.</p>
+<div class="result-grid">
+  <div class="result-box"><p class="result-label">Pilotstudie</p><p class="result-value">20 Linien</p><p class="result-note">× 200 Schritte · 4 Kerne (multiprocessing)</p></div>
+  <div class="result-box"><p class="result-label">Finale δ = 0</p><p class="result-value">3 / 20 (15%)</p><p class="result-note">kein statistisch signifikanter Drift zu δ=0</p></div>
+  <div class="result-box"><p class="result-label">Mittlere Deficiency</p><p class="result-value">1,30 ± 0,84</p><p class="result-note">nach 200 Schritten</p></div>
+  <div class="result-box"><p class="result-label">Akzeptanzrate</p><p class="result-value">0,984</p><p class="result-note">fast alle Mutationen überleben</p></div>
+</div>
+<div class="note-box lang-de"><strong>Befund:</strong> Feinberg-Attraktor-Hypothese <strong>nicht bestätigt</strong>.
+15% δ=0 entspricht der Startverteilung. CVODE-Fehler = korrekt abgelehnte instabile Netzwerke.
+Vollstudie: 100 Linien × 1.000 Schritte (N_LINEAGES=100, N_STEPS=1000 in x1_evolution.py).</div>
+<div class="note-box lang-en" style="display:none"><strong>Finding:</strong> Feinberg attractor hypothesis <strong>not confirmed</strong>.
+15% δ=0 matches initial distribution. CVODE errors = correctly rejected unstable networks.
+Full study: 100 lineages × 1,000 steps (set N_LINEAGES=100, N_STEPS=1000 in x1_evolution.py).</div>
+</div>
+
+<!-- X2 -->
+<h2 class="lang-de">X2 · Annahmen-Graph (Isichei–Magueijo 2026)</h2>
+<h2 class="lang-en" style="display:none">X2 · Assumption Graph (Isichei–Magueijo 2026)</h2>
+<div class="proj-section">
+<p class="lang-de"><strong>Paper:</strong> Isichei &amp; Magueijo, <em>Phys. Rev. Lett.</em> 136, 231501 (2026).
+Emergente Gravitation aus thermodynamischem Otto-Zyklus über kausal-konvexen Diamonds; Lorentz-Verletzung.</p>
+<p class="lang-en" style="display:none"><strong>Paper:</strong> Isichei &amp; Magueijo, <em>Phys. Rev. Lett.</em> 136, 231501 (2026).
+Emergent gravity from a thermodynamic Otto cycle; Lorentz violation with preferred frame.</p>
+<div class="result-grid">
+  <div class="result-box"><p class="result-label">Graphknoten</p><p class="result-value">23</p><p class="result-note">8 Annahmen + 10 Gleichungen + 5 Schlussfolgerungen</p></div>
+  <div class="result-box"><p class="result-label">Kanten gesamt</p><p class="result-value">41</p><p class="result-note">25 Vorwissen + 10 Mistral-LLM + 6 Schlussfolgerungen</p></div>
+  <div class="result-box"><p class="result-label">Top Eingangs-Zentralität</p><p class="result-value">E3: 0,227</p><p class="result-note">η-Formel: 5 Annahmen münden ein</p></div>
+  <div class="result-box"><p class="result-label">Top Betweenness</p><p class="result-value">E7: 0,017</p><p class="result-note">FRW-Gleichung 2 — kritischste Vermittlung</p></div>
+</div>
+<p class="lang-de"><strong>Zentrales Ergebnis:</strong> Annahme A5 (η ∝ l) ist der einzige Knoten nicht
+ableitbar aus Stokes (A2) oder Thermodynamik. Sie ist der konstruktive Freiheitsgrad — erklärt
+warum L₂ als neue Fundamentalkonstante auftaucht.</p>
+<p class="lang-en" style="display:none"><strong>Central finding:</strong> Assumption A5 (η ∝ l) is the only node
+not derivable from Stokes (A2) or thermodynamics. It is the constructive degree of freedom —
+explaining why L₂ appears as a new fundamental constant.</p>
+<div class="viz-container">
+  <p class="viz-title lang-de">Annahmen-Abhängigkeitsgraph (hover über Knoten)</p>
+  <p class="viz-title lang-en" style="display:none">Assumption dependency graph (hover over nodes)</p>
+  <canvas id="graphCanvas" width="580" height="280" style="width:100%;max-width:580px;display:block;cursor:pointer"></canvas>
+  <p style="font-family:var(--mono);font-size:.68rem;color:var(--fg-dim);margin-top:.4rem">
+    Orange = Annahmen (A1–A8) · Grün = Gleichungen (E1–E10) · Lila = Schlussfolgerungen (C1–C5) · A5 ★ = konstruktiver Freiheitsgrad
+  </p>
+</div>
+</div>
+
+</div><!-- .col -->
+</section>
+
+<section>
+<div class="col">
+<h2 class="lang-de">Technische Details</h2>
+<h2 class="lang-en" style="display:none">Technical Details</h2>
+<ul class="fact-list" style="max-width:580px">
+  <li><span class="k">Ausführungsumgebung</span><span class="v">Mac Studio M3 Ultra · 256 GB · Python 3.12</span></li>
+  <li><span class="k">Keine Cloud-Dienste</span><span class="v">Alle Berechnungen vollständig lokal</span></li>
+  <li><span class="k">Skripte</span><span class="v">/Volumes/CLAUDE-DATA/Projekte/C1–C4, X1, X2</span></li>
+  <li><span class="k">LLM-Infrastruktur</span><span class="v">Ollama Port 11434 · qwen3:235b-a22b · mistral-small3.1:24b</span></li>
+  <li><span class="k">Implementierungsassistent</span><span class="v">Claude Sonnet 4.6 (Anthropic)</span></li>
+  <li><span class="k">Seite v2</span><span class="v">2026-06-27 · Interaktive Elemente hinzugefügt</span></li>
+</ul>
 </div>
 </section>
+
 <footer class="wrapper">
-  <span><a href="index.html" style="color:var(--fg-dim)">← Zurück</a></span>
+  <span><a href="index.html" style="color:var(--fg-dim)">← Zurück zur Übersicht</a></span>
   <span>Thomas Riepe · Berlin · Juni 2026</span>
+  <span><a href="impressum.html" style="color:var(--fg-dim)">Impressum &amp; Datenschutz</a></span>
 </footer>
-</div>
+</div><!-- .wrapper -->
+
+<div id="globalTip" class="tooltip-box"></div>
+
+<script>
+/* ─── LANG ────────────────────────────────────────────────────────────────── */
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>{e.style.removeProperty('display')});
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
+}
+
+/* ─── C1: ODE SIMULATOR ──────────────────────────────────────────────────── */
+const C1_NETS = {
+  decay:{
+    label:'simple_decay',type:'FIXPOINT',delta:1,
+    s:['S₁','S₂'],ic:[2.0,0.5],dt:0.08,steps:400,
+    f:([s1,s2])=>[-0.5*s1, 0.5*s1-0.3*s2]
+  },
+  bruss:{
+    label:'brusselator',type:'LIMIT_CYCLE',delta:5,
+    s:['X','Y'],ic:[0.5,2.5],dt:0.04,steps:600,
+    f:([x,y])=>[1.0-4*x+x*x*y, 3*x-x*x*y]
+  },
+  selkov:{
+    label:'selkov',type:'LIMIT_CYCLE',delta:5,
+    s:['S₁','S₂'],ic:[2.0,0.5],dt:0.05,steps:600,
+    f:([s1,s2])=>[0.5-0.08*s1-s1*s2*s2, s1*s2*s2-0.6*s2]
+  },
+  toggle:{
+    label:'toggle_switch',type:'FIXPOINT',delta:5,
+    s:['u','v'],ic:[3.0,0.2],dt:0.08,steps:400,
+    f:([u,v])=>[2.0/(1+v*v)-u, 2.0/(1+u)-v]
+  }
+};
+
+let c1Net='decay';
+
+function c1Select(btn,name){
+  document.querySelectorAll('.net-btn[data-net]').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  c1Net=name;
+  c1Draw();
+}
+
+function c1Draw(){
+  const cv=document.getElementById('c1Canvas');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;
+  const net=C1_NETS[c1Net];
+  
+  // Integrate
+  let s=[...net.ic];
+  const traj=[[...s]];
+  const {f,dt,steps}=net;
+  for(let i=0;i<steps;i++){
+    const d=f(s);
+    s=s.map((si,j)=>Math.max(0,si+d[j]*dt));
+    traj.push([...s]);
+  }
+  
+  // Auto-scale
+  let mn=Infinity,mx=-Infinity;
+  for(const t of traj)for(const v of t){if(v<mn)mn=v;if(v>mx)mx=v;}
+  const range=Math.max(mx-mn,0.1);
+  const pad=0.1*range;
+  const yMin=mn-pad, yMax=mx+pad+pad;
+  
+  // Draw
+  ctx.fillStyle='#0a0908';ctx.fillRect(0,0,W,H);
+  
+  // Grid
+  ctx.strokeStyle='#1c1a16';ctx.lineWidth=1;
+  for(let i=1;i<4;i++){
+    const y=H-((yMin+(yMax-yMin)*i/4-yMin)/(yMax-yMin)*H);
+    ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();
+  }
+  
+  // Series
+  const colors=['#3ecf8e','#c8903a'];
+  for(let sp=0;sp<net.s.length;sp++){
+    ctx.beginPath();
+    for(let i=0;i<traj.length;i++){
+      const x=i/(traj.length-1)*W;
+      const y=H-(traj[i][sp]-yMin)/(yMax-yMin)*H;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle=colors[sp];ctx.lineWidth=1.5;ctx.stroke();
+  }
+  
+  // Type label
+  const col=net.type==='FIXPOINT'?'#7aad7a':'#d4a040';
+  ctx.fillStyle=col;ctx.font='bold 11px DM Mono,monospace';ctx.textAlign='right';
+  ctx.fillText(net.type+' · δ≈'+net.delta,W-8,18);
+  
+  // Legend
+  const l1=document.getElementById('c1Leg1');
+  const l2=document.getElementById('c1Leg2');
+  const lt=document.getElementById('c1TypeLabel');
+  if(l1)l1.textContent=net.s[0];
+  if(l2&&net.s[1])l2.textContent=net.s[1];
+  if(lt)lt.textContent=net.label+' · '+net.type;
+}
+
+/* ─── C2: ENERGY CHART ───────────────────────────────────────────────────── */
+const C2_DATA = {
+  cyclo:{
+    title:'Cycloalkane C3–C8 · |ΔE| MACE-OFF − PySCF [kcal/mol]',
+    labels:['C3 (Cyclopropan)','C4 (Cyclobutan)','C5 (Cyclopentan)','C6 (Cyclohexan)','C7 (Cycloheptan)','C8 (Cyclooctan)'],
+    vals:[49.20,65.76,81.41,99.68,115.46,133.38],
+    note:'Monotoner Anstieg pro CH₂-Gruppe: ~16,8 kcal/mol. Spiegelt Energiereferenz-Offset wider, nicht Ringspannungsfehler.'
+  },
+  hetero:{
+    title:'Heteroatom-Substitution (Aromaten) · |ΔE| [kcal/mol]',
+    labels:['Benzol','Pyridin','Pyrimidin','Furan','Thiophen','Pyrrol'],
+    vals:[103.03,110.34,117.97,102.98,115.43,98.34],
+    note:'Streubreite 98–118 kcal/mol. Pyrimidin (2 N) höchster Offset. Relative Differenzen innerhalb der Serie sind aussagekräftig.'
+  },
+  stretch:{
+    title:'C-C Bindungsstreckung Ethan · r [Å] vs. |ΔE| [kcal/mol]',
+    labels:['1.20','1.39','1.57','1.76','1.94','2.13','2.31','2.50'],
+    vals:[72.30,97.59,86.02,90.62,100.92,66.97,57.72,76.21],
+    note:'Nicht-monotone Kurve — interessanteste Serie. Maximum bei r≈1.94 Å (100.9 kcal/mol), Minimum bei r≈2.31 Å (57.7 kcal/mol).'
+  }
+};
+
+let c2Mode='cyclo';
+
+function c2Switch(btn,mode){
+  document.querySelectorAll('.chart-tab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  c2Mode=mode;
+  c2Draw();
+}
+
+function c2Draw(){
+  const cv=document.getElementById('c2Canvas');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;
+  const d=C2_DATA[c2Mode];
+  const n=d.vals.length;
+  const maxV=Math.max(...d.vals)*1.1;
+  const PAD={l:40,r:12,t:30,b:48};
+  const cW=W-PAD.l-PAD.r, cH=H-PAD.t-PAD.b;
+  
+  ctx.fillStyle='#0a0908';ctx.fillRect(0,0,W,H);
+  
+  // Title
+  ctx.fillStyle='#9a9188';ctx.font='9px Instrument Sans,sans-serif';ctx.textAlign='center';
+  ctx.fillText(d.title,W/2,14);
+  
+  // Y-axis grid
+  ctx.strokeStyle='#1c1a16';ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=PAD.t+cH*(1-i/4);
+    ctx.beginPath();ctx.moveTo(PAD.l,y);ctx.lineTo(PAD.l+cW,y);ctx.stroke();
+    ctx.fillStyle='#9a9188';ctx.font='8px DM Mono,monospace';ctx.textAlign='right';
+    ctx.fillText(Math.round(maxV*i/4),PAD.l-4,y+3);
+  }
+  
+  const barW=Math.min(cW/n*0.65, 50);
+  const gap=cW/n;
+  
+  for(let i=0;i<n;i++){
+    const v=d.vals[i];
+    const bH=v/maxV*cH;
+    const x=PAD.l+gap*i+gap/2-barW/2;
+    const y=PAD.t+cH-bH;
+    
+    // Gradient bar
+    const grad=ctx.createLinearGradient(x,y,x,y+bH);
+    grad.addColorStop(0,'#3ecf8ecc');
+    grad.addColorStop(1,'#3ecf8e44');
+    ctx.fillStyle=grad;
+    ctx.fillRect(x,y,barW,bH);
+    ctx.strokeStyle='#3ecf8e88';ctx.lineWidth=1;
+    ctx.strokeRect(x,y,barW,bH);
+    
+    // Value label
+    ctx.fillStyle='#e2ddd4';ctx.font='bold 9px DM Mono,monospace';ctx.textAlign='center';
+    ctx.fillText(v.toFixed(1),x+barW/2,y-5);
+    
+    // X label
+    ctx.fillStyle='#9a9188';ctx.font='8px Instrument Sans,sans-serif';ctx.textAlign='center';
+    const lbl=d.labels[i].length>10?d.labels[i].substring(0,10)+'…':d.labels[i];
+    ctx.save();ctx.translate(x+barW/2,PAD.t+cH+8);ctx.rotate(-Math.PI/5);
+    ctx.fillText(lbl,0,0);ctx.restore();
+  }
+  
+  // Store rects for hover
+  cv._bars=d.vals.map((v,i)=>{
+    const bH=v/maxV*cH;
+    const x=PAD.l+gap*i+gap/2-barW/2;
+    const y=PAD.t+cH-bH;
+    return{x,y,w:barW,h:bH,val:v,label:d.labels[i]};
+  });
+  
+  // Note
+  const note=document.getElementById('c2Note');
+  if(note)note.textContent=d.note;
+  
+  // Bond stretch: add line for mode 'stretch'
+  if(c2Mode==='stretch'){
+    ctx.beginPath();
+    for(let i=0;i<n;i++){
+      const bH=d.vals[i]/maxV*cH;
+      const x=PAD.l+gap*i+gap/2;
+      const y=PAD.t+cH-bH;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle='#c8903a';ctx.lineWidth=2;ctx.stroke();
+    // Dots
+    for(let i=0;i<n;i++){
+      const bH=d.vals[i]/maxV*cH;
+      const x=PAD.l+gap*i+gap/2;
+      const y=PAD.t+cH-bH;
+      ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);
+      ctx.fillStyle='#c8903a';ctx.fill();
+    }
+  }
+}
+
+// Hover tooltip for C2
+function initC2Hover(){
+  const cv=document.getElementById('c2Canvas');
+  if(!cv)return;
+  const tip=document.getElementById('c2Tip');
+  if(!tip)return;
+  cv.addEventListener('mousemove',e=>{
+    if(!cv._bars)return;
+    const r=cv.getBoundingClientRect();
+    const sx=cv.width/r.width,sy=cv.height/r.height;
+    const mx=(e.clientX-r.left)*sx,my=(e.clientY-r.top)*sy;
+    let found=null;
+    for(const b of cv._bars){
+      if(mx>=b.x&&mx<=b.x+b.w&&my>=b.y&&my<=b.y+b.h) found=b;
+    }
+    if(found){
+      tip.textContent=found.label+': '+found.val.toFixed(2)+' kcal/mol';
+      tip.style.opacity='1';
+      tip.style.left=(e.clientX+12)+'px';
+      tip.style.top=(e.clientY-8)+'px';
+    } else {
+      tip.style.opacity='0';
+    }
+  });
+  cv.addEventListener('mouseleave',()=>{if(tip)tip.style.opacity='0';});
+}
+
+/* ─── C3: TURING EXPLORER + PDE ─────────────────────────────────────────── */
+// Selkov Jacobian at FP (from rr.getFullJacobian(), S1*=0.8303, S2*=0.7226)
+const JA=-0.6021, JB=-1.2001, JC=0.5221, JD=0.6001, DET=0.2652;
+const TURING_THRESH=5.27;
+
+function turingUpdate(){
+  const sl=document.getElementById('turingSlider');
+  const delta=parseFloat(sl.value);
+  document.getElementById('turingVal').textContent=delta.toFixed(1);
+  document.getElementById('pdeTitle').textContent=
+    '1D Reaktions-Diffusion · Selkov · d₂/d₁ = '+delta.toFixed(1);
+  
+  const T1=JA+JD*delta;
+  const T2=T1*T1-4*delta*DET;
+  const ok1=T1>0, ok2=T2>0;
+  const turing=ok1&&ok2;
+  
+  // T1
+  const tT1=document.getElementById('tT1');
+  tT1.querySelector('.val').textContent=T1.toFixed(4);
+  tT1.className='t-ind '+(ok1?'ok':'fail');
+  
+  // T2
+  const tT2=document.getElementById('tT2');
+  tT2.querySelector('.val').textContent=T2.toFixed(4);
+  tT2.className='t-ind '+(ok2?'ok':'fail');
+  
+  // Status
+  const tSt=document.getElementById('tStatus');
+  const sv=document.getElementById('tStatusV');
+  sv.textContent=turing?'✓ Turing-Instabilität':'✗ Homogen stabil';
+  tSt.className='t-ind '+(turing?'ok':'fail');
+  
+  // Reset PDE with new params
+  pdeInitState(delta);
+}
+
+// PDE state
+const PDE_N=80;
+let pdeU=new Float32Array(PDE_N);
+let pdeV=new Float32Array(PDE_N);
+let pdePlaying=false;
+let pdeRaf=null;
+let pdeStep=0;
+let pdeDelta=1.0;
+
+function pdeInitState(delta){
+  pdeDelta=delta||parseFloat(document.getElementById('turingSlider').value);
+  const u0=0.8303, v0=0.7226;
+  for(let i=0;i<PDE_N;i++){
+    pdeU[i]=u0+(Math.random()-0.5)*0.04;
+    pdeV[i]=v0+(Math.random()-0.5)*0.04;
+  }
+  pdeStep=0;
+  pdeDraw();
+}
+
+function pdeStepFn(){
+  const delta=pdeDelta;
+  const D1=0.005, D2=D1*delta;
+  const dt=0.3, dx=1.0, dx2=dx*dx;
+  const k0=0.5,k1=0.08,k2=1.0,k3=0.6;
+  const nu=new Float32Array(PDE_N);
+  const nv=new Float32Array(PDE_N);
+  for(let i=0;i<PDE_N;i++){
+    const im=(i-1+PDE_N)%PDE_N, ip=(i+1)%PDE_N;
+    const u=pdeU[i], v=pdeV[i];
+    const fu=k0-k1*u-k2*u*v*v;
+    const fv=k2*u*v*v-k3*v;
+    const lapU=(pdeU[im]-2*u+pdeU[ip])/dx2;
+    const lapV=(pdeV[im]-2*v+pdeV[ip])/dx2;
+    nu[i]=Math.max(0,u+(fu+D1*lapU)*dt);
+    nv[i]=Math.max(0,v+(fv+D2*lapV)*dt);
+  }
+  pdeU=nu; pdeV=nv;
+  pdeStep++;
+}
+
+function pdeDraw(){
+  const cv=document.getElementById('c3PDE');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;
+  const h=Math.floor(H/2)-2;
+  
+  ctx.fillStyle='#0a0908';ctx.fillRect(0,0,W,H);
+  
+  // U (S1) row - top
+  const u0=0.8303;
+  for(let i=0;i<PDE_N;i++){
+    const x=Math.floor(i/PDE_N*W);
+    const w2=Math.ceil(W/PDE_N)+1;
+    const v=Math.max(0,Math.min(1,(pdeU[i]-0.4)/0.8));
+    const r=Math.round(v*62+(1-v)*30);
+    const g=Math.round(v*207+(1-v)*26);
+    const b=Math.round(v*142+(1-v)*16);
+    ctx.fillStyle=`rgb(${r},${g},${b})`;
+    ctx.fillRect(x,1,w2,h);
+  }
+  ctx.fillStyle='#9a9188';ctx.font='8px DM Mono,monospace';ctx.textAlign='left';
+  ctx.fillText('S₁',3,h-2);
+  
+  // V (S2) row - bottom
+  for(let i=0;i<PDE_N;i++){
+    const x=Math.floor(i/PDE_N*W);
+    const w2=Math.ceil(W/PDE_N)+1;
+    const v=Math.max(0,Math.min(1,(pdeV[i]-0.3)/0.8));
+    const r=Math.round(v*200+(1-v)*30);
+    const g=Math.round(v*144+(1-v)*26);
+    const b=Math.round(v*64+(1-v)*16);
+    ctx.fillStyle=`rgb(${r},${g},${b})`;
+    ctx.fillRect(x,H-h-1,w2,h);
+  }
+  ctx.fillStyle='#9a9188';ctx.font='8px DM Mono,monospace';
+  ctx.fillText('S₂',3,H-3);
+  
+  // Divider
+  ctx.fillStyle='#2a2620';ctx.fillRect(0,h,W,2);
+  
+  // Step counter
+  document.getElementById('pdeTime').textContent=pdeStep;
+}
+
+function pdeLoop(){
+  for(let i=0;i<5;i++) pdeStepFn();
+  pdeDraw();
+  if(pdePlaying) pdeRaf=requestAnimationFrame(pdeLoop);
+}
+
+function pdeToggle(){
+  const btn=document.getElementById('pdePlayBtn');
+  pdePlaying=!pdePlaying;
+  if(btn) btn.textContent=pdePlaying?'⏸ Pause':'▶ Start';
+  if(pdePlaying) pdeLoop();
+}
+
+function pdeReset(){
+  pdePlaying=false;
+  const btn=document.getElementById('pdePlayBtn');
+  if(btn) btn.textContent='▶ Start';
+  if(pdeRaf) cancelAnimationFrame(pdeRaf);
+  pdeInitState();
+}
+
+/* ─── C4: CATEGORY GRID ─────────────────────────────────────────────────── */
+const GT_COLORS=['#3ecf8e','#d4a040','#9b7cf8','#b86060'];
+const GT_LABELS=['FIXPOINT (20)','LIMIT_CYCLE (20)','BISTABLE (20)','CHAOS (20)'];
+// LLM creates 26 categories — we simulate the fragmentation pattern
+// 66 classified: roughly 2-3 items per LLM category on average
+// 14 unclassified shown as grey
+const LLM_PALETTE=[
+  '#2d9c6a','#3ecf8e','#6de0a8','#1a7a52','#22c97e',
+  '#b87010','#d4a040','#e8c070','#9a6020','#c49028',
+  '#7055c0','#9b7cf8','#b89efc','#5540a0','#8068d4',
+  '#8a3030','#b86060','#d48888','#6a2020','#a04848',
+  '#4a7a8a','#608090','#80a0b0','#385060','#9abccc',
+  '#555555'  // LLM category 26
+];
+
+function c4Init(){
+  const grid=document.getElementById('c4Grid');
+  const leg=document.getElementById('c4Legend');
+  if(!grid)return;
+  grid._mode='gt';
+  grid._cells=[];
+  
+  // Create 80 cells: 20 per GT class, shuffled
+  const order=[];
+  for(let cls=0;cls<4;cls++) for(let i=0;i<20;i++) order.push(cls);
+  // Shuffle Fisher-Yates
+  for(let i=order.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [order[i],order[j]]=[order[j],order[i]];
+  }
+  
+  // Assign LLM categories (simulated fragmentation)
+  // Each GT class gets ~6-7 LLM categories; some overlap
+  const llmMap=[];
+  let lc=0;
+  for(let i=0;i<80;i++){
+    if(i>=66){ llmMap.push(25); continue; } // 14 unclassified
+    const cls=order[i];
+    const subcls=Math.floor(i/(80/26));
+    llmMap.push(Math.min(subcls,25));
+  }
+  
+  grid.innerHTML='';
+  for(let i=0;i<80;i++){
+    const div=document.createElement('div');
+    div.className='cat-cell';
+    div.style.background=GT_COLORS[order[i]];
+    div.dataset.gt=order[i];
+    div.dataset.llm=llmMap[i];
+    div.title='GT: '+['FP','LC','BI','CH'][order[i]]+' | LLM cat '+(llmMap[i]+1);
+    grid._cells.push({el:div,gt:order[i],llm:llmMap[i]});
+    grid.appendChild(div);
+  }
+  
+  // Legend
+  leg.innerHTML='';
+  for(let i=0;i<4;i++){
+    const s=document.createElement('span');
+    s.style.cssText='color:'+GT_COLORS[i];
+    s.innerHTML='<span style="background:'+GT_COLORS[i]+';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:.3em;vertical-align:middle"></span>'+GT_LABELS[i];
+    leg.appendChild(s);
+  }
+  
+  c4DrawBar();
+}
+
+function c4View(mode,btn){
+  document.querySelectorAll('.btn-row .net-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const grid=document.getElementById('c4Grid');
+  if(!grid||!grid._cells)return;
+  grid._mode=mode;
+  for(const c of grid._cells){
+    if(mode==='gt'){
+      c.el.style.background=GT_COLORS[c.gt];
+    } else {
+      c.el.style.background=c.llm===25?'#444444':LLM_PALETTE[c.llm];
+    }
+  }
+}
+
+function c4DrawBar(){
+  const cv=document.getElementById('c4Bar');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;
+  ctx.fillStyle='#0a0908';ctx.fillRect(0,0,W,H);
+  
+  const topH=H*0.45, botH=H*0.45, mid=H*0.1;
+  
+  // Top: GT (4 classes, 20 each)
+  ctx.fillStyle='#9a9188';ctx.font='9px Instrument Sans,sans-serif';ctx.textAlign='center';
+  ctx.fillText('Ground Truth: 4 Klassen à 20 Zeitreihen',W/2,14);
+  
+  const wGT=(W-60)/4;
+  for(let i=0;i<4;i++){
+    const x=30+i*wGT;
+    const barH=topH*0.8;
+    const grad=ctx.createLinearGradient(x,20,x,20+barH);
+    grad.addColorStop(0,GT_COLORS[i]);
+    grad.addColorStop(1,GT_COLORS[i]+'44');
+    ctx.fillStyle=grad;
+    ctx.fillRect(x,20,wGT-4,barH);
+    ctx.fillStyle='#e2ddd4';ctx.font='9px DM Mono,monospace';ctx.textAlign='center';
+    ctx.fillText('20',x+wGT/2-2,20+barH-6);
+    ctx.fillStyle='#9a9188';ctx.font='8px Instrument Sans,sans-serif';
+    ctx.fillText(['FIXPOINT','LIMIT_CYCLE','BISTABLE','CHAOS'][i],x+wGT/2-2,20+barH+12);
+  }
+  
+  // Arrow
+  ctx.fillStyle='#c8903a';ctx.font='18px sans-serif';ctx.textAlign='center';
+  ctx.fillText('↓',W/2,topH+20+mid/2);
+  ctx.fillStyle='#9a9188';ctx.font='8px Instrument Sans,sans-serif';
+  ctx.fillText('LLM bildet 26 Kategorien · 14 nicht klassifiziert',W/2,topH+18+mid);
+  
+  // Bottom: LLM (26 mini-bars)
+  const yBot=topH+mid+22;
+  ctx.fillStyle='#9a9188';ctx.font='9px Instrument Sans,sans-serif';ctx.textAlign='center';
+  ctx.fillText('LLM-Sicht: 26 Kategorien (66/80 klassifiziert)',W/2,yBot-8);
+  
+  const wLLM=(W-20)/27;
+  for(let i=0;i<26;i++){
+    const x=10+i*wLLM;
+    const cnt=i===25?14:Math.max(1,Math.round(66/26)+(i%3===0?1:i%5===0?-1:0));
+    const bH=(H-yBot-10)*cnt/5;
+    const col=i===25?'#444444':LLM_PALETTE[i];
+    ctx.fillStyle=col;
+    ctx.fillRect(x,H-10-bH,wLLM-1,bH);
+  }
+  ctx.fillStyle='#9a9188';ctx.font='7px DM Mono,monospace';ctx.textAlign='left';
+  ctx.fillText('LLM-Kat. 1–25 (klassifiziert)',12,H-3);
+  ctx.fillStyle='#666';ctx.textAlign='right';
+  ctx.fillText('26 (n.kl.)',W-8,H-3);
+}
+
+/* ─── X2: ASSUMPTION GRAPH ──────────────────────────────────────────────── */
+(function(){
+  const cv=document.getElementById('graphCanvas');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  const W=cv.width,H=cv.height;
+  const nodes={
+    A1:{x:55,y:40,c:'#e8a040'},A2:{x:55,y:85,c:'#e8a040'},
+    A3:{x:55,y:130,c:'#e8a040'},A4:{x:55,y:175,c:'#e8a040'},
+    A5:{x:55,y:220,c:'#ff9f3a',star:true}, // constructive DOF
+    A6:{x:125,y:63,c:'#e8a040'},A7:{x:125,y:120,c:'#e8a040'},A8:{x:125,y:190,c:'#e8a040'},
+    E1:{x:260,y:28,c:'#3ecf8e'},E2:{x:260,y:73,c:'#3ecf8e'},
+    E3:{x:260,y:118,c:'#3ecf8e'},E4:{x:260,y:163,c:'#3ecf8e'},
+    E5:{x:260,y:208,c:'#3ecf8e'},E6:{x:370,y:50,c:'#3ecf8e'},
+    E7:{x:370,y:105,c:'#3ecf8e'},E8:{x:370,y:160,c:'#3ecf8e'},
+    E9:{x:370,y:215,c:'#3ecf8e'},E10:{x:260,y:252,c:'#3ecf8e'},
+    C1:{x:490,y:45,c:'#9b7cf8'},C2:{x:490,y:105,c:'#9b7cf8'},
+    C3:{x:490,y:165,c:'#9b7cf8'},C4:{x:490,y:220,c:'#9b7cf8'},C5:{x:490,y:268,c:'#9b7cf8'},
+  };
+  const edges=[
+    ['A1','E1'],['A2','E1'],['A8','E1'],['A1','E4'],['A2','E4'],['A5','E4'],
+    ['A3','E3'],['A4','E3'],['A5','E3'],['A8','E3'],
+    ['A6','E2'],['A7','E2'],['A5','E5'],['A6','E5'],['A5','E7'],['A6','E10'],
+    ['E5','E7'],['E2','E6'],['E6','E8'],['E7','E8'],['E5','E9'],['E2','E10'],
+    ['A6','C1'],['E5','C2'],['E7','C3'],['E2','C4'],['A7','C4'],['E10','C5'],
+  ];
+  const tips={
+    A5:'A5: η ∝ l — konstruktiver Freiheitsgrad!\nNicht aus Stokes oder Thermodynamik ableitbar.',
+    E3:'E3: η-Formel — höchste Eingangs-Zentralität (0.227)',
+    E7:'E7: FRW-Gleichung 2 — höchste Betweenness (0.017)',
+  };
+  let hov=null;
+  const tip=document.getElementById('globalTip');
+  
+  function draw(){
+    ctx.clearRect(0,0,W,H);ctx.fillStyle='#161410';ctx.fillRect(0,0,W,H);
+    edges.forEach(([a,b])=>{
+      const na=nodes[a],nb=nodes[b];
+      const hot=hov&&(hov===a||hov===b);
+      ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(nb.x,nb.y);
+      ctx.strokeStyle=hot?'#c8903a':'#2a2620';ctx.lineWidth=hot?1.6:.8;ctx.stroke();
+      const ang=Math.atan2(nb.y-na.y,nb.x-na.x);
+      const tx=nb.x-9*Math.cos(ang),ty=nb.y-9*Math.sin(ang);
+      ctx.beginPath();ctx.moveTo(tx,ty);
+      ctx.lineTo(tx-5*Math.cos(ang-.4),ty-5*Math.sin(ang-.4));
+      ctx.lineTo(tx-5*Math.cos(ang+.4),ty-5*Math.sin(ang+.4));
+      ctx.closePath();ctx.fillStyle=hot?'#c8903a':'#3a3530';ctx.fill();
+    });
+    Object.entries(nodes).forEach(([id,n])=>{
+      const hot=hov===id;
+      const r=n.star?9:7;
+      ctx.beginPath();ctx.arc(n.x,n.y,r,0,Math.PI*2);
+      ctx.fillStyle=hot?n.c:n.c+'88';ctx.fill();
+      ctx.strokeStyle=hot?n.c:n.c+'44';ctx.lineWidth=hot?2:1;ctx.stroke();
+      if(n.star){ctx.strokeStyle='#ffffffaa';ctx.lineWidth=1.5;ctx.stroke();}
+      ctx.fillStyle=hot?'#e2ddd4':'#9a9188';
+      ctx.font=(hot?'bold ':'')+'8px DM Mono,monospace';
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(id,n.x,n.y);
+    });
+    // A5 star label
+    ctx.fillStyle='#ff9f3a';ctx.font='7px Instrument Sans,sans-serif';ctx.textAlign='left';
+    ctx.fillText('★ Freiheitsgrad',nodes.A5.x+11,nodes.A5.y);
+  }
+  
+  cv.addEventListener('mousemove',e=>{
+    const r=cv.getBoundingClientRect(),sx=W/r.width,sy=H/r.height;
+    const mx=(e.clientX-r.left)*sx,my=(e.clientY-r.top)*sy;
+    hov=null;
+    Object.entries(nodes).forEach(([id,n])=>{if(Math.hypot(mx-n.x,my-n.y)<12)hov=id;});
+    draw();
+    if(hov&&tips[hov]&&tip){
+      tip.textContent=tips[hov];tip.style.opacity='1';
+      tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY-8)+'px';
+    } else if(tip){tip.style.opacity='0';}
+  });
+  cv.addEventListener('mouseleave',()=>{hov=null;draw();if(tip)tip.style.opacity='0';});
+  draw();
+})();
+
+/* ─── INIT ────────────────────────────────────────────────────────────────── */
+window.addEventListener('DOMContentLoaded',()=>{
+  c1Draw();
+  c2Draw();
+  initC2Hover();
+  turingUpdate();
+  c4Init();
+});
+</script>
 </body>
 </html>
