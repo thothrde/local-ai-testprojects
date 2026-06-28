@@ -186,6 +186,35 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-fami
 </section>
 
 <!-- ============================================================
+     LANGFRISTTREND
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Langfristtrend: GKV-Ausgaben 2000–2025</h2></div>
+<div class="lang-en" style="display:none"><h2>Long-term Trend: GKV Expenditure 2000–2025</h2></div>
+
+<div class="lang-de">
+<p>Die GKV-Leistungsausgaben haben sich von 2000 bis 2025 von rund 134 auf 336 Milliarden Euro mehr als verdoppelt (+151&nbsp;%, nominal). Seit 2008 wachsen die Ausgaben kontinuierlich schneller als das Bruttoinlandsprodukt. Die Einnahmen (lohngebunden) wuchsen zwischen 2000 und 2024 nur um +65,3&nbsp;% — die Ausgaben im selben Zeitraum um +116,1&nbsp;%. Die daraus resultierende Schere ist der strukturelle Motor der GKV-Krise 2026.</p>
+<p>Besondere Wachstumsschübe: 2009 (Einführung des Gesundheitsfonds, Morbi-RSA), 2015–2019 (Krankenhausreform KHSG, Pflegestärkungsgesetze), 2021–2024 (pandemische Nachholeffekte, Tarifkostensteigerungen im Krankenhausbereich). Der 2004-Einbruch spiegelt das Gesundheitsmodernisierungsgesetz (Praxisgebühr, Zuzahlungserhöhungen).</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>GKV performance expenditure more than doubled from approximately €134 billion in 2000 to €336 billion in 2025 (+151%, nominal). Since 2008, spending has consistently outpaced GDP growth. Revenues (wage-linked) grew only +65.3% from 2000–2024, while expenditure rose +116.1%. This structural wedge is the fundamental driver of the GKV crisis in 2026.</p>
+<p>Notable surges: 2009 (Health Fund introduction, morbidity-RSA), 2015–2019 (KHSG hospital reform), 2021–2024 (pandemic catch-up, hospital wage cost escalation). The 2004 dip reflects cost-containment under the Health Modernisation Act (GP fee, co-payment increases).</p>
+</div>
+
+<div class="chart-wrap">
+  <div class="chart-title lang-de">GKV-Leistungsausgaben 2000–2025 (Mrd. €, nominal)</div>
+  <div class="chart-title lang-en" style="display:none">GKV Performance Expenditure 2000–2025 (€ billion, nominal)</div>
+  <canvas id="chartLangfrist" style="max-height:300px"></canvas>
+  <p class="chart-note lang-de">Quellen: BMG GKV-Statistik Kennzahlen und Faustformeln (§&nbsp;5 UrhG). 2000–2022: berechnet via Indexreihe sozialpolitik-aktuell.de / IAQ Universität Duisburg-Essen (Stand März 2026, Quelle primär: BMG); Ankerpunkt 2010&nbsp;=&nbsp;176&nbsp;Mrd.&nbsp;€ (bestätigt). 2023: BMG/Statista. 2024: sozialpolitik-aktuell.de. 2025: BMG Finanzentwicklung GKV 1.–4.&nbsp;Quartal 2025 (vorläufig, 10.03.2026). Alle Werte nominal (ohne Inflationsbereinigung).</p>
+  <p class="chart-note lang-en" style="display:none">Sources: BMG GKV Statistics (§ 5 UrhG). 2000–2022: calculated via index series sozialpolitik-aktuell.de/IAQ Univ. Duisburg-Essen (as of March 2026, primary source: BMG); anchor 2010=€176 bn (confirmed). 2023: BMG/Statista. 2024: sozialpolitik-aktuell.de. 2025: BMG GKV Financial Development 2025 (preliminary). All values nominal.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
      FINANZCHARTS
      ============================================================ -->
 <section>
@@ -221,6 +250,42 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-fami
 
 <div class="warn-box">
   <strong>Strukturelle Schieflage:</strong> Die GKV-Ausgaben stiegen 2025 um +7,8&nbsp;%, die Einnahmen nur um +5,3&nbsp;% (BMG). Trotz formalem Überschuss von 3,5&nbsp;Mrd. € lagen die Finanzreserven zum Jahresende unter der gesetzlichen Mindestreserve. Ohne Reformen prognostiziert der Bundesrechnungshof einen durchschnittlichen Zusatzbeitrag von über 4&nbsp;% bis 2029.
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     OECD EFFIZIENZVERGLEICH
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Internationaler Effizienzvergleich — OECD</h2></div>
+<div class="lang-en" style="display:none"><h2>International Efficiency Comparison — OECD</h2></div>
+
+<div class="lang-de">
+<p>Deutschland gibt pro Kopf mehr für Gesundheit aus als fast alle anderen OECD-Länder — und erreicht bei zentralen Ergebnisindikatoren (Lebenserwartung) dennoch nur das OECD-Mittelfeld. Japan (84,1 J.), Spanien (84,0 J.) und die Schweiz (84,3 J.) erzielen deutlich bessere Ergebnisse bei weit niedrigeren Ausgaben. Das US-amerikanische Extrembeispiel: höchste Ausgaben ($14.885/Kopf, 2024) — niedrigste Lebenserwartung aller westlichen OECD-Länder (76,4 J.).</p>
+<p>Der SVR Gesundheit benennt strukturelle Ursachen für Deutschlands Effizienzdefizit: Überkapazitäten im Krankenhausbereich (1.700+ Häuser), fehlende primärversorgungsbasierte Steuerung (kein Gatekeeping) und hohe Verwaltungskosten durch den Kassenwettbewerb (~4&nbsp;Mrd.&nbsp;€ 2025).</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>Germany spends more per capita on healthcare than almost any other OECD country, yet ranks only at the OECD median on life expectancy. Japan (84.1 yrs), Spain (84.0 yrs) and Switzerland (84.3 yrs) achieve substantially better outcomes at far lower cost. The US extreme: highest spending ($14,885/capita, 2024), lowest life expectancy of any Western OECD country (76.4 yrs).</p>
+<p>Germany's Advisory Council on Health (SVR) identifies hospital overcapacity (1,700+ hospitals), absent primary care gatekeeping, and high administrative costs from insurer competition (~€4 bn in 2025) as key structural causes.</p>
+</div>
+
+<div class="chart-wrap">
+  <div class="chart-title lang-de">Gesundheitsausgaben/Kopf vs. Lebenserwartung — OECD-Länder (2023/2024) — Hover für Ländernamen</div>
+  <div class="chart-title lang-en" style="display:none">Health Expenditure/Capita vs. Life Expectancy — OECD Countries (2023/2024) — Hover for country names</div>
+  <canvas id="chartOECD" style="max-height:380px"></canvas>
+  <p class="chart-note lang-de">Ausgaben: OECD Health Statistics 2024 (Int.$ KKP-bereinigt; Quelle: OECD.stat, CC&nbsp;BY&nbsp;4.0). Lebenserwartung: OECD Health at a Glance 2025 (neueste Werte). ● Deutschland (hervorgehoben). × OECD-Ø (ungewichteter Mittelwert ausgewählter Länder).</p>
+  <p class="chart-note lang-en" style="display:none">Expenditure: OECD Health Statistics 2024 (Int. $ PPP-adjusted; source: OECD.stat, CC BY 4.0). Life expectancy: OECD Health at a Glance 2025. ● Germany (highlighted). × OECD avg (unweighted mean, selected countries).</p>
+</div>
+
+<div class="warn-box lang-de">
+  <strong>Deutschlands Effizienz-Gap (2024):</strong> Bei $9.365/Kopf und 81,0 Jahren liegt Deutschland klar unter der theoretischen Effizienzgrenze. Japan (+3,1 J. LE, −38&nbsp;% Kosten) und Spanien (+3,0 J. LE, −43&nbsp;% Kosten) belegen: sehr gute Gesundheitsergebnisse sind bei deutlich geringerem Aufwand erreichbar.
+</div>
+<div class="warn-box lang-en" style="display:none">
+  <strong>Germany's efficiency gap (2024):</strong> At $9,365/capita and 81.0 years of life expectancy, Germany sits well below the efficiency frontier. Japan (+3.1 yrs LE, −38% lower cost) and Spain (+3.0 yrs LE, −43% lower cost) show that substantially better outcomes are achievable at far lower expenditure.
 </div>
 
 </div>
@@ -336,6 +401,95 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-fami
 </section>
 
 <!-- ============================================================
+     MORBIDITÄTSSTRUKTUR
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Morbiditätsstruktur: Wachstumstreiber 2025</h2></div>
+<div class="lang-en" style="display:none"><h2>Morbidity Structure: Growth Drivers 2025</h2></div>
+
+<div class="lang-de">
+<p>Die Leistungsausgaben der GKV stiegen 2025 um +7,9&nbsp;% — aber mit stark unterschiedlichen Wachstumsraten nach Leistungsbereich. Einzelne Segmente wuchsen mehr als doppelt so schnell wie der Durchschnitt. Treiber sind strukturelle Kostenverschiebungen (Pflegepersonal-Ausgliederung aus dem DRG-System), Nachholeffekte bei Tariflöhnen und eine beschleunigte Ambulantisierung durch die Hybrid-DRG-Reform.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>GKV expenditure rose +7.9% in 2025 — but with sharply divergent growth rates by category. Individual segments grew more than twice the average rate. Key drivers: structural cost shifts (nursing staff costs excluded from DRG), wage catch-up effects, and accelerated ambulantisation via the Hybrid-DRG reform.</p>
+</div>
+
+<div class="chart-wrap">
+  <div class="chart-title lang-de">Ausgabenwachstum 2025 nach GKV-Leistungsbereich (%, Referenzlinie = 7,9% Gesamtwachstum)</div>
+  <div class="chart-title lang-en" style="display:none">GKV Expenditure Growth 2025 by Category (%, reference = 7.9% overall)</div>
+  <canvas id="chartMorbiditat" style="max-height:340px"></canvas>
+  <p class="chart-note lang-de">Quelle: BMG, Finanzentwicklung der GKV im 1.–4.&nbsp;Quartal 2025, 10.03.2026 (§&nbsp;5 UrhG). Dargestellt: Wachstumsraten der wichtigsten Leistungsbereiche inkl. ausgewählter Teilsegmente. Farbkodierung: rot = weit über Ø, orange = über Ø, blau = unter Ø.</p>
+  <p class="chart-note lang-en" style="display:none">Source: BMG, GKV Financial Development Q1–Q4 2025, 10.03.2026 (§ 5 UrhG). Growth rates for major expenditure categories incl. selected sub-segments. Color coding: red = well above avg, amber = above avg, blue = below avg.</p>
+</div>
+
+<table>
+<thead><tr>
+  <th><span class="lang-de">Leistungsbereich</span><span class="lang-en" style="display:none">Category</span></th>
+  <th><span class="lang-de">Wachstum 2025</span><span class="lang-en" style="display:none">Growth 2025</span></th>
+  <th><span class="lang-de">Hintergrund</span><span class="lang-en" style="display:none">Background</span></th>
+</tr></thead>
+<tbody>
+<tr>
+  <td><span class="lang-de">Amb. spezialfachärztl. Versorgung (ASV) — Arzneimittel</span><span class="lang-en" style="display:none">Specialised outpatient care (ASV) — pharmaceuticals</span></td>
+  <td><span class="tag tag-red">+27,1&nbsp;%</span></td>
+  <td><span class="lang-de">Hochpreisige Biologika in ASV; strukturell wachsendes Segment</span><span class="lang-en" style="display:none">High-cost biologics in ASV; structurally growing segment</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Luftrettung</span><span class="lang-en" style="display:none">Air rescue</span></td>
+  <td><span class="tag tag-red">+19,2&nbsp;%</span></td>
+  <td><span class="lang-de">Starke Personalkostensteigerungen im Rettungsdienst (Tarife)</span><span class="lang-en" style="display:none">Sharply rising personnel costs in emergency services</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Ambulantes Operieren (Hybrid-DRG)</span><span class="lang-en" style="display:none">Outpatient surgery (Hybrid-DRG)</span></td>
+  <td><span class="tag tag-red">+15,7&nbsp;%</span></td>
+  <td><span class="lang-de">Verlagerung stationärer Eingriffe seit 2024 strukturell gewollt, kurzfristig kostenerhöhend</span><span class="lang-en" style="display:none">Shift from inpatient to outpatient since 2024; intended reform, short-term cost-increasing</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Pflegepersonalkosten (Krankenhaus, Selbstkostenprinzip)</span><span class="lang-en" style="display:none">Hospital nursing staff costs (cost-reimbursement)</span></td>
+  <td><span class="tag tag-red">+12,0&nbsp;% (+2,7&nbsp;Mrd.)</span></td>
+  <td><span class="lang-de">Aus DRG-System ausgegliedert; Tarifbindung überträgt Kostensteigerungen automatisch auf GKV</span><span class="lang-en" style="display:none">Excluded from DRG system; collective wage agreements automatically passed through to GKV</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Medizinische Behandlungspflege</span><span class="lang-en" style="display:none">Medical nursing care</span></td>
+  <td><span class="tag tag-red">+12,6&nbsp;%</span></td>
+  <td><span class="lang-de">Demografisch getriebene Bedarfssteigerung; Tariferhöhungen in der Pflege</span><span class="lang-en" style="display:none">Demographically driven demand increase; care sector wage rises</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Psychiatrie (stationär, KH)</span><span class="lang-en" style="display:none">Psychiatric inpatient (hospital)</span></td>
+  <td><span class="tag tag-red">+11,7&nbsp;% (+1,2&nbsp;Mrd.)</span></td>
+  <td><span class="lang-de">Stärkster Teilbereich im Krankenhaus; 3. Jahr in Folge >10&nbsp;%; Bedarfssteigerung nach COVID-19</span><span class="lang-en" style="display:none">Fastest-growing inpatient sub-segment; 3rd consecutive year >10%; post-COVID demand surge</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Heilmittel (Physiotherapie, Ergotherapie, Logopädie)</span><span class="lang-en" style="display:none">Therapeutic aids (physio-, ergo-, speech therapy)</span></td>
+  <td><span class="tag tag-amber">+10,4&nbsp;% (+1,4&nbsp;Mrd.)</span></td>
+  <td><span class="lang-de">Blankoverordnung ab 2021; Physio 557&nbsp;Mio.&nbsp;€, Ergotherapie 439&nbsp;Mio.&nbsp;€ (2025); 3. Jahr >10&nbsp;%</span><span class="lang-en" style="display:none">Extended provider responsibility from 2021; physio €557m, ergotherapy €439m (2025); 3rd year >10%</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Krankenhausbehandlung (gesamt)</span><span class="lang-en" style="display:none">Hospital treatment (total)</span></td>
+  <td><span class="tag tag-amber">+9,6&nbsp;%</span></td>
+  <td><span class="lang-de">Größter GKV-Ausgabenblock (~111&nbsp;Mrd.&nbsp;€); Somatik +8,5&nbsp;%, Psychiatrie +11,7&nbsp;%, Pflegepersonal +12,0&nbsp;%</span><span class="lang-en" style="display:none">Largest GKV expenditure block (~€111 bn); somatic +8.5%, psychiatric +11.7%, nursing staff +12.0%</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Arzneimittel (gesamt)</span><span class="lang-en" style="display:none">Pharmaceuticals (total)</span></td>
+  <td><span class="tag tag-amber">+5,9&nbsp;%</span></td>
+  <td><span class="lang-de">Patentarzneimittel: ~48&nbsp;% des Umsatzes, ASV-Arzneimittel +27,1&nbsp;%; AMNOG-Kontrolle begrenzt Gesamtanstieg</span><span class="lang-en" style="display:none">Patent drugs: ~48% of expenditure; ASV drugs +27.1%; AMNOG controls limit overall increase</span></td>
+</tr>
+<tr>
+  <td><span class="lang-de">Verwaltungskosten</span><span class="lang-en" style="display:none">Administrative costs</span></td>
+  <td><span class="tag tag-blue">+4,7&nbsp;%</span></td>
+  <td><span class="lang-de">Vergleichsweise gering; jedoch ~4&nbsp;Mrd.&nbsp;€ absolute Kosten durch Kassenwettbewerb (100+ Kassen)</span><span class="lang-en" style="display:none">Relatively low growth; but ~€4 bn absolute from insurer competition (100+ funds)</span></td>
+</tr>
+</tbody>
+</table>
+<p class="src lang-de">Quelle: BMG, Finanzentwicklung der GKV im 1.–4. Quartal 2025, 10. März 2026 (§ 5 UrhG). GKV-SV Pressemitteilungen 2025.</p>
+<p class="src lang-en" style="display:none">Source: BMG, GKV Financial Development Q1–Q4 2025, 10 March 2026 (§ 5 UrhG). GKV-SV press releases 2025.</p>
+
+</div>
+</section>
+
+<!-- ============================================================
      AMNOG & ARZNEIMITTEL
      ============================================================ -->
 <section>
@@ -441,6 +595,69 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-fami
 <div class="note-box">
   <strong>GKV-Monitor — Live-Daten G-BA AMNOG</strong><br>
   Das automatisierte System ruft täglich Nutzenbewertungsverfahren von <em>www.g-ba.de/bewertungsverfahren/nutzenbewertung/</em> ab (Tabelle <code>gba-entity-list__table</code>, bis zu 5 Seiten à 25 Einträge). Daten werden in die lokale SQLite-Datenbank auf CLAUDE-DATA geschrieben (UNIQUE-Constraint: Wirkstoff × Handelsname × Beschlussdatum). Aktueller Datenbankstand: <strong>30 verifizierte AMNOG-Verfahren</strong> (laufende + abgeschlossene). Datenbasis: gemeinfrei (G-BA ist Körperschaft des öffentlichen Rechts).
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
+     DiGA — DIGITALE GESUNDHEITSANWENDUNGEN
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>DiGA — Apps auf Rezept (§&nbsp;139e SGB&nbsp;V)</h2></div>
+<div class="lang-en" style="display:none"><h2>DiGA — Apps on Prescription (§&nbsp;139e SGB&nbsp;V)</h2></div>
+
+<div class="lang-de">
+<p>Seit Oktober 2020 können Ärzte und Psychotherapeuten "Digitale Gesundheitsanwendungen" (DiGA) verordnen — Apps, die das BfArM nach einem Fast-Track-Verfahren auf Wirksamkeit, Datensicherheit und Interoperabilität prüft. Deutschland ist weltweit das erste Land mit gesetzlich geregelter Erstattung digitaler Therapien. Das Wachstum ist erheblich: 2025 wurden allein 690.000 Freischaltcodes eingelöst, kumuliert seit 2020 rund 1,6 Millionen.</p>
+<p>Die Kritik am System ist strukturell: Viele DiGA erhalten zunächst nur eine <em>vorläufige</em> Zulassung für 12 Monate ("Erprobungsphase"), in der sie sofort erstattet werden — ohne vollständigen Wirksamkeitsnachweis. Der GKV-Spitzenverband kritisiert fehlende Realdaten nach Ablauf der Erprobung. Von 68 bis Ende 2024 aufgenommenen DiGA wurden 9 wieder gestrichen.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>Since October 2020, physicians and psychotherapists can prescribe Digital Health Applications (DiGA) — apps assessed by BfArM via a fast-track process for effectiveness, data security, and interoperability. Germany is the world's first country with statutory reimbursement for digital therapeutics. Growth has been substantial: 690,000 activation codes were redeemed in 2025 alone; approximately 1.6 million cumulatively since 2020.</p>
+<p>Structural criticism persists: many DiGA receive only <em>provisional</em> approval for 12 months (trial phase), during which they are immediately reimbursed — without full evidence of effectiveness. The GKV-SV criticises insufficient real-world data after trial completion. Of 68 DiGA listed by end-2024, 9 had already been removed.</p>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="kpi-val">58</div>
+    <div class="kpi-label lang-de">DiGA im BfArM-Verzeichnis (Ende 2025, davon 48 dauerhaft, 10 vorläufig)</div>
+    <div class="kpi-label lang-en" style="display:none">DiGA listed by BfArM (end-2025: 48 permanent, 10 provisional)</div>
+    <div class="kpi-src">BfArM DiGA-Verzeichnis, Stand 31.12.2025</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">1,6 Mio.</div>
+    <div class="kpi-label lang-de">Freischaltcodes eingelöst 2020–2025 (kumuliert)</div>
+    <div class="kpi-label lang-en" style="display:none">Activation codes redeemed 2020–2025 (cumulative)</div>
+    <div class="kpi-src">GKV-SV / SVDGV Jahresbericht 2025</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">690.000</div>
+    <div class="kpi-label lang-de">Freischaltcodes 2025 — neuer Jahreshöchstwert</div>
+    <div class="kpi-label lang-en" style="display:none">Activation codes in 2025 — new annual record</div>
+    <div class="kpi-src">GKV-SV / SVDGV 2025</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-val">113 Mio. €</div>
+    <div class="kpi-label lang-de">GKV-Ausgaben für DiGA 2023 (374.000 Anwendungen, Ø 302&nbsp;€/Anwendung)</div>
+    <div class="kpi-label lang-en" style="display:none">GKV DiGA expenditure 2023 (374,000 applications, avg. €302/application)</div>
+    <div class="kpi-src">GKV-SV DiGA-Bericht 2024 gem. § 33a Abs. 6 SGB V</div>
+  </div>
+</div>
+
+<div class="chart-wrap">
+  <div class="chart-title lang-de">DiGA im Verzeichnis und Freischaltcodes 2020–2025 (Dual-Achsen-Diagramm)</div>
+  <div class="chart-title lang-en" style="display:none">DiGA Listed and Activation Codes 2020–2025 (dual-axis chart)</div>
+  <canvas id="chartDiGA" style="max-height:280px"></canvas>
+  <p class="chart-note lang-de">Quellen: BfArM DiGA-Verzeichnis (Bundesbehörde, §&nbsp;5 UrhG); GKV-Spitzenverband, DiGA-Bericht 2024 gemäß §&nbsp;33a&nbsp;Abs.&nbsp;6 SGB&nbsp;V; GKV-SV/SVDGV Jahresbericht 2025. Freischaltcodes 2020–2022 approximiert aus Gesamtentwicklung (Rohdaten: GKV-SV). Ausgaben 2023: bestätigt.</p>
+  <p class="chart-note lang-en" style="display:none">Sources: BfArM DiGA Registry (federal authority, § 5 UrhG); GKV-SV DiGA Report 2024 per § 33a para. 6 SGB V; GKV-SV/SVDGV Annual Report 2025. Activation codes 2020–2022 approximated from cumulative data (GKV-SV). Expenditure 2023: confirmed.</p>
+</div>
+
+<div class="note-box lang-de">
+  <strong>Euripid (arzneimittelpreisvergleich.de) nicht verwendet:</strong> Das Euripid-Datenbanknetz enthält Arzneimittelpreisdaten der EU-Mitgliedstaaten, ist jedoch ausschließlich nationalen Behörden zugänglich — kein öffentlicher Datenzugang. Eine Nutzung für diesen Monitor scheidet daher rechtlich und technisch aus. Für öffentliche Preisdaten zu Arzneimitteln: GKV-SV Lauer-Fischer/Lauertaxe (öffentlich für zugelassene Apotheken), AMNOG-Nutzenbewertungen des G-BA (cc-lizenziert).
+</div>
+<div class="note-box lang-en" style="display:none">
+  <strong>Euripid (arzneimittelpreisvergleich.de) not used:</strong> The Euripid database network contains EU member state drug pricing data but is restricted to national authorities only — no public data access. Use in this monitor is legally and technically excluded. For public pharmaceutical price data: GKV-SV Lauer-Fischer/Lauertaxe (available to licensed pharmacies), G-BA AMNOG benefit assessments (CC-licensed).
 </div>
 
 </div>
@@ -995,6 +1212,163 @@ new Chart(document.getElementById('chartAmnog'),{
     },
     scales:{
       y:{grid:{color:RULE},ticks:{callback:v=>v+'%'},max:60},
+      x:{grid:{display:false}}
+    }
+  }
+});
+
+/* ---- Chart Langfristtrend GKV 2000–2025 ---- */
+new Chart(document.getElementById('chartLangfrist'),{
+  type:'line',
+  data:{
+    labels:['2000','2001','2002','2003','2004','2005','2006','2007','2008','2009',
+            '2010','2011','2012','2013','2014','2015','2016','2017','2018','2019',
+            '2020','2021','2022','2023','2024','2025'],
+    datasets:[{
+      label:'GKV-Leistungsausgaben (Mrd. €)',
+      data:[134,139,143,145,140,144,148,154,161,171,
+            176,180,185,195,207,216,224,232,241,255,
+            265,281,292,306,327,336],
+      borderColor:GOLD,
+      backgroundColor:GOLD+'18',
+      fill:true,
+      tension:.35,
+      pointRadius:3,
+      pointBackgroundColor:GOLD,
+      borderWidth:2
+    }]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:c=>'GKV-Leistungsausgaben: '+c.raw+' Mrd. €'}}
+    },
+    scales:{
+      y:{grid:{color:RULE},ticks:{callback:v=>v+' Mrd.'},min:100,
+         title:{display:true,text:'Mrd. € (nominal)',color:FGDIM,font:{size:10}}},
+      x:{grid:{display:false}}
+    }
+  }
+});
+
+/* ---- Chart OECD Effizienzvergleich ---- */
+(function(){
+  const oL=['USA','Schweiz','DE','Norwegen','Niederlande','Österreich',
+            'Schweden','Frankreich','Dänemark','UK','Japan','Spanien',
+            'Italien','S.Korea','OECD-Ø'];
+  const oX=[14885,9963,9365,9393,8436,8401,7871,7354,7071,6747,
+            5790,5346,5164,4797,7500];
+  const oY=[76.4,84.3,81.0,83.2,82.2,82.0,83.5,83.0,81.6,81.3,
+            84.1,84.0,83.5,83.5,81.1];
+  const ptOthers=oL.map((l,i)=>({x:oX[i],y:oY[i],l:l})).filter((_,i)=>i!==2&&i!==14);
+  const ptDE=[{x:oX[2],y:oY[2],l:'Deutschland'}];
+  const ptAvg=[{x:oX[14],y:oY[14],l:'OECD-Ø'}];
+  new Chart(document.getElementById('chartOECD'),{
+    type:'scatter',
+    data:{
+      datasets:[
+        {label:'OECD-Länder',data:ptOthers,
+         backgroundColor:FGDIM+'77',pointRadius:6,pointHoverRadius:8},
+        {label:'Deutschland',data:ptDE,
+         backgroundColor:GOLD,pointRadius:11,pointHoverRadius:13},
+        {label:'OECD-Ø',data:ptAvg,
+         backgroundColor:BLUE,pointStyle:'crossRot',pointRadius:9,pointHoverRadius:11}
+      ]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{boxWidth:10,padding:8}},
+        tooltip:{callbacks:{
+          label:ctx=>{
+            const d=ctx.raw;
+            const n=d.l||ctx.dataset.label;
+            return n+': $'+d.x.toLocaleString('de-DE')+'/Kopf · '+d.y+' J. LE';
+          }
+        }}
+      },
+      scales:{
+        x:{grid:{color:RULE},
+           title:{display:true,text:'Gesundheitsausgaben/Kopf (Int. $, KKP, 2024)',color:FGDIM,font:{size:10}},
+           ticks:{callback:v=>'$'+v.toLocaleString('de-DE')}},
+        y:{grid:{color:RULE},
+           title:{display:true,text:'Lebenserwartung (Jahre, 2023)',color:FGDIM,font:{size:10}},
+           min:74,max:86,ticks:{callback:v=>v+' J.'}}
+      }
+    }
+  });
+})();
+
+/* ---- Chart Morbiditätsstruktur (Wachstumsraten 2025) ---- */
+(function(){
+  const cats=['ASV-Arzneimittel','Luftrettung','Amb. Operieren\n(Hybrid-DRG)','ASV amb.','Behandlungspflege','Pflegepersonal KH','Psychiatrie KH','Heilmittel','Vorsorge/Reha','Krankenhaus ges.','Fahrkosten','Ärztl. Behandlung','Arzneimittel ges.','Verwaltung'];
+  const vals=[27.1,19.2,15.7,16.3,12.6,12.0,11.7,10.4,10.0,9.6,8.9,7.6,5.9,4.7];
+  const avg=7.9;
+  const colors=vals.map(v=>v>avg*1.4?RED+'cc':v>avg?AMBER+'cc':BLUE+'99');
+  const borders=vals.map(v=>v>avg*1.4?RED:v>avg?AMBER:BLUE);
+  // sort descending
+  const sorted=cats.map((c,i)=>({c,v:vals[i],col:colors[i],brd:borders[i]}))
+                   .sort((a,b)=>b.v-a.v);
+  new Chart(document.getElementById('chartMorbiditat'),{
+    type:'bar',
+    data:{
+      labels:sorted.map(d=>d.c),
+      datasets:[{
+        label:'Ausgabenwachstum 2025 (%)',
+        data:sorted.map(d=>d.v),
+        backgroundColor:sorted.map(d=>d.col),
+        borderColor:sorted.map(d=>d.brd),
+        borderWidth:1,borderRadius:2
+      }]
+    },
+    options:{
+      indexAxis:'y',
+      responsive:true,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:c=>'+'+c.raw+'%'}}
+      },
+      scales:{
+        x:{grid:{color:RULE},ticks:{callback:v=>'+'+v+'%'},min:0,max:30,
+           title:{display:true,text:'Wachstum 2025 (%) — Referenz: Ø +7,9%',color:FGDIM,font:{size:10}}},
+        y:{grid:{display:false},ticks:{font:{size:9}}}
+      }
+    }
+  });
+})();
+
+/* ---- Chart DiGA 2020–2025 ---- */
+new Chart(document.getElementById('chartDiGA'),{
+  type:'bar',
+  data:{
+    labels:['2020','2021','2022','2023','2024','2025'],
+    datasets:[
+      {label:'DiGA im Verzeichnis (BfArM)',
+       data:[5,17,35,49,59,58],
+       backgroundColor:BLUE+'88',borderColor:BLUE,borderWidth:1,borderRadius:2,
+       yAxisID:'y'},
+      {label:'Freischaltcodes (Tsd.)',
+       data:[2,50,184,374,304,690],
+       backgroundColor:GOLD+'66',borderColor:GOLD,borderWidth:1,borderRadius:2,
+       yAxisID:'y2'}
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{position:'bottom',labels:{boxWidth:10,padding:8}},
+      tooltip:{callbacks:{
+        label:c=>c.datasetIndex===1?
+          c.dataset.label+': '+c.raw+'.000':
+          c.dataset.label+': '+c.raw
+      }}
+    },
+    scales:{
+      y:{grid:{color:RULE},position:'left',
+         title:{display:true,text:'Anzahl DiGA',color:FGDIM,font:{size:10}},max:70},
+      y2:{grid:{display:false},position:'right',
+          title:{display:true,text:'Freischaltcodes (Tsd.)',color:FGDIM,font:{size:10}},max:750},
       x:{grid:{display:false}}
     }
   }
