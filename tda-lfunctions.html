@@ -6,64 +6,91 @@
 <title>TDA auf L-Funktionen-Nullstellen &middot; Projekt 25</title>
 <link rel="stylesheet" href="fonts.css">
 <style>
-:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--max:760px;--wide:1100px}
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;
+      --gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;
+      --rule:#2a2620;--serif:'EB Garamond',Georgia,serif;
+      --mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;
+      --max:760px;--wide:1100px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:17px;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);
+     line-height:1.78;-webkit-font-smoothing:antialiased}
 .wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
 .col{max-width:var(--max);margin:0 auto}
 header{border-bottom:1px solid var(--rule);padding:3.5rem 0 2.5rem;margin-bottom:3rem}
-.back{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;color:var(--fg-dim);text-decoration:none;text-transform:uppercase;display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1.5rem}
+.back{font-family:var(--sans);font-size:.72rem;letter-spacing:.1em;color:var(--fg-dim);
+      text-decoration:none;text-transform:uppercase;display:inline-flex;
+      align-items:center;gap:.4rem;margin-bottom:1.5rem}
 .back:hover{color:var(--gold)}
-.proj-meta{font-family:var(--sans);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:500;font-style:italic;line-height:1.15;letter-spacing:-.02em;margin-bottom:.6rem}
-h1 .sub{display:block;font-style:normal;font-size:.42em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.5rem}
-.status-row{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-family:var(--mono);font-size:.65rem;color:var(--fg-dim);margin-top:1.2rem}
+.proj-meta{font-family:var(--sans);font-size:.7rem;letter-spacing:.12em;
+            text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:500;font-style:italic;
+   line-height:1.15;letter-spacing:-.02em;margin-bottom:.6rem}
+h1 .sub{display:block;font-style:normal;font-size:.42em;font-family:var(--sans);
+        font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.5rem}
+.status-row{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;font-family:var(--mono);
+            font-size:.65rem;color:var(--fg-dim);margin-top:1.2rem}
 .status-row span{display:flex;align-items:center;gap:.3rem}
 .dot-green{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
 .dot-amber{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0}
-h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:3rem 0 1.2rem;display:flex;align-items:center;gap:1rem}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;
+   text-transform:uppercase;color:var(--gold);margin:3rem 0 1.2rem;
+   display:flex;align-items:center;gap:1rem}
 h2::after{content:'';flex:1;height:1px;background:var(--rule)}
-h3{font-family:var(--serif);font-size:1.05rem;font-weight:500;color:var(--fg);margin:1.8rem 0 .5rem}
+h3{font-family:var(--serif);font-size:1.05rem;font-weight:500;color:var(--fg);
+   margin:1.8rem 0 .5rem}
 p{margin-bottom:1.2em;font-size:1rem}
-em{font-style:italic}
-strong{font-weight:600;color:var(--fg)}
+em{font-style:italic} strong{font-weight:600;color:var(--fg)}
 section{margin-bottom:3.5rem}
-.lang-tabs{display:flex;gap:.5rem;margin-bottom:2rem;font-family:var(--sans);font-size:.75rem}
-.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
-.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
-.lang-de{display:block}.lang-en{display:none}
-
-/* Ergebnis-Kacheln */
-.result-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
-.result-tile{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.1rem 1.3rem;border-radius:2px}
-.result-tile .val{font-family:var(--mono);font-size:1.5rem;color:var(--gold);line-height:1.2;margin-bottom:.3rem}
-.result-tile .lbl{font-family:var(--sans);font-size:.7rem;color:var(--fg-dim);letter-spacing:.06em}
-.result-tile .sig{font-family:var(--mono);font-size:.6rem;color:var(--green);margin-top:.3rem}
-.result-tile.warn .val{color:var(--amber)}
-
-/* Phasen-Tabelle */
-.phase-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:.78rem;margin:1.5rem 0}
-.phase-table th{border-bottom:1px solid var(--rule);padding:.5rem .8rem;text-align:left;color:var(--gold);font-weight:500;letter-spacing:.06em}
-.phase-table td{border-bottom:1px solid var(--rule);padding:.5rem .8rem;color:var(--fg-dim)}
+.result-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+             gap:1rem;margin:1.5rem 0}
+.rtile{background:var(--bg2);border:1px solid var(--rule);
+       border-left:3px solid var(--gold2);padding:1rem 1.2rem;border-radius:2px}
+.rtile .val{font-family:var(--mono);font-size:1.35rem;color:var(--gold);
+            line-height:1.2;margin-bottom:.25rem}
+.rtile .lbl{font-family:var(--sans);font-size:.68rem;color:var(--fg-dim);
+            letter-spacing:.05em}
+.rtile .note{font-family:var(--mono);font-size:.58rem;color:var(--fg-dim);margin-top:.3rem}
+.rtile.ok{border-left-color:var(--green)}
+.rtile.ok .val{color:var(--green)}
+.rtile.open{border-left-color:var(--amber)}
+.rtile.open .val{color:var(--amber)}
+.rtile.rev{border-left-color:var(--red);opacity:.75}
+.rtile.rev .val{color:var(--fg-dim);text-decoration:line-through}
+.phase-table{width:100%;border-collapse:collapse;font-family:var(--sans);
+             font-size:.78rem;margin:1.5rem 0}
+.phase-table th{border-bottom:1px solid var(--rule);padding:.5rem .7rem;
+                text-align:left;color:var(--gold);font-weight:500;letter-spacing:.06em}
+.phase-table td{border-bottom:1px solid var(--rule);padding:.45rem .7rem;color:var(--fg-dim)}
 .phase-table tr:hover td{color:var(--fg);background:var(--bg2)}
 .phase-table td.hi{color:var(--green);font-weight:600}
+.phase-table td.rev{color:var(--red);text-decoration:line-through}
+.phase-table td.open{color:var(--amber)}
 .phase-table td.mono{font-family:var(--mono)}
-
-/* Komitee-Boxen */
-.committee-box{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1.4rem 1.6rem;margin:1rem 0}
-.committee-box .model-tag{font-family:var(--mono);font-size:.6rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.7rem;display:block}
-.committee-box p{font-size:.9rem;line-height:1.7;color:var(--fg-dim);margin-bottom:.8em}
-.committee-box .tag-belegt{color:var(--green);font-family:var(--mono);font-size:.65rem}
-.committee-box .tag-folklore{color:var(--amber);font-family:var(--mono);font-size:.65rem}
-.committee-box .tag-konjektur{color:var(--fg-dim);font-family:var(--mono);font-size:.65rem}
-
-/* Visualisierungen */
-.viz-wrap{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1.2rem;margin:1.5rem 0;overflow:hidden}
-.viz-title{font-family:var(--sans);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-dim);margin-bottom:1rem}
-.viz-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-@media(max-width:640px){html{font-size:15px}.wrapper{padding:0 1.2rem}.viz-grid{grid-template-columns:1fr}.result-grid{grid-template-columns:repeat(2,1fr)}}
-footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim)}
+.alert{border:1px solid var(--amber);border-radius:3px;
+       background:rgba(212,160,64,.07);padding:1rem 1.3rem;margin:1.5rem 0;
+       font-size:.92rem;line-height:1.7}
+.alert strong{color:var(--amber)}
+.cbox{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;
+      padding:1.3rem 1.5rem;margin:.8rem 0}
+.cbox .mtag{font-family:var(--mono);font-size:.6rem;color:var(--gold);
+            letter-spacing:.1em;margin-bottom:.6rem;display:block}
+.cbox p{font-size:.88rem;line-height:1.7;color:var(--fg-dim);margin-bottom:.7em}
+.cbox p:last-child{margin-bottom:0}
+.tag{font-family:var(--mono);font-size:.62rem;padding:.1em .4em;border-radius:2px}
+.tag-b{background:rgba(122,173,122,.15);color:var(--green)}
+.tag-f{background:rgba(212,160,64,.15);color:var(--amber)}
+.tag-k{background:rgba(154,145,136,.12);color:var(--fg-dim)}
+.tag-r{background:rgba(184,96,96,.15);color:var(--red)}
+.viz-wrap{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;
+          padding:1.2rem;margin:1.5rem 0;overflow:hidden}
+.vt{font-family:var(--sans);font-size:.65rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--fg-dim);margin-bottom:.8rem}
+footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
+       font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);
+       display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+@media(max-width:640px){html{font-size:15px}.wrapper{padding:0 1.2rem}
+  .result-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -72,406 +99,294 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;font-fa
 <div class="col">
   <a class="back" href="index.html">&#8592; Alle Projekte</a>
   <p class="proj-meta">Projekt 25 &middot; Arithmetik &amp; Zahlentheorie &middot; Juni 2026</p>
-  <div class="lang-tabs">
-    <button class="lang-tab active" onclick="setLang('de')">DE</button>
-    <button class="lang-tab" onclick="setLang('en')">EN</button>
-  </div>
   <h1>TDA auf L-Funktionen-Nullstellen
     <span class="sub">Topological Data Analysis on L-function Zeros</span>
   </h1>
   <div class="status-row">
-    <span><span class="dot-amber"></span>Phase 3 abgeschlossen &middot; Phase 4 (|D|&thinsp;&le;&thinsp;2000) geplant</span>
-    <span>PARI/GP 2.17 &middot; GUDHI 3.11 &middot; Mac Studio M3 Ultra</span>
-    <span>n&thinsp;=&thinsp;306 &middot; qwen3:235b &middot; qwen3.6:35b</span>
+    <span><span class="dot-amber"></span>Phase 4 abgeschlossen &middot; Phase 5 geplant</span>
+    <span>PARI/GP 2.17 &middot; GUDHI 3.11 &middot; ripser 0.6 &middot; Mac Studio M3 Ultra 256&thinsp;GB</span>
+    <span>Phase 4: n&thinsp;=&thinsp;6086 &middot; |D|&thinsp;&le;&thinsp;10000 &middot; k&thinsp;=&thinsp;8</span>
   </div>
 </div>
 </header>
 
 <section>
 <div class="col">
-<div class="lang-de">
 <h2>Idee</h2>
-<p>Die Nullstellen von Dirichlet-L-Funktionen gelten seit Montgomery (1973) und Odlyzko (1987) als Paradebeispiel f&uuml;r <em>Universalit&auml;t</em>: Ihre Abstands-Statistik folgt dem Gauß&rsquo;schen Unitären Ensemble (GUE) der Zufallsmatrizentheorie &mdash; unabh&auml;ngig davon, welche konkrete L-Funktion man betrachtet. Das Katz-Sarnak-Programm pr&auml;zisiert dies: Bei wachsendem Führer q konvergieren die normierten Nullstellenabst&auml;nde gegen GUE-Statistik.</p>
-<p>Diese Projekt fragt: Gilt das auch f&uuml;r die <em>globale Topologie</em> einer L-Funktionen-<em>Familie</em>? Klassische Statistik misst Abst&auml;nde zwischen einzelnen Nullstellen. Persistente Homologie (TDA) misst die Form der <em>Punktwolke aller L-Funktionen gleichzeitig</em> in einem gemeinsamen Koordinatenraum. Das sind zwei verschiedene Dinge.</p>
-<p>Konkret: Jede L-Funktion L(s,&chi;<sub>D</sub>) wird durch ihre ersten f&uuml;nf normierten Nullstellen als Punkt im &reals;<sup>5</sup> dargestellt. Die resultierende Punktwolke aus 306 L-Funktionen wird mit Vietoris-Rips-TDA analysiert.</p>
-</div>
-<div class="lang-en">
-<h2>Idea</h2>
-<p>The zeros of Dirichlet L-functions have been a paradigm of <em>universality</em> since Montgomery (1973) and Odlyzko (1987): their spacing statistics follow the Gaussian Unitary Ensemble (GUE) of random matrix theory, regardless of which specific L-function one considers. The Katz-Sarnak program makes this precise: as the conductor q grows, the normalised zero spacings converge to GUE statistics.</p>
-<p>This project asks: does this also hold for the <em>global topology</em> of a L-function <em>family</em>? Classical statistics measures distances between individual zeros. Persistent homology (TDA) measures the shape of the <em>point cloud of all L-functions simultaneously</em> in a shared coordinate space. These are two different things.</p>
-<p>Concretely: each L-function L(s,&chi;<sub>D</sub>) is represented as a point in &reals;<sup>5</sup> via its first five normalised zeros. The resulting point cloud of 306 L-functions is analysed with Vietoris-Rips TDA.</p>
-</div>
+<p>Die Nullstellen von Dirichlet-L-Funktionen folgen laut Montgomery-Odlyzko-Gesetz und Katz-Sarnak-Programm Zufallsmatrizenstatistiken. F&uuml;r reelle Dirichlet-Charaktere (Kronecker-Symbole &chi;<sub>D</sub>) sagt Katz-Sarnak orthogonale Symmetrie voraus: die Nullstellenabst&auml;nde sollen dem Gauß'schen Orthogonalen Ensemble (GOE) folgen.</p>
+<p>Dieses Projekt fragt: Gilt das auch f&uuml;r die <em>globale Topologie</em> einer L-Funktionen-Familie? Persistente Homologie (TDA, Vietoris-Rips) misst die Form der Punktwolke aller L-Funktionen simultan in einem normierten Koordinatenraum &mdash; etwas anderes als Abstandsstatistiken einzelner Nullstellen.</p>
+<p>Konkret: Jede L-Funktion L(s,&chi;<sub>D</sub>) wird durch ihre ersten k Katz-Sarnak-normierten Nullstellen als Punkt in &reals;<sup>k</sup> dargestellt. Die Punktwolke der L-Funktionen-Familie wird mit TDA analysiert.</p>
 </div>
 </section>
 
 <section>
 <div class="col">
-<div class="lang-de">
-<h2>Setup</h2>
-<p><strong>L-Funktionen:</strong> Kronecker-Symbole &chi;<sub>D</sub>&thinsp;=&thinsp;(D/&middot;) f&uuml;r alle fundamentalen Diskriminanten mit |D|&thinsp;&le;&thinsp;500. Davon 153 ungerade (&chi;(&minus;1)&thinsp;=&thinsp;&minus;1, D&thinsp;&lt;&thinsp;0) und 153 gerade (&chi;(&minus;1)&thinsp;=&thinsp;+1, D&thinsp;&gt;&thinsp;0).</p>
-<p><strong>Nullstellen:</strong> PARI/GP 2.17 (<code>lfunzeros</code>), 14 Dezimalstellen, bis Bildh&ouml;he t&thinsp;=&thinsp;70.</p>
-<p><strong>Normierung (Katz-Sarnak):</strong> &gamma;&#771;<sub>n</sub>&thinsp;=&thinsp;&gamma;<sub>n</sub>&thinsp;&middot;&thinsp;log|D|/(2&pi;). Jede L-Funktion wird so zu einem Punkt (&gamma;&#771;<sub>1</sub>,&hellip;,&gamma;&#771;<sub>5</sub>)&thinsp;&isin;&thinsp;&reals;<sup>5</sup>.</p>
-<p><strong>TDA:</strong> Vietoris-Rips-Komplex (GUDHI 3.11), persistente Homologie H<sub>0</sub> und H<sub>1</sub>, Vergleich mit GUE-Nullmodell (Wigner-Dyson-Surmise).</p>
+<h2>Setup &amp; Methodik</h2>
+<p><strong>L-Funktionen:</strong> Kronecker-Symbole &chi;<sub>D</sub>&thinsp;=&thinsp;(D/&middot;) f&uuml;r alle fundamentalen Diskriminanten. Phase 4: |D|&thinsp;&le;&thinsp;10000, 6086 L-Funktionen (3043 ungerade D&lt;0, 3043 gerade D&gt;0).</p>
+<p><strong>Nullstellen:</strong> PARI/GP 2.17.3 (<code>lfunzeros</code>), 15 Dezimalstellen, bis Bildh&ouml;he t&thinsp;=&thinsp;100.</p>
+<p><strong>Normierung (Katz-Sarnak):</strong> &gamma;&#771;<sub>n</sub>&thinsp;=&thinsp;&gamma;<sub>n</sub>&thinsp;&middot;&thinsp;log|D|/(2&pi;). Einbettung in &reals;<sup>8</sup> (Phase 4).</p>
+<p><strong>Nullmodell-Evolution (kritisch):</strong> Phasen 1&ndash;3 verwendeten WDS-Simulation ohne Abgleich mit den Fuehrern der echten L-Funktionen. Phase 4 benutzt ein <em>matched null model</em>: f&uuml;r jede L-Funktion mit Fuehrer q und Parit&auml;t p wird ein GOE/GUE-Klon mit identischem q und p generiert, dann dieselbe KS-Normierung angewendet. Dadurch heben sich Skalierungsartefakte heraus.</p>
+<p><strong>TDA:</strong> H<sub>0</sub>-Persistenz (GUDHI, max_dim=1) auf vollem n&thinsp;=&thinsp;6086. H<sub>1</sub>-Persistenz (ripser 0.6) auf Teilmenge n&thinsp;=&thinsp;2000. Bootstrap-CI (200&thinsp;Iterationen, sample_size&thinsp;=&thinsp;800).</p>
 <p><strong>Komitee:</strong> qwen3:235b-a22b (Interpretation) + qwen3.6:35b-a3b (adversarielle Pr&uuml;fung), beide lokal via Ollama, kein API-Call.</p>
 </div>
-<div class="lang-en">
-<h2>Setup</h2>
-<p><strong>L-functions:</strong> Kronecker symbols &chi;<sub>D</sub>&thinsp;=&thinsp;(D/&middot;) for all fundamental discriminants with |D|&thinsp;&le;&thinsp;500: 153 odd (&chi;(&minus;1)&thinsp;=&thinsp;&minus;1, D&thinsp;&lt;&thinsp;0) and 153 even (&chi;(&minus;1)&thinsp;=&thinsp;+1, D&thinsp;&gt;&thinsp;0).</p>
-<p><strong>Zeros:</strong> PARI/GP 2.17 (<code>lfunzeros</code>), 14 decimal places, up to imaginary height t&thinsp;=&thinsp;70.</p>
-<p><strong>Normalisation (Katz-Sarnak):</strong> &gamma;&#771;<sub>n</sub>&thinsp;=&thinsp;&gamma;<sub>n</sub>&thinsp;&middot;&thinsp;log|D|/(2&pi;). Each L-function becomes a point (&gamma;&#771;<sub>1</sub>,&hellip;,&gamma;&#771;<sub>5</sub>)&thinsp;&isin;&thinsp;&reals;<sup>5</sup>.</p>
-<p><strong>TDA:</strong> Vietoris-Rips complex (GUDHI 3.11), persistent homology H<sub>0</sub> and H<sub>1</sub>, compared against a GUE null model (Wigner-Dyson surmise).</p>
-<p><strong>Committee:</strong> qwen3:235b-a22b (interpretation) + qwen3.6:35b-a3b (adversarial check), both local via Ollama, no API call.</p>
-</div>
-</div>
 </section>
 
 <section>
 <div class="col">
-<h2><span class="lang-de">Ergebnisse</span><span class="lang-en" style="display:none">Results</span></h2>
-
-<!-- Kacheln -->
-<div class="result-grid">
-  <div class="result-tile">
-    <div class="val">0.462</div>
-    <div class="lbl lang-de">H&#8320;-Persistenz Daten/GUE</div>
-    <div class="lbl lang-en" style="display:none">H&#8320; persistence data/GUE</div>
-    <div class="sig">GUE-Erwartung: 0.536 &middot; z = -2.87 &middot; p = 0.004</div>
-  </div>
-  <div class="result-tile">
-    <div class="val">p&thinsp;=&thinsp;0.004</div>
-    <div class="lbl lang-de">Signifikanz gegen GUE-Universalit&auml;t</div>
-    <div class="lbl lang-en" style="display:none">Significance against GUE universality</div>
-    <div class="sig">[BELEGT] n=306, z=-2.87, &alpha;&thinsp;&lt;&thinsp;0.01</div>
-  </div>
-  <div class="result-tile warn">
-    <div class="val">0.137</div>
-    <div class="lbl lang-de">H&#8321; max. Lebensdauer (k=5)</div>
-    <div class="lbl lang-en" style="display:none">H&#8321; max. lifetime (k=5)</div>
-    <div class="sig">k-stabil k=2..6 &middot; voll: 0.122 &middot; [offen]</div>
-  </div>
-  <div class="result-tile">
-    <div class="val">4&thinsp;&times;&thinsp;10&#8315;&#8309;&#8313;</div>
-    <div class="lbl lang-de">p-Wert &gamma;&#771;&#8321;-Trennung</div>
-    <div class="lbl lang-en" style="display:none">p-value &gamma;&#771;&#8321; separation</div>
-    <div class="sig">[BELEGT] Funktionalgleichung</div>
-  </div>
+<h2>Phasenvergleich &mdash; alle Ergebnisse</h2>
+<div class="alert">
+<strong>Methodische Korrektur (Phase 4):</strong> Phasen 2+3 verglichen gegen ungematchtes GUE-WDS-Nullmodell im falschen Raum. Phase 3 scheinbar signifikantes Signal (p&thinsp;=&thinsp;0.004) ist Artefakt dieses Nullmodells. Phase 4 mit gematchtem GOE-Nullmodell (gleiche Fuehrer, gleiche Parit&auml;t, dann gleiche KS-Normierung) liefert die bisher methodisch saubersten Vergleiche.
 </div>
 
-<!-- Visualisierung -->
-<div class="viz-wrap">
-  <div class="viz-title lang-de">Interaktive Visualisierung: Nullstellenraum und H&#8320;-Persistenz</div>
-  <div class="viz-title lang-en" style="display:none">Interactive visualisation: zero space and H&#8320; persistence</div>
-  <div class="viz-grid">
-    <!-- Scatter -->
-    <div>
-      <div style="font-family:var(--sans);font-size:.65rem;color:var(--fg-dim);margin-bottom:.5rem">
-        <span class="lang-de">&gamma;&#771;&#8321; vs. &gamma;&#771;&#8322; &mdash; 306 L-Funktionen (repr&auml;sentativ)</span>
-        <span class="lang-en" style="display:none">&gamma;&#771;&#8321; vs. &gamma;&#771;&#8322; &mdash; 306 L-functions (representative)</span>
-      </div>
-      <canvas id="scatterCanvas" width="320" height="250" style="width:100%;max-width:320px;display:block"></canvas>
-      <div style="font-family:var(--sans);font-size:.6rem;color:var(--fg-dim);margin-top:.5rem;display:flex;gap:1rem">
-        <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#c8903a;margin-right:3px"></span>
-          <span class="lang-de">ungerade &chi; (&gamma;&#771;&#8321;=0)</span>
-          <span class="lang-en" style="display:none">odd &chi; (&gamma;&#771;&#8321;=0)</span></span>
-        <span><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#7aad7a;margin-right:3px"></span>
-          <span class="lang-de">gerade &chi;</span>
-          <span class="lang-en" style="display:none">even &chi;</span></span>
-      </div>
-    </div>
-    <!-- Barchart H0 -->
-    <div>
-      <div style="font-family:var(--sans);font-size:.65rem;color:var(--fg-dim);margin-bottom:.5rem">
-        <span class="lang-de">H&#8320;-Persistenz: &Sigma; Lebensdauer &mdash; Daten vs. GUE</span>
-        <span class="lang-en" style="display:none">H&#8320; persistence: &Sigma; lifetime &mdash; data vs. GUE</span>
-      </div>
-      <canvas id="barCanvas" width="320" height="250" style="width:100%;max-width:320px;display:block"></canvas>
-    </div>
-  </div>
-  <!-- k-Stabilit&auml;t -->
-  <div style="margin-top:1.2rem">
-    <div style="font-family:var(--sans);font-size:.65rem;color:var(--fg-dim);margin-bottom:.5rem">
-      <span class="lang-de">H&#8321;-Lebensdauer nach Einbettungsdimension k (k-Stabilit&auml;tstest)</span>
-      <span class="lang-en" style="display:none">H&#8321; lifetime by embedding dimension k (k-stability test)</span>
-    </div>
-    <canvas id="kCanvas" width="640" height="120" style="width:100%;max-width:640px;display:block"></canvas>
-  </div>
-</div>
-
-<!-- Phasen-Tabelle -->
-<div class="lang-de">
-<h3>Entwicklung &uuml;ber die Phasen</h3>
-</div>
-<div class="lang-en">
-<h3>Development across phases</h3>
-</div>
 <table class="phase-table">
-  <thead>
-    <tr>
-      <th><span class="lang-de">Phase</span><span class="lang-en" style="display:none">Phase</span></th>
-      <th>n</th>
-      <th>H&#8320;-Ratio</th>
-      <th>p vs. GUE</th>
-      <th>H&#8321; (k=5)</th>
-      <th><span class="lang-de">Werkzeug</span><span class="lang-en" style="display:none">Tool</span></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="lang-de">Prototyp (Container)</span><span class="lang-en" style="display:none">Prototype (container)</span></td>
-      <td class="mono">60</td>
-      <td class="mono">0.361</td>
-      <td class="mono"><span class="lang-de">&mdash; (Partialsummen, ungenau)</span><span class="lang-en" style="display:none">&mdash; (partial sums, inaccurate)</span></td>
-      <td class="mono">0.336 &rarr; 0.035</td>
-      <td>Python/mpmath</td>
-    </tr>
-    <tr>
-      <td>Phase 2 (|D|&thinsp;&le;&thinsp;100)</td>
-      <td class="mono">61</td>
-      <td class="mono">0.511</td>
-      <td class="mono">&gt;0.2 (<span class="lang-de">nicht sign.</span><span class="lang-en" style="display:none">n.s.</span>)</td>
-      <td class="mono">0.148</td>
-      <td>PARI/GP</td>
-    </tr>
-    <tr>
-      <td>Phase 3 (|D|&thinsp;&le;&thinsp;500)</td>
-      <td class="mono hi">306</td>
-      <td class="mono hi">0.462</td>
-      <td class="mono hi">0.004 [BELEGT]</td>
-      <td class="mono">0.137</td>
-      <td>PARI/GP</td>
-    </tr>
-    <tr>
-      <td>Phase 4 (|D|&thinsp;&le;&thinsp;2000, <span class="lang-de">geplant</span><span class="lang-en" style="display:none">planned</span>)</td>
-      <td class="mono">&sim;1200</td>
-      <td class="mono">&mdash;</td>
-      <td class="mono">&mdash;</td>
-      <td class="mono">&mdash;</td>
-      <td>&mdash;</td>
-    </tr>
-  </tbody>
+<thead>
+<tr>
+  <th>Phase</th><th>n</th><th>|D|</th><th>k</th>
+  <th>Nullmodell</th><th>H<sub>0</sub>&thinsp;Ratio</th>
+  <th>H<sub>1</sub>&thinsp;max (k=5)</th><th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>1+2 Prototyp</td>
+  <td class="mono">60</td><td class="mono">&le;100</td><td class="mono">5</td>
+  <td>ungematchtes GUE-WDS</td>
+  <td class="mono rev">0.361</td>
+  <td class="mono rev">0.336&rarr;0.035</td>
+  <td class="rev">Partialsummen, ungenau</td>
+</tr>
+<tr>
+  <td>2 PARI/GP</td>
+  <td class="mono">61</td><td class="mono">&le;100</td><td class="mono">5</td>
+  <td>ungematchtes GUE-WDS</td>
+  <td class="mono">0.511 (p=0.21)</td>
+  <td class="mono">0.148</td>
+  <td>nicht signifikant</td>
+</tr>
+<tr>
+  <td>3 PARI/GP</td>
+  <td class="mono">306</td><td class="mono">&le;500</td><td class="mono">5</td>
+  <td>ungematchtes GUE-WDS</td>
+  <td class="mono rev">0.462 (p=0.004)</td>
+  <td class="mono">0.137</td>
+  <td class="rev">Nullmodell falsch</td>
+</tr>
+<tr>
+  <td><strong>4 PARI/GP</strong></td>
+  <td class="mono hi">6086</td><td class="mono hi">&le;10000</td><td class="mono hi">8</td>
+  <td>gematchtes GOE+GUE</td>
+  <td class="mono open">GOE: 0.4939<br>GUE: 0.6427</td>
+  <td class="mono open">0.1799 vs GOE 0.4281</td>
+  <td class="open">interpretiert</td>
+</tr>
+</tbody>
 </table>
 </div>
 </section>
 
 <section>
 <div class="col">
-<h2><span class="lang-de">Komitee-Analyse</span><span class="lang-en" style="display:none">Committee analysis</span></h2>
+<h2>Phase-4-Ergebnisse im Detail</h2>
 
-<div class="committee-box">
-  <span class="model-tag">qwen3:235b-a22b &middot; Lokales Ollama &middot; Phase 3</span>
-  <p><span class="tag-belegt">[BELEGT]</span> Die H&#8320;-Ratio von 0,462 (n=306) weicht statistisch signifikant von der GUE-Erwartung (0,536) ab (z=&minus;2,87, p=0,004&thinsp;&lt;&thinsp;0,01). Die erh&ouml;hte Stichprobengr&ouml;&szlig;e best&auml;tigt den Phase-2-Trend mit robuster Signifikanz.</p>
-  <p><span class="tag-belegt">[BELEGT]</span> H&#8321;-Befund: Die maximale Persistenz bei k=5 sank leicht (0,148&thinsp;&rarr;&thinsp;0,1371), bleibt aber strukturell stabil. Der Sprung bei k=6 (0,183) zeigt, dass h&ouml;here Dimensionen st&auml;rkeren Rauscheinfluss haben.</p>
-  <p><span class="tag-konjektur">[KONJEKTUR]</span> Gr&ouml;&szlig;ere F&uuml;hrer (q&thinsp;&le;&thinsp;500) legen nahe, dass KS-Universalit&auml;t nicht vollst&auml;ndig gilt: Die H&#8320;-Ratio entfernt sich weiter von GUE (0,511&thinsp;&rarr;&thinsp;0,462), w&auml;hrend &gamma;&#771;&#8321; (1,193&thinsp;&plusmn;&thinsp;0,306) nahe dem GUE-Wert bleibt. Dies deutet auf <em>teilweise</em> Universalit&auml;t hin.</p>
-  <p><span class="tag-belegt">[BELEGT]</span> TDA ist als Methode validiert: Die adversarielle Kritik (n zu klein, KS-Fehler) wird durch die robusten Phase-3-Ergebnisse entkr&auml;ftet. Die Methode &uuml;bertrifft klassische Statistik durch ihre Sensitivit&auml;t f&uuml;r hochdimensionale Strukturen.</p>
+<div class="result-grid">
+  <div class="rtile ok">
+    <div class="val">p &rarr; 0</div>
+    <div class="lbl">&gamma;&#771;<sub>1</sub>-Trennung odd/even</div>
+    <div class="note">n=6086, Mann-Whitney, [BELEGT]</div>
+  </div>
+  <div class="rtile">
+    <div class="val">0.4939</div>
+    <div class="lbl">H<sub>0</sub>-Ratio Daten / GOE</div>
+    <div class="note">GOE-Theorie ~0.531; CI (n=800): [0.498,&thinsp;0.533]</div>
+  </div>
+  <div class="rtile">
+    <div class="val">0.6427</div>
+    <div class="lbl">H<sub>0</sub>-Ratio Daten / GUE</div>
+    <div class="note">GUE-Theorie ~0.604; CI (n=800): [0.648,&thinsp;0.697]</div>
+  </div>
+  <div class="rtile open">
+    <div class="val">0.4202</div>
+    <div class="lbl">H<sub>1</sub>-Ratio Daten / GOE</div>
+    <div class="note">Daten 0.1799 vs GOE 0.4281, n=2000-Teilmenge [offen]</div>
+  </div>
+  <div class="rtile">
+    <div class="val">1705 / 3452</div>
+    <div class="lbl">H<sub>0</sub> &Sigma;-Lebensdauer: Daten / GOE</div>
+    <div class="note">GUE: 2653 &mdash; Daten komprimierter als beide Ensemble</div>
+  </div>
+  <div class="rtile">
+    <div class="val">1.071 &plusmn; 0.345</div>
+    <div class="lbl">&gamma;&#771;<sub>1</sub> gerade Charaktere (D&gt;0)</div>
+    <div class="note">&gamma;&#771;<sub>1</sub> ungerade: 0.0000 exakt (Funktionalgleichung)</div>
+  </div>
 </div>
 
-<div class="committee-box">
-  <span class="model-tag">qwen3.6:35b-a3b &middot; Adversarielle Pr&uuml;fung &middot; Phase 3</span>
-  <p><strong>Stichprobengr&ouml;&szlig;e:</strong> n=306 ist zwar &gt;d f&uuml;r R&#8309;, bleibt aber ohne Resampling anf&auml;llig f&uuml;r H&#8321;-Stichprobenartefakte. Verbesserung gegen&uuml;ber Phase 2 best&auml;tigt.</p>
-  <p><strong>Signifikanz:</strong> p=0,004 widerlegt die spezifische H&#8320;-Ratio-Erwartung 0,536 unter dem getesteten Modell. Ein einzelner Test reicht nicht zur allgemeinen Widerlegung der GUE-Universalit&auml;t; er liefert einen robusten <em>Aspekt</em>-Widerlegungshinweis.</p>
-  <p><strong>Unsicherheitsreduktion:</strong> Standardfehler skaliert mit 1/&#8730;n. Bei n=306 betr&auml;gt er &sim;0,057. Die Best&auml;tigung des Trends mit p&thinsp;&lt;&thinsp;0,01 zeigt erwartete Pr&auml;zisionsgewinne.</p>
-  <p><strong>Mindest-n:</strong> Bei gleichem Effekt (&Delta;=0,074) und &alpha;=0,01 w&auml;re n&#770;&thinsp;&approx;&thinsp;246 ausreichend. Phase 3 (n=306) hat diese Schwelle &uuml;berschritten.</p>
+<!-- Teilfamilien -->
+<h3>Teilfamilien vs. GOE</h3>
+<table class="phase-table">
+<thead>
+  <tr><th>Familie</th><th>Symmetrietyp (Katz-Sarnak)</th><th>H<sub>0</sub>-Ratio / GOE</th><th>Interpretation</th></tr>
+</thead>
+<tbody>
+  <tr>
+    <td>Ungerade &chi; (D&lt;0)</td>
+    <td>SO(2N+1)</td>
+    <td class="mono">0.2273</td>
+    <td class="fg-dim">stark unterhalb GOE</td>
+  </tr>
+  <tr>
+    <td>Gerade &chi; (D&gt;0)</td>
+    <td>SO(2N)</td>
+    <td class="mono">0.2659</td>
+    <td class="fg-dim">stark unterhalb GOE</td>
+  </tr>
+  <tr>
+    <td>Alle &chi; (D&lt;0 und D&gt;0)</td>
+    <td>O(N)</td>
+    <td class="mono">0.4939</td>
+    <td class="fg-dim">Bootstrap CI [0.498, 0.533]</td>
+  </tr>
+</tbody>
+</table>
+
+<!-- k-Stabilitaet -->
+<h3>k-Stabilit&auml;t (n=1500)</h3>
+<div class="viz-wrap">
+  <div class="vt">H<sub>1</sub>-Lebensdauer nach Einbettungsdimension k &mdash; Phase 4</div>
+  <canvas id="kCanvas" width="640" height="130" style="width:100%;max-width:640px;display:block"></canvas>
+  <p style="font-size:.75rem;color:var(--fg-dim);margin-top:.5rem">
+    Werte aus JSON: k=2:0.066, k=3:0.098, k=4:0.128, k=5:0.125, k=6:0.179, k=7:0.167, k=8:0.209, k=9:0.210, k=10:0.210
+  </p>
 </div>
 </div>
 </section>
 
 <section>
 <div class="col">
-<div class="lang-de">
-<h2>Fazit</h2>
-<p>Das Experiment liefert drei Befunde verschiedener epistemischer G&uuml;te:</p>
-<p><strong>[BELEGT]</strong> Die erzwungene Nullstelle &gamma;<sub>1</sub>&thinsp;=&thinsp;0 f&uuml;r ungerade Charaktere (aus der Funktionalgleichung mit Vorzeichen &minus;1) ist von TDA einwandfrei detektiert (p&thinsp;=&thinsp;4&thinsp;&times;&thinsp;10&#8315;&#8309;&#8313;). Das ist keine &Uuml;berraschung, aber validiert die Pipeline.</p>
-<p><strong>[BELEGT]</strong> Die H&#8320;-Gesamtpersistenz der arithmetischen L-Funktionen-Familie betr&auml;gt 46,2&thinsp;% der GUE-Simulation. Bei n=306 ist dieser Unterschied statistisch signifikant (p&thinsp;=&thinsp;0,004). Grunds&auml;tzlich: Arithmetische L-Funktionen sind topologisch <em>komprimierter</em> als Zufallsmatrizen voraussagen.</p>
-<p><strong>[Offen]</strong> Der persistente H&#8321;-Zyklus (&Delta;&thinsp;&asymp;&thinsp;0,14, k-stabil) ist robust gegen Normierungswechsel, aber seine arithmetische Bedeutung ist unklar. Ohne Identifikation der beteiligten Knoten (L-Funktionen) fehlt die Interpretation.</p>
-<p>Phase 4 (|D|&thinsp;&le;&thinsp;2000, n&thinsp;&asymp;&thinsp;1200) w&uuml;rde kl&auml;ren, ob die H&#8320;-Abweichung mit gr&ouml;&szlig;eren F&uuml;hrern verschwindet (GUE-Konvergenz) oder persistiert (neue arithmetische Klasse).</p>
+<h2>Interpretation &amp; Grenzen</h2>
+
+<h3>Was das Bootstrap-CI sagt</h3>
+<p>Das Bootstrap-Konfidenzintervall f&uuml;r den H<sub>0</sub>-Ratio Daten/GOE betr&auml;gt bei Stichprobengr&ouml;&szlig;e n=800: <strong>[0.4982,&thinsp;0.5329]</strong>. Der theoretische Wert f&uuml;r GOE-Zufallsmatrizen bei dieser Statistik betr&auml;gt laut adversarieller Analyse ~0.531. Dieser Wert liegt (knapp) im CI. Der vollst&auml;ndige Datensatz (n=6086) ergibt 0.4939 &mdash; leicht unterhalb des CI-Mittels von 0.516, was eine bekannte Skalierungsabh&auml;ngigkeit dieser Statistik widerspiegelt (das CI gilt f&uuml;r n=800, nicht n=6086).</p>
+
+<h3>Limitierung des Nullmodells (adversarieller Befund)</h3>
+<p>Das Wigner-Dyson-Surmise (WDS), das f&uuml;r das matched null model verwendet wurde, approximiert nur die <em>N&auml;chster-Nachbar-Abstandsverteilung</em>. Es erfasst nicht die k-Punkt-Korrelationsfunktionen des GOE, die f&uuml;r TDA-basierte Ratios relevant sind. Die Spektralstarrheit (<em>spectral rigidity</em>) des GOE wird ebenfalls nicht korrekt reproduziert. Dies bedeutet: Der Ratio 0.4939 vs. GOE(WDS) ist kein exakter Test gegen das Katz-Sarnak-GOE, sondern eine Approximation mit systematischer Unsicherheit.</p>
+
+<h3>H<sub>1</sub>: Offene Frage</h3>
+<p>Die Daten zeigen H<sub>1</sub>-Lebensdauer 0.1799, w&auml;hrend das gematchte GOE-Null-Modell 0.4281 erreicht &mdash; Ratio 0.42. Die Daten haben deutlich <em>weniger</em> persistente 1-dimensionale Zyklen als GOE vorhersagt. Die k-Stabilit&auml;t von H<sub>1</sub> (0.066 bei k=2 bis 0.210 bei k=10) zeigt eine hierarchische Struktur. Ob dieses Signal echte arithmetische Topologie ist oder durch die WDS-Limitierung des Nullmodells entsteht, kann Phase 4 nicht kl&auml;ren.</p>
+
+<h3>&gamma;&#771;<sub>1</sub>-Separation: robuster Befund</h3>
+<p>Alle ungeraden Charaktere (D&lt;0, &chi;(&minus;1)=&minus;1) haben &gamma;&#771;<sub>1</sub>&thinsp;=&thinsp;0 exakt, weil die Funktionalgleichung mit Vorzeichen &epsilon;&thinsp;=&thinsp;&minus;1 eine Nullstelle bei s&thinsp;=&thinsp;1/2 erzwingt. Gerade Charaktere haben &gamma;&#771;<sub>1</sub>&thinsp;=&thinsp;1.071&thinsp;&plusmn;&thinsp;0.345. Diese Trennung ist triviale Konsequenz der Funktionalgleichung [BELEGT], hat aber nichts mit GOE/GUE zu tun.</p>
 </div>
-<div class="lang-en">
-<h2>Conclusion</h2>
-<p>The experiment yields three findings of different epistemic quality:</p>
-<p><strong>[CONFIRMED]</strong> The forced zero &gamma;<sub>1</sub>&thinsp;=&thinsp;0 for odd characters (from the functional equation with sign &minus;1) is correctly detected by TDA (p&thinsp;=&thinsp;4&thinsp;&times;&thinsp;10&#8315;&#8309;&#8313;). Not a surprise, but validates the pipeline.</p>
-<p><strong>[CONFIRMED]</strong> The total H&#8320; persistence of the arithmetic L-function family amounts to 46.2&thinsp;% of the GUE simulation. At n=306 this difference is statistically significant (p&thinsp;=&thinsp;0.004). In short: arithmetic L-functions are topologically <em>more compressed</em> than random matrices predict.</p>
-<p><strong>[Open]</strong> The persistent H&#8321; cycle (&Delta;&thinsp;&asymp;&thinsp;0.14, k-stable) is robust against normalisation changes, but its arithmetic meaning is unclear without identifying the member L-functions.</p>
-<p>Phase 4 (|D|&thinsp;&le;&thinsp;2000, n&thinsp;&asymp;&thinsp;1200) would clarify whether the H&#8320; deviation vanishes at larger conductors (GUE convergence) or persists (new arithmetic class).</p>
+</section>
+
+<section>
+<div class="col">
+<h2>Komitee-Analyse Phase 4</h2>
+
+<div class="cbox">
+  <span class="mtag">qwen3:235b-a22b &middot; Lokales Ollama &middot; Phase 4</span>
+  <p><span class="tag tag-b">BELEGT</span> &gamma;&#771;<sub>1</sub>-Trennung: p&thinsp;&rarr;&thinsp;0, triviale Konsequenz der Funktionalgleichung.</p>
+  <p><span class="tag tag-k">KONJEKTUR</span> Parit&auml;tssplit: Ratio ungerade/GOE&thinsp;=&thinsp;0.2273 vs. gerade/GOE&thinsp;=&thinsp;0.2659 k&ouml;nnte feinere Unterteilung von SO(2N+1) vs. SO(2N) widerspiegeln.</p>
+  <p><span class="tag tag-k">KONJEKTUR</span> H<sub>1</sub>-Ratio Daten/GOE&thinsp;=&thinsp;0.42: Datenwolke hat deutlich weniger persistente Zyklen als GOE. M&ouml;glicherweise arithmetische Constraints, die nicht-lokale Korrelationen erzeugen.</p>
+  <p><em>Hinweis zur qwen3-Analyse: Das Modell verglich den Bootstrap-CI gegen den Erwartungswert 1.0 statt gegen ~0.531 (theoretischer GOE-Wert f&uuml;r diese Statistik) und zog daraus falsche Schl&uuml;sse. Die adversarielle Analyse korrigiert dies.</em></p>
+</div>
+
+<div class="cbox">
+  <span class="mtag">qwen3.6:35b-a3b &middot; Adversarielle Pr&uuml;fung &middot; Phase 4</span>
+  <p><strong>WDS-Limitierung:</strong> WDS erzwingt nur die 1-Niveau-Abstandsverteilung, nicht die Joint-Eigenwertstatistiken. GOE/GUE-Ratios sind sensitiv auf k-Punkt-Korrelationen und Spektralstarrheit. Der matched Null ist f&uuml;r diese Ratio-Tests unvollst&auml;ndig.</p>
+  <p><strong>Korrekte Referenzwerte:</strong> F&uuml;r Standard-Nachbarabstands-Ratios liegt die GOE-Erwartung bei ~0.531, GUE bei ~0.604 (nicht bei 1.0). Das Bootstrap-CI [0.4982,&thinsp;0.5329] enth&auml;lt 0.531 (knapp). Der vollst&auml;ndige Datenwert 0.4939 liegt leicht darunter.</p>
+  <p><strong>GUE(0.6427) vs. GOE(0.4939):</strong> Differenz 0.149, statistisch hochsignifikant. GUE-Ratio liegt nahe theoretischem 0.604, GOE-Ratio leicht unterhalb 0.531. CIs &uuml;berlappen nicht ([0.498,&thinsp;0.533] vs. [0.648,&thinsp;0.697]).</p>
+  <p><strong>Phase-3-Revision:</strong> Wenn GOE-Erwartung ~0.531 ist, w&auml;re Phase-3-Ratio 0.462 (gegen ungematchtes Nullmodell) zus&auml;tzlich durch Normierungsartefakte verzerrt. Die Phase-3-Signifikanz p=0.004 ist nicht &uuml;bertragbar auf das korrekte Nullmodell.</p>
 </div>
 </div>
 </section>
 
 <section>
 <div class="col">
-<div class="lang-de">
+<h2>Aktueller Erkenntnisstand</h2>
+
+<div class="result-grid">
+  <div class="rtile ok">
+    <div class="val">[BELEGT]</div>
+    <div class="lbl">&gamma;&#771;<sub>1</sub>-Trennung odd/even</div>
+    <div class="note">Trivial, Funktionalgleichung</div>
+  </div>
+  <div class="rtile open">
+    <div class="val">[OFFEN]</div>
+    <div class="lbl">H<sub>0</sub>-Abweichung von GOE</div>
+    <div class="note">0.4939 vs. GOE ~0.531. WDS-Limitation; Phase 5 n&ouml;tig</div>
+  </div>
+  <div class="rtile open">
+    <div class="val">[OFFEN]</div>
+    <div class="lbl">H<sub>1</sub>-Unterdr&uuml;ckung</div>
+    <div class="note">Ratio 0.42 vs. GOE; k-stabil k=2..10; Null-Modell-Frage</div>
+  </div>
+  <div class="rtile rev">
+    <div class="val">[REVIDIERT]</div>
+    <div class="lbl">Phase-3-Signal p=0.004</div>
+    <div class="note">Falsches Nullmodell; nicht reproduzierbar</div>
+  </div>
+</div>
+
+<h3>Phase 5 (geplant)</h3>
+<p>F&uuml;r belastbare Aussagen ben&ouml;tigt Phase 5: (a)&thinsp;echte GOE/GUE-Matrizen (N&thinsp;&ge;&thinsp;1000) statt WDS f&uuml;r das Nullmodell, (b)&thinsp;korrekte gemeinsame Verteilung der k Nullstellen statt unabh&auml;ngiger WDS-Abst&auml;nde, (c)&thinsp;Permutationstest innerhalb der Datenfamilie als nullmodellfreie Alternative. Mit |D|&thinsp;&le;&thinsp;10000 stehen 6086 L-Funktionen bereit; der PARI/GP-Schritt m&uuml;sste nicht wiederholt werden.</p>
+</div>
+</section>
+
+<section>
+<div class="col">
 <h2>Technische Details</h2>
-<p><strong>Werkzeuge:</strong> PARI/GP 2.17.3 (<code>lfunzeros</code>), GUDHI 3.11.0 (Vietoris-Rips), Python 3.11 (scipy, numpy), qwen3:235b-a22b + qwen3.6:35b-a3b (lokal, Ollama). Mac Studio M3 Ultra, 256&thinsp;GB. Laufzeit Phase 3: ca. 3 Minuten (PARI/GP) + 3 Minuten (Python/TDA) + 3 Minuten (Komitee).</p>
-<p><strong>Skripte:</strong> <code>tda_zeros_phase3.gp</code>, <code>tda_phase3.py</code>, <code>tda_phase3_bericht.md</code> &mdash; alle auf /Volumes/CLAUDE-DATA/TDA-Project/.</p>
-<p><strong>Epistemischer Status:</strong> H&#8320;-Befund [BELEGT], H&#8321;-Zyklus [KONJEKTUR bis Phase 4], Normierungssensitivit&auml;t [FOLKLORE].</p>
-</div>
-<div class="lang-en">
-<h2>Technical details</h2>
-<p><strong>Tools:</strong> PARI/GP 2.17.3 (<code>lfunzeros</code>), GUDHI 3.11.0 (Vietoris-Rips), Python 3.11 (scipy, numpy), qwen3:235b-a22b + qwen3.6:35b-a3b (local, Ollama). Mac Studio M3 Ultra, 256&thinsp;GB. Runtime phase 3: approx. 3 minutes (PARI/GP) + 3 minutes (Python/TDA) + 3 minutes (committee).</p>
-<p><strong>Scripts:</strong> <code>tda_zeros_phase3.gp</code>, <code>tda_phase3.py</code>, <code>tda_phase3_bericht.md</code> &mdash; all in /Volumes/CLAUDE-DATA/TDA-Project/.</p>
-<p><strong>Epistemic status:</strong> H&#8320; finding [CONFIRMED], H&#8321; cycle [CONJECTURE until phase 4], normalisation sensitivity [FOLKLORE].</p>
-</div>
+<p><strong>Werkzeuge:</strong> PARI/GP 2.17.3 (<code>lfunzeros</code>, 15 Dezimalstellen), GUDHI 3.11.0 (H<sub>0</sub>, max_dim=1), ripser 0.6.15 (H<sub>1</sub>, thresh=5.0), Python 3.11 (scipy, numpy), qwen3:235b-a22b + qwen3.6:35b-a3b (Ollama, lokal). Mac Studio M3 Ultra, 256&thinsp;GB.</p>
+<p><strong>Laufzeiten Phase 4:</strong> PARI/GP (~25&thinsp;Min.), Python TDA + Bootstrap (~6&thinsp;Min.), Komitee (~5&thinsp;Min.).</p>
+<p><strong>Skripte:</strong> <code>tda_zeros_phase4.gp</code>, <code>tda_phase4.py</code> (v3) &mdash; alle unter /Volumes/CLAUDE-DATA/TDA-Project/.</p>
+<p><strong>Epistemischer Status:</strong> &gamma;&#771;<sub>1</sub>-Trennung [BELEGT], H<sub>0</sub>-Abweichung und H<sub>1</sub>-Unterdr&uuml;ckung [OFFEN bis Phase 5], Phase-3-Signal [REVIDIERT].</p>
 </div>
 </section>
 
 <footer class="wrapper">
-  <span>Thomas Riepe &middot; Berlin</span>
+  <span>Thomas Riepe &middot; Berlin &middot; 2026</span>
   <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
 </footer>
-
 </div>
 
 <script>
-function setLang(l){
-  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
-  document.querySelectorAll('.lang-'+l).forEach(e=>{e.style.removeProperty('display')});
-  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
-}
-
-// ── Farben ────────────────────────────────────────────────────────────────────
-const C={
-  bg2:'#161410',rule:'#2a2620',fg:'#e2ddd4',dim:'#9a9188',
-  gold:'#c8903a',green:'#7aad7a',blue:'#5b9bd5',red:'#b86060'
-};
-
-// ── Scatter Plot ──────────────────────────────────────────────────────────────
-(function(){
-  const cv=document.getElementById('scatterCanvas');
-  if(!cv)return;
-  const ctx=cv.getContext('2d');
-  const W=cv.width,H=cv.height;
-  const PAD={l:36,r:12,t:10,b:32};
-  const xMin=0,xMax=2.2,yMin=0,yMax=3.5;
-  const px=x=>PAD.l+(x-xMin)/(xMax-xMin)*(W-PAD.l-PAD.r);
-  const py=y=>H-PAD.b-(y-yMin)/(yMax-yMin)*(H-PAD.t-PAD.b);
-
-  ctx.fillStyle=C.bg2; ctx.fillRect(0,0,W,H);
-
-  // Grid
-  ctx.strokeStyle=C.rule; ctx.lineWidth=0.5;
-  [0,0.5,1,1.5,2].forEach(x=>{
-    ctx.beginPath();ctx.moveTo(px(x),PAD.t);ctx.lineTo(px(x),H-PAD.b);ctx.stroke();
-  });
-  [0,0.5,1,1.5,2,2.5,3].forEach(y=>{
-    ctx.beginPath();ctx.moveTo(PAD.l,py(y));ctx.lineTo(W-PAD.r,py(y));ctx.stroke();
-  });
-
-  // Axes
-  ctx.strokeStyle=C.dim; ctx.lineWidth=1;
-  ctx.beginPath();ctx.moveTo(PAD.l,H-PAD.b);ctx.lineTo(W-PAD.r,H-PAD.b);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(PAD.l,PAD.t);ctx.lineTo(PAD.l,H-PAD.b);ctx.stroke();
-
-  // Labels
-  ctx.fillStyle=C.dim; ctx.font='9px DM Mono,monospace'; ctx.textAlign='center';
-  [0,0.5,1,1.5,2].forEach(x=>ctx.fillText(x.toFixed(1),px(x),H-PAD.b+12));
-  ctx.textAlign='right';
-  [0,1,2,3].forEach(y=>ctx.fillText(y.toFixed(0),PAD.l-4,py(y)+3));
-  ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace';
-  ctx.textAlign='center'; ctx.fillText('\u03b3\u20311',px(1),H-2);
-  ctx.save();ctx.translate(10,py(1.5));ctx.rotate(-Math.PI/2);
-  ctx.fillText('\u03b3\u20312',0,0);ctx.restore();
-
-  // Daten: ungerade (gamma1=0), gerade (gamma1>0)
-  // Pseudozufallsdaten basierend auf Statistiken (repr\u00e4sentativ)
-  const rng=(seed)=>{let s=seed;return()=>{s=(s*1664525+1013904223)&0xffffffff;return(s>>>0)/0xffffffff}};
-  const r=rng(42);
-  const gauss=(rng,mu,sig)=>{
-    const u=1-rng(),v=rng();
-    return mu+sig*Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);
-  };
-
-  // Ungerade: 153 Punkte, gamma1=0, gamma2 ~ diverse
-  ctx.fillStyle=C.gold+'cc';
-  for(let i=0;i<153;i++){
-    const g2=Math.max(0.2,gauss(r,0.85,0.32));
-    const x=0;
-    ctx.beginPath();ctx.arc(px(x),py(g2),2.5,0,2*Math.PI);ctx.fill();
-  }
-
-  // Gerade: 153 Punkte, gamma1 ~ N(1.19, 0.31)
-  ctx.fillStyle=C.green+'cc';
-  for(let i=0;i<153;i++){
-    const g1=Math.max(0.1,gauss(r,1.19,0.31));
-    const g2=Math.max(0.5,gauss(r,1.4,0.38));
-    ctx.beginPath();ctx.arc(px(g1),py(g2),2.5,0,2*Math.PI);ctx.fill();
-  }
-
-  // Trennlinie
-  ctx.strokeStyle=C.dim+'88'; ctx.lineWidth=0.8; ctx.setLineDash([4,3]);
-  ctx.beginPath();ctx.moveTo(px(0.05),PAD.t);ctx.lineTo(px(0.05),H-PAD.b);ctx.stroke();
-  ctx.setLineDash([]);
-})();
-
-// ── Barcode H0 ────────────────────────────────────────────────────────────────
-(function(){
-  const cv=document.getElementById('barCanvas');
-  if(!cv)return;
-  const ctx=cv.getContext('2d');
-  const W=cv.width,H=cv.height;
-  ctx.fillStyle=C.bg2; ctx.fillRect(0,0,W,H);
-
-  const PAD={l:60,r:15,t:25,b:35};
-  const maxV=160;
-  const vals=[
-    {lbl:'Daten',v:70.57,col:C.gold},
-    {lbl:'GUE',v:152.70,col:C.blue}
-  ];
-  const barH=(H-PAD.t-PAD.b)/vals.length-12;
-  const bw=(x)=>x/maxV*(W-PAD.l-PAD.r);
-
-  vals.forEach((d,i)=>{
-    const y=PAD.t+i*(barH+12);
-    ctx.fillStyle=C.dim; ctx.font='9px DM Mono,monospace'; ctx.textAlign='right';
-    ctx.fillText(d.lbl,PAD.l-6,y+barH/2+3);
-    ctx.fillStyle=d.col+'44';
-    ctx.fillRect(PAD.l,y,bw(d.v),barH);
-    ctx.fillStyle=d.col;
-    ctx.fillRect(PAD.l,y,bw(d.v),4);
-    ctx.font='9px DM Mono,monospace'; ctx.textAlign='left';
-    ctx.fillText(d.v.toFixed(1),PAD.l+bw(d.v)+4,y+barH/2+3);
-  });
-
-  // Ratio text
-  ctx.fillStyle=C.fg; ctx.font='bold 11px DM Mono,monospace'; ctx.textAlign='center';
-  ctx.fillText('Ratio = 0.462',W/2,H-12);
-  ctx.fillStyle=C.green; ctx.font='9px DM Mono,monospace';
-  ctx.fillText('p = 0.004 vs. GUE',W/2,H-2);
-  ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
-  ctx.fillText('\u03a3 H\u2080-Lebensdauer',PAD.l,PAD.t-8);
-})();
-
-// ── k-Stabilit\u00e4t ────────────────────────────────────────────────────────────
+// k-Stabilitaet H1 Chart (echte Zahlen aus JSON)
 (function(){
   const cv=document.getElementById('kCanvas');
   if(!cv)return;
   const ctx=cv.getContext('2d');
   const W=cv.width,H=cv.height;
-  ctx.fillStyle=C.bg2; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#161410'; ctx.fillRect(0,0,W,H);
 
+  // Daten aus tda_phase4_results.json / k_stab_h1
   const data=[
-    {k:2,v:0.0885},{k:3,v:0.1193},{k:4,v:0.1352},
-    {k:5,v:0.1371},{k:6,v:0.1828}
+    {k:2,v:0.0663},{k:3,v:0.0984},{k:4,v:0.1276},{k:5,v:0.1249},
+    {k:6,v:0.1789},{k:7,v:0.1666},{k:8,v:0.2085},{k:9,v:0.2101},{k:10,v:0.2103}
   ];
-  const PAD={l:40,r:20,t:15,b:30};
-  const bw=(W-PAD.l-PAD.r)/data.length-6;
-  const maxV=0.22;
-  const bh=(v)=>v/maxV*(H-PAD.t-PAD.b);
+  const PAD={l:42,r:20,t:18,b:32};
+  const maxV=0.24;
+  const bw=Math.floor((W-PAD.l-PAD.r)/data.length)-4;
+  const bh=v=>v/maxV*(H-PAD.t-PAD.b);
 
   data.forEach((d,i)=>{
-    const x=PAD.l+i*(bw+6);
+    const x=PAD.l+i*(bw+4);
     const h=bh(d.v);
     const y=H-PAD.b-h;
-    const col=d.k===5?C.gold:C.gold+'88';
+    const col=d.k===8?'#c8903a':'#c8903a88';
     ctx.fillStyle=col;
     ctx.fillRect(x,y,bw,h);
-    ctx.fillStyle=C.dim; ctx.font='9px DM Mono,monospace'; ctx.textAlign='center';
+    ctx.fillStyle='#9a9188';
+    ctx.font='9px DM Mono,monospace';
+    ctx.textAlign='center';
     ctx.fillText('k='+d.k,x+bw/2,H-PAD.b+12);
-    ctx.fillStyle=d.k===5?C.fg:C.dim;
+    ctx.fillStyle=d.k>=8?'#e2ddd4':'#9a9188';
     ctx.fillText(d.v.toFixed(3),x+bw/2,y-4);
   });
 
-  ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
-  ctx.fillText('H\u2081 max. Lebensdauer',PAD.l,PAD.t-2);
+  ctx.fillStyle='#9a9188';
+  ctx.font='8px DM Mono,monospace';
+  ctx.textAlign='left';
+  ctx.fillText('H\u2081 max. Lebensdauer (ripser, n=1000, Phase 4)',PAD.l,PAD.t-3);
 })();
 </script>
 </body>
