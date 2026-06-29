@@ -663,6 +663,58 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-fami
 </section>
 
 <!-- ============================================================
+     INTERNATIONALE ARZNEIMITTELPREISE — SEKTION 7
+     ============================================================ -->
+<section>
+<div class="wrapper">
+
+<div class="lang-de"><h2>Internationale Arzneimittelpreise &mdash; Warum zahlt Deutschland mehr?</h2></div>
+<div class="lang-en" style="display:none"><h2>International Drug Prices &mdash; Why Does Germany Pay More?</h2></div>
+
+<div class="lang-de">
+<p>Deutschland ermöglicht neuen Arzneimitteln einen der weltweit schnellsten Marktzugänge &mdash; zahlt dafür aber einen strukturellen Preis: Im ersten Jahr nach Markteinführung erstatten die Krankenkassen den vom Hersteller frei gewählten Listenpreis (<em>freie Preisbildung</em>). Erst danach setzt das AMNOG-Verfahren (seit 2011) einen verhandelten Erstattungsbetrag auf Basis des nachgewiesenen Zusatznutzens. Frankreich und das Vereinigte Königreich regulieren Preise bereits vor oder unmittelbar bei Markteinführung. Das Ergebnis: Deutschland weist im OECD-Vergleich die höchsten Arzneimittelausgaben je Einwohner unter den großen EU-Ländern auf.</p>
+</div>
+<div class="lang-en" style="display:none">
+<p>Germany gives new drugs one of the fastest market access pathways in the world &mdash; but at a structural price: in the first year after launch, health funds reimburse the manufacturer's freely chosen list price (<em>free pricing</em>). Only afterwards does the AMNOG procedure (since 2011) set a negotiated reimbursement amount based on proven added benefit. France and the United Kingdom regulate prices before or immediately upon launch. The result: Germany shows the highest per-capita pharmaceutical spending among major EU countries in OECD comparisons.</p>
+</div>
+
+<canvas id="chartPharmaCap" style="max-height:300px"></canvas>
+<p class="chart-note lang-de">Pharmaausgaben je Einwohner (Einzelhandelsbereich, USD KKP-bereinigt). Deutschland, USA und OECD-&Oslash;: OECD Health at a Glance 2023, Datenjahr 2021. Frankreich: OECD 2022 (Insider Monkey / OECD-Daten). Quelle: OECD Health Statistics (CC&nbsp;BY&nbsp;4.0). Vereinigtes Königreich und Niederlande nicht aufgeführt: Retail-Ausgaben unterdurchschnittlich, da erhebliche Mengen über Krankenhausapotheken dispensiert werden (dort separat erfasst).</p>
+<p class="chart-note lang-en" style="display:none">Pharmaceutical expenditure per capita (retail sector, USD PPP). Germany, USA and OECD avg: OECD Health at a Glance 2023, reference year 2021. France: OECD 2022 data. Source: OECD Health Statistics (CC BY 4.0). UK and Netherlands not shown: retail figures below average due to significant hospital pharmacy dispensing captured separately.</p>
+
+<div class="lang-de">
+<h3 style="color:var(--gold);font-size:.95rem;margin:2rem 0 .75rem">Drei Strukturunterschiede im Preissystem</h3>
+<p><strong>1. Freie Preisbildung (Deutschland, Jahr 1):</strong> Hersteller setzen den Listenpreis selbst. Die GKV erstattet diesen vollständig. Erst nach 12 Monaten greift der AMNOG-Erstattungsbetrag. Für Blockbuster-Wirkstoffe mit großem Patientenpotential entstehen dadurch erhebliche Mehrausgaben &mdash; insbesondere weil Deutschland als globales Referenzland gilt und hohe Listenpreise international "exportiert" werden.</p>
+<p><strong>2. Kontrollierter Markteintritt (Frankreich, UK):</strong> In Frankreich setzt die <em>Commission de la Transparence</em> den <em>Service M&eacute;dical Rendu</em> fest, bevor eine Erstattung erfolgt; die <em>CEPS</em> verhandelt den Preis. In Großbritannien bewertet <em>NICE</em> das Kosten-Nutzen-Verhältnis vor NHS-Aufnahme. Beide Systeme verhindern die Erstattung zum vollen Listenpreis im ersten Jahr.</p>
+<p><strong>3. Vertrauliche Preise seit MFG 2025:</strong> Das Medizinforschungsgesetz (2025) erlaubt erstmals vertrauliche Erstattungsbeträge (&sect;&nbsp;130b Abs.&nbsp;1c SGB&nbsp;V), wenn pharmazeutische Unternehmen klinische Studien in Deutschland durchführen. Der SVR Gesundheit &amp; Pflege kritisiert dies: Die Kopplung des Erstattungspreises an Standortentscheidungen schwäche die Bindung des Preisniveaus an den Zusatznutzen.</p>
+</div>
+<div class="lang-en" style="display:none">
+<h3 style="color:var(--gold);font-size:.95rem;margin:2rem 0 .75rem">Three Structural Differences in the Pricing System</h3>
+<p><strong>1. Free pricing (Germany, year 1):</strong> Manufacturers set their own list prices. The GKV reimburses them in full. Only after 12 months does the AMNOG reimbursement amount apply. For blockbuster drugs with large patient populations, this generates substantial excess costs &mdash; particularly as Germany serves as a global reference country, effectively "exporting" high list prices internationally.</p>
+<p><strong>2. Controlled market entry (France, UK):</strong> In France, the <em>Commission de la Transparence</em> determines the <em>Service M&eacute;dical Rendu</em> before reimbursement begins; the <em>CEPS</em> negotiates the price. In the UK, <em>NICE</em> assesses cost-effectiveness before NHS inclusion. Both systems prevent reimbursement at full list price in year one.</p>
+<p><strong>3. Confidential prices since MFG 2025:</strong> The Medical Research Act (2025) for the first time permits confidential reimbursement amounts (&sect; 130b para. 1c SGB V) when pharmaceutical companies conduct clinical trials in Germany. The SVR Health Advisory Council criticises this: linking reimbursement prices to location decisions weakens the price-added-benefit link.</p>
+</div>
+
+<div class="lang-de"><h3 style="color:var(--fg);font-size:.92rem;margin:2rem 0 .6rem">Beispiel: GLP-1-Agonist Semaglutid (Wegovy&reg;) &mdash; Listenpreisvergleich</h3></div>
+<div class="lang-en" style="display:none"><h3 style="color:var(--fg);font-size:.92rem;margin:2rem 0 .6rem">Example: GLP-1 Agonist Semaglutide (Wegovy&reg;) &mdash; List Price Comparison</h3></div>
+
+<canvas id="chartGLP1" style="max-height:260px"></canvas>
+<p class="chart-note lang-de">Wegovy&reg; (Semaglutid 2,4&nbsp;mg, 4-Wochen-Packung), Listenpreise in USD (Wechselkurs 30.06.2023): DE&nbsp;328&nbsp;$ | NL&nbsp;296&nbsp;$ | USA&nbsp;1.349&nbsp;$. Quelle: Peterson-KFF Health System Tracker, August 2023 (frei zugänglich). <strong>Wichtig:</strong> Listenpreise &ne; tatsächlich erstattete Beträge. <strong>GKV erstattet Wegovy&reg; nicht</strong> (Adipositas-Indikation ausgeschlossen, &sect;&nbsp;34 SGB&nbsp;V). Ozempic&reg; (Diabetes-Indikation) ist GKV-erstattungsfähig; der AMNOG-Erstattungsbetrag liegt unter dem Listenpreis.</p>
+<p class="chart-note lang-en" style="display:none">Wegovy&reg; (semaglutide 2.4&nbsp;mg, 4-week pack), list prices in USD (exchange rate 30 Jun 2023): DE&nbsp;$328 | NL&nbsp;$296 | USA&nbsp;$1,349. Source: Peterson-KFF Health System Tracker, August 2023 (open access). <strong>Note:</strong> List prices &ne; actual reimbursed amounts. <strong>GKV does not cover Wegovy&reg;</strong> (obesity indication excluded for adults, &sect; 34 SGB V). Ozempic&reg; (diabetes indication) is GKV-reimbursable; AMNOG reimbursement amount is below list price.</p>
+
+<div class="warn-box lang-de">
+  <strong>SVR Gutachten 2025 &mdash; Alarmsignal Arzneimittelpreise:</strong> Der Sachverständigenrat Gesundheit &amp; Pflege warnt, dass der Durchschnittspreis neu eingeführter patentgeschützter Arzneimittel von rund 1.000&nbsp;&euro; vor 15 Jahren auf zuletzt etwa 50.000&nbsp;&euro;/Jahr gestiegen ist. Für Gentherapien (ATMPs) werden Preise von bis zu 3&nbsp;Mio.&nbsp;&euro; pro Einmalgabe erhoben. Der SVR empfiehlt u.a. einen Interimspreis bei Markteinführung (orientiert an der zweckmäßigen Vergleichstherapie) sowie dynamische Preisanpassungen über den Produktlebenszyklus.<br>
+  <span style="font-size:.8rem;color:var(--fg-dim)">Quelle: SVR Gutachten 2025 &laquo;Preise innovativer Arzneimittel in einem lernenden Gesundheitssystem&raquo;, Übergabe 22.05.2025 (CC&nbsp;BY-NC-SA&nbsp;3.0&nbsp;IGO &mdash; ausschließlich nicht-kommerzielle Nutzung).</span>
+</div>
+<div class="warn-box lang-en" style="display:none">
+  <strong>SVR Expert Report 2025 &mdash; Drug Price Alert:</strong> The Advisory Council on Health warns that the average price of newly introduced patent-protected drugs has risen from ~&euro;1,000 fifteen years ago to around &euro;50,000/year most recently. For gene therapies (ATMPs), prices of up to &euro;3 million per one-time dose are charged. The SVR recommends an interim price at launch (linked to the comparator therapy) and dynamic price adjustments over the product lifecycle.<br>
+  <span style="font-size:.8rem;color:var(--fg-dim)">Source: SVR Expert Report 2025 &laquo;Prices of Innovative Medicines in a Learning Health System&raquo;, submitted 22 May 2025 (CC BY-NC-SA 3.0 IGO &mdash; non-commercial use only).</span>
+</div>
+
+</div>
+</section>
+
+<!-- ============================================================
      REFORMPOLITIK 2026
      ============================================================ -->
 <section>
@@ -1272,7 +1324,7 @@ new Chart(document.getElementById('chartLangfrist'),{
         {label:'Deutschland',data:ptDE,
          backgroundColor:GOLD,pointRadius:11,pointHoverRadius:13},
         {label:'OECD-Ø',data:ptAvg,
-         backgroundColor:BLUE,pointStyle:'crossRot',pointRadius:9,pointHoverRadius:11}
+         backgroundColor:BLUE,borderColor:BLUE,borderWidth:3,pointStyle:'crossRot',pointRadius:9,pointHoverRadius:11}
       ]
     },
     options:{
@@ -1372,6 +1424,57 @@ new Chart(document.getElementById('chartDiGA'),{
     }
   }
 });
+
+/* ---- Chart 7a: Pharmaausgaben/Kopf OECD ---- */
+(function(){
+  var lbls=['USA (2021)','Deutschland (2021)','Frankreich (2022)','OECD-Ø (2021)'];
+  var vals=[1713,1006,766,614];
+  var bg=[RED+'99',GOLD+'99',BLUE+'99',FGDIM+'66'];
+  var bc=[RED,GOLD,BLUE,FGDIM];
+  new Chart(document.getElementById('chartPharmaCap'),{
+    type:'bar',
+    data:{labels:lbls,datasets:[{label:'USD/Kopf (KKP)',data:vals,backgroundColor:bg,borderColor:bc,borderWidth:1,borderRadius:2}]},
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:function(c){return ' '+c.raw.toLocaleString('de-DE')+' USD/Kopf';}}}
+      },
+      scales:{
+        y:{grid:{color:RULE},title:{display:true,text:'USD PPP je Einwohner',color:FGDIM,font:{size:10}},ticks:{callback:function(v){return v.toLocaleString('de-DE');}}},
+        x:{grid:{display:false}}
+      }
+    }
+  });
+})();
+
+/* ---- Chart 7b: GLP-1 Listenpreisvergleich ---- */
+(function(){
+  new Chart(document.getElementById('chartGLP1'),{
+    type:'bar',
+    data:{
+      labels:['Deutschland','Niederlande','USA'],
+      datasets:[{
+        label:'Wegovy® 2,4 mg (4 Wo.) — Listenpreis Jun. 2023 (USD)',
+        data:[328,296,1349],
+        backgroundColor:[GOLD+'99',BLUE+'99',RED+'99'],
+        borderColor:[GOLD,BLUE,RED],
+        borderWidth:1,borderRadius:2
+      }]
+    },
+    options:{
+      responsive:true,
+      plugins:{
+        legend:{position:'bottom',labels:{boxWidth:10,padding:8}},
+        tooltip:{callbacks:{label:function(c){return ' '+c.raw.toLocaleString('de-DE')+' USD';}}}
+      },
+      scales:{
+        y:{grid:{color:RULE},title:{display:true,text:'Listenpreis USD (4-Wochen-Packung)',color:FGDIM,font:{size:10}},ticks:{callback:function(v){return v.toLocaleString('de-DE');}}},
+        x:{grid:{display:false}}
+      }
+    }
+  });
+})();
 
 /* ---- Language switcher ---- */
 function setLang(l){
