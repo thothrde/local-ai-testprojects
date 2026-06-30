@@ -46,7 +46,7 @@ section{margin-bottom:3.5rem}
              gap:1rem;margin:1.5rem 0}
 .rtile{background:var(--bg2);border:1px solid var(--rule);
        border-left:3px solid var(--gold2);padding:1rem 1.2rem;border-radius:2px}
-.rtile .val{font-family:var(--mono);font-size:1.35rem;color:var(--gold);
+.rtile .val{font-family:var(--mono);font-size:1.3rem;color:var(--gold);
             line-height:1.2;margin-bottom:.25rem}
 .rtile .lbl{font-family:var(--sans);font-size:.68rem;color:var(--fg-dim);
             letter-spacing:.05em}
@@ -58,10 +58,10 @@ section{margin-bottom:3.5rem}
 .rtile.rev{border-left-color:var(--red);opacity:.75}
 .rtile.rev .val{color:var(--fg-dim);text-decoration:line-through}
 .phase-table{width:100%;border-collapse:collapse;font-family:var(--sans);
-             font-size:.78rem;margin:1.5rem 0}
-.phase-table th{border-bottom:1px solid var(--rule);padding:.5rem .7rem;
-                text-align:left;color:var(--gold);font-weight:500;letter-spacing:.06em}
-.phase-table td{border-bottom:1px solid var(--rule);padding:.45rem .7rem;color:var(--fg-dim)}
+             font-size:.76rem;margin:1.5rem 0}
+.phase-table th{border-bottom:1px solid var(--rule);padding:.5rem .6rem;
+                text-align:left;color:var(--gold);font-weight:500;letter-spacing:.05em}
+.phase-table td{border-bottom:1px solid var(--rule);padding:.45rem .6rem;color:var(--fg-dim)}
 .phase-table tr:hover td{color:var(--fg);background:var(--bg2)}
 .phase-table td.hi{color:var(--green);font-weight:600}
 .phase-table td.rev{color:var(--red);text-decoration:line-through}
@@ -70,7 +70,9 @@ section{margin-bottom:3.5rem}
 .alert{border:1px solid var(--amber);border-radius:3px;
        background:rgba(212,160,64,.07);padding:1rem 1.3rem;margin:1.5rem 0;
        font-size:.92rem;line-height:1.7}
+.alert.green{border-color:var(--green);background:rgba(122,173,122,.07)}
 .alert strong{color:var(--amber)}
+.alert.green strong{color:var(--green)}
 .cbox{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;
       padding:1.3rem 1.5rem;margin:.8rem 0}
 .cbox .mtag{font-family:var(--mono);font-size:.6rem;color:var(--gold);
@@ -90,7 +92,8 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
        font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);
        display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 @media(max-width:640px){html{font-size:15px}.wrapper{padding:0 1.2rem}
-  .result-grid{grid-template-columns:repeat(2,1fr)}}
+  .result-grid{grid-template-columns:repeat(2,1fr)}
+  .phase-table{font-size:.65rem}}
 </style>
 </head>
 <body>
@@ -98,14 +101,14 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
 <header>
 <div class="col">
   <a class="back" href="index.html">&#8592; Alle Projekte</a>
-  <p class="proj-meta">Projekt 25 &middot; Arithmetik &amp; Zahlentheorie &middot; Juni 2026</p>
+  <p class="proj-meta">Projekt 25 &middot; Arithmetik &amp; Zahlentheorie &middot; Juni&ndash;Juli 2026</p>
   <h1>TDA auf L-Funktionen-Nullstellen
     <span class="sub">Topological Data Analysis on L-function Zeros</span>
   </h1>
   <div class="status-row">
-    <span><span class="dot-amber"></span>Phase 4 abgeschlossen &middot; Phase 5 geplant</span>
+    <span><span class="dot-green"></span>Phase 5 abgeschlossen &middot; robuster Hauptbefund</span>
     <span>PARI/GP 2.17 &middot; GUDHI 3.11 &middot; ripser 0.6 &middot; Mac Studio M3 Ultra 256&thinsp;GB</span>
-    <span>Phase 4: n&thinsp;=&thinsp;6086 &middot; |D|&thinsp;&le;&thinsp;10000 &middot; k&thinsp;=&thinsp;8</span>
+    <span>n&thinsp;=&thinsp;6086 &middot; |D|&thinsp;&le;&thinsp;10000 &middot; k&thinsp;=&thinsp;8</span>
   </div>
 </div>
 </header>
@@ -113,233 +116,202 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
 <section>
 <div class="col">
 <h2>Idee</h2>
-<p>Die Nullstellen von Dirichlet-L-Funktionen folgen laut Montgomery-Odlyzko-Gesetz und Katz-Sarnak-Programm Zufallsmatrizenstatistiken. F&uuml;r reelle Dirichlet-Charaktere (Kronecker-Symbole &chi;<sub>D</sub>) sagt Katz-Sarnak orthogonale Symmetrie voraus: die Nullstellenabst&auml;nde sollen dem Gauß'schen Orthogonalen Ensemble (GOE) folgen.</p>
-<p>Dieses Projekt fragt: Gilt das auch f&uuml;r die <em>globale Topologie</em> einer L-Funktionen-Familie? Persistente Homologie (TDA, Vietoris-Rips) misst die Form der Punktwolke aller L-Funktionen simultan in einem normierten Koordinatenraum &mdash; etwas anderes als Abstandsstatistiken einzelner Nullstellen.</p>
-<p>Konkret: Jede L-Funktion L(s,&chi;<sub>D</sub>) wird durch ihre ersten k Katz-Sarnak-normierten Nullstellen als Punkt in &reals;<sup>k</sup> dargestellt. Die Punktwolke der L-Funktionen-Familie wird mit TDA analysiert.</p>
+<p>Die Nullstellen von Dirichlet-L-Funktionen folgen laut Montgomery-Odlyzko-Gesetz und Katz-Sarnak-Programm Zufallsmatrizenstatistiken. F&uuml;r reelle Dirichlet-Charaktere (Kronecker-Symbole &chi;<sub>D</sub>) sagt Katz-Sarnak orthogonale Symmetrie voraus: die lokale Nullstellenabstandsstatistik soll dem Gauß'schen Orthogonalen Ensemble (GOE) folgen.</p>
+<p>Dieses Projekt fragt etwas anderes: Gilt das auch f&uuml;r die <em>globale Topologie</em> einer L-Funktionen-<em>Familie</em>, gemessen mit persistenter Homologie (TDA, Vietoris-Rips)? Jede L-Funktion L(s,&chi;<sub>D</sub>) wird durch ihre ersten k Katz-Sarnak-normierten Nullstellen als Punkt in &reals;<sup>k</sup> dargestellt; die Punktwolke der gesamten Familie wird topologisch analysiert.</p>
 </div>
 </section>
 
 <section>
 <div class="col">
-<h2>Setup &amp; Methodik</h2>
-<p><strong>L-Funktionen:</strong> Kronecker-Symbole &chi;<sub>D</sub>&thinsp;=&thinsp;(D/&middot;) f&uuml;r alle fundamentalen Diskriminanten. Phase 4: |D|&thinsp;&le;&thinsp;10000, 6086 L-Funktionen (3043 ungerade D&lt;0, 3043 gerade D&gt;0).</p>
-<p><strong>Nullstellen:</strong> PARI/GP 2.17.3 (<code>lfunzeros</code>), 15 Dezimalstellen, bis Bildh&ouml;he t&thinsp;=&thinsp;100.</p>
-<p><strong>Normierung (Katz-Sarnak):</strong> &gamma;&#771;<sub>n</sub>&thinsp;=&thinsp;&gamma;<sub>n</sub>&thinsp;&middot;&thinsp;log|D|/(2&pi;). Einbettung in &reals;<sup>8</sup> (Phase 4).</p>
-<p><strong>Nullmodell-Evolution (kritisch):</strong> Phasen 1&ndash;3 verwendeten WDS-Simulation ohne Abgleich mit den Fuehrern der echten L-Funktionen. Phase 4 benutzt ein <em>matched null model</em>: f&uuml;r jede L-Funktion mit Fuehrer q und Parit&auml;t p wird ein GOE/GUE-Klon mit identischem q und p generiert, dann dieselbe KS-Normierung angewendet. Dadurch heben sich Skalierungsartefakte heraus.</p>
-<p><strong>TDA:</strong> H<sub>0</sub>-Persistenz (GUDHI, max_dim=1) auf vollem n&thinsp;=&thinsp;6086. H<sub>1</sub>-Persistenz (ripser 0.6) auf Teilmenge n&thinsp;=&thinsp;2000. Bootstrap-CI (200&thinsp;Iterationen, sample_size&thinsp;=&thinsp;800).</p>
-<p><strong>Komitee:</strong> qwen3:235b-a22b (Interpretation) + qwen3.6:35b-a3b (adversarielle Pr&uuml;fung), beide lokal via Ollama, kein API-Call.</p>
+<h2>Hauptbefund (Phase 5)</h2>
+<div class="alert green">
+<strong>Robuster, zweifach abgesicherter Befund:</strong> Die globale H&#8320;-Topologie der L-Funktionen-Punktwolke weicht signifikant von echten GOE/GUE-Zufallsmatrizen ab (z&thinsp;=&thinsp;&minus;20.97 relativ zur empirischen Selbstkonsistenz-Streuung), und ein komplett modellfreier Permutationstest best&auml;tigt unabh&auml;ngig: die Parit&auml;t (gerade/ungerade Charakter) tr&auml;gt reale topologische Information &mdash; keine der 80 Zufallspermutationen erreichte die beobachtete Abweichung.
 </div>
-</section>
-
-<section>
-<div class="col">
-<h2>Phasenvergleich &mdash; alle Ergebnisse</h2>
 <div class="alert">
-<strong>Methodische Korrektur (Phase 4):</strong> Phasen 2+3 verglichen gegen ungematchtes GUE-WDS-Nullmodell im falschen Raum. Phase 3 scheinbar signifikantes Signal (p&thinsp;=&thinsp;0.004) ist Artefakt dieses Nullmodells. Phase 4 mit gematchtem GOE-Nullmodell (gleiche Fuehrer, gleiche Parit&auml;t, dann gleiche KS-Normierung) liefert die bisher methodisch saubersten Vergleiche.
+<strong>Wichtige Einschr&auml;nkung:</strong> Dies ist <em>keine</em> Widerlegung der klassischen Katz-Sarnak-Theorie (n-Level-Dichte, lokale Abstandsstatistik) &mdash; diese wird durch unseren eigenen Validit&auml;ts-Check sogar best&auml;tigt (Atas-&#10216;r&#10217;-Statistik der generierten Matrizen trifft die Literaturwerte exakt). Die Abweichung betrifft eine spezifische TDA-Statistik (Summe der H&#8320;-Persistenz-Lebensdauern einer Vietoris-Rips-Filtration), die nicht bekanntermaßen &auml;quivalent zu klassischen RMT-Kennzahlen ist.
 </div>
+</div>
+</section>
+
+<section>
+<div class="col">
+<h2>Methodik-Entwicklung &uuml;ber 5 Phasen</h2>
 
 <table class="phase-table">
 <thead>
 <tr>
-  <th>Phase</th><th>n</th><th>|D|</th><th>k</th>
-  <th>Nullmodell</th><th>H<sub>0</sub>&thinsp;Ratio</th>
-  <th>H<sub>1</sub>&thinsp;max (k=5)</th><th>Status</th>
+  <th>Phase</th><th>n</th><th>|D|</th>
+  <th>Nullmodell</th><th>H<sub>0</sub>&thinsp;Ratio vs.&thinsp;GOE</th><th>Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>1+2 Prototyp</td>
-  <td class="mono">60</td><td class="mono">&le;100</td><td class="mono">5</td>
-  <td>ungematchtes GUE-WDS</td>
-  <td class="mono rev">0.361</td>
-  <td class="mono rev">0.336&rarr;0.035</td>
-  <td class="rev">Partialsummen, ungenau</td>
+  <td>1+2 Prototyp</td><td class="mono">60</td><td class="mono">&le;100</td>
+  <td>ungematchtes GUE-WDS</td><td class="mono rev">0.361</td>
+  <td class="rev">Partialsummen ungenau</td>
 </tr>
 <tr>
-  <td>2 PARI/GP</td>
-  <td class="mono">61</td><td class="mono">&le;100</td><td class="mono">5</td>
-  <td>ungematchtes GUE-WDS</td>
-  <td class="mono">0.511 (p=0.21)</td>
-  <td class="mono">0.148</td>
+  <td>2 PARI/GP</td><td class="mono">61</td><td class="mono">&le;100</td>
+  <td>ungematchtes GUE-WDS</td><td class="mono">&mdash; (p=0.21, n.s.)</td>
   <td>nicht signifikant</td>
 </tr>
 <tr>
-  <td>3 PARI/GP</td>
-  <td class="mono">306</td><td class="mono">&le;500</td><td class="mono">5</td>
-  <td>ungematchtes GUE-WDS</td>
-  <td class="mono rev">0.462 (p=0.004)</td>
-  <td class="mono">0.137</td>
+  <td>3 PARI/GP</td><td class="mono">306</td><td class="mono">&le;500</td>
+  <td>ungematchtes GUE-WDS</td><td class="mono rev">0.462 (p=0.004)</td>
   <td class="rev">Nullmodell falsch</td>
 </tr>
 <tr>
-  <td><strong>4 PARI/GP</strong></td>
-  <td class="mono hi">6086</td><td class="mono hi">&le;10000</td><td class="mono hi">8</td>
-  <td>gematchtes GOE+GUE</td>
-  <td class="mono open">GOE: 0.4939<br>GUE: 0.6427</td>
-  <td class="mono open">0.1799 vs GOE 0.4281</td>
-  <td class="open">interpretiert</td>
+  <td>4 PARI/GP</td><td class="mono">6086</td><td class="mono">&le;10000</td>
+  <td>gematchtes WDS (approx.)</td><td class="mono open">0.4939 (Referenz unklar)</td>
+  <td class="open">Referenzwert-Konflation entdeckt</td>
+</tr>
+<tr>
+  <td><strong>5 PARI/GP</strong></td><td class="mono hi">6086</td><td class="mono hi">&le;10000</td>
+  <td><strong>echte GOE/GUE-Matrizen + Selbstkonsistenz</strong></td>
+  <td class="mono hi">0.5302 (z=&minus;20.97)</td>
+  <td class="hi">robust, doppelt validiert</td>
 </tr>
 </tbody>
 </table>
+
+<p>Die zentrale methodische Lektion zwischen Phase 4 und 5: Phase 4 verglich gegen eine Wigner-Dyson-Surmise-Approximation (nur N&auml;chster-Nachbar-Statistik) und zog versehentlich einen externen Literaturwert (~0.531, die Atas-&#10216;r&#10217;-Statistik) als Referenz heran &mdash; eine andere Gr&ouml;&szlig;e als unser H&#8320;-Ratio. Phase 5 ersetzt WDS durch echte diagonalisierte Zufallsmatrizen und etabliert die Referenz empirisch via Selbstkonsistenz (zwei unabh&auml;ngige Null-Klone gegeneinander getestet).</p>
 </div>
 </section>
 
 <section>
 <div class="col">
-<h2>Phase-4-Ergebnisse im Detail</h2>
+<h2>Phase 5 &mdash; Validit&auml;t der Methode</h2>
+<p>Bevor der Hauptbefund Aussagekraft hat, muss die Zufallsmatrizen-Generierung selbst stimmen. Test: die Atas-&#10216;r&#10217;-Statistik (mittleres N&auml;chster-Nachbar-Verh&auml;ltnis, ein etabliertes RMT-Kennzeichen) aus den generierten Matrizen-Pools:</p>
 
 <div class="result-grid">
   <div class="rtile ok">
-    <div class="val">p &rarr; 0</div>
-    <div class="lbl">&gamma;&#771;<sub>1</sub>-Trennung odd/even</div>
-    <div class="note">n=6086, Mann-Whitney, [BELEGT]</div>
+    <div class="val">0.5300</div>
+    <div class="lbl">Atas &#10216;r&#10217; GOE-Pool (60&times;N=1200)</div>
+    <div class="note">Literatur: 0.5307 &mdash; Abweichung 0.13%</div>
   </div>
-  <div class="rtile">
-    <div class="val">0.4939</div>
+  <div class="rtile ok">
+    <div class="val">0.6010</div>
+    <div class="lbl">Atas &#10216;r&#10217; GUE-Pool (60&times;N=1200)</div>
+    <div class="note">Literatur: 0.5996 &mdash; Abweichung 0.23%</div>
+  </div>
+</div>
+<p style="font-size:.9rem;color:var(--fg-dim)">Beide Pools treffen die theoretischen RMT-Werte auf &lt;0.3% genau &mdash; die Matrizen-Generierung und Entfaltung sind korrekt.</p>
+</div>
+</section>
+
+<section>
+<div class="col">
+<h2>Phase 5 &mdash; Kernergebnisse</h2>
+
+<div class="result-grid">
+  <div class="rtile ok">
+    <div class="val">0.5302</div>
     <div class="lbl">H<sub>0</sub>-Ratio Daten / GOE</div>
-    <div class="note">GOE-Theorie ~0.531; CI (n=800): [0.498,&thinsp;0.533]</div>
+    <div class="note">CI(n=600): [0.530, 0.574]</div>
   </div>
   <div class="rtile">
-    <div class="val">0.6427</div>
+    <div class="val">1.0066</div>
+    <div class="lbl">Selbstkonsistenz GOE_A / GOE_B</div>
+    <div class="note">CI: [0.961, 1.046] &mdash; Referenz f&uuml;r "Ratio=1"</div>
+  </div>
+  <div class="rtile ok">
+    <div class="val">z = &minus;20.97</div>
+    <div class="lbl">Abweichung Daten vs. Selbstkonsistenz</div>
+    <div class="note">weit au&szlig;erhalb des Rausch-CI</div>
+  </div>
+  <div class="rtile ok">
+    <div class="val">p &lt; 1/80</div>
+    <div class="lbl">Permutationstest Parit&auml;t (modellfrei)</div>
+    <div class="note">0/80 Permutationen so extrem wie Daten</div>
+  </div>
+  <div class="rtile">
+    <div class="val">0.6720</div>
     <div class="lbl">H<sub>0</sub>-Ratio Daten / GUE</div>
-    <div class="note">GUE-Theorie ~0.604; CI (n=800): [0.648,&thinsp;0.697]</div>
+    <div class="note">Selbstkonsistenz GUE: 0.9947</div>
   </div>
   <div class="rtile open">
-    <div class="val">0.4202</div>
+    <div class="val">0.5320</div>
     <div class="lbl">H<sub>1</sub>-Ratio Daten / GOE</div>
-    <div class="note">Daten 0.1799 vs GOE 0.4281, n=2000-Teilmenge [offen]</div>
-  </div>
-  <div class="rtile">
-    <div class="val">1705 / 3452</div>
-    <div class="lbl">H<sub>0</sub> &Sigma;-Lebensdauer: Daten / GOE</div>
-    <div class="note">GUE: 2653 &mdash; Daten komprimierter als beide Ensemble</div>
-  </div>
-  <div class="rtile">
-    <div class="val">1.071 &plusmn; 0.345</div>
-    <div class="lbl">&gamma;&#771;<sub>1</sub> gerade Charaktere (D&gt;0)</div>
-    <div class="note">&gamma;&#771;<sub>1</sub> ungerade: 0.0000 exakt (Funktionalgleichung)</div>
+    <div class="note">n=2000-Teilmenge, ripser</div>
   </div>
 </div>
 
-<!-- Teilfamilien -->
-<h3>Teilfamilien vs. GOE</h3>
+<h3>Permutationstest im Detail</h3>
+<p>Beobachtetes Verh&auml;ltnis der H&#8320;-Persistenzsumme zwischen ungeraden (D&lt;0) und geraden (D&gt;0) Charakteren: <strong>0.8551</strong>. Werden stattdessen 80&times; zuf&auml;llig 3043/3043-Teilmengen aus der GESAMTEN Punktwolke gezogen (ohne R&uuml;cksicht auf echte Parit&auml;t), ergibt sich ein Mittel von 1.0004&thinsp;&plusmn;&thinsp;0.0064, CI95=[0.9889,&thinsp;1.0121]. Keine der 80 Permutationen kam in die N&auml;he von 0.8551. Dieser Test braucht <em>kein</em> RMT-Modell &mdash; er zeigt direkt, dass die Parit&auml;tsinformation in den Daten selbst topologisch codiert ist.</p>
+
+<h3>Bootstrap-Konfidenzintervalle (100 Iterationen, n=600 Stichprobe)</h3>
 <table class="phase-table">
-<thead>
-  <tr><th>Familie</th><th>Symmetrietyp (Katz-Sarnak)</th><th>H<sub>0</sub>-Ratio / GOE</th><th>Interpretation</th></tr>
-</thead>
+<thead><tr><th>Vergleich</th><th>Mittel</th><th>CI 95%</th></tr></thead>
 <tbody>
-  <tr>
-    <td>Ungerade &chi; (D&lt;0)</td>
-    <td>SO(2N+1)</td>
-    <td class="mono">0.2273</td>
-    <td class="fg-dim">stark unterhalb GOE</td>
-  </tr>
-  <tr>
-    <td>Gerade &chi; (D&gt;0)</td>
-    <td>SO(2N)</td>
-    <td class="mono">0.2659</td>
-    <td class="fg-dim">stark unterhalb GOE</td>
-  </tr>
-  <tr>
-    <td>Alle &chi; (D&lt;0 und D&gt;0)</td>
-    <td>O(N)</td>
-    <td class="mono">0.4939</td>
-    <td class="fg-dim">Bootstrap CI [0.498, 0.533]</td>
-  </tr>
+<tr><td>Daten / GOE_A</td><td class="mono">0.5540</td><td class="mono">[0.5298, 0.5742]</td></tr>
+<tr><td>GOE_A / GOE_B (Selbstkonsistenz)</td><td class="mono hi">1.0029</td><td class="mono">[0.9613, 1.0457]</td></tr>
+<tr><td>Daten / GUE_A</td><td class="mono">0.6950</td><td class="mono">[0.6697, 0.7204]</td></tr>
+<tr><td>GUE_A / GUE_B (Selbstkonsistenz)</td><td class="mono hi">0.9965</td><td class="mono">[0.9598, 1.0329]</td></tr>
 </tbody>
 </table>
-
-<!-- k-Stabilitaet -->
-<h3>k-Stabilit&auml;t (n=1500)</h3>
-<div class="viz-wrap">
-  <div class="vt">H<sub>1</sub>-Lebensdauer nach Einbettungsdimension k &mdash; Phase 4</div>
-  <canvas id="kCanvas" width="640" height="130" style="width:100%;max-width:640px;display:block"></canvas>
-  <p style="font-size:.75rem;color:var(--fg-dim);margin-top:.5rem">
-    Werte aus JSON: k=2:0.066, k=3:0.098, k=4:0.128, k=5:0.125, k=6:0.179, k=7:0.167, k=8:0.209, k=9:0.210, k=10:0.210
-  </p>
-</div>
 </div>
 </section>
 
 <section>
 <div class="col">
-<h2>Interpretation &amp; Grenzen</h2>
-
-<h3>Was das Bootstrap-CI sagt</h3>
-<p>Das Bootstrap-Konfidenzintervall f&uuml;r den H<sub>0</sub>-Ratio Daten/GOE betr&auml;gt bei Stichprobengr&ouml;&szlig;e n=800: <strong>[0.4982,&thinsp;0.5329]</strong>. Der theoretische Wert f&uuml;r GOE-Zufallsmatrizen bei dieser Statistik betr&auml;gt laut adversarieller Analyse ~0.531. Dieser Wert liegt (knapp) im CI. Der vollst&auml;ndige Datensatz (n=6086) ergibt 0.4939 &mdash; leicht unterhalb des CI-Mittels von 0.516, was eine bekannte Skalierungsabh&auml;ngigkeit dieser Statistik widerspiegelt (das CI gilt f&uuml;r n=800, nicht n=6086).</p>
-
-<h3>Limitierung des Nullmodells (adversarieller Befund)</h3>
-<p>Das Wigner-Dyson-Surmise (WDS), das f&uuml;r das matched null model verwendet wurde, approximiert nur die <em>N&auml;chster-Nachbar-Abstandsverteilung</em>. Es erfasst nicht die k-Punkt-Korrelationsfunktionen des GOE, die f&uuml;r TDA-basierte Ratios relevant sind. Die Spektralstarrheit (<em>spectral rigidity</em>) des GOE wird ebenfalls nicht korrekt reproduziert. Dies bedeutet: Der Ratio 0.4939 vs. GOE(WDS) ist kein exakter Test gegen das Katz-Sarnak-GOE, sondern eine Approximation mit systematischer Unsicherheit.</p>
-
-<h3>H<sub>1</sub>: Offene Frage</h3>
-<p>Die Daten zeigen H<sub>1</sub>-Lebensdauer 0.1799, w&auml;hrend das gematchte GOE-Null-Modell 0.4281 erreicht &mdash; Ratio 0.42. Die Daten haben deutlich <em>weniger</em> persistente 1-dimensionale Zyklen als GOE vorhersagt. Die k-Stabilit&auml;t von H<sub>1</sub> (0.066 bei k=2 bis 0.210 bei k=10) zeigt eine hierarchische Struktur. Ob dieses Signal echte arithmetische Topologie ist oder durch die WDS-Limitierung des Nullmodells entsteht, kann Phase 4 nicht kl&auml;ren.</p>
-
-<h3>&gamma;&#771;<sub>1</sub>-Separation: robuster Befund</h3>
-<p>Alle ungeraden Charaktere (D&lt;0, &chi;(&minus;1)=&minus;1) haben &gamma;&#771;<sub>1</sub>&thinsp;=&thinsp;0 exakt, weil die Funktionalgleichung mit Vorzeichen &epsilon;&thinsp;=&thinsp;&minus;1 eine Nullstelle bei s&thinsp;=&thinsp;1/2 erzwingt. Gerade Charaktere haben &gamma;&#771;<sub>1</sub>&thinsp;=&thinsp;1.071&thinsp;&plusmn;&thinsp;0.345. Diese Trennung ist triviale Konsequenz der Funktionalgleichung [BELEGT], hat aber nichts mit GOE/GUE zu tun.</p>
-</div>
-</section>
-
-<section>
-<div class="col">
-<h2>Komitee-Analyse Phase 4</h2>
+<h2>Komitee-Analyse Phase 5</h2>
 
 <div class="cbox">
-  <span class="mtag">qwen3:235b-a22b &middot; Lokales Ollama &middot; Phase 4</span>
-  <p><span class="tag tag-b">BELEGT</span> &gamma;&#771;<sub>1</sub>-Trennung: p&thinsp;&rarr;&thinsp;0, triviale Konsequenz der Funktionalgleichung.</p>
-  <p><span class="tag tag-k">KONJEKTUR</span> Parit&auml;tssplit: Ratio ungerade/GOE&thinsp;=&thinsp;0.2273 vs. gerade/GOE&thinsp;=&thinsp;0.2659 k&ouml;nnte feinere Unterteilung von SO(2N+1) vs. SO(2N) widerspiegeln.</p>
-  <p><span class="tag tag-k">KONJEKTUR</span> H<sub>1</sub>-Ratio Daten/GOE&thinsp;=&thinsp;0.42: Datenwolke hat deutlich weniger persistente Zyklen als GOE. M&ouml;glicherweise arithmetische Constraints, die nicht-lokale Korrelationen erzeugen.</p>
-  <p><em>Hinweis zur qwen3-Analyse: Das Modell verglich den Bootstrap-CI gegen den Erwartungswert 1.0 statt gegen ~0.531 (theoretischer GOE-Wert f&uuml;r diese Statistik) und zog daraus falsche Schl&uuml;sse. Die adversarielle Analyse korrigiert dies.</em></p>
+  <span class="mtag">qwen3:235b-a22b &middot; Lokales Ollama &middot; Phase 5</span>
+  <p><span class="tag tag-b">BELEGT</span> Ratio Daten/GOE&thinsp;=&thinsp;0.5302 liegt weit au&szlig;erhalb der Selbstkonsistenz-CI [0.961,&thinsp;1.046]. Der z-Wert &minus;20.97 best&auml;tigt eine hochsignifikante Abweichung.</p>
+  <p><span class="tag tag-b">BELEGT</span> Der Permutationstest (p&thinsp;&rarr;&thinsp;0) zeigt modellunabh&auml;ngig: die Parit&auml;t tr&auml;gt reale topologische Information.</p>
+  <p><span class="tag tag-b">BELEGT</span> Phase 4 &rarr; Phase 5: quantitative &Auml;nderung (0.494&thinsp;&rarr;&thinsp;0.530), aber keine qualitative &mdash; beide Phasen zeigen konsistent eine Abweichung von GOE.</p>
+  <p><em>Anmerkung zur Vorsicht bei der Formulierung "Katz-Sarnak widerlegt": klassische n-Level-Statistik wird durch den Atas-Check sogar best&auml;tigt; die Abweichung ist spezifisch f&uuml;r die hier verwendete TDA-Konstruktion.</em></p>
 </div>
 
 <div class="cbox">
-  <span class="mtag">qwen3.6:35b-a3b &middot; Adversarielle Pr&uuml;fung &middot; Phase 4</span>
-  <p><strong>WDS-Limitierung:</strong> WDS erzwingt nur die 1-Niveau-Abstandsverteilung, nicht die Joint-Eigenwertstatistiken. GOE/GUE-Ratios sind sensitiv auf k-Punkt-Korrelationen und Spektralstarrheit. Der matched Null ist f&uuml;r diese Ratio-Tests unvollst&auml;ndig.</p>
-  <p><strong>Korrekte Referenzwerte:</strong> F&uuml;r Standard-Nachbarabstands-Ratios liegt die GOE-Erwartung bei ~0.531, GUE bei ~0.604 (nicht bei 1.0). Das Bootstrap-CI [0.4982,&thinsp;0.5329] enth&auml;lt 0.531 (knapp). Der vollst&auml;ndige Datenwert 0.4939 liegt leicht darunter.</p>
-  <p><strong>GUE(0.6427) vs. GOE(0.4939):</strong> Differenz 0.149, statistisch hochsignifikant. GUE-Ratio liegt nahe theoretischem 0.604, GOE-Ratio leicht unterhalb 0.531. CIs &uuml;berlappen nicht ([0.498,&thinsp;0.533] vs. [0.648,&thinsp;0.697]).</p>
-  <p><strong>Phase-3-Revision:</strong> Wenn GOE-Erwartung ~0.531 ist, w&auml;re Phase-3-Ratio 0.462 (gegen ungematchtes Nullmodell) zus&auml;tzlich durch Normierungsartefakte verzerrt. Die Phase-3-Signifikanz p=0.004 ist nicht &uuml;bertragbar auf das korrekte Nullmodell.</p>
+  <span class="mtag">qwen3.6:35b-a3b &middot; Adversarielle Pr&uuml;fung &middot; Phase 5</span>
+  <p><strong>Selbstkonsistenz-Methodik:</strong> intern korrekt, validiert Code-Stabilit&auml;t und Bootstrap-Konvergenz (GOE_A/GOE_B&thinsp;&approx;&thinsp;1.0066&thinsp;&plusmn;&thinsp;4%).</p>
+  <p><strong>Entfaltungs-Fehlerquelle:</strong> Polynom-Fit (Grad 12, Bulk 70%) kann residuelle Korrelationen im Randbereich oder endliche-Gr&ouml;&szlig;e-Oszillationen leicht gl&auml;tten &mdash; m&ouml;gliche, aber kleine systematische Verzerrung.</p>
+  <p><strong>z=&minus;20.97 vs. Phase-4-z=&minus;87:</strong> methodisch ehrlicher, da auf echtem Selbstkonsistenz-Rauschen basierend statt auf einem fehlzugeordneten externen Referenzwert. Die Diskrepanz (47% unter 1.0) wird vom Rauschen (&plusmn;4%) bei Weitem nicht erkl&auml;rt.</p>
+  <p><strong>Permutationstest:</strong> robust und modellfrei, aber p=0.0000 bedeutet praktisch "&lt;1/n_perm". F&uuml;r eine pr&auml;zisere Quantifizierung w&auml;re h&ouml;heres n_perm (z.B. 500) sinnvoll.</p>
 </div>
 </div>
 </section>
 
 <section>
 <div class="col">
-<h2>Aktueller Erkenntnisstand</h2>
-
+<h2>Epistemischer Gesamtstatus</h2>
 <div class="result-grid">
   <div class="rtile ok">
     <div class="val">[BELEGT]</div>
     <div class="lbl">&gamma;&#771;<sub>1</sub>-Trennung odd/even</div>
-    <div class="note">Trivial, Funktionalgleichung</div>
+    <div class="note">trivial, Funktionalgleichung</div>
   </div>
-  <div class="rtile open">
-    <div class="val">[OFFEN]</div>
+  <div class="rtile ok">
+    <div class="val">[BELEGT]</div>
     <div class="lbl">H<sub>0</sub>-Abweichung von GOE</div>
-    <div class="note">0.4939 vs. GOE ~0.531. WDS-Limitation; Phase 5 n&ouml;tig</div>
+    <div class="note">z=&minus;20.97, selbstkonsistenz-validiert</div>
   </div>
-  <div class="rtile open">
-    <div class="val">[OFFEN]</div>
-    <div class="lbl">H<sub>1</sub>-Unterdr&uuml;ckung</div>
-    <div class="note">Ratio 0.42 vs. GOE; k-stabil k=2..10; Null-Modell-Frage</div>
+  <div class="rtile ok">
+    <div class="val">[BELEGT]</div>
+    <div class="lbl">Parit&auml;ts-Effekt (Permutationstest)</div>
+    <div class="note">modellfrei, p&lt;1/80</div>
   </div>
   <div class="rtile rev">
-    <div class="val">[REVIDIERT]</div>
-    <div class="lbl">Phase-3-Signal p=0.004</div>
-    <div class="note">Falsches Nullmodell; nicht reproduzierbar</div>
+    <div class="val">[NICHT GERECHTFERTIGT]</div>
+    <div class="lbl">"Katz-Sarnak widerlegt"</div>
+    <div class="note">Atas-Check best&auml;tigt klassische RMT-Statistik</div>
   </div>
 </div>
 
-<h3>Phase 5 (geplant)</h3>
-<p>F&uuml;r belastbare Aussagen ben&ouml;tigt Phase 5: (a)&thinsp;echte GOE/GUE-Matrizen (N&thinsp;&ge;&thinsp;1000) statt WDS f&uuml;r das Nullmodell, (b)&thinsp;korrekte gemeinsame Verteilung der k Nullstellen statt unabh&auml;ngiger WDS-Abst&auml;nde, (c)&thinsp;Permutationstest innerhalb der Datenfamilie als nullmodellfreie Alternative. Mit |D|&thinsp;&le;&thinsp;10000 stehen 6086 L-Funktionen bereit; der PARI/GP-Schritt m&uuml;sste nicht wiederholt werden.</p>
+<h3>Offene Fragen f&uuml;r Phase 6</h3>
+<p>Welche arithmetischen Eigenschaften (Klassenzahl, Regulator, spezifische Kongruenzen von D) korrelieren mit der Topologie-Abweichung? Hat die H&#8320;-Persistenz-Summen-Statistik eine bekannte Beziehung zu klassischen RMT-Kennzahlen, oder ist sie eine genuin neue Invariante? Tritt der Effekt auch bei einer zweiten, unabh&auml;ngigen L-Funktionen-Familie auf (z.B. elliptische Kurven)?</p>
 </div>
 </section>
 
 <section>
 <div class="col">
 <h2>Technische Details</h2>
-<p><strong>Werkzeuge:</strong> PARI/GP 2.17.3 (<code>lfunzeros</code>, 15 Dezimalstellen), GUDHI 3.11.0 (H<sub>0</sub>, max_dim=1), ripser 0.6.15 (H<sub>1</sub>, thresh=5.0), Python 3.11 (scipy, numpy), qwen3:235b-a22b + qwen3.6:35b-a3b (Ollama, lokal). Mac Studio M3 Ultra, 256&thinsp;GB.</p>
-<p><strong>Laufzeiten Phase 4:</strong> PARI/GP (~25&thinsp;Min.), Python TDA + Bootstrap (~6&thinsp;Min.), Komitee (~5&thinsp;Min.).</p>
-<p><strong>Skripte:</strong> <code>tda_zeros_phase4.gp</code>, <code>tda_phase4.py</code> (v3) &mdash; alle unter /Volumes/CLAUDE-DATA/TDA-Project/.</p>
-<p><strong>Epistemischer Status:</strong> &gamma;&#771;<sub>1</sub>-Trennung [BELEGT], H<sub>0</sub>-Abweichung und H<sub>1</sub>-Unterdr&uuml;ckung [OFFEN bis Phase 5], Phase-3-Signal [REVIDIERT].</p>
+<p><strong>Werkzeuge:</strong> PARI/GP 2.17.3 (<code>lfunzeros</code>, 15 Dezimalstellen), GUDHI 3.11.0 (H<sub>0</sub>, max_dim=1), ripser 0.6.15 (H<sub>1</sub>), NumPy/SciPy (Matrixdiagonalisierung via <code>eigvalsh</code>, Accelerate-BLAS), qwen3:235b-a22b + qwen3.6:35b-a3b (Ollama, lokal). Mac Studio M3 Ultra, 256&thinsp;GB.</p>
+<p><strong>Phase 5 Methodik:</strong> 60&times;2 echte GOE/GUE-Matrizen (N=1200) diagonalisiert, empirische Polynom-Entfaltung (Grad 12, Bulk 70%), sequentielle Fenster-Extraktion f&uuml;r echte Joint-Korrelationen, matched null pro L-Funktion (gleicher F&uuml;hrer + Parit&auml;t), Selbstkonsistenz-Test (zwei unabh&auml;ngige Null-Klone), Bootstrap-CI (100&times;, n=600), Permutationstest (80&times;, modellfrei).</p>
+<p><strong>Laufzeit Phase 5:</strong> ca. 11 Minuten (Matrixgenerierung, TDA, Bootstrap, Permutation, Komitee).</p>
+<p><strong>Skripte:</strong> <code>tda_phase5.py</code> &mdash; unter /Volumes/CLAUDE-DATA/TDA-Project/. PARI/GP-Daten identisch zu Phase 4 (kein neuer Lauf n&ouml;tig).</p>
 </div>
 </section>
 
@@ -348,46 +320,5 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
   <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
 </footer>
 </div>
-
-<script>
-// k-Stabilitaet H1 Chart (echte Zahlen aus JSON)
-(function(){
-  const cv=document.getElementById('kCanvas');
-  if(!cv)return;
-  const ctx=cv.getContext('2d');
-  const W=cv.width,H=cv.height;
-  ctx.fillStyle='#161410'; ctx.fillRect(0,0,W,H);
-
-  // Daten aus tda_phase4_results.json / k_stab_h1
-  const data=[
-    {k:2,v:0.0663},{k:3,v:0.0984},{k:4,v:0.1276},{k:5,v:0.1249},
-    {k:6,v:0.1789},{k:7,v:0.1666},{k:8,v:0.2085},{k:9,v:0.2101},{k:10,v:0.2103}
-  ];
-  const PAD={l:42,r:20,t:18,b:32};
-  const maxV=0.24;
-  const bw=Math.floor((W-PAD.l-PAD.r)/data.length)-4;
-  const bh=v=>v/maxV*(H-PAD.t-PAD.b);
-
-  data.forEach((d,i)=>{
-    const x=PAD.l+i*(bw+4);
-    const h=bh(d.v);
-    const y=H-PAD.b-h;
-    const col=d.k===8?'#c8903a':'#c8903a88';
-    ctx.fillStyle=col;
-    ctx.fillRect(x,y,bw,h);
-    ctx.fillStyle='#9a9188';
-    ctx.font='9px DM Mono,monospace';
-    ctx.textAlign='center';
-    ctx.fillText('k='+d.k,x+bw/2,H-PAD.b+12);
-    ctx.fillStyle=d.k>=8?'#e2ddd4':'#9a9188';
-    ctx.fillText(d.v.toFixed(3),x+bw/2,y-4);
-  });
-
-  ctx.fillStyle='#9a9188';
-  ctx.font='8px DM Mono,monospace';
-  ctx.textAlign='left';
-  ctx.fillText('H\u2081 max. Lebensdauer (ripser, n=1000, Phase 4)',PAD.l,PAD.t-3);
-})();
-</script>
 </body>
 </html>
