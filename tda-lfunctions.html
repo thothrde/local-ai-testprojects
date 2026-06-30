@@ -106,7 +106,7 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
     <span class="sub">Topological Data Analysis on L-function Zeros</span>
   </h1>
   <div class="status-row">
-    <span><span class="dot-green"></span>Phase 5 abgeschlossen &middot; robuster Hauptbefund</span>
+    <span><span class="dot-green"></span>Phase 6 abgeschlossen &middot; Cross-Family bestaetigt</span>
     <span>PARI/GP 2.17 &middot; GUDHI 3.11 &middot; ripser 0.6 &middot; Mac Studio M3 Ultra 256&thinsp;GB</span>
     <span>n&thinsp;=&thinsp;6086 &middot; |D|&thinsp;&le;&thinsp;10000 &middot; k&thinsp;=&thinsp;8</span>
   </div>
@@ -162,6 +162,117 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
 
 <section>
 <div class="col">
+<h2>Phase 6: Drei Erweiterungen</h2>
+<p>Phase 6 testet den Phase-5-Befund auf drei unabh&auml;ngigen Wegen: Korrelation mit arithmetischen
+Invarianten, ein zehnmal gr&ouml;&szlig;erer Permutationstest mit gespeicherten Rohdaten, und ein
+v&ouml;llig unabh&auml;ngiger Test an einer zweiten L-Funktionen-Familie (elliptische Kurven, Grad&nbsp;2
+statt Grad&nbsp;1).</p>
+
+<h3>6A &mdash; Korrelation mit Klassenzahl und Regulator</h3>
+<p>F&uuml;r jede der 6086 L-Funktionen wurde ein topologischer "Merge-Radius" berechnet (der
+Filtrationsradius, bei dem ihr Punkt im Vietoris-Rips-Komplex mit dem Rest der Wolke verschmilzt) und mit
+der Klassenzahl h(D) (via PARI <code>qfbclassno</code>/<code>quadclassunit</code>) sowie dem Regulator
+R(D) (nur D&gt;0) korreliert.</p>
+
+<div class="result-grid">
+  <div class="rtile open">
+    <div class="val">r&thinsp;=&thinsp;&minus;0.325</div>
+    <div class="lbl">Spearman: Merge-Radius vs. log h(D)</div>
+    <div class="note">n=6085, p&thinsp;=&thinsp;1.1&times;10&#8315;&sup1;&#8308;&#8313; &mdash; gepoolt</div>
+  </div>
+  <div class="rtile rev">
+    <div class="val">r&thinsp;=&thinsp;&minus;0.003</div>
+    <div class="lbl">dasselbe, nur gerade D&gt;0</div>
+    <div class="note">p&thinsp;=&thinsp;0.874 &mdash; praktisch null</div>
+  </div>
+  <div class="rtile open">
+    <div class="val">r&thinsp;=&thinsp;&minus;0.122</div>
+    <div class="lbl">dasselbe, nur ungerade D&lt;0</div>
+    <div class="note">p&thinsp;=&thinsp;1.5&times;10&#8315;&sup1;&sup1; &mdash; schwach aber real</div>
+  </div>
+  <div class="rtile">
+    <div class="val">r&thinsp;=&thinsp;&minus;0.147</div>
+    <div class="lbl">Spearman: Merge-Radius vs. Regulator R(D)</div>
+    <div class="note">nur D&gt;0, n=3043, p&thinsp;=&thinsp;3.1&times;10&#8315;&sup1;&#8310;</div>
+  </div>
+</div>
+
+<div class="alert">
+<strong>Wichtige Einschr&auml;nkung (adversarielle Pr&uuml;fung):</strong> Die gepoolte Korrelation
+(r=&minus;0.325) ist deutlich st&auml;rker als beide Teilgruppen einzeln (gerade: praktisch null,
+ungerade: r=&minus;0.122). Das legt nahe, dass ein erheblicher Teil der gepoolten Korrelation nicht
+aus einem echten monotonen Zusammenhang mit der Klassenzahl <em>innerhalb</em> der Gruppen stammt,
+sondern aus dem systematischen Unterschied <em>zwischen</em> geraden und ungeraden Charakteren
+(deren Topologie schon wegen &gamma;&#771;<sub>1</sub>=0 vs. &gamma;&#771;<sub>1</sub>&gt;0 strukturell
+verschieden ist). Der robuste Kern ist die schwache, aber statistisch sehr signifikante
+Korrelation bei ungeraden Diskriminanten (r=&minus;0.122).
+</div>
+
+<h3>6B &mdash; Permutationstest mit n=500 (echte Rohdaten)</h3>
+<p>Phase 5 nutzte n=80 Permutationen ohne gespeicherte Einzelwerte (nur eine parametrische
+Normalverteilungs-Illustration). Phase 6 wiederholt den Test mit n=500 und speichert alle 500
+Werte &mdash; das folgende Histogramm zeigt echte Daten, keine Approximation.</p>
+
+<div class="viz-wrap">
+  <div class="vt">Permutationsverteilung (n=500, echte Rohdaten) vs. beobachtetes Parit&auml;ts-Ratio</div>
+  <canvas id="permHistCanvas" width="640" height="230" style="width:100%;max-width:640px;display:block"></canvas>
+</div>
+
+<div class="result-grid">
+  <div class="rtile ok">
+    <div class="val">0.8551</div>
+    <div class="lbl">Beobachtetes Ratio (odd&Sigma;/even&Sigma;)</div>
+  </div>
+  <div class="rtile">
+    <div class="val">0.9998&thinsp;&plusmn;&thinsp;0.0070</div>
+    <div class="lbl">Permutationsverteilung (n=500)</div>
+    <div class="note">CI95: [0.9856, 1.0128] &middot; Min/Max: [0.9775, 1.0187]</div>
+  </div>
+  <div class="rtile ok">
+    <div class="val">p&thinsp;&lt;&thinsp;1/500</div>
+    <div class="lbl">keine der 500 Permutationen so extrem</div>
+    <div class="note">korrekt: p&lt;0.002, nicht exakt "0"</div>
+  </div>
+</div>
+
+<h3>6C &mdash; Cross-Family-Test: Elliptische Kurven</h3>
+<p>300 elliptische Kurven (systematisch generiert aus kleinen Weierstra&szlig;-Koeffizienten,
+Conductor 11&ndash;4000) mit identischer Methodik wie Phase 5: echte GOE-Matrizen, matched null
+(Conductor + Wurzelzahl statt Conductor + Parit&auml;t), Selbstkonsistenz-Test. Die Wurzelzahl
+w=ellrootno(E) &uuml;bernimmt die Rolle der Dirichlet-Parit&auml;t: w=&minus;1 erzwingt eine
+Nullstelle bei &gamma;=0, genau wie ungerade Charaktere.</p>
+
+<div class="result-grid">
+  <div class="rtile ok">
+    <div class="val">0.4890</div>
+    <div class="lbl">Ratio Daten/GOE (elliptische Kurven)</div>
+    <div class="note">vgl. Dirichlet Phase 5: 0.5302</div>
+  </div>
+  <div class="rtile">
+    <div class="val">1.0185</div>
+    <div class="lbl">Selbstkonsistenz GOE_A/GOE_B</div>
+    <div class="note">CI95 (n=120, 60 Iter.): [0.893, 1.119] &mdash; breit wegen kleinem n</div>
+  </div>
+  <div class="rtile ok">
+    <div class="val">z&thinsp;=&thinsp;&minus;8.80</div>
+    <div class="lbl">Abweichung vs. Selbstkonsistenz-Rauschen</div>
+    <div class="note">n=300 Kurven, schw&auml;cher als Dirichlet-z (&minus;20.97) wegen kleinerer Stichprobe</div>
+  </div>
+</div>
+
+<div class="alert">
+<strong>Vorsicht bei der Interpretation:</strong> z=&minus;8.80 ist statistisch klar signifikant,
+aber bei n=300 (gegen&uuml;ber n=6086 bei den Dirichlet-Daten) ist die Selbstkonsistenz-CI deutlich
+breiter (Breite&thinsp;&approx;&thinsp;0.23 vs.&thinsp;0.08). Der Cross-Family-Befund ist qualitativ
+&uuml;berzeugend (dieselbe Abweichungsrichtung, &auml;hnliche Gr&ouml;&szlig;enordnung des Ratios),
+aber f&uuml;r eine quantitativ belastbare Aussage w&auml;re n&thinsp;&ge;&thinsp;2000 elliptische
+Kurven n&ouml;tig (adversarielle Empfehlung f&uuml;r Phase 7).
+</div>
+</div>
+</section>
+
+<section>
+<div class="col">
 <h2>Methodik-Entwicklung &uuml;ber 5 Phasen</h2>
 
 <table class="phase-table">
@@ -193,10 +304,16 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
   <td class="open">Referenzwert-Konflation entdeckt</td>
 </tr>
 <tr>
-  <td><strong>5 PARI/GP</strong></td><td class="mono hi">6086</td><td class="mono hi">&le;10000</td>
-  <td><strong>echte GOE/GUE-Matrizen + Selbstkonsistenz</strong></td>
-  <td class="mono hi">0.5302 (z=&minus;20.97)</td>
-  <td class="hi">robust, doppelt validiert</td>
+  <td>5 PARI/GP</td><td class="mono">6086</td><td class="mono">&le;10000</td>
+  <td>echte GOE/GUE-Matrizen + Selbstkonsistenz</td>
+  <td class="mono">0.5302 (z=&minus;20.97)</td>
+  <td>robust, doppelt validiert</td>
+</tr>
+<tr>
+  <td><strong>6 PARI/GP + Ellkurven</strong></td><td class="mono hi">6086 + 300</td><td class="mono hi">&le;10000</td>
+  <td><strong>n=500 Permutation + Cross-Family</strong></td>
+  <td class="mono hi">Dirichlet 0.530 / Ellkurven 0.489</td>
+  <td class="hi">familien&uuml;bergreifend best&auml;tigt</td>
 </tr>
 </tbody>
 </table>
@@ -298,6 +415,37 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
   <p><strong>z=&minus;20.97 vs. Phase-4-z=&minus;87:</strong> methodisch ehrlicher, da auf echtem Selbstkonsistenz-Rauschen basierend statt auf einem fehlzugeordneten externen Referenzwert. Die Diskrepanz (47% unter 1.0) wird vom Rauschen (&plusmn;4%) bei Weitem nicht erkl&auml;rt.</p>
   <p><strong>Permutationstest:</strong> robust und modellfrei, aber p=0.0000 bedeutet praktisch "&lt;1/n_perm". F&uuml;r eine pr&auml;zisere Quantifizierung w&auml;re h&ouml;heres n_perm (z.B. 500) sinnvoll.</p>
 </div>
+</div>
+</section>
+
+<section>
+<div class="col">
+<div class="cbox">
+  <span class="mtag">qwen3:235b-a22b &middot; Phase 6 &middot; Cross-Family + Korrelation</span>
+  <p><span class="tag tag-b">BELEGT</span> Der GOE-Abweichungseffekt tritt auch bei elliptischen Kurven auf
+  (Ratio=0.489, z=&minus;8.80), unabh&auml;ngig von den Dirichlet-Daten (Ratio=0.530, z=&minus;20.97).</p>
+  <p><span class="tag tag-k">KONJEKTUR</span> H&ouml;here Klassenzahl k&ouml;nnte mit st&auml;rker
+  strukturierter Nullstellenverteilung korrelieren &mdash; <em>Anmerkung: diese Interpretation wird durch
+  die adversarielle Pr&uuml;fung unten deutlich eingeschr&auml;nkt.</em></p>
+</div>
+
+<div class="cbox">
+  <span class="mtag">qwen3.6:35b-a3b &middot; Adversarielle Pr&uuml;fung &middot; Phase 6</span>
+  <p><strong>Korrelation r=&minus;0.325:</strong> r&sup2;&thinsp;&approx;&thinsp;0.106 erkl&auml;rt nur
+  ~10.6% der Varianz. Die gepoolte Korrelation spiegelt eher Gruppengewichtung (odd vs. even) wider als
+  ein einheitliches arithmetisches Gesetz &mdash; der Odd-Effekt allein ist schwach (r=&minus;0.122),
+  der Even-Effekt praktisch null (p=0.87).</p>
+  <p><strong>p=0.0000 bei n=500:</strong> irref&uuml;hrend pr&auml;zise. Granularit&auml;t begrenzt
+  den minimal aufl&ouml;sbaren p-Wert auf 1/501&thinsp;&approx;&thinsp;0.002. F&uuml;r verl&auml;ssliche
+  Tail-Wahrscheinlichkeit w&auml;ren n&thinsp;&ge;&thinsp;10&#8308; n&ouml;tig.</p>
+  <p><strong>Elliptische Kurven n=300:</strong> quantitativ fragil verglichen mit n&thinsp;&approx;&thinsp;6086
+  bei Dirichlet. z=&minus;8.8 ist suggestiv, aber ohne gr&ouml;&szlig;ere Stichprobe nicht
+  belastbar im selben Sinne wie der Dirichlet-Befund.</p>
+  <p><strong>Schw&auml;chster Punkt f&uuml;r Phase 7:</strong> Odd-Diskriminanten-Korrelation
+  (r=&minus;0.122) mit unabh&auml;ngiger Stichprobe replizieren; Permutationstest mit
+  n&thinsp;&ge;&thinsp;10&#8308;; elliptische Kurven auf n&thinsp;&ge;&thinsp;2000 erweitern.</p>
+</div>
+
 </div>
 </section>
 
@@ -448,6 +596,58 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
     ctx.fillText('Permutationsverteilung (n=80, parametrisch aus Summary-Statistik)',PAD.l,PAD.t-8);
   })();
 })();
+
+  // ── Chart 3: Permutationstest-Histogramm (Phase 6, echte n=500 Rohdaten) ──
+  (function(){
+    const cv=document.getElementById('permHistCanvas');
+    if(!cv)return;
+    const ctx=cv.getContext('2d');
+    const W=cv.width,H=cv.height;
+    ctx.fillStyle=C.bg2; ctx.fillRect(0,0,W,H);
+
+    // Echte Histogramm-Bins aus tda_phase6_results.json (24 Bins, n=500)
+    const edges=[0.97754,0.97926,0.98097,0.98268,0.98439,0.98611,0.98782,0.98953,
+                 0.99125,0.99296,0.99467,0.99638,0.9981,0.99981,1.00152,1.00324,
+                 1.00495,1.00666,1.00837,1.01009,1.0118,1.01351,1.01523,1.01694,1.01865];
+    const counts=[3,1,1,4,7,7,14,15,29,32,41,44,51,44,59,26,48,16,18,18,11,2,5,4];
+    const observed=0.8551101230253393;
+
+    const PAD={l:38,r:18,t:18,b:34};
+    const xMin=0.83, xMax=1.03;
+    const px=x=>PAD.l+(x-xMin)/(xMax-xMin)*(W-PAD.l-PAD.r);
+    const maxCount=Math.max(...counts);
+
+    // Balken
+    for(let i=0;i<counts.length;i++){
+      const x0=px(edges[i]), x1=px(edges[i+1]);
+      const h=(counts[i]/maxCount)*(H-PAD.t-PAD.b)*0.92;
+      const y=H-PAD.b-h;
+      ctx.fillStyle=C.blue+'aa';
+      ctx.fillRect(x0,y,Math.max(x1-x0-1,1),h);
+    }
+
+    // Beobachteter Wert (weit links ausserhalb der Bins -> Pfeil + Linie)
+    const xObsClamped=Math.max(observed, xMin+0.004);
+    ctx.strokeStyle=C.red; ctx.lineWidth=2; ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.moveTo(px(xObsClamped),PAD.t); ctx.lineTo(px(xObsClamped),H-PAD.b); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle=C.red; ctx.font='bold 10px DM Mono,monospace'; ctx.textAlign='center';
+    ctx.fillText('Daten: 0.8551',px(xObsClamped),PAD.t-3);
+    ctx.font='8px DM Mono,monospace';
+    ctx.fillText('0/500 Permutationen so extrem',px(xObsClamped),H-PAD.b+24);
+
+    // Achse
+    ctx.strokeStyle=C.dim; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(PAD.l,H-PAD.b); ctx.lineTo(W-PAD.r,H-PAD.b); ctx.stroke();
+    ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='center';
+    [0.85,0.90,0.95,1.00,1.05].forEach(v=>{
+      if(v>=xMin && v<=xMax) ctx.fillText(v.toFixed(2),px(v),H-PAD.b+12);
+    });
+    ctx.fillText('Ratio (odd \u03a3 / even \u03a3)',(PAD.l+W-PAD.r)/2,H-6);
+
+    ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
+    ctx.fillText('Echtes Histogramm, n=500 Permutationen (24 Bins)',PAD.l,PAD.t-5);
+  })();
 </script>
 </body>
 </html>
