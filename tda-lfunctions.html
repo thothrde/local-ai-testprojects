@@ -135,6 +135,33 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
 
 <section>
 <div class="col">
+<h2>Visualisierung</h2>
+
+<div class="viz-wrap">
+  <div class="vt">H&#8320; &Sigma;-Lebensdauer: Daten vs. echte GOE/GUE-Matrizen-Klone</div>
+  <canvas id="h0BarCanvas" width="640" height="220" style="width:100%;max-width:640px;display:block"></canvas>
+  <p style="font-size:.78rem;color:var(--fg-dim);margin-top:.6rem">
+    Reale Zahlen aus tda_phase5_results.json. Die A/B-Paare (unabh&auml;ngige Klone desselben Ensembles)
+    liegen nah beieinander &mdash; das ist die Selbstkonsistenz, die "Ratio&thinsp;=&thinsp;1" empirisch definiert.
+    Die Datenwolke liegt deutlich darunter.
+  </p>
+</div>
+
+<div class="viz-wrap">
+  <div class="vt">Permutationstest: beobachtetes Parit&auml;ts-Ratio vs. Zufallsverteilung</div>
+  <canvas id="permCanvas" width="640" height="220" style="width:100%;max-width:640px;display:block"></canvas>
+  <p style="font-size:.78rem;color:var(--fg-dim);margin-top:.6rem">
+    Die Kurve ist eine Normalverteilung, parametrisch aus den berichteten Kennzahlen der 80 Permutationen
+    erzeugt (Mittel&thinsp;=&thinsp;1.0004, Std&thinsp;=&thinsp;0.0064) &mdash; keine Einzelwerte der 80 L&auml;ufe wurden gespeichert,
+    daher Illustration der Summary-Statistik, nicht Rohdaten-Plot. Der beobachtete Wert (0.8551) liegt
+    bei z&thinsp;&approx;&thinsp;&minus;22.6, weit au&szlig;erhalb des Bereichs, den die 80 echten Permutationen je erreichten.
+  </p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="col">
 <h2>Methodik-Entwicklung &uuml;ber 5 Phasen</h2>
 
 <table class="phase-table">
@@ -320,5 +347,107 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
   <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
 </footer>
 </div>
+<script>
+(function(){
+  const C={bg2:'#161410',rule:'#2a2620',fg:'#e2ddd4',dim:'#9a9188',
+           gold:'#c8903a',green:'#7aad7a',blue:'#5b9bd5',red:'#b86060'};
+
+  (function(){
+    const cv=document.getElementById('h0BarCanvas');
+    if(!cv)return;
+    const ctx=cv.getContext('2d');
+    const W=cv.width,H=cv.height;
+    ctx.fillStyle=C.bg2; ctx.fillRect(0,0,W,H);
+
+    const data=[
+      {lbl:'Daten', v:1705.08, col:C.gold,  hi:true},
+      {lbl:'GOE_A', v:3216.03, col:C.blue,  hi:false},
+      {lbl:'GOE_B', v:3195.05, col:C.blue,  hi:false},
+      {lbl:'GUE_A', v:2537.25, col:C.green, hi:false},
+      {lbl:'GUE_B', v:2550.70, col:C.green, hi:false}
+    ];
+    const PAD={l:60,r:20,t:20,b:36};
+    const maxV=3400;
+    const bw=(W-PAD.l-PAD.r)/data.length-14;
+
+    ctx.strokeStyle=C.rule; ctx.lineWidth=0.5;
+    [0,1000,2000,3000].forEach(v=>{
+      const y=H-PAD.b-(v/maxV)*(H-PAD.t-PAD.b);
+      ctx.beginPath(); ctx.moveTo(PAD.l,y); ctx.lineTo(W-PAD.r,y); ctx.stroke();
+      ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='right';
+      ctx.fillText(v.toString(),PAD.l-6,y+3);
+    });
+
+    data.forEach((d,i)=>{
+      const x=PAD.l+i*(bw+14)+7;
+      const h=(d.v/maxV)*(H-PAD.t-PAD.b);
+      const y=H-PAD.b-h;
+      ctx.fillStyle=d.hi?d.col:d.col+'aa';
+      ctx.fillRect(x,y,bw,h);
+      if(d.hi){ ctx.strokeStyle=d.col; ctx.lineWidth=1.5; ctx.strokeRect(x,y,bw,h); }
+      ctx.fillStyle=C.dim; ctx.font='9px DM Mono,monospace'; ctx.textAlign='center';
+      ctx.fillText(d.lbl,x+bw/2,H-PAD.b+13);
+      ctx.fillStyle=d.hi?C.fg:C.dim; ctx.font='9px DM Mono,monospace';
+      ctx.fillText(d.v.toFixed(0),x+bw/2,y-5);
+    });
+
+    ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
+    ctx.fillText('\u03a3 H\u2080-Persistenz-Lebensdauer',PAD.l,PAD.t-6);
+  })();
+
+  (function(){
+    const cv=document.getElementById('permCanvas');
+    if(!cv)return;
+    const ctx=cv.getContext('2d');
+    const W=cv.width,H=cv.height;
+    ctx.fillStyle=C.bg2; ctx.fillRect(0,0,W,H);
+
+    const mean=1.0003728801326874, std=0.006429482541828348;
+    const observed=0.8551101230253393;
+    const zObs=(observed-mean)/std;
+
+    const PAD={l:40,r:20,t:20,b:34};
+    const xMin=0.82, xMax=1.05;
+    const px=x=>PAD.l+(x-xMin)/(xMax-xMin)*(W-PAD.l-PAD.r);
+
+    const gauss=x=>Math.exp(-0.5*Math.pow((x-mean)/std,2));
+
+    ctx.strokeStyle=C.blue; ctx.lineWidth=1.5; ctx.beginPath();
+    let first=true;
+    for(let x=xMin; x<=xMax; x+=0.0008){
+      const yv=gauss(x);
+      const y=H-PAD.b-yv*(H-PAD.t-PAD.b)*0.92;
+      if(first){ ctx.moveTo(px(x),y); first=false; } else ctx.lineTo(px(x),y);
+    }
+    ctx.stroke();
+    ctx.lineTo(px(xMax),H-PAD.b); ctx.lineTo(px(xMin),H-PAD.b); ctx.closePath();
+    ctx.fillStyle=C.blue+'22'; ctx.fill();
+
+    const ciLo=0.9888965856218507, ciHi=1.0121328337869522;
+    ctx.fillStyle=C.blue+'30';
+    ctx.fillRect(px(ciLo),PAD.t,px(ciHi)-px(ciLo),H-PAD.t-PAD.b);
+
+    const xObsClamped=Math.max(observed, xMin+0.005);
+    ctx.strokeStyle=C.red; ctx.lineWidth=2; ctx.setLineDash([3,3]);
+    ctx.beginPath(); ctx.moveTo(px(xObsClamped),PAD.t); ctx.lineTo(px(xObsClamped),H-PAD.b); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle=C.red; ctx.font='bold 10px DM Mono,monospace'; ctx.textAlign='center';
+    ctx.fillText('Daten: 0.8551',px(xObsClamped),PAD.t-4);
+    ctx.font='8px DM Mono,monospace'; ctx.fillStyle=C.red;
+    ctx.fillText('z \u2248 '+zObs.toFixed(1),px(xObsClamped),PAD.t+10);
+
+    ctx.strokeStyle=C.dim; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(PAD.l,H-PAD.b); ctx.lineTo(W-PAD.r,H-PAD.b); ctx.stroke();
+    ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='center';
+    [0.85,0.90,0.95,1.00,1.05].forEach(v=>{
+      ctx.fillText(v.toFixed(2),px(v),H-PAD.b+12);
+    });
+    ctx.fillText('Ratio (odd \u03a3 / even \u03a3)',(PAD.l+W-PAD.r)/2,H-6);
+
+    ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
+    ctx.fillText('Permutationsverteilung (n=80, parametrisch aus Summary-Statistik)',PAD.l,PAD.t-8);
+  })();
+})();
+</script>
 </body>
 </html>
