@@ -391,6 +391,122 @@ bleibt aber konsistent und wird durch gr&ouml;&szlig;ere Stichprobe nicht schw&a
 
 <section>
 <div class="col">
+<h2>Phase 8: Klassischer RMT-Vergleich und Gradskalierung</h2>
+<p>Phase 8 beantwortet die beiden in Phase 7 offen gelassenen Fragen: Erfasst die H&#8320;-TDA-Statistik
+etwas, das klassische RMT-Kennzahlen nicht sehen &mdash; oder ist sie ein komplexer Abdruck bereits
+bekannter Gr&ouml;&szlig;en? Und skaliert die GOE-Abweichung mit dem Grad der L-Funktion?</p>
+
+<h3>8A &mdash; Klassischer n-Level-Dichte-Vergleich</h3>
+<p>Energy-Distance-Permutationstests (Szekely-Rizzo, 150 Permutationen je Dimension) vergleichen die
+Verteilung der ersten k normierten Nullstellen (Daten vs. matched-GOE-Null) bei wachsender Dimension
+k=1 (einfachste klassische 1-Level-Dichte) bis k=8 (volle TDA-Konstruktion).</p>
+
+<div class="result-grid">
+  <div class="rtile rev">
+    <div class="val">k=1: p&thinsp;&lt;&thinsp;0.007</div>
+    <div class="lbl">bereits die einfachste 1-Level-Dichte signifikant</div>
+    <div class="note">Energy=0.0207, n=800 Teilmenge</div>
+  </div>
+  <div class="rtile rev">
+    <div class="val">k=1..8: alle signifikant</div>
+    <div class="lbl">keine Dimension zeigt GOE-Konsistenz</div>
+    <div class="note">Energy steigt monoton 0.021&rarr;0.494</div>
+  </div>
+</div>
+
+<div class="alert">
+<strong>Wichtiges, eher d&auml;mpfendes Ergebnis:</strong> Die Abweichung von GOE ist nicht erst in der
+vollen 8-dimensionalen TDA-Konstruktion sichtbar &mdash; sie zeigt sich bereits bei der einfachsten
+klassischen 1-Level-Dichte (Verteilung von &gamma;&#771;<sub>1</sub> allein). Das spricht eher <em>gegen</em>
+die Hypothese, dass H&#8320; eine "neue", klassisch unsichtbare Invariante ist. Plausibler: die
+H&#8320;-Statistik kumuliert (in komplexerer Form) eine Abweichung, die schon in der einfachen
+Dichteverteilung steckt.
+</div>
+
+<div class="alert">
+<strong>Adversarielle Gegen-Erkl&auml;rung:</strong> Der p-Wert "0.000" bei n_perm=150 ist ein
+Diskretisierungsartefakt (Floor 1/151&thinsp;&approx;&thinsp;0.0066); echte p-Werte liegen vermutlich
+bei 10&#8315;&#8308;&ndash;10&#8315;&sup3;, nicht exakt null. Eine zweite m&ouml;gliche Erkl&auml;rung
+neben "L-Funktionen weichen wirklich ab": die <strong>matched-Null-Konstruktion selbst</strong>
+(endliche Matrixgr&ouml;&szlig;e N=1200, begrenzte Bulk-Fraktion bei der Entfaltung) emuliert die wahre
+asymptotische Katz-Sarnak-Dichte m&ouml;glicherweise nicht perfekt &mdash; ein Teil der gemessenen
+"Abweichung" k&ouml;nnte ein Artefakt des Null-Modells sein, nicht der L-Funktionen selbst. Diese Frage
+ist mit den vorliegenden Daten nicht endg&uuml;ltig trennbar.
+</div>
+
+<h3>8B &mdash; Grad-3-Familie: Sym&sup2;(E) L-Funktionen</h3>
+<p>Symmetrische Quadrate elliptischer Kurven, Sym&sup2;(E), sind Grad-3-L-Funktionen mit stets gerader
+Funktionalgleichung (kein erzwungener Nullpunkt, homogene Familie ohne Parit&auml;tssplit). 400 Kurven
+via PARI/GP <code>lfunsympow</code>, identische Selbstkonsistenz-Methodik wie Phase 5&ndash;7.</p>
+
+<div class="result-grid">
+  <div class="rtile ok">
+    <div class="val">0.3066</div>
+    <div class="lbl">Ratio Daten/GOE (Sym&sup2;, n=400)</div>
+    <div class="note">CI95 (n=150, 80 Iter.): [0.404, 0.508]</div>
+  </div>
+  <div class="rtile">
+    <div class="val">1.0256</div>
+    <div class="lbl">Selbstkonsistenz GOE_A/GOE_B</div>
+    <div class="note">CI95: [0.925, 1.146]</div>
+  </div>
+  <div class="rtile ok">
+    <div class="val">z&thinsp;=&thinsp;&minus;12.31</div>
+    <div class="lbl">Abweichung vs. Selbstkonsistenz</div>
+    <div class="note">schw&auml;cher als Grad 1/2, aber n auch kleiner (400 statt 6086/1100)</div>
+  </div>
+</div>
+
+<h3>Gradskalierung: alle drei Familien im Vergleich</h3>
+<div class="viz-wrap">
+  <div class="vt">Ratio Daten/GOE nach Grad der L-Funktion</div>
+  <canvas id="degreeCanvas" width="640" height="220" style="width:100%;max-width:640px;display:block"></canvas>
+</div>
+
+<table class="phase-table">
+<thead><tr><th>Grad</th><th>Familie</th><th>n</th><th>Ratio</th><th>z</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Dirichlet-Charaktere</td><td class="mono">6086</td><td class="mono">0.5302</td><td class="mono">&minus;20.97</td></tr>
+<tr><td>2</td><td>Elliptische Kurven</td><td class="mono">1100</td><td class="mono">0.3457</td><td class="mono">&minus;19.56</td></tr>
+<tr><td>3</td><td>Sym&sup2;(E)</td><td class="mono">400</td><td class="mono">0.3066</td><td class="mono">&minus;12.31</td></tr>
+</tbody>
+</table>
+
+<div class="alert">
+<strong>Vorsicht bei der Interpretation:</strong> Der Ratio-Trend (0.530&thinsp;&rarr;&thinsp;0.346&thinsp;&rarr;&thinsp;0.307)
+ist monoton fallend und k&ouml;nnte auf echte Gradskalierung hindeuten. Die adversarielle Pr&uuml;fung
+mahnt aber zur Vorsicht: drei Datenpunkte mit n=6086/1100/400 erlauben keine Unterscheidung zwischen
+linearer und anderer Skalierung; au&szlig;erdem ist Sym&sup2; eine <em>homogene</em> Familie (kein
+Parit&auml;tssplit) im Gegensatz zu Grad 1/2 &mdash; der Quervergleich zwischen strukturell verschiedenen
+Ensemble-Typen ist methodisch nicht ganz sauber. F&uuml;r eine belastbare Skalierungsaussage w&auml;ren
+n&thinsp;&ge;&thinsp;1000 pro Grad und mindestens 5 Gradpunkte n&ouml;tig.
+</div>
+
+<h3>Komitee Phase 8</h3>
+<div class="cbox">
+  <span class="mtag">qwen3:235b-a22b &middot; Phase 8</span>
+  <p><span class="tag tag-b">BELEGT</span> Die Abweichung von GOE ist bereits bei k=1 klassisch
+  nachweisbar &mdash; die H&#8320;-TDA-Statistik spiegelt damit vermutlich keine neue Invariante,
+  sondern kumuliert bei allen k sichtbare Dichteabweichungen.</p>
+  <p><span class="tag tag-k">KONJEKTUR</span> Der Ratio-Trend (0.530&rarr;0.346&rarr;0.307) legt eine
+  Gradskalierung nahe, ist aber durch Sample-Gr&ouml;&szlig;e und Ensemble-Heterogenit&auml;t
+  verkompliziert.</p>
+</div>
+<div class="cbox">
+  <span class="mtag">qwen3.6:35b-a3b &middot; Adversarielle Pr&uuml;fung &middot; Phase 8</span>
+  <p><strong>p=0.000 bei n_perm=150:</strong> Diskretisierungsartefakt, Floor&thinsp;&approx;&thinsp;0.0066;
+  echte p vermutlich 10&#8315;&#8308;&ndash;10&#8315;&sup3;.</p>
+  <p><strong>Alternative Erkl&auml;rung:</strong> TDA k&ouml;nnte kumulierte Finite-Size-Effekte der
+  matched-Null-Konstruktion (langsame GOE-Konvergenz, Binning/Randeffekte bei der Entfaltung) als
+  "neue Invariante" fehlinterpretieren, statt genuine arithmetische Struktur zu messen.</p>
+  <p><strong>Sym&sup2; n=400:</strong> statistisch fragil f&uuml;r einen dritten Skalierungspunkt;
+  unterscheidet nicht zwischen linearer und anderer Gradabh&auml;ngigkeit.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="col">
 <h2>Methodik-Entwicklung &uuml;ber 5 Phasen</h2>
 
 <table class="phase-table">
@@ -792,6 +908,52 @@ gradabh&auml;ngige Konvergenzanalyse (Grad&nbsp;1, 2, 3...) w&auml;re der n&auml
 
     ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
     ctx.fillText('Echtes Histogramm, n=500 Permutationen (24 Bins)',PAD.l,PAD.t-5);
+  })();
+
+  // ── Chart 4: Gradskalierung (Phase 8) ──────────────────────────────────
+  (function(){
+    const cv=document.getElementById('degreeCanvas');
+    if(!cv)return;
+    const ctx=cv.getContext('2d');
+    const W=cv.width,H=cv.height;
+    ctx.fillStyle=C.bg2; ctx.fillRect(0,0,W,H);
+
+    const data=[
+      {deg:1, ratio:0.5302, n:6086, lbl:'Grad 1\nDirichlet'},
+      {deg:2, ratio:0.3457, n:1100, lbl:'Grad 2\nEllkurven'},
+      {deg:3, ratio:0.3066, n:400,  lbl:'Grad 3\nSym\u00b2(E)'}
+    ];
+    const PAD={l:50,r:30,t:20,b:50};
+    const maxV=0.6;
+    const bw=(W-PAD.l-PAD.r)/data.length-30;
+
+    ctx.strokeStyle=C.rule; ctx.lineWidth=0.5;
+    [0,0.2,0.4,0.6].forEach(v=>{
+      const y=H-PAD.b-(v/maxV)*(H-PAD.t-PAD.b);
+      ctx.beginPath(); ctx.moveTo(PAD.l,y); ctx.lineTo(W-PAD.r,y); ctx.stroke();
+      ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='right';
+      ctx.fillText(v.toFixed(1),PAD.l-6,y+3);
+    });
+
+    data.forEach((d,i)=>{
+      const x=PAD.l+i*(bw+30)+15;
+      const h=(d.ratio/maxV)*(H-PAD.t-PAD.b);
+      const y=H-PAD.b-h;
+      ctx.fillStyle=C.gold;
+      ctx.fillRect(x,y,bw,h);
+      ctx.fillStyle=C.fg; ctx.font='10px DM Mono,monospace'; ctx.textAlign='center';
+      ctx.fillText(d.ratio.toFixed(3),x+bw/2,y-6);
+      ctx.fillStyle=C.dim; ctx.font='9px Instrument Sans,sans-serif';
+      const lines = d.lbl.split('\n');
+      lines.forEach((line,li)=>{
+        ctx.fillText(line,x+bw/2,H-PAD.b+14+li*11);
+      });
+      ctx.fillStyle=C.dim; ctx.font='7px DM Mono,monospace';
+      ctx.fillText('n='+d.n,x+bw/2,H-PAD.b+14+lines.length*11+4);
+    });
+
+    ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
+    ctx.fillText('Ratio Daten/GOE (monoton fallend mit Grad, aber n auch fallend)',PAD.l,PAD.t-6);
   })();
 })();
 </script>
