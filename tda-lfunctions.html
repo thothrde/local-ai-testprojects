@@ -33,6 +33,10 @@ h1 .sub{display:block;font-style:normal;font-size:.42em;font-family:var(--sans);
 .status-row span{display:flex;align-items:center;gap:.3rem}
 .dot-green{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
 .dot-amber{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0}
+.lang-switch{font-family:var(--sans);font-size:.68rem;letter-spacing:.08em;margin-bottom:1rem}
+.lang-switch a{color:var(--fg-dim);text-decoration:none;padding:.15em .5em}
+.lang-switch a.active{color:var(--gold);border-bottom:1px solid var(--gold)}
+.lang-switch a:hover{color:var(--gold)}
 h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;
    text-transform:uppercase;color:var(--gold);margin:3rem 0 1.2rem;
    display:flex;align-items:center;gap:1rem}
@@ -101,6 +105,7 @@ footer{border-top:1px solid var(--rule);padding:2.5rem 0;margin-top:4rem;
 <header>
 <div class="col">
   <a class="back" href="index.html">&#8592; Alle Projekte</a>
+  <p class="lang-switch"><a href="tda-lfunctions.html" class="active">Deutsch</a> &middot; <a href="tda-lfunctions-en.html">English</a></p>
   <p class="proj-meta">Projekt 25 &middot; Arithmetik &amp; Zahlentheorie &middot; Juni&ndash;Juli 2026</p>
   <h1>TDA auf L-Funktionen-Nullstellen
     <span class="sub">Topological Data Analysis on L-function Zeros</span>
