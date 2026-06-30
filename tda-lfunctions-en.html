@@ -361,6 +361,90 @@ remains consistent and does not weaken with the larger sample.</p>
 
 <section>
 <div class="col">
+<h2>Phase 8: Classical RMT Comparison and Degree Scaling</h2>
+<p>Phase 8 answers the two questions left open at the end of Phase 7: does the H&#8320; TDA statistic capture something classical RMT quantities cannot see &mdash; or is it a complex imprint of already-known quantities? And does the GOE deviation scale with the degree of the L-function?</p>
+
+<h3>8A &mdash; Classical n-Level-Density Comparison</h3>
+<p>Energy-distance permutation tests (Sz&eacute;kely&ndash;Rizzo, 150 permutations per dimension) compare the distribution of the first k normalised zeros (data vs. matched-GOE null) at increasing dimension k=1 (the simplest classical 1-level density) up to k=8 (the full TDA construction).</p>
+
+<div class="result-grid">
+  <div class="rtile rev">
+    <div class="val">k=1: p&thinsp;&lt;&thinsp;0.007</div>
+    <div class="lbl">even the simplest 1-level density is significant</div>
+    <div class="note">energy=0.0207, n=800 subsample</div>
+  </div>
+  <div class="rtile rev">
+    <div class="val">k=1..8: all significant</div>
+    <div class="lbl">no dimension shows GOE consistency</div>
+    <div class="note">energy increases monotonically 0.021&rarr;0.494</div>
+  </div>
+</div>
+
+<div class="alert">
+<strong>An important, rather deflating result:</strong> The deviation from GOE is not only visible in the full 8-dimensional TDA construction &mdash; it is already present at the simplest classical 1-level density (the distribution of &gamma;&#771;<sub>1</sub> alone). This argues <em>against</em> the hypothesis that H&#8320; is a "new", classically invisible invariant. The more plausible reading: the H&#8320; statistic aggregates (in a more complex form) a deviation that is already present in the simple density distribution.
+</div>
+
+<div class="alert">
+<strong>Adversarial counter-explanation:</strong> The p-value of "0.000" at n_perm=150 is a discretisation artefact (floor 1/151&thinsp;&approx;&thinsp;0.0066); the true p-values are likely around 10&#8315;&#8308;&ndash;10&#8315;&sup3;, not exactly zero. A second possible explanation, besides "L-functions genuinely deviate": the <strong>matched-null construction itself</strong> (finite matrix size N=1,200, limited bulk fraction during unfolding) may not perfectly emulate the true asymptotic Katz&ndash;Sarnak density &mdash; part of the measured "deviation" could be an artefact of the null model rather than of the L-functions themselves. This question cannot be conclusively settled with the present data.
+</div>
+
+<h3>8B &mdash; Degree-3 Family: Sym&sup2;(E) L-functions</h3>
+<p>Symmetric squares of elliptic curves, Sym&sup2;(E), are degree-3 L-functions always with even functional equation (no forced zero, a homogeneous family with no parity split). 400 curves via PARI/GP <code>lfunsympow</code>, methodology identical to Phases 5&ndash;7 (genuine matrices, self-consistency).</p>
+
+<div class="result-grid">
+  <div class="rtile ok">
+    <div class="val">0.3066</div>
+    <div class="lbl">Ratio data/GOE (Sym&sup2;, n=400)</div>
+    <div class="note">CI95 (n=150, 80 iter.): [0.404, 0.508]</div>
+  </div>
+  <div class="rtile">
+    <div class="val">1.0256</div>
+    <div class="lbl">Self-consistency GOE_A/GOE_B</div>
+    <div class="note">CI95: [0.925, 1.146]</div>
+  </div>
+  <div class="rtile ok">
+    <div class="val">z&thinsp;=&thinsp;&minus;12.31</div>
+    <div class="lbl">Deviation vs. self-consistency</div>
+    <div class="note">weaker than degree 1/2, but n is also smaller (400 vs. 6,086/1,100)</div>
+  </div>
+</div>
+
+<h3>Degree Scaling: All Three Families Compared</h3>
+<div class="viz-wrap">
+  <div class="vt">Ratio data/GOE by degree of the L-function</div>
+  <canvas id="degreeCanvas" width="640" height="220" style="width:100%;max-width:640px;display:block"></canvas>
+</div>
+
+<table class="phase-table">
+<thead><tr><th>Degree</th><th>Family</th><th>n</th><th>Ratio</th><th>z</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Dirichlet characters</td><td class="mono">6,086</td><td class="mono">0.5302</td><td class="mono">&minus;20.97</td></tr>
+<tr><td>2</td><td>Elliptic curves</td><td class="mono">1,100</td><td class="mono">0.3457</td><td class="mono">&minus;19.56</td></tr>
+<tr><td>3</td><td>Sym&sup2;(E)</td><td class="mono">400</td><td class="mono">0.3066</td><td class="mono">&minus;12.31</td></tr>
+</tbody>
+</table>
+
+<div class="alert">
+<strong>Caution in interpretation:</strong> The ratio trend (0.530&thinsp;&rarr;&thinsp;0.346&thinsp;&rarr;&thinsp;0.307) is monotonically decreasing and might indicate genuine degree scaling. The adversarial check, however, urges caution: three data points at n=6,086/1,100/400 cannot distinguish between linear and other scaling laws; moreover, Sym&sup2; is a <em>homogeneous</em> family (no parity split), unlike degree 1/2 &mdash; comparing across structurally different ensemble types is not entirely clean methodologically. A robust scaling claim would require n&thinsp;&ge;&thinsp;1,000 per degree and at least 5 degree points.
+</div>
+
+<h3>Committee, Phase 8</h3>
+<div class="cbox">
+  <span class="mtag">qwen3:235b-a22b &middot; Phase 8</span>
+  <p><span class="tag tag-b">CONFIRMED</span> The deviation from GOE is already classically detectable at k=1 &mdash; the H&#8320; TDA statistic therefore likely reflects no new invariant, but aggregates density deviations visible at every k.</p>
+  <p><span class="tag tag-k">CONJECTURE</span> The ratio trend (0.530&rarr;0.346&rarr;0.307) suggests degree scaling, but is complicated by sample size and ensemble heterogeneity.</p>
+</div>
+<div class="cbox">
+  <span class="mtag">qwen3.6:35b-a3b &middot; Adversarial check &middot; Phase 8</span>
+  <p><strong>p=0.000 at n_perm=150:</strong> a discretisation artefact, floor&thinsp;&approx;&thinsp;0.0066; true p likely 10&#8315;&#8308;&ndash;10&#8315;&sup3;.</p>
+  <p><strong>Alternative explanation:</strong> TDA might misinterpret accumulated finite-size effects of the matched-null construction (slow GOE convergence, binning/edge effects in the unfolding) as a "new invariant" rather than genuine arithmetic structure.</p>
+  <p><strong>Sym&sup2; n=400:</strong> statistically fragile as a third scaling point; cannot distinguish linear from other degree dependence.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="col">
 <h2>Methodological Development Across 7 Phases</h2>
 
 <table class="phase-table">
@@ -752,6 +836,52 @@ remains consistent and does not weaken with the larger sample.</p>
 
     ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
     ctx.fillText('Real histogram, n=500 permutations (24 bins)',PAD.l,PAD.t-5);
+  })();
+
+  // ── Chart 4: degree scaling (Phase 8) ──────────────────────────────────
+  (function(){
+    const cv=document.getElementById('degreeCanvas');
+    if(!cv)return;
+    const ctx=cv.getContext('2d');
+    const W=cv.width,H=cv.height;
+    ctx.fillStyle=C.bg2; ctx.fillRect(0,0,W,H);
+
+    const data=[
+      {deg:1, ratio:0.5302, n:6086, lbl:'Degree 1\nDirichlet'},
+      {deg:2, ratio:0.3457, n:1100, lbl:'Degree 2\nEll. curves'},
+      {deg:3, ratio:0.3066, n:400,  lbl:'Degree 3\nSym\u00b2(E)'}
+    ];
+    const PAD={l:50,r:30,t:20,b:50};
+    const maxV=0.6;
+    const bw=(W-PAD.l-PAD.r)/data.length-30;
+
+    ctx.strokeStyle=C.rule; ctx.lineWidth=0.5;
+    [0,0.2,0.4,0.6].forEach(v=>{
+      const y=H-PAD.b-(v/maxV)*(H-PAD.t-PAD.b);
+      ctx.beginPath(); ctx.moveTo(PAD.l,y); ctx.lineTo(W-PAD.r,y); ctx.stroke();
+      ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='right';
+      ctx.fillText(v.toFixed(1),PAD.l-6,y+3);
+    });
+
+    data.forEach((d,i)=>{
+      const x=PAD.l+i*(bw+30)+15;
+      const h=(d.ratio/maxV)*(H-PAD.t-PAD.b);
+      const y=H-PAD.b-h;
+      ctx.fillStyle=C.gold;
+      ctx.fillRect(x,y,bw,h);
+      ctx.fillStyle=C.fg; ctx.font='10px DM Mono,monospace'; ctx.textAlign='center';
+      ctx.fillText(d.ratio.toFixed(3),x+bw/2,y-6);
+      ctx.fillStyle=C.dim; ctx.font='9px Instrument Sans,sans-serif';
+      const lines = d.lbl.split('\n');
+      lines.forEach((line,li)=>{
+        ctx.fillText(line,x+bw/2,H-PAD.b+14+li*11);
+      });
+      ctx.fillStyle=C.dim; ctx.font='7px DM Mono,monospace';
+      ctx.fillText('n='+d.n,x+bw/2,H-PAD.b+14+lines.length*11+4);
+    });
+
+    ctx.fillStyle=C.dim; ctx.font='8px DM Mono,monospace'; ctx.textAlign='left';
+    ctx.fillText('Ratio data/GOE (decreases monotonically with degree, but n also decreases)',PAD.l,PAD.t-6);
   })();
 })();
 </script>
