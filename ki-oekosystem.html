@@ -165,6 +165,8 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 </tbody></table></div>
 <h3>DeepSeek V4 Flash (DSV4) — separater llama-server</h3>
 <p>284B MoE, 153 GB GGUF, gemischte Quantisierung (Q4KExperts/F16HC), auf TB5-WORK. Eigener llama-server 9650 auf Port 8888 — <strong>256K Kontext</strong>, 99 GPU-Lagen. Automatisch via Router für sehr lange Eingaben (&gt;400-Token-Komplexitätsschwelle) gestartet.</p>
+<h3>GLM-5.2 (Z.ai) — dedizierter llama-server</h3>
+<p>744B MoE, 40B aktiv, Unsloth UD-IQ2_M (239 GB GGUF), auf TB5-WORK. Eigener llama-server auf Port 8890 — <strong>ctx-size 16384</strong> (praktischer Sweet Spot, architektonisch bis 1M möglich), 999 GPU-Lagen mit CPU-Offload der MoE-Experten-Gewichte (Metal-Speicherlimit). Startet automatisch per <code>nimm glm52</code> oder wenn das semantische Auto-Routing eine komplexe Coding-/Agentic-Aufgabe erkennt; stoppt dabei automatisch DSV4 (Speicherkonflikt-Vermeidung, ~230 GB RSS).</p>
 <h3>MLX-LM 0.31.3 — Apple-Silicon-nativer Inferenz-Layer</h3>
 <p>Zus&auml;tzlich zu Ollama ist MLX-LM 0.31.3 (Apple MLX-Bibliothek) installiert. <code>OLLAMA_BACKEND=mlx</code> ist dauerhaft in <code>~/.zshrc</code> gesetzt — ca. 26&ndash;30&nbsp;% Geschwindigkeitsgewinn bei langen Prompts durch Apple-Silicon-optimierte Kernel. Verwendbar auch direkt via <code>mlx_lm.generate</code> oder <code>mlx_lm.server</code>.</p>
 </div>
@@ -187,6 +189,8 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 </tbody></table></div>
 <h3>DeepSeek V4 Flash (DSV4) — dedicated llama-server</h3>
 <p>284B MoE, 153 GB GGUF, mixed quantization (Q4KExperts/F16HC), on TB5-WORK. Dedicated llama-server 9650 on port 8888 — <strong>256K context</strong>, 99 GPU layers. Automatically started via router for very long inputs (&gt;400-token complexity threshold).</p>
+<h3>GLM-5.2 (Z.ai) — dedicated llama-server</h3>
+<p>744B MoE, 40B active, Unsloth UD-IQ2_M (239 GB GGUF), on TB5-WORK. Dedicated llama-server on port 8890 — <strong>ctx-size 16384</strong> (practical sweet spot, architecturally up to 1M possible), 999 GPU layers with CPU offload of MoE expert weights (Metal memory limit). Auto-starts via <code>nimm glm52</code> or when semantic auto-routing detects a complex coding/agentic task; automatically stops DSV4 in the process (memory-conflict avoidance, ~230 GB RSS).</p>
 <h3>MLX-LM 0.31.3 — Apple Silicon native inference layer</h3>
 <p>In addition to Ollama, MLX-LM 0.31.3 (Apple MLX library) is installed. <code>OLLAMA_BACKEND=mlx</code> is permanently set in <code>~/.zshrc</code> &mdash; approximately 26&ndash;30&nbsp;% speed gain on long prompts via Apple-Silicon-optimized kernels. Also usable directly via <code>mlx_lm.generate</code> or <code>mlx_lm.server</code>.</p>
 </div>
