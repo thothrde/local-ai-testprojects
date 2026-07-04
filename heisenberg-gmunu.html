@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kann ein &bdquo;schiefes&ldquo; Universum wie ein symmetrisches aussehen? &middot; Berlin 2026</title>
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f8f8f6;--bg3:#f2f2ef;
+  --text:#1a1a18;--text2:#4a4a44;--text3:#7a7a72;
+  --border:#ddddd8;--border2:#c8c8c0;
+  --p1:#5b21b6;--p1l:#f3eeff;--p1d:#4a1a9a;
+  --p2:#1a4a7a;--p2l:#eef3fa;
+  --p3:#1a5c2a;--p3l:#eefaf2;
+  --p4:#7a2a00;--p4l:#fff3ee;
+  font-family:'Georgia',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);max-width:860px;margin:0 auto;padding:2.5rem 2rem 5rem;line-height:1.75;font-size:15.5px}
+code,pre{font-family:'Courier New',Courier,monospace}
+h1{font-size:1.8rem;font-weight:700;line-height:1.3;margin-bottom:.5rem}
+h2{font-size:1.15rem;font-weight:700;margin:2.25rem 0 .7rem;padding-bottom:.35rem;border-bottom:1.5px solid var(--border)}
+h3{font-size:.98rem;font-weight:700;margin:1.3rem 0 .4rem}
+p{margin-bottom:.85rem;font-size:.94rem;color:var(--text);line-height:1.75}
+code.i{background:var(--bg3);padding:1px 5px;border-radius:3px;font-size:.86em;color:#1a1a18}
+hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+.ok{color:#1a5c2a;font-weight:600}
+.ax{color:#5b21b6;font-weight:600}
+.warn{color:#7a4000;font-weight:600}
+.band{border-left:3px solid;padding:.5rem .9rem .5rem 1rem;margin:1.5rem 0 .8rem;border-radius:0 5px 5px 0}
+.band.p1{border-color:var(--p1);background:var(--p1l)}
+.band.p2{border-color:var(--p2);background:var(--p2l)}
+.band.p3{border-color:var(--p3);background:var(--p3l)}
+.band .num{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.15rem}
+.band.p1 .num{color:var(--p1)}.band.p2 .num{color:var(--p2)}.band.p3 .num{color:var(--p3)}
+.band .title{font-size:1.05rem;font-weight:700}
+.band.p1 .title{color:var(--p1d)}.band.p2 .title{color:var(--p2)}.band.p3 .title{color:var(--p3)}
+.note{background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:.8rem 1rem;margin:.65rem 0;font-size:.9rem;color:var(--text2);line-height:1.65;font-family:sans-serif}
+.note strong{color:var(--text)}
+.note.ok{background:#f0faf2;border-color:#80c090}
+.note.warn{background:#fff8f0;border-color:#e0a050}
+.note.info{background:var(--p2l);border-color:var(--p2)}
+.result-box{background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.75}
+.result-box strong{color:var(--text)}
+.svg-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.2rem;margin:1rem 0;text-align:center}
+.svg-cap{font-family:sans-serif;font-size:.78rem;color:var(--text3);margin-top:.6rem;line-height:1.5}
+#lang-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);
+  border-bottom:1px solid #dddbd3;padding:.5rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:sans-serif;font-size:.8rem;gap:.5rem;}
+#lang-nav a.nav-home{color:#2d4a7a;text-decoration:none;font-weight:600;}
+#lang-nav a.nav-home:hover{text-decoration:underline;}
+.lang-sep{color:#aaa;margin:0 .4rem;}
+.lang-crumb{color:#888;font-size:.78rem;}
+.lang-toggle{display:flex;gap:.2rem;flex-shrink:0;}
+.lang-btn{font-size:.75rem;font-weight:700;padding:.25rem .6rem;
+  border:1.5px solid #c8c5bc;border-radius:3px;background:transparent;
+  color:#888;cursor:pointer;}
+.lang-btn.active{background:#2d4a7a;border-color:#2d4a7a;color:#fff;}
+.lang-btn:hover:not(.active){border-color:#2d4a7a;color:#2d4a7a;}
+.lang-de-section{display:block;}
+.lang-en-section{display:none;}
+</style>
+</head>
+<body>
+
+<div id="lang-nav">
+  <span>
+    <a class="nav-home" href="index.html">&#8592; Home</a>
+    <span class="lang-sep">|</span>
+    <span class="lang-crumb lang-de-section">Kann ein &bdquo;schiefes&ldquo; Universum wie ein symmetrisches aussehen?</span>
+    <span class="lang-crumb lang-en-section" style="display:none">Can a &ldquo;lopsided&rdquo; universe look symmetric?</span>
+  </span>
+  <div class="lang-toggle">
+    <button class="lang-btn" id="btn-en" onclick='setLang("en")'>EN</button>
+    <button class="lang-btn active" id="btn-de" onclick='setLang("de")'>DE</button>
+  </div>
+</div>
+
+<!-- DEUTSCH -->
+<div class="lang-de-section">
+<div style="max-width:860px;margin:0 auto;padding:2rem 2rem 0;font-family:Georgia,serif;">
+<div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Testprojekt &middot; Lokales KI-&Ouml;kosystem &middot; Berlin &middot; Juli 2026</div>
+<h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">Kann ein &bdquo;schiefes&ldquo; Universum wie ein symmetrisches aussehen?</h1>
+<p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">Eine offene Frage aus einem Dezember-2025-Paper von Lavinia Heisenberg (Universit&auml;t Heidelberg): Kann eine Raumzeit, die selbst nicht &uuml;berall gleich aussieht, trotzdem Einsteins Gravitationsgleichungen so erf&uuml;llen, dass sie sich f&uuml;r die Gravitation vollkommen gleichf&ouml;rmig verh&auml;lt? Symbolische Rechnung mit SageMath/SageManifolds auf dem Mac Studio &mdash; noch offen, aber ein Stück weiter eingegrenzt.</p>
+<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:1.5rem;">Angesto&szlig;en durch den ZEIT-Podcast &bdquo;Alles gesagt?&ldquo; mit Lavinia Heisenberg (Juli 2026) &middot; SageMath 10.9 / SageManifolds &middot; Mac Studio M3 Ultra (256&nbsp;GB) &middot; Juli 2026</p>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Worum es geht &mdash; ohne Formeln</h2>
+<p>Die moderne Kosmologie beruht auf einer Annahme, die man das <strong>Kosmologische Prinzip</strong> nennt: Auf gro&szlig;en Skalen sieht das Universum &uuml;berall gleich aus (homogen) und in jede Richtung gleich aus (isotrop). Das ist keine bewiesene Tatsache, sondern eine gut best&auml;tigte Annahme, die die Mathematik der Kosmologie erst handhabbar macht.</p>
+<p>Lavinia Heisenberg hat in einem Paper vom Dezember 2025 (arXiv:2512.16934) die Grundlagen dieser Annahme neu durchdacht und dabei eine Frage aufgeworfen, die zun&auml;chst harmlos klingt, aber nicht trivial ist. Einsteins Feldgleichungen verbinden zwei Gr&ouml;&szlig;en: die <strong>Metrik</strong> (das vollst&auml;ndige geometrische &bdquo;Ma&szlig;system&ldquo; der Raumzeit &mdash; sie legt fest, wie lang jede Strecke in jede Richtung an jedem Ort ist) und den <strong>Einsteintensor</strong> (der Teil dieser Geometrie, der tats&auml;chlich mit Materie und Energie wechselwirkt). Wenn die Metrik selbst homogen und isotrop ist, folgt zwingend, dass auch der Einsteintensor es ist &mdash; das ist ein bewiesener, unstrittiger Sachverhalt.</p>
+<p>Heisenbergs Frage geht in die andere Richtung, und die ist nicht automatisch beantwortet: <strong>Kann der Einsteintensor homogen und isotrop sein, obwohl die zugrundeliegende Metrik es nicht ist?</strong> Anders gesagt: K&ouml;nnte es eine Raumzeit geben, die selbst schief, ungleichm&auml;&szlig;ig oder mit einer Vorzugsrichtung ausgestattet ist &mdash; die sich aber, gemessen an dem, was tats&auml;chlich auf die Materie wirkt, exakt so verh&auml;lt wie unser gew&ouml;hnliches, symmetrisches Universum? Heisenberg schreibt selbst, dass sie wegen der algebraischen Komplexit&auml;t kein konkretes Beispiel konstruieren konnte, und nennt die Frage ein offenes Problem.</p>
+<div class="note info"><strong>Warum das mehr als eine Spielerei ist:</strong> W&auml;re die Antwort &bdquo;ja&ldquo;, g&auml;be es prinzipiell verborgene geometrische Struktur, die sich hinter dem beobachtbaren, perfekt symmetrischen kosmischen Hintergrund verstecken k&ouml;nnte &mdash; unsichtbar f&uuml;r jede Messung, die nur &uuml;ber die Feldgleichungen l&auml;uft. W&auml;re die Antwort &bdquo;nein&ldquo;, w&uuml;rde das best&auml;tigen, dass die beobachtete Symmetrie tats&auml;chlich auf eine symmetrische Geometrie schlie&szlig;en l&auml;sst, nicht nur auf ein symmetrisches Nebenprodukt.</p>
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Die Idee, symbolisch anzugreifen</h2>
+<p>Diese Frage l&auml;sst sich nicht durch Nachdenken allein beantworten &mdash; sie erfordert, tats&auml;chlich eine Metrik hinzuschreiben und mit Computeralgebra zu pr&uuml;fen, ob und wie ihr Einsteintensor symmetrisch werden kann, ohne dass die Metrik selbst es ist. Genau das haben wir versucht, mit SageMath (genauer: dessen Erweiterung SageManifolds, die symbolische Tensorrechnung auf gekr&uuml;mmten R&auml;umen beherrscht), vollst&auml;ndig lokal auf dem Mac Studio, ohne Cloud-Zugriff.</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
+  <rect x="20" y="70" width="180" height="70" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.5"/>
+  <text x="110" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#1a4a7a">Metrik g</text>
+  <text x="110" y="118" text-anchor="middle" font-size="10.5" fill="#4a4a44">vollst&#228;ndige Geometrie</text>
+
+  <rect x="500" y="70" width="180" height="70" rx="6" fill="#f3eeff" stroke="#5b21b6" stroke-width="1.5"/>
+  <text x="590" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">Einsteintensor G</text>
+  <text x="590" y="118" text-anchor="middle" font-size="10.5" fill="#4a4a44">wirkt auf Materie</text>
+
+  <line x1="200" y1="88" x2="498" y2="88" stroke="#1a5c2a" stroke-width="2.5" marker-end="url(#arrow-ok)"/>
+  <text x="350" y="75" text-anchor="middle" font-size="11" fill="#1a5c2a" font-weight="700">g symmetrisch &#8658; G symmetrisch</text>
+  <text x="350" y="65" text-anchor="middle" font-size="9.5" fill="#7a7a72">(bewiesen, unstrittig)</text>
+
+  <line x1="498" y1="122" x2="200" y2="122" stroke="#7a4000" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-warn)"/>
+  <text x="350" y="150" text-anchor="middle" font-size="11" fill="#7a4000" font-weight="700">G symmetrisch &#8658; g symmetrisch?</text>
+  <text x="350" y="163" text-anchor="middle" font-size="9.5" fill="#7a7a72">(Heisenbergs offene Frage &mdash; nicht bewiesen)</text>
+
+  <defs>
+    <marker id="arrow-ok" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#1a5c2a"/></marker>
+    <marker id="arrow-warn" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#7a4000"/></marker>
+  </defs>
+</svg>
+<div class="svg-cap">Die Hinrichtung ist gesichert. Die R&uuml;ckrichtung ist die offene Frage, die Heisenberg stellt.</div>
+</div>
+
+<p>Als konkreten Testfall haben wir uns auf den Vakuumfall beschr&auml;nkt (keine Materie, nur leerer Raum) und eine kugelsymmetrische Metrik gew&auml;hlt &mdash; das ist die einfachste Klasse, in der die Frage &uuml;berhaupt sinnvoll gestellt werden kann, und sie ist gro&szlig; genug, um nicht automatisch auf die triviale (bereits als symmetrisch bekannte) L&ouml;sung zu kollabieren.</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
+  <rect x="230" y="10" width="240" height="46" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="38" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1a18">Allgemeine kugelsymm. Metrik</text>
+
+  <line x1="350" y1="56" x2="350" y2="80" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <text x="380" y="72" font-size="9.5" fill="#7a7a72">B=0 (kein Kreuzterm)</text>
+  <rect x="230" y="80" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="105" text-anchor="middle" font-size="12" fill="#1a1a18">Diagonale Form</text>
+
+  <line x1="350" y1="122" x2="350" y2="146" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <text x="380" y="138" font-size="9.5" fill="#7a7a72">statisch (kein t)</text>
+  <rect x="230" y="146" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="171" text-anchor="middle" font-size="12" fill="#1a1a18">Zeitunabh&#228;ngiger Fall</text>
+
+  <line x1="350" y1="188" x2="350" y2="212" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <text x="380" y="204" font-size="9.5" fill="#7a7a72">Eichung: A=1, D=r&#178;</text>
+  <rect x="200" y="212" width="300" height="42" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.3"/>
+  <text x="350" y="237" text-anchor="middle" font-size="12" fill="#1a4a7a" font-weight="700">Eine freie Funktion C(r) &#252;brig</text>
+
+  <line x1="350" y1="254" x2="350" y2="278" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <rect x="130" y="278" width="200" height="46" rx="6" fill="#eefaf2" stroke="#1a5c2a" stroke-width="1.3"/>
+  <text x="230" y="298" text-anchor="middle" font-size="11.5" fill="#1a5c2a" font-weight="700">Zweig 1: C=1</text>
+  <text x="230" y="314" text-anchor="middle" font-size="9.5" fill="#4a4a44">= flaches Minkowski (trivial)</text>
+
+  <rect x="370" y="278" width="200" height="46" rx="6" fill="#fff3ee" stroke="#7a2a00" stroke-width="1.3"/>
+  <text x="470" y="298" text-anchor="middle" font-size="11.5" fill="#7a2a00" font-weight="700">Zweig 2: nichttrivial</text>
+  <text x="470" y="314" text-anchor="middle" font-size="9.5" fill="#4a4a44">algebraisch aus Fr(r) bestimmt</text>
+
+  <line x1="470" y1="324" x2="470" y2="348" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <rect x="330" y="348" width="280" height="28" rx="6" fill="#f8f8f6" stroke="#c8c8c0" stroke-width="1.3"/>
+  <text x="470" y="366" text-anchor="middle" font-size="11" fill="#4a4a44">ODE f&#252;r Fr(r) &mdash; noch offen</text>
+
+  <defs><marker id="arrow-g" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#7a7a72"/></marker></defs>
+</svg>
+<div class="svg-cap">Der Weg der Vereinfachung: von der allgemeinen Metrik bis zur Verzweigung in eine triviale und eine noch offene, nichttriviale L&ouml;sung.</div>
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Was tats&auml;chlich herauskam</h2>
+
+<div class="band p2">
+  <div class="num">Kernbefund</div>
+  <div class="title">Eine saubere Verzweigung: trivial versus m&ouml;glich nichttrivial</div>
+</div>
+<p>Nach mehreren Vereinfachungsschritten (keine Kreuzterme, keine Zeitabh&auml;ngigkeit, eine naheliegende Koordinatenwahl) reduzierte sich die gesamte Fragestellung auf eine einzige unbekannte Funktion. Die Bedingung, dass der Einsteintensor symmetrisch wird, zerf&auml;llt dabei sauber in zwei F&auml;lle: Entweder die Metrikfunktion nimmt den Wert 1 an &mdash; das ist exakt der flache, leere Raum (Minkowski-Raumzeit), also keine echte Abweichung von einem symmetrischen Universum. Oder eine zweite, algebraische Bedingung ist erf&uuml;llt, die eine tats&auml;chlich neue, vom trivialen Fall verschiedene M&ouml;glichkeit er&ouml;ffnet.</p>
+
+<div class="band p3">
+  <div class="num">Test</div>
+  <div class="title">Ein naheliegender Versuch scheitert &mdash; kontrolliert</div>
+</div>
+<p>Der naheliegendste Kandidat f&uuml;r den nichttrivialen Zweig (eine Zusatzfunktion, die einfach proportional zum Radius w&auml;chst) f&uuml;hrt auf eine entartete, physikalisch unzul&auml;ssige Metrik &mdash; eine Konfiguration, bei der eine Komponente der Metrik null wird, was geometrisch nicht erlaubt ist. Das ist ein negatives, aber informatives Ergebnis: Es zeigt, dass der nichttriviale Zweig kein Freibrief ist, sondern selektiv, und dass ein Quadrieren-Schritt in der Rechnung (technisch notwendig, um eine st&ouml;rende Wurzel zu beseitigen) genau diese Art von Scheinl&ouml;sung einf&uuml;hren kann &mdash; wir haben sie identifiziert und verworfen, statt sie unkommentiert stehen zu lassen.</p>
+
+<div class="result-box">
+<strong>Stand:</strong> Die urspr&uuml;ngliche Frage wurde auf eine einzige, explizite gew&ouml;hnliche Differentialgleichung dritter Ordnung f&uuml;r eine Funktion reduziert. Diese Gleichung ist noch nicht gel&ouml;st. Symbolisch (mit Computeralgebra) ist damit ein sauberer Endpunkt erreicht &mdash; die Fortsetzung erfordert numerische Methoden (etwa ein Shooting-Verfahren), um zu pr&uuml;fen, ob real existierende, nicht-singul&auml;re L&ouml;sungen dieser Gleichung &uuml;berhaupt existieren.
+</div>
+
+<div class="note warn"><strong>Was dieses Projekt nicht ist:</strong> Es ist keine L&ouml;sung von Heisenbergs offener Frage. Es ist eine pr&auml;zise Eingrenzung eines Spezialfalls (Vakuum, kugelsymmetrisch, statisch, eine bestimmte Koordinatenwahl) auf ein konkretes, wohldefiniertes mathematisches Objekt &mdash; mit dem ehrlichen Befund, dass ein erster Kandidat f&uuml;r ein Gegenbeispiel sich als Artefakt der Rechnung entpuppt hat, nicht als echte L&ouml;sung.</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Einordnung</h2>
+<p>Lavinia Heisenberg ist Professorin am Institut f&uuml;r Theoretische Physik der Universit&auml;t Heidelberg und Mitbegr&uuml;nderin mehrerer aktueller Forschungsrichtungen in der Gravitationsphysik (unter anderem der sogenannten &bdquo;Generalisierten Proca-Theorie&ldquo; und der &bdquo;Geometrischen Trinit&auml;t der Gravitation&ldquo;, die zeigt, dass sich Einsteins Gravitation gleichwertig &uuml;ber Kr&uuml;mmung, Torsion oder Nichtmetrizit&auml;t beschreiben l&auml;sst). Das hier behandelte Paper (arXiv:2512.16934) ist eher konzeptioneller, grundlagenorientierter Natur als ihre &uuml;brige, meist modellbauende Arbeit &mdash; und genau deshalb ein besonders geeigneter Ausgangspunkt f&uuml;r ein Testprojekt: Die offene Frage stammt direkt und ausdr&uuml;cklich von der Autorin selbst, nicht aus einer eigenen, unabgesicherten Vermutung.</p>
+
+<h3>Werkzeuge und Ablage</h3>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li>SageMath 10.9 / SageManifolds &mdash; symbolische Tensorrechnung auf gekr&uuml;mmten Mannigfaltigkeiten</li>
+<li>Alle Skripte und Protokolle: <code>/Volumes/CLAUDE-DATA/Heisenberg-Gmunu-Symmetrie-Projekt/</code> (neun Rechenschritte, jeweils mit Log-Datei)</li>
+<li>Alle Berechnungen vollst&auml;ndig lokal auf Mac Studio M3 Ultra (256&nbsp;GB), ohne Cloud-Zugriff</li>
+</ul>
+
+<div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
+T. Riepe, Berlin. Juli 2026. Quelle der offenen Frage: L. Heisenberg, &bdquo;A Re-Examination Of Foundational Elements Of Cosmology&ldquo;, arXiv:2512.16934 (Dezember 2025), Abschnitt 5 / Conclusio. Angeregt durch den ZEIT-Podcast &bdquo;Alles gesagt?&ldquo; mit Lavinia Heisenberg (Juli 2026); Podcast-Inhalt selbst wurde f&uuml;r dieses Projekt nicht ausgewertet, nur das Paper direkt. Software: SageMath/SageManifolds. Rechnungen: Claude Sonnet 5 (Anthropic), auf Anweisung und mit Gegenpr&uuml;fung durch T. Riepe.
+</div>
+</div>
+</div>
+
+<!-- ENGLISH -->
+<div class="lang-en-section" style="display:none;">
+<div style="max-width:860px;margin:0 auto;padding:2rem 2rem 0;font-family:Georgia,serif;">
+<div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Test Project &middot; Local AI Ecosystem &middot; Berlin &middot; July 2026</div>
+<h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">Can a &ldquo;lopsided&rdquo; universe look symmetric?</h1>
+<p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">An open question from a December 2025 paper by Lavinia Heisenberg (Heidelberg University): can a spacetime that is not itself uniform still satisfy Einstein's field equations in a way that makes it look perfectly uniform to gravity? Symbolic computation with SageMath/SageManifolds on the Mac Studio &mdash; still open, but narrowed down a step further.</p>
+<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:1.5rem;">Prompted by the ZEIT podcast &ldquo;Alles gesagt?&rdquo; with Lavinia Heisenberg (July 2026) &middot; SageMath 10.9 / SageManifolds &middot; Mac Studio M3 Ultra (256&nbsp;GB) &middot; July 2026</p>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What this is about &mdash; without formulas</h2>
+<p>Modern cosmology rests on an assumption called the <strong>Cosmological Principle</strong>: on large scales, the universe looks the same everywhere (homogeneous) and the same in every direction (isotropic). This is not a proven fact but a well-supported assumption that makes the mathematics of cosmology tractable.</p>
+<p>In a December 2025 paper (arXiv:2512.16934), Lavinia Heisenberg re-examined the foundations of this assumption and raised a question that sounds innocuous but is not trivial. Einstein's field equations connect two quantities: the <strong>metric</strong> (the complete geometric &ldquo;measuring system&rdquo; of spacetime &mdash; it fixes how long every distance is, in every direction, at every point) and the <strong>Einstein tensor</strong> (the part of that geometry that actually interacts with matter and energy). If the metric itself is homogeneous and isotropic, it necessarily follows that the Einstein tensor is too &mdash; that is a proven, uncontested fact.</p>
+<p>Heisenberg's question runs the other way, and that direction is not automatically settled: <strong>can the Einstein tensor be homogeneous and isotropic even though the underlying metric is not?</strong> In other words: could there be a spacetime that is itself lopsided, uneven, or endowed with a preferred direction &mdash; yet behaves, as far as anything acting on matter is concerned, exactly like our ordinary, symmetric universe? Heisenberg herself writes that she was unable to construct a concrete example due to the algebraic complexity involved, and names this an open problem.</p>
+<div class="note info"><strong>Why this is more than a curiosity:</strong> if the answer were &ldquo;yes&rdquo;, there could in principle be hidden geometric structure concealed behind the observable, perfectly symmetric cosmic background &mdash; invisible to any measurement that only runs through the field equations. If the answer is &ldquo;no&rdquo;, that would confirm that observed symmetry really does imply a symmetric geometry, not merely a symmetric byproduct.</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">The approach</h2>
+<p>This question cannot be settled by thought alone &mdash; it requires actually writing down a metric and using computer algebra to check whether, and how, its Einstein tensor can become symmetric without the metric itself being symmetric. That is what we attempted, using SageMath (specifically its SageManifolds extension for symbolic tensor calculus on curved spaces), entirely locally on the Mac Studio, with no cloud access.</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
+  <rect x="20" y="70" width="180" height="70" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.5"/>
+  <text x="110" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#1a4a7a">Metric g</text>
+  <text x="110" y="118" text-anchor="middle" font-size="10.5" fill="#4a4a44">complete geometry</text>
+
+  <rect x="500" y="70" width="180" height="70" rx="6" fill="#f3eeff" stroke="#5b21b6" stroke-width="1.5"/>
+  <text x="590" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">Einstein tensor G</text>
+  <text x="590" y="118" text-anchor="middle" font-size="10.5" fill="#4a4a44">acts on matter</text>
+
+  <line x1="200" y1="88" x2="498" y2="88" stroke="#1a5c2a" stroke-width="2.5" marker-end="url(#arrow-ok2)"/>
+  <text x="350" y="75" text-anchor="middle" font-size="11" fill="#1a5c2a" font-weight="700">g symmetric &#8658; G symmetric</text>
+  <text x="350" y="65" text-anchor="middle" font-size="9.5" fill="#7a7a72">(proven, uncontested)</text>
+
+  <line x1="498" y1="122" x2="200" y2="122" stroke="#7a4000" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-warn2)"/>
+  <text x="350" y="150" text-anchor="middle" font-size="11" fill="#7a4000" font-weight="700">G symmetric &#8658; g symmetric?</text>
+  <text x="350" y="163" text-anchor="middle" font-size="9.5" fill="#7a7a72">(Heisenberg's open question &mdash; unproven)</text>
+
+  <defs>
+    <marker id="arrow-ok2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#1a5c2a"/></marker>
+    <marker id="arrow-warn2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#7a4000"/></marker>
+  </defs>
+</svg>
+<div class="svg-cap">The forward direction is settled. The reverse direction is Heisenberg's open question.</div>
+</div>
+
+<p>As a concrete test case we restricted to the vacuum case (no matter, empty space) and chose a spherically symmetric metric &mdash; the simplest class in which the question can be meaningfully posed at all, yet large enough not to collapse automatically into the already-known symmetric (trivial) solution.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What actually came out</h2>
+
+<div class="band p2">
+  <div class="num">Core finding</div>
+  <div class="title">A clean split: trivial versus possibly non-trivial</div>
+</div>
+<p>After several simplification steps (no cross terms, no time dependence, one natural coordinate choice), the entire question reduced to a single unknown function. The condition that the Einstein tensor become symmetric splits cleanly into two cases: either a metric function equals 1 &mdash; exactly flat, empty space (Minkowski spacetime), i.e. no genuine deviation from a symmetric universe &mdash; or a second, algebraic condition holds, opening up a genuinely different possibility.</p>
+
+<div class="band p3">
+  <div class="num">Test</div>
+  <div class="title">An obvious attempt fails &mdash; in a controlled way</div>
+</div>
+<p>The most obvious candidate for the non-trivial branch (an auxiliary function simply proportional to the radius) leads to a degenerate, physically inadmissible metric &mdash; a configuration in which a metric component vanishes, which is not geometrically allowed. This is a negative but informative result: it shows the non-trivial branch is not a free pass, and that a squaring step in the calculation (technically necessary to remove a troublesome square root) can introduce exactly this kind of spurious solution &mdash; we identified and discarded it rather than leaving it unremarked.</p>
+
+<div class="result-box">
+<strong>Status:</strong> the original question has been reduced to a single, explicit third-order ordinary differential equation for one function. This equation is not yet solved. The symbolic (computer-algebra) phase has reached a clean endpoint; continuing requires numerical methods (e.g. a shooting method) to check whether real, non-singular solutions of this equation exist at all.
+</div>
+
+<div class="note warn"><strong>What this project is not:</strong> it is not a solution to Heisenberg's open question. It is a precise narrowing of a special case (vacuum, spherically symmetric, static, a specific coordinate choice) down to one concrete, well-defined mathematical object &mdash; with the honest finding that a first candidate counterexample turned out to be an artefact of the calculation, not a genuine solution.</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Context</h2>
+<p>Lavinia Heisenberg is a professor at Heidelberg University's Institute for Theoretical Physics and co-founder of several current research directions in gravitational physics (among them &ldquo;Generalized Proca theory&rdquo; and the &ldquo;Geometrical Trinity of Gravity&rdquo;, which shows that Einstein's gravity can be equivalently described via curvature, torsion, or non-metricity). The paper discussed here (arXiv:2512.16934) is more conceptual and foundations-oriented than her usual model-building work &mdash; and precisely for that reason a well-suited starting point for a test project: the open question comes directly and explicitly from the author herself, not from an unverified guess of our own.</p>
+
+<h3>Tools and files</h3>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li>SageMath 10.9 / SageManifolds &mdash; symbolic tensor calculus on curved manifolds</li>
+<li>All scripts and logs: <code>/Volumes/CLAUDE-DATA/Heisenberg-Gmunu-Symmetrie-Projekt/</code> (nine computational steps, each with a log file)</li>
+<li>All computations entirely local on Mac Studio M3 Ultra (256&nbsp;GB), no cloud access</li>
+</ul>
+
+<div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
+T. Riepe, Berlin. July 2026. Source of the open question: L. Heisenberg, &ldquo;A Re-Examination Of Foundational Elements Of Cosmology&rdquo;, arXiv:2512.16934 (December 2025), Section 5 / Conclusion. Prompted by the ZEIT podcast &ldquo;Alles gesagt?&rdquo; with Lavinia Heisenberg (July 2026); the podcast itself was not evaluated for this project, only the paper directly. Software: SageMath/SageManifolds. Computations: Claude Sonnet 5 (Anthropic), directed and cross-checked by T. Riepe.
+</div>
+</div>
+</div>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-en-section').forEach(function(e){
+    e.style.display = l==='en' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.querySelectorAll('.lang-de-section').forEach(function(e){
+    e.style.display = l==='de' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-de').classList.toggle('active',l==='de');
+  document.documentElement.lang=l;
+  try{localStorage.setItem('site-lang',l);}catch(e){}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var l=null;try{l=localStorage.getItem('site-lang');}catch(e){}
+  setLang(l==='en'?'en':'de');
+});
+</script>
+<footer style="border-top:1px solid #dddbd3;padding:1.5rem 2rem;font-size:.78rem;color:#7a7872;margin-top:3rem"><a href="impressum.html" style="color:#7a7872">Impressum &amp; Datenschutz</a> &middot; &copy; Thomas Riepe, Berlin &middot; &sect; 5 DDG</footer>
+</body>
+</html>
