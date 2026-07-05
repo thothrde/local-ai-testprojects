@@ -204,13 +204,24 @@ hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
 <strong>Ergebnis der Eichkontrolle:</strong> Innerhalb der Potenzgesetz-Ansatzklasse ist das vollst&auml;ndige Negativresultat jetzt in <strong>zwei unabh&auml;ngigen Eichungen</strong> bestätigt &mdash; mit v&ouml;llig unterschiedlicher Algebra unterwegs (quadratisch vs. kubisch, ein zus&auml;tzlicher, versteckter Inversions-Zweig, der in der Areal-Eichung gar nicht auftaucht), aber demselben Endergebnis: keine nichttriviale L&ouml;sung. Das ist ein deutlich st&auml;rkerer Beleg f&uuml;r Eichunabh&auml;ngigkeit als eine einzelne Rechnung &mdash; nicht bewiesen f&uuml;r jede denkbare Eichung, aber nicht mehr nur eine m&ouml;glicherweise zuf&auml;llig g&uuml;nstige Parametrisierung.
 </div>
 
-<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">N&auml;chste Schritte</h2>
-<p>Das Projekt ist damit nicht abgeschlossen, sondern der erste Abschnitt eines l&auml;ngeren Untersuchungsprogramms. Konkret anstehend:</p>
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Phasenraumanalyse: zwei S&auml;ttel, keine Spiralen</h2>
+<p>Zur&uuml;ck zur Areal-Eichung. N&auml;chster Schritt: die ODE dritter Ordnung via x=ln(r) und einer logarithmischen Hilfsvariable u=d(ln Fr)/dx in ein <strong>autonomes System</strong> umschreiben. Potenzgesetz-L&ouml;sungen entsprechen darin Fixpunkten u=p=const &mdash; ein Kontrolltest (u=p, alle Ableitungen null einsetzen) reproduziert exakt die bekannte Quintik 2(4p&sup2;&minus;12p+25)(2p&minus;3)(p&minus;1)&sup3;p, was die Transformation bestätigt.</p>
+<p>Linearisierung um jeden Fixpunkt liefert eine charakteristische Gleichung mit den Eigenwerten (Stabilit&auml;tsexponenten):</p>
 <ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
-<li><strong>Asymptotik jenseits von einfachen Ans&auml;tzen:</strong> Potenzgesetze und logarithmische Korrekturen sind beide ersch&ouml;pft und negativ. Als N&auml;chstes m&uuml;sste eine qualitative Phasenraumanalyse des zugeh&ouml;rigen autonomen Systems erster Ordnung (nach Transformation r=e^x) versucht werden &mdash; nicht mehr auf der Suche nach einer expliziten Formel, sondern nach Fixpunkten und ihren Stabilit&auml;tseigenschaften im Phasenraum selbst.</li>
-<li><strong>Numerisches Shooting-Verfahren</strong> (Julia DifferentialEquations, bereits im lokalen Stack vorhanden) &mdash; erst sinnvoll, sobald ein solches begr&uuml;ndetes Startintervall vorliegt.</li>
+<li><strong>p=0</strong> (Minkowski): &lambda;=2, &lambda;=&minus;3 &mdash; reeller Sattel.</li>
+<li><strong>p=1</strong>: alle Koeffizienten der Linearisierung verschwinden identisch &mdash; das erkl&auml;rt im Nachhinein exakt, warum der Log-Korrektur-Ansatz scheitern musste: schon die lineare Ordnung ist an dieser dreifachen Wurzel entartet.</li>
+<li><strong>p=3/2</strong> (ebenfalls Minkowski): &lambda;=3, &lambda;=&minus;1 &mdash; wieder ein reeller Sattel.</li>
+</ul>
+<div class="result-box">
+<strong>Befund:</strong> Beide nichtentarteten Fixpunkte sind S&auml;ttel mit reellen Eigenwerten, keine Spiralen. Das bedeutet: es gibt keinen lokalen Hinweis auf versteckte, oszillierende Nicht-Potenzgesetz-L&ouml;sungen in der N&auml;he dieser selbst&auml;hnlichen Punkte. Eine echte, nichttriviale L&ouml;sung &mdash; falls sie existiert &mdash; w&auml;re keine kleine St&ouml;rung um p=0 oder p=3/2, sondern m&uuml;sste eine globale Bahn sein (etwa eine heterokline Verbindung zwischen den S&auml;tteln); das kann lokale Linearisierung prinzipiell nicht zeigen. Sie liefert aber die korrekten lokalen Eigenvektoren, mit denen ein Shooting-Verfahren bei r&rarr;0 oder r&rarr;&infin; jetzt tats&auml;chlich begr&uuml;ndet ansetzen k&ouml;nnte.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">N&auml;chste Schritte</h2>
+<p>Das Projekt ist damit nicht abgeschlossen, sondern der erste Abschnitt eines l&auml;ngeren Untersuchungsprogramms. Potenzgesetze, logarithmische Korrekturen und die lokale Phasenraumstruktur sind jetzt gekl&auml;rt; konkret anstehend:</p>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><strong>Numerisches Shooting-Verfahren</strong> (Julia DifferentialEquations, bereits im lokalen Stack vorhanden) &mdash; jetzt mit begr&uuml;ndetem Startintervall aus den Sattelpunkt-Eigenvektoren, um zu pr&uuml;fen, ob eine heterokline (oder anders globale) nichttriviale Bahn zwischen den Fixpunkten existiert.</li>
 <li><strong>Vergleich mit bekannten statischen Vakuuml&ouml;sungen</strong> der ART &mdash; erst m&ouml;glich, wenn &uuml;berhaupt eine nichttriviale L&ouml;sung gefunden wurde.</li>
-<li><strong>Schrittweises Lockern der verbleibenden Vereinfachungen</strong> (zuerst Zeitabh&auml;ngigkeit zulassen, dann den Kreuzterm B&ne;0) &mdash; die Eichabh&auml;ngigkeit selbst wurde bereits gepr&uuml;ft (zwei Eichungen, gleiches Ergebnis); es bleibt zu pr&uuml;fen, ob auch Zeitabh&auml;ngigkeit oder Kreuzterme das Negativresultat &auml;ndern.</li>
+<li><strong>Schrittweises Lockern der verbleibenden Vereinfachungen</strong> (zuerst Zeitabh&auml;ngigkeit zulassen, dann den Kreuzterm B&ne;0) &mdash; die Eichabh&auml;ngigkeit selbst wurde bereits gepr&uuml;ft (zwei Eichungen, gleiches Ergebnis).</li>
 </ul>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Einordnung</h2>
@@ -317,13 +328,24 @@ T. Riepe, Berlin. Juli 2026. Quelle der offenen Frage: L. Heisenberg, &bdquo;A R
 <strong>Result of the gauge check:</strong> within the power-law ansatz class, the complete negative result is now confirmed in <strong>two independent gauges</strong> &mdash; with completely different algebra along the way (quadratic vs. cubic, an extra hidden inversion branch absent from the areal gauge), but the same end result: no non-trivial solution. This is substantially stronger evidence for gauge independence than a single calculation &mdash; not proven for every conceivable gauge, but no longer just a possibly fortuitous parametrisation.
 </div>
 
-<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Next steps</h2>
-<p>The project is therefore not concluded, but the first stretch of a longer research programme. Concretely pending:</p>
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Phase-space analysis: two saddles, no spirals</h2>
+<p>Back to the areal gauge. Next step: rewrite the third-order ODE, via x=ln(r) and a logarithmic auxiliary variable u=d(ln Fr)/dx, as an <strong>autonomous system</strong>. Power-law solutions correspond to fixed points u=p=const &mdash; a control test (substituting u=p with all derivatives zero) reproduces exactly the known quintic 2(4p&sup2;&minus;12p+25)(2p&minus;3)(p&minus;1)&sup3;p, confirming the transformation.</p>
+<p>Linearising around each fixed point yields a characteristic equation with the following eigenvalues (stability exponents):</p>
 <ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
-<li><strong>Asymptotics beyond simple ansätze:</strong> both power laws and logarithmic corrections are now exhausted and negative. The next step would be a qualitative phase-space analysis of the associated first-order autonomous system (after the transformation r=e^x) &mdash; no longer searching for an explicit formula, but for fixed points and their stability properties in phase space itself.</li>
-<li><strong>Numerical shooting method</strong> (Julia DifferentialEquations, already part of the local stack) &mdash; only meaningful once such a justified starting interval exists.</li>
+<li><strong>p=0</strong> (Minkowski): &lambda;=2, &lambda;=&minus;3 &mdash; a real saddle.</li>
+<li><strong>p=1</strong>: all coefficients of the linearisation vanish identically &mdash; which explains, in hindsight, exactly why the logarithmic-correction ansatz had to fail: even the linear order is degenerate at this triple root.</li>
+<li><strong>p=3/2</strong> (likewise Minkowski): &lambda;=3, &lambda;=&minus;1 &mdash; again a real saddle.</li>
+</ul>
+<div class="result-box">
+<strong>Finding:</strong> both non-degenerate fixed points are saddles with real eigenvalues, no spirals. This means there is no local hint of hidden, oscillatory non-power-law solutions near these self-similar points. A genuine non-trivial solution &mdash; if one exists &mdash; would not be a small perturbation around p=0 or p=3/2, but would have to be a global orbit (e.g. a heteroclinic connection between the saddles); local linearisation cannot in principle show this. It does, however, supply the correct local eigenvectors with which a shooting method at r&rarr;0 or r&rarr;&infin; could now actually be set up on solid ground.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Next steps</h2>
+<p>The project is therefore not concluded, but the first stretch of a longer research programme. Power laws, logarithmic corrections, and the local phase-space structure are now settled; concretely pending:</p>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><strong>Numerical shooting method</strong> (Julia DifferentialEquations, already part of the local stack) &mdash; now with a justified starting interval from the saddle-point eigenvectors, to check whether a heteroclinic (or otherwise global) non-trivial orbit between the fixed points exists.</li>
 <li><strong>Comparison with known static vacuum solutions</strong> of GR &mdash; only possible once a non-trivial solution has actually been found.</li>
-<li><strong>Progressively relaxing the remaining simplifications</strong> (first allowing time dependence, then the cross term B&ne;0) &mdash; gauge dependence itself has already been checked (two gauges, same result); it remains to check whether time dependence or cross terms change the negative result.</li>
+<li><strong>Progressively relaxing the remaining simplifications</strong> (first allowing time dependence, then the cross term B&ne;0) &mdash; gauge dependence itself has already been checked (two gauges, same result).</li>
 </ul>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Context</h2>
