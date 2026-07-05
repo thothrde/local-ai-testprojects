@@ -251,10 +251,16 @@ hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
 </div>
 <div class="note warn"><strong>Warum das hier offen dokumentiert wird:</strong> Ein publizierter Zwischenbefund erwies sich als falsch, nicht nur als vorl&auml;ufig. Das wird nicht stillschweigend ersetzt, sondern ausdr&uuml;cklich als Korrektur festgehalten &mdash; derselbe Standard, der in diesem Projekt durchg&auml;ngig gelten soll.</div>
 
+<h3>Feine, verifizierte Integration: das eigentliche Bild</h3>
+<p>Die grobe Dreipunkt-Nachpr&uuml;fung oben war selbst irref&uuml;hrend &mdash; zu wenige, zu weit auseinanderliegende Punkte mit grobem Differenzenquotienten f&uuml;r C&prime;. Die feine (effektiv &Delta;x=0,02), gegen die ungequadrierte Bedingung verifizierte Integration (Restdifferenzen 5&middot;10&supmin;&#8309; bis 2,6&middot;10&supmin;&#185;&#8304; &mdash; echte L&ouml;sung bestätigt) zeigt: Der Ricci-Skalar bleibt &uuml;ber den gesamten untersuchten Bereich (r=0,368 bis r=0,0067) praktisch exakt konstant bei &minus;0,0060095. Der Kretschmann-Skalar bleibt bis r&asymp;0,05 ebenfalls praktisch exakt konstant (1,2038&middot;10&supmin;&#8309;), zeigt dann aber einen echten, wenn auch bescheidenen Anstieg auf 1,659&middot;10&supmin;&#8309; bei r=0,0067 &mdash; etwa 38&nbsp;% Zuwachs &uuml;ber die letzte Dekade in r.</p>
+<div class="result-box">
+<strong>Ehrliches Fazit nach drei verschiedenen Zwischenst&auml;nden zu dieser Frage:</strong> Die Kr&uuml;mmung bleibt &uuml;ber den gr&ouml;&szlig;ten Teil des untersuchten Bereichs bemerkenswert flach, zeigt aber am unteren Rand des numerisch erreichbaren Bereichs einen echten, moderaten Anstieg &mdash; weder das dramatische Wachstum der ersten (fehlerhaften) Rechnung noch die leichte Abnahme der zweiten (zu groben) Nachpr&uuml;fung. Ob das bei noch kleinerem r zu einer echten Singularit&auml;t anw&auml;chst oder sich stabilisiert, l&auml;sst sich mit den vorliegenden Daten nicht entscheiden &mdash; die Integration wird bei r&asymp;0,0067 instabil (Divergenz der u/T3-Hilfskonstruktion), bevor sich das kl&auml;rt.
+</div>
+
 <h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">N&auml;chste Schritte</h2>
 <p>Das Projekt ist damit nicht abgeschlossen, sondern der erste Abschnitt eines l&auml;ngeren Untersuchungsprogramms. Konkret anstehend:</p>
 <ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
-<li><strong>Feine, verifizierte r&rarr;0-Integration mit der korrigierten Kretschmann-Formel</strong> (&Delta;x=0,02 statt grobe Vierpunkt-Sch&auml;tzung) &mdash; pr&uuml;fen, ob der jetzt gefundene &bdquo;fast konstant, leicht fallend&ldquo;-Trend bei noch kleinerem r bestehen bleibt.</li>
+<li><strong>Ursache des milden Kretschmann-Anstiegs bei kleinem r kl&auml;ren</strong> &mdash; analytisch (&auml;hnlich der r&rarr;&infin;-Fixpunktanalyse) oder durch Integration &uuml;ber den numerisch instabilen Punkt hinaus mit einer regularisierten Variable.</li>
 <li><strong>Genauerer Vergleich mit der Bronnikov-Zaslavskii-Klasse</strong> &mdash; unterscheidet sich unser r&rarr;&infin;-Fall grundlegend von ihrem Horizont-Fall, oder gibt es eine tiefere gemeinsame Struktur?</li>
 <li><strong>Schrittweises Lockern der verbleibenden Vereinfachungen</strong> (Zeitabh&auml;ngigkeit, Kreuzterm B&ne;0) &mdash; die Eichabh&auml;ngigkeit selbst wurde bereits gepr&uuml;ft (zwei Eichungen, gleiches Ergebnis).</li>
 </ul>
@@ -410,10 +416,16 @@ T. Riepe, Berlin. Juli 2026. Quelle der offenen Frage: L. Heisenberg, &bdquo;A R
 </div>
 <div class="note warn"><strong>Why this is documented openly:</strong> a published intermediate finding turned out to be wrong, not merely provisional. This is not silently replaced but explicitly recorded as a correction &mdash; the same standard meant to hold throughout this project.</div>
 
+<h3>Fine, verified integration: the actual picture</h3>
+<p>The crude three-point cross-check above was itself misleading &mdash; too few, too widely spaced points with a crude finite difference for C&prime;. The fine (effectively &Delta;x=0.02), verified-against-the-unsquared-condition integration (residuals 5&middot;10&supmin;&#8309; to 2.6&middot;10&supmin;&#185;&#8304; &mdash; genuine solution confirmed) shows: the Ricci scalar stays practically exactly constant across the entire range examined (r=0.368 to r=0.0067) at &minus;0.0060095. The Kretschmann scalar likewise stays practically exactly constant down to r&asymp;0.05 (1.2038&middot;10&supmin;&#8309;), but then shows a genuine, if modest, rise to 1.659&middot;10&supmin;&#8309; at r=0.0067 &mdash; roughly a 38% increase over the last decade in r.</p>
+<div class="result-box">
+<strong>Honest conclusion after three different intermediate states on this one question:</strong> curvature stays remarkably flat over most of the range examined, but shows a genuine, moderate rise at the lower edge of the numerically reachable range &mdash; neither the dramatic growth of the first (erroneous) calculation nor the slight decrease of the second (too crude) cross-check. Whether this grows into a genuine singularity at even smaller r or stabilises cannot be decided with the data at hand &mdash; the integration becomes unstable at r&asymp;0.0067 (divergence of the u/T3 auxiliary construction) before this is resolved.
+</div>
+
 <h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Next steps</h2>
 <p>The project is therefore not concluded, but the first stretch of a longer research programme. Concretely pending:</p>
 <ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
-<li><strong>Fine, verified r&rarr;0 integration with the corrected Kretschmann formula</strong> (&Delta;x=0.02 instead of a crude four-point estimate) &mdash; check whether the now-found &ldquo;nearly constant, slightly decreasing&rdquo; trend persists at even smaller r.</li>
+<li><strong>Clarify the cause of the mild Kretschmann rise at small r</strong> &mdash; analytically (similar to the r&rarr;&infin; fixed-point analysis) or by integrating past the numerically unstable point using a regularised variable.</li>
 <li><strong>Closer comparison with the Bronnikov&ndash;Zaslavskii class</strong> &mdash; is our r&rarr;&infin; case fundamentally different from their horizon case, or is there a deeper common structure?</li>
 <li><strong>Progressively relaxing the remaining simplifications</strong> (time dependence, cross term B&ne;0) &mdash; gauge dependence itself has already been checked (two gauges, same result).</li>
 </ul>
