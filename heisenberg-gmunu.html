@@ -16,4 +16,474 @@
   font-family:'Georgia',serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-placeholder
+body{background:var(--bg);color:var(--text);max-width:860px;margin:0 auto;padding:2.5rem 2rem 5rem;line-height:1.75;font-size:15.5px}
+code,pre{font-family:'Courier New',Courier,monospace}
+h1{font-size:1.8rem;font-weight:700;line-height:1.3;margin-bottom:.5rem}
+h2{font-size:1.15rem;font-weight:700;margin:2.25rem 0 .7rem;padding-bottom:.35rem;border-bottom:1.5px solid var(--border)}
+h3{font-size:.98rem;font-weight:700;margin:1.3rem 0 .4rem}
+p{margin-bottom:.85rem;font-size:.94rem;color:var(--text);line-height:1.75}
+code.i{background:var(--bg3);padding:1px 5px;border-radius:3px;font-size:.86em;color:#1a1a18}
+hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
+.ok{color:#1a5c2a;font-weight:600}
+.ax{color:#5b21b6;font-weight:600}
+.warn{color:#7a4000;font-weight:600}
+.band{border-left:3px solid;padding:.5rem .9rem .5rem 1rem;margin:1.5rem 0 .8rem;border-radius:0 5px 5px 0}
+.band.p1{border-color:var(--p1);background:var(--p1l)}
+.band.p2{border-color:var(--p2);background:var(--p2l)}
+.band.p3{border-color:var(--p3);background:var(--p3l)}
+.band .num{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.15rem}
+.band.p1 .num{color:var(--p1)}.band.p2 .num{color:var(--p2)}.band.p3 .num{color:var(--p3)}
+.band .title{font-size:1.05rem;font-weight:700}
+.band.p1 .title{color:var(--p1d)}.band.p2 .title{color:var(--p2)}.band.p3 .title{color:var(--p3)}
+.note{background:var(--bg2);border:1px solid var(--border);border-radius:5px;padding:.8rem 1rem;margin:.65rem 0;font-size:.9rem;color:var(--text2);line-height:1.65;font-family:sans-serif}
+.note strong{color:var(--text)}
+.note.ok{background:#f0faf2;border-color:#80c090}
+.note.warn{background:#fff8f0;border-color:#e0a050}
+.note.info{background:var(--p2l);border-color:var(--p2)}
+.result-box{background:#f0faf2;border:1px solid #88bb99;border-left:3px solid #1a5c2a;padding:1rem 1.25rem;margin:1rem 0;font-family:sans-serif;font-size:.88rem;line-height:1.75}
+.result-box strong{color:var(--text)}
+.svg-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.2rem;margin:1rem 0;text-align:center}
+.svg-cap{font-family:sans-serif;font-size:.78rem;color:var(--text3);margin-top:.6rem;line-height:1.5}
+#lang-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.97);
+  border-bottom:1px solid #dddbd3;padding:.5rem 1.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:sans-serif;font-size:.8rem;gap:.5rem;}
+#lang-nav a.nav-home{color:#2d4a7a;text-decoration:none;font-weight:600;}
+#lang-nav a.nav-home:hover{text-decoration:underline;}
+.lang-sep{color:#aaa;margin:0 .4rem;}
+.lang-crumb{color:#888;font-size:.78rem;}
+.lang-toggle{display:flex;gap:.2rem;flex-shrink:0;}
+.lang-btn{font-size:.75rem;font-weight:700;padding:.25rem .6rem;
+  border:1.5px solid #c8c5bc;border-radius:3px;background:transparent;
+  color:#888;cursor:pointer;}
+.lang-btn.active{background:#2d4a7a;border-color:#2d4a7a;color:#fff;}
+.lang-btn:hover:not(.active){border-color:#2d4a7a;color:#2d4a7a;}
+.lang-de-section{display:block;}
+.lang-en-section{display:none;}
+</style>
+</head>
+<body>
+
+<div id="lang-nav">
+  <span>
+    <a class="nav-home" href="index.html">&#8592; Home</a>
+    <span class="lang-sep">|</span>
+    <span class="lang-crumb lang-de-section">Kann ein &bdquo;schiefes&ldquo; Universum wie ein symmetrisches aussehen?</span>
+    <span class="lang-crumb lang-en-section" style="display:none">Can a &ldquo;lopsided&rdquo; universe look symmetric?</span>
+  </span>
+  <div class="lang-toggle">
+    <button class="lang-btn" id="btn-en" onclick='setLang("en")'>EN</button>
+    <button class="lang-btn active" id="btn-de" onclick='setLang("de")'>DE</button>
+  </div>
+</div>
+
+<!-- DEUTSCH -->
+<div class="lang-de-section">
+<div style="max-width:860px;margin:0 auto;padding:2rem 2rem 0;font-family:Georgia,serif;">
+<div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Testprojekt &middot; Lokales KI-&Ouml;kosystem &middot; Berlin &middot; Juli 2026</div>
+<h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">Kann ein &bdquo;schiefes&ldquo; Universum wie ein symmetrisches aussehen?</h1>
+<p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">Eine offene Frage aus einem Dezember-2025-Paper von Lavinia Heisenberg (Universit&auml;t Heidelberg): Kann eine Raumzeit, die selbst nicht &uuml;berall gleich aussieht, trotzdem Einsteins Gravitationsgleichungen so erf&uuml;llen, dass sie sich f&uuml;r die Gravitation vollkommen gleichf&ouml;rmig verh&auml;lt? Symbolische Rechnung mit SageMath/SageManifolds auf dem Mac Studio &mdash; im Rahmen dieses Projekts nicht weiter untersucht, aber auf eine explizite Differentialgleichung reduziert.</p>
+<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:1.5rem;">Angesto&szlig;en durch den ZEIT-Podcast &bdquo;Alles gesagt?&ldquo; mit Lavinia Heisenberg (Juli 2026) &middot; SageMath 10.9 / SageManifolds &middot; Mac Studio M3 Ultra (256&nbsp;GB) &middot; Juli 2026</p>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Worum es geht &mdash; ohne Formeln</h2>
+<p>Die moderne Kosmologie beruht auf einer Annahme, die man das <strong>Kosmologische Prinzip</strong> nennt: Auf gro&szlig;en Skalen sieht das Universum &uuml;berall gleich aus (homogen) und in jede Richtung gleich aus (isotrop). Das ist keine bewiesene Tatsache, sondern eine gut best&auml;tigte Annahme, die die Mathematik der Kosmologie erst handhabbar macht.</p>
+<p>Lavinia Heisenberg hat in einem Paper vom Dezember 2025 (arXiv:2512.16934) die Grundlagen dieser Annahme neu durchdacht und dabei eine Frage aufgeworfen, die zun&auml;chst harmlos klingt, aber nicht trivial ist. Einsteins Feldgleichungen verbinden zwei Gr&ouml;&szlig;en: die <strong>Metrik</strong> (das vollst&auml;ndige geometrische &bdquo;Ma&szlig;system&ldquo; der Raumzeit &mdash; sie legt fest, wie lang jede Strecke in jede Richtung an jedem Ort ist) und den <strong>Einsteintensor</strong> (der Teil dieser Geometrie, der tats&auml;chlich mit Materie und Energie wechselwirkt). Wenn die Metrik selbst homogen und isotrop ist, folgt zwingend, dass auch der Einsteintensor es ist &mdash; das ist ein bewiesener, unstrittiger Sachverhalt.</p>
+<p>Heisenbergs Frage geht in die andere Richtung, und die ist nicht automatisch beantwortet: <strong>Kann der Einsteintensor homogen und isotrop sein, obwohl die zugrundeliegende Metrik es nicht ist?</strong> Anders gesagt: K&ouml;nnte es eine Raumzeit geben, die selbst schief, ungleichm&auml;&szlig;ig oder mit einer Vorzugsrichtung ausgestattet ist &mdash; die sich aber, gemessen an dem, was tats&auml;chlich auf die Materie wirkt, exakt so verh&auml;lt wie unser gew&ouml;hnliches, symmetrisches Universum? Heisenberg schreibt selbst, dass sie wegen der algebraischen Komplexit&auml;t kein konkretes Beispiel konstruieren konnte, und nennt die Frage ein offenes Problem.</p>
+<div class="note info"><strong>Warum das mehr als eine Spielerei ist:</strong> W&auml;re die Antwort &bdquo;ja&ldquo;, g&auml;be es prinzipiell verborgene geometrische Struktur, die sich hinter dem beobachtbaren, perfekt symmetrischen kosmischen Hintergrund verstecken k&ouml;nnte &mdash; unsichtbar f&uuml;r jede Messung, die nur &uuml;ber die Feldgleichungen l&auml;uft. W&auml;re die Antwort &bdquo;nein&ldquo;, w&uuml;rde das best&auml;tigen, dass die beobachtete Symmetrie tats&auml;chlich auf eine symmetrische Geometrie schlie&szlig;en l&auml;sst, nicht nur auf ein symmetrisches Nebenprodukt.</p>
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Die Idee, symbolisch anzugreifen</h2>
+<p>Diese Frage l&auml;sst sich nicht durch Nachdenken allein beantworten &mdash; sie erfordert, tats&auml;chlich eine Metrik hinzuschreiben und mit Computeralgebra zu pr&uuml;fen, ob und wie ihr Einsteintensor symmetrisch werden kann, ohne dass die Metrik selbst es ist. Genau das haben wir versucht, mit SageMath (genauer: dessen Erweiterung SageManifolds, die symbolische Tensorrechnung auf gekr&uuml;mmten R&auml;umen beherrscht), vollst&auml;ndig lokal auf dem Mac Studio, ohne Cloud-Zugriff.</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
+  <rect x="20" y="70" width="180" height="70" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.5"/>
+  <text x="110" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#1a4a7a">Metrik g</text>
+  <text x="110" y="118" text-anchor="middle" font-size="10.5" fill="#4a4a44">vollst&#228;ndige Geometrie</text>
+
+  <rect x="500" y="70" width="180" height="70" rx="6" fill="#f3eeff" stroke="#5b21b6" stroke-width="1.5"/>
+  <text x="590" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">Einsteintensor G</text>
+  <text x="590" y="118" text-anchor="middle" font-size="10.5" fill="#4a4a44">wirkt auf Materie</text>
+
+  <line x1="200" y1="88" x2="498" y2="88" stroke="#1a5c2a" stroke-width="2.5" marker-end="url(#arrow-ok)"/>
+  <text x="350" y="75" text-anchor="middle" font-size="11" fill="#1a5c2a" font-weight="700">g symmetrisch &#8658; G symmetrisch</text>
+  <text x="350" y="65" text-anchor="middle" font-size="9.5" fill="#7a7a72">(bewiesen, unstrittig)</text>
+
+  <line x1="498" y1="122" x2="200" y2="122" stroke="#7a4000" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-warn)"/>
+  <text x="350" y="150" text-anchor="middle" font-size="11" fill="#7a4000" font-weight="700">G symmetrisch &#8658; g symmetrisch?</text>
+  <text x="350" y="163" text-anchor="middle" font-size="9.5" fill="#7a7a72">(Heisenbergs offene Frage &mdash; nicht bewiesen)</text>
+
+  <defs>
+    <marker id="arrow-ok" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#1a5c2a"/></marker>
+    <marker id="arrow-warn" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#7a4000"/></marker>
+  </defs>
+</svg>
+<div class="svg-cap">Die Hinrichtung ist gesichert. Die R&uuml;ckrichtung ist die offene Frage, die Heisenberg stellt.</div>
+</div>
+
+<p>Als konkreten Testfall haben wir eine kugelsymmetrische Metrik gew&auml;hlt, mit einer Materiequelle, die symmetrisch sein soll, aber nicht notwendig verschwindet &mdash; das ist die einfachste Klasse, in der die Frage &uuml;berhaupt sinnvoll gestellt werden kann. (Der reine Vakuumfall, dazu unten mehr, stellt sich als eine andere, trivialere Frage heraus.) Sie ist gro&szlig; genug, um nicht automatisch auf die triviale (bereits als symmetrisch bekannte) L&ouml;sung zu kollabieren.</p>
+<p>Drei weitere Einschr&auml;nkungen wurden schrittweise hinzugef&uuml;gt, nicht willk&uuml;rlich, sondern aus Gr&uuml;nden, die man kurz benennen sollte: Zuerst der <strong>statische Fall</strong> (keine Zeitabh&auml;ngigkeit) &mdash; das ist die in der Literatur &uuml;bliche Reihenfolge, zeitabh&auml;ngige F&auml;lle kommen typischerweise erst danach. Dann die <strong>diagonale Form</strong> (kein t-r-Kreuzterm in der Metrik) &mdash; eine Standard-Koordinatenwahl, die einen Freiheitsgrad eliminiert, ohne echte physikalische Information zu verlieren. Schlie&szlig;lich die <strong>Areal-Radius-Eichung</strong> (die Winkelkomponente der Metrik wird exakt gleich r&sup2; gesetzt) &mdash; ebenfalls eine Standardwahl bei kugelsymmetrischen Problemen, keine Einschr&auml;nkung der eigentlichen Physik, sondern nur der Koordinatenbeschreibung. Jede dieser drei Wahlen reduziert die Anzahl unabh&auml;ngiger Funktionen, ohne die Fragestellung selbst zu ver&auml;ndern.</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
+  <rect x="230" y="10" width="240" height="46" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="38" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1a18">Allgemeine kugelsymm. Metrik</text>
+
+  <line x1="350" y1="56" x2="350" y2="80" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <text x="380" y="72" font-size="9.5" fill="#7a7a72">B=0 (kein Kreuzterm)</text>
+  <rect x="230" y="80" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="105" text-anchor="middle" font-size="12" fill="#1a1a18">Diagonale Form</text>
+
+  <line x1="350" y1="122" x2="350" y2="146" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <text x="380" y="138" font-size="9.5" fill="#7a7a72">statisch (kein t)</text>
+  <rect x="230" y="146" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="171" text-anchor="middle" font-size="12" fill="#1a1a18">Zeitunabh&#228;ngiger Fall</text>
+
+  <line x1="350" y1="188" x2="350" y2="212" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <text x="380" y="204" font-size="9.5" fill="#7a7a72">Eichung: A=1, D=r&#178;</text>
+  <rect x="200" y="212" width="300" height="42" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.3"/>
+  <text x="350" y="237" text-anchor="middle" font-size="12" fill="#1a4a7a" font-weight="700">Eine freie Funktion C(r) &#252;brig</text>
+
+  <line x1="350" y1="254" x2="350" y2="278" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <rect x="130" y="278" width="200" height="46" rx="6" fill="#eefaf2" stroke="#1a5c2a" stroke-width="1.3"/>
+  <text x="230" y="298" text-anchor="middle" font-size="11.5" fill="#1a5c2a" font-weight="700">Zweig 1: C=1</text>
+  <text x="230" y="314" text-anchor="middle" font-size="9.5" fill="#4a4a44">= flaches Minkowski (trivial)</text>
+
+  <rect x="370" y="278" width="200" height="46" rx="6" fill="#fff3ee" stroke="#7a2a00" stroke-width="1.3"/>
+  <text x="470" y="298" text-anchor="middle" font-size="11.5" fill="#7a2a00" font-weight="700">Zweig 2: nichttrivial</text>
+  <text x="470" y="314" text-anchor="middle" font-size="9.5" fill="#4a4a44">algebraisch aus Fr(r) bestimmt</text>
+
+  <line x1="470" y1="324" x2="470" y2="348" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <rect x="330" y="348" width="280" height="28" rx="6" fill="#f8f8f6" stroke="#c8c8c0" stroke-width="1.3"/>
+  <text x="470" y="366" text-anchor="middle" font-size="11" fill="#4a4a44">ODE f&#252;r Fr(r) &mdash; hier nicht weiter untersucht</text>
+
+  <defs><marker id="arrow-g" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#7a7a72"/></marker></defs>
+</svg>
+<div class="svg-cap">Der Weg der Vereinfachung: von der allgemeinen Metrik bis zur Verzweigung in eine triviale und eine hier nicht weiter untersuchte, nichttriviale L&ouml;sung.</div>
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Was tats&auml;chlich herauskam</h2>
+
+<div class="band p2">
+  <div class="num">Kernbefund</div>
+  <div class="title">Eine saubere Verzweigung: trivial versus m&ouml;glich nichttrivial</div>
+</div>
+<p>Nach mehreren Vereinfachungsschritten (keine Kreuzterme, keine Zeitabh&auml;ngigkeit, eine naheliegende Koordinatenwahl) reduzierte sich die gesamte Fragestellung auf eine einzige unbekannte Funktion. Die Bedingung, dass der Einsteintensor symmetrisch wird, zerf&auml;llt dabei sauber in zwei F&auml;lle: Entweder die Metrikfunktion nimmt den Wert 1 an &mdash; das ist exakt der flache, leere Raum (Minkowski-Raumzeit), also keine echte Abweichung von einem symmetrischen Universum. Oder eine zweite, algebraische Bedingung ist erf&uuml;llt, die eine tats&auml;chlich neue, vom trivialen Fall verschiedene M&ouml;glichkeit er&ouml;ffnet.</p>
+
+<div class="band p3">
+  <div class="num">Test</div>
+  <div class="title">Ein naheliegender Versuch scheitert &mdash; kontrolliert</div>
+</div>
+<p>Der naheliegendste Kandidat f&uuml;r den nichttrivialen Zweig (eine Zusatzfunktion, die einfach proportional zum Radius w&auml;chst) f&uuml;hrt auf eine entartete, physikalisch unzul&auml;ssige Metrik &mdash; eine Konfiguration, bei der eine Komponente der Metrik null wird, was geometrisch nicht erlaubt ist. Das ist ein negatives, aber informatives Ergebnis: Es zeigt, dass der nichttriviale Zweig kein Freibrief ist, sondern selektiv, und dass ein Quadrieren-Schritt in der Rechnung (technisch notwendig, um eine st&ouml;rende Wurzel zu beseitigen) genau diese Art von Scheinl&ouml;sung einf&uuml;hren kann &mdash; wir haben sie identifiziert und verworfen, statt sie unkommentiert stehen zu lassen.</p>
+
+<div class="result-box">
+<strong>Stand:</strong> Die urspr&uuml;ngliche Frage wurde auf eine einzige, explizite gew&ouml;hnliche Differentialgleichung dritter Ordnung f&uuml;r eine Funktion reduziert. Ob regul&auml;re (nicht-singul&auml;re) L&ouml;sungen dieser Gleichung existieren, wurde im Rahmen dieses Projekts nicht entschieden. Symbolisch (mit Computeralgebra) ist damit ein sauberer Endpunkt erreicht &mdash; die Fortsetzung erfordert numerische Methoden (etwa ein Shooting-Verfahren), um das zu pr&uuml;fen.
+</div>
+
+<div class="note warn"><strong>Was dieses Projekt nicht ist:</strong> Es ist keine L&ouml;sung von Heisenbergs offener Frage. Es ist eine pr&auml;zise Reduktion eines Spezialfalls (kugelsymmetrisch, statisch, eine bestimmte Koordinatenwahl, symmetrische aber nicht notwendig verschwindende Materiequelle) auf ein einziges, explizites mathematisches Objekt &mdash; mit dem ehrlichen Befund, dass ein erster Kandidat f&uuml;r ein Gegenbeispiel sich als Artefakt der Rechnung entpuppt hat, nicht als echte L&ouml;sung.</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Die ODE-Analyse: Potenzgesetz-L&ouml;sungen</h2>
+<p>Bevor ein numerisches Verfahren sinnvoll ist, muss man wissen, wonach man &uuml;berhaupt sucht. Deshalb wurde zuerst gepr&uuml;ft, ob die gefundene Gleichung eine <strong>Skalensymmetrie</strong> besitzt (Invarianz unter r&nbsp;&rarr;&nbsp;&lambda;r) &mdash; wenn ja, existieren einfache Potenzgesetz-L&ouml;sungen Fr(r)=r^p, die als nat&uuml;rlicher Ausgangspunkt f&uuml;r ein Randwertproblem dienen k&ouml;nnten. Die Gleichung besitzt diese Symmetrie tats&auml;chlich. Einsetzen von Fr(r)=r^p liefert eine algebraische Bedingung, unabh&auml;ngig von r:</p>
+<p style="text-align:center;font-size:1.05rem;margin:1rem 0;">2(4p&sup2;&minus;12p+25)(2p&minus;3)(p&minus;1)&sup3;p&nbsp;=&nbsp;0</p>
+<p>Reelle Wurzeln: p=0, p=1 (dreifach &mdash; das ist die bereits verworfene entartete L&ouml;sung), und p=3&#8260;2. Beide neuen Kandidaten wurden einzeln gepr&uuml;ft, mit einer Selbstkorrektur unterwegs: eine erste Rechnung ohne die Annahme r&gt;0 lieferte ein irref&uuml;hrendes Ergebnis, weil &radic;(r&#8310;) nicht automatisch zu r&sup3; vereinfacht wurde; mit der korrekten Annahme ergab sich ein anderes, verl&auml;ssliches Bild.</p>
+<div class="result-box">
+<strong>Vollst&auml;ndiges Negativresultat f&uuml;r diese Ansatzklasse:</strong> p=0 liefert nur die triviale L&ouml;sung C=1 (Minkowski) &mdash; die einzige zweite algebraische M&ouml;glichkeit (C=&minus;4) verletzt die Zusatzbedingung und scheidet aus. p=3&#8260;2 liefert ebenfalls nur C=1 als zul&auml;ssige L&ouml;sung; die zweite algebraische M&ouml;glichkeit (C=&minus;1) verletzt die Zusatzbedingung nachweislich. Da die Skalensymmetrie eine vollst&auml;ndige Suche innerhalb der Potenzgesetz-Klasse garantiert, ist damit diese gesamte Ansatzklasse ersch&ouml;pft &mdash; ohne ein einziges nichttriviales Ergebnis.
+</div>
+<p>Konsequenz: Ein numerisches Shooting-Verfahren l&auml;sst sich nicht auf ein Potenzgesetz-Verhalten als Randbedingung st&uuml;tzen, weil es keins gibt. Falls &uuml;berhaupt eine nichttriviale L&ouml;sung existiert, muss ihr Verhalten komplizierter sein als ein einfaches Potenzgesetz. Deshalb wurde das Shooting-Verfahren zur&uuml;ckgestellt, bis diese Asymptotik verstanden ist &mdash; ein numerischer Versuch ohne begr&uuml;ndetes Startintervall w&auml;re geratenes Herumprobieren, kein begr&uuml;ndeter n&auml;chster Schritt.</p>
+<div class="note info"><strong>Gegenpr&uuml;fung durch das lokale Modellkomitee:</strong> Der konkrete Rechenschritt f&uuml;r p=3&#8260;2 (Diskriminante, beide L&ouml;sungszweige, Pr&uuml;fung der Zusatzbedingung) wurde unabh&auml;ngig an qwen3:235b-a22b und deepseek-r1:70b (lokal, Ollama) gegeben, ohne Werkzeugzugriff, nur eigene Rechnung. qwen3:235b-a22b best&auml;tigte alle Zwischenwerte exakt. deepseek-r1:70b unterlief ein eigener Rechenfehler bei einem Koeffizienten, mit dennoch formaler Zustimmung zum Gesamtergebnis &mdash; ein dokumentiertes Beispiel daf&uuml;r, dass auch das lokale Komitee nicht unfehlbar ist, und ein Beleg daf&uuml;r, warum unabh&auml;ngige Gegenrechnung mehr wert ist als eine einzelne Best&auml;tigung.</div>
+
+<h3>Nachtrag: logarithmische Korrektur, ebenfalls negativ</h3>
+<p>Da p=1 eine <strong>dreifache</strong> Wurzel der Potenzgesetz-Gleichung ist, schlug qwen3:235b-a22b &mdash; nach eigener Rechnung, ohne Vorgabe &mdash; den in der ODE-Theorie &uuml;blichen n&auml;chsten Schritt f&uuml;r mehrfache charakteristische Wurzeln vor: eine logarithmische Korrektur Fr(r)=r&middot;(1+a&middot;ln r+b&middot;(ln r)&sup2;). Mathematisch ein sauberer, korrekt begr&uuml;ndeter Vorschlag. Eingesetzt in die tats&auml;chliche (nichtlineare) Gleichung ergibt sich aber: Da 1, ln r, (ln r)&sup2;, (ln r)&sup3; als Funktionen von r linear unabh&auml;ngig sind, muss jeder ln(r)-Koeffizient einzeln verschwinden &mdash; und das erzwingt a=b=0. Auch dieser Ansatz kollabiert also auf den trivialen Fall. Kein Fehler des Komitees: Der Trick funktioniert bei linearen ODEs mit mehrfachen Wurzeln zuverl&auml;ssig, hier verhindert die Nichtlinearit&auml;t der Gleichung genau das. Informativ, weil es zeigt, dass der naheliegendste N&auml;chste-Schritt-Kandidat ebenfalls ausscheidet.</p>
+
+<h3>Wichtiger Vorbehalt, inzwischen gepr&uuml;ft: Eichabh&auml;ngigkeit der bisherigen Struktur</h3>
+<p>Alle bisherigen Ergebnisse (die saubere Verzweigung, die Potenzgesetz-Faktorisierung mit ganzzahligen Wurzeln, das perfekte-Quadrat-Diskriminanten-Muster) wurden zun&auml;chst nur in der Areal-Radius-Eichung (A=1, D=r&sup2;) erzielt. Zur Kontrolle wurde dieselbe Herleitung in einer anderen Standardeichung wiederholt: <strong>isotrope Koordinaten</strong> (A=1, g<sub>&rho;&rho;</sub>=g<sub>&theta;&theta;</sub>/&rho;&sup2;=&Psi;(&rho;)&#8308;, ebenfalls nur eine freie Funktion). Die Algebra sieht dort tats&auml;chlich anders aus: Die analoge Bedingung liefert zun&auml;chst keine saubere quadratische, sondern eine <strong>kubische</strong> Gleichung (Cardano-Struktur), und die Potenzgesetz-Analyse (Fr(&rho;)=&rho;^p, &Psi;(&rho;)=&rho;^q) ergab zun&auml;chst eine ganze <strong>Kurve</strong> m&ouml;glicher (p,q)-Paare statt isolierter Punkte &mdash; das sah zwischenzeitlich nach einer echten, in der Areal-Eichung unsichtbaren nichttrivialen L&ouml;sung aus.</p>
+<p>Die vollst&auml;ndige Parallel-Herleitung (alle vier Bedingungen (L<sub>T3</sub>G)<sub>00,11,12,22</sub>=0 gemeinsam, nicht nur die ersten beiden) l&ouml;st das auf: Die vermeintliche Kurve erf&uuml;llt die dritte Bedingung ((L<sub>T3</sub>G)<sub>12</sub>=0) an keiner Stelle &mdash; diese Bedingung faktorisiert unabh&auml;ngig zu &minus;4(q+1)q&middot;&rho;^(p&minus;2)&middot;sin(&theta;), null nur f&uuml;r q=0 oder q=&minus;1. Beide &uuml;berlebenden F&auml;lle wurden explizit auf Flachheit gepr&uuml;ft: q=0 (&Psi;=const) ist trivial per Konstruktion; q=&minus;1 (&Psi;=1/&rho;) erwies sich bei direkter Berechnung des Riemann-Tensors als <strong>identisch verschwindend</strong> &mdash; flacher Raum, nur in invertierten isotropen Koordinaten geschrieben (die bekannte Kelvin-Inversion &rho;&rarr;1/&rho;, unter der flacher Raum mit genau diesem &Psi;&#8308;-Konformfaktor auf sich selbst abgebildet wird).</p>
+<div class="result-box">
+<strong>Ergebnis der Eichkontrolle:</strong> Innerhalb der Potenzgesetz-Ansatzklasse ist das vollst&auml;ndige Negativresultat jetzt in <strong>zwei unabh&auml;ngigen Eichungen</strong> bestätigt &mdash; mit v&ouml;llig unterschiedlicher Algebra unterwegs (quadratisch vs. kubisch, ein zus&auml;tzlicher, versteckter Inversions-Zweig, der in der Areal-Eichung gar nicht auftaucht), aber demselben Endergebnis: keine nichttriviale L&ouml;sung. Das ist ein deutlich st&auml;rkerer Beleg f&uuml;r Eichunabh&auml;ngigkeit als eine einzelne Rechnung &mdash; nicht bewiesen f&uuml;r jede denkbare Eichung, aber nicht mehr nur eine m&ouml;glicherweise zuf&auml;llig g&uuml;nstige Parametrisierung.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Phasenraumanalyse: zwei S&auml;ttel, keine Spiralen</h2>
+<p>Zur&uuml;ck zur Areal-Eichung. N&auml;chster Schritt: die ODE dritter Ordnung via x=ln(r) und einer logarithmischen Hilfsvariable u=d(ln Fr)/dx in ein <strong>autonomes System</strong> umschreiben. Potenzgesetz-L&ouml;sungen entsprechen darin Fixpunkten u=p=const &mdash; ein Kontrolltest (u=p, alle Ableitungen null einsetzen) reproduziert exakt die bekannte Quintik 2(4p&sup2;&minus;12p+25)(2p&minus;3)(p&minus;1)&sup3;p, was die Transformation bestätigt.</p>
+<p>Linearisierung um jeden Fixpunkt liefert eine charakteristische Gleichung mit den Eigenwerten (Stabilit&auml;tsexponenten):</p>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><strong>p=0</strong> (Minkowski): &lambda;=2, &lambda;=&minus;3 &mdash; reeller Sattel.</li>
+<li><strong>p=1</strong>: alle Koeffizienten der Linearisierung verschwinden identisch &mdash; das erkl&auml;rt im Nachhinein exakt, warum der Log-Korrektur-Ansatz scheitern musste: schon die lineare Ordnung ist an dieser dreifachen Wurzel entartet.</li>
+<li><strong>p=3/2</strong> (ebenfalls Minkowski): &lambda;=3, &lambda;=&minus;1 &mdash; wieder ein reeller Sattel.</li>
+</ul>
+<div class="result-box">
+<strong>Befund:</strong> Beide nichtentarteten Fixpunkte sind S&auml;ttel mit reellen Eigenwerten, keine Spiralen. Das bedeutet: es gibt keinen lokalen Hinweis auf versteckte, oszillierende Nicht-Potenzgesetz-L&ouml;sungen in der N&auml;he dieser selbst&auml;hnlichen Punkte. Eine echte, nichttriviale L&ouml;sung &mdash; falls sie existiert &mdash; w&auml;re keine kleine St&ouml;rung um p=0 oder p=3/2, sondern m&uuml;sste eine globale Bahn sein (etwa eine heterokline Verbindung zwischen den S&auml;tteln); das kann lokale Linearisierung prinzipiell nicht zeigen. Sie liefert aber die korrekten lokalen Eigenvektoren, mit denen ein Shooting-Verfahren bei r&rarr;0 oder r&rarr;&infin; jetzt tats&auml;chlich begr&uuml;ndet ansetzen k&ouml;nnte.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Numerisches Shooting: eine echte, verifizierte nichttriviale Bahn &mdash; und eine wichtige Korrektur</h2>
+<p>Ausgehend von der instabilen Richtung des Sattels bei p=0 (Julia, DifferentialEquations.jl) wurde die Trajektorie numerisch integriert. Eine technische Schwierigkeit musste dabei sauber gel&ouml;st werden: Die autonome Gleichung ist quadratisch in der zweiten Ableitung u_xx &mdash; geerbt aus dem Quadrieren, das schon in Schritt 9 n&ouml;tig war &mdash;, sodass bei jedem Integrationsschritt zwei algebraisch m&ouml;gliche Werte existieren, von denen einer eine Scheinl&ouml;sung sein kann. Die Zweigwahl erfolgte per Kontinuit&auml;t (stets der zum vorherigen Wert n&auml;chstgelegene).</p>
+<p>F&uuml;r eine St&ouml;rung in Richtung des instabilen Eigenvektors ergab sich eine stabile, bis x=8 laufende Trajektorie, die sich u&rarr;1 ann&auml;hert (dem entarteten Fixpunkt, nicht p=3/2). Bevor das als Ergebnis z&auml;hlen konnte, wurde es unabh&auml;ngig gegen die <strong>ungequadrierte</strong> Bedingung aus Schritt 8 gepr&uuml;ft &mdash; diese l&auml;sst sich elegant rein in (u,u_x) ausdr&uuml;cken als dC/dx=2(C&minus;1)(1&minus;u). Bei grober Aufl&ouml;sung zeigte der Vergleich kleine Restdifferenzen; bei feinerer Aufl&ouml;sung (&Delta;x=0,02 statt 0,5) schrumpften diese auf 10&supmin;&#8309;&ndash;10&supmin;&#8310; &mdash; numerisches Rauschen, keine echte Verletzung. <strong>Die Trajektorie ist damit als echte L&ouml;sung best&auml;tigt, kein Artefakt des Quadrierens.</strong></p>
+<div class="note warn"><strong>Die notwendige Korrektur:</strong> Bei dieser Verifikation fiel eine grundlegendere Ungenauigkeit auf, die die gesamte bisherige Darstellung betrifft. Die Bezeichnung &bdquo;Vakuumfall&ldquo; oben ist unpr&auml;zise: Wir haben nie G<sub>&mu;&nu;</sub>=0 gefordert, sondern nur, dass G<sub>&mu;&nu;</sub> symmetrisch ist. In der Areal-Radius-Eichung gilt exakt G<sub>rr</sub>=&minus;(C&minus;1)/r&sup2; &mdash; das ist nur f&uuml;r C=1 (flach) null. Jede nichttriviale L&ouml;sung, einschlie&szlig;lich der eben verifizierten Trajektorie, hat also zwangsl&auml;ufig G<sub>&mu;&nu;</sub>&ne;0 &mdash; es ist Materie im Spiel, kein Vakuum.</div>
+<p>Das wirft die Frage auf, ob der <strong>echte</strong> Vakuumfall (G&equiv;0 f&uuml;r alle Komponenten) eigenst&auml;ndig untersucht werden sollte. Die Antwort ist aufschlussreich: Mit A(r) und C(r) beide frei (statt A=1 fest) liefert G<sub>tt</sub>=G<sub>rr</sub>=0 exakt die Schwarzschild-Metrik (Birkhoffs Theorem, hier direkt best&auml;tigt: A=1&minus;2M/r, C=1/(1&minus;2M/r) ergibt G&equiv;0 identisch). Aber der Vakuumfall von Heisenbergs Frage ist dabei <strong>trivial &mdash; aus einem definitorischen, nicht physikalischen Grund</strong>: Der Nulltensor ist gegen&uuml;ber jeder Transformation symmetrisch, unabh&auml;ngig davon, ob diese Transformation &uuml;berhaupt eine Symmetrie der Metrik ist. Schwarzschild selbst ist bereits ein (uninteressantes) Beispiel: g<sub>&mu;&nu;</sub> ist nicht translationssymmetrisch, aber G<sub>&mu;&nu;</sub>=0 ist trivial &bdquo;symmetrisch&ldquo;.</p>
+<div class="result-box">
+<strong>Aufl&ouml;sung:</strong> Nicht die Rechnung war falsch gerahmt, sondern nur das Wort &bdquo;Vakuum&ldquo;. Die einzige Version der Frage mit echtem Inhalt verlangt eine <strong>symmetrische, aber nicht notwendig verschwindende</strong> Materiequelle &mdash; genau das, was dieses Projekt von Anfang an tats&auml;chlich untersucht hat. A=1 war dabei eine legitime Eichwahl f&uuml;r diesen Fall (eine Zeitkoordinatenwahl bei vorgegebener Materie), kein Fehler. Die heutige, verifizierte Trajektorie ist damit der erste echte, nichttriviale Kandidat des gesamten Projekts &mdash; mit Materie, nicht im Vakuum. Alle fr&uuml;heren Formulierungen auf dieser Seite wurden entsprechend korrigiert.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Geometrische Charakterisierung: negative Energiedichte, Zustandsgleichung w=&minus;1/3</h2>
+<p>Aus G<sub>&mu;&nu;</sub>=8&pi;T<sub>&mu;&nu;</sub> lassen sich Energiedichte &rho; und Dr&uuml;cke direkt ablesen: &rho;&middot;8&pi;=(C&sup2;+rC&prime;&minus;C)/(r&sup2;C&sup2;), Radialdruck p<sub>r</sub>&middot;8&pi;=&minus;(C&minus;1)/(r&sup2;C), Tangentialdruck p<sub>t</sub>&middot;8&pi;=&minus;C&prime;/(2rC&sup2;). Ausgewertet entlang der verifizierten Trajektorie (r von 1,65 bis &uuml;ber 1000): &rho;&middot;8&pi; ist durchgehend <strong>negativ</strong> (&asymp;&minus;0,003), ebenso &rho;+p<sub>r</sub> und &rho;+p<sub>t</sub> (&asymp;&minus;0,002). <strong>Die schwache Energiebedingung ist verletzt</strong> &mdash; die Materie, die diese Geometrie tr&auml;gt, ist exotisch, keine gew&ouml;hnliche Substanz.</p>
+<p>Auff&auml;llig: &rho;&middot;8&pi; bleibt &uuml;ber einen r-Bereich von 2,8 bis 1141 (Faktor &gt;400) nahezu konstant, mit dem Verh&auml;ltnis w=p<sub>r</sub>/&rho;&asymp;&minus;1/3 &mdash; die Zustandsgleichung kosmischer Strings/Defektnetzwerke, zugleich die kritische Schwelle zwischen Bremsung und Beschleunigung in der Friedmann-Gleichung. Analytisch best&auml;tigt: im Grenzfall C&rarr;0 reduziert sich w auf C/(rC&prime;&minus;C); w=&minus;1/3 ist dazu &auml;quivalent zu C&prime;=&minus;2C/r, also C&#8733;1/r&sup2; &mdash; und genau dieses Verhalten n&auml;hert sich die numerische Trajektorie an (die Konstante K=C&middot;r&sup2; w&auml;chst von 7,9 &uuml;ber 962 auf &uuml;ber 1000, noch nicht konvergiert, aber sichtbar einem Grenzwert zulaufend). Die Konsistenz wurde zus&auml;tzlich gegen die urspr&uuml;ngliche, ungequadrierte Bedingung gepr&uuml;ft: C&#8733;1/r&sup2; impliziert dort u&asymp;1&minus;C, also u&rarr;1 im selben Grenzfall &mdash; Fixpunktanalyse, Energiebedingung und Integrabilit&auml;t passen strukturell zusammen, nicht nur numerisch.</p>
+<div class="result-box">
+<strong>Konvergenzbeweis:</strong> Der Fixpunkt u=1 ist nicht nur linear (Schritt 26), sondern auch quadratisch entartet &mdash; erst die kubische Ordnung der St&ouml;rungsentwicklung (u=1&minus;&epsilon;) liefert eine nichttriviale Gleichung. Der Ansatz &epsilon;(x)=A&middot;e<sup>&minus;&gamma;x</sup> f&uuml;hrt zu einer sauber faktorisierenden Bedingung: &minus;(&gamma;&sup2;+2&gamma;+17)(&gamma;+1)(&gamma;&minus;2)=0. Reelle Wurzeln: &gamma;=2 und &gamma;=&minus;1. <strong>&gamma;=2 ist exakt die Rate, die C&#8733;1/r&sup2; erfordert</strong> &mdash; jetzt algebraisch bewiesen, nicht nur numerisch beobachtet. Die Amplitude A bleibt frei (der erwartete Integrationskonstanten-Freiheitsgrad, entspricht dem numerisch beobachteten K).
+</div>
+
+<h3>Literaturvergleich: w=&minus;1/3 als bekannte, aber strukturell andersartige Signatur</h3>
+<p>Bronnikov &amp; Zaslavskii (Phys. Rev. D 78, 021501(R), 2008, arXiv:0801.0889; erweitert in arXiv:0904.4904; popul&auml;r zusammengefasst als <em>&bdquo;black holes can have curly hair&ldquo;</em>, arXiv:0905.4425) zeigen: Materie im Gleichgewicht mit einem Killing-Horizont ist nur f&uuml;r diskrete w=&minus;n/(n+2k) m&ouml;glich (n=Horizont-Ordnung, k=Dichteabfall-Rate). Der generische Fall (n=1, k=1) ergibt exakt <strong>w=&minus;1/3</strong> &mdash; von ihnen explizit als &bdquo;Gas ungeordneter kosmischer Strings&ldquo; identifiziert.</p>
+<p>Der Unterschied zu unserem Fall ist wichtig: Ihr Ergebnis gilt an einem Killing-Horizont (dort verschwindet die Zeitkomponente der Metrik). Unsere Trajektorie hat A=1 fest, nie null &mdash; kein Horizont in diesem Sinn. Bei uns verschwindet stattdessen die Radialkomponente C(r) bei r&rarr;&infin;, ein strukturell anderer entarteter Punkt (r&auml;umliche statt zeitliche Entartung, Unendlichkeit statt Horizont). Die &Uuml;bereinstimmung liegt nicht im geometrischen Ort, sondern in der Methode: Beide Male erzwingt eine lokale Entwicklung der Einsteingleichungen um einen entarteten Punkt mit der einfachsten Ordnung denselben Wert w=&minus;1/3 &mdash; eine echte strukturelle Parallele, keine Identit&auml;t der Aufbauten.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Die vollst&auml;ndige globale L&ouml;sung: bestätigt bei r&rarr;&infin;, ungekl&auml;rt bei r&rarr;0</h2>
+<p>Die Trajektorie wurde &uuml;ber einen deutlich gr&ouml;&szlig;eren Bereich integriert (x=0 bis x=20 statt x=8). <strong>Vorw&auml;rts (r&rarr;&infin;):</strong> K=C&middot;r&sup2; konvergiert sauber &mdash; 0,999 bei r=1, dann 51,8, 748,0, 992,5, 998,5 bei r bis knapp 3000. Das best&auml;tigt numerisch exakt, was zuvor analytisch bewiesen wurde (&gamma;=2): K l&auml;uft klar auf einen Grenzwert nahe 1000 zu. Die Integration bricht bei x=8 nur aus numerischen Gr&uuml;nden ab (die Dynamik wird am entarteten Fixpunkt extrem langsam) &mdash; kein physikalisches Problem.</p>
+<p><strong>R&uuml;ckw&auml;rts (r&rarr;0), erstmals untersucht:</strong> Hier ist der Befund mehrdeutig, und das soll er auch bleiben, bis er gekl&auml;rt ist. C(r) bleibt bis r&asymp;0,0067 fast exakt bei 1 (0,999998 bis 1,0) &mdash; die Metrik selbst scheint dort praktisch flach zu bleiben. Die Hilfsgr&ouml;&szlig;e u (die logarithmische Ableitung von Fr) divergiert dagegen dramatisch, von &minus;0,003 bei r=0,05 auf &minus;10,27 bei r=0,0067, dann bricht die Integration instabil ab.</p>
+<div class="note warn"><strong>Was das bedeuten k&ouml;nnte, ohne dass ich es entscheiden kann:</strong> Da G<sub>rr</sub>=&minus;(C&minus;1)/r&sup2; und C praktisch bei 1 bleibt, k&ouml;nnten Energiedichte und Druck dort tats&auml;chlich gegen null gehen &mdash; die Geometrie selbst bliebe dann nahe flach, w&auml;hrend nur die Hilfskonstruktion (der Translationsgenerator T3, ausgedr&uuml;ckt &uuml;ber u) an dieser Stelle zusammenbricht: kein physikalischer Kr&uuml;mmungsdefekt, sondern ein Versagen der Koordinatenbeschreibung. Es k&ouml;nnte aber auch sein, dass die eigentliche Physik hier noch nicht sichtbar ist, weil bisher nur C und u gepr&uuml;ft wurden, nicht die tats&auml;chlichen Kr&uuml;mmungsinvarianten. Das bleibt offen.</div>
+
+<h3>Kr&uuml;mmungsinvarianten bei r&rarr;0: Korrektur eines eigenen Fehlers</h3>
+<p>Bei der Vorbereitung der feinen r&rarr;0-Integration wurde der zuvor verwendete Kretschmann-Skalar gegengepr&uuml;ft &mdash; und als fehlerhaft entlarvt. Eine echte Kr&uuml;mmungsinvariante darf nicht von &theta; abh&auml;ngen; die Formel aus der ersten Rechnung enthielt aber einen nicht herausfallenden cos&sup2;&theta;-Term, ein Indexkontraktionsfehler bei der automatisierten Index-Hebung in SageManifolds. Die saubere Neuberechnung &uuml;ber vollst&auml;ndige, explizite Indexkontraktion ergibt die tats&auml;chlich &theta;-unabh&auml;ngige Formel:</p>
+<p style="text-align:center;font-size:1.05rem;margin:1rem 0;">K&nbsp;=&nbsp;2(2C&#8308;+r&sup2;C&prime;&sup2;&minus;4C&sup3;+2C&sup2;)/(r&#8308;C&#8308;)</p>
+<p>Mit dieser korrigierten Formel an denselben r&rarr;0-Punkten neu ausgewertet:</p>
+<p style="font-family:monospace;font-size:.85rem;">r&asymp;0,252: Ricci=&minus;0,00647, Kretschmann=1,41&middot;10&supmin;&#8309;<br>r&asymp;0,0925: Ricci=&minus;0,00638, Kretschmann=1,36&middot;10&supmin;&#8309;<br>r&asymp;0,0341: Ricci=&minus;0,00546, Kretschmann=0,99&middot;10&supmin;&#8309;</p>
+<div class="result-box">
+<strong>Korrigierter Befund, das Gegenteil des vorherigen:</strong> Mit der richtigen Formel bleibt auch der Kretschmann-Skalar klein und nahezu konstant (leicht fallend statt wachsend). Die zuvor berichtete &bdquo;echte Kr&uuml;mmungszunahme&ldquo; existierte nicht &mdash; sie war ein Rechenfehler, keine Physik. Damit ist die urspr&uuml;nglich vorsichtige Hypothese (nur ein Versagen der T3/u-Hilfskonstruktion, keine echte geometrische Auff&auml;lligkeit in diesem Bereich) wieder die naheliegendere Lesart, nicht widerlegt.
+</div>
+<div class="note warn"><strong>Warum das hier offen dokumentiert wird:</strong> Ein publizierter Zwischenbefund erwies sich als falsch, nicht nur als vorl&auml;ufig. Das wird nicht stillschweigend ersetzt, sondern ausdr&uuml;cklich als Korrektur festgehalten &mdash; derselbe Standard, der in diesem Projekt durchg&auml;ngig gelten soll.</div>
+
+<h3>Feine, verifizierte Integration: das eigentliche Bild</h3>
+<p>Die grobe Dreipunkt-Nachpr&uuml;fung oben war selbst irref&uuml;hrend &mdash; zu wenige, zu weit auseinanderliegende Punkte mit grobem Differenzenquotienten f&uuml;r C&prime;. Die feine (effektiv &Delta;x=0,02), gegen die ungequadrierte Bedingung verifizierte Integration (Restdifferenzen 5&middot;10&supmin;&#8309; bis 2,6&middot;10&supmin;&#185;&#8304; &mdash; echte L&ouml;sung bestätigt) zeigt: Der Ricci-Skalar bleibt &uuml;ber den gesamten untersuchten Bereich (r=0,368 bis r=0,0067) praktisch exakt konstant bei &minus;0,0060095. Der Kretschmann-Skalar bleibt bis r&asymp;0,05 ebenfalls praktisch exakt konstant (1,2038&middot;10&supmin;&#8309;), zeigt dann aber einen echten, wenn auch bescheidenen Anstieg auf 1,659&middot;10&supmin;&#8309; bei r=0,0067 &mdash; etwa 38&nbsp;% Zuwachs &uuml;ber die letzte Dekade in r.</p>
+<div class="result-box">
+<strong>Ehrliches Fazit nach drei verschiedenen Zwischenst&auml;nden zu dieser Frage:</strong> Die Kr&uuml;mmung bleibt &uuml;ber den gr&ouml;&szlig;ten Teil des untersuchten Bereichs bemerkenswert flach, zeigt aber am unteren Rand des numerisch erreichbaren Bereichs einen echten, moderaten Anstieg &mdash; weder das dramatische Wachstum der ersten (fehlerhaften) Rechnung noch die leichte Abnahme der zweiten (zu groben) Nachpr&uuml;fung. Ob das bei noch kleinerem r zu einer echten Singularit&auml;t anw&auml;chst oder sich stabilisiert, l&auml;sst sich mit den vorliegenden Daten nicht entscheiden &mdash; die Integration wird bei r&asymp;0,0067 instabil (Divergenz der u/T3-Hilfskonstruktion), bevor sich das kl&auml;rt.
+</div>
+
+<h3>Schritt 40–47: Kretschmann-Vorhersage bestätigt, dann grundlegende Korrektur — r* ist eine Koordinatensingularität</h3>
+<p>Der oben offen gelassene Punkt (milder Kretschmann-Anstieg nahe r≈0,0067) wurde in einer Folgesitzung weiterverfolgt. Der Weg dorthin ging über zwei Zwischenkorrekturen, die hier vollständig dokumentiert werden, nicht nur das Endergebnis.</p>
+<p><strong>Erste Bestätigung:</strong> Eine Fixpunkt-Linearisierung um C=1, u=0 (derselbe Sattel wie in der Phasenraumanalyse oben) sagt K→12A² für r→0 voraus, mit A aus dem Verhältnis ε=C−1 zu r² gefittet. Numerisch bestätigt: A₀≈−9,955·10⁻⁴, 12·A₀²≈1,189·10⁻⁵ — trifft den beobachteten Plateauwert (1,2038·10⁻⁵) auf besser als 1 % genau.</p>
+<p><strong>Numerische Nachprüfung mit höherer Präzision:</strong> Um zu klären, ob der Anstieg bei noch kleinerem r ein Rechenpräzisions-Artefakt ist, wurde dieselbe Integration mit 256-Bit-BigFloat-Arithmetik wiederholt (statt gewöhnlicher Fließkomma-Genauigkeit), mit zwei unterschiedlichen Integrationsverfahren (feste Schrittweite und ein etablierter adaptiver Löser). Beide brechen praktisch am selben Ort zusammen wie die ursprüngliche Rechnung: bei x≈−5,045 (r*≈0,00644). Drei methodisch unabhängige numerische Ansätze, die exakt an derselben Stelle scheitern, legten zunächst nahe, dass dort tatsächlich eine echte Singularität der Lösung vorliegt — kein Präzisionsproblem.</p>
+<p><strong>Analytische Klärung (Frobenius-Ansatz):</strong> Um das zu entscheiden, wurde ein Polstellenansatz u(x)~A·(x−x*)⁻ᵖ direkt in die algebraische Bestimmungsgleichung für die zweite Ableitung eingesetzt. Die führende Ordnungsbalance ist konsistent bei p=1; die resultierende Koeffizientengleichung (computeralgebraisch gelöst, nicht per Hand — eine erste Handrechnung enthielt einen Fehler, der bei der Gegenprüfung auffiel) liefert 2A³(A−1)(A−½)²(A+½)=0, mit A=−½ als einzig physikalisch relevanter Wurzel. Das ergibt u(x)~−1/(2(x−x*)) — ein exakter, rationaler Koeffizient, keine numerische Schätzung, und mit den numerischen u-Werten auf unter 1 % Abweichung bestätigt.</p>
+<p><strong>Das eigentliche Ergebnis:</strong> Dieses u(x)-Verhalten wurde durch die Formel für C(r) und weiter durch Ricci-Skalar R und Kretschmann-Skalar K propagiert (Reihenentwicklung um die Singularität). Ergebnis: C(r) divergiert dort tatsächlich (C~−1/(2ε²)), aber sowohl R als auch K bleiben <strong>endlich</strong> — beide sind reguläre Taylor-Reihen ohne negative Potenzen, mit K→9/(2r*⁴) und R→3/r*² im Grenzwert.</p>
+<p>Die korrekte Einordnung, nach zwei vorherigen Zwischenständen ("Artefakt vermutet", dann "vermutlich echte Krümmungssingularität"): <strong>r*≈0,0064 ist eine Koordinatensingularität der Arealradius-Eichung</strong> — die Metrikkomponente C(r) divergiert, während die tatsächliche Raumzeitkrümmung (Ricci, Kretschmann) endlich bleibt. Die Analogie ist die divergierende g<sub>rr</sub>-Komponente von Schwarzschild in Schwarzschild-Koordinaten am Horizont, wo Krümmungsinvarianten ebenfalls endlich sind. Die drei numerischen Integrationsverfahren brachen zu Recht zusammen — nicht wegen echter Krümmungsdivergenz, sondern weil die Koordinate selbst dort unbrauchbar wird.</p>
+<p><strong>Offen bleibt:</strong> ob sich die Lösung in besseren Koordinaten (analog zu Eddington-Finkelstein bei Schwarzschild) glatt über r* hinaus fortsetzen lässt, und wie sie sich für r&lt;r* verhält.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">N&auml;chste Schritte</h2>
+<p>Das Projekt ist damit nicht abgeschlossen, sondern der erste Abschnitt eines l&auml;ngeren Untersuchungsprogramms. Konkret anstehend:</p>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><strong>[Geklärt, siehe Schritt 40–47 oben]</strong> Ursache des milden Kretschmann-Anstiegs bei kleinem r: keine echte Krümmungssingularität, sondern eine Koordinatensingularität der Arealradius-Eichung — Ricci und Kretschmann bleiben endlich.</li>
+<li><strong>Bessere Koordinaten finden</strong>, um die Lösung über r* hinaus fortzusetzen und ihr Verhalten für r&lt;r* zu untersuchen (Analogie: Eddington-Finkelstein-Koordinaten bei Schwarzschild).</li>
+<li><strong>Genauerer Vergleich mit der Bronnikov-Zaslavskii-Klasse</strong> &mdash; unterscheidet sich unser r&rarr;&infin;-Fall grundlegend von ihrem Horizont-Fall, oder gibt es eine tiefere gemeinsame Struktur?</li>
+<li><strong>Schrittweises Lockern der verbleibenden Vereinfachungen</strong> (Zeitabh&auml;ngigkeit, Kreuzterm B&ne;0) &mdash; die Eichabh&auml;ngigkeit selbst wurde bereits gepr&uuml;ft (zwei Eichungen, gleiches Ergebnis).</li>
+</ul>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Einordnung</h2>
+<p>Lavinia Heisenberg ist Professorin am Institut f&uuml;r Theoretische Physik der Universit&auml;t Heidelberg und Mitbegr&uuml;nderin mehrerer aktueller Forschungsrichtungen in der Gravitationsphysik (unter anderem der sogenannten &bdquo;Generalisierten Proca-Theorie&ldquo; und der &bdquo;Geometrischen Trinit&auml;t der Gravitation&ldquo;, die zeigt, dass sich Einsteins Gravitation gleichwertig &uuml;ber Kr&uuml;mmung, Torsion oder Nichtmetrizit&auml;t beschreiben l&auml;sst). Das hier behandelte Paper (arXiv:2512.16934) ist eher konzeptioneller, grundlagenorientierter Natur als ihre &uuml;brige, meist modellbauende Arbeit &mdash; und genau deshalb ein besonders geeigneter Ausgangspunkt f&uuml;r ein Testprojekt: Die offene Frage stammt direkt und ausdr&uuml;cklich von der Autorin selbst, nicht aus einer eigenen, unabgesicherten Vermutung.</p>
+
+<h3>Werkzeuge und Ablage</h3>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li>SageMath 10.9 / SageManifolds &mdash; symbolische Tensorrechnung auf gekr&uuml;mmten Mannigfaltigkeiten</li>
+<li>Alle Skripte und Protokolle: <code>/Volumes/CLAUDE-DATA/Heisenberg-Gmunu-Symmetrie-Projekt/</code> (inzwischen über 40 Rechenschritte, jeweils mit Log-Datei)</li>
+<li>Alle Berechnungen vollst&auml;ndig lokal auf Mac Studio M3 Ultra (256&nbsp;GB), ohne Cloud-Zugriff</li>
+</ul>
+
+<div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
+T. Riepe, Berlin. Juli 2026. Quelle der offenen Frage: L. Heisenberg, &bdquo;A Re-Examination Of Foundational Elements Of Cosmology&ldquo;, arXiv:2512.16934 (Dezember 2025), Abschnitt 5 / Conclusio. Angeregt durch den ZEIT-Podcast &bdquo;Alles gesagt?&ldquo; mit Lavinia Heisenberg (Juli 2026); Podcast-Inhalt selbst wurde f&uuml;r dieses Projekt nicht ausgewertet, nur das Paper direkt. Berechnung: SageMath/SageManifolds (lokal, Mac Studio). Regie, Skripte, Interpretation: Claude Sonnet 5 (Anthropic), auf Anweisung und mit Gegenpr&uuml;fung durch T. Riepe. Unabh&auml;ngige Gegenrechnung eines konkreten Zwischenschritts (Vorzeichen von C f&uuml;r Fr=r&sup3;&#8260;&sup2;) durch das lokale Modellkomitee: qwen3:235b-a22b best&auml;tigte das Sage-Ergebnis exakt; deepseek-r1:70b unterlief dabei ein eigener Rechenfehler (c=&minus;5r&sup3; statt &minus;r&sup3;) bei formal unver&auml;ndertem &bdquo;Stimme zu&ldquo; &mdash; dokumentiert als Beleg daf&uuml;r, dass auch das lokale Komitee nicht unfehlbar ist.
+</div>
+</div>
+</div>
+
+<!-- ENGLISH -->
+<div class="lang-en-section" style="display:none;">
+<div style="max-width:860px;margin:0 auto;padding:2rem 2rem 0;font-family:Georgia,serif;">
+<div style="font-family:sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#7a7872;margin-bottom:.5rem;">Test Project &middot; Local AI Ecosystem &middot; Berlin &middot; July 2026</div>
+<h1 style="font-size:1.9rem;font-weight:700;line-height:1.2;margin-bottom:.5rem;color:#1c1b18;">Can a &ldquo;lopsided&rdquo; universe look symmetric?</h1>
+<p style="font-size:1rem;color:#4a4844;font-style:italic;margin-bottom:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid #dddbd3;">An open question from a December 2025 paper by Lavinia Heisenberg (Heidelberg University): can a spacetime that is not itself uniform still satisfy Einstein's field equations in a way that makes it look perfectly uniform to gravity? Symbolic computation with SageMath/SageManifolds on the Mac Studio &mdash; not further investigated within this project, but reduced to an explicit differential equation.</p>
+<p style="font-family:sans-serif;font-size:.82rem;color:#7a7872;margin-bottom:1.5rem;">Prompted by the ZEIT podcast &ldquo;Alles gesagt?&rdquo; with Lavinia Heisenberg (July 2026) &middot; SageMath 10.9 / SageManifolds &middot; Mac Studio M3 Ultra (256&nbsp;GB) &middot; July 2026</p>
+</div>
+<div style="max-width:860px;margin:0 auto;padding:0 2rem 4rem;font-family:Georgia,serif;line-height:1.75;color:#1c1b18;">
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What this is about &mdash; without formulas</h2>
+<p>Modern cosmology rests on an assumption called the <strong>Cosmological Principle</strong>: on large scales, the universe looks the same everywhere (homogeneous) and the same in every direction (isotropic). This is not a proven fact but a well-supported assumption that makes the mathematics of cosmology tractable.</p>
+<p>In a December 2025 paper (arXiv:2512.16934), Lavinia Heisenberg re-examined the foundations of this assumption and raised a question that sounds innocuous but is not trivial. Einstein's field equations connect two quantities: the <strong>metric</strong> (the complete geometric &ldquo;measuring system&rdquo; of spacetime &mdash; it fixes how long every distance is, in every direction, at every point) and the <strong>Einstein tensor</strong> (the part of that geometry that actually interacts with matter and energy). If the metric itself is homogeneous and isotropic, it necessarily follows that the Einstein tensor is too &mdash; that is a proven, uncontested fact.</p>
+<p>Heisenberg's question runs the other way, and that direction is not automatically settled: <strong>can the Einstein tensor be homogeneous and isotropic even though the underlying metric is not?</strong> In other words: could there be a spacetime that is itself lopsided, uneven, or endowed with a preferred direction &mdash; yet behaves, as far as anything acting on matter is concerned, exactly like our ordinary, symmetric universe? Heisenberg herself writes that she was unable to construct a concrete example due to the algebraic complexity involved, and names this an open problem.</p>
+<div class="note info"><strong>Why this is more than a curiosity:</strong> if the answer were &ldquo;yes&rdquo;, there could in principle be hidden geometric structure concealed behind the observable, perfectly symmetric cosmic background &mdash; invisible to any measurement that only runs through the field equations. If the answer is &ldquo;no&rdquo;, that would confirm that observed symmetry really does imply a symmetric geometry, not merely a symmetric byproduct.</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">The approach</h2>
+<p>This question cannot be settled by thought alone &mdash; it requires actually writing down a metric and using computer algebra to check whether, and how, its Einstein tensor can become symmetric without the metric itself being symmetric. That is what we attempted, using SageMath (specifically its SageManifolds extension for symbolic tensor calculus on curved spaces), entirely locally on the Mac Studio, with no cloud access.</p>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 700 210" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
+  <rect x="20" y="70" width="180" height="70" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.5"/>
+  <text x="110" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#1a4a7a">Metric g</text>
+  <text x="110" y="118" text-anchor="middle" font-size="10.5" fill="#4a4a44">complete geometry</text>
+
+  <rect x="500" y="70" width="180" height="70" rx="6" fill="#f3eeff" stroke="#5b21b6" stroke-width="1.5"/>
+  <text x="590" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#5b21b6">Einstein tensor G</text>
+  <text x="590" y="118" text-anchor="middle" font-size="10.5" fill="#4a4a44">acts on matter</text>
+
+  <line x1="200" y1="88" x2="498" y2="88" stroke="#1a5c2a" stroke-width="2.5" marker-end="url(#arrow-ok2)"/>
+  <text x="350" y="75" text-anchor="middle" font-size="11" fill="#1a5c2a" font-weight="700">g symmetric &#8658; G symmetric</text>
+  <text x="350" y="65" text-anchor="middle" font-size="9.5" fill="#7a7a72">(proven, uncontested)</text>
+
+  <line x1="498" y1="122" x2="200" y2="122" stroke="#7a4000" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-warn2)"/>
+  <text x="350" y="150" text-anchor="middle" font-size="11" fill="#7a4000" font-weight="700">G symmetric &#8658; g symmetric?</text>
+  <text x="350" y="163" text-anchor="middle" font-size="9.5" fill="#7a7a72">(Heisenberg's open question &mdash; unproven)</text>
+
+  <defs>
+    <marker id="arrow-ok2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#1a5c2a"/></marker>
+    <marker id="arrow-warn2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#7a4000"/></marker>
+  </defs>
+</svg>
+<div class="svg-cap">The forward direction is settled. The reverse direction is Heisenberg's open question.</div>
+</div>
+
+<p>As a concrete test case we chose a spherically symmetric metric with a matter source required to be symmetric but not necessarily vanishing &mdash; the simplest class in which the question can be meaningfully posed at all. (The pure vacuum case, more on this below, turns out to be a different, more trivial question.) It is large enough not to collapse automatically into the already-known symmetric (trivial) solution.</p>
+<p>Three further restrictions were added step by step, not arbitrarily but for reasons worth stating briefly: first the <strong>static case</strong> (no time dependence) &mdash; the order customary in the literature, time-dependent cases typically follow only afterward. Then the <strong>diagonal form</strong> (no t-r cross term in the metric) &mdash; a standard coordinate choice that eliminates one degree of freedom without losing genuine physical information. Finally the <strong>areal-radius gauge</strong> (the angular component of the metric is set exactly equal to r&sup2;) &mdash; again a standard choice for spherically symmetric problems, restricting only the coordinate description, not the physics itself. Each of these three choices reduces the number of independent functions without changing the question being asked.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What actually came out</h2>
+
+<div class="band p2">
+  <div class="num">Core finding</div>
+  <div class="title">A clean split: trivial versus possibly non-trivial</div>
+</div>
+<p>After several simplification steps (no cross terms, no time dependence, one natural coordinate choice), the entire question reduced to a single unknown function. The condition that the Einstein tensor become symmetric splits cleanly into two cases: either a metric function equals 1 &mdash; exactly flat, empty space (Minkowski spacetime), i.e. no genuine deviation from a symmetric universe &mdash; or a second, algebraic condition holds, opening up a genuinely different possibility.</p>
+
+<div class="band p3">
+  <div class="num">Test</div>
+  <div class="title">An obvious attempt fails &mdash; in a controlled way</div>
+</div>
+<p>The most obvious candidate for the non-trivial branch (an auxiliary function simply proportional to the radius) leads to a degenerate, physically inadmissible metric &mdash; a configuration in which a metric component vanishes, which is not geometrically allowed. This is a negative but informative result: it shows the non-trivial branch is not a free pass, and that a squaring step in the calculation (technically necessary to remove a troublesome square root) can introduce exactly this kind of spurious solution &mdash; we identified and discarded it rather than leaving it unremarked.</p>
+
+<div class="result-box">
+<strong>Status:</strong> the original question has been reduced to a single, explicit third-order ordinary differential equation for one function. Whether regular (non-singular) solutions of this equation exist was not determined within this project. The symbolic (computer-algebra) phase has reached a clean endpoint; continuing requires numerical methods (e.g. a shooting method) to check this.
+</div>
+
+<div class="note warn"><strong>What this project is not:</strong> it is not a solution to Heisenberg's open question. It is a precise reduction of a special case (spherically symmetric, static, a specific coordinate choice, a symmetric but not necessarily vanishing matter source) down to one single, explicit mathematical object &mdash; with the honest finding that a first candidate counterexample turned out to be an artefact of the calculation, not a genuine solution.</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">The ODE analysis: power-law solutions</h2>
+<p>Before a numerical method makes sense, one needs to know what to search for. So the equation was first checked for a <strong>scale symmetry</strong> (invariance under r&nbsp;&rarr;&nbsp;&lambda;r) &mdash; if present, simple power-law solutions Fr(r)=r^p would exist as a natural starting point for a boundary-value problem. The equation does have this symmetry. Substituting Fr(r)=r^p yields an algebraic condition, independent of r:</p>
+<p style="text-align:center;font-size:1.05rem;margin:1rem 0;">2(4p&sup2;&minus;12p+25)(2p&minus;3)(p&minus;1)&sup3;p&nbsp;=&nbsp;0</p>
+<p>Real roots: p=0, p=1 (triple &mdash; the already-discarded degenerate solution), and p=3&#8260;2. Both new candidates were checked individually, with a self-correction along the way: a first calculation without assuming r&gt;0 gave a misleading result because &radic;(r&#8310;) was not automatically simplified to r&sup3;; with the correct assumption a different, reliable picture emerged.</p>
+<div class="result-box">
+<strong>Complete negative result for this ansatz class:</strong> p=0 yields only the trivial solution C=1 (Minkowski) &mdash; the only other algebraic possibility (C=&minus;4) violates the additional condition and is excluded. p=3&#8260;2 likewise yields only C=1 as an admissible solution; the second algebraic possibility (C=&minus;1) demonstrably violates the additional condition. Since the scale symmetry guarantees a complete search within the power-law class, this entire ansatz class is now exhausted &mdash; without a single non-trivial result.
+</div>
+<p>Consequence: a numerical shooting method cannot rely on power-law behaviour as a boundary condition, because none exists. If a non-trivial solution exists at all, its behaviour must be more complicated than a simple power law. The shooting method was therefore deferred until this asymptotic behaviour is understood &mdash; a numerical attempt without a justified starting interval would be guesswork, not a well-founded next step.</p>
+<div class="note info"><strong>Cross-check by the local model committee:</strong> the concrete calculation for p=3&#8260;2 (discriminant, both solution branches, checking the additional condition) was given independently to qwen3:235b-a22b and deepseek-r1:70b (local, Ollama), with no tool access, own calculation only. qwen3:235b-a22b confirmed all intermediate values exactly. deepseek-r1:70b made its own arithmetic error in one coefficient, yet still formally agreed with the overall result &mdash; a documented example that the local committee is not infallible either, and evidence for why independent re-derivation is worth more than a single confirmation.</div>
+
+<h3>Addendum: logarithmic correction, also negative</h3>
+<p>Since p=1 is a <strong>triple</strong> root of the power-law equation, qwen3:235b-a22b &mdash; on its own initiative, unprompted &mdash; suggested the standard next step from ODE theory for repeated characteristic roots: a logarithmic correction Fr(r)=r&middot;(1+a&middot;ln r+b&middot;(ln r)&sup2;). A mathematically sound, correctly reasoned proposal. Substituted into the actual (nonlinear) equation, however: since 1, ln r, (ln r)&sup2;, (ln r)&sup3; are linearly independent functions of r, every ln(r) coefficient must vanish separately &mdash; which forces a=b=0. This ansatz too collapses into the trivial case. Not an error by the committee: the trick works reliably for linear ODEs with repeated roots; here the equation's nonlinearity is precisely what defeats it. Informative, since it shows the most obvious next-step candidate is also ruled out.</p>
+
+<h3>Important caveat, now checked: gauge dependence of the structure found so far</h3>
+<p>All results so far (the clean split, the power-law factorisation with integer roots, the perfect-square discriminant pattern) were initially obtained only in the areal-radius gauge (A=1, D=r&sup2;). As a check, the same derivation was repeated in a different standard gauge: <strong>isotropic coordinates</strong> (A=1, g<sub>&rho;&rho;</sub>=g<sub>&theta;&theta;</sub>/&rho;&sup2;=&Psi;(&rho;)&#8308;, again a single free function). The algebra genuinely does look different there: the analogous condition initially yields not a clean quadratic but a <strong>cubic</strong> equation (Cardano structure), and the power-law analysis (Fr(&rho;)=&rho;^p, &Psi;(&rho;)=&rho;^q) at first produced an entire <strong>curve</strong> of possible (p,q) pairs rather than isolated points &mdash; which briefly looked like a genuine non-trivial solution invisible in the areal gauge.</p>
+<p>The full parallel derivation (all four conditions (L<sub>T3</sub>G)<sub>00,11,12,22</sub>=0 jointly, not just the first two) resolves this: the apparent curve satisfies the third condition ((L<sub>T3</sub>G)<sub>12</sub>=0) nowhere &mdash; this condition factorises independently to &minus;4(q+1)q&middot;&rho;^(p&minus;2)&middot;sin(&theta;), zero only for q=0 or q=&minus;1. Both surviving cases were explicitly checked for flatness: q=0 (&Psi;=const) is trivial by construction; q=&minus;1 (&Psi;=1/&rho;) turned out, upon direct computation of the Riemann tensor, to be <strong>identically vanishing</strong> &mdash; flat space, merely written in inverted isotropic coordinates (the well-known Kelvin inversion &rho;&rarr;1/&rho;, under which flat space maps to itself with exactly this &Psi;&#8308; conformal factor).</p>
+<div class="result-box">
+<strong>Result of the gauge check:</strong> within the power-law ansatz class, the complete negative result is now confirmed in <strong>two independent gauges</strong> &mdash; with completely different algebra along the way (quadratic vs. cubic, an extra hidden inversion branch absent from the areal gauge), but the same end result: no non-trivial solution. This is substantially stronger evidence for gauge independence than a single calculation &mdash; not proven for every conceivable gauge, but no longer just a possibly fortuitous parametrisation.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Phase-space analysis: two saddles, no spirals</h2>
+<p>Back to the areal gauge. Next step: rewrite the third-order ODE, via x=ln(r) and a logarithmic auxiliary variable u=d(ln Fr)/dx, as an <strong>autonomous system</strong>. Power-law solutions correspond to fixed points u=p=const &mdash; a control test (substituting u=p with all derivatives zero) reproduces exactly the known quintic 2(4p&sup2;&minus;12p+25)(2p&minus;3)(p&minus;1)&sup3;p, confirming the transformation.</p>
+<p>Linearising around each fixed point yields a characteristic equation with the following eigenvalues (stability exponents):</p>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><strong>p=0</strong> (Minkowski): &lambda;=2, &lambda;=&minus;3 &mdash; a real saddle.</li>
+<li><strong>p=1</strong>: all coefficients of the linearisation vanish identically &mdash; which explains, in hindsight, exactly why the logarithmic-correction ansatz had to fail: even the linear order is degenerate at this triple root.</li>
+<li><strong>p=3/2</strong> (likewise Minkowski): &lambda;=3, &lambda;=&minus;1 &mdash; again a real saddle.</li>
+</ul>
+<div class="result-box">
+<strong>Finding:</strong> both non-degenerate fixed points are saddles with real eigenvalues, no spirals. This means there is no local hint of hidden, oscillatory non-power-law solutions near these self-similar points. A genuine non-trivial solution &mdash; if one exists &mdash; would not be a small perturbation around p=0 or p=3/2, but would have to be a global orbit (e.g. a heteroclinic connection between the saddles); local linearisation cannot in principle show this. It does, however, supply the correct local eigenvectors with which a shooting method at r&rarr;0 or r&rarr;&infin; could now actually be set up on solid ground.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Numerical shooting: a genuine, verified non-trivial orbit &mdash; and an important correction</h2>
+<p>Starting from the unstable direction of the saddle at p=0 (Julia, DifferentialEquations.jl), the trajectory was integrated numerically. One technical difficulty had to be handled cleanly: the autonomous equation is quadratic in the second derivative u_xx &mdash; inherited from the squaring already necessary in step 9 &mdash; so at every integration step two algebraically possible values exist, one of which can be spurious. Branch selection was done by continuity (always the value closest to the previous one).</p>
+<p>For a perturbation along the unstable eigenvector, a stable trajectory running to x=8 emerged, approaching u&rarr;1 (the degenerate fixed point, not p=3/2). Before this could count as a result, it was checked independently against the <strong>unsquared</strong> condition from step 8 &mdash; which can elegantly be expressed purely in (u,u_x) as dC/dx=2(C&minus;1)(1&minus;u). At coarse resolution the comparison showed small residual differences; at finer resolution (&Delta;x=0.02 instead of 0.5) these shrank to 10&supmin;&#8309;&ndash;10&supmin;&#8310; &mdash; numerical noise, not a genuine violation. <strong>The trajectory is thus confirmed as a genuine solution, not an artefact of squaring.</strong></p>
+<div class="note warn"><strong>The necessary correction:</strong> this verification revealed a more fundamental imprecision affecting the entire presentation so far. The label &ldquo;vacuum case&rdquo; used above is imprecise: we never required G<sub>&mu;&nu;</sub>=0, only that G<sub>&mu;&nu;</sub> be symmetric. In the areal-radius gauge, G<sub>rr</sub>=&minus;(C&minus;1)/r&sup2; exactly &mdash; zero only for C=1 (flat). Any non-trivial solution, including the trajectory just verified, therefore necessarily has G<sub>&mu;&nu;</sub>&ne;0 &mdash; there is matter present, not vacuum.</div>
+<p>This raises the question of whether the <strong>genuine</strong> vacuum case (G&equiv;0 for all components) should be investigated in its own right. The answer is instructive: with A(r) and C(r) both free (instead of A=1 fixed), G<sub>tt</sub>=G<sub>rr</sub>=0 yields exactly the Schwarzschild metric (Birkhoff's theorem, confirmed directly here: A=1&minus;2M/r, C=1/(1&minus;2M/r) gives G&equiv;0 identically). But the vacuum version of Heisenberg's question turns out to be <strong>trivial &mdash; for a definitional, not a physical, reason</strong>: the zero tensor is symmetric under any transformation whatsoever, regardless of whether that transformation is even a symmetry of the metric. Schwarzschild itself is already an (uninteresting) example: g<sub>&mu;&nu;</sub> is not translation-symmetric, yet G<sub>&mu;&nu;</sub>=0 is trivially &ldquo;symmetric&rdquo;.</p>
+<div class="result-box">
+<strong>Resolution:</strong> it was not the calculation that was mis-framed, only the word &ldquo;vacuum&rdquo;. The only version of the question with genuine content requires a <strong>symmetric but not necessarily vanishing</strong> matter source &mdash; exactly what this project has actually been investigating from the start. A=1 was a legitimate gauge choice for this case (a time-coordinate choice given a prescribed matter source), not an error. Today's verified trajectory is thus the first genuine non-trivial candidate of the entire project &mdash; with matter, not in vacuum. All earlier phrasing on this page has been corrected accordingly.
+</div>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Geometric characterisation: negative energy density, equation of state w=&minus;1/3</h2>
+<p>From G<sub>&mu;&nu;</sub>=8&pi;T<sub>&mu;&nu;</sub>, energy density &rho; and pressures follow directly: &rho;&middot;8&pi;=(C&sup2;+rC&prime;&minus;C)/(r&sup2;C&sup2;), radial pressure p<sub>r</sub>&middot;8&pi;=&minus;(C&minus;1)/(r&sup2;C), tangential pressure p<sub>t</sub>&middot;8&pi;=&minus;C&prime;/(2rC&sup2;). Evaluated along the verified trajectory (r from 1.65 to over 1000): &rho;&middot;8&pi; is <strong>negative</strong> throughout (&asymp;&minus;0.003), as are &rho;+p<sub>r</sub> and &rho;+p<sub>t</sub> (&asymp;&minus;0.002). <strong>The weak energy condition is violated</strong> &mdash; the matter supporting this geometry is exotic, not an ordinary substance.</p>
+<p>Notably: &rho;&middot;8&pi; stays nearly constant over an r-range from 2.8 to 1141 (a factor of &gt;400), with the ratio w=p<sub>r</sub>/&rho;&asymp;&minus;1/3 &mdash; the equation of state of cosmic strings/defect networks, and simultaneously the critical threshold between deceleration and acceleration in the Friedmann equation. Analytically confirmed: in the limit C&rarr;0, w reduces to C/(rC&prime;&minus;C); w=&minus;1/3 is equivalent to C&prime;=&minus;2C/r, i.e. C&#8733;1/r&sup2; &mdash; and this is exactly the behaviour the numerical trajectory approaches (the constant K=C&middot;r&sup2; grows from 7.9 through 962 to over 1000, not yet converged but visibly heading toward a limit). Consistency was additionally checked against the original, unsquared condition: C&#8733;1/r&sup2; there implies u&asymp;1&minus;C, i.e. u&rarr;1 in the same limit &mdash; fixed-point analysis, energy condition, and integrability fit together structurally, not just numerically.</p>
+<div class="result-box">
+<strong>Convergence proof:</strong> the fixed point u=1 is degenerate not only linearly (step 26) but also quadratically &mdash; only the cubic order of the perturbation expansion (u=1&minus;&epsilon;) yields a non-trivial equation. The ansatz &epsilon;(x)=A&middot;e<sup>&minus;&gamma;x</sup> leads to a cleanly factorising condition: &minus;(&gamma;&sup2;+2&gamma;+17)(&gamma;+1)(&gamma;&minus;2)=0. Real roots: &gamma;=2 and &gamma;=&minus;1. <strong>&gamma;=2 is exactly the rate required by C&#8733;1/r&sup2;</strong> &mdash; now algebraically proven, not merely numerically observed. The amplitude A remains free (the expected integration-constant degree of freedom, corresponding to the numerically observed K).
+</div>
+
+<h3>Literature comparison: w=&minus;1/3 as a known, but structurally different, signature</h3>
+<p>Bronnikov &amp; Zaslavskii (Phys. Rev. D 78, 021501(R), 2008, arXiv:0801.0889; extended in arXiv:0904.4904; summarised popularly as <em>&ldquo;black holes can have curly hair&rdquo;</em>, arXiv:0905.4425) show: matter in equilibrium with a Killing horizon is only possible for discrete w=&minus;n/(n+2k) (n=horizon order, k=density-decay rate). The generic case (n=1, k=1) gives exactly <strong>w=&minus;1/3</strong> &mdash; explicitly identified by them as &ldquo;a gas of disordered cosmic strings&rdquo;.</p>
+<p>The difference to our case matters: their result holds at a Killing horizon (where the time component of the metric vanishes). Our trajectory has A=1 fixed, never zero &mdash; no horizon in that sense. Instead, the radial component C(r) vanishes as r&rarr;&infin;, a structurally different degenerate point (spatial rather than temporal degeneracy, infinity rather than a horizon). The agreement is not in the geometric locus but in the method: in both cases, a local expansion of the Einstein equations around a degenerate point of the simplest order forces the same value w=&minus;1/3 &mdash; a genuine structural parallel, not an identity of setups.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">The full global solution: confirmed at r&rarr;&infin;, unresolved at r&rarr;0</h2>
+<p>The trajectory was integrated over a substantially larger range (x=0 to x=20 instead of x=8). <strong>Forward (r&rarr;&infin;):</strong> K=C&middot;r&sup2; converges cleanly &mdash; 0.999 at r=1, then 51.8, 748.0, 992.5, 998.5 by r just under 3000. This numerically confirms exactly what was proven analytically before (&gamma;=2): K clearly heads toward a limit near 1000. The integration stops at x=8 purely for numerical reasons (the dynamics become extremely slow at the degenerate fixed point) &mdash; not a physical problem.</p>
+<p><strong>Backward (r&rarr;0), examined for the first time:</strong> here the finding is ambiguous, and it should stay that way until resolved. C(r) stays almost exactly at 1 (0.999998 to 1.0) down to r&asymp;0.0067 &mdash; the metric itself appears to remain essentially flat there. The auxiliary quantity u (the logarithmic derivative of Fr), by contrast, diverges dramatically, from &minus;0.003 at r=0.05 to &minus;10.27 at r=0.0067, at which point the integration breaks down as unstable.</p>
+<div class="note warn"><strong>What this might mean, without my being able to decide it:</strong> since G<sub>rr</sub>=&minus;(C&minus;1)/r&sup2; and C stays essentially at 1, energy density and pressure might genuinely go to zero there &mdash; the geometry itself would then remain nearly flat, while only the auxiliary construction (the translation generator T3, expressed via u) breaks down at this point: not a physical curvature defect, but a failure of the coordinate description. But it could equally be that the actual physics is not yet visible here, since only C and u have been checked so far, not the actual curvature invariants. This remains open.</div>
+
+<h3>Curvature invariants at r&rarr;0: correcting an error of my own</h3>
+<p>While preparing the fine r&rarr;0 integration, the previously used Kretschmann scalar was cross-checked &mdash; and found to be wrong. A genuine curvature invariant must not depend on &theta;; the formula from the first calculation, however, contained a cos&sup2;&theta; term that did not cancel &mdash; an index-contraction error in SageManifolds' automated index-raising. The clean recalculation via full, explicit index contraction gives the actually &theta;-independent formula:</p>
+<p style="text-align:center;font-size:1.05rem;margin:1rem 0;">K&nbsp;=&nbsp;2(2C&#8308;+r&sup2;C&prime;&sup2;&minus;4C&sup3;+2C&sup2;)/(r&#8308;C&#8308;)</p>
+<p>Re-evaluated at the same r&rarr;0 points with this corrected formula:</p>
+<p style="font-family:monospace;font-size:.85rem;">r&asymp;0.252: Ricci=&minus;0.00647, Kretschmann=1.41&middot;10&supmin;&#8309;<br>r&asymp;0.0925: Ricci=&minus;0.00638, Kretschmann=1.36&middot;10&supmin;&#8309;<br>r&asymp;0.0341: Ricci=&minus;0.00546, Kretschmann=0.99&middot;10&supmin;&#8309;</p>
+<div class="result-box">
+<strong>Corrected finding, the opposite of the previous one:</strong> with the correct formula, the Kretschmann scalar also stays small and nearly constant (slightly decreasing rather than growing). The previously reported &ldquo;genuine curvature increase&rdquo; did not exist &mdash; it was a computational error, not physics. This makes the originally cautious hypothesis (merely a failure of the T3/u auxiliary construction, no genuine geometric feature in this range) the more plausible reading again, not refuted.
+</div>
+<div class="note warn"><strong>Why this is documented openly:</strong> a published intermediate finding turned out to be wrong, not merely provisional. This is not silently replaced but explicitly recorded as a correction &mdash; the same standard meant to hold throughout this project.</div>
+
+<h3>Fine, verified integration: the actual picture</h3>
+<p>The crude three-point cross-check above was itself misleading &mdash; too few, too widely spaced points with a crude finite difference for C&prime;. The fine (effectively &Delta;x=0.02), verified-against-the-unsquared-condition integration (residuals 5&middot;10&supmin;&#8309; to 2.6&middot;10&supmin;&#185;&#8304; &mdash; genuine solution confirmed) shows: the Ricci scalar stays practically exactly constant across the entire range examined (r=0.368 to r=0.0067) at &minus;0.0060095. The Kretschmann scalar likewise stays practically exactly constant down to r&asymp;0.05 (1.2038&middot;10&supmin;&#8309;), but then shows a genuine, if modest, rise to 1.659&middot;10&supmin;&#8309; at r=0.0067 &mdash; roughly a 38% increase over the last decade in r.</p>
+<div class="result-box">
+<strong>Honest conclusion after three different intermediate states on this one question:</strong> curvature stays remarkably flat over most of the range examined, but shows a genuine, moderate rise at the lower edge of the numerically reachable range &mdash; neither the dramatic growth of the first (erroneous) calculation nor the slight decrease of the second (too crude) cross-check. Whether this grows into a genuine singularity at even smaller r or stabilises cannot be decided with the data at hand &mdash; the integration becomes unstable at r&asymp;0.0067 (divergence of the u/T3 auxiliary construction) before this is resolved.
+</div>
+
+<h3>Steps 40–47: Kretschmann prediction confirmed, then a fundamental correction — r* is a coordinate singularity</h3>
+<p>The point left open above (a mild Kretschmann rise near r≈0.0067) was pursued further in a follow-up session. Getting there involved two intermediate corrections, documented here in full, not just the final result.</p>
+<p><strong>First confirmation:</strong> a fixed-point linearisation around C=1, u=0 (the same saddle as in the phase-space analysis above) predicts K→12A² as r→0, with A fitted from the ratio ε=C−1 to r². Numerically confirmed: A₀≈−9.955·10⁻⁴, 12·A₀²≈1.189·10⁻⁵ — matches the observed plateau value (1.2038·10⁻⁵) to better than 1%.</p>
+<p><strong>Higher-precision numerical cross-check:</strong> to determine whether the rise at even smaller r was a floating-point precision artefact, the same integration was repeated using 256-bit BigFloat arithmetic (instead of ordinary floating-point precision), with two different integration schemes (fixed step size and an established adaptive solver). Both break down at practically the same location as the original calculation: at x≈−5.045 (r*≈0.00644). Three methodologically independent numerical approaches failing at exactly the same point initially suggested a genuine singularity of the solution there — not a precision problem.</p>
+<p><strong>Analytical resolution (Frobenius approach):</strong> to settle this, a pole ansatz u(x)~A·(x−x*)⁻ᵖ was substituted directly into the algebraic determining equation for the second derivative. The leading-order balance is consistent at p=1; the resulting coefficient equation (solved via computer algebra, not by hand — an initial hand calculation contained an error caught during cross-checking) yields 2A³(A−1)(A−½)²(A+½)=0, with A=−½ as the only physically relevant root. This gives u(x)~−1/(2(x−x*)) — an exact, rational coefficient, not a numerical estimate, confirmed against the numerical u values to within 1%.</p>
+<p><strong>The actual result:</strong> this u(x) behaviour was propagated through the formula for C(r) and further through the Ricci scalar R and the Kretschmann scalar K (series expansion around the singularity). Result: C(r) does diverge there (C~−1/(2ε²)), but both R and K remain <strong>finite</strong> — both are regular Taylor series with no negative powers, with K→9/(2r*⁴) and R→3/r*² in the limit.</p>
+<p>The correct interpretation, after two previous intermediate readings ("artefact suspected", then "genuine curvature singularity suspected"): <strong>r*≈0.0064 is a coordinate singularity of the areal-radius gauge</strong> — the metric component C(r) diverges while the actual spacetime curvature (Ricci, Kretschmann) stays finite. The analogy is the diverging g<sub>rr</sub> component of Schwarzschild in Schwarzschild coordinates at the horizon, where curvature invariants likewise stay finite. The three numerical integration methods correctly broke down — not because of genuine curvature divergence, but because the coordinate itself becomes unusable there.</p>
+<p><strong>Remains open:</strong> whether the solution can be smoothly continued past r* in better coordinates (analogous to Eddington–Finkelstein coordinates for Schwarzschild), and how it behaves for r&lt;r*.</p>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Next steps</h2>
+<p>The project is therefore not concluded, but the first stretch of a longer research programme. Concretely pending:</p>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li><strong>[Resolved, see Steps 40–47 above]</strong> Cause of the mild Kretschmann rise at small r: not a genuine curvature singularity but a coordinate singularity of the areal-radius gauge — Ricci and Kretschmann both stay finite.</li>
+<li><strong>Find better coordinates</strong> to continue the solution past r* and examine its behaviour for r&lt;r* (analogy: Eddington–Finkelstein coordinates for Schwarzschild).</li>
+<li><strong>Closer comparison with the Bronnikov&ndash;Zaslavskii class</strong> &mdash; is our r&rarr;&infin; case fundamentally different from their horizon case, or is there a deeper common structure?</li>
+<li><strong>Progressively relaxing the remaining simplifications</strong> (time dependence, cross term B&ne;0) &mdash; gauge dependence itself has already been checked (two gauges, same result).</li>
+</ul>
+
+<h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Context</h2>
+<p>Lavinia Heisenberg is a professor at Heidelberg University's Institute for Theoretical Physics and co-founder of several current research directions in gravitational physics (among them &ldquo;Generalized Proca theory&rdquo; and the &ldquo;Geometrical Trinity of Gravity&rdquo;, which shows that Einstein's gravity can be equivalently described via curvature, torsion, or non-metricity). The paper discussed here (arXiv:2512.16934) is more conceptual and foundations-oriented than her usual model-building work &mdash; and precisely for that reason a well-suited starting point for a test project: the open question comes directly and explicitly from the author herself, not from an unverified guess of our own.</p>
+
+<h3>Tools and files</h3>
+<ul style="margin:.5rem 0 1rem 1.5rem;line-height:2;font-family:sans-serif;font-size:.88rem;">
+<li>SageMath 10.9 / SageManifolds &mdash; symbolic tensor calculus on curved manifolds</li>
+<li>All scripts and logs: <code>/Volumes/CLAUDE-DATA/Heisenberg-Gmunu-Symmetrie-Projekt/</code> (over 40 computational steps by now, each with a log file)</li>
+<li>All computations entirely local on Mac Studio M3 Ultra (256&nbsp;GB), no cloud access</li>
+</ul>
+
+<div style="font-size:.8rem;color:#7a7872;border-top:1px solid #dddbd3;padding-top:1.25rem;margin-top:3rem;line-height:1.65;font-family:sans-serif;">
+T. Riepe, Berlin. July 2026. Source of the open question: L. Heisenberg, &ldquo;A Re-Examination Of Foundational Elements Of Cosmology&rdquo;, arXiv:2512.16934 (December 2025), Section 5 / Conclusion. Prompted by the ZEIT podcast &ldquo;Alles gesagt?&rdquo; with Lavinia Heisenberg (July 2026); the podcast itself was not evaluated for this project, only the paper directly. Computation: SageMath/SageManifolds (local, Mac Studio). Direction, scripts, interpretation: Claude Sonnet 5 (Anthropic), directed and cross-checked by T. Riepe. Independent re-derivation of one concrete intermediate step (sign of C for Fr=r&sup3;&#8260;&sup2;) by the local model committee: qwen3:235b-a22b confirmed the Sage result exactly; deepseek-r1:70b made its own arithmetic error (c=&minus;5r&sup3; instead of &minus;r&sup3;) while still stating formal agreement &mdash; recorded here as evidence that the local committee is not infallible either.
+</div>
+</div>
+</div>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-en-section').forEach(function(e){
+    e.style.display = l==='en' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.querySelectorAll('.lang-de-section').forEach(function(e){
+    e.style.display = l==='de' ? (e.tagName==='SPAN'?'inline':'block') : 'none';
+  });
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-de').classList.toggle('active',l==='de');
+  document.documentElement.lang=l;
+  try{localStorage.setItem('site-lang',l);}catch(e){}
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var l=null;try{l=localStorage.getItem('site-lang');}catch(e){}
+  setLang(l==='en'?'en':'de');
+});
+</script>
+<footer style="border-top:1px solid #dddbd3;padding:1.5rem 2rem;font-size:.78rem;color:#7a7872;margin-top:3rem"><a href="impressum.html" style="color:#7a7872">Impressum &amp; Datenschutz</a> &middot; &copy; Thomas Riepe, Berlin &middot; &sect; 5 DDG</footer>
+</body>
+</html>
