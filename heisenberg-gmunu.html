@@ -126,44 +126,74 @@ hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
 </div>
 
 <p>Als konkreten Testfall haben wir eine kugelsymmetrische Metrik gew&auml;hlt, mit einer Materiequelle, die symmetrisch sein soll, aber nicht notwendig verschwindet &mdash; das ist die einfachste Klasse, in der die Frage &uuml;berhaupt sinnvoll gestellt werden kann. (Der reine Vakuumfall, dazu unten mehr, stellt sich als eine andere, trivialere Frage heraus.) Sie ist gro&szlig; genug, um nicht automatisch auf die triviale (bereits als symmetrisch bekannte) L&ouml;sung zu kollabieren.</p>
-<p>Drei weitere Einschr&auml;nkungen wurden schrittweise hinzugef&uuml;gt, nicht willk&uuml;rlich, sondern aus Gr&uuml;nden, die man kurz benennen sollte: Zuerst der <strong>statische Fall</strong> (keine Zeitabh&auml;ngigkeit) &mdash; das ist die in der Literatur &uuml;bliche Reihenfolge, zeitabh&auml;ngige F&auml;lle kommen typischerweise erst danach. Dann die <strong>diagonale Form</strong> (kein t-r-Kreuzterm in der Metrik) &mdash; eine Standard-Koordinatenwahl, die einen Freiheitsgrad eliminiert, ohne echte physikalische Information zu verlieren. Schlie&szlig;lich die <strong>Areal-Radius-Eichung</strong> (die Winkelkomponente der Metrik wird exakt gleich r&sup2; gesetzt) &mdash; ebenfalls eine Standardwahl bei kugelsymmetrischen Problemen, keine Einschr&auml;nkung der eigentlichen Physik, sondern nur der Koordinatenbeschreibung. Jede dieser drei Wahlen reduziert die Anzahl unabh&auml;ngiger Funktionen, ohne die Fragestellung selbst zu ver&auml;ndern.</p>
+<p>Vier weitere Einschr&auml;nkungen kamen hinzu &mdash; drei davon sind echte Koordinatenwahlen ohne Informationsverlust, die vierte ist etwas anderes und wurde sp&auml;ter zum eigenst&auml;ndigen Forschungsgegenstand. Zuerst der <strong>statische Fall</strong> (keine Zeitabh&auml;ngigkeit) &mdash; die in der Literatur &uuml;bliche Reihenfolge. Dann die <strong>diagonale Form</strong> (kein t-r-Kreuzterm): inzwischen kein Ansatz mehr, sondern ein bewiesenes Lemma (Schritt&nbsp;69) &mdash; im gesamten statischen Fall entfernt eine reine Zeitverschiebung T=t&minus;f(r) den Kreuzterm B(r) exakt, ohne jede Einschr&auml;nkung. Dann die <strong>Areal-Radius-Eichung</strong> (Winkelkomponente&nbsp;=&nbsp;r&sup2;) &mdash; ebenfalls eine echte, verlustfreie Koordinatenwahl. Und schlie&szlig;lich <strong>A(r)=1</strong>: anders als die drei vorigen war das nie eine bewiesene Eichung, sondern eine plausible, aber ungepr&uuml;fte Vereinfachung. Der gesamte im Folgenden geschilderte Projektverlauf &mdash; von der Potenzgesetz-Analyse bis zur numerischen Shooting-Trajektorie &mdash; fand innerhalb dieser vierten Einschr&auml;nkung statt, und die sp&auml;tere vollst&auml;ndige Klassifikation (<a href="#schritte-69-73">Schritte 69&ndash;74</a>) zeigt: F&uuml;r A=1 ist der dort untersuchte nichttriviale Zweig tats&auml;chlich leer. Ob das an A=1 liegt oder eine echte Eigenschaft der Fragestellung ist, kl&auml;rt erst die Lockerung genau dieser einen Einschr&auml;nkung &mdash; die laufende Untersuchung des allgemeinen Falls A(r), seit Juli 2026, noch ohne Ergebnis.</p>
 
 <div class="svg-wrap">
-<svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
+<svg viewBox="0 0 700 685" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
   <rect x="230" y="10" width="240" height="46" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
   <text x="350" y="38" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1a18">Allgemeine kugelsymm. Metrik</text>
 
-  <line x1="350" y1="56" x2="350" y2="80" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
+  <line x1="350" y1="56" x2="350" y2="80" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g3)"/>
   <text x="380" y="72" font-size="9.5" fill="#7a7a72">B=0 (kein Kreuzterm)</text>
-  <rect x="230" y="80" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
-  <text x="350" y="105" text-anchor="middle" font-size="12" fill="#1a1a18">Diagonale Form</text>
+  <rect x="230" y="80" width="240" height="48" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="102" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a18">Diagonale Form</text>
+  <text x="350" y="118" text-anchor="middle" font-size="9.5" fill="#4a4a44">bewiesen f&uuml;r alle statischen Metriken (Schritt 69)</text>
 
-  <line x1="350" y1="122" x2="350" y2="146" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
-  <text x="380" y="138" font-size="9.5" fill="#7a7a72">statisch (kein t)</text>
-  <rect x="230" y="146" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
-  <text x="350" y="171" text-anchor="middle" font-size="12" fill="#1a1a18">Zeitunabh&#228;ngiger Fall</text>
+  <line x1="350" y1="128" x2="350" y2="152" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g3)"/>
+  <text x="380" y="144" font-size="9.5" fill="#7a7a72">statisch (kein t)</text>
+  <rect x="230" y="152" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="177" text-anchor="middle" font-size="12" fill="#1a1a18">Zeitunabh&auml;ngiger Fall</text>
 
-  <line x1="350" y1="188" x2="350" y2="212" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
-  <text x="380" y="204" font-size="9.5" fill="#7a7a72">Eichung: A=1, D=r&#178;</text>
-  <rect x="200" y="212" width="300" height="42" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.3"/>
-  <text x="350" y="237" text-anchor="middle" font-size="12" fill="#1a4a7a" font-weight="700">Eine freie Funktion C(r) &#252;brig</text>
+  <line x1="350" y1="194" x2="350" y2="218" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g3)"/>
+  <text x="380" y="210" font-size="9.5" fill="#7a7a72">D=r&sup2; (Eichung, verlustfrei)</text>
+  <rect x="230" y="218" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="243" text-anchor="middle" font-size="12" fill="#1a1a18">Areal-Radius-Eichung</text>
 
-  <line x1="350" y1="254" x2="350" y2="278" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
-  <rect x="130" y="278" width="200" height="46" rx="6" fill="#eefaf2" stroke="#1a5c2a" stroke-width="1.3"/>
-  <text x="230" y="298" text-anchor="middle" font-size="11.5" fill="#1a5c2a" font-weight="700">Zweig 1: C=1</text>
-  <text x="230" y="314" text-anchor="middle" font-size="9.5" fill="#4a4a44">= flaches Minkowski (trivial)</text>
+  <line x1="350" y1="260" x2="350" y2="284" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g3)"/>
+  <text x="380" y="276" font-size="9.5" fill="#7a7a72">A(r)=1 (Ansatz, ungepr&uuml;ft)</text>
+  <rect x="200" y="284" width="300" height="42" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.3"/>
+  <text x="350" y="303" text-anchor="middle" font-size="12" fill="#1a4a7a" font-weight="700">Eine freie Funktion C(r) &uuml;brig</text>
+  <text x="350" y="317" text-anchor="middle" font-size="9.5" fill="#4a4a44">unter A(r)=1</text>
 
-  <rect x="370" y="278" width="200" height="46" rx="6" fill="#fff3ee" stroke="#7a2a00" stroke-width="1.3"/>
-  <text x="470" y="298" text-anchor="middle" font-size="11.5" fill="#7a2a00" font-weight="700">Zweig 2: nichttrivial</text>
-  <text x="470" y="314" text-anchor="middle" font-size="9.5" fill="#4a4a44">algebraisch aus Fr(r) bestimmt</text>
+  <line x1="350" y1="326" x2="350" y2="346" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g3)"/>
+  <rect x="130" y="346" width="200" height="46" rx="6" fill="#eefaf2" stroke="#1a5c2a" stroke-width="1.3"/>
+  <text x="230" y="366" text-anchor="middle" font-size="11.5" fill="#1a5c2a" font-weight="700">Zweig 1: C=1</text>
+  <text x="230" y="382" text-anchor="middle" font-size="9.5" fill="#4a4a44">= flaches Minkowski (trivial)</text>
 
-  <line x1="470" y1="324" x2="470" y2="348" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g)"/>
-  <rect x="330" y="348" width="280" height="28" rx="6" fill="#f8f8f6" stroke="#c8c8c0" stroke-width="1.3"/>
-  <text x="470" y="366" text-anchor="middle" font-size="11" fill="#4a4a44">ODE f&#252;r Fr(r) &mdash; hier nicht weiter untersucht</text>
+  <rect x="370" y="346" width="200" height="46" rx="6" fill="#fff3ee" stroke="#7a2a00" stroke-width="1.3"/>
+  <text x="470" y="366" text-anchor="middle" font-size="11.5" fill="#7a2a00" font-weight="700">Zweig 2: Fr&ne;0</text>
+  <text x="470" y="382" text-anchor="middle" font-size="9.5" fill="#4a4a44">radialer Deformationsfluss</text>
 
-  <defs><marker id="arrow-g" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#7a7a72"/></marker></defs>
+  <line x1="470" y1="392" x2="470" y2="412" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g3)"/>
+  <rect x="300" y="412" width="340" height="40" rx="6" fill="#f8f8f6" stroke="#c8c8c0" stroke-width="1.3"/>
+  <text x="470" y="431" text-anchor="middle" font-size="11" font-weight="700" fill="#4a4a44">Schritte 9&ndash;58</text>
+  <text x="470" y="445" text-anchor="middle" font-size="9.5" fill="#7a7a72">Potenzgesetz, Phasenraum, Shooting-Trajektorie</text>
+
+  <line x1="470" y1="452" x2="470" y2="480" stroke="#a52020" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-r3)"/>
+  <text x="500" y="470" font-size="9.5" fill="#a52020">12er-Bedingung nie gepr&uuml;ft</text>
+  <rect x="280" y="480" width="380" height="42" rx="6" fill="#fdeeee" stroke="#a52020" stroke-width="1.3"/>
+  <text x="470" y="499" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a52020">Widerrufen</text>
+  <text x="470" y="514" text-anchor="middle" font-size="9.5" fill="#4a4a44">Schritte 27&ndash;58 (Retro-Befund, Schritt 74): keine g&uuml;ltige L&ouml;sung</text>
+
+  <line x1="470" y1="522" x2="470" y2="548" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g3)"/>
+  <text x="500" y="540" font-size="9.5" fill="#7a7a72">exakt f&uuml;r A=1 (Schritte 72&ndash;73)</text>
+  <rect x="270" y="548" width="400" height="46" rx="6" fill="#fff3ee" stroke="#7a2a00" stroke-width="1.3"/>
+  <text x="470" y="568" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2a00">A=1: Zweig ist leer</text>
+  <text x="470" y="584" text-anchor="middle" font-size="9.5" fill="#4a4a44">einzige L&ouml;sung C=1/(1&minus;kr&sup2;) ist Killing-trivial</text>
+
+  <line x1="470" y1="594" x2="470" y2="618" stroke="#5b21b6" stroke-width="1.5" marker-end="url(#arrow-p3)"/>
+  <text x="500" y="610" font-size="9.5" fill="#5b21b6" font-weight="700">jetzt: A(r) frei</text>
+  <rect x="260" y="618" width="420" height="54" rx="6" fill="#f3eeff" stroke="#5b21b6" stroke-width="1.3"/>
+  <text x="470" y="639" text-anchor="middle" font-size="11.5" font-weight="700" fill="#5b21b6">Laufende Untersuchung: A(r) allgemein</text>
+  <text x="470" y="655" text-anchor="middle" font-size="9.5" fill="#4a4a44">gcd-Analyse seit Juli 2026 &mdash; offen, ob nichttrivial</text>
+
+  <defs>
+    <marker id="arrow-g3" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#7a7a72"/></marker>
+    <marker id="arrow-r3" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#a52020"/></marker>
+    <marker id="arrow-p3" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#5b21b6"/></marker>
+  </defs>
 </svg>
-<div class="svg-cap">Der Weg der Vereinfachung: von der allgemeinen Metrik bis zur Verzweigung in eine triviale und eine hier nicht weiter untersuchte, nichttriviale L&ouml;sung.</div>
+<div class="svg-cap">Der Weg der Vereinfachung &mdash; und der weitere Verlauf des rechten Zweigs: ausf&uuml;hrlich untersucht (Schritte 9&ndash;58), widerrufen (Retro-Befund, Schritt 74), f&uuml;r A=1 abschlie&szlig;end als leer klassifiziert (Schritte 72&ndash;73). Offen bleibt, ob sich das bei allgemeinem A(r) &auml;ndert.</div>
 </div>
 
 <h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">Was tats&auml;chlich herauskam</h2>
@@ -416,8 +446,75 @@ T. Riepe, Berlin. Juli 2026. Quelle der offenen Frage: L. Heisenberg, &bdquo;A R
 </div>
 
 <p>As a concrete test case we chose a spherically symmetric metric with a matter source required to be symmetric but not necessarily vanishing &mdash; the simplest class in which the question can be meaningfully posed at all. (The pure vacuum case, more on this below, turns out to be a different, more trivial question.) It is large enough not to collapse automatically into the already-known symmetric (trivial) solution.</p>
-<p>Three further restrictions were added step by step, not arbitrarily but for reasons worth stating briefly: first the <strong>static case</strong> (no time dependence) &mdash; the order customary in the literature, time-dependent cases typically follow only afterward. Then the <strong>diagonal form</strong> (no t-r cross term in the metric) &mdash; a standard coordinate choice that eliminates one degree of freedom without losing genuine physical information. Finally the <strong>areal-radius gauge</strong> (the angular component of the metric is set exactly equal to r&sup2;) &mdash; again a standard choice for spherically symmetric problems, restricting only the coordinate description, not the physics itself. Each of these three choices reduces the number of independent functions without changing the question being asked.</p>
+<p>Four further restrictions were added &mdash; three of them turned out to be genuine coordinate choices with no loss of generality; the fourth is different, and later became a research question in its own right. First the <strong>static case</strong> (no time dependence) &mdash; the order customary in the literature. Then the <strong>diagonal form</strong> (no t-r cross term): by now not an ansatz but a proven lemma (Step&nbsp;69) &mdash; throughout the static case, a pure time shift T=t&minus;f(r) removes the cross term B(r) exactly, with no restriction whatsoever. Then the <strong>areal-radius gauge</strong> (angular component&nbsp;=&nbsp;r&sup2;) &mdash; likewise a genuine, lossless coordinate choice. And finally <strong>A(r)=1</strong>: unlike the previous three, this was never a proven gauge, only a plausible but unverified simplification. The entire project narrative told below &mdash; from the power-law analysis to the numerical shooting trajectory &mdash; took place within this fourth restriction, and the later complete classification (<a href="#steps-69-73">Steps 69&ndash;74</a>) shows: for A=1, the non-trivial branch examined there is in fact empty. Whether that is a consequence of A=1 or a genuine feature of the question can only be settled by relaxing exactly this one restriction &mdash; the investigation now under way for the general case A(r), ongoing since July 2026, without a result yet.</p>
 
+<div class="svg-wrap">
+<svg viewBox="0 0 700 685" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto;font-family:sans-serif;">
+  <rect x="230" y="10" width="240" height="46" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="38" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a1a18">General spherically symm. metric</text>
+
+  <line x1="350" y1="56" x2="350" y2="80" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g4)"/>
+  <text x="380" y="72" font-size="9.5" fill="#7a7a72">B=0 (no cross term)</text>
+  <rect x="230" y="80" width="240" height="48" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="102" text-anchor="middle" font-size="12" font-weight="700" fill="#1a1a18">Diagonal form</text>
+  <text x="350" y="118" text-anchor="middle" font-size="9.5" fill="#4a4a44">proven for all static metrics (Step 69)</text>
+
+  <line x1="350" y1="128" x2="350" y2="152" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g4)"/>
+  <text x="380" y="144" font-size="9.5" fill="#7a7a72">static (no t)</text>
+  <rect x="230" y="152" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="177" text-anchor="middle" font-size="12" fill="#1a1a18">Time-independent case</text>
+
+  <line x1="350" y1="194" x2="350" y2="218" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g4)"/>
+  <text x="380" y="210" font-size="9.5" fill="#7a7a72">D=r&sup2; (gauge, lossless)</text>
+  <rect x="230" y="218" width="240" height="42" rx="6" fill="#f2f2ef" stroke="#7a7a72" stroke-width="1.3"/>
+  <text x="350" y="243" text-anchor="middle" font-size="12" fill="#1a1a18">Areal-radius gauge</text>
+
+  <line x1="350" y1="260" x2="350" y2="284" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g4)"/>
+  <text x="380" y="276" font-size="9.5" fill="#7a7a72">A(r)=1 (ansatz, unverified)</text>
+  <rect x="200" y="284" width="300" height="42" rx="6" fill="#eef3fa" stroke="#1a4a7a" stroke-width="1.3"/>
+  <text x="350" y="303" text-anchor="middle" font-size="12" fill="#1a4a7a" font-weight="700">One free function C(r) remains</text>
+  <text x="350" y="317" text-anchor="middle" font-size="9.5" fill="#4a4a44">under A(r)=1</text>
+
+  <line x1="350" y1="326" x2="350" y2="346" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g4)"/>
+  <rect x="130" y="346" width="200" height="46" rx="6" fill="#eefaf2" stroke="#1a5c2a" stroke-width="1.3"/>
+  <text x="230" y="366" text-anchor="middle" font-size="11.5" fill="#1a5c2a" font-weight="700">Branch 1: C=1</text>
+  <text x="230" y="382" text-anchor="middle" font-size="9.5" fill="#4a4a44">= flat Minkowski (trivial)</text>
+
+  <rect x="370" y="346" width="200" height="46" rx="6" fill="#fff3ee" stroke="#7a2a00" stroke-width="1.3"/>
+  <text x="470" y="366" text-anchor="middle" font-size="11.5" fill="#7a2a00" font-weight="700">Branch 2: Fr&ne;0</text>
+  <text x="470" y="382" text-anchor="middle" font-size="9.5" fill="#4a4a44">radial deformation flow</text>
+
+  <line x1="470" y1="392" x2="470" y2="412" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g4)"/>
+  <rect x="300" y="412" width="340" height="40" rx="6" fill="#f8f8f6" stroke="#c8c8c0" stroke-width="1.3"/>
+  <text x="470" y="431" text-anchor="middle" font-size="11" font-weight="700" fill="#4a4a44">Steps 9&ndash;58</text>
+  <text x="470" y="445" text-anchor="middle" font-size="9.5" fill="#7a7a72">power-law, phase space, shooting trajectory</text>
+
+  <line x1="470" y1="452" x2="470" y2="480" stroke="#a52020" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow-r4)"/>
+  <text x="500" y="470" font-size="9.5" fill="#a52020">12-condition never checked</text>
+  <rect x="280" y="480" width="380" height="42" rx="6" fill="#fdeeee" stroke="#a52020" stroke-width="1.3"/>
+  <text x="470" y="499" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a52020">Withdrawn</text>
+  <text x="470" y="514" text-anchor="middle" font-size="9.5" fill="#4a4a44">Steps 27&ndash;58 (retro-correction, Step 74): not a valid solution</text>
+
+  <line x1="470" y1="522" x2="470" y2="548" stroke="#7a7a72" stroke-width="1.3" marker-end="url(#arrow-g4)"/>
+  <text x="500" y="540" font-size="9.5" fill="#7a7a72">exact for A=1 (Steps 72&ndash;73)</text>
+  <rect x="270" y="548" width="400" height="46" rx="6" fill="#fff3ee" stroke="#7a2a00" stroke-width="1.3"/>
+  <text x="470" y="568" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2a00">A=1: branch is empty</text>
+  <text x="470" y="584" text-anchor="middle" font-size="9.5" fill="#4a4a44">the only solution C=1/(1&minus;kr&sup2;) is Killing-trivial</text>
+
+  <line x1="470" y1="594" x2="470" y2="618" stroke="#5b21b6" stroke-width="1.5" marker-end="url(#arrow-p4)"/>
+  <text x="500" y="610" font-size="9.5" fill="#5b21b6" font-weight="700">now: A(r) free</text>
+  <rect x="260" y="618" width="420" height="54" rx="6" fill="#f3eeff" stroke="#5b21b6" stroke-width="1.3"/>
+  <text x="470" y="639" text-anchor="middle" font-size="11.5" font-weight="700" fill="#5b21b6">Ongoing investigation: general A(r)</text>
+  <text x="470" y="655" text-anchor="middle" font-size="9.5" fill="#4a4a44">gcd analysis since July 2026 &mdash; open whether non-trivial</text>
+
+  <defs>
+    <marker id="arrow-g4" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#7a7a72"/></marker>
+    <marker id="arrow-r4" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#a52020"/></marker>
+    <marker id="arrow-p4" markerWidth="9" markerHeight="9" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5 Z" fill="#5b21b6"/></marker>
+  </defs>
+</svg>
+<div class="svg-cap">The path of simplification &mdash; and what became of the right-hand branch: investigated at length (Steps 9&ndash;58), withdrawn (retro-correction, Step 74), and finally classified as empty for A=1 (Steps 72&ndash;73). Whether this changes for general A(r) remains open.</div>
+</div>
 <h2 style="font-size:1.2rem;font-weight:700;margin:2rem 0 .85rem;border-bottom:1.5px solid #dddbd3;padding-bottom:.35rem;">What actually came out</h2>
 
 <div class="band p2">
