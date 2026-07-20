@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Eurotransplant-Simulator &middot; Zentrums-Strategie-Analyse</title><meta name="description" content="Reproduktion des echten ELAS-Simulators (arXiv:2410.10840) und Analyse von Zentrums-Strategien in der Organallokation."><link rel="stylesheet" href="fonts.css"><style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;--blue:#6a9fc0;--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--max:740px;--wide:1100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+.back-link{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;letter-spacing:.06em;display:inline-block;padding:2rem 0 0}
+.back-link:hover{color:var(--gold)}
+header{border-bottom:1px solid var(--rule);padding:3rem 0 2.5rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.status-bar{font-family:var(--mono);font-size:.65rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem;letter-spacing:.04em}
+.status-bar .badge{background:var(--bg2);border:1px solid var(--rule);padding:.2em .7em;border-radius:2px}
+.status-bar .badge.live{border-color:var(--green);color:var(--green)}
+.status-bar .badge.warn{border-color:var(--amber);color:var(--amber)}
+.lang-tabs{display:flex;gap:.5rem;margin:1.5rem 0 0;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-de{display:block}.lang-en{display:none}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:3rem 0 1.2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.12rem;font-weight:500;color:var(--fg);margin:1.8rem 0 .6rem}
+p{margin-bottom:1.1em;font-size:1rem}
+section{margin-bottom:4.5rem}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.kpi{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.2rem 1.4rem;border-radius:2px}
+.kpi-val{font-family:var(--mono);font-size:1.5rem;color:var(--gold);font-weight:500;line-height:1.2}
+.kpi-label{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);margin-top:.4rem;line-height:1.4}
+.kpi-src{font-family:var(--mono);font-size:.58rem;color:var(--fg-dim);margin-top:.5rem;opacity:.7}
+.chart-wrap{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1.5rem;margin:1.5rem 0}
+.chart-title{font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.chart-note{font-family:var(--mono);font-size:.6rem;color:var(--fg-dim);margin-top:.8rem;line-height:1.6}
+canvas{display:block;max-height:320px}
+table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.88rem}
+th,td{border:1px solid var(--rule);padding:.55rem .75rem;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+td{color:var(--fg)}
+tr:hover td{background:var(--bg3)}
+.src{font-family:var(--mono);font-size:.6rem;color:var(--fg-dim)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.58rem;padding:.1em .5em;border-radius:2px;margin-left:.4em;vertical-align:middle}
+.tag-red{background:rgba(184,96,96,.15);color:var(--red);border:1px solid rgba(184,96,96,.3)}
+.tag-green{background:rgba(122,173,122,.15);color:var(--green);border:1px solid rgba(122,173,122,.3)}
+.tag-amber{background:rgba(212,160,64,.15);color:var(--amber);border:1px solid rgba(212,160,64,.3)}
+.tag-blue{background:rgba(106,159,192,.15);color:var(--blue);border:1px solid rgba(106,159,192,.3)}
+.warn-box{background:rgba(212,160,64,.06);border:1px solid rgba(212,160,64,.25);border-radius:2px;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.88rem;font-family:var(--sans);color:var(--fg-dim)}
+.warn-box strong{color:var(--amber)}
+.note-box{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.85rem;font-family:var(--sans);color:var(--fg-dim);line-height:1.6}
+.note-box strong{color:var(--fg)}
+.deux-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+.timeline-item{display:flex;gap:1.2rem;padding:.8rem 0;border-bottom:1px solid var(--rule)}
+.timeline-item:last-child{border-bottom:none}
+.tl-date{font-family:var(--mono);font-size:.65rem;color:var(--gold);min-width:90px;padding-top:.15rem}
+.tl-text{font-size:.9rem;line-height:1.6}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+.disclaimer{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1rem 1.2rem;margin:2rem 0;font-family:var(--sans);font-size:.78rem;color:var(--fg-dim);line-height:1.65}
+@media(max-width:700px){html{font-size:15px}.wrapper{padding:0 1.2rem}.kpi-grid{grid-template-columns:1fr 1fr}.deux-col{grid-template-columns:1fr}}
+</style></head><body><div class="wrapper"><a class="back-link" href="index.html">&larr; Zur&uuml;ck zur &Uuml;bersicht / Back to overview</a><header><div class="col">  <p class="header-meta">Simulator-Reproduktion &middot; Organallokation &middot; Berlin 2026</p>  <h1>Eurotransplant-Simulator    <span class="sub">Reproduktion des echten ELAS-Simulators &amp; Zentrums-Strategie-Analyse<br>    <span style="font-size:.85em">Reproducing the real ELAS simulator &amp; centre strategy analysis</span></span>  </h1>  <div class="status-bar"><span class="badge">Echter, publizierter Simulator (arXiv:2410.10840)</span><span class="badge warn">Fall (ii): kalibriertes Modell</span><span class="badge">Stand Juli 2026</span></div>  <div class="lang-tabs">    <button class="lang-tab active" onclick="setLang('de')">DE</button>    <button class="lang-tab" onclick="setLang('en')">EN</button>  </div></div></header><section><div class="col"><div class="lang-de">
+<p>Der ELAS-Simulator (Eurotransplant Liver Allocation System) ist ein echter, publizierter, peer-reviewter Discrete-Event-Simulator (de Ferrante et al., arXiv:2410.10840), entwickelt in Zusammenarbeit mit &Auml;rzten von Eurotransplant und validiert gegen reale Wartelisten-Ergebnisse 2016&ndash;2019. Diese Studie hat den echten, &ouml;ffentlichen Simulator lokal reproduziert &mdash; mit vollst&auml;ndig synthetischen Testdaten, keine realen Patientendaten &mdash; und f&uuml;r eine Frage der Mechanismus-Theorie befragt: k&ouml;nnen Transplantationszentren durch strategisches Annahmeverhalten ihre eigenen Kennzahlen verbessern?</p>
+<div class="warn-box"><strong>H&ouml;chste Sensibilit&auml;t &mdash; bewusste Eingrenzung:</strong> &bdquo;Manipulation&ldquo; betrifft hier ausschlie&szlig;lich <em>Zentrums-Strategien</em> (Annahmeschwellen), nicht Patienten. Kein Zentrums-Ranking, keine Handlungsanleitung. Alle Aussagen sind Fall (ii): bedingt auf ein statistisch kalibriertes Modell, keine Realit&auml;tsbehauptung.</div>
+</div><div class="lang-en" style="display:none">
+<p>The ELAS simulator (Eurotransplant Liver Allocation System) is a real, published, peer-reviewed discrete-event simulator (de Ferrante et al., arXiv:2410.10840), developed in collaboration with Eurotransplant physicians and validated against real waiting-list outcomes 2016&ndash;2019. This study reproduced the real, public simulator locally &mdash; using fully synthetic test data, no real patient data &mdash; and probed it for a question in mechanism theory: can transplant centres improve their own metrics through strategic acceptance behaviour?</p>
+<div class="warn-box"><strong>Highest sensitivity &mdash; deliberate scoping:</strong> &ldquo;Manipulation&rdquo; here refers exclusively to <em>centre strategies</em> (acceptance thresholds), not patients. No centre ranking, no how-to guidance. All statements are case (ii): conditional on a statistically calibrated model, not a claim about reality.</div>
+</div></div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Echte Reproduktion, nicht Nachbau</p><p class="sect-group lang-en" style="display:none">Genuine reproduction, not a re-implementation</p>
+<div class="kpi-grid">
+  <div class="kpi"><div class="kpi-val">GPLv3</div><div class="kpi-label lang-de">Lizenz des Original-Repos (github.com/hansdeferrante)</div><div class="kpi-label lang-en" style="display:none">Original repo licence (github.com/hansdeferrante)</div></div>
+  <div class="kpi"><div class="kpi-val">935 / 937</div><div class="kpi-label lang-de">Simulierte Transplantationen, zwei unabh&auml;ngige Testl&auml;ufe</div><div class="kpi-label lang-en" style="display:none">Simulated transplants, two independent test runs</div></div>
+  <div class="kpi"><div class="kpi-val">~49&thinsp;s</div><div class="kpi-label lang-de">Rechenzeit pro simuliertem Jahr (Mac Studio M3 Ultra)</div><div class="kpi-label lang-en" style="display:none">Compute time per simulated year (Mac Studio M3 Ultra)</div></div>
+  <div class="kpi"><div class="kpi-val">2/200</div><div class="kpi-label lang-de">Reproduzierte Laeufe der urspr&uuml;nglichen 200-Lauf-Validierung</div><div class="kpi-label lang-en" style="display:none">Runs reproduced out of the original 200-run validation</div></div>
+</div>
+<div class="lang-de"><p>Ehrliche Einschr&auml;nkung: nur die technische Lauff&auml;higkeit und Plausibilit&auml;t wurde bestätigt, nicht die vollst&auml;ndige statistische Validierung gegen die publizierten 95&thinsp;%-Interquantilbereiche des Originalpapers.</p></div>
+<div class="lang-en" style="display:none"><p>Honest caveat: only technical operability and plausibility were confirmed, not the full statistical validation against the original paper&rsquo;s published 95&thinsp;% interquantile ranges.</p></div>
+</div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Zentrums-Strategie-Grid</p><p class="sect-group lang-en" style="display:none">Centre strategy grid</p>
+<div class="lang-de"><p>Additive Verschiebung der Annahmewahrscheinlichkeit eines einzelnen (synthetischen) Testzentrums, alle anderen Zentren unver&auml;ndert bei der kalibrierten Politik.</p></div>
+<div class="lang-en" style="display:none"><p>Additive shift of the acceptance probability for a single (synthetic) test centre, all other centres unchanged at the calibrated policy.</p></div>
+<div class="chart-wrap"><div class="chart-title lang-de">Transplantationen und mittlerer MELD-Score nach Strategie-Bias</div><div class="chart-title lang-en" style="display:none">Transplants and mean MELD score by strategy bias</div><canvas id="chartET" height="90"></canvas>
+<div class="chart-note">Testzentrum &bdquo;GHOTP&ldquo; ist eine ID aus den synthetischen Testdaten, keine reale Klinik.</div></div>
+<div class="lang-de"><p><strong>Befund:</strong> ein Zentrum, das seine Annahmeschwelle strategisch senkt, erh&auml;lt mehr Transplantationen f&uuml;r seine Patienten (+7,7&thinsp;% gegen&uuml;ber neutraler Politik), aber bei im Schnitt niedrigerer Dringlichkeit (MELD&ndash;Score). Best&auml;tigt qualitativ durch ein zweites, rein synthetisches Modell derselben Verfahrensklasse (ohne Nachbildung des echten Verfahrens).</p></div>
+<div class="lang-en" style="display:none"><p><strong>Finding:</strong> a centre that strategically lowers its acceptance threshold receives more transplants for its patients (+7.7&thinsp;% versus the neutral policy), but at a lower average urgency (MELD score). Qualitatively confirmed by a second, purely synthetic model of the same procedure class (without replicating the real procedure).</p></div>
+</div></section>
+<footer><div>&copy; 2026 Thomas Riepe &middot; Privates Forschungsprojekt / Private research project</div><div><a href="index.html" style="color:var(--fg-dim)">&larr; Alle Projekte / All projects</a></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script>
+new Chart(document.getElementById('chartET'), {
+  type: 'bar',
+  data: { labels: ['-0.3 (strenger)','0.0 (Baseline)','+0.3 (kulanter)'],
+    datasets: [
+      { label: 'Transplantationen (Zentrum)', data: [32,39,42], backgroundColor: '#c8903a', yAxisID: 'y' },
+      { label: 'Mittlerer MELD bei Tx', data: [20.22,19.05,18.12], backgroundColor: '#6a9fc0', yAxisID: 'y1', type:'line', borderColor:'#6a9fc0' }
+    ] },
+  options: { scales: {
+    y: { position:'left', ticks:{color:'#9a9188'}, grid:{color:'#2a2620'}, title:{display:true,text:'Transplantationen',color:'#9a9188'} },
+    y1: { position:'right', ticks:{color:'#9a9188'}, grid:{display:false}, title:{display:true,text:'Mittlerer MELD',color:'#9a9188'} },
+    x: { ticks:{color:'#9a9188'}, grid:{display:false} }
+  }, plugins:{legend:{labels:{color:'#e2ddd4'}}} }
+});
+</script><script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.removeProperty('display'));
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{
+    if(b.textContent.trim()===l.toUpperCase())b.classList.add('active');
+  });
+}
+</script></body></html>

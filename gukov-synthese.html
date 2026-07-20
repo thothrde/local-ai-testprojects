@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Gukov-Synthese &middot; Keystone-Netzwerkanalyse</title><meta name="description" content="Uebertragung von Machine-Learning-Methoden aus der reinen Mathematik auf die Netzwerkstruktur des deutschen Lobbyregisters."><link rel="stylesheet" href="fonts.css"><style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;--blue:#6a9fc0;--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--max:740px;--wide:1100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+.back-link{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;letter-spacing:.06em;display:inline-block;padding:2rem 0 0}
+.back-link:hover{color:var(--gold)}
+header{border-bottom:1px solid var(--rule);padding:3rem 0 2.5rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.status-bar{font-family:var(--mono);font-size:.65rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem;letter-spacing:.04em}
+.status-bar .badge{background:var(--bg2);border:1px solid var(--rule);padding:.2em .7em;border-radius:2px}
+.status-bar .badge.live{border-color:var(--green);color:var(--green)}
+.status-bar .badge.warn{border-color:var(--amber);color:var(--amber)}
+.lang-tabs{display:flex;gap:.5rem;margin:1.5rem 0 0;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-de{display:block}.lang-en{display:none}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:3rem 0 1.2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.12rem;font-weight:500;color:var(--fg);margin:1.8rem 0 .6rem}
+p{margin-bottom:1.1em;font-size:1rem}
+section{margin-bottom:4.5rem}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.kpi{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.2rem 1.4rem;border-radius:2px}
+.kpi-val{font-family:var(--mono);font-size:1.5rem;color:var(--gold);font-weight:500;line-height:1.2}
+.kpi-label{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);margin-top:.4rem;line-height:1.4}
+.kpi-src{font-family:var(--mono);font-size:.58rem;color:var(--fg-dim);margin-top:.5rem;opacity:.7}
+.chart-wrap{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1.5rem;margin:1.5rem 0}
+.chart-title{font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.chart-note{font-family:var(--mono);font-size:.6rem;color:var(--fg-dim);margin-top:.8rem;line-height:1.6}
+canvas{display:block;max-height:320px}
+table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.88rem}
+th,td{border:1px solid var(--rule);padding:.55rem .75rem;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+td{color:var(--fg)}
+tr:hover td{background:var(--bg3)}
+.src{font-family:var(--mono);font-size:.6rem;color:var(--fg-dim)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.58rem;padding:.1em .5em;border-radius:2px;margin-left:.4em;vertical-align:middle}
+.tag-red{background:rgba(184,96,96,.15);color:var(--red);border:1px solid rgba(184,96,96,.3)}
+.tag-green{background:rgba(122,173,122,.15);color:var(--green);border:1px solid rgba(122,173,122,.3)}
+.tag-amber{background:rgba(212,160,64,.15);color:var(--amber);border:1px solid rgba(212,160,64,.3)}
+.tag-blue{background:rgba(106,159,192,.15);color:var(--blue);border:1px solid rgba(106,159,192,.3)}
+.warn-box{background:rgba(212,160,64,.06);border:1px solid rgba(212,160,64,.25);border-radius:2px;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.88rem;font-family:var(--sans);color:var(--fg-dim)}
+.warn-box strong{color:var(--amber)}
+.note-box{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.85rem;font-family:var(--sans);color:var(--fg-dim);line-height:1.6}
+.note-box strong{color:var(--fg)}
+.deux-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+.timeline-item{display:flex;gap:1.2rem;padding:.8rem 0;border-bottom:1px solid var(--rule)}
+.timeline-item:last-child{border-bottom:none}
+.tl-date{font-family:var(--mono);font-size:.65rem;color:var(--gold);min-width:90px;padding-top:.15rem}
+.tl-text{font-size:.9rem;line-height:1.6}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+.disclaimer{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1rem 1.2rem;margin:2rem 0;font-family:var(--sans);font-size:.78rem;color:var(--fg-dim);line-height:1.65}
+@media(max-width:700px){html{font-size:15px}.wrapper{padding:0 1.2rem}.kpi-grid{grid-template-columns:1fr 1fr}.deux-col{grid-template-columns:1fr}}
+</style></head><body><div class="wrapper"><a class="back-link" href="index.html">&larr; Zur&uuml;ck zur &Uuml;bersicht / Back to overview</a><header><div class="col">  <p class="header-meta">Gukov-Synthese &middot; Netzwerkanalyse &middot; Berlin 2026</p>  <h1>Gukov-Synthese    <span class="sub">Keystone-Netzwerkanalyse des deutschen Lobbyregisters<br>    <span style="font-size:.85em">Keystone network analysis of the German lobby register</span></span>  </h1>  <div class="status-bar"><span class="badge">Fall (i): beobachtete Datenstruktur</span><span class="badge">Aggregiert &middot; keine Namen</span><span class="badge">Stand Juli 2026</span></div>  <div class="lang-tabs">    <button class="lang-tab active" onclick="setLang('de')">DE</button>    <button class="lang-tab" onclick="setLang('en')">EN</button>  </div></div></header><section><div class="col"><div class="lang-de">
+<p>Die Gukov-Synthese &uuml;bertr&auml;gt Methoden aus zwei aktuellen Arbeiten zu maschinellem Lernen in der reinen Mathematik (Fagan et al., <em>Two-Hump Problem</em>; Butbaia et al., <em>HRL for Sparse-Reward Search</em>, beide ICML 2026) auf ein gesellschaftlich relevantes Netzwerkproblem: die Struktur des deutschen Lobbyregisters. Der &uuml;bertragbare Kern ist nicht &bdquo;KI f&uuml;r Mathematik&ldquo;, sondern die Idee, seltene kritische Konfigurationen als beschr&auml;nkte Suche &uuml;ber einem Graphen zu verstehen, deren Erfolg ein billiges, deterministisches Orakel pr&uuml;ft &mdash; hier: Konnektivit&auml;tseigenschaften des realen, &ouml;ffentlichen Lobbyregister-Netzwerks.</p>
+<div class="warn-box"><strong>Methodische Leitplanke:</strong> Alle Ergebnisse dieser Seite sind aggregierte Struktur-Aussagen &uuml;ber das System. Keine Organisations- oder Personennamen werden gezeigt, auch wenn das zugrundeliegende System sie intern kennt &mdash; diese Grenze ist nicht verhandelbar.</div>
+</div><div class="lang-en" style="display:none">
+<p>The Gukov synthesis transfers methods from two recent papers on machine learning in pure mathematics (Fagan et al., <em>Two-Hump Problem</em>; Butbaia et al., <em>HRL for Sparse-Reward Search</em>, both ICML 2026) to a socially relevant network problem: the structure of the German lobbying register. The transferable core is not &ldquo;AI for mathematics&rdquo;, but the idea of treating rare critical configurations as a bounded search over a graph, whose success is checked by a cheap, deterministic oracle &mdash; here: connectivity properties of the real, public lobby-register network.</p>
+<div class="warn-box"><strong>Methodological guardrail:</strong> All results on this page are aggregated structural statements about the system. No organisation or person names are shown, even though the underlying system knows them internally &mdash; this boundary is non-negotiable.</div>
+</div></div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Netzwerkgrundlage</p><p class="sect-group lang-en" style="display:none">Network foundation</p>
+<div class="lang-de"><p>Bipartiter Graph Personen&harr;Organisationen aus 28.358 Lobbyregister-Personendatens&auml;tzen (Lobbyisten, gesetzliche Vertreter, beauftragte Personen), 19.442 eindeutige Personen, 4.651 Organisationen.</p></div>
+<div class="lang-en" style="display:none"><p>Bipartite graph of persons&harr;organisations from 28,358 lobby-register person records (lobbyists, legal representatives, entrusted persons), 19,442 unique persons, 4,651 organisations.</p></div>
+<div class="kpi-grid">
+  <div class="kpi"><div class="kpi-val">4.651</div><div class="kpi-label lang-de">Organisationen im Lobbyregister</div><div class="kpi-label lang-en" style="display:none">Organisations in lobby register</div></div>
+  <div class="kpi"><div class="kpi-val">19.442</div><div class="kpi-label lang-de">Eindeutige Personen</div><div class="kpi-label lang-en" style="display:none">Unique persons</div></div>
+  <div class="kpi"><div class="kpi-val">31</div><div class="kpi-label lang-de">Gr&ouml;&szlig;te zusammenh&auml;ngende Organisations-Komponente</div><div class="kpi-label lang-en" style="display:none">Largest connected organisation component</div></div>
+  <div class="kpi"><div class="kpi-val">12</div><div class="kpi-label lang-de">Echte Artikulationspunkte (exakte Grapheigenschaft)</div><div class="kpi-label lang-en" style="display:none">True articulation points (exact graph property)</div></div>
+</div>
+</div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Bimodalit&auml;t: heil oder Kollaps?</p><p class="sect-group lang-en" style="display:none">Bimodality: intact or collapse?</p>
+<div class="lang-de"><p>Reagiert das Netzwerk graduell oder bimodal (&bdquo;heil oder Kollaps, nichts dazwischen&ldquo;) auf zuf&auml;lligen Ausfall von Knoten? Hartigan-Dip-Test &uuml;ber 3.000 Zufalls-Ausfallmengen: <strong>statistisch signifikant bimodal</strong> (Dip=0,0357, p&lt;0,0001).</p></div>
+<div class="lang-en" style="display:none"><p>Does the network respond gradually or bimodally (&ldquo;intact or collapse, nothing in between&rdquo;) to random node failure? Hartigan dip test over 3,000 random failure sets: <strong>statistically significant bimodality</strong> (dip=0.0357, p&lt;0.0001).</p></div>
+<div class="chart-wrap"><div class="chart-title lang-de">Schadensverteilung nach Zufalls-Knotenausfall</div><div class="chart-title lang-en" style="display:none">Damage distribution after random node failure</div><canvas id="chartBimodal" height="90"></canvas><div class="chart-note">n=3.000 Zufallsstichproben &middot; Fall (i): reine Konnektivit&auml;tseigenschaft der beobachteten Daten, kein Simulationsmodell.</div></div>
+</div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Br&uuml;cken-Rollen (nicht Br&uuml;cken-Personen)</p><p class="sect-group lang-en" style="display:none">Bridge roles (not bridge persons)</p>
+<div class="lang-de"><p>Pfad-Sampling zwischen 2.000 zuf&auml;lligen Organisationspaaren: welche <em>Rolle</em> (nicht welche Person) tritt am h&auml;ufigsten als Zwischenglied auf? Stabil &uuml;ber 5 Bootstrap-Teilstichproben.</p></div>
+<div class="lang-en" style="display:none"><p>Path sampling between 2,000 random organisation pairs: which <em>role</em> (not which person) most often appears as an intermediary? Stable across 5 bootstrap subsamples.</p></div>
+<div class="chart-wrap"><div class="chart-title lang-de">Anteil an Br&uuml;cken-Vorkommen nach Rolle</div><div class="chart-title lang-en" style="display:none">Share of bridge occurrences by role</div><canvas id="chartRoles" height="80"></canvas></div>
+<table><tr><th class="lang-de">Rolle</th><th class="lang-en" style="display:none">Role</th><th>Anteil / Share</th></tr>
+<tr><td>Beauftragte Person / Entrusted person</td><td>65,4&thinsp;%</td></tr>
+<tr><td>Gesetzlicher Vertreter / Legal representative</td><td>34,6&thinsp;%</td></tr>
+</table>
+</div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Kritische Organisationsknoten (MILP-exakt)</p><p class="sect-group lang-en" style="display:none">Critical organisation nodes (MILP-exact)</p>
+<div class="lang-de"><p>Critical-Node-Detection-Problem (Arulselvan et al. 2009), exakt gel&ouml;st via CP-SAT (ortools) f&uuml;r Budget k=1&hellip;5 auf der gr&ouml;&szlig;ten Organisations-Komponente. Alle f&uuml;nf Instanzen optimal in &lt;0,03&thinsp;s gel&ouml;st.</p>
+<p><strong>Gate-Entscheidung:</strong> Exakte Methoden skalieren m&uuml;helos &mdash; bekr&auml;ftigtes Suchverfahren (RL) war nicht gerechtfertigt und wurde nicht gebaut. Ehrliche Einschr&auml;nkung: bei nur 31 Knoten in der gr&ouml;&szlig;ten Komponente ist das erwartbar; ein gr&ouml;&szlig;eres, dichteres Netzwerk k&ouml;nnte das Bild &auml;ndern.</p></div>
+<div class="lang-en" style="display:none"><p>Critical Node Detection Problem (Arulselvan et al. 2009), solved exactly via CP-SAT (ortools) for budget k=1&hellip;5 on the largest organisation component. All five instances solved optimally in &lt;0.03&thinsp;s.</p>
+<p><strong>Gate decision:</strong> Exact methods scale effortlessly &mdash; reinforcement learning was not justified and was not built. Honest caveat: with only 31 nodes in the largest component this is unsurprising; a larger, denser network could change the picture.</p></div>
+</div></section>
+
+<section><div class="col"><div class="note-box lang-de"><strong>Methode &amp; Grenzen:</strong> <code>typb.entity_map</code> (PostgreSQL) wurde nicht als generelle Infrastruktur gebaut &mdash; alle Analysen laufen direkt auf den realen Lobbyregister-Personendaten. Ein Surrogat-Klassifikator (RandomForest) zur schnellen Kritikalit&auml;ts-Sch&auml;tzung wurde gebaut und mit gruppiertem Train/Test-Split gegen ein fr&uuml;heres Datenleck korrigiert.</div>
+<div class="note-box lang-en" style="display:none"><strong>Method &amp; limitations:</strong> <code>typb.entity_map</code> (PostgreSQL) was not built as general-purpose infrastructure &mdash; all analyses run directly on the real lobby-register person data. A surrogate classifier (RandomForest) for fast criticality screening was built and corrected against an earlier data leak using a grouped train/test split.</div>
+</div></section>
+<footer><div>&copy; 2026 Thomas Riepe &middot; Privates Forschungsprojekt / Private research project</div><div><a href="index.html" style="color:var(--fg-dim)">&larr; Alle Projekte / All projects</a></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script>
+new Chart(document.getElementById('chartBimodal'), {
+  type: 'bar',
+  data: { labels: ['0-10%','10-20%','20-30%','30-40%','40-50%','50-60%','60-70%','70-80%','80-90%','90-100%'],
+    datasets: [{ label: 'Anzahl Stichproben', data: [345,170,139,205,253,407,484,648,345,4],
+      backgroundColor: '#c8903a' }] },
+  options: { plugins:{legend:{display:false}}, scales:{ x:{ticks:{color:'#9a9188'},grid:{color:'#2a2620'}},
+    y:{ticks:{color:'#9a9188'},grid:{color:'#2a2620'}} } }
+});
+new Chart(document.getElementById('chartRoles'), {
+  type: 'doughnut',
+  data: { labels: ['Beauftragte Person','Gesetzlicher Vertreter'], datasets: [{ data: [65.4, 34.6],
+    backgroundColor: ['#c8903a','#6a9fc0'] }] },
+  options: { plugins:{legend:{labels:{color:'#e2ddd4'}}} }
+});
+</script><script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.removeProperty('display'));
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{
+    if(b.textContent.trim()===l.toUpperCase())b.classList.add('active');
+  });
+}
+</script></body></html>

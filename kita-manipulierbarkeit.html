@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Kita-Manipulierbarkeit &middot; Mechanismus-Design-Studie</title><meta name="description" content="Formale Analyse der Strategiesicherheit von Kita-Zuteilungsverfahren mit Geschwisterregeln."><link rel="stylesheet" href="fonts.css"><style>
+:root{--bg:#0f0e0c;--bg2:#161410;--bg3:#1c1a16;--fg:#e2ddd4;--fg-dim:#9a9188;--gold:#c8903a;--gold2:#a87430;--green:#7aad7a;--amber:#d4a040;--red:#b86060;--blue:#6a9fc0;--rule:#2a2620;--serif:'EB Garamond',Georgia,serif;--mono:'DM Mono',monospace;--sans:'Instrument Sans',sans-serif;--max:740px;--wide:1100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--serif);line-height:1.78;-webkit-font-smoothing:antialiased}
+.wrapper{max-width:var(--wide);margin:0 auto;padding:0 2rem}
+.col{max-width:var(--max);margin:0 auto}
+.back-link{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);text-decoration:none;letter-spacing:.06em;display:inline-block;padding:2rem 0 0}
+.back-link:hover{color:var(--gold)}
+header{border-bottom:1px solid var(--rule);padding:3rem 0 2.5rem;margin-bottom:3.5rem}
+.header-meta{font-family:var(--sans);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+h1{font-size:clamp(2rem,5vw,3rem);font-weight:500;font-style:italic;line-height:1.13;letter-spacing:-.02em;margin-bottom:.8rem}
+h1 .sub{display:block;font-style:normal;font-size:.46em;font-family:var(--sans);font-weight:400;color:var(--fg-dim);letter-spacing:.02em;margin-top:.6rem}
+.status-bar{font-family:var(--mono);font-size:.65rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem;letter-spacing:.04em}
+.status-bar .badge{background:var(--bg2);border:1px solid var(--rule);padding:.2em .7em;border-radius:2px}
+.status-bar .badge.live{border-color:var(--green);color:var(--green)}
+.status-bar .badge.warn{border-color:var(--amber);color:var(--amber)}
+.lang-tabs{display:flex;gap:.5rem;margin:1.5rem 0 0;font-family:var(--sans);font-size:.75rem}
+.lang-tab{padding:.3em .9em;border:1px solid var(--rule);border-radius:2px;color:var(--fg-dim);cursor:pointer;transition:all .2s;letter-spacing:.06em;background:none}
+.lang-tab.active,.lang-tab:hover{border-color:var(--gold2);color:var(--gold)}
+.lang-de{display:block}.lang-en{display:none}
+h2{font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:3rem 0 1.2rem;display:flex;align-items:center;gap:1rem}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+h3{font-family:var(--serif);font-size:1.12rem;font-weight:500;color:var(--fg);margin:1.8rem 0 .6rem}
+p{margin-bottom:1.1em;font-size:1rem}
+section{margin-bottom:4.5rem}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+.kpi{background:var(--bg2);border:1px solid var(--rule);border-left:3px solid var(--gold2);padding:1.2rem 1.4rem;border-radius:2px}
+.kpi-val{font-family:var(--mono);font-size:1.5rem;color:var(--gold);font-weight:500;line-height:1.2}
+.kpi-label{font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);margin-top:.4rem;line-height:1.4}
+.kpi-src{font-family:var(--mono);font-size:.58rem;color:var(--fg-dim);margin-top:.5rem;opacity:.7}
+.chart-wrap{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1.5rem;margin:1.5rem 0}
+.chart-title{font-family:var(--sans);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.chart-note{font-family:var(--mono);font-size:.6rem;color:var(--fg-dim);margin-top:.8rem;line-height:1.6}
+canvas{display:block;max-height:320px}
+table{border-collapse:collapse;width:100%;margin:1.2rem 0;font-size:.88rem}
+th,td{border:1px solid var(--rule);padding:.55rem .75rem;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+td{color:var(--fg)}
+tr:hover td{background:var(--bg3)}
+.src{font-family:var(--mono);font-size:.6rem;color:var(--fg-dim)}
+.tag{display:inline-block;font-family:var(--mono);font-size:.58rem;padding:.1em .5em;border-radius:2px;margin-left:.4em;vertical-align:middle}
+.tag-red{background:rgba(184,96,96,.15);color:var(--red);border:1px solid rgba(184,96,96,.3)}
+.tag-green{background:rgba(122,173,122,.15);color:var(--green);border:1px solid rgba(122,173,122,.3)}
+.tag-amber{background:rgba(212,160,64,.15);color:var(--amber);border:1px solid rgba(212,160,64,.3)}
+.tag-blue{background:rgba(106,159,192,.15);color:var(--blue);border:1px solid rgba(106,159,192,.3)}
+.warn-box{background:rgba(212,160,64,.06);border:1px solid rgba(212,160,64,.25);border-radius:2px;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.88rem;font-family:var(--sans);color:var(--fg-dim)}
+.warn-box strong{color:var(--amber)}
+.note-box{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1rem 1.2rem;margin:1.5rem 0;font-size:.85rem;font-family:var(--sans);color:var(--fg-dim);line-height:1.6}
+.note-box strong{color:var(--fg)}
+.deux-col{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+.timeline-item{display:flex;gap:1.2rem;padding:.8rem 0;border-bottom:1px solid var(--rule)}
+.timeline-item:last-child{border-bottom:none}
+.tl-date{font-family:var(--mono);font-size:.65rem;color:var(--gold);min-width:90px;padding-top:.15rem}
+.tl-text{font-size:.9rem;line-height:1.6}
+footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-family:var(--sans);font-size:.75rem;color:var(--fg-dim);display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
+.disclaimer{background:var(--bg2);border:1px solid var(--rule);border-radius:2px;padding:1rem 1.2rem;margin:2rem 0;font-family:var(--sans);font-size:.78rem;color:var(--fg-dim);line-height:1.65}
+@media(max-width:700px){html{font-size:15px}.wrapper{padding:0 1.2rem}.kpi-grid{grid-template-columns:1fr 1fr}.deux-col{grid-template-columns:1fr}}
+</style></head><body><div class="wrapper"><a class="back-link" href="index.html">&larr; Zur&uuml;ck zur &Uuml;bersicht / Back to overview</a><header><div class="col">  <p class="header-meta">Manipulierbarkeitsstudie &middot; Mechanismus-Design &middot; Berlin 2026</p>  <h1>Kita-Manipulierbarkeit    <span class="sub">Formale Analyse: Geschwisterregeln und Strategiesicherheit<br>    <span style="font-size:.85em">Formal analysis: sibling rules and strategy-proofness</span></span>  </h1>  <div class="status-bar"><span class="badge">Formale Verifikation</span><span class="badge">Keine Anleitung, nur Struktur-Aussage</span><span class="badge">Stand Juli 2026</span></div>  <div class="lang-tabs">    <button class="lang-tab active" onclick="setLang('de')">DE</button>    <button class="lang-tab" onclick="setLang('en')">EN</button>  </div></div></header><section><div class="col"><div class="lang-de">
+<p>Kita-Zuteilungsverfahren (Deferred Acceptance, DA) sind im Grundmodell beweisbar strategiesicher: Eltern fahren am besten, wenn sie ihre wahren Wunsch-Reihenfolge angeben. In der Praxis kommen aber Zusatzregeln hinzu &mdash; allen voran die Geschwisterbindung. Diese Studie formalisiert zwei technisch unterschiedliche Umsetzungen dieser Regel und pr&uuml;ft systematisch, welche davon Strategiesicherheit bricht.</p>
+<div class="warn-box"><strong>Zweck dieser Seite:</strong> aggregierte Struktur-Aussage &mdash; welche Implementierungsdetails Manipulierbarkeit erzeugen &mdash;, ausdr&uuml;cklich <em>keine</em> Schritt-f&uuml;r-Schritt-Anleitung zum Manipulieren echter Verfahren.</div>
+</div><div class="lang-en" style="display:none">
+<p>Daycare (Kita) allocation mechanisms (Deferred Acceptance, DA) are provably strategy-proof in their base model: parents do best by stating their true preference order. In practice, however, side-constraints are added &mdash; most importantly sibling linkage. This study formalises two technically different implementations of this rule and systematically tests which one breaks strategy-proofness.</p>
+<div class="warn-box"><strong>Purpose of this page:</strong> an aggregated structural finding &mdash; which implementation details create manipulability &mdash;, explicitly <em>not</em> a step-by-step guide to manipulating real procedures.</div>
+</div></div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Zwei Modelle, zwei Ergebnisse</p><p class="sect-group lang-en" style="display:none">Two models, two outcomes</p>
+<div class="deux-col">
+<div class="kpi" style="border-left-color:var(--green)"><div class="kpi-val" style="color:var(--green)">0&thinsp;/&thinsp;23.000+</div>
+<div class="kpi-label lang-de">Alles-oder-nichts-Modell: manipulierbare Instanzen (unilateral + gemeinsam gepr&uuml;ft)</div>
+<div class="kpi-label lang-en" style="display:none">All-or-nothing model: manipulable instances (unilateral + joint testing)</div></div>
+<div class="kpi" style="border-left-color:var(--red)"><div class="kpi-val" style="color:var(--red)">5&ndash;15&thinsp;%</div>
+<div class="kpi-label lang-de">Priorit&auml;tskopplungsmodell: Manipulationsrate (variiert nach Stichprobe)</div>
+<div class="kpi-label lang-en" style="display:none">Priority-coupling model: manipulation rate (varies by sample)</div></div>
+</div>
+<div class="lang-de"><p>Der Unterschied: das Priorit&auml;tskopplungsmodell &auml;ndert die <em>Dynamik</em> des Verfahrens (ein Kind bekommt w&auml;hrend des Verfahrens Vorrang an der Kita seines bereits platzierten Geschwisters), das Alles-oder-nichts-Modell trennt erst nachtr&auml;glich. Nur Ersteres bricht Strategiesicherheit &mdash; und ist vermutlich n&auml;her am tats&auml;chlichen Verfahren hinter dem bekannten M&uuml;nster-Vorfall.</p></div>
+<div class="lang-en" style="display:none"><p>The difference: the priority-coupling model changes the <em>dynamics</em> of the procedure (a child gains priority at its already-placed sibling&rsquo;s daycare during the procedure), the all-or-nothing model separates only afterwards. Only the former breaks strategy-proofness &mdash; and is likely closer to the actual mechanism behind the known Münster incident.</p></div>
+</div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Kartierung: kein scharfer Schwellenwert, ein Gradient</p><p class="sect-group lang-en" style="display:none">Mapping: no sharp threshold, a gradient</p>
+<div class="lang-de"><p>Keine Bimodalit&auml;t (&bdquo;immer&ldquo; vs. &bdquo;nie&ldquo; manipulierbar) &mdash; stattdessen ein sauberer, statistisch hochsignifikanter Gradient nach Konkurrenzdichte an der von den Geschwistern bevorzugten Kita (2.000 Instanzen, p&lt;0,0001).</p></div>
+<div class="lang-en" style="display:none"><p>No bimodality (&ldquo;always&rdquo; vs. &ldquo;never&rdquo; manipulable) &mdash; instead a clean, statistically highly significant gradient by competition density at the siblings&rsquo; preferred daycare (2,000 instances, p&lt;0.0001).</p></div>
+<div class="chart-wrap"><div class="chart-title lang-de">Manipulationsrate nach Konkurrenzdichte</div><div class="chart-title lang-en" style="display:none">Manipulation rate by competition density</div><canvas id="chartKita" height="90"></canvas></div>
+</div></section>
+
+<section><div class="col">
+<p class="sect-group lang-de">Formale Absicherung</p><p class="sect-group lang-en" style="display:none">Formal verification</p>
+<div class="lang-de"><p>Eigene Deferred-Acceptance-Implementierung gegen 10.000 Zufallsinstanzen validiert (0 Abweichungen von einer unabh&auml;ngigen Python-Referenzbibliothek). Z3-SAT-Stabilit&auml;tspr&uuml;fung (echte Solver-Anfragen) &uuml;ber 150 Instanzen: 22&thinsp;% klassisch instabil &mdash; erwartbare, keine fehlerhafte Eigenschaft des Priorit&auml;tskopplungsmodells. Vollst&auml;ndige Enumeration f&uuml;r Kleinstinstanzen als Grundwahrheit.</p></div>
+<div class="lang-en" style="display:none"><p>Own Deferred Acceptance implementation validated against 10,000 random instances (0 deviations from an independent Python reference library). Z3 SAT stability check (genuine solver queries) over 150 instances: 22&thinsp;% classically unstable &mdash; an expected, not erroneous, property of the priority-coupling model. Full enumeration for smallest instances as ground truth.</p></div>
+</div></section>
+
+<section><div class="col"><div class="note-box lang-de"><strong>Einordnung:</strong> Analyse eines synthetischen, plausibel kalibrierten Modells (Distanz-, Popularit&auml;ts-, Geschwisterkorrelation als Generatorfamilien) &mdash; keine Untersuchung eines konkreten realen Systems. Welches Modell tats&auml;chlich hinter realen deutschen Kita-Vergabeverfahren steht, bleibt offen.</div>
+<div class="note-box lang-en" style="display:none"><strong>Caveat:</strong> Analysis of a synthetic, plausibly calibrated model (distance, popularity, sibling correlation as generator families) &mdash; not an investigation of a specific real system. Which model actually underlies real German daycare allocation procedures remains an open question.</div>
+</div></section>
+<footer><div>&copy; 2026 Thomas Riepe &middot; Privates Forschungsprojekt / Private research project</div><div><a href="index.html" style="color:var(--fg-dim)">&larr; Alle Projekte / All projects</a></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script>
+new Chart(document.getElementById('chartKita'), {
+  type: 'line',
+  data: { labels: ['0','1','2','3','4','5','6'],
+    datasets: [{ label: 'Manipulationsrate (%)', data: [0,0,2.07,4.92,8.31,12.44,17.65],
+      borderColor: '#c8903a', backgroundColor: 'rgba(200,144,58,.15)', fill:true, tension:.3 }] },
+  options: { plugins:{legend:{display:false}},
+    scales:{ x:{title:{display:true,text:'Konkurrenten an Geschwister-Top-Kita',color:'#9a9188'},ticks:{color:'#9a9188'},grid:{color:'#2a2620'}},
+    y:{title:{display:true,text:'Manipulationsrate (%)',color:'#9a9188'},ticks:{color:'#9a9188'},grid:{color:'#2a2620'}} } }
+});
+</script><script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>e.style.removeProperty('display'));
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{
+    if(b.textContent.trim()===l.toUpperCase())b.classList.add('active');
+  });
+}
+</script></body></html>

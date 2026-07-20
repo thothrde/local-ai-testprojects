@@ -88,7 +88,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <a href="#router"><span class="nav-num">02</span><span class="lang-de">LLM-Router-Proxy</span><span class="lang-en" style="display:none">LLM Router Proxy</span></a>
 <a href="#math"><span class="nav-num">04</span><span class="lang-de">Mathematik-Stack</span><span class="lang-en" style="display:none">Mathematics Stack</span></a>
 <a href="#chem"><span class="nav-num">05</span><span class="lang-de">Chemie/Bio/Neuro-Stack</span><span class="lang-en" style="display:none">Chem/Bio/Neuro Stack</span></a>
-<a href="#architektur"><span class="nav-num">06</span><span class="lang-de">Systemarchitektur</span><span class="lang-en" style="display:none">System Architecture</span></a>
+<a href="#architektur"><span class="nav-num">06</span><span class="lang-de">Systemarchitektur</span><span class="lang-en" style="display:none">System Architecture</span></a><a href="#verfahren"><span class="nav-num">07</span><span class="lang-de">Neue Werkzeuge &amp; Verfahren (Juli 2026)</span><span class="lang-en" style="display:none">New Tools &amp; Methods (July 2026)</span></a>
 </nav>
 <section id="hardware">
 <div class="col">
@@ -515,7 +515,44 @@ function setLang(l){
   document.querySelectorAll('.lang-'+l).forEach(e=>{e.style.removeProperty('display')});
   document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
-}
+}<section id="verfahren"><div class="wrapper">
+  <h2><span class="nav-num">07</span>    <span class="lang-de">Neue Werkzeuge &amp; Verfahren (Juli 2026)</span>    <span class="lang-en" style="display:none">New Tools &amp; Methods (July 2026)</span>  </h2>
+
+  <div class="lang-de">
+  <h3>Enodia-Proof-of-Work-Client</h3>
+  <p>Sowohl die Lobbyregister- als auch die DIP-API des Bundestags laufen hinter einer gemeinsamen &bdquo;Enodia&ldquo;-Bot-Schutzinfrastruktur (SHA256-Hashcash-Proof-of-Work bei Rate-Limit-Ausl&ouml;sung). Ein eigener PoW-Client l&ouml;st die Challenge programmatisch (<code>enodia_pow_client.py</code>) und ist dauerhaft in die Live-Fetch-Funktionen von TransparenzAtlas integriert &mdash; ermöglichte den Aufbau von 4.651 echten Lobbyregister-Eintr&auml;gen (vorher 150) und den Abruf von 5.622 echten DIP-Bundestagspersonen in wenigen Minuten.</p>
+
+  <h3>Rechtssicher abgesicherte Entit&auml;tsaufl&ouml;sung (Splink)</h3>
+  <p>Personennamen-Matching (Lobbyregister &harr; DIP-Personen) via Splink (Fellegi-Sunter-Modell, DuckDB-Backend). Statt Einzelfall-Ergebnisse zu ver&ouml;ffentlichen, wird nur eine Aggregatstatistik freigegeben &mdash; mit Mindestkohortengr&ouml;&szlig;e (k-Anonymit&auml;t-artige Schwelle) und Prozentb&auml;ndern statt exakter Zahlen. <code>typb.entity_map</code> (PostgreSQL) tr&auml;gt ein <code>verified</code>-Feld, das per Default <code>FALSE</code> ist &mdash; keine Anwendung darf ungepr&uuml;fte Kandidatenpaare als Fakt behandeln.</p>
+
+  <h3>Manipulierbarkeits-Orakel &amp; Z3-Verifikation</h3>
+  <p>Generisches Orakel-Framework (<code>oracle.py</code>, <code>oracle_joint.py</code>) f&uuml;r unilaterale und koordinierte Gruppen-Manipulation in Zuteilungsverfahren, gegen starke theoretische Gegenproben validiert (Dubins-Freedman-Strategiesicherheit, 500 Zufallsinstanzen, 0 Verletzungen). Erg&auml;nzt um echte Z3-SAT-Stabilit&auml;tspr&uuml;fungen (Solver-Anfragen mit Modell-Zeugen, keine vorberechneten Ergebnisse) und exakte CP-SAT/ortools-L&ouml;sung f&uuml;r Critical-Node-Detection.</p>
+
+  <h3>Reproduktion echter, publizierter Forschungssimulatoren</h3>
+  <p>Methodik zur lokalen Reproduktion akademisch publizierter Simulatoren aus GitHub-Repositorien (Beispiel: ELAS-Simulator f&uuml;r Organallokation, arXiv:2410.10840): Lizenzpr&uuml;fung vor Nutzung, L&uuml;cken im Repo (fehlende gerenderte Konfigurationsdateien) durch eigene, dokumentierte Nachbildung geschlossen statt zus&auml;tzliche Abh&auml;ngigkeiten (R) zu riskieren, additive (git-verfolgte) Interventions-Patches statt destruktiver &Auml;nderungen.</p>
+
+  <h3>Property-based Testing (Hypothesis)</h3>
+  <p>Formale Invarianten-Pr&uuml;fung (statt nur Einzelfall-Tests) f&uuml;r Verfahrensformalisierungen &mdash; z.&nbsp;B. bei der DoSV-Koordinierungsregel-Implementierung: &bdquo;h&ouml;chstens eine Zulassung gleichzeitig&ldquo;, &bdquo;kein Wiedereinstieg ausgeschiedener Bewerbungen&ldquo; als automatisch gegen Tausende generierte Zufallsf&auml;lle gepr&uuml;fte Eigenschaften.</p>
+  </div>
+
+  <div class="lang-en" style="display:none">
+  <h3>Enodia proof-of-work client</h3>
+  <p>Both the Lobby Register and DIP APIs of the German Bundestag run behind a shared &ldquo;Enodia&rdquo; bot-protection layer (SHA256 hashcash proof-of-work triggered on rate limiting). A custom PoW client solves the challenge programmatically (<code>enodia_pow_client.py</code>) and is permanently integrated into TransparenzAtlas&rsquo;s live fetch functions &mdash; enabling the build-up of 4,651 real lobby-register entries (previously 150) and retrieval of 5,622 real DIP Bundestag persons within minutes.</p>
+
+  <h3>Legally safeguarded entity resolution (Splink)</h3>
+  <p>Person-name matching (lobby register &harr; DIP persons) via Splink (Fellegi&ndash;Sunter model, DuckDB backend). Rather than publishing individual-case results, only an aggregate statistic is released &mdash; with a minimum cohort size (a k-anonymity-style threshold) and percentage bands instead of exact figures. <code>typb.entity_map</code> (PostgreSQL) carries a <code>verified</code> field defaulting to <code>FALSE</code> &mdash; no application may treat unverified candidate pairs as fact.</p>
+
+  <h3>Manipulability oracle &amp; Z3 verification</h3>
+  <p>Generic oracle framework (<code>oracle.py</code>, <code>oracle_joint.py</code>) for unilateral and coordinated group manipulation in allocation mechanisms, validated against strong theoretical counter-checks (Dubins&ndash;Freedman strategy-proofness, 500 random instances, 0 violations). Complemented by genuine Z3 SAT stability checks (solver queries with model witnesses, not pre-computed results) and exact CP-SAT/ortools solving for critical node detection.</p>
+
+  <h3>Reproducing real, published research simulators</h3>
+  <p>Methodology for locally reproducing academically published simulators from GitHub repositories (example: ELAS simulator for organ allocation, arXiv:2410.10840): licence review before use, gaps in the repo (missing rendered configuration files) closed via a self-documented reconstruction rather than risking an additional dependency (R), additive (git-tracked) intervention patches instead of destructive changes.</p>
+
+  <h3>Property-based testing (Hypothesis)</h3>
+  <p>Formal invariant checking (rather than single-case tests only) for procedure formalisations &mdash; e.g. in the DoSV coordination-rule implementation: &ldquo;at most one admission at a time&rdquo;, &ldquo;no re-entry of withdrawn applications&rdquo; as properties automatically checked against thousands of generated random cases.</p>
+  </div>
+</div></section>
+
 </script>
 </body>
 </html>
