@@ -141,13 +141,7 @@ Seine Spektral-Determinante ist — nach Mayer (1990) — die Selberg-Zeta-Funkt
 $Z_{\mathrm{Selberg}}(s)$ der modularen Fläche $\mathrm{SL}(2,\mathbb{Z})\backslash\mathfrak{H}$ [BELEGT].</p>
 <p>Die PARI/GP-Berechnung (\p 15, charpoly+polroots auf 4×4-Näherungs-Matrix) lieferte
 numerische Eigenwerte für den Spektralradius $\rho(L_s)$:</p>
-<div class="table-wrap"><table>
-<thead><tr><th>s-Wert</th><th>Spektralradius ρ(L_s)</th><th>Interpretation</th></tr></thead>
-<tbody>
-<tr><td>s = 1.0</td><td class="ok">ρ &lt; 1</td><td>Exponentielles Mischen — Chaos</td></tr>
-<tr><td>s = 0.75</td><td class="ok">ρ &lt; 1</td><td>Spektrallücke vorhanden</td></tr>
-<tr><td>s = 0.5</td><td class="conj">ρ ≈ 1</td><td>Grenzbereich (Riemannsche Linie)</td></tr>
-</tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>s-Wert</th><th>Leiteigenwert λ&#8321;(L_s)</th><th>Interpretation</th></tr></thead><tbody><tr><td>s = 1,5</td><td class="ok">0,396 &lt; 1</td><td>negativer topologischer Druck</td></tr><tr><td>s = 1,0</td><td class="ok">= 1 (exakt)</td><td>invariante Dichte; exponentielles Mischen via Spektrall&uuml;cke |&lambda;&#8322;| &asymp; 0,3037 (GKW)</td></tr><tr><td>s = 0,75</td><td class="conj">2,143 &gt; 1</td><td>positiver topologischer Druck P(s)=log &lambda;&#8321;(s)</td></tr><tr><td>s &rarr; 0,5&#8314;</td><td class="err">&rarr; &infin;</td><td>Spurklasse-Grenze; nur det(1&minus;L_s) analytisch fortgesetzt (Selberg-Nullstellen: Eigenwert &plusmn;1)</td></tr></tbody></table></div>
 <p>Die Nullstellen der Spektral-Determinante von $L_s$ auf der kritischen Linie entsprechen
 den Nullstellen der Selberg-Zeta-Funktion — ein rigoroses Analogon zur Riemann-Hypothese für
 arithmetische Flächen [BELEGT, Selberg 1956].</p>
@@ -159,13 +153,7 @@ Its spectral determinant is — after Mayer (1990) — the Selberg zeta function
 $Z_{\mathrm{Selberg}}(s)$ of the modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash\mathfrak{H}$ [ESTABLISHED].</p>
 <p>The PARI/GP computation (\p 15, charpoly+polroots on 4×4 approximation matrix) produced
 numerical eigenvalues for the spectral radius $\rho(L_s)$:</p>
-<div class="table-wrap"><table>
-<thead><tr><th>s-value</th><th>Spectral radius ρ(L_s)</th><th>Interpretation</th></tr></thead>
-<tbody>
-<tr><td>s = 1.0</td><td class="ok">ρ &lt; 1</td><td>Exponential mixing — chaos</td></tr>
-<tr><td>s = 0.75</td><td class="ok">ρ &lt; 1</td><td>Spectral gap present</td></tr>
-<tr><td>s = 0.5</td><td class="conj">ρ ≈ 1</td><td>Critical line boundary</td></tr>
-</tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>s-value</th><th>Leading eigenvalue λ&#8321;(L_s)</th><th>Interpretation</th></tr></thead><tbody><tr><td>s = 1.5</td><td class="ok">0.396 &lt; 1</td><td>negative topological pressure</td></tr><tr><td>s = 1.0</td><td class="ok">= 1 (exact)</td><td>invariant density; exponential mixing via spectral gap |&lambda;&#8322;| &asymp; 0.3037 (GKW)</td></tr><tr><td>s = 0.75</td><td class="conj">2.143 &gt; 1</td><td>positive topological pressure P(s)=log &lambda;&#8321;(s)</td></tr><tr><td>s &rarr; 0.5&#8314;</td><td class="err">&rarr; &infin;</td><td>trace-class limit; only det(1&minus;L_s) analytically continued (Selberg zeros: eigenvalue &plusmn;1)</td></tr></tbody></table></div>
 <p>The zeros of the spectral determinant of $L_s$ on the critical line correspond to
 the zeros of the Selberg zeta function — a rigorous analogue of the Riemann hypothesis for
 arithmetic surfaces [ESTABLISHED, Selberg 1956].</p>
@@ -345,31 +333,9 @@ in literature; Hermite problem for degree 3 open (Kontsevich-Zorich 2003)</li>
 <div class="col">
   <h2><span class="lang-de">PARI/GP Numerische Ergebnisse</span><span class="lang-en" style="display:none">PARI/GP Numerical Results</span></h2>
   <div class="lang-de">
-<div class="box confirmed"><div class="label">PARI/GP Numerische Verifikation &mdash; Mayer-Transfer-Operator</div>
-<p>Der Mayer-Transfer-Operator für die BKL/Gauss-Abbildung (Mayer 1990, Manin-Marcolli 2001)
-wurde mit PARI/GP berechnet (N=4, 5 Summanden, Präzision 15 Stellen):</p>
-<p><strong>s=1.0:</strong> Eigenwerte $[-0.541,\; -0.161,\; 0.298,\; \mathbf{1.479}]$,
-Spektralradius $\rho(1.0) = 1.479 > 1$</p>
-<p><strong>s=0.5:</strong> Eigenwerte $[-0.879,\; -0.237,\; 0.558,\; \mathbf{3.444}]$,
-Spektralradius $\rho(0.5) = 3.444 > 1$</p>
-<p>Interpretation: $\rho(s) > 1$ für beide $s$-Werte impliziert
-<em>kein exponentielles Mischen</em> bei diesen Parametern.
-Verbindung zu BKL-Chaos-Theorie: $\log\rho \sim -c(s-\tfrac{1}{2})$ nahe $s=\tfrac{1}{2}$
-(Selberg-Zeta-Nullstellen) [KONJEKTUR, kein Beweis in Literatur].</p></div>
-</div>
+<div class="box confirmed"><div class="label">SPEKTRALRADIUS-KORREKTUR (Juli 2026, Nachtrag)</div><p>Die fr&uuml;her publizierten 4&times;4-Spektralradien (&rho;(1,0)=1,479; &rho;(0,5)=3,444) und die Folgerung &bdquo;kein exponentielles Mischen&ldquo; werden zur&uuml;ckgezogen &mdash; Diskretisierungsartefakte einer zu kleinen Matrix. Korrekt: Der Leiteigenwert &lambda;&#8321;(s) des Mayer-Operators ist streng monoton fallend mit &lambda;&#8321;(1)=1 exakt (invariante Gau&szlig;-Dichte 1/((1+x)ln&thinsp;2)). Die Mischungsrate bei s=1 ist die Spektrall&uuml;cke |&lambda;&#8322;|=0,30366&hellip; (Gau&szlig;-Kuzmin-Wirsing-Konstante; &lambda;&#8322; selbst ist negativ, die Vorzeichen der Eigenwerte alternieren). F&uuml;r 1/2&lt;s&lt;1 gilt &lambda;&#8321;(s)&gt;1 (z.&thinsp;B. &lambda;&#8321;(0,75)&asymp;2,143); f&uuml;r s&gt;1 gilt &lambda;&#8321;(s)&lt;1 (z.&thinsp;B. &lambda;&#8321;(1,5)&asymp;0,396). Bei s=1/2 ist L_s nicht mehr Spurklasse; dort ist nur die analytische Fortsetzung der Fredholm-Determinante det(1&minus;L_s) definiert &mdash; deren Nullstellen auf der kritischen Linie sind die Punkte mit Eigenwert &plusmn;1 (Lewis&ndash;Zagier), nicht Punkte mit Spektralradius &asymp;1.</p><p><strong>Verifizierte Benchmark-Werte</strong> (Chebyshev-Lobatto-Kollokation, N=30 und N=50 identisch auf 9 Stellen; Reihensumme bis n=2&middot;10&#8309; mit exakter Hurwitz-&zeta;-Tail-Korrektur):</p><div class="table-wrap"><table><thead><tr><th>s</th><th>&lambda;&#8321;(s)</th><th>&lambda;&#8322;(s)</th></tr></thead><tbody><tr><td>1,5</td><td>0,396435</td><td>&minus;0,142753</td></tr><tr><td><strong>1,0</strong></td><td><strong>1,000000000</strong></td><td><strong>&minus;0,303663003</strong></td></tr><tr><td>0,9</td><td>1,293495</td><td>&minus;0,363442</td></tr><tr><td>0,75</td><td>2,142727</td><td>&minus;0,492376</td></tr><tr><td>0,6</td><td>5,327058</td><td>&minus;0,715763</td></tr><tr><td>0,55</td><td>10,429889</td><td>&minus;0,834622</td></tr></tbody></table></div><p>(&lambda;&#8321; divergiert f&uuml;r s&rarr;1/2&#8314; &mdash; konsistent mit dem Spurklasse-Verlust.) GKW-Benchmark &lambda;&#8322;=&minus;0,303663003 als Kontrollwert reproduziert [BELEGT, Mayer 1990; Wirsing 1974].</p></div></div>
   <div class="lang-en" style="display:none">
-<div class="box confirmed"><div class="label">PARI/GP numerical verification &mdash; Mayer transfer operator</div>
-<p>The Mayer transfer operator for the BKL/Gauss map (Mayer 1990, Manin-Marcolli 2001)
-was computed with PARI/GP (N=4, 5 summands, 15-digit precision):</p>
-<p><strong>s=1.0:</strong> eigenvalues $[-0.541,\; -0.161,\; 0.298,\; \mathbf{1.479}]$,
-spectral radius $\rho(1.0) = 1.479 > 1$</p>
-<p><strong>s=0.5:</strong> eigenvalues $[-0.879,\; -0.237,\; 0.558,\; \mathbf{3.444}]$,
-spectral radius $\rho(0.5) = 3.444 > 1$</p>
-<p>Interpretation: $\rho(s) > 1$ for both $s$-values implies
-<em>no exponential mixing</em> at these parameters.
-Connection to BKL-chaos theory: $\log\rho \sim -c(s-\tfrac{1}{2})$ near $s=\tfrac{1}{2}$
-(Selberg zeta zeros) [CONJECTURE, no proof in literature].</p></div>
-</div>
+<div class="box confirmed"><div class="label">SPECTRAL RADIUS CORRECTION (July 2026, addendum)</div><p>The previously published 4&times;4 spectral radii (&rho;(1.0)=1.479; &rho;(0.5)=3.444) and the inference &ldquo;no exponential mixing&rdquo; are retracted &mdash; discretisation artefacts of an undersized matrix. Correct statement: the leading eigenvalue &lambda;&#8321;(s) of the Mayer operator is strictly decreasing with &lambda;&#8321;(1)=1 exactly (invariant Gauss density 1/((1+x)ln&thinsp;2)). The mixing rate at s=1 is the spectral gap |&lambda;&#8322;|=0.30366&hellip; (Gauss&ndash;Kuzmin&ndash;Wirsing constant; &lambda;&#8322; itself is negative, eigenvalue signs alternate). For 1/2&lt;s&lt;1, &lambda;&#8321;(s)&gt;1 (e.g. &lambda;&#8321;(0.75)&asymp;2.143); for s&gt;1, &lambda;&#8321;(s)&lt;1 (e.g. &lambda;&#8321;(1.5)&asymp;0.396). At s=1/2 the operator is no longer trace class; only the analytic continuation of the Fredholm determinant det(1&minus;L_s) is defined there &mdash; its zeros on the critical line are the points with eigenvalue &plusmn;1 (Lewis&ndash;Zagier), not points of spectral radius &asymp;1.</p><p><strong>Verified benchmark values</strong> (Chebyshev-Lobatto collocation, N=30 and N=50 identical to 9 digits; series sum to n=2&middot;10&#8309; with exact Hurwitz-&zeta; tail correction):</p><div class="table-wrap"><table><thead><tr><th>s</th><th>&lambda;&#8321;(s)</th><th>&lambda;&#8322;(s)</th></tr></thead><tbody><tr><td>1.5</td><td>0.396435</td><td>&minus;0.142753</td></tr><tr><td><strong>1.0</strong></td><td><strong>1.000000000</strong></td><td><strong>&minus;0.303663003</strong></td></tr><tr><td>0.9</td><td>1.293495</td><td>&minus;0.363442</td></tr><tr><td>0.75</td><td>2.142727</td><td>&minus;0.492376</td></tr><tr><td>0.6</td><td>5.327058</td><td>&minus;0.715763</td></tr><tr><td>0.55</td><td>10.429889</td><td>&minus;0.834622</td></tr></tbody></table></div><p>(&lambda;&#8321; diverges as s&rarr;1/2&#8314; &mdash; consistent with the loss of trace-class property.) GKW benchmark &lambda;&#8322;=&minus;0.303663003 reproduced as a control value [ESTABLISHED, Mayer 1990; Wirsing 1974].</p></div></div>
 </div>
 </section>
 <footer class="wrapper">

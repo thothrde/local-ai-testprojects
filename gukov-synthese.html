@@ -90,12 +90,12 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-fami
 <div class="chart-wrap"><div class="chart-title lang-de">Anteil an Br&uuml;cken-Vorkommen nach Rolle</div><div class="chart-title lang-en" style="display:none">Share of bridge occurrences by role</div><canvas id="chartRoles" height="80"></canvas></div>
 <table><tr><th class="lang-de">Rolle</th><th class="lang-en" style="display:none">Role</th><th>Anteil / Share</th></tr>
 <tr><td>Beauftragte Person / Entrusted person</td><td>65,4&thinsp;%</td></tr>
-<tr><td>Gesetzlicher Vertreter / Legal representative</td><td>34,6&thinsp;%</td></tr>
+<tr><td>Gesetzlicher Vertreter / Legal representative</td><td>34,6&thinsp;%</td></tr><tr><td>Lobbyist (nat&uuml;rliche Person) / Natural-person lobbyist</td><td>0&thinsp;%</td></tr>
 </table>
 </div></section>
 
 <section><div class="col">
-<p class="sect-group lang-de">Kritische Organisationsknoten (MILP-exakt)</p><p class="sect-group lang-en" style="display:none">Critical organisation nodes (MILP-exact)</p>
+<p class="sect-group lang-de">Kritische Organisationsknoten (exakt, CP-SAT)</p><p class="sect-group lang-en" style="display:none">Critical organisation nodes (exact, CP-SAT)</p>
 <div class="lang-de"><p>Critical-Node-Detection-Problem (Arulselvan et al. 2009), exakt gel&ouml;st via CP-SAT (ortools) f&uuml;r Budget k=1&hellip;5 auf der gr&ouml;&szlig;ten Organisations-Komponente. Alle f&uuml;nf Instanzen optimal in &lt;0,03&thinsp;s gel&ouml;st.</p>
 <p><strong>Gate-Entscheidung:</strong> Exakte Methoden skalieren m&uuml;helos &mdash; bekr&auml;ftigtes Suchverfahren (RL) war nicht gerechtfertigt und wurde nicht gebaut. Ehrliche Einschr&auml;nkung: bei nur 31 Knoten in der gr&ouml;&szlig;ten Komponente ist das erwartbar; ein gr&ouml;&szlig;eres, dichteres Netzwerk k&ouml;nnte das Bild &auml;ndern.</p></div>
 <div class="lang-en" style="display:none"><p>Critical Node Detection Problem (Arulselvan et al. 2009), solved exactly via CP-SAT (ortools) for budget k=1&hellip;5 on the largest organisation component. All five instances solved optimally in &lt;0.03&thinsp;s.</p>
@@ -116,7 +116,7 @@ new Chart(document.getElementById('chartBimodal'), {
 });
 new Chart(document.getElementById('chartRoles'), {
   type: 'doughnut',
-  data: { labels: ['Beauftragte Person','Gesetzlicher Vertreter'], datasets: [{ data: [65.4, 34.6],
+  data: { labels: ['Beauftragte Person','Gesetzlicher Vertreter','Lobbyist (nat. Person)'], datasets: [{ data: [65.4, 34.6, 0],
     backgroundColor: ['#c8903a','#6a9fc0'] }] },
   options: { plugins:{legend:{labels:{color:'#e2ddd4'}}} }
 });
