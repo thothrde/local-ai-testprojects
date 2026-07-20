@@ -69,7 +69,9 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <div class="lang-de">
 <h2>Entstehungskontext</h2>
 <p>Dieses System ist ein <em>just-for-fun</em>-Experiment: Ich bin kein Programmierer und finde Coden äußerst lästig — mache es also minimalistisch und nur wenn es anders nicht geht. Ausgangspunkt war Neugier auf lokale KI-Infrastruktur, verbunden mit einer selbstironischen Aktion: In meinen Schulungen neige ich zu genau jenem Frontalunterricht, den ich vor 50 Jahren gräßlich fand. Ich versprach den TeilnehmerInnen kompensatorische Selbstapplikation — was mich in ein Bootcamp für neuronale Netze, KI und Verwandtes brachte. Das klappte erstaunlicherweise und führte zu explorativem Tinkering über mehrere Monate. Claude AI war dabei mein Implementierungsassistent.</p>
-<p><strong>Zwischenbilanz nach ~7 Monaten:</strong> Nun lässt sich sagen, was ein solches lokales System kann und was nicht. Die Projekte zerfielen in zwei Typen: <strong>Typ B</strong> — Sammeln, Auswerten und Aufbereiten großer Datenmengen zu inhaltlich einfachen Fragen (TransparenzAtlas, Economy Navigator u. a.) — funktioniert hervorragend; die Fehlermodi sind dort operativ (ausgefallene Dienste, blockierte APIs), nicht inhaltlich. <strong>Typ A</strong> — Arbeit an inhaltlich nichttrivialen Themen mit dem Ziel eines „anregenden Mit-Lesers“ von Texten auf meinem Schreibtisch — funktioniert definitiv nicht. Genauer: Die Inhalte weiterverarbeitende Maschinerie funktioniert (CAS-Verifikation, Lean-Sieb, Komitee-Kritik, Retrieval, Buchführung), aber die Inhalte bereitstellenden Teile nicht. Lokale LLMs produzieren entweder Lawinen von Unsinn oder versinken in Trivialitäten.</p>
+<p><strong>Zwischenbilanz nach ~7 Monaten:</strong></p>
+<p><strong>Typ A</strong> — Arbeit an inhaltlich nichttrivialen Themen mit dem Ziel eines „anregenden Mit-Lesers“ von Texten auf meinem Schreibtisch — funktioniert definitiv nicht. Genauer: Die Inhalte weiterverarbeitende Maschinerie funktioniert (CAS-Verifikation, Lean-Sieb, Komitee-Kritik, Retrieval, Buchführung), aber die Inhalte bereitstellenden Teile nicht. Lokale LLMs produzieren entweder Lawinen von Unsinn oder versinken in Trivialitäten.</p>
+<p><strong>Typ B</strong> — Sammeln, Auswerten und Aufbereiten großer Datenmengen zu inhaltlich einfachen Fragen (TransparenzAtlas, Economy Navigator u. a.) — funktioniert hervorragend; die Fehlermodi sind dort operativ (ausgefallene Dienste, blockierte APIs), nicht inhaltlich.</p>
 <p>Der Grund: Erstens liegt solches Wissen im extremen Rand der Trainingsverteilung, und die für lokalen Betrieb nötige starke Quantisierung beschädigt genau diesen Rand zuerst. Zweitens bricht bei inhaltlich Nichttrivialem die <strong>Prüfen-ist-leichter-als-Erzeugen-Asymmetrie</strong> zusammen, auf der der Komitee-Ansatz beruht — der Prüfer braucht dasselbe seltene Wissen wie der Erzeuger. Drittens filtern die Werkzeuge auf der falschen Achse: Lean und CAS sieben Falsches aus, nicht aber Triviales; was das Sieb passiert, ist korrekt, aber selten interessant.</p>
 <p>Ein anschließend vorgenommener Vergleich mit Frontier-Modellen (statt lokaler Modelle) zeigt: Sie sind dem lokalen System bei Kritik, Fehlersuche, Literaturgedächtnis und struktureller Klärung deutlich überlegen — ihre „inhaltlichen“ Beiträge waren durchweg ebenso dürftig. Der Leistungssprung zwischen „lokal“ und „frontier“ ist bei der Kritik-Funktion groß, bei „Inhaltlichem“ überraschend klein. Ein „anregender Mit-Leser“ entsteht so nicht.</p>
 <p><strong>Lokal realistisch erreichbar:</strong> ein rechnender Amanuensis — Verifikationsapparat, Retrieval über private Korpora, Buchführung — plus technisch exzellente Daten-Apps.</p>
@@ -78,7 +80,9 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <div class="lang-en" style="display:none">
 <h2>Background</h2>
 <p>This system is a <em>just-for-fun</em> experiment. I am not a programmer and find coding extraordinarily tedious — so I keep it minimal and only do it when there is no other way. The starting point was curiosity about local AI infrastructure combined with a certain self-ironic impulse: in my teaching I tend toward precisely the kind of frontal instruction I found dreadful fifty-plus years ago, and I had half-jokingly promised participants some compensatory self-application. That turned into a bootcamp for neural networks, AI, and related topics. Surprisingly, it worked, and led to exploratory tinkering over several months. Claude AI was my implementation assistant throughout.</p>
-<p><strong>Interim assessment after ~7 months:</strong> It is now possible to say what a local system of this kind can and cannot do. The projects fell into two types: <strong>Type B</strong> — collecting, evaluating, and preparing large volumes of data for substantively simple questions (TransparenzAtlas, Economy Navigator, and others) — works excellently; the failure modes there are operational (services going down, blocked APIs), not substantive. <strong>Type A</strong> — work on substantively nontrivial topics with the aim of a "stimulating co-reader" for texts on my desk — plainly does not work. More precisely: the machinery that processes content works (CAS verification, the Lean sieve, committee critique, retrieval, record-keeping), but the parts meant to supply the content itself do not. Local LLMs either produce avalanches of nonsense or sink into triviality.</p>
+<p><strong>Interim assessment after ~7 months:</strong></p>
+<p><strong>Type A</strong> — work on substantively nontrivial topics with the aim of a "stimulating co-reader" for texts on my desk — plainly does not work. More precisely: the machinery that processes content works (CAS verification, the Lean sieve, committee critique, retrieval, record-keeping), but the parts meant to supply the content itself do not. Local LLMs either produce avalanches of nonsense or sink into triviality.</p>
+<p><strong>Type B</strong> — collecting, evaluating, and preparing large volumes of data for substantively simple questions (TransparenzAtlas, Economy Navigator, and others) — works excellently; the failure modes there are operational (services going down, blocked APIs), not substantive.</p>
 <p>The reason: first, such knowledge sits at the extreme tail of the training distribution, and the heavy quantization local operation requires damages exactly that tail first. Second, for substantively nontrivial material the <strong>checking-is-easier-than-generating asymmetry</strong> that the committee approach relies on breaks down — the checker needs the same rare knowledge as the generator. Third, the tools filter along the wrong axis: Lean and CAS sieve out what is false, not what is trivial; what survives the sieve is correct, but rarely interesting.</p>
 <p>A subsequent comparison with frontier models (rather than local ones) shows: they are clearly superior to the local system at critique, error-finding, literature recall, and structural clarification — yet their "substantive" contributions were just as thin throughout. The performance gap between "local" and "frontier" is large for the critique function, and surprisingly small for substance. A "stimulating co-reader" does not emerge this way.</p>
 <p><strong>What is realistically achievable locally:</strong> a computational amanuensis — verification apparatus, retrieval over private corpora, record-keeping — plus technically excellent data apps.</p>
@@ -90,6 +94,28 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <section>
 <div class="wrapper">
 
+<p class="lang-de"><strong>Typische Fälle von Typ A:</strong></p>
+<p class="lang-en" style="display:none"><strong>Typical examples of Type A:</strong></p>
+<div class="proj-grid">
+  <a class="proj-card" href="mixmaster.html">
+    <p class="proj-num">17</p>
+    <p class="proj-title lang-de">Mixmaster-GUP &amp; Quantenchaos</p>
+    <p class="proj-title lang-en" style="display:none">Mixmaster-GUP &amp; Quantum Chaos</p>
+    <p class="proj-desc lang-de">Mixmaster-Universum und verallgemeinertes Unsicherheitsprinzip (GUP). BKL-Chaos, Mayer-Transfer-Operator, Selberg-Zeta-Funktion, kubisches Supplement.</p>
+    <p class="proj-desc lang-en" style="display:none">Mixmaster universe and generalized uncertainty principle (GUP). BKL chaos, Mayer transfer operator, Selberg zeta function, cubic supplement.</p>
+    <p class="proj-status">✓ ABGESCHLOSSEN · 8 Phasen</p>
+  </a>
+  <a class="proj-card" href="heisenberg-gmunu.html">
+    <p class="proj-num">26</p>
+    <p class="proj-title lang-de">Kann ein „schiefes“ Universum wie ein symmetrisches aussehen?</p>
+    <p class="proj-title lang-en" style="display:none">Can a &ldquo;lopsided&rdquo; universe look symmetric?</p>
+    <p class="proj-desc lang-de">Offene Frage aus L. Heisenberg, arXiv:2512.16934 (Dez. 2025): kann ein homogener/isotroper Einsteintensor aus einer selbst nicht homogenen/isotropen Metrik entstehen? SageMath/SageManifolds-Rechnung (kugelsymmetrisch, statisch, symmetrische aber nicht notwendig verschwindende Materiequelle) reduziert die Frage auf eine explizite ODE dritter Ordnung. Potenzgesetze und logarithmische Korrekturen vollständig negativ (in zwei Eichungen bestätigt), Phasenraumanalyse liefert zwei Sättel. Numerisches Shooting findet eine echte, verifizierte nichttriviale Bahn — mit Materie, nicht im Vakuum (der Vakuumfall selbst erwies sich als Birkhoff-trivial). Erster echter Kandidat des Projekts.</p>
+    <p class="proj-desc lang-en" style="display:none">Open question from L. Heisenberg, arXiv:2512.16934 (Dec. 2025): can a homogeneous/isotropic Einstein tensor arise from a metric that is itself not homogeneous/isotropic? SageMath/SageManifolds computation (spherically symmetric, static, symmetric but not necessarily vanishing matter source) reduces the question to an explicit third-order ODE. Power laws and logarithmic corrections fully negative (confirmed in two gauges), phase-space analysis yields two saddles. Numerical shooting finds a genuine, verified non-trivial orbit — with matter, not in vacuum (the vacuum case itself turned out Birkhoff-trivial). First genuine candidate of the project.</p>
+    <p class="proj-status">⟳ OFFEN · SageManifolds · arXiv:2512.16934 · Juli 2026</p>
+  </a>
+</div>
+<p class="lang-de"><strong>Typische Fälle von Typ B:</strong></p>
+<p class="lang-en" style="display:none"><strong>Typical examples of Type B:</strong></p>
 <p class="sect-group lang-de">Infrastruktur</p>
 <p class="sect-group lang-en" style="display:none">Infrastructure</p>
 <div class="proj-grid">
@@ -138,234 +164,8 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
   </a>
 </div>
 
-<p class="sect-group lang-de">Kondensierte &amp; p-adische Mathematik</p>
-<p class="sect-group lang-en" style="display:none">Condensed &amp; p-adic Mathematics</p>
-<div class="proj-grid">
-
-  <a class="proj-card" href="p-adisch.html">
-    <p class="proj-num">02</p>
-    <p class="proj-title lang-de">p-adische Theorie &amp; kondensierte Mathematik</p>
-    <p class="proj-title lang-en" style="display:none">p-adic Theory &amp; Condensed Mathematics</p>
-    <p class="proj-desc lang-de">Formale Verifikation in Lean 4 (solide kondensierte Moduln, PR #39701), Dieudonné-Manin-Klassifikation, computeralgebraische Experimente mit formalen Gruppen.</p>
-    <p class="proj-desc lang-en" style="display:none">Formal verification in Lean 4 (solid condensed modules, PR #39701), Dieudonné–Manin classification, computer-algebraic experiments with formal groups.</p>
-    <p class="proj-status">✓ LEAN PR GESCHLOSSEN · Axiome</p>
-  </a>
-
-  <a class="proj-card" href="derived-hecke.html">
-    <p class="proj-num">03</p>
-    <p class="proj-title lang-de">Derived Hecke I — Completed Cohomology</p>
-    <p class="proj-title lang-en" style="display:none">Derived Hecke I — Completed Cohomology</p>
-    <p class="proj-desc lang-de">Trägt Emertons Completed Cohomology eine natürliche Struktur in der kondensierten Welt von Clausen–Scholze? Erstes Projekt dieser Reihe.</p>
-    <p class="proj-desc lang-en" style="display:none">Does Emerton's completed cohomology carry a natural structure in Clausen–Scholze's condensed world? First project in this series.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN</p>
-  </a>
-
-  <a class="proj-card" href="vcq3.html">
-    <p class="proj-num">07</p>
-    <p class="proj-title lang-de">VCQ3 / Derived Hecke II — Koszul-Dualität</p>
-    <p class="proj-title lang-en" style="display:none">VCQ3 / Derived Hecke II — Koszul Duality</p>
-    <p class="proj-desc lang-de">Koszul-Dualität in D(Solid<sub>ℤp</sub>), derived Hecke-Algebra, Prasanna–Venkatesh äußere Algebra-Wirkung in soliden Moduln. Adversarielle Multi-Modell-Analyse.</p>
-    <p class="proj-desc lang-en" style="display:none">Koszul duality in D(Solid<sub>ℤp</sub>), derived Hecke algebra, Prasanna–Venkatesh exterior algebra action in solid modules. Adversarial multi-model analysis.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 7 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="laq.html">
-    <p class="proj-num">08</p>
-    <p class="proj-title lang-de">Liquid Archimedes (LAQ)</p>
-    <p class="proj-title lang-en" style="display:none">Liquid Archimedes (LAQ)</p>
-    <p class="proj-desc lang-de">Archimedische Seite der Prasanna–Venkatesh-Gradverteilung in liquiden ℝ-Moduln. Komplementärprojekt zu VCQ3 (p-adisch solid ↔ archimedisch liquid).</p>
-    <p class="proj-desc lang-en" style="display:none">Archimedean side of the Prasanna–Venkatesh degree distribution in liquid ℝ-modules. Companion project to VCQ3 (p-adic solid ↔ archimedean liquid).</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 8 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="connes-consani.html">
-    <p class="proj-num">21</p>
-    <p class="proj-title lang-de">Connes–Consani F₁-Geometrie &amp; FF-Kurve</p>
-    <p class="proj-title lang-en" style="display:none">Connes–Consani F₁ Geometry &amp; FF Curve</p>
-    <p class="proj-desc lang-de">Verbindet Connes–Consanis F₁-Siebarithmetik mit Scholzes Fargues-Fontaine-Kurve. Vier Forschungsfragen zur Trichomie, zum 6-Funktor-Formalismus und zu Theorem 3.16.</p>
-    <p class="proj-desc lang-en" style="display:none">Connects Connes–Consani F₁ sieve arithmetic with Scholze's Fargues–Fontaine curve. Four research questions on trichotomy, the 6-functor formalism, and Theorem 3.16.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 4 Phasen · arXiv:2606.06604</p>
-  </a>
-
-</div>
-
-<p class="sect-group lang-de">Homotopietheorie &amp; Neoplatonismus</p>
-<p class="sect-group lang-en" style="display:none">Homotopy Theory &amp; Neoplatonism</p>
-<div class="proj-grid">
-
-  <a class="proj-card" href="anima.html">
-    <p class="proj-num">04</p>
-    <p class="proj-title lang-de">Anima II — Topologie &amp; Neoplatonismus</p>
-    <p class="proj-title lang-en" style="display:none">Anima II — Topology &amp; Neoplatonism</p>
-    <p class="proj-desc lang-de">Clausens Anima-Begriff (arXiv:2605.11950) verbindet mit der neoplatonischen Tradition. Homotopiegruppen von X<sub>ℂ</sub>, kondensierte Kohomologie.</p>
-    <p class="proj-desc lang-en" style="display:none">Clausen's concept of anima (arXiv:2605.11950) connects to the Neoplatonic tradition. Homotopy groups of X<sub>ℂ</sub>, condensed cohomology.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN</p>
-  </a>
-
-  <a class="proj-card" href="anima-iv.html">
-    <p class="proj-num">09</p>
-    <p class="proj-title lang-de">Anima IV — Kenzo, Spektrum, GL₁-CLLC</p>
-    <p class="proj-title lang-en" style="display:none">Anima IV — Kenzo, Spectrum, GL₁-CLLC</p>
-    <p class="proj-desc lang-de">Fünf Teilprojekte: Kenzo-Berechnungen (K(ℤ/2,n)), Rigiditätsanalyse des Spektrums, archimedische GL₁-CLLC (Hansen–Mann), Spektrale Aktion, k-Invarianten-Konsistenzbaum.</p>
-    <p class="proj-desc lang-en" style="display:none">Five sub-projects: Kenzo computations (K(ℤ/2,n)), rigidity analysis of the spectrum, archimedean GL₁-CLLC (Hansen–Mann), spectral action, k-invariants consistency tree.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 5 Teilprojekte</p>
-  </a>
-
-  <a class="proj-card" href="anima-v.html">
-    <p class="proj-num">10</p>
-    <p class="proj-title lang-de">Anima V — Bernoulli-Perioden &amp; J-Homomorphismus</p>
-    <p class="proj-title lang-en" style="display:none">Anima V — Bernoulli Periods &amp; J-Homomorphism</p>
-    <p class="proj-desc lang-de">Bernoulli-Zahlen als Perioden der Anima X<sub>ℂ</sub>, Adams e-Invariante, Verbindung zum J-Homomorphismus und stabilen Homotopiegruppen.</p>
-    <p class="proj-desc lang-en" style="display:none">Bernoulli numbers as periods of the anima X<sub>ℂ</sub>, Adams e-invariant, connection to the J-homomorphism and stable homotopy groups.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 2 Phasen</p>
-  </a>
-
-</div>
-
-<p class="sect-group lang-de">Arithmetik &amp; Zahlentheorie</p>
-<p class="sect-group lang-en" style="display:none">Arithmetic &amp; Number Theory</p>
-<div class="proj-grid">
-
-  <a class="proj-card" href="arithmetik.html">
-    <p class="proj-num">05</p>
-    <p class="proj-title lang-de">Arithmetische Chromatik</p>
-    <p class="proj-title lang-en" style="display:none">Arithmetic Chromaticity</p>
-    <p class="proj-desc lang-de">Formale Gruppen, Höhenstratifizierung und spektrale Sequenzen. SageMath, Macaulay2, Lean 4.</p>
-    <p class="proj-desc lang-en" style="display:none">Formal groups, height stratification and spectral sequences. SageMath, Macaulay2, Lean 4.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN</p>
-  </a>
-
-  <a class="proj-card" href="real-mult.html">
-    <p class="proj-num">11</p>
-    <p class="proj-title lang-de">Reelle Multiplikation</p>
-    <p class="proj-title lang-en" style="display:none">Real Multiplication</p>
-    <p class="proj-desc lang-de">Manin-Programm, NC-Tori, Hilbert-12-Problem. Nikolaevs Beweis der Manin-Vermutung (2021), Dang–Gargava–Li (2025). PARI/GP und LLM-Synthese.</p>
-    <p class="proj-desc lang-en" style="display:none">Manin's program, NC-tori, Hilbert's 12th problem. Nikolaev's proof of Manin's conjecture (2021), Dang–Gargava–Li (2025). PARI/GP and LLM synthesis.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 4 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="greenberg.html">
-    <p class="proj-num">12</p>
-    <p class="proj-title lang-de">Greenberg-Vermutung</p>
-    <p class="proj-title lang-en" style="display:none">Greenberg's Conjecture</p>
-    <p class="proj-desc lang-de">Iwasawa-Invarianten μ=0 und λ=0 für total-reelle Körper. Ferrero–Washington-Theorem, Gras'sche Reformulierung via Torsionsgruppen.</p>
-    <p class="proj-desc lang-en" style="display:none">Iwasawa invariants μ=0 and λ=0 for totally real fields. Ferrero–Washington theorem, Gras's reformulation via torsion groups.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 5 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="r2-konjektur.html">
-    <p class="proj-num">13</p>
-    <p class="proj-title lang-de">R2-Konjektur</p>
-    <p class="proj-title lang-en" style="display:none">R2 Conjecture</p>
-    <p class="proj-desc lang-de">Toda-Tabelle, J-Bild, β₁-Element bei p=3. Kenzo-Berechnung von K(ℤ/2,4), Adams-Spektralsequenz, stabile Homotopiegruppen von Sphären.</p>
-    <p class="proj-desc lang-en" style="display:none">Toda table, J-image, β₁ element at p=3. Kenzo computation of K(ℤ/2,4), Adams spectral sequence, stable homotopy groups of spheres.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 3 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="combe-manin.html">
-    <p class="proj-num">14</p>
-    <p class="proj-title lang-de">Combe–Manin: NY-Operad, Typ-B-Arrangements</p>
-    <p class="proj-title lang-en" style="display:none">Combe–Manin: NY-Operad, Type-B Arrangements</p>
-    <p class="proj-desc lang-de">New York-Operad, Typ-B-Hyperebenenarrangements, Poincaré-Polynome. Koordinatenwechsel y=2z−1 identifiziert NY-Straten mit Typ-B-Komplements.</p>
-    <p class="proj-desc lang-en" style="display:none">New York operad, type-B hyperplane arrangements, Poincaré polynomials. The substitution y=2z−1 identifies NY-strata with type-B complements.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 3 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="tda-lfunctions.html">
-    <p class="proj-num">25</p>
-    <p class="proj-title lang-de">TDA auf L-Funktionen-Nullstellen</p>
-    <p class="proj-title lang-en" style="display:none">TDA on L-function Zeros</p>
-    <p class="proj-desc lang-de">Persistente Homologie auf Familien von Dirichlet-L-Funktionen UND elliptischen Kurven zeigt eine robuste, familienübergreifende Abweichung von echten GOE/GUE-Zufallsmatrizen (z&thinsp;=&thinsp;−20,97 bzw. −19,56). Sieben Phasen, 6086+1100 L-Funktionen, echte diagonalisierte Zufallsmatrizen, Permutationstest mit n=10000, vollständig auf dem lokalen Mac Studio gerechnet. Inklusive einer ehrlich dokumentierten Selbstkorrektur: eine in Phase 6 gefundene Klassenzahl-Korrelation wurde in Phase 7 durch eigene Replikation widerlegt. [BELEGT]</p>
-    <p class="proj-desc lang-en" style="display:none">Persistent homology on families of Dirichlet L-functions AND elliptic curves reveals a robust, cross-family deviation from genuine GOE/GUE random matrices (z&thinsp;=&thinsp;−20.97 and −19.56 respectively). Seven phases, 6,086+1,100 L-functions, genuine diagonalised random matrices, a permutation test with n=10,000, all computed locally on the Mac Studio. Includes an honestly documented self-correction: a class-number correlation found in Phase 6 was refuted in Phase 7 by independent replication. [CONFIRMED]</p>
-    <p class="proj-status">&#10003; ABGESCHLOSSEN &middot; 7 Phasen &middot; PARI/GP &middot; GUDHI &middot; Mac Studio M3 Ultra &middot; Juni–Juli 2026</p>
-  </a>
 
 
-</div>
-
-<p class="sect-group lang-de">Eichtheorie, Floer &amp; arithmetische Topologie</p>
-<p class="sect-group lang-en" style="display:none">Gauge Theory, Floer &amp; Arithmetic Topology</p>
-<div class="proj-grid">
-
-  <a class="proj-card" href="arith-gauge.html">
-    <p class="proj-num">15</p>
-    <p class="proj-title lang-de">Arithmetische Eichtheorie</p>
-    <p class="proj-title lang-en" style="display:none">Arithmetic Gauge Theory</p>
-    <p class="proj-desc lang-de">Acht Teilprojekte P1–P8: Verknüpfungsmatrix/Reidemeister-Torsion, Floer-Homologie &amp; Iwasawa-Theorie, Hitchin-Fasern auf der FF-Kurve, p-adische Instantonen.</p>
-    <p class="proj-desc lang-en" style="display:none">Eight sub-projects P1–P8: linking matrix/Reidemeister torsion, Floer homology &amp; Iwasawa theory, Hitchin fibers on the FF curve, p-adic instantons.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 7 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="floer-condensed.html">
-    <p class="proj-num">16</p>
-    <p class="proj-title lang-de">Floer-Theorie &amp; Kondensierte Mathematik</p>
-    <p class="proj-title lang-en" style="display:none">Floer Theory &amp; Condensed Mathematics</p>
-    <p class="proj-desc lang-de">Sechs Teilprojekte P-FL-1 bis P-FL-6: Verbindungen zwischen Floer-Homologie und kondensierter/solider Mathematik. Springer-Fasern, TDA, Novikov-Solidifizierung.</p>
-    <p class="proj-desc lang-en" style="display:none">Six sub-projects P-FL-1 to P-FL-6: connections between Floer homology and condensed/solid mathematics. Springer fibers, TDA, Novikov solidification.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 14 Phasen</p>
-  </a>
-
-</div>
-
-<p class="sect-group lang-de">Physik &amp; Mathematische Physik</p>
-<p class="sect-group lang-en" style="display:none">Physics &amp; Mathematical Physics</p>
-<div class="proj-grid">
-
-  <a class="proj-card" href="mixmaster.html">
-    <p class="proj-num">17</p>
-    <p class="proj-title lang-de">Mixmaster-GUP &amp; Quantenchaos</p>
-    <p class="proj-title lang-en" style="display:none">Mixmaster-GUP &amp; Quantum Chaos</p>
-    <p class="proj-desc lang-de">Mixmaster-Universum und verallgemeinertes Unsicherheitsprinzip (GUP). BKL-Chaos, Mayer-Transfer-Operator, Selberg-Zeta-Funktion, kubisches Supplement.</p>
-    <p class="proj-desc lang-en" style="display:none">Mixmaster universe and generalized uncertainty principle (GUP). BKL chaos, Mayer transfer operator, Selberg zeta function, cubic supplement.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 8 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="bost.html">
-    <p class="proj-num">18</p>
-    <p class="proj-title lang-de">Bost θ-Invarianten</p>
-    <p class="proj-title lang-en" style="display:none">Bost θ-Invariants</p>
-    <p class="proj-desc lang-de">Bosts θ-Invarianten für Hermitesche Vektorbündel auf arithmetischen Kurven, Verbindungen zu Arakelov-Geometrie, Stark-Einheiten und Dirichlet L-Funktionen.</p>
-    <p class="proj-desc lang-en" style="display:none">Bost's θ-invariants for Hermitian vector bundles on arithmetic curves, connections to Arakelov geometry, Stark units, and Dirichlet L-functions.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 5 Phasen</p>
-  </a>
-
-  <a class="proj-card" href="gr-phase.html">
-    <p class="proj-num">20</p>
-    <p class="proj-title lang-de">Gravitationskollaps — Numerik &amp; Analytik</p>
-    <p class="proj-title lang-en" style="display:none">Gravitational Collapse — Numerics &amp; Analytics</p>
-    <p class="proj-desc lang-de">Choptuik (SpheriCo.jl, p<sub>c</sub>=0,16552…, γ=0,368); ODE-Phasendiagramm (Jampolski–Rezzolla, γ≈1,0 Landau-Typ); EEG-DSS LO+NLO ausgeführt: τ<sub>0</sub>=0,240184, Konsistenzlinie A<sub>3</sub>=A<sub>1</sub>/15,95, D<sub>min</sub>=80, 1/D divergiert bei D=4 (NLO/LO=17).</p>
-    <p class="proj-desc lang-en" style="display:none">Choptuik (SpheriCo.jl, p<sub>c</sub>=0.16552…, γ=0.368); ODE phase diagram (Jampolski–Rezzolla, γ≈1.0 Landau-type); EEG-DSS LO+NLO executed: τ<sub>0</sub>=0.240184, consistency line A<sub>3</sub>=A<sub>1</sub>/15.95, D<sub>min</sub>=80, 1/D diverges at D=4 (NLO/LO=17).</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 3 Teilprojekte · SpheriCo.jl · NRPy+ · arXiv:2509.15302 · arXiv:2601.14358</p>
-  </a>
-
-  <a class="proj-card" href="heisenberg-gmunu.html">
-    <p class="proj-num">26</p>
-    <p class="proj-title lang-de">Kann ein „schiefes“ Universum wie ein symmetrisches aussehen?</p>
-    <p class="proj-title lang-en" style="display:none">Can a &ldquo;lopsided&rdquo; universe look symmetric?</p>
-    <p class="proj-desc lang-de">Offene Frage aus L. Heisenberg, arXiv:2512.16934 (Dez. 2025): kann ein homogener/isotroper Einsteintensor aus einer selbst nicht homogenen/isotropen Metrik entstehen? SageMath/SageManifolds-Rechnung (kugelsymmetrisch, statisch, symmetrische aber nicht notwendig verschwindende Materiequelle) reduziert die Frage auf eine explizite ODE dritter Ordnung. Potenzgesetze und logarithmische Korrekturen vollständig negativ (in zwei Eichungen bestätigt), Phasenraumanalyse liefert zwei Sättel. Numerisches Shooting findet eine echte, verifizierte nichttriviale Bahn — mit Materie, nicht im Vakuum (der Vakuumfall selbst erwies sich als Birkhoff-trivial). Erster echter Kandidat des Projekts.</p>
-    <p class="proj-desc lang-en" style="display:none">Open question from L. Heisenberg, arXiv:2512.16934 (Dec. 2025): can a homogeneous/isotropic Einstein tensor arise from a metric that is itself not homogeneous/isotropic? SageMath/SageManifolds computation (spherically symmetric, static, symmetric but not necessarily vanishing matter source) reduces the question to an explicit third-order ODE. Power laws and logarithmic corrections fully negative (confirmed in two gauges), phase-space analysis yields two saddles. Numerical shooting finds a genuine, verified non-trivial orbit — with matter, not in vacuum (the vacuum case itself turned out Birkhoff-trivial). First genuine candidate of the project.</p>
-    <p class="proj-status">⟳ OFFEN · SageManifolds · arXiv:2512.16934 · Juli 2026</p>
-  </a>
-
-</div>
-
-<p class="sect-group lang-de">Übergreifende Synthese</p>
-<p class="sect-group lang-en" style="display:none">Cross-cutting Synthesis</p>
-<div class="proj-grid">
-
-  <a class="proj-card" href="klammer.html">
-    <p class="proj-num">19</p>
-    <p class="proj-title lang-de">Die gemeinsame Klammer</p>
-    <p class="proj-title lang-en" style="display:none">The Common Bracket</p>
-    <p class="proj-desc lang-de">Cartier-Dualität auf Gestalten als übergreifendes Strukturprinzip: Verbindung zwischen VCQ3 (solid), LAQ (liquid), Anima IV und allen anderen Projekten.</p>
-    <p class="proj-desc lang-en" style="display:none">Cartier duality on Gestalten as an overarching structural principle: connecting VCQ3 (solid), LAQ (liquid), Anima IV, and all other projects.</p>
-    <p class="proj-status">✓ ABGESCHLOSSEN · 2 Phasen</p>
-  </a>
-
-</div>
-
-<p class="sect-group lang-de">Sonstige Projekte &amp; Anwendungen</p>
-<p class="sect-group lang-en" style="display:none">Other Projects &amp; Applications</p>
 <div class="proj-grid">
 
   <a class="proj-card" href="https://library.autark-data.org" target="_blank" rel="noopener">
@@ -438,8 +238,8 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <section>
 <div class="wrapper">
 
-<p class="sect-group lang-de">Zivilgesellschaftliche Transparenz-Anwendungen</p>
-<p class="sect-group lang-en" style="display:none">Civic Transparency Applications</p>
+
+
 <div class="proj-grid">
 
   <a class="proj-card" href="gkv-monitor.html">
