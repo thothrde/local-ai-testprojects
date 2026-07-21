@@ -86,19 +86,37 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-fami
 <div class="lang-en" style="display:none"><p><strong>Finding:</strong> a centre that strategically lowers its acceptance threshold receives more transplants for its patients (+7.7&thinsp;% versus the neutral policy), but at a lower average urgency (MELD score). Qualitatively confirmed by a second, purely synthetic model of the same procedure class (without replicating the real procedure).</p></div>
 </div></section>
 <footer><div>&copy; 2026 Thomas Riepe &middot; Privates Forschungsprojekt / Private research project</div><div><a href="index.html" style="color:var(--fg-dim)">&larr; Alle Projekte / All projects</a></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script>
-new Chart(document.getElementById('chartET'), {
+var _chartET_labels = {
+  de: { x: ['-0.3 (strenger)','0.0 (Baseline)','+0.3 (kulanter)'],
+        ds0: 'Transplantationen (Zentrum)', ds1: 'Mittlerer MELD bei Tx',
+        y: 'Transplantationen', y1: 'Mittlerer MELD' },
+  en: { x: ['-0.3 (stricter)','0.0 (baseline)','+0.3 (more lenient)'],
+        ds0: 'Transplants (centre)', ds1: 'Mean MELD at Tx',
+        y: 'Transplants', y1: 'Mean MELD' }
+};
+var chartET = new Chart(document.getElementById('chartET'), {
   type: 'bar',
-  data: { labels: ['-0.3 (strenger)','0.0 (Baseline)','+0.3 (kulanter)'],
+  data: { labels: _chartET_labels.de.x,
     datasets: [
-      { label: 'Transplantationen (Zentrum)', data: [32,39,42], backgroundColor: '#c8903a', yAxisID: 'y' },
-      { label: 'Mittlerer MELD bei Tx', data: [20.22,19.05,18.12], backgroundColor: '#6a9fc0', yAxisID: 'y1', type:'line', borderColor:'#6a9fc0' }
+      { label: _chartET_labels.de.ds0, data: [32,39,42], backgroundColor: '#c8903a', yAxisID: 'y' },
+      { label: _chartET_labels.de.ds1, data: [20.22,19.05,18.12], backgroundColor: '#6a9fc0', yAxisID: 'y1', type:'line', borderColor:'#6a9fc0' }
     ] },
   options: { scales: {
-    y: { position:'left', ticks:{color:'#9a9188'}, grid:{color:'#2a2620'}, title:{display:true,text:'Transplantationen',color:'#9a9188'} },
-    y1: { position:'right', ticks:{color:'#9a9188'}, grid:{display:false}, title:{display:true,text:'Mittlerer MELD',color:'#9a9188'} },
+    y: { position:'left', ticks:{color:'#9a9188'}, grid:{color:'#2a2620'}, title:{display:true,text:_chartET_labels.de.y,color:'#9a9188'} },
+    y1: { position:'right', ticks:{color:'#9a9188'}, grid:{display:false}, title:{display:true,text:_chartET_labels.de.y1,color:'#9a9188'} },
     x: { ticks:{color:'#9a9188'}, grid:{display:false} }
   }, plugins:{legend:{labels:{color:'#e2ddd4'}}} }
 });
+function _updateChartETLang(l){
+  if (typeof chartET === 'undefined') return;
+  var L = _chartET_labels[l] || _chartET_labels.de;
+  chartET.data.labels = L.x;
+  chartET.data.datasets[0].label = L.ds0;
+  chartET.data.datasets[1].label = L.ds1;
+  chartET.options.scales.y.title.text = L.y;
+  chartET.options.scales.y1.title.text = L.y1;
+  chartET.update();
+}
 </script><script>
 function setLang(l){
   document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
@@ -107,5 +125,6 @@ function setLang(l){
   document.querySelectorAll('.lang-tab').forEach(b=>{
     if(b.textContent.trim()===l.toUpperCase())b.classList.add('active');
   });
+  _updateChartETLang(l);
 }
 </script></body></html>
