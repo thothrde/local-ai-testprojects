@@ -95,15 +95,27 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:4rem;font-fami
 <div class="note-box lang-en" style="display:none"><strong>Caveat:</strong> Analysis of a synthetic, plausibly calibrated model (distance, popularity, sibling correlation as generator families) &mdash; not an investigation of a specific real system. Which model actually underlies real German daycare allocation procedures remains an open question.</div>
 </div></section>
 <footer><div>&copy; 2026 Thomas Riepe &middot; Privates Forschungsprojekt / Private research project</div><div><a href="index.html" style="color:var(--fg-dim)">&larr; Alle Projekte / All projects</a></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script><script>
-new Chart(document.getElementById('chartKita'), {
+var _kitaLabels = {
+  de: { ds: 'Manipulationsrate (%)', x: 'Konkurrenten an Geschwister-Top-Kita', y: 'Manipulationsrate (%)' },
+  en: { ds: 'Manipulation rate (%)', x: 'Competitors for sibling top-choice daycare slot', y: 'Manipulation rate (%)' }
+};
+var chartKita = new Chart(document.getElementById('chartKita'), {
   type: 'line',
   data: { labels: ['0','1','2','3','4','5','6'],
-    datasets: [{ label: 'Manipulationsrate (%)', data: [0,0,2.07,4.92,8.31,12.44,17.65],
+    datasets: [{ label: _kitaLabels.de.ds, data: [0,0,2.07,4.92,8.31,12.44,17.65],
       borderColor: '#c8903a', backgroundColor: 'rgba(200,144,58,.15)', fill:true, tension:.3 }] },
   options: { plugins:{legend:{display:false}},
-    scales:{ x:{title:{display:true,text:'Konkurrenten an Geschwister-Top-Kita',color:'#9a9188'},ticks:{color:'#9a9188'},grid:{color:'#2a2620'}},
-    y:{suggestedMax:20,title:{display:true,text:'Manipulationsrate (%)',color:'#9a9188'},ticks:{color:'#9a9188'},grid:{color:'#2a2620'}} } }
+    scales:{ x:{title:{display:true,text:_kitaLabels.de.x,color:'#9a9188'},ticks:{color:'#9a9188'},grid:{color:'#2a2620'}},
+    y:{suggestedMax:20,title:{display:true,text:_kitaLabels.de.y,color:'#9a9188'},ticks:{color:'#9a9188'},grid:{color:'#2a2620'}} } }
 });
+function _updateKitaChartLang(l){
+  if (typeof chartKita === 'undefined') return;
+  var L = _kitaLabels[l] || _kitaLabels.de;
+  chartKita.data.datasets[0].label = L.ds;
+  chartKita.options.scales.x.title.text = L.x;
+  chartKita.options.scales.y.title.text = L.y;
+  chartKita.update();
+}
 </script><script>
 function setLang(l){
   document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
@@ -112,5 +124,6 @@ function setLang(l){
   document.querySelectorAll('.lang-tab').forEach(b=>{
     if(b.textContent.trim()===l.toUpperCase())b.classList.add('active');
   });
+  _updateKitaChartLang(l);
 }
 </script></body></html>
