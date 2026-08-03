@@ -79,8 +79,8 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
     <button class="lang-tab active" onclick="setLang('de')">DE</button>
     <button class="lang-tab" onclick="setLang('en')">EN</button>
   </div>
-  <p class="header-desc lang-de">Vollständig lokale, cloud-unabhängige KI-Infrastruktur für strikt lokale, private, experimentelle KI-Experimente. Alle Berechnungen auf Mac Studio M3 Ultra (256 GB unified memory) — kein Cloud-Zugang, keine Daten verlassen den Rechner.</p>
-  <p class="header-desc lang-en" style="display:none">Fully local, cloud-independent AI infrastructure for strictly local, private, experimental AI experiments. All computations on Mac Studio M3 Ultra (256 GB unified memory) — no cloud access, no data leaves the machine.</p>
+  <p class="header-desc lang-de">Vollständig lokale, cloud-unabhängige KI-Infrastruktur für strikt lokale, private, experimentelle KI-Experimente. Alle LLM-Inferenz und Berechnungen laufen auf dem Mac Studio M3 Ultra (256 GB unified memory) — es werden keine Texte oder Dokumente an kommerzielle KI-APIs übertragen. Für ausdrücklich angestoßene Web- und Literaturrecherchen (SearXNG, Wikipedia, arXiv u. a.) können Suchanfragen an externe Dienste gehen.</p>
+  <p class="header-desc lang-en" style="display:none">Fully local, cloud-independent AI infrastructure for strictly local, private, experimental AI experiments. All LLM inference and computation run on the Mac Studio M3 Ultra (256 GB unified memory) — no text or documents are sent to commercial AI APIs. Explicitly triggered web and literature searches (SearXNG, Wikipedia, arXiv, etc.) may send queries to external services.</p>
   <p class="version-note">Stand: August 2026 · v3.5</p>
 </div>
 </header><nav class="wrapper"><a href="#hardware"><span class="nav-num">00</span><span class="lang-de">Hardware</span><span class="lang-en" style="display:none">Hardware</span></a>
@@ -100,7 +100,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <div class="stat-grid">
   <div class="stat-card"><span class="stat-num">256 GB</span><span class="stat-label">Unified Memory</span></div>
   <div class="stat-card"><span class="stat-num">80-core</span><span class="stat-label">Apple GPU (M3 Ultra)</span></div>
-  <div class="stat-card"><span class="stat-num">24-core</span><span class="stat-label">CPU (16P + 8E)</span></div>
+  <div class="stat-card"><span class="stat-num">32-core</span><span class="stat-label">CPU (24P + 8E)</span></div>
   <div class="stat-card"><span class="stat-num">2 TB</span><span class="stat-label">Interner SSD</span></div>
   <div class="stat-card"><span class="stat-num">4 TB</span><span class="stat-label">TB5-WORK (extern)</span></div>
 </div>
@@ -110,9 +110,9 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Modell</td><td>Apple Mac Studio M3 Ultra</td></tr>
 <tr><td>Unified Memory</td><td>256 GB (LLM + System + Chemie ohne Konflikt)</td></tr>
 <tr><td>GPU</td><td>80-core (MPS-Beschleunigung für ML-Tools)</td></tr>
-<tr><td>CPU</td><td>24-core (16 Performance + 8 Efficiency)</td></tr>
-<tr><td>Betriebssystem</td><td>macOS Sequoia</td></tr>
-<tr><td>Externer SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — hält DeepSeek V4 Flash GGUF (164 GB) und R1-671B (202 GB)</td></tr>
+<tr><td>CPU</td><td>32-core (24 Performance + 8 Efficiency)</td></tr>
+<tr><td>Betriebssystem</td><td>macOS Tahoe 26.6 (Build 25G72)</td></tr>
+<tr><td>Externer SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — hält DeepSeek V4 Flash GGUF (153 GB) und R1-671B (202 GB)</td></tr>
 <tr><td>Memory Stick</td><td>/Volumes/CLAUDE-DATA — Backup, Bridge-Dateien, Session-Logs, Projekt-Persistenz</td></tr>
 </tbody></table></div>
 <p>RAM-Beschränkung: <code>MAX_LOADED_MODELS=1</code>, <code>NUM_PARALLEL=1</code> — DSV4 (~164 GB) + qwen3:235b (~142 GB) = 306 GB &gt; 256 GB. Deshalb strikt sequenzieller Betrieb.</p>
@@ -121,7 +121,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <div class="stat-grid">
   <div class="stat-card"><span class="stat-num">256 GB</span><span class="stat-label">Unified Memory</span></div>
   <div class="stat-card"><span class="stat-num">80-core</span><span class="stat-label">Apple GPU (M3 Ultra)</span></div>
-  <div class="stat-card"><span class="stat-num">24-core</span><span class="stat-label">CPU (16P + 8E)</span></div>
+  <div class="stat-card"><span class="stat-num">32-core</span><span class="stat-label">CPU (24P + 8E)</span></div>
   <div class="stat-card"><span class="stat-num">2 TB</span><span class="stat-label">Internal SSD</span></div>
   <div class="stat-card"><span class="stat-num">4 TB</span><span class="stat-label">TB5-WORK (external)</span></div>
 </div>
@@ -131,9 +131,9 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Model</td><td>Apple Mac Studio M3 Ultra</td></tr>
 <tr><td>Unified Memory</td><td>256 GB (LLM + system + chemistry without conflict)</td></tr>
 <tr><td>GPU</td><td>80-core (MPS acceleration for ML tools)</td></tr>
-<tr><td>CPU</td><td>24-core (16 Performance + 8 Efficiency)</td></tr>
-<tr><td>Operating System</td><td>macOS Sequoia</td></tr>
-<tr><td>External SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — holds DeepSeek V4 Flash GGUF (164 GB) and R1-671B (202 GB)</td></tr>
+<tr><td>CPU</td><td>32-core (24 Performance + 8 Efficiency)</td></tr>
+<tr><td>Operating System</td><td>macOS Tahoe 26.6 (Build 25G72)</td></tr>
+<tr><td>External SSD</td><td>4 TB OWC Aura Pro IV NVMe via Thunderbolt 5 (TB5-WORK) — holds DeepSeek V4 Flash GGUF (153 GB) and R1-671B (202 GB)</td></tr>
 <tr><td>Memory stick</td><td>/Volumes/CLAUDE-DATA — backup, bridge files, session logs, project persistence</td></tr>
 </tbody></table></div>
 <p>RAM constraint: <code>MAX_LOADED_MODELS=1</code>, <code>NUM_PARALLEL=1</code> — DSV4 (~164 GB) + qwen3:235b (~142 GB) = 306 GB > 256 GB. Strictly sequential operation therefore.</p>
@@ -151,10 +151,10 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <thead><tr><th>Modell</th><th>Größe</th><th>Rolle / Routing</th></tr></thead>
 <tbody>
 <tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — komplexe Analyse, Philosophie, Mathematik-Synthese</td></tr>
-<tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K Kontext-Fenster — lange Dokumente, Corpus-Ingestion (Port 8888)</td></tr>
-<tr><td>GLM-5.2 (Z.ai)</td><td>~230 GB (Unsloth UD-IQ2_M)</td><td>Coding-/Agentic-Spezialist — 744B MoE, 40B aktiv, 1M-Kontext, eigener llama-server (Port 8890); wechselt sich mit DSV4 automatisch ab (Speicherkonflikt-Vermeidung)</td></tr>
+<tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~153 GB MoE</td><td>256K Kontext-Fenster — lange Dokumente, Corpus-Ingestion (Port 8888)</td></tr>
+<tr><td>GLM-5.2 (Z.ai)</td><td>~239 GB (Unsloth UD-IQ2_M)</td><td>Coding-/Agentic-Spezialist — 744B MoE, 40B aktiv, 1M-Kontext, eigener llama-server (Port 8890); wechselt sich mit DSV4 automatisch ab (Speicherkonflikt-Vermeidung)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarielle Prüfung, Chain-of-Thought, formale Verifikation</td></tr>
-<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 Shards)</td><td>Hochqualitäts-Reasoning, llama-server 9650 Port 8889 (~23 tok/s) — Flagship für Critic/Comparator in komitee_bewertung; auf TB5-WORK</td></tr>
+<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 Shards)</td><td>Hochqualitäts-Reasoning, llama-server (Build 9650), Port 8889 (~23 tok/s) — Flagship für Critic/Comparator in komitee_bewertung; auf TB5-WORK</td></tr>
 
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Schnelle All-Purpose, Routing-Interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K Kontext, MTP-Spekulation (~80 tok/s)</td></tr>
@@ -164,7 +164,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>llama-guard3:8b</td><td>4.9 GB</td><td>Safety-Klassifikator</td></tr>
 </tbody></table></div>
 <h3>DeepSeek V4 Flash (DSV4) — separater llama-server</h3>
-<p>284B MoE, 153 GB GGUF, gemischte Quantisierung (Q4KExperts/F16HC), auf TB5-WORK. Eigener llama-server 9650 auf Port 8888 — <strong>256K Kontext</strong>, 99 GPU-Lagen. Automatisch via Router für sehr lange Eingaben (&gt;400-Token-Komplexitätsschwelle) gestartet.</p>
+<p>284B MoE, 153 GB GGUF, gemischte Quantisierung (Q4KExperts/F16HC), auf TB5-WORK. Eigener llama-server (Build 9650) auf Port 8888 — <strong>256K Kontext</strong>, 99 GPU-Lagen. Automatisch via Router für sehr lange Eingaben (&gt;400-Token-Komplexitätsschwelle) gestartet.</p>
 <h3>GLM-5.2 (Z.ai) — dedizierter llama-server</h3>
 <p>744B MoE, 40B aktiv, Unsloth UD-IQ2_M (239 GB GGUF), auf TB5-WORK. Eigener llama-server auf Port 8890 — <strong>ctx-size 16384</strong> (praktischer Sweet Spot, architektonisch bis 1M möglich), 999 GPU-Lagen mit CPU-Offload der MoE-Experten-Gewichte (Metal-Speicherlimit). Startet automatisch per <code>nimm glm52</code> oder wenn das semantische Auto-Routing eine komplexe Coding-/Agentic-Aufgabe erkennt; stoppt dabei automatisch DSV4 (Speicherkonflikt-Vermeidung, ~230 GB RSS).</p>
 <h3>MLX-LM 0.31.3 — Apple-Silicon-nativer Inferenz-Layer</h3>
@@ -175,10 +175,10 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <thead><tr><th>Model</th><th>Size</th><th>Role / Routing</th></tr></thead>
 <tbody>
 <tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — complex analysis, philosophy, mathematics synthesis</td></tr>
-<tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~164 GB MoE</td><td>256K context window — long documents, corpus ingestion (port 8888)</td></tr>
-<tr><td>GLM-5.2 (Z.ai)</td><td>~230 GB (Unsloth UD-IQ2_M)</td><td>Coding/agentic specialist — 744B MoE, 40B active, 1M context, dedicated llama-server (port 8890); automatically alternates with DSV4 (memory-conflict avoidance)</td></tr>
+<tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~153 GB MoE</td><td>256K context window — long documents, corpus ingestion (port 8888)</td></tr>
+<tr><td>GLM-5.2 (Z.ai)</td><td>~239 GB (Unsloth UD-IQ2_M)</td><td>Coding/agentic specialist — 744B MoE, 40B active, 1M context, dedicated llama-server (port 8890); automatically alternates with DSV4 (memory-conflict avoidance)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarial checking, chain-of-thought, formal verification</td></tr>
-<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 shards)</td><td>High-quality reasoning, llama-server 9650 port 8889 (~23 tok/s) — flagship for Critic/Comparator in komitee_bewertung; on TB5-WORK</td></tr>
+<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 shards)</td><td>High-quality reasoning, llama-server (build 9650), port 8889 (~23 tok/s) — flagship for Critic/Comparator in komitee_bewertung; on TB5-WORK</td></tr>
 
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Fast all-purpose, routing interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K context, MTP speculation (~80 tok/s)</td></tr>
@@ -188,7 +188,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>llama-guard3:8b</td><td>4.9 GB</td><td>Safety classifier</td></tr>
 </tbody></table></div>
 <h3>DeepSeek V4 Flash (DSV4) — dedicated llama-server</h3>
-<p>284B MoE, 153 GB GGUF, mixed quantization (Q4KExperts/F16HC), on TB5-WORK. Dedicated llama-server 9650 on port 8888 — <strong>256K context</strong>, 99 GPU layers. Automatically started via router for very long inputs (&gt;400-token complexity threshold).</p>
+<p>284B MoE, 153 GB GGUF, mixed quantization (Q4KExperts/F16HC), on TB5-WORK. Dedicated llama-server (build 9650) on port 8888 — <strong>256K context</strong>, 99 GPU layers. Automatically started via router for very long inputs (&gt;400-token complexity threshold).</p>
 <h3>GLM-5.2 (Z.ai) — dedicated llama-server</h3>
 <p>744B MoE, 40B active, Unsloth UD-IQ2_M (239 GB GGUF), on TB5-WORK. Dedicated llama-server on port 8890 — <strong>ctx-size 16384</strong> (practical sweet spot, architecturally up to 1M possible), 999 GPU layers with CPU offload of MoE expert weights (Metal memory limit). Auto-starts via <code>nimm glm52</code> or when semantic auto-routing detects a complex coding/agentic task; automatically stops DSV4 in the process (memory-conflict avoidance, ~230 GB RSS).</p>
 <h3>MLX-LM 0.31.3 — Apple Silicon native inference layer</h3>
