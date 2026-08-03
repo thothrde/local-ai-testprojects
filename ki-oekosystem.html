@@ -152,9 +152,9 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tbody>
 <tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — komplexe Analyse, Philosophie, Mathematik-Synthese</td></tr>
 <tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~153 GB MoE</td><td>256K Kontext-Fenster — lange Dokumente, Corpus-Ingestion (Port 8888)</td></tr>
-<tr><td>GLM-5.2 (Z.ai)</td><td>~239 GB (Unsloth UD-IQ2_M)</td><td>Coding-/Agentic-Spezialist — 744B MoE, 40B aktiv, 1M-Kontext, eigener llama-server (Port 8890); wechselt sich mit DSV4 automatisch ab (Speicherkonflikt-Vermeidung)</td></tr>
+<tr><td>GLM-5.2 (Z.ai)</td><td>~239 GB (Unsloth UD-IQ2_M)</td><td>Coding-/Agentic-Spezialist — 744B MoE, 40B aktiv, 1M-Kontext (Architektur) / 16K konfiguriert, eigener llama-server (Port 8890); wechselt sich mit DSV4 automatisch ab (Speicherkonflikt-Vermeidung)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarielle Prüfung, Chain-of-Thought, formale Verifikation</td></tr>
-<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 Shards)</td><td>Hochqualitäts-Reasoning, llama-server (Build 9650), Port 8889 (~23 tok/s) — Flagship für Critic/Comparator in komitee_bewertung; auf TB5-WORK</td></tr>
+<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 Shards)</td><td>Mehrstufige Analyse, Critic/Comparator-Rolle, llama-server (Build 9650), Port 8889 (~23 tok/s) — Flagship für Critic/Comparator in komitee_bewertung; auf TB5-WORK</td></tr>
 
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Schnelle All-Purpose, Routing-Interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K Kontext, MTP-Spekulation (~80 tok/s)</td></tr>
@@ -176,9 +176,9 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tbody>
 <tr><td>qwen3:235b-a22b</td><td>142 GB MoE</td><td>Flagship — complex analysis, philosophy, mathematics synthesis</td></tr>
 <tr><td>DeepSeek-V4-Flash (DSV4)</td><td>~153 GB MoE</td><td>256K context window — long documents, corpus ingestion (port 8888)</td></tr>
-<tr><td>GLM-5.2 (Z.ai)</td><td>~239 GB (Unsloth UD-IQ2_M)</td><td>Coding/agentic specialist — 744B MoE, 40B active, 1M context, dedicated llama-server (port 8890); automatically alternates with DSV4 (memory-conflict avoidance)</td></tr>
+<tr><td>GLM-5.2 (Z.ai)</td><td>~239 GB (Unsloth UD-IQ2_M)</td><td>Coding/agentic specialist — 744B MoE, 40B active, 1M context (architecture) / 16K configured, dedicated llama-server (port 8890); automatically alternates with DSV4 (memory-conflict avoidance)</td></tr>
 <tr><td>deepseek-r1:70b</td><td>~45 GB</td><td>Adversarial checking, chain-of-thought, formal verification</td></tr>
-<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 shards)</td><td>High-quality reasoning, llama-server (build 9650), port 8889 (~23 tok/s) — flagship for Critic/Comparator in komitee_bewertung; on TB5-WORK</td></tr>
+<tr><td>DeepSeek-R1-0528-671B</td><td>202 GB (UD-IQ2_XXS, 5 shards)</td><td>Multi-step analysis, critic/comparator role, llama-server (build 9650), port 8889 (~23 tok/s) — flagship for Critic/Comparator in komitee_bewertung; on TB5-WORK</td></tr>
 
 <tr><td>qwen3.6:35b-a3b</td><td>~23 GB MoE</td><td>Fast all-purpose, routing interpreter (~47 tok/s)</td></tr>
 <tr><td>gemma4:26b</td><td>~17 GB</td><td>Multimodal, 256K context, MTP speculation (~80 tok/s)</td></tr>
@@ -205,7 +205,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
   <div class="lang-de">
 <p>FastAPI-Middleware auf Port 11435 (<code>~/llm_router/llm_proxy.py</code>). Jede Anfrage von Open WebUI und allen anderen Clients läuft ausschließlich über diesen Proxy.</p>
 <p><strong>Zweistufiges Routing:</strong> Stufe 1 — regelbasierter Dispatcher (Domain-Keywords, Token-Länge, &lt;1 ms). Stufe 2 (ambig) — L1-Reformulator (kleineres LLM klassifiziert Absicht).</p>
-<p><strong>Anti-Halluzinations-Protokoll:</strong> P4-Struktur in allen epistemischen Prompts. <strong>Synthegy-Evaluator:</strong> Jede Antwort durch separates Evaluator-LLM (Genauigkeit 1–5, Fundierung 1–5).</p>
+<p><strong>Anti-Halluzinations-Protokoll:</strong> P4-Struktur in allen epistemischen Prompts. <strong>Synthegy-Evaluator:</strong> Jede Antwort durch separates Evaluator-LLM (Genauigkeit 1–5, Fundierung 1–5). Synthegy ist ein lokales, LLM-basiertes Bewertungsverfahren; die Scores sind heuristische Qualitätsschätzungen, keine unabhängige Wahrheitsprüfung.</p>
 <div class="table-wrap"><table>
 <thead><tr><th>Quelle</th><th>Zweck</th><th>Timeout</th></tr></thead>
 <tbody>
@@ -217,10 +217,10 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>arXiv (lokal-zuerst)</td><td>Lokaler 2,4-Mio-Vektorstore (Port 7868, semantisch, ohne Rate-Limit), Fallback auf Live-API</td><td>&mdash;/25s</td></tr>
 </tbody></table></div>
 <p><strong>Spezialbefehle:</strong> /ensemble, /kreativ, /navigator, /destilliere, /speichere, /journal.</p>
-<div class="subsection"><h3>v3.5-Erweiterungen (Juni 2026)</h3><p><strong>Neue Befehle:</strong></p><ul><li><code>nimm 671b</code> — Tier-3-Route: DeepSeek R1-0528-671B (Port 8889)</li><li><code>/komitee &lt;Frage&gt;</code> — Drei-Modell-Komitee mit Tiefenkonsolidierung (Blind-Spot-Theorem)</li><li><code>/compute pari|sage|lean|julia: &lt;code&gt;</code> — Lokale CAS-Ausführung (PARI/GP, SageMath, Lean 4, Julia), Timeout 45 s</li><li><code>/lean &lt;code&gt;</code> — Lean 4 Type-Check mit LLM-Erklärung</li><li><code>/projekte</code> / <code>/projekt &lt;id&gt;</code> / <code>/projekt &lt;id&gt; :: &lt;notiz&gt;</code> — Forschungsprojekt-Zustandsanzeige und -verwaltung</li><li><code>/mathlib-changes</code> — Tagesaktuell: relevante Mathlib4-Commits (condensed/solid)</li><li><code>/scores</code> — Routing-Qualitäts-Scores (Synthegy-Feedback-Loop)</li></ul><p><strong>Automatisch aktive Module:</strong></p><ul><li><strong>DMP Slow State</strong> (20 Dim, 5 Features × 4 Timescales, JSON-Persistenz): Sitzungsprofil, injiziert ab ca. 3 Exchanges, 8 h TTL.</li><li><strong>Modus-Modulator</strong>: erkennt BEWEIS- / VERIFIZIERUNGS- / ERKUNDUNGS-MODUS aus Query-Signalen.</li><li><strong>Query-Expansion</strong>: Bibliothekssuche generiert Synonym-Terme via qwen3.6 für besseres Retrieval.</li><li><strong>Score-Tracking</strong>: Synthegy-Qualitätsscores per Modell × Domäne, Upgrade-Vorschlag ab Score &lt; 3,0.</li><li><strong>C1 Session-End-Hook</strong> (dreischichtig): <code>/speichere</code> → Projekt-Extraktion; TTL-Ablauf → Harvest-Queue; Session-Harvester alle 30 Min → <code>projekt_zustand.json</code>.</li></ul><p><strong>Drei neue LaunchAgents:</strong></p><ul><li><code>com.autarkdata.claudedata-backup</code> — täglich 03:00, CLAUDE-DATA → TB5-WORK (rsync)</li><li><code>com.autarkdata.mathlib4-watcher</code> — täglich 07:30, Mathlib4-Commits → <code>mathlib4_changes.txt</code></li><li><code>com.autarkdata.session-harvester</code> — alle 30 Min, WebUI-DB → <code>projekt_zustand.json</code></li></ul></div><div class="subsection"><h3>v3.10-Erweiterungen (Juli 2026)</h3><p><strong>Neues Modell:</strong></p><ul><li><code>nimm glm52</code> — GLM-5.2 (Z.ai, MIT-Lizenz, 744B MoE / 40B aktiv, 1M-Kontext) — Coding-/Agentic-Spezialist, eigener llama-server (Port 8890), automatischer Start via LaunchAgent bei Bedarf.</li><li>Auch automatisch waehlbar: das semantische Auto-Routing erkennt komplexe Coding-/Agentic-Aufgaben und routet ohne Schluesselwort auf GLM-5.2.</li></ul><p><strong>Zuverlaessigkeits-Fixes:</strong></p><ul><li>DSV4-LaunchAgent repariert — automatischer Neustart bei Ausfall funktioniert jetzt tatsaechlich (war zuvor unbemerkt inaktiv).</li><li>Automatische wechselseitige Speicherkonflikt-Aufloesung zwischen DSV4 und GLM-5.2 (jeweils vor dem eigenen Start wird das andere Modell automatisch gestoppt) — beide Richtungen live verifiziert.</li></ul></div><div class="subsection"><h3>August-2026-Ergänzungen</h3><p><strong>Neue CAS-Integration:</strong></p><ul><li><strong>Macaulay2</strong> — als CAS-Backend in den Router integriert (<code>/compute macaulay2: &lt;code&gt;</code>), analog zu PARI/GP, SageMath, Lean 4 und Julia.</li><li><strong>Verifizierte Aussagen zu elliptischen Kurven</strong> — neue Routerfunktion, die Behauptungen zu elliptischen Kurven nicht vom LLM behaupten, sondern per CAS nachrechnen und bestätigen lässt, bevor sie ausgegeben werden.</li></ul></div>
+<div class="subsection"><h3>v3.5-Erweiterungen (Juni 2026)</h3><p><strong>Neue Befehle:</strong></p><ul><li><code>nimm 671b</code> — Tier-3-Route: DeepSeek R1-0528-671B (Port 8889)</li><li><code>/komitee &lt;Frage&gt;</code> — Drei-Modell-Komitee mit Tiefenkonsolidierung (Blind-Spot-Theorem)</li><li><code>/compute pari|sage|lean|julia: &lt;code&gt;</code> — Lokale CAS-Ausführung (PARI/GP, SageMath, Lean 4, Julia), Timeout 45 s</li><li><code>/lean &lt;code&gt;</code> — Lean 4 Type-Check mit LLM-Erklärung</li><li><code>/projekte</code> / <code>/projekt &lt;id&gt;</code> / <code>/projekt &lt;id&gt; :: &lt;notiz&gt;</code> — Forschungsprojekt-Zustandsanzeige und -verwaltung</li><li><code>/mathlib-changes</code> — Tagesaktuell: relevante Mathlib4-Commits (condensed/solid)</li><li><code>/scores</code> — Routing-Qualitäts-Scores (Synthegy-Feedback-Loop)</li></ul><p><strong>Automatisch aktive Module:</strong></p><ul><li><strong>DMP Slow State</strong> (20 Dim, 5 Features × 4 Timescales, JSON-Persistenz): Sitzungsprofil, injiziert ab ca. 3 Exchanges, 8 h TTL.</li><li><strong>Modus-Modulator</strong>: erkennt BEWEIS- / VERIFIZIERUNGS- / ERKUNDUNGS-MODUS aus Query-Signalen.</li><li><strong>Query-Expansion</strong>: Bibliothekssuche generiert Synonym-Terme via qwen3.6 für besseres Retrieval.</li><li><strong>Score-Tracking</strong>: Synthegy-Qualitätsscores per Modell × Domäne, Upgrade-Vorschlag ab Score &lt; 3,0.</li><li><strong>C1 Session-End-Hook</strong> (dreischichtig): <code>/speichere</code> → Projekt-Extraktion; TTL-Ablauf → Harvest-Queue; Session-Harvester alle 30 Min → <code>projekt_zustand.json</code>.</li></ul><p><strong>Drei neue LaunchAgents:</strong></p><ul><li><code>com.autarkdata.claudedata-backup</code> — täglich 03:00, CLAUDE-DATA → TB5-WORK (rsync)</li><li><code>com.autarkdata.mathlib4-watcher</code> — täglich 07:30, Mathlib4-Commits → <code>mathlib4_changes.txt</code></li><li><code>com.autarkdata.session-harvester</code> — alle 30 Min, WebUI-DB → <code>projekt_zustand.json</code></li></ul></div><div class="subsection"><h3>Erweiterungen (Juli 2026)</h3><p><strong>Neues Modell:</strong></p><ul><li><code>nimm glm52</code> — GLM-5.2 (Z.ai, MIT-Lizenz, 744B MoE / 40B aktiv, 1M-Kontext) — Coding-/Agentic-Spezialist, eigener llama-server (Port 8890), automatischer Start via LaunchAgent bei Bedarf.</li><li>Auch automatisch waehlbar: das semantische Auto-Routing erkennt komplexe Coding-/Agentic-Aufgaben und routet ohne Schluesselwort auf GLM-5.2.</li></ul><p><strong>Zuverlaessigkeits-Fixes:</strong></p><ul><li>DSV4-LaunchAgent repariert — automatischer Neustart bei Ausfall funktioniert jetzt tatsaechlich (war zuvor unbemerkt inaktiv).</li><li>Automatische wechselseitige Speicherkonflikt-Aufloesung zwischen DSV4 und GLM-5.2 (jeweils vor dem eigenen Start wird das andere Modell automatisch gestoppt) — beide Richtungen live verifiziert.</li></ul></div><div class="subsection"><h3>August-2026-Ergänzungen</h3><p><strong>Neue CAS-Integration:</strong></p><ul><li><strong>Macaulay2</strong> — als CAS-Backend in den Router integriert (<code>/compute macaulay2: &lt;code&gt;</code>), analog zu PARI/GP, SageMath, Lean 4 und Julia.</li><li><strong>Verifizierte Aussagen zu elliptischen Kurven</strong> — neue Routerfunktion, die Behauptungen zu elliptischen Kurven nicht vom LLM behaupten, sondern per CAS nachrechnen und bestätigen lässt, bevor sie ausgegeben werden.</li></ul></div>
 </div>
   <div class="lang-en" style="display:none">
-<p>FastAPI middleware on port 11435. Two-stage routing: Stage 1 — rule-based dispatcher (&lt;1 ms). Stage 2 — L1 reformulator. Anti-hallucination: P4 structure + Synthegy evaluator.</p>
+<p>FastAPI middleware on port 11435. Two-stage routing: Stage 1 — rule-based dispatcher (&lt;1 ms). Stage 2 — L1 reformulator. Anti-hallucination: P4 structure + Synthegy evaluator (local LLM-based scoring; heuristic quality estimate, not independent truth verification).</p>
 <div class="table-wrap"><table>
 <thead><tr><th>Source</th><th>Purpose</th><th>Timeout</th></tr></thead>
 <tbody>
@@ -231,7 +231,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>Open Library</td><td>Books</td><td>12s</td></tr>
 <tr><td>arXiv (local-first)</td><td>Local 2.4M vector store (port 7868, semantic, no rate limit), fallback to live API</td><td>&mdash;/25s</td></tr>
 </tbody></table></div>
-<div class="subsection"><h3>v3.5 Extensions (June 2026)</h3><p><strong>New commands:</strong></p><ul><li><code>nimm 671b</code> — Tier-3 route: DeepSeek R1-0528-671B (port 8889)</li><li><code>/komitee &lt;question&gt;</code> — Three-model committee with deep consolidation (Blind-Spot Theorem)</li><li><code>/compute pari|sage|lean|julia: &lt;code&gt;</code> — Local CAS execution (PARI/GP, SageMath, Lean 4, Julia), 45 s timeout</li><li><code>/lean &lt;code&gt;</code> — Lean 4 type-check with LLM explanation</li><li><code>/projekte</code> / <code>/projekt &lt;id&gt;</code> / <code>/projekt &lt;id&gt; :: &lt;note&gt;</code> — Research project state display and management</li><li><code>/mathlib-changes</code> — Daily: relevant Mathlib4 commits (condensed/solid)</li><li><code>/scores</code> — Routing quality scores (Synthegy feedback loop)</li></ul><p><strong>Automatically active modules:</strong></p><ul><li><strong>DMP Slow State</strong> (20 dims, 5 features × 4 timescales, JSON persistence): session profile, auto-injected from ~3 exchanges, 8 h TTL.</li><li><strong>Mode Modulator</strong>: detects PROOF / VERIFICATION / EXPLORATION mode from query signals.</li><li><strong>Query Expansion</strong>: library search generates synonym terms via qwen3.6 for better retrieval coverage.</li><li><strong>Score Tracking</strong>: Synthegy quality scores per model × domain, upgrade suggestion if score &lt; 3.0.</li><li><strong>C1 Session-End Hook</strong> (three layers): <code>/speichere</code> → project extraction; session TTL expiry → harvest queue; harvester every 30 min → <code>projekt_zustand.json</code>.</li></ul><p><strong>Three new LaunchAgents:</strong></p><ul><li><code>com.autarkdata.claudedata-backup</code> — daily 03:00, CLAUDE-DATA → TB5-WORK (rsync)</li><li><code>com.autarkdata.mathlib4-watcher</code> — daily 07:30, Mathlib4 commits → <code>mathlib4_changes.txt</code></li><li><code>com.autarkdata.session-harvester</code> — every 30 min, WebUI DB → <code>projekt_zustand.json</code></li></ul></div><div class="subsection"><h3>v3.10 Extensions (July 2026)</h3><p><strong>New model:</strong></p><ul><li><code>nimm glm52</code> — GLM-5.2 (Z.ai, MIT license, 744B MoE / 40B active, 1M context) — coding/agentic specialist, dedicated llama-server (port 8890), auto-starts via LaunchAgent on demand.</li><li>Also auto-selectable: semantic auto-routing detects complex coding/agentic tasks and routes to GLM-5.2 without a keyword.</li></ul><p><strong>Reliability fixes:</strong></p><ul><li>DSV4 LaunchAgent repaired — automatic restart on failure now actually works (was previously silently inactive).</li><li>Automatic mutual memory-conflict resolution between DSV4 and GLM-5.2 (each stops the other before starting) — both directions live-verified.</li></ul></div><div class="subsection"><h3>August 2026 Additions</h3><p><strong>New CAS integration:</strong></p><ul><li><strong>Macaulay2</strong> — integrated into the router as a CAS backend (<code>/compute macaulay2: &lt;code&gt;</code>), alongside PARI/GP, SageMath, Lean 4, and Julia.</li><li><strong>Verified elliptic-curve claims</strong> — new router function that has claims about elliptic curves checked and confirmed by the CAS itself rather than asserted by the LLM, before they are returned.</li></ul></div>
+<div class="subsection"><h3>v3.5 Extensions (June 2026)</h3><p><strong>New commands:</strong></p><ul><li><code>nimm 671b</code> — Tier-3 route: DeepSeek R1-0528-671B (port 8889)</li><li><code>/komitee &lt;question&gt;</code> — Three-model committee with deep consolidation (Blind-Spot Theorem)</li><li><code>/compute pari|sage|lean|julia: &lt;code&gt;</code> — Local CAS execution (PARI/GP, SageMath, Lean 4, Julia), 45 s timeout</li><li><code>/lean &lt;code&gt;</code> — Lean 4 type-check with LLM explanation</li><li><code>/projekte</code> / <code>/projekt &lt;id&gt;</code> / <code>/projekt &lt;id&gt; :: &lt;note&gt;</code> — Research project state display and management</li><li><code>/mathlib-changes</code> — Daily: relevant Mathlib4 commits (condensed/solid)</li><li><code>/scores</code> — Routing quality scores (Synthegy feedback loop)</li></ul><p><strong>Automatically active modules:</strong></p><ul><li><strong>DMP Slow State</strong> (20 dims, 5 features × 4 timescales, JSON persistence): session profile, auto-injected from ~3 exchanges, 8 h TTL.</li><li><strong>Mode Modulator</strong>: detects PROOF / VERIFICATION / EXPLORATION mode from query signals.</li><li><strong>Query Expansion</strong>: library search generates synonym terms via qwen3.6 for better retrieval coverage.</li><li><strong>Score Tracking</strong>: Synthegy quality scores per model × domain, upgrade suggestion if score &lt; 3.0.</li><li><strong>C1 Session-End Hook</strong> (three layers): <code>/speichere</code> → project extraction; session TTL expiry → harvest queue; harvester every 30 min → <code>projekt_zustand.json</code>.</li></ul><p><strong>Three new LaunchAgents:</strong></p><ul><li><code>com.autarkdata.claudedata-backup</code> — daily 03:00, CLAUDE-DATA → TB5-WORK (rsync)</li><li><code>com.autarkdata.mathlib4-watcher</code> — daily 07:30, Mathlib4 commits → <code>mathlib4_changes.txt</code></li><li><code>com.autarkdata.session-harvester</code> — every 30 min, WebUI DB → <code>projekt_zustand.json</code></li></ul></div><div class="subsection"><h3>Extensions (July 2026)</h3><p><strong>New model:</strong></p><ul><li><code>nimm glm52</code> — GLM-5.2 (Z.ai, MIT license, 744B MoE / 40B active, 1M context) — coding/agentic specialist, dedicated llama-server (port 8890), auto-starts via LaunchAgent on demand.</li><li>Also auto-selectable: semantic auto-routing detects complex coding/agentic tasks and routes to GLM-5.2 without a keyword.</li></ul><p><strong>Reliability fixes:</strong></p><ul><li>DSV4 LaunchAgent repaired — automatic restart on failure now actually works (was previously silently inactive).</li><li>Automatic mutual memory-conflict resolution between DSV4 and GLM-5.2 (each stops the other before starting) — both directions live-verified.</li></ul></div><div class="subsection"><h3>August 2026 Additions</h3><p><strong>New CAS integration:</strong></p><ul><li><strong>Macaulay2</strong> — integrated into the router as a CAS backend (<code>/compute macaulay2: &lt;code&gt;</code>), alongside PARI/GP, SageMath, Lean 4, and Julia.</li><li><strong>Verified elliptic-curve claims</strong> — new router function that has claims about elliptic curves checked and confirmed by the CAS itself rather than asserted by the LLM, before they are returned.</li></ul></div>
 </div>
 </div>
 </section>
@@ -428,14 +428,77 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
     <span class="lang-de">Systemarchitektur: Verbindungsstruktur</span>
     <span class="lang-en" style="display:none">System Architecture: Connection Structure</span>
   </h2>
-  <div class="lang-de">
+  <div style="margin:1.5rem 0 2.5rem;background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:1.4rem 1.2rem">
+<svg viewBox="0 0 900 470" style="width:100%;height:auto;display:block" role="img" aria-label="Architekturschema: Router-Proxy verbindet Modelle, Retrieval und CAS/Verifier mit persistentem Projektzustand; externe Dienste sind optional und getrennt gekennzeichnet.">
+<style>
+  .db-box{fill:var(--bg3);stroke-width:1.4}
+  .db-local{stroke:var(--green)}
+  .db-hub{stroke:var(--gold)}
+  .db-state{stroke:var(--gold2)}
+  .db-ext{stroke:var(--amber);stroke-dasharray:4 3}
+  .db-line{stroke:var(--rule);stroke-width:1.3;fill:none}
+  .db-line-ext{stroke:var(--amber);stroke-width:1.3;stroke-dasharray:4 3;fill:none}
+  .db-t{font-family:var(--sans);fill:var(--fg);font-size:12px;font-weight:600;text-anchor:middle}
+  .db-t2{font-family:var(--sans);fill:var(--fg-dim);font-size:9.5px;text-anchor:middle}
+  .db-t-ext{font-family:var(--sans);fill:var(--amber);font-size:12px;font-weight:600;text-anchor:middle}
+  .db-leg{font-family:var(--sans);fill:var(--fg-dim);font-size:10px}
+</style>
+<line x1="450" y1="61" x2="450" y2="95" class="db-line"/>
+<rect x="330" y="15" width="240" height="46" rx="6" class="db-box db-local"/>
+<text x="450" y="34" class="db-t">Clients</text>
+<text x="450" y="50" class="db-t2">Open WebUI &#183; Aider &#183; CLI</text>
+<line x1="450" y1="150" x2="125" y2="190" class="db-line"/>
+<line x1="450" y1="150" x2="345" y2="190" class="db-line"/>
+<line x1="450" y1="150" x2="565" y2="190" class="db-line"/>
+<rect x="300" y="95" width="300" height="55" rx="6" class="db-box db-hub"/>
+<text x="450" y="118" class="db-t" style="fill:var(--gold)">Router-Proxy</text>
+<text x="450" y="136" class="db-t2">Port 11435 &#183; Routing &#183; Synthegy</text>
+<rect x="30" y="190" width="190" height="95" rx="6" class="db-box db-local"/>
+<text x="125" y="211" class="db-t">Modelle</text>
+<text x="125" y="229" class="db-t2">Ollama &#183; llama.cpp</text>
+<text x="125" y="244" class="db-t2">qwen3 &#183; DSV4</text>
+<text x="125" y="259" class="db-t2">GLM-5.2 &#183; R1-671B</text>
+<text x="125" y="274" class="db-t2" style="fill:var(--green)">alle lokal</text>
+<rect x="250" y="190" width="190" height="95" rx="6" class="db-box db-local"/>
+<text x="345" y="211" class="db-t">Retrieval</text>
+<text x="345" y="229" class="db-t2">LanceDB &#183; Neo4j</text>
+<text x="345" y="244" class="db-t2">lokales arXiv (7868)</text>
+<text x="345" y="259" class="db-t2">BGE-M3 Embeddings</text>
+<text x="345" y="274" class="db-t2" style="fill:var(--green)">alle lokal</text>
+<rect x="470" y="190" width="190" height="95" rx="6" class="db-box db-local"/>
+<text x="565" y="211" class="db-t">CAS / Verifier</text>
+<text x="565" y="229" class="db-t2">SageMath &#183; Lean 4</text>
+<text x="565" y="244" class="db-t2">PARI/GP &#183; Julia</text>
+<text x="565" y="259" class="db-t2">Macaulay2</text>
+<text x="565" y="274" class="db-t2" style="fill:var(--green)">alle lokal</text>
+<line x1="440" y1="238" x2="690" y2="238" class="db-line-ext"/>
+<rect x="690" y="190" width="190" height="95" rx="6" class="db-box db-ext"/>
+<text x="785" y="211" class="db-t-ext">Externe Dienste</text>
+<text x="785" y="226" class="db-t2" style="fill:var(--amber)">(optional)</text>
+<text x="785" y="243" class="db-t2">SearXNG &#183; Wikipedia</text>
+<text x="785" y="258" class="db-t2">CORE &#183; OpenAlex</text>
+<text x="785" y="273" class="db-t2">arXiv-Live-API</text>
+<line x1="125" y1="285" x2="125" y2="345" class="db-line"/>
+<line x1="345" y1="285" x2="345" y2="345" class="db-line"/>
+<line x1="565" y1="285" x2="565" y2="345" class="db-line"/>
+<rect x="30" y="345" width="630" height="68" rx="6" class="db-box db-state"/>
+<text x="345" y="373" class="db-t" style="fill:var(--gold2)">Projektzustand &#183; Review-Memory</text>
+<text x="345" y="393" class="db-t2">Context-State-Condenser &#183; Forschungsgraph &#183; Neo4j Slow Memory</text>
+<rect x="250" y="440" width="20" height="13" rx="2" fill="var(--bg3)" stroke="var(--green)" stroke-width="1.4"/>
+<text x="278" y="450" class="db-leg">vollst&#228;ndig lokal</text>
+<rect x="470" y="440" width="20" height="13" rx="2" fill="var(--bg3)" stroke="var(--amber)" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="498" y="450" class="db-leg">optional &#8212; verl&#228;sst den Rechner</text>
+</svg>
+<p style="font-family:var(--sans);font-size:.72rem;color:var(--fg-dim);text-align:center;margin-top:.9rem;letter-spacing:.02em">Vereinfachtes Verbindungsschema &#183; Details siehe Tabelle unten</p>
+</div>
+<div class="lang-de">
 <div class="table-wrap"><table>
 <thead><tr><th>Dienst</th><th>Port</th><th>Funktion</th></tr></thead>
 <tbody>
 <tr><td>LLM-Router-Proxy</td><td>11435</td><td>Zentrale Middleware, Routing, Synthegy</td></tr>
 <tr><td>Ollama</td><td>11434</td><td>Modell-Backend (9 Modelle)</td></tr>
-<tr><td>DSV4 llama-server 9650</td><td>8888</td><td>DeepSeek V4 Flash, 256K Kontext</td></tr>
-<tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, Hochqualitäts-Reasoning (~23 tok/s)</td></tr>
+<tr><td>DSV4 llama-server (Build 9650)</td><td>8888</td><td>DeepSeek V4 Flash, 256K Kontext</td></tr>
+<tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, mehrstufige Analyse, Critic/Comparator-Rolle (~23 tok/s)</td></tr>
 <tr><td>Open WebUI 0.9.6</td><td>3002</td><td>Chat-Interface, 28 Python-Tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Lokale Suche</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta-Suchmaschine</td></tr>
@@ -445,7 +508,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>ComfyUI (SDXL)</td><td>8188</td><td>Bildgenerierung on-device (SDXL Base 1.0; FLUX.1-dev entfernt); On-Demand, kein Dauerdienst</td></tr>
 <tr><td>Draw Things</td><td>1.20260520</td><td>Weitere Bildgenerierung on-device (SDXL); vollständig lokal; On-Demand, kein Dauerdienst</td></tr>
 <tr><td>Lean 4 Verifier</td><td>Lokal</td><td>lake build für Mathlib-PRs</td></tr>
-<tr><td>Master-Orchestrator</td><td>LaunchAgent (manueller Start)</td><td>21 Projekte, 100 Phasen automatisch; zuletzt aktiv 10. Juni 2026</td></tr>
+<tr><td>Master-Orchestrator</td><td>On-Demand (LaunchAgent, manueller Start)</td><td>Verwaltet 21 Projektdefinitionen mit 100 Workflow-Phasen; zuletzt produktiv eingesetzt 10. Juni 2026</td></tr>
 </tbody></table></div>
 
 <h3>Developer- &amp; Build-Tools</h3>
@@ -471,7 +534,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>LLM Router Proxy</td><td>11435</td><td>Central middleware, routing, Synthegy</td></tr>
 <tr><td>Ollama</td><td>11434</td><td>Model backend (9 models)</td></tr>
 <tr><td>DSV4 llama-server</td><td>8888</td><td>DeepSeek V4 Flash, 256K context</td></tr>
-<tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, high-quality reasoning (~23 tok/s)</td></tr>
+<tr><td>R1-671B llama-server</td><td>8889</td><td>DeepSeek-R1-0528-671B, multi-step analysis, critic/comparator role (~23 tok/s)</td></tr>
 <tr><td>Open WebUI 0.9.6</td><td>3002</td><td>Chat interface, 28 Python tools</td></tr>
 <tr><td>Perplexica</td><td>3000</td><td>Local search</td></tr>
 <tr><td>SearXNG</td><td>8080</td><td>Meta search engine</td></tr>
@@ -481,7 +544,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>ComfyUI (SDXL)</td><td>8188</td><td>On-device image generation (SDXL Base 1.0; FLUX.1-dev removed); on-demand, not a persistent service</td></tr>
 <tr><td>Draw Things</td><td>1.20260520</td><td>Additional on-device image generation (SDXL); fully local; on-demand, not a persistent service</td></tr>
 <tr><td>Lean 4 Verifier</td><td>Local</td><td>lake build for Mathlib PRs</td></tr>
-<tr><td>Master Orchestrator</td><td>LaunchAgent (manual start)</td><td>21 projects, 100 phases automated; last active June 10, 2026</td></tr>
+<tr><td>Master Orchestrator</td><td>On-demand (LaunchAgent, manual start)</td><td>Manages 21 project definitions with 100 workflow phases; last used in production June 10, 2026</td></tr>
 </tbody></table></div>
 
 <h3>Developer &amp; Build Tools</h3>
