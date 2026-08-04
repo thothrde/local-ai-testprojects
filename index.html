@@ -39,11 +39,154 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 </style>
 <!-- NIMSTRING-STYLE:START -->
 <style>
-.nimstring-card{position:relative;overflow:hidden;margin:1.2rem 0 1.8rem;padding:1.35rem 1.45rem;border:1px solid rgba(111,224,197,.28);border-radius:18px;background:linear-gradient(135deg,rgba(111,224,197,.09),rgba(240,198,107,.055));box-shadow:0 18px 48px rgba(0,0,0,.16)}
-.nimstring-card:after{content:"";position:absolute;width:230px;height:230px;right:-85px;top:-110px;border-radius:50%;background:radial-gradient(circle,rgba(111,224,197,.18),transparent 68%);pointer-events:none}
-.nimstring-card h3{margin:.2rem 0 .55rem;font-size:1.25rem}.nimstring-card p{margin:.45rem 0;line-height:1.58;max-width:78ch}.nimstring-card .en{opacity:.72;font-size:.92em}.nimstring-card a{display:inline-flex;margin-top:.65rem;padding:.62rem .9rem;border-radius:10px;text-decoration:none;font-weight:700;border:1px solid rgba(111,224,197,.38)}
+  .nimstring-card{
+    position:relative;
+    overflow:hidden;
+    width:min(100%,1100px);
+    margin:.75rem auto 1.15rem;
+    padding:.95rem 1.1rem 1rem;
+    border:1px solid rgba(111,224,197,.30);
+    border-radius:14px;
+    background:linear-gradient(135deg,rgba(111,224,197,.075),rgba(240,198,107,.04));
+    box-shadow:0 12px 34px rgba(0,0,0,.14);
+    font-size:1rem !important;
+  }
+  .nimstring-card::after{
+    content:"";
+    position:absolute;
+    width:170px;
+    height:170px;
+    right:-70px;
+    top:-85px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(111,224,197,.15),transparent 68%);
+    pointer-events:none;
+  }
+  .nimstring-card .nimstring-kicker{
+    position:relative;
+    z-index:1;
+    margin:0 0 .34rem;
+    font-size:.68rem !important;
+    line-height:1.2 !important;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    opacity:.66;
+  }
+  .nimstring-card h3{
+    position:relative;
+    z-index:1;
+    margin:.1rem 0 .55rem !important;
+    font-size:1.28rem !important;
+    line-height:1.2 !important;
+  }
+  .nimstring-card .nimstring-copy{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.65rem 1.15rem;
+  }
+  .nimstring-card p{
+    margin:0 !important;
+    max-width:none !important;
+    font-size:.94rem !important;
+    line-height:1.46 !important;
+  }
+  .nimstring-card .en{opacity:.78}
+  .nimstring-card a{
+    position:relative;
+    z-index:1;
+    display:inline-flex;
+    align-items:center;
+    margin-top:.72rem;
+    padding:.52rem .78rem;
+    border:1px solid #b99de8;
+    border-radius:9px;
+    background:#eadfff;
+    color:#180a28 !important;
+    text-decoration:none !important;
+    font-size:.91rem !important;
+    font-weight:800 !important;
+    line-height:1.2 !important;
+    box-shadow:0 7px 20px rgba(73,35,116,.18);
+  }
+  .nimstring-card a:visited{color:#180a28 !important}
+  .nimstring-card a:hover{
+    background:#f4edff;
+    border-color:#d0bcf4;
+    color:#10061c !important;
+    transform:translateY(-1px);
+  }
+  @media(max-width:780px){
+    .nimstring-card{width:100%;padding:.9rem 1rem}
+    .nimstring-card .nimstring-copy{grid-template-columns:1fr}
+  }
 </style>
 <!-- NIMSTRING-STYLE:END -->
+
+<!-- NIMSTRING-CONTRAST-FIX:START -->
+<style>
+/*
+  High-specificity override: the surrounding site has a global
+  visited-link colour that otherwise turns this button purple.
+*/
+html body article#nimstring-laboratory a[href*="nimstring-laboratory"],
+html body article#nimstring-laboratory a[href*="nimstring-laboratory"]:link,
+html body article#nimstring-laboratory a[href*="nimstring-laboratory"]:visited,
+html body .nimstring-card a[href*="nimstring-laboratory"],
+html body .nimstring-card a[href*="nimstring-laboratory"]:link,
+html body .nimstring-card a[href*="nimstring-laboratory"]:visited {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 48px !important;
+  padding: 0.72rem 1.05rem !important;
+  border: 1px solid #88e9d0 !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #c8fff1 0%, #8ce8d0 100%) !important;
+  color: #06130f !important;
+  -webkit-text-fill-color: #06130f !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+}
+
+html body article#nimstring-laboratory a[href*="nimstring-laboratory"] *,
+html body .nimstring-card a[href*="nimstring-laboratory"] * {
+  color: #06130f !important;
+  -webkit-text-fill-color: #06130f !important;
+  text-shadow: none !important;
+}
+
+html body article#nimstring-laboratory a[href*="nimstring-laboratory"]:hover,
+html body article#nimstring-laboratory a[href*="nimstring-laboratory"]:focus-visible,
+html body .nimstring-card a[href*="nimstring-laboratory"]:hover,
+html body .nimstring-card a[href*="nimstring-laboratory"]:focus-visible {
+  background: #e2fff7 !important;
+  color: #020b08 !important;
+  -webkit-text-fill-color: #020b08 !important;
+  border-color: #b8f7e7 !important;
+  transform: translateY(-1px) !important;
+  box-shadow:
+    0 13px 30px rgba(0, 0, 0, 0.40),
+    0 0 0 3px rgba(111, 224, 197, 0.18) !important;
+}
+
+html body article#nimstring-laboratory a[href*="nimstring-laboratory"]:active,
+html body .nimstring-card a[href*="nimstring-laboratory"]:active {
+  transform: translateY(0) !important;
+  background: #8ce8d0 !important;
+  color: #020b08 !important;
+  -webkit-text-fill-color: #020b08 !important;
+}
+</style>
+<!-- NIMSTRING-CONTRAST-FIX:END -->
+
 </head>
 <body>
 <div class="wrapper">
@@ -135,11 +278,13 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <p class="lang-de"><strong>Typische Fälle der 20+ Testprojekte des Typ A:</strong></p>
 <!-- NIMSTRING-CARD:START -->
 <article class="nimstring-card" id="nimstring-laboratory">
-<div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.68">Type A · Local mathematical research app</div>
-<h3>Nimstring Laboratory</h3>
-<p><strong>DE:</strong> Strikt lokale Forschungs-App zu <em>Dots and Boxes</em> und der Dualdarstellung <em>Strings and Coins</em>: interaktives Brett, Graphanalyse und exakter Solver für kleine Endspiele. Geplant sind Nimstring-Werte, Graphreduktionen, Beweiszertifikate und formale Verifikation.</p>
-<p class="en" lang="en"><strong>EN:</strong> Strictly local research app for <em>Dots and Boxes</em> and its dual <em>Strings-and-Coins</em> representation: interactive board, structural graph analysis, and an exact solver for small endgames. Planned extensions include Nimstring values, graph reductions, proof certificates, and formal verification.</p>
-<a href="nimstring-laboratory.html">Projektseite / Project page →</a>
+  <div class="nimstring-kicker">Type A · Public mathematical research app · local compute core</div>
+  <h3>Nimstring Laboratory</h3>
+  <div class="nimstring-copy">
+    <p><strong>DE:</strong> Öffentlich erreichbare Forschungs-App zu <em>Dots and Boxes</em> und <em>Strings and Coins</em>. Integriert sind interaktives Brett und Dualgraph, exakte Scoring- und affine Nimstring-Analyse, sichere Graphreduktionen, prüfbare Zertifikate, Lean-Verifikation, Theorem-Labor und lokale Suchheuristiken.</p>
+    <p class="en" lang="en"><strong>EN:</strong> Public research app for <em>Dots and Boxes</em> and <em>Strings and Coins</em>. It integrates an interactive board and dual graph, exact scoring and affine Nimstring analysis, safe graph reductions, checkable certificates, Lean verification, a theorem laboratory, and local search heuristics.</p>
+  </div>
+  <a href="nimstring-laboratory.html">Projektseite / Project page →</a>
 </article>
 <!-- NIMSTRING-CARD:END -->
 
