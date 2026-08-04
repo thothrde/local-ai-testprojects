@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+<title>Nimstring Laboratory · Local AI Test Project</title>
+<style>
+:root{color-scheme:dark;--bg:#050b14;--panel:#0d1a2b;--line:rgba(170,198,232,.17);--text:#edf6ff;--muted:#a7b7ca;--gold:#f0c66b;--mint:#6fe0c5;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;color:var(--text);background:radial-gradient(circle at 15% 10%,rgba(80,120,190,.20),transparent 35rem),radial-gradient(circle at 85% 12%,rgba(111,224,197,.12),transparent 30rem),linear-gradient(145deg,#030812,#07111f 55%,#06101c);min-height:100vh}
+a{color:inherit}.top{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);background:rgba(3,8,18,.72);backdrop-filter:blur(18px);position:sticky;top:0}.back{text-decoration:none;color:var(--muted)}
+.lang{display:flex;gap:5px;padding:4px;border:1px solid var(--line);border-radius:999px}.lang button{border:0;border-radius:999px;background:transparent;color:var(--muted);padding:7px 11px;cursor:pointer}.lang button.active{background:var(--gold);color:#07111f;font-weight:750}
+main{width:min(1160px,calc(100% - 28px));margin:26px auto 50px}.hero,.card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.035),transparent 35%),rgba(11,24,41,.82);box-shadow:0 24px 70px rgba(0,0,0,.4);backdrop-filter:blur(17px);border-radius:24px}
+.hero{padding:clamp(25px,5vw,58px);overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:430px;height:430px;border-radius:50%;right:-130px;top:-180px;background:radial-gradient(circle,rgba(111,224,197,.18),transparent 68%)}
+.eye{color:var(--mint);font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}.hero h1{font-size:clamp(43px,8vw,88px);letter-spacing:-.065em;line-height:.95;margin:13px 0 18px;max-width:10ch}.hero p{color:#c8d5e5;line-height:1.72;max-width:76ch;font-size:clamp(15px,2vw,18px);position:relative;z-index:1}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px;position:relative;z-index:1}.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 17px;border:1px solid var(--line);border-radius:13px;text-decoration:none;background:rgba(255,255,255,.04)}.btn.primary{color:#07111f;background:linear-gradient(135deg,#9bf5e0,var(--mint));font-weight:780}.notice{margin-top:12px;color:var(--muted);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}.card{padding:22px}.card h2{margin:0 0 10px;font-size:20px}.card p,.card li{color:var(--muted);line-height:1.65}.card ul{padding-left:20px}.full{grid-column:1/-1}.arch{font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;color:#c8d5e5;background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:15px;padding:17px;line-height:1.65}.footer{margin-top:22px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:720px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.top{padding:14px}.hero{padding:25px}}
+</style>
+</head>
+<body>
+<header class="top"><a class="back" href="index.html" data-de="← Zurück zu allen Projekten" data-en="← Back to all projects"></a><div class="lang"><button data-lang="de">DE</button><button data-lang="en">EN</button></div></header>
+<main>
+<section class="hero">
+<div class="eye" data-de="Testprojekt · kombinatorische Spieltheorie · strikt lokal" data-en="Test project · combinatorial game theory · strictly local"></div>
+<h1>Nimstring Laboratory</h1>
+<p data-de="Eine lokale Forschungs-App zu Dots and Boxes und seiner Dualdarstellung Strings and Coins. Sie verbindet ein interaktives Brett, einen graphischen Struktur-Analysator und einen exakten Solver für kleine oder weit fortgeschrittene Stellungen. Das Projekt dient zugleich als Ausgangspunkt für spätere Nimstring-Berechnungen, Graphreduktionen, Beweiszertifikate und formale Verifikation."
+data-en="A local research app for Dots and Boxes and its dual Strings-and-Coins representation. It combines an interactive board, a structural graph analyzer, and an exact solver for small or advanced positions. The project is also intended as a basis for later Nimstring computations, graph reductions, proof certificates, and formal verification."></p>
+<div class="actions"><a class="btn primary" href="http://127.0.0.1:8765" data-de="Lokale App auf diesem Mac öffnen" data-en="Open the local app on this Mac"></a><a class="btn" href="index.html" data-de="Projektübersicht" data-en="Project overview"></a></div>
+<div class="notice" data-de="Der erste Link funktioniert nur auf dem Mac, auf dem Nimstring Laboratory installiert und gestartet ist. Die eigentliche App wird nicht öffentlich ins Internet gestellt."
+data-en="The first link works only on the Mac on which Nimstring Laboratory is installed and running. The actual app is not exposed publicly on the internet."></div>
+</section>
+<section class="grid">
+<article class="card"><h2 data-de="Mathematische Idee" data-en="Mathematical idea"></h2><p data-de="Im Dualgraphen wird jedes Kästchen zu einer Coin und jede noch nicht gezogene Seite zu einem String. Ein Spielzug schneidet einen String. Dadurch werden Ketten, Schleifen, Gelenke und unabhängige Komponenten sichtbar, die auf dem ursprünglichen Gitter leicht verborgen bleiben."
+data-en="In the dual graph, every box becomes a coin and every unplayed side becomes a string. A move cuts a string. This reveals chains, loops, joints, and independent components that are easily hidden in the original grid."></p></article>
+<article class="card"><h2 data-de="Was die App bereits kann" data-en="What the app already does"></h2><ul>
+<li data-de="beliebige rechteckige Stellungen interaktiv eingeben" data-en="enter arbitrary rectangular positions interactively"></li>
+<li data-de="Brett und Dualgraph synchron untersuchen" data-en="inspect board and dual graph synchronously"></li>
+<li data-de="optimale Züge für kleine Endspiele exakt berechnen" data-en="compute optimal moves exactly for small endgames"></li>
+<li data-de="Gelenke, fangbare Münzen, Komponenten und geschlossene Schleifen erkennen" data-en="detect joints, capturable coins, components, and closed loops"></li>
+</ul></article>
+<article class="card"><h2 data-de="Strikt lokale Architektur" data-en="Strictly local architecture"></h2><div class="arch">Browser UI
+    ↓ localhost only
+FastAPI · 127.0.0.1:8765
+    ↓
+Exact scoring solver
+    +
+NetworkX dual-graph analysis</div><p data-de="Es werden keine Cloudmodelle, CDNs, Webfonts oder externen JavaScript-Bibliotheken aufgerufen." data-en="No cloud models, CDNs, web fonts, or external JavaScript libraries are contacted."></p></article>
+<article class="card"><h2 data-de="Gegenwärtige Grenze" data-en="Current limitation"></h2><p data-de="Der Python-Prototyp führt die vollständige Suche gegenwärtig bis zu 20 freien Kanten aus. Größere Stellungen erhalten weiterhin eine Strukturdiagnose. Ein späterer Rust-Kern soll Symmetriequotienten, Transpositionstabellen, Nimstring-Werte und Beweiszertifikate ergänzen."
+data-en="The current Python prototype performs exhaustive search up to 20 free edges. Larger positions still receive structural diagnostics. A later Rust core is intended to add symmetry quotients, transposition tables, Nimstring values, and proof certificates."></p></article>
+<article class="card full"><h2 data-de="Warum dieses Testprojekt?" data-en="Why this test project?"></h2><p data-de="Das Projekt prüft, ob ein strikt lokales KI-Ökosystem nicht nur Texte generieren, sondern eine mathematische Forschungsumgebung aufbauen kann: exakte Berechnung, strukturelle Visualisierung, automatische Vermutungsbildung, Gegenbeispielsuche und schließlich formale Beweise sollen in einem kontrollierbaren lokalen Workflow zusammengeführt werden."
+data-en="The project tests whether a strictly local AI ecosystem can do more than generate text and can instead build a mathematical research environment: exact computation, structural visualization, automated conjecture formation, counterexample search, and eventually formal proofs are to be combined in a controllable local workflow."></p></article>
+</section>
+<div class="footer">Thomas Riepe · Berlin · August 2026</div>
+</main>
+<script>
+let lang=localStorage.getItem("nimstring-public-lang")||"de";
+function apply(l){lang=l;localStorage.setItem("nimstring-public-lang",l);document.documentElement.lang=l;document.querySelectorAll("[data-de][data-en]").forEach(x=>x.textContent=x.dataset[l]);document.querySelectorAll("[data-lang]").forEach(x=>x.classList.toggle("active",x.dataset.lang===l))}
+document.querySelectorAll("[data-lang]").forEach(x=>x.onclick=()=>apply(x.dataset.lang));apply(lang);
+</script>
+</body>
+</html>
