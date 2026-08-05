@@ -15,6 +15,19 @@ main{width:min(1160px,calc(100% - 28px));margin:26px auto 50px}.hero,.card{borde
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:18px}.card{padding:22px}.card h2{margin:0 0 10px;font-size:20px}.card p,.card li{color:var(--muted);line-height:1.65}.card ul{padding-left:20px}.full{grid-column:1/-1}.arch{font-family:ui-monospace,Menlo,monospace;white-space:pre-wrap;color:#c8d5e5;background:rgba(0,0,0,.2);border:1px solid var(--line);border-radius:15px;padding:17px;line-height:1.65}.footer{margin-top:22px;text-align:center;color:var(--muted);font-size:12px}
 @media(max-width:720px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.top{padding:14px}.hero{padding:25px}}
 </style>
+<!-- NIMSTRING-PUBLIC-CONTEXT-STYLE:START -->
+<style>
+#origins-and-context .source-context-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;margin:1rem 0}
+#origins-and-context .source-context-grid article{padding:1rem;border:1px solid rgba(111,224,197,.22);border-radius:14px;background:rgba(111,224,197,.035)}
+#origins-and-context .source-context-grid h3{margin:0 0 .45rem;font-size:1.05rem}
+#origins-and-context .source-context-grid p{margin:0;line-height:1.58}
+#origins-and-context .source-list{display:grid;gap:.7rem;margin:.85rem 0 0;padding-left:1.3rem}
+#origins-and-context .source-list li{padding-left:.25rem;line-height:1.45}
+#origins-and-context .source-list a{color:#8ce8d0;text-underline-offset:3px}
+#origins-and-context .source-list span{display:block;opacity:.75;font-size:.92em;margin-top:.15rem}
+@media(max-width:760px){#origins-and-context .source-context-grid{grid-template-columns:1fr}}
+</style>
+<!-- NIMSTRING-PUBLIC-CONTEXT-STYLE:END -->
 </head>
 <body>
 <header class="top"><a class="back" href="index.html" data-de="← Zurück zu allen Projekten" data-en="← Back to all projects"></a><div class="lang"><button data-lang="de">DE</button><button data-lang="en">EN</button></div></header>
@@ -49,6 +62,29 @@ data-en="The Python core currently performs exhaustive search up to 20 free edge
 <article class="card full"><h2 data-de="Warum dieses Testprojekt?" data-en="Why this test project?"></h2><p data-de="Das Projekt prüft, ob ein strikt lokales KI-Ökosystem nicht nur Texte generieren, sondern eine mathematische Forschungsumgebung aufbauen kann: exakte Berechnung, strukturelle Visualisierung, automatische Vermutungsbildung, Gegenbeispielsuche und schließlich formale Beweise sollen in einem kontrollierbaren lokalen Workflow zusammengeführt werden."
 data-en="The project tests whether a strictly local AI ecosystem can do more than generate text and can instead build a mathematical research environment: exact computation, structural visualization, automated conjecture formation, counterexample search, and eventually formal proofs are to be combined in a controllable local workflow."></p></article>
 </section>
+<!-- NIMSTRING-PUBLIC-CONTEXT:START -->
+<section class="card full" id="origins-and-context">
+  <h2 data-de="Ausgangspunkt, spieltheoretischer Kontext und Literatur" data-en="Origins, game-theoretic setting, and literature"></h2>
+  <p data-de="Die entscheidende Anregung und klassische Hauptquelle des Nimstring Laboratory ist Elwyn R. Berlekamps Buch The Dots-and-Boxes Game: Sophisticated Child’s Play (A K Peters, 2000). Seine Darstellung von Strings and Coins, Nimstring, Nimbern, Ketten, Schleifen, Mutationen, Vines, Kontrollstrategien und offenen Problemen bestimmte die Konzeption der App. Sie ist keine digitale Ausgabe des Buches, sondern eine eigenständige, überprüfbare Implementierung ausgewählter Ideen, ergänzt durch neuere Forschung."
+     data-en="The decisive inspiration and principal classical source for Nimstring Laboratory is Elwyn R. Berlekamp’s The Dots-and-Boxes Game: Sophisticated Child’s Play (A K Peters, 2000). Its treatment of Strings and Coins, Nimstring, nimbers, chains, loops, mutations, vines, control strategies, and open problems shaped the design of the app. The app is not a digital edition of the book but an independent, checkable implementation of selected ideas, supplemented by newer research."></p>
+  <div class="source-context-grid">
+    <article><h3 data-de="Warum gewöhnliche Sprague-Grundy-Theorie nicht genügt" data-en="Why ordinary Sprague-Grundy theory is not enough"></h3><p data-de="Dots and Boxes ist ein Punktespiel, und das Schließen eines Kästchens erhält den Zug. Die Zugfolge alterniert daher nicht immer. Nimstring ist ein verwandtes Normalspiel auf demselben Strings-and-Coins-Graphen; seine Carry-on- beziehungsweise entailing moves erfordern die moderne affine Theorie mit Nimbern und dem absorbierenden Moon-Wert." data-en="Dots and Boxes is a scoring game, and completing a box retains the move, so play does not always alternate. Nimstring is a related normal-play game on the same Strings-and-Coins graph; its carry-on or entailing moves require modern affine theory with nimbers and the absorbing Moon value."></p></article>
+    <article><h3 data-de="Wie die App die Theorie trennt" data-en="How the app separates the theory"></h3><p data-de="Exakter Punktesolver, exakte N/P-Rekursion, affine Werte, Kontrollwerttheorie, unabhängige Kreuzvalidierung, Zertifikate und Lean-Prüfung sind getrennte Ebenen. Endliche Tests werden nicht als allgemeine neue Beweise ausgegeben." data-en="The exact scoring solver, exact N/P recursion, affine values, controlled-value theory, independent cross-validation, certificates, and Lean checking are separate layers. Finite tests are not presented as new general proofs."></p></article>
+  </div>
+  <h3 data-de="Ausgewählte Quellen" data-en="Selected sources"></h3>
+  <ol class="source-list">
+    <li><a href="https://doi.org/10.1201/b14452" target="_blank" rel="noopener noreferrer">E. R. Berlekamp, <em>The Dots-and-Boxes Game: Sophisticated Child’s Play</em>, A K Peters, 2000.</a><span data-de="Entscheidende Anregung und klassische Hauptquelle." data-en="Decisive inspiration and principal classical source."></span></li>
+    <li><a href="https://doi.org/10.1201/9780429487316-3" target="_blank" rel="noopener noreferrer">E. R. Berlekamp, J. H. Conway, R. K. Guy, “Dots-and-Boxes,” <em>Winning Ways for Your Mathematical Plays</em>.</a><span data-de="Klassischer kombinatorisch-spieltheoretischer Rahmen." data-en="Classical combinatorial-game-theoretic setting."></span></li>
+    <li><a href="https://doi.org/10.1017/9781316135167.022" target="_blank" rel="noopener noreferrer">E. Berlekamp, K. Scott, “Forcing Your Opponent to Stay in Control of a Loony Dot-and-Boxes Endgame,” 2002.</a><span data-de="Kontrollwert und loony Endspiele." data-en="Controlled value and loony endgames."></span></li>
+    <li><a href="https://arxiv.org/abs/2101.11699" target="_blank" rel="noopener noreferrer">U. Larsson, R. J. Nowakowski, C. P. Santos, “Impartial Games with Entailing Moves,” arXiv:2101.11699 (2021).</a><span data-de="Affine unparteiische Theorie, Nimstring und Moon." data-en="Affine impartial theory, Nimstring, and Moon."></span></li>
+    <li><a href="https://arxiv.org/abs/1305.2156" target="_blank" rel="noopener noreferrer">K. Buzzard, M. Ciere, “Playing Simple Loony Dots and Boxes Endgames Optimally,” <em>Integers</em> 14 (2014), G08.</a><span data-de="Effiziente Analyse einfacher Ketten-/Schleifenendspiele." data-en="Efficient analysis of simple chain/loop endgames."></span></li>
+    <li><a href="https://doi.org/10.1007/s00182-020-00730-4" target="_blank" rel="noopener noreferrer">D. Allcock, “Best Play in Dots and Boxes Endgames,” <em>International Journal of Game Theory</em> 50 (2021), 671–693.</a><span data-de="Neuere Algorithmen für Schleifen und lange Ketten." data-en="Later algorithms for loops and long chains."></span></li>
+    <li><a href="https://arxiv.org/abs/2101.06361" target="_blank" rel="noopener noreferrer">E. D. Demaine, J. Diomidova, “Strings-and-Coins and Nimstring are PSPACE-complete,” arXiv:2101.06361 (2021).</a><span data-de="Komplexität der dualen Graphspiele." data-en="Complexity of the dual graph games."></span></li>
+    <li><a href="https://arxiv.org/abs/2105.02837" target="_blank" rel="noopener noreferrer">K. Buchin, M. Hagedoorn, I. Kostitsyna, M. van Mulken, “Dots &amp; Boxes is PSPACE-complete,” arXiv:2105.02837 (2021).</a><span data-de="Komplexität des Punktespiels." data-en="Complexity of the scoring game."></span></li>
+    <li><a href="https://arxiv.org/abs/2304.00588" target="_blank" rel="noopener noreferrer">U. Larsson, R. J. Nowakowski, C. P. Santos, “A Complete Solution for a Nontrivial Ruleset with Entailing Moves,” arXiv:2304.00588 (2023).</a><span data-de="Weiterführung der affinen Theorie." data-en="A continuation of affine theory."></span></li>
+  </ol>
+</section>
+<!-- NIMSTRING-PUBLIC-CONTEXT:END -->
 <div class="footer">Thomas Riepe · Berlin · August 2026</div>
 
 <!-- NIMSTRING-V33-VALIDATION:START -->
