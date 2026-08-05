@@ -24,9 +24,9 @@ main{width:min(1160px,calc(100% - 28px));margin:26px auto 50px}.hero,.card{borde
 <h1>Nimstring Laboratory</h1>
 <p data-de="Eine lokale Forschungs-App zu Dots and Boxes und seiner Dualdarstellung Strings and Coins. Sie verbindet ein interaktives Brett, einen graphischen Struktur-Analysator und einen exakten Solver für kleine oder weit fortgeschrittene Stellungen. Das Projekt dient zugleich als Ausgangspunkt für spätere Nimstring-Berechnungen, Graphreduktionen, Beweiszertifikate und formale Verifikation."
 data-en="A local research app for Dots and Boxes and its dual Strings-and-Coins representation. It combines an interactive board, a structural graph analyzer, and an exact solver for small or advanced positions. The project is also intended as a basis for later Nimstring computations, graph reductions, proof certificates, and formal verification."></p>
-<div class="actions"><a class="btn primary" href="http://127.0.0.1:8765" data-de="Lokale App auf diesem Mac öffnen" data-en="Open the local app on this Mac"></a><a class="btn" href="index.html" data-de="Projektübersicht" data-en="Project overview"></a></div>
-<div class="notice" data-de="Der erste Link funktioniert nur auf dem Mac, auf dem Nimstring Laboratory installiert und gestartet ist. Die eigentliche App wird nicht öffentlich ins Internet gestellt."
-data-en="The first link works only on the Mac on which Nimstring Laboratory is installed and running. The actual app is not exposed publicly on the internet."></div>
+<div class="actions"><a class="btn primary" href="https://nimstring.autark-data.org" data-de="App öffnen" data-en="Open the app"></a><a class="btn" href="index.html" data-de="Projektübersicht" data-en="Project overview"></a></div>
+<div class="notice" data-de="Die App ist öffentlich über HTTPS erreichbar; der Rechenkern läuft ausschließlich lokal auf einem Mac Studio in Berlin."
+data-en="The app is publicly reachable via HTTPS; the compute core runs exclusively locally on a Mac Studio in Berlin."></div>
 </section>
 <section class="grid">
 <article class="card"><h2 data-de="Mathematische Idee" data-en="Mathematical idea"></h2><p data-de="Im Dualgraphen wird jedes Kästchen zu einer Coin und jede noch nicht gezogene Seite zu einem String. Ein Spielzug schneidet einen String. Dadurch werden Ketten, Schleifen, Gelenke und unabhängige Komponenten sichtbar, die auf dem ursprünglichen Gitter leicht verborgen bleiben."
@@ -37,15 +37,15 @@ data-en="In the dual graph, every box becomes a coin and every unplayed side bec
 <li data-de="optimale Züge für kleine Endspiele exakt berechnen" data-en="compute optimal moves exactly for small endgames"></li>
 <li data-de="Gelenke, fangbare Münzen, Komponenten und geschlossene Schleifen erkennen" data-en="detect joints, capturable coins, components, and closed loops"></li>
 </ul></article>
-<article class="card"><h2 data-de="Strikt lokale Architektur" data-en="Strictly local architecture"></h2><div class="arch">Browser UI
-    ↓ localhost only
-FastAPI · 127.0.0.1:8765
+<article class="card"><h2 data-de="Lokaler Rechenkern, öffentlicher Zugang" data-en="Local compute core, public access"></h2><div class="arch">Browser UI
+    ↓ HTTPS via Cloudflare Tunnel
+FastAPI · 127.0.0.1:8765 (Mac Studio, Berlin)
     ↓
 Exact scoring solver
     +
 NetworkX dual-graph analysis</div><p data-de="Es werden keine Cloudmodelle, CDNs, Webfonts oder externen JavaScript-Bibliotheken aufgerufen." data-en="No cloud models, CDNs, web fonts, or external JavaScript libraries are contacted."></p></article>
-<article class="card"><h2 data-de="Gegenwärtige Grenze" data-en="Current limitation"></h2><p data-de="Der Python-Prototyp führt die vollständige Suche gegenwärtig bis zu 20 freien Kanten aus. Größere Stellungen erhalten weiterhin eine Strukturdiagnose. Ein späterer Rust-Kern soll Symmetriequotienten, Transpositionstabellen, Nimstring-Werte und Beweiszertifikate ergänzen."
-data-en="The current Python prototype performs exhaustive search up to 20 free edges. Larger positions still receive structural diagnostics. A later Rust core is intended to add symmetry quotients, transposition tables, Nimstring values, and proof certificates."></p></article>
+<article class="card"><h2 data-de="Gegenwärtige Grenze" data-en="Current limitation"></h2><p data-de="Der Python-Kern führt die vollständige Suche gegenwärtig bis zu 20 freien Kanten aus; größere Stellungen erhalten eine Strukturdiagnose. Nimstring- und affine Werte, Symmetriequotienten, Transpositionswiederverwendung und Beweiszertifikate sind bereits im Python-Kern integriert. Ein optionaler Rust-Kern für höhere Performance bei großen Stellungen liegt als Quellcode vor, ist aber noch nicht kompiliert."
+data-en="The Python core currently performs exhaustive search up to 20 free edges; larger positions receive structural diagnostics. Nimstring and affine values, symmetry quotients, transposition reuse, and proof certificates are already integrated in the Python core. An optional Rust core for higher performance on large positions exists as source code but is not yet compiled."></p></article>
 <article class="card full"><h2 data-de="Warum dieses Testprojekt?" data-en="Why this test project?"></h2><p data-de="Das Projekt prüft, ob ein strikt lokales KI-Ökosystem nicht nur Texte generieren, sondern eine mathematische Forschungsumgebung aufbauen kann: exakte Berechnung, strukturelle Visualisierung, automatische Vermutungsbildung, Gegenbeispielsuche und schließlich formale Beweise sollen in einem kontrollierbaren lokalen Workflow zusammengeführt werden."
 data-en="The project tests whether a strictly local AI ecosystem can do more than generate text and can instead build a mathematical research environment: exact computation, structural visualization, automated conjecture formation, counterexample search, and eventually formal proofs are to be combined in a controllable local workflow."></p></article>
 </section>
