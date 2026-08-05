@@ -96,6 +96,13 @@ data-en="The project tests whether a strictly local AI ecosystem can do more tha
      data-en="The controlled-value bridge uses the standard terminal bonus: 8 for loop-only sums, 6 for loops together only with 3-chains, and 4 in the remaining nonempty cases. An independent global scoring solver systematically checks chain/loop multisets up to the configured search bound. Only cases with cv ≥ 2 count as theorem-backed predictions; on a mismatch, the smallest counterexample is automatically stored as a JSON artifact."></p>
 </section>
 <!-- NIMSTRING-V33-VALIDATION:END -->
+<!-- NIMSTRING-PUBLIC-SEARCH-LIMITS:START -->
+<section class="card full" id="exact-search-limits">
+  <h2 data-de="Gestufte Grenzen der exakten Punktesuche" data-en="Tiered exact-scoring limits"></h2>
+  <p data-de="Die öffentlich erreichbare App startet die vollständige Punktesuche bei höchstens 20 freien Kanten. Bei direkter lokaler Nutzung auf dem Mac Studio unter 127.0.0.1:8765 gilt ein erweitertes Limit von 24 freien Kanten; zusätzlich begrenzen ein Zeit- und Zustandsbudget jeden Lauf. Größere oder frühe Stellungen werden weiterhin strukturell und heuristisch untersucht, insbesondere mit Dualgraph, Reduktionen und MCTS. Die exakte Suche wird automatisch verfügbar, sobald genügend Kanten gezogen sind. Ein leeres 6×5-Brett besitzt 71 freie Kanten und liegt daher auch lokal noch weit außerhalb der vollständigen Suche."
+     data-en="The public app starts exhaustive scoring only at 20 or fewer free edges. Direct local use on the Mac Studio at 127.0.0.1:8765 has an extended limit of 24 free edges, with an additional time and state budget for every run. Larger or early positions remain available for structural and heuristic analysis, especially through the dual graph, reductions, and MCTS. Exact search becomes available automatically after enough edges have been drawn. An empty 6×5 board has 71 free edges and therefore remains far beyond exhaustive search even locally."></p>
+</section>
+<!-- NIMSTRING-PUBLIC-SEARCH-LIMITS:END -->
 </main>
 <script>
 let lang=localStorage.getItem("nimstring-public-lang")||"de";
