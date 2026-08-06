@@ -1,12 +1,14 @@
 {
-  "version": "1.1.0",
-  "languages": [
-    "de",
-    "en"
-  ],
+  "app": "Damascius Atlas — Public Bilingual Edition",
+  "version": "1.2.0",
+  "audit_date": "2026-08-06",
+  "index_sha256": "3a3e6e65fd706b2e002b0cf70fea921ec7431d0f61b1dadc136baf4866159606",
   "counts": {
     "people": 26,
     "places": 18,
+    "routes": 11,
+    "relationships": 21,
+    "timeline": 20,
     "stories": 13,
     "cases": 8,
     "wonders": 18,
@@ -14,12 +16,72 @@
     "glossary": 16,
     "sources": 8
   },
-  "external_runtime_assets": false,
-  "bundled_pdf": false,
-  "original_svg_visuals": true,
-  "licences": [
-    "MIT",
-    "CC BY 4.0"
-  ],
-  "local_pdf_picker": true
+  "atlas": {
+    "land_geometry": "Natural Earth low-resolution land geometry, public domain",
+    "places_with_coordinates": 18,
+    "route_segments": 11,
+    "views": [
+      "regional eastern Mediterranean",
+      "wide view to India"
+    ],
+    "modern_borders_displayed": false,
+    "coordinate_policy": "Approximate site centroids; regions and uncertain identifications labelled.",
+    "runtime_tile_or_map_server": false
+  },
+  "bilingual": {
+    "languages": [
+      "de",
+      "en"
+    ],
+    "data_schema_complete": true,
+    "nested_story_scenes_checked": true,
+    "nested_case_evidence_and_hypotheses_checked": true,
+    "runtime_views_checked": 12,
+    "runtime_story_paths_checked": 13,
+    "runtime_story_scenes_checked": 54,
+    "runtime_cases_checked": 8,
+    "runtime_people_checked": 26,
+    "runtime_places_checked": 18,
+    "runtime_routes_checked": 11,
+    "runtime_fragment_modals_checked": 24,
+    "known_regression_test": "With German selected, Sarapio scene 1 renders “Das kleine Haus”, German body text, and German UI labels; with English selected it renders the corresponding English fields.",
+    "foreign_field_leaks_found": 0
+  },
+  "content_and_sources": {
+    "fragment_cards_localised_against_checked_398_page_pdf": 24,
+    "corrected_story_references": [
+      "Hypatia public authority and murder: PH 43E",
+      "Hypatia comparison with Isidore: PH 106A",
+      "Arabian Styx: PH 135",
+      "Alexandrian conversion scene: modern synthesis with contrast PH 124"
+    ],
+    "policy": "Reports, textual witnesses, modern reconstruction, and app interpretation are distinguished. Extraordinary claims are presented as reports, not confirmed events.",
+    "modern_translation_reproduced": false,
+    "modern_commentary_reproduced": false,
+    "pdf_bundled": false
+  },
+  "technical": {
+    "javascript_syntax": "passed with node --check",
+    "browser_page_errors_de": 0,
+    "browser_page_errors_en": 0,
+    "mobile_horizontal_overflow_390px": false,
+    "external_scripts": 0,
+    "external_stylesheets_or_fonts": 0,
+    "fetch_calls": 0,
+    "tracking_or_analytics": false,
+    "runtime_remote_assets": false
+  },
+  "rights": {
+    "code": "MIT",
+    "original_prose_and_original_svg_css": "CC BY 4.0",
+    "natural_earth_geometry": "Public Domain",
+    "ancient_public_domain_and_facts": "No rights claimed",
+    "notice": "Copyright-conscious publication strategy; not individual legal advice."
+  },
+  "limitations": [
+    "This is a curated source atlas, not a critical edition or complete translation.",
+    "Modern coastlines are used as geographic orientation and do not reconstruct ancient shorelines.",
+    "Coordinates are approximate; several place identifications are regional or uncertain.",
+    "The browser audit used a headless Chromium render; final public deployment should also be inspected manually in Safari and Chromium."
+  ]
 }
