@@ -1,0 +1,25 @@
+{
+  "version": "1.1.0",
+  "languages": [
+    "de",
+    "en"
+  ],
+  "counts": {
+    "people": 26,
+    "places": 18,
+    "stories": 13,
+    "cases": 8,
+    "wonders": 18,
+    "fragments": 24,
+    "glossary": 16,
+    "sources": 8
+  },
+  "external_runtime_assets": false,
+  "bundled_pdf": false,
+  "original_svg_visuals": true,
+  "licences": [
+    "MIT",
+    "CC BY 4.0"
+  ],
+  "local_pdf_picker": true
+}

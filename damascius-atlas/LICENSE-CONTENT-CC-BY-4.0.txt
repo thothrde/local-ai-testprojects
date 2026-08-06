@@ -1,0 +1,10 @@
+Damascius Atlas — content and artwork licence
+
+The original German and English editorial prose and the original SVG/CSS artwork
+in this public package are licensed under Creative Commons Attribution 4.0
+International (CC BY 4.0). Suggested attribution: “Damascius Atlas, 2026”.
+
+This licence does not claim rights in public-domain ancient material, names, dates,
+bibliographic facts, or third-party works merely cited in the bibliography.
+
+Licence: https://creativecommons.org/licenses/by/4.0/
