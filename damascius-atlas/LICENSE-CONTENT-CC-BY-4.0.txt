@@ -1,20 +1,5 @@
-Damascius Atlas — Content licence notice
+Original editorial prose and original SVG/CSS artwork in this package are offered under Creative Commons Attribution 4.0 International (CC BY 4.0).
 
-Except where another status is explicitly stated, the independent German and English editorial prose
-and the original SVG/CSS artwork in this public package are licensed under the Creative Commons
-Attribution 4.0 International licence (CC BY 4.0).
+Suggested attribution: “Damascius Atlas, 2026”.
 
-Suggested attribution:
-  Damascius Atlas, 2026
-
-Official licence and legal code:
-  https://creativecommons.org/licenses/by/4.0/
-  https://creativecommons.org/licenses/by/4.0/legalcode
-
-This licence notice does NOT assert ownership over:
-- public-domain ancient texts, names, events, or factual/bibliographic information;
-- embedded Natural Earth geometry, which Natural Earth releases into the public domain;
-- any modern scholarly edition, translation, commentary, introduction, or critical apparatus cited
-  bibliographically but not reproduced in this package.
-
-No endorsement by cited scholars, publishers, Natural Earth, or Creative Commons is implied.
+This license does not cover third-party works, ancient texts as such, bibliographic facts, or Natural Earth public-domain data.
