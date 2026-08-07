@@ -1,4 +1,4 @@
-# Damascius Atlas v1.4.0
+# Damascius Atlas v1.4.1
 
 Bilinguale, vollständig statische Forschungs- und Leseapp zu Damascius’ *Philosophical History*.
 
@@ -15,7 +15,13 @@ Bilinguale, vollständig statische Forschungs- und Leseapp zu Damascius’ *Phil
 - 31 Deutungsessays
 - 3 interaktive Module
 
+## Patch v1.4.1
+
+- Korrigierte Fokuswiederherstellung: Nach dem Schließen eines Tiefenlink-Dialogs kehrt der Tastaturfokus zuverlässig zum neu gerenderten auslösenden Eintrag zurück.
+- Vollständiger unabhängiger Chromium-Test: 17/17 Prüffelder bestanden, darunter alle 56 Profile, alle 13 Erzählpfade mit sämtlichen Szenen, alle drei Labore, Zeit-Synchronisierung, DE/EN, mobile Darstellung und fehlerfreie Konsole.
+
 ## Neu in v1.4.0
+
 
 - Stabile Tiefenlinks für Personen, Registerprofile, Orte, Routen, Fragmente, Essays, Fälle, Erzählpfade und Module.
 - Suchfeld behält den Tastaturfokus; Treffer öffnen den konkreten Eintrag.

@@ -35,7 +35,7 @@ Die folgenden redaktionellen Beobachtungsblöcke sind in v1.3.0 als eigene Deutu
 31. `adaptation-ambiguity` — Anpassung und Treue bleiben moralisch mehrdeutig — PH 118B
 
 
-# v1.4.0 feature coverage
+# v1.4.1 feature coverage
 
 - Four technical and epistemic weaknesses: search focus/direct entry, permanent URLs, accessible dialogs, qualitative case support.
 - Synchronised geography, timeline, and social network through a shared time lens.
@@ -43,3 +43,5 @@ Die folgenden redaktionellen Beobachtungsblöcke sind in v1.3.0 als eigene Deutu
 - Evidence-bound story graphics with explicit non-reconstruction cautions.
 - Expanded prosopography: 26 core profiles plus 30 register profiles.
 - Three modules: monochord, transmission mosaic, epistemic instruments.
+
+- v1.4.1 accessibility patch: stable focus restoration after closing deep-link dialogs.

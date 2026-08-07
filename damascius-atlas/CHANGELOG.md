@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.1
+
+### Zugänglichkeit und Abschlussprüfung
+- Fokuswiederherstellung bei nativen Dialogen korrigiert, auch wenn die Hash-Navigation die zugrunde liegende Ansicht neu rendert.
+- Direkte Tiefenlinks, Browser-Zurück/Vorwärts, Suchfokus, Jahres-Synchronisierung, semantischer Atlas, Exporte, alle 56 Profile, alle 13 Erzählpfade und alle drei Labore vollständig in Chromium geprüft.
+- Keine Inhaltsänderung an den historischen oder interpretativen Daten von v1.4.0.
+
 ## 1.4.0
 
 ### Technik und Zugänglichkeit
