@@ -1,5 +1,6 @@
-Original editorial prose and original SVG/CSS artwork in this package are offered under Creative Commons Attribution 4.0 International (CC BY 4.0).
+Damascius Atlas original prose and original SVG/CSS visualisations are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
 
-Suggested attribution: “Damascius Atlas, 2026”.
+Attribution: Damascius Atlas, 2026.
+Licence summary and legal code: https://creativecommons.org/licenses/by/4.0/
 
-This license does not cover third-party works, ancient texts as such, bibliographic facts, or Natural Earth public-domain data.
+This notice does not assert rights over public-domain ancient texts and facts, Natural Earth public-domain geometry, or third-party identifiers and metadata that retain their own attribution and licence terms.

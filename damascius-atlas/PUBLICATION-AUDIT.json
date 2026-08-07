@@ -1,43 +1,98 @@
 {
-  "version": "1.3.0",
+  "version": "1.4.0",
   "generated": "2026-08-07",
-  "index_sha256": "9142a0fc660db73500b755f0d7ec26900e73f31c368f0d0cf061413c838ba0a4",
+  "index_sha256": "a4c0fefaf46654bbfee5b455325d483cffbd20a5e263f85072865cb94addd8bb",
   "counts": {
-    "people": 26,
+    "core_people": 26,
+    "register_people": 30,
+    "total_people": 56,
     "places": 18,
     "routes": 11,
-    "relationships": 21,
     "timeline": 20,
     "stories": 13,
     "cases": 8,
     "wonders": 18,
     "fragments": 24,
     "insights": 31,
-    "glossary": 16,
-    "sources": 8
+    "modules": 3
   },
-  "rights": {
-    "embedded_pdf": false,
-    "modern_translation_embedded": false,
-    "commentary_embedded": false,
-    "external_runtime_assets": false,
-    "natural_earth": "Public Domain"
+  "implemented": [
+    "stable deep links",
+    "search focus retention and direct search results",
+    "native accessible dialogs",
+    "qualitative case support labels",
+    "synchronised time lens",
+    "semantic place metadata",
+    "GeoJSON and JSON-LD exports",
+    "evidence-bound story visuals",
+    "expanded prosopography",
+    "three interactive modules"
+  ],
+  "automated_tests": {
+    "title": "Damascius Atlas · Forschungsatlas",
+    "body_len": 3734,
+    "views": {
+      "overview": 3133,
+      "synoptic": 2323,
+      "atlas": 3944,
+      "network": 1197,
+      "timeline": 3913,
+      "stories": 6639,
+      "cases": 1423,
+      "wonders": 6033,
+      "fragments": 8298,
+      "insights": 10037,
+      "people": 12179,
+      "labs": 983,
+      "glossary": 1962,
+      "transmission": 1687,
+      "rights": 2447
+    },
+    "search_value": "Sarapio",
+    "search_focus": true,
+    "search_results": 7,
+    "deep_hash_person": "#/person/sarapio",
+    "dialog_open": true,
+    "case_no_percent": true,
+    "case_qualitative": true,
+    "core_cards": 26,
+    "register_cards": 30,
+    "register_hash": "#/register-person/dorus",
+    "sync_store": "529",
+    "network_year": true,
+    "timeline_year": true,
+    "timeline_current": 3,
+    "semantic_places": 18,
+    "place_semantics": true,
+    "pleiades": true,
+    "modules": {
+      "monochord": true,
+      "transmission": true,
+      "epistemic": true
+    },
+    "cents": "182",
+    "mosaic": 24,
+    "compare_rows": 4,
+    "story_caption": true,
+    "story_hash": "#/story/sarapio-path/scene/0",
+    "story_hash_next": "#/story/sarapio-path/scene/1",
+    "english_module": true,
+    "mobile_overflow": false
   },
-  "editorial_coverage": {
-    "review_observations": 26,
-    "new_syntheses": 5,
-    "total_insights": 31,
-    "coverage_file": "EDITORIAL-COVERAGE.md"
+  "errors": [],
+  "console": [],
+  "publication_safety": {
+    "bundled_pdf": false,
+    "external_runtime_scripts": false,
+    "external_fonts": false,
+    "map_tiles": false,
+    "tracking": false,
+    "local_file_paths": false
   },
-  "map": {
-    "main_labels": "automatic collision-aware placement",
-    "dense_region": "Levant coordinate inset",
-    "modern_borders": false,
-    "coordinates": "approximate site centroids"
-  },
-  "limitations": [
-    "Interpretive essays are editorial syntheses, not a substitute for the critical edition.",
-    "Map coordinates are approximate and the Levant coastline in the detail inset is schematic.",
-    "No claim is made that ancient marvel reports describe factual supernatural events."
+  "known_limits": [
+    "activity windows are editorial approximations",
+    "Pleiades linkage is included only for four explicitly verified places",
+    "interactive modules are modern demonstrations or heuristics",
+    "the app does not yet implement claim-level provenance for every sentence"
   ]
 }

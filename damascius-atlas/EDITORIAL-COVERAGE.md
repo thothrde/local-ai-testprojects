@@ -33,3 +33,13 @@ Die folgenden redaktionellen Beobachtungsblöcke sind in v1.3.0 als eigene Deutu
 29. `transmission-bottlenecks` — Überlieferung besitzt Engpässe und letzte Träger — PH 38A
 30. `archive-of-absences` — Ein Archiv, das durch seine Lücken spricht — PH 38A
 31. `adaptation-ambiguity` — Anpassung und Treue bleiben moralisch mehrdeutig — PH 118B
+
+
+# v1.4.0 feature coverage
+
+- Four technical and epistemic weaknesses: search focus/direct entry, permanent URLs, accessible dialogs, qualitative case support.
+- Synchronised geography, timeline, and social network through a shared time lens.
+- Semantic atlas: ancient/modern names, regions, status, evidence density, selected Pleiades URIs, GeoJSON and JSON-LD exports.
+- Evidence-bound story graphics with explicit non-reconstruction cautions.
+- Expanded prosopography: 26 core profiles plus 30 register profiles.
+- Three modules: monochord, transmission mosaic, epistemic instruments.

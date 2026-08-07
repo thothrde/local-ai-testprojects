@@ -1,32 +1,24 @@
-# Urheberrecht, Quellen und redaktionelle Methode
+# Copyright, licences, and sources
 
-## Öffentliche Inhalte
+## Modern edition
 
-Die App enthält eigenständig formulierte deutsche und englische Paraphrasen sowie originale SVG/CSS-Visualisierungen. Sie reproduziert nicht:
+The public package does **not** contain the Athanassiadi PDF, page images, her modern English translation, introduction, commentary, or critical apparatus. Fragment numbers, bibliographic facts, ancient names, and public-domain ancient material are used for identification and discussion. App prose is independently written editorial paraphrase and analysis.
 
-- Polymnia Athanassiadis moderne englische Übersetzung,
-- ihren Kommentar oder kritischen Apparat,
-- Buch- oder PDF-Seiten,
-- die lokale Forschungs-PDF.
+## Code and original content
 
-Antike Namen, Fragmentnummern, historische Fakten und kurze griechische Identifikationswendungen werden bibliografisch und quellenkritisch verwendet.
+- Code: MIT License.
+- Original German and English prose, analytical SVG/CSS artwork, and editorial data: CC BY 4.0, attribution: **Damascius Atlas, 2026**.
 
-## Deutungsessays
+## Cartography
 
-Die 31 Essays unterscheiden sichtbar:
+- Coastline and land geometry derives from Natural Earth public-domain data.
+- Cartographic styling, annotation, route corridors, label layout, and interaction are original to the app.
+- Verified Pleiades URIs are linked for Alexandria, Athens, Aphrodisias, and Rome. Pleiades is attributed as an open ancient-place gazetteer; its published resources are reused under the licence stated by Pleiades (CC BY 3.0, with some individual resources carrying compatible attribution/share-alike notices). The app performs no runtime fetch from Pleiades.
 
-1. textuelle Grundlage,
-2. redaktionelle Deutung,
-3. Grenzen und Unsicherheit.
+## Interactive modules
 
-Fünf Essays sind ausdrücklich als neue App-Synthesen markiert. Sie verbinden mehrere Passagen, ohne diese Verknüpfung Damascius selbst zuzuschreiben.
+The Monochord Laboratory, Transmission Mosaic, and Epistemic Instruments Laboratory are modern educational interfaces. Their cautions are displayed inside the app; none is presented as a recovered ancient experiment, complete witness census, or taxonomy formulated by Damascius.
 
-## Karten
+## Privacy
 
-Die Küstengeometrie basiert auf Natural Earth (Public Domain). Ortskoordinaten sind ungefähre Standortzentren. Moderne Grenzen werden nicht gezeigt. Der Levante-Detailausschnitt dient der Lesbarkeit und verwendet dieselben Koordinaten wie die Hauptkarte.
-
-## Lizenzen
-
-- Code: MIT
-- Eigenständige App-Texte und originale Visualisierungen: CC BY 4.0
-- Natural Earth: Public Domain
+The optional PDF picker creates a local browser object URL. The file is not uploaded. No analytics, tracking, remote fonts, external JavaScript, or map tiles are used.
