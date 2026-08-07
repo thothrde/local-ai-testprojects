@@ -1,7 +1,7 @@
 {
-  "version": "1.4.1",
+  "version": "1.4.2",
   "generated": "2026-08-07",
-  "index_sha256": "19a5d44e0941be76586af041eef3472a86d16d440323ea24de10fc3f86728304",
+  "index_sha256": "138cdc67b6e52f7e59b76ca5597b57a29b4b95623545456e71538edf51b2b89c",
   "counts": {
     "core_people": 26,
     "register_people": 30,
@@ -27,7 +27,8 @@
     "evidence-bound story visuals",
     "expanded prosopography",
     "three interactive modules",
-    "stable focus restoration after hash-routed dialogs close"
+    "stable focus restoration after hash-routed dialogs close",
+    "clearly labelled Impressum and overview links in every view footer (22 footer() calls verified)"
   ],
   "automated_tests": {
     "title": "Damascius Atlas · Forschungsatlas",

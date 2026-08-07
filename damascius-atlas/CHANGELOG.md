@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.4.2
+### Konsistenzbereinigung
+- Impressums- und Übersichtslink (klar beschriftet, in jeder Hauptansicht über den gemeinsamen Footer erreichbar) ergänzt.
+- Lokal installierte App und Veröffentlichungspaket wieder synchronisiert.
+- Version, README, PUBLICATION-AUDIT.json und SHA256SUMS.txt aktualisiert.
+- Keine Inhaltsänderung an den historischen oder interpretativen Daten von v1.4.1.
+
 ## 1.4.1
 
 ### Zugänglichkeit und Abschlussprüfung

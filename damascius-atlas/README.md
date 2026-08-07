@@ -1,4 +1,4 @@
-# Damascius Atlas v1.4.1
+# Damascius Atlas v1.4.2
 
 Bilinguale, vollständig statische Forschungs- und Leseapp zu Damascius’ *Philosophical History*.
 
@@ -14,6 +14,11 @@ Bilinguale, vollständig statische Forschungs- und Leseapp zu Damascius’ *Phil
 - 24 überprüfte Fragmentkarten
 - 31 Deutungsessays
 - 3 interaktive Module
+
+## Patch v1.4.2
+- Deutlich gekennzeichneter, dauerhaft sichtbarer Footer-Link zu Impressum und Projektübersicht auf allen Hauptansichten (22 Footer-Aufrufe geprüft).
+- Version, Audit- und Prüfsummendateien synchronisiert; lokal installierte App und Veröffentlichungspaket entsprechen wieder demselben Stand.
+- Keine Inhaltsänderung an den historischen oder interpretativen Daten von v1.4.1.
 
 ## Patch v1.4.1
 
