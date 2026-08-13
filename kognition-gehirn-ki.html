@@ -169,7 +169,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
 
    <div class="formulaBox" style="margin:1.8rem 0">
     <div class="formulaBig">P(T) = F(H, R, K, L, E, X ; T)</div>
-    <div class="small" style="text-align:center;font-family:Inter,ui-sans-serif,sans-serif">Leistung hängt vom Substrat, vom kognitiven Profil, von externen Stützen — und von der konkreten Aufgabe T ab.</div>
+    <div class="small" style="text-align:center;font-family:Inter,ui-sans-serif,sans-serif">Leistung hängt vom Substrat, vom kognitiven Profil, von externen Stützen — und von der konkreten Aufgabe T ab.<br><strong>Schema, kein kalibriertes Modell:</strong> F bezeichnet hier keine bekannte berechenbare Funktion; es werden weder Gewichte noch eine funktionale Form behauptet.</div>
    </div>
 
    <p>Die Zahlen und Visualisierungen auf dieser Seite sollten deshalb auf drei verschiedenen Ebenen gelesen werden: als <strong>Mess- oder Literaturwerte</strong>, wo belastbare Daten existieren; als ausdrücklich markierte <strong>Toy-Rechnungen</strong>, wenn unterschiedliche Größenordnungen probeweise aufeinander projiziert werden; und als <strong>heuristische Profile</strong>, wenn qualitative Unterschiede zwischen biologischen und künstlichen Systemen sichtbar gemacht werden sollen. Diese Trennung ist wichtiger als jede einzelne Zahl.</p>
@@ -231,6 +231,8 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   <tr><td><strong>rezenter H. sapiens</strong></td><td>≈1330 ml</td><td>10¹⁵ Referenzanker</td><td>Kognitive Reichweite wächst kulturell weiter, obwohl Hirngröße nicht monoton wächst.</td></tr>
  </tbody></table></div>
  <p class="small" style="margin-top:12px">* Keine fossilen „Rechenmessungen“: ECV als Brain-size-Proxy, primatentypische nahezu lineare Skalierung und der 10¹⁵-Anker werden nur zu einer Sensitivitätsrechnung kombiniert. Taxonomische Mittelwerte sind repräsentative Literaturzusammenfassungen, keine unveränderlichen Artkonstanten.</p>
+ <p class="small"><strong>Zwei Modellschritte:</strong> Die fossilen Toy-Bänder entstehen über ECV → geschätzte Neuronenzahl → auf den 10¹⁵-Anker projizierten Toy-Compute. Annahmen und Unsicherheiten beider Abbildungen kumulieren; die resultierenden Toy-Werte sind daher deutlich weniger belastbar als die zugrunde liegenden ECV-Angaben.</p>
+ <p class="small"><strong>Keine Körpergrößenkorrektur:</strong> Verwendet wird hier absolute ECV-/Substratgröße, nicht der Encephalization Quotient (EQ). Ein EQ-basierter Vergleich wäre eine sinnvolle alternative Analyse, beantwortete aber eine andere Frage — relative Enzephalisation gegenüber einer allometrischen Körpergrößen-Erwartung statt absolut geschätzten neuronalen Substrats — und brächte zusätzliche Modellannahmen mit sich.</p>
  <div class="callout">3D-Morphometrie von Hubbe &amp; Harvati (2026) spricht gegen die populäre Erzählung einer einfachen, kontinuierlichen gerichteten Selektion zu immer größerem Neurocranium. „Evolution der Intelligenz“ ist keine Taktratenerhöhung.</div>
 </div></section>
 
@@ -243,6 +245,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   <div class="def"><b>E</b><h3>Embodiment</h3><p>Offene physische Welt: Wahrnehmung, Körper, Navigation, Motorik, Selbstregulation.</p></div>
   <div class="def"><b>X</b><h3>Externe Kognition</h3><p>Soziale Kultur, Sprache, Schrift, Bibliothek, Datenbanken, RAG, CAS, Beweisassistenten.</p></div>
  </div>
+ <div class="alert" style="border-left-color:var(--violet);background:rgba(169,139,255,.07);color:#d8d0ee"><strong>Analytisch, nicht orthogonal:</strong> R, K, L, E und X sind konzeptionell unterscheidbare Dimensionen, aber weder als statistisch unabhängig noch als neurobiologisch orthogonal gemeint. In realen Organismen und KI-Systemen sind Korrelationen und Wechselwirkungen zu erwarten — etwa zwischen Embodiment und Lernen oder zwischen interner Kompetenz und externen Werkzeugen.</div>
  <div class="vizShell">
   <div class="panel canvasWrap"><canvas id="space3d" aria-label="Interaktiver dreidimensionaler Kognitionsraum"></canvas><div class="rotateTip">drag · rotate · wheel/pinch · zoom</div><div class="axisControls"><label>X <select id="axisX"></select></label><label>Y <select id="axisY"></select></label><label>Z <select id="axisZ"></select></label></div></div>
   <aside class="panel sideInfo"><div class="species" id="selKind">heuristisches Profil</div><h3 id="selName">Autark Local AI</h3><p class="small" id="selDesc"></p><div class="dimensionList" id="dimList"></div><p class="small" style="margin-top:24px"><strong>Skala:</strong> 10 = kompetenter heutiger Erwachsener in normaler 2026-Kulturumwelt. Ordinal, nicht metrisch. Werte &gt;10 bedeuten nur domänenspezifische Überlegenheit auf dieser Achse.</p></aside>
@@ -252,6 +255,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   <div class="panel"><div class="panelHead"><h3>Was die Form sagt</h3><span>nicht der Flächeninhalt</span></div><div class="panelBody prose">
    <p><strong>Frühe Homininen:</strong> stark in <span class="code">E</span> und <span class="code">L</span>, weil sie vollständige autonome Organismen waren; <span class="code">X</span> wächst mit Technik, Übertragung und sozialen Netzen.</p>
    <p><strong>Lokale KI:</strong> beinahe das Negativ davon — sehr hohes <span class="code">K</span> und <span class="code">X</span>, schwaches <span class="code">L</span> und fast kein <span class="code">E</span>.</p>
+   <p><strong>X ist dabei qualitativ doppeldeutig:</strong> Man kann externe Kognition <em>nutzen</em> — Bücher, Datenbanken, arXiv, Mathlib, Suchsysteme, CAS — oder zu ihrer dauerhaften kumulativen <em>Fortschreibung</em> beitragen. Beim heutigen lokalen System ist <span class="code">X<sub>nutzen</sub></span> sehr stark; <span class="code">X<sub>fortschreiben</sub></span> ist dagegen begrenzt, lokal und überwiegend menschlich angeleitet. Rückschreibpfade wie persistentes Memory und Forschungsgraph ändern daran nur graduell etwas. Menschliche Kultur verbindet beides über Generationen.</p>
    <p><strong>Darum kreuzen sich Rangfolgen:</strong> Ein früher Homo schlägt das lokale System bei autonomer Weltbewältigung und kontinuierlichem Lernen; das lokale System schlägt ihn bei vielen textuellen, mathematischen und kulturgesättigten Aufgaben.</p>
    <p>Die Frage „wer ist intelligenter?“ ist ohne Aufgabe <span class="code">T</span> unterbestimmt.</p>
   </div></div>
@@ -280,7 +284,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   <div class="task"><h3>Literatur zu Proklos/Mathematik suchen und synthetisieren</h3><div class="duel"><div class="bio">H. erectus<div class="scoreline"><i style="width:2%"></i></div></div><div class="ai">lokale KI<div class="scoreline"><i style="width:96%"></i></div></div></div></div>
   <div class="task"><h3>Algebraisches Resultat mit Sage/Lean/PARI prüfen</h3><div class="duel"><div class="bio">früher Homo<div class="scoreline"><i style="width:1%"></i></div></div><div class="ai">lokale KI<div class="scoreline"><i style="width:98%"></i></div></div></div></div>
  </div>
- <div class="formulaBox"><div class="small" style="text-align:center">Besser als ein skalarer Intelligenzwert:</div><div class="formulaBig">P(T) = F(H, R, K, L, E, X ; T)</div><div class="small" style="text-align:center">H = Hardware/Substrat · R/K/L/E/X = kognitives Profil · T = konkrete Aufgabe</div></div>
+ <div class="formulaBox"><div class="small" style="text-align:center">Besser als ein skalarer Intelligenzwert:</div><div class="formulaBig">P(T) = F(H, R, K, L, E, X ; T)</div><div class="small" style="text-align:center">H = Hardware/Substrat · R/K/L/E/X = kognitives Profil · T = konkrete Aufgabe<br><strong>Schema, kein kalibriertes Modell:</strong> keine bekannten Gewichte, keine behauptete berechenbare Form von F.</div></div>
 </div></section>
 
 <section id="autark"><div class="wrap">
