@@ -192,7 +192,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   <article class="card"><div class="metric">819 GB/s</div><h3>M3 Ultra · offizielle Bandbreite</h3><p>Apple: bis 32‑Core CPU, 80‑Core GPU, 32‑Core Neural Engine; 256 GB Unified Memory sind konfigurierbar. Bandbreite ist für große autoregressive Modelle ein zentraler Hardwareparameter.</p></article>
   <article class="card"><div class="metric violet">≈26–28</div><h3>TFLOP/s FP16 · externe Schätzung</h3><p>Apple veröffentlicht keinen offiziellen FP16-TFLOP-Wert. Zwei unabhängige Engineering-Quellen liegen ungefähr bei 26 bzw. 28 TFLOP/s. Deshalb nur als Band, nicht als Apple-Spezifikation.</p></article>
   <article class="card"><div class="metric amber">10¹⁴</div><h3>Instruktionen/s · Moravec</h3><p>Riskante funktionale Hochrechnung von Retina-Computervision auf das gesamte Gehirn. Andere Einheit und andere Methode als FLOP/s — deshalb nicht direkt gleichsetzen.</p></article>
-  <article class="card"><div class="metric green">10¹⁵</div><h3>FLOP/s · Carlsmith-Anker</h3><p>Ein subjektiver Suffizienzanker: eher wahrscheinlich als nicht genügend, um mit der richtigen Software menschliche Task-Performance zu erreichen. Kein gemessener „Takt“ des Gehirns.</p></article>
+  <article class="card"><div class="metric green">10¹⁵</div><h3>FLOP/s · Carlsmith-Anker</h3><p>Carlsmiths subjektiver Suffizienzanker: Er hält es für eher wahrscheinlich als nicht, dass etwa 10¹⁵ FLOP/s mit geeigneter Software für menschliche Aufgabenleistung ausreichen könnten. Kein gemessener „Takt“ des Gehirns.</p></article>
  </div>
  <div class="alert"><strong>Wichtig:</strong> Carlsmiths mechanistische Ansätze reichen grob über mehrere Größenordnungen. 10¹⁵ FLOP/s ist ein Best-Guess-/Suffizienzanker, keine Naturkonstante und keine direkte Synapsen↔FLOP-Umrechnung.</div>
 </div></section>
@@ -305,7 +305,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
 <section id="schluss"><div class="wrap">
  <div class="secHead"><div><div class="kicker">08 · Synthese</div><h2>Was kann man am Ende wirklich sagen?</h2></div><p class="secIntro">Vier Aussagen bleiben robust, auch wenn einzelne Zahlen künftig revidiert werden.</p></div>
  <div class="cards">
-  <article class="card"><div class="metric">01</div><h3>Raw compute</h3><p>Der einzelne M3 Ultra liegt unter plausiblen Whole-brain-Suffizienzankern und — in der Toy-Skalierung — sogar deutlich unter Frühhomininen.</p></article>
+  <article class="card"><div class="metric">01</div><h3>Raw compute</h3><p>Der einzelne M3 Ultra liegt deutlich unter dem hier verwendeten 10¹⁵-FLOP/s-Suffizienzanker und — in der ausdrücklich künstlichen Toy-Skalierung — deutlich unter den Frühhomininenwerten.</p></article>
   <article class="card"><div class="metric violet">02</div><h3>Profile kreuzen sich</h3><p>Biologische Organismen dominieren bei Embodiment und dauerhaftem Lernen; das lokale System kann bei symbolischer, kulturgesättigter Arbeit dominieren.</p></article>
   <article class="card"><div class="metric amber">03</div><h3>Kompilation zählt</h3><p>Evolution, individuelles Lernen, Pretraining und Kultur verschieben Problemlösearbeit zeitlich nach vorn und konservieren Lösungen in Struktur.</p></article>
   <article class="card"><div class="metric green">04</div><h3>Task first</h3><p>Es gibt ohne Aufgabe T keinen seriösen skalaren Vergleich „Mac gegen Gehirn“. Die richtige Frage lautet: welche Funktion, welche Vorarbeit, welche externen Stützen?</p></article>
