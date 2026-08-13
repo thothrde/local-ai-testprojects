@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Gehirne, Frühmenschen und lokale KI: Mac Studio M3 Ultra, Rechenanker, kompilierte Kognition und ein interaktiver 5D/3D-Vergleich.">
+<title>Gehirne, Frühmenschen & lokale KI · Autark Data</title>
+<style>
+:root{
+  --bg:#050711;--bg2:#09101d;--panel:rgba(14,21,38,.78);--panel2:rgba(19,29,50,.8);
+  --ink:#edf5ff;--muted:#9aa9c5;--faint:#66738d;--line:rgba(158,184,228,.16);
+  --cyan:#64e6ff;--violet:#a98bff;--amber:#ffcb73;--rose:#ff809f;--green:#78e6b0;
+  --max:1180px;--r:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  margin:0;color:var(--ink);background:
+  radial-gradient(1000px 760px at 78% -4%,rgba(94,66,196,.23),transparent 62%),
+  radial-gradient(900px 720px at -10% 28%,rgba(42,158,188,.14),transparent 62%),
+  linear-gradient(180deg,#050711,#09101c 44%,#050711);
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.58;overflow-x:hidden
+}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{width:min(var(--max),calc(100% - 32px));margin:auto}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(5,7,17,.76);border-bottom:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.topbar .inner{height:58px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-size:.78rem;font-weight:780;letter-spacing:.07em;text-transform:uppercase;color:#dceaff}
+.nav{display:flex;gap:14px;align-items:center;font-size:.84rem;color:var(--muted)}.nav a{color:inherit}
+.hero{position:relative;min-height:760px;display:grid;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;opacity:.82}
+.heroFade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,17,.98) 4%,rgba(5,7,17,.83) 43%,rgba(5,7,17,.2) 78%,rgba(5,7,17,.7))}
+.heroContent{position:relative;z-index:2;padding:108px 0 92px;max-width:840px}
+.eyebrow,.kicker{font-size:.73rem;letter-spacing:.22em;text-transform:uppercase;font-weight:760}
+.eyebrow{color:var(--cyan);margin-bottom:22px}.kicker{color:var(--violet)}
+h1{font-size:clamp(3rem,8vw,6.8rem);line-height:.91;letter-spacing:-.057em;margin:0 0 28px;font-weight:830}
+h1 .thin{font-weight:350;color:#bacbe8}
+.lead{font-size:clamp(1.08rem,2vw,1.42rem);max-width:790px;color:#c7d3e8;line-height:1.56}
+.heroFormula{display:inline-flex;margin-top:26px;padding:12px 17px;border:1px solid rgba(100,230,255,.28);border-radius:999px;background:rgba(7,16,30,.58);font: .88rem "SFMono-Regular",Consolas,monospace;color:#dffaff}
+.heroNote{max-width:720px;margin-top:16px;color:var(--muted);font-size:.85rem}
+section{padding:92px 0;border-bottom:1px solid var(--line)}
+.secHead{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr);gap:48px;align-items:end;margin-bottom:46px}
+h2{font-size:clamp(2.1rem,4.4vw,4.18rem);line-height:1.02;letter-spacing:-.046em;margin:.5rem 0 0}
+.secIntro{color:var(--muted);font-size:1rem;margin:0}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{border:1px solid var(--line);background:linear-gradient(160deg,rgba(20,29,51,.82),rgba(8,12,24,.78));border-radius:var(--r);padding:24px;min-height:194px}
+.metric{font-size:clamp(1.9rem,3vw,3.15rem);font-weight:820;letter-spacing:-.055em;line-height:1;color:var(--cyan)}
+.metric.violet{color:var(--violet)}.metric.amber{color:var(--amber)}.metric.green{color:var(--green)}
+.card h3{font-size:1rem;margin:16px 0 7px}.card p{font-size:.88rem;color:var(--muted);margin:0}
+.alert{margin-top:24px;padding:18px 20px;border-left:3px solid var(--amber);border-radius:0 13px 13px 0;background:rgba(255,203,115,.07);color:#dfd5bf;font-size:.91rem}
+.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.panelHead{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.panelHead h3{margin:0;font-size:.98rem}.panelHead span{color:var(--muted);font-size:.77rem}
+.panelBody{padding:20px}.prose{color:#c3cfe1}.prose p{margin:0 0 1.17rem}.prose strong{color:#f5f8ff}
+.small{font-size:.78rem;color:var(--muted)}
+#computeChart{width:100%;height:475px;display:block}
+.scaleHint{font-size:.75rem;color:var(--faint);padding:0 20px 18px}
+.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:18px}
+table{width:100%;border-collapse:collapse;min-width:780px;font-size:.84rem}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{position:sticky;top:58px;background:#101728;color:#c9d8f0;font-size:.72rem;letter-spacing:.055em;text-transform:uppercase}
+td{color:#b8c5da}td strong{color:#eef6ff}
+.code{font-family:"SFMono-Regular",Consolas,monospace;font-size:.9em;color:#dce9ff}
+.callout{margin:36px 0;padding:28px;border-radius:22px;background:linear-gradient(120deg,rgba(37,171,198,.1),rgba(100,67,179,.12));border:1px solid rgba(100,230,255,.18);font:clamp(1.14rem,2vw,1.48rem)/1.52 Georgia,serif;color:#e7f4ff}
+.defGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:28px}
+.def{padding:18px;border-radius:17px;border:1px solid var(--line);background:rgba(13,19,34,.66)}
+.def b{font-size:1.75rem;color:var(--cyan)}.def h3{font-size:.9rem;margin:5px 0}.def p{font-size:.77rem;color:var(--muted);margin:0}
+.vizShell{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.65fr);gap:18px;margin-top:18px}
+.canvasWrap{position:relative;min-height:620px;background:radial-gradient(circle at 50% 43%,rgba(83,113,192,.13),transparent 47%),linear-gradient(180deg,rgba(9,14,29,.82),rgba(5,8,18,.96));overflow:hidden}
+#space3d{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}#space3d:active{cursor:grabbing}
+.rotateTip{position:absolute;top:17px;left:18px;padding:7px 10px;border-radius:999px;background:rgba(6,10,20,.7);border:1px solid var(--line);font-size:.71rem;color:var(--muted)}
+.axisControls{position:absolute;left:18px;right:18px;bottom:17px;z-index:4;display:flex;gap:8px;flex-wrap:wrap}
+.axisControls label{background:rgba(6,10,20,.82);border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:.71rem;color:var(--muted)}
+.axisControls select{background:transparent;color:#e9f2ff;border:0;font:inherit;outline:none;margin-left:5px}.axisControls option{background:#101728}
+.sideInfo{padding:24px}.sideInfo h3{font-size:1.48rem;margin:0 0 6px}.species{color:var(--cyan);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+.dimensionList{margin-top:23px;display:grid;gap:13px}
+.dimRow{display:grid;grid-template-columns:22px 1fr 57px;gap:10px;align-items:center;font-size:.78rem}.dimKey{font-weight:820;color:#eaf4ff}
+.bar{height:5px;background:#1c2740;border-radius:9px;overflow:hidden}.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));border-radius:inherit}
+.dimVal{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+#radar{width:100%;height:430px;display:block}.pills{display:flex;flex-wrap:wrap;gap:7px}.pill{border:1px solid var(--line);border-radius:999px;padding:7px 10px;font-size:.71rem;color:var(--muted);background:rgba(17,25,44,.7);cursor:pointer}.pill.active{color:#fff;border-color:rgba(100,230,255,.45);background:rgba(100,230,255,.11)}
+.timeline{display:grid;gap:12px}.tline{display:grid;grid-template-columns:180px 1fr;gap:16px}
+.tlabel{padding:18px;border-radius:17px;border:1px solid var(--line);background:rgba(12,18,32,.68)}.tlabel b{display:block}.tlabel span{font-size:.75rem;color:var(--muted)}
+.ttrack{border:1px solid var(--line);border-radius:17px;min-height:92px;background:rgba(9,14,27,.58);display:grid;grid-template-columns:1fr 46px 1fr 46px 1fr;align-items:center;padding:12px 18px;gap:8px}
+.tnode{text-align:center;font-size:.77rem;color:#d4e0f4}.arrow{height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);position:relative}.arrow:after{content:"›";position:absolute;right:-2px;top:-13px;color:var(--cyan);font-size:1.4rem}
+.taskGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.task{padding:20px;border:1px solid var(--line);background:rgba(13,20,36,.65);border-radius:17px}.task h3{font-size:.93rem;margin:0 0 13px}
+.duel{display:grid;grid-template-columns:1fr 1fr;gap:10px}.duel>div{font-size:.75rem;color:var(--muted)}.scoreline{height:6px;border-radius:9px;background:#1b263e;margin-top:7px;overflow:hidden}.scoreline i{height:100%;display:block;border-radius:inherit}.bio i{background:var(--amber)}.ai i{background:var(--cyan)}
+.formulaBox{margin:30px 0;padding:28px;border-radius:22px;border:1px solid rgba(169,139,255,.25);background:linear-gradient(135deg,rgba(169,139,255,.09),rgba(100,230,255,.05))}
+.formulaBig{font-family:"STIX Two Math","Times New Roman",serif;font-size:clamp(1.3rem,3vw,2.2rem);text-align:center;color:#f3f0ff;margin:12px 0}
+.arch{display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;align-items:stretch;gap:8px}.archBox{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(14,21,39,.72)}.archBox h3{font-size:.92rem;margin:0 0 10px}.archBox ul{list-style:none;padding:0;margin:0;font-size:.77rem;color:var(--muted)}.archBox li+li{margin-top:6px}.archArrow{align-self:center;text-align:center;color:var(--cyan);font-size:2rem}
+.sources{counter-reset:source;display:grid;gap:9px}.source{position:relative;padding:13px 15px 13px 52px;border:1px solid var(--line);border-radius:14px;background:rgba(12,17,31,.6);font-size:.79rem;color:var(--muted)}.source:before{counter-increment:source;content:counter(source,decimal-leading-zero);position:absolute;left:15px;color:var(--cyan);font-family:monospace}.source a{color:#dceaff}
+footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap}.badge{display:inline-flex;gap:7px;align-items:center;padding:6px 9px;border:1px solid var(--line);border-radius:999px;font-size:.69rem}.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}.grid2,.vizShell,.secHead{grid-template-columns:1fr}.defGrid{grid-template-columns:1fr 1fr}.arch{grid-template-columns:1fr}.archArrow{transform:rotate(90deg)}.tline{grid-template-columns:1fr}.hero{min-height:680px}.canvasWrap{min-height:560px}}
+@media(max-width:620px){.wrap{width:min(100% - 22px,var(--max))}.nav span{display:none}.cards,.taskGrid{grid-template-columns:1fr}.defGrid{grid-template-columns:1fr}section{padding:70px 0}.heroContent{padding:90px 0 70px}.ttrack{grid-template-columns:1fr 26px 1fr 26px 1fr;padding:10px 8px}.tnode{font-size:.66rem}.axisControls{left:9px;right:9px}.rotateTip{left:9px}.panelBody{padding:14px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#heroCanvas{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap inner"><a class="brand" href="index.html">Autark Data · Thomas Riepe</a><nav class="nav"><a href="ki-oekosystem.html">Infrastruktur</a><span>·</span><a href="#quellen">Quellen</a><span>·</span><a href="index.html">Alle Projekte</a></nav></div></header>
+
+<main>
+<section class="hero">
+ <canvas id="heroCanvas" aria-hidden="true"></canvas><div class="heroFade"></div>
+ <div class="wrap heroContent">
+  <div class="eyebrow">Infrastruktur · Kognition · August 2026</div>
+  <h1>Gehirne,<br><span class="thin">Frühmenschen &</span><br>lokale KI</h1>
+  <p class="lead">Wo liegt ein Mac Studio M3 Ultra im Raum der Kognition? Eine Gesamtanalyse, die rohe Rechenleistung, Tier- und Homininengehirne, trainierte KI-Modelle, Sensomotorik und kumulative Kultur bewusst <em>nicht</em> auf eine einzige Intelligenzleiter zwingt.</p>
+  <div class="heroFormula">P(T) = F(H, R, K, L, E, X ; T)</div>
+  <p class="heroNote">Kernaussage: Hardwaredurchsatz ist nicht Intelligenz. „Mühelose“ Tier-Sensomotorik kann hochgradig evolutionär kompiliert sein; LLM-Inferenz nutzt ebenso vorab kompilierte Gewichte; moderne symbolische Leistung hängt zusätzlich massiv an Kultur und Werkzeugen.</p>
+ </div>
+</section>
+
+<section id="anker"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">01 · Rechenanker</div><h2>Vier Zahlen. Vier verschiedene Bedeutungen.</h2></div><p class="secIntro">Der häufigste Kategorienfehler ist, FLOP/s, Instruktionen/s, Neuronenzahlen und kognitive Kompetenz als austauschbar zu behandeln. Sie sind es nicht.</p></div>
+ <div class="cards">
+  <article class="card"><div class="metric">819 GB/s</div><h3>M3 Ultra · offizielle Bandbreite</h3><p>Apple: bis 32‑Core CPU, 80‑Core GPU, 32‑Core Neural Engine; 256 GB Unified Memory sind konfigurierbar. Bandbreite ist für große autoregressive Modelle ein zentraler Hardwareparameter.</p></article>
+  <article class="card"><div class="metric violet">≈26–28</div><h3>TFLOP/s FP16 · externe Schätzung</h3><p>Apple veröffentlicht keinen offiziellen FP16-TFLOP-Wert. Zwei unabhängige Engineering-Quellen liegen ungefähr bei 26 bzw. 28 TFLOP/s. Deshalb nur als Band, nicht als Apple-Spezifikation.</p></article>
+  <article class="card"><div class="metric amber">10¹⁴</div><h3>Instruktionen/s · Moravec</h3><p>Riskante funktionale Hochrechnung von Retina-Computervision auf das gesamte Gehirn. Andere Einheit und andere Methode als FLOP/s — deshalb nicht direkt gleichsetzen.</p></article>
+  <article class="card"><div class="metric green">10¹⁵</div><h3>FLOP/s · Carlsmith-Anker</h3><p>Ein subjektiver Suffizienzanker: eher wahrscheinlich als nicht genügend, um mit der richtigen Software menschliche Task-Performance zu erreichen. Kein gemessener „Takt“ des Gehirns.</p></article>
+ </div>
+ <div class="alert"><strong>Wichtig:</strong> Carlsmiths mechanistische Ansätze reichen grob über mehrere Größenordnungen. 10¹⁵ FLOP/s ist ein Best-Guess-/Suffizienzanker, keine Naturkonstante und keine direkte Synapsen↔FLOP-Umrechnung.</div>
+</div></section>
+
+<section id="compute"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">02 · Toy compute</div><h2>Was die alte „Tiergehirn“-Rechnung wirklich sagt.</h2></div><p class="secIntro">Normiert man 86 Mrd. menschliche Neuronen auf 10¹⁵ FLOP/s, erhält man eine grobe Substrat-Spielrechnung. Sie ist nützlich für Größenordnungen — und ungeeignet als Intelligenzranking.</p></div>
+ <div class="grid2">
+  <div class="panel"><div class="panelHead"><h3>Logarithmische Toy-Skala</h3><span>10¹¹–10¹⁶</span></div><canvas id="computeChart"></canvas><div class="scaleHint">● rezente Tiere · ◆ M3 FP16-Band · ■ fossile ECV-Proxy-Bänder · ▲ moderner menschlicher Anker. Moravec steht gestrichelt separat: Instruktionen/s ≠ FLOP/s.</div></div>
+  <div class="panel"><div class="panelHead"><h3>Interpretation</h3><span>kein IQ-Meter</span></div><div class="panelBody prose">
+   <p><strong>Das nackte M3-Ultra-Silizium</strong> liegt mit ≈2,6–2,8×10¹³ FP16-FLOP/s bei nur ≈2,6–2,8 % des 10¹⁵-Ankers. In einer linear auf Neuronenzahl projizierten Spielrechnung wären das grob 2,2–2,4 Mrd. „human-skalierten“ Neuronen.</p>
+   <p><strong>Primatenvergleich:</strong> Klassische Isotropic-Fractionator-Daten nennen etwa 636 Mio. Gesamtneuronen für den Marmoset und etwa 6,4 Mrd. für <em>Macaca</em>. Der M3 läge auf dieser künstlichen Skala zwischen beiden — ohne deshalb „marmoset- oder macaque-intelligent“ zu sein.</p>
+   <p><strong>Frühhomininen:</strong> Selbst <em>A. afarensis</em> landet, wenn man Endokranialvolumen als groben Substratproxy benutzt, in einem Toy-Band von etwa 3,4–3,8×10¹⁴. Der einzelne M3 liegt weit darunter.</p>
+   <p>Das spätere scheinbare Paradox entsteht, weil ein laufendes LLM seine Rechenleistung eng auf einen symbolischen Strom konzentriert und enorme Vorarbeit in seinen Gewichten bereits mitbringt.</p>
+  </div></div>
+ </div>
+ <div class="tableWrap" style="margin-top:18px"><table><thead><tr><th>Referenz</th><th>Basisgröße</th><th>Toy-Skala</th><th>Was man nicht folgern darf</th></tr></thead><tbody>
+  <tr><td><strong>Maus</strong></td><td>≈71 Mio. Neuronen · grobe Literaturreferenz</td><td>≈8,3×10¹¹</td><td>Dass 1 TFLOP/s „eine Maus“ sei.</td></tr>
+  <tr><td><strong>Ratte</strong></td><td>≈200 Mio. · grobe Literaturreferenz</td><td>≈2,3×10¹²</td><td>Gleiche Architektur oder ökologische Kompetenz.</td></tr>
+  <tr><td><strong>Marmoset</strong></td><td>≈636 Mio. Neuronen</td><td>≈7,4×10¹²</td><td>Dass Gesamtneuronen fluide Intelligenz messen.</td></tr>
+  <tr><td><strong>M3 Ultra</strong></td><td>≈26–28 TFLOP/s FP16 · extern geschätzt</td><td>2,6–2,8×10¹³ realer Hardwaredurchsatz</td><td>Dass FLOPs neuronalen Operationen entsprechen.</td></tr>
+  <tr><td><strong>Macaca</strong></td><td>≈6,4 Mrd. Neuronen</td><td>≈7,4×10¹³</td><td>Dass ähnliche Größenordnung gleiche Kognition bedeutet.</td></tr>
+  <tr><td><strong>H. sapiens</strong></td><td>≈86 Mrd. Neuronen</td><td>10¹⁵ als gesetzter Referenzanker</td><td>Dass das Gehirn „wirklich 1 PFLOP/s“ rechnet.</td></tr>
+ </tbody></table></div>
+</div></section>
+
+<section id="homininen"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">03 · Homininen</div><h2>Kein Marsch zu immer mehr „CPU“.</h2></div><p class="secIntro">Endokranialvolumen wächst langfristig stark. Aber Größe, Organisation, Entwicklung, Technik und kulturelle Netze verändern sich nicht als ein einziger monotoner Parameter.</p></div>
+ <div class="tableWrap"><table><thead><tr><th>Gruppe</th><th>repräsentatives ECV</th><th>nur Toy-Substratband*</th><th>entscheidender Zusatzbefund</th></tr></thead><tbody>
+  <tr><td><strong>A. afarensis</strong></td><td>≈446 ml</td><td>≈3,4–3,8×10¹⁴</td><td>Eher menschenaffenartige Organisation, aber verlängertes postnatales Gehirnwachstum.</td></tr>
+  <tr><td><strong>H. habilis</strong></td><td>≈609 ml</td><td>≈4,6–5,0×10¹⁴</td><td>Volumen allein sagt wenig über Frontalorganisation und Task-Struktur.</td></tr>
+  <tr><td><strong>H. ergaster / früher erectus</strong></td><td>≈825 ml</td><td>≈6,2–6,6×10¹⁴</td><td>Früher afrikanischer Homo und Dmanisi können noch primitive Frontalorganisation zeigen.</td></tr>
+  <tr><td><strong>später H. erectus</strong></td><td>≈959 ml</td><td>≈7,2–7,5×10¹⁴</td><td>Abgeleitetere Organisation tritt später auf; Acheuléen erhöht Anforderungen an hierarchische Aktionskontrolle.</td></tr>
+  <tr><td><strong>H. heidelbergensis s.l.</strong></td><td>≈1227 ml</td><td>≈9,2–9,3×10¹⁴</td><td>Große Gehirne sind keine simple Endstufe einer linearen Selektionsrampe.</td></tr>
+  <tr><td><strong>Neandertaler</strong></td><td>≈1415 ml</td><td>≈1,06×10¹⁵</td><td>Im Mittel größere Endokranien als heutige Menschen: „größer = generell intelligenter“ scheitert.</td></tr>
+  <tr><td><strong>pleistozäner H. sapiens</strong></td><td>≈1499 ml</td><td>≈1,11–1,13×10¹⁵</td><td>Auch pleistozäne sapiens konnten größere Gehirne als heutige Menschen besitzen.</td></tr>
+  <tr><td><strong>rezenter H. sapiens</strong></td><td>≈1330 ml</td><td>10¹⁵ Referenzanker</td><td>Kognitive Reichweite wächst kulturell weiter, obwohl Hirngröße nicht monoton wächst.</td></tr>
+ </tbody></table></div>
+ <p class="small" style="margin-top:12px">* Keine fossilen „Rechenmessungen“: ECV als Brain-size-Proxy, primatentypische nahezu lineare Skalierung und der 10¹⁵-Anker werden nur zu einer Sensitivitätsrechnung kombiniert. Taxonomische Mittelwerte sind repräsentative Literaturzusammenfassungen, keine unveränderlichen Artkonstanten.</p>
+ <div class="callout">3D-Morphometrie von Hubbe &amp; Harvati (2026) spricht gegen die populäre Erzählung einer einfachen, kontinuierlichen gerichteten Selektion zu immer größerem Neurocranium. „Evolution der Intelligenz“ ist keine Taktratenerhöhung.</div>
+</div></section>
+
+<section id="raum"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">04 · 3D-Kognitionsraum</div><h2>Verschiedene Formen, nicht verschiedene Stufen.</h2></div><p class="secIntro">Die Profile sind heuristisch und ordinal. Ziehen zum Rotieren, Mausrad/Pinch zum Zoomen, Punkt antippen. X/Y/Z lassen sich frei aus fünf Dimensionen wählen.</p></div>
+ <div class="defGrid">
+  <div class="def"><b>R</b><h3>Online-Rekombination</h3><p>Neuartige Probleme, Arbeitsgedächtnis, Planung, Inhibition, fluide Kontrolle.</p></div>
+  <div class="def"><b>K</b><h3>Kompilierte Kompetenz</h3><p>Evolutionär, erlernt oder durch Training bereits in Struktur/Gewichten sedimentierte Fähigkeit.</p></div>
+  <div class="def"><b>L</b><h3>Dauerhaftes Lernen</h3><p>Neue Erfahrung in stabile neue Fähigkeiten und Repräsentationen verwandeln.</p></div>
+  <div class="def"><b>E</b><h3>Embodiment</h3><p>Offene physische Welt: Wahrnehmung, Körper, Navigation, Motorik, Selbstregulation.</p></div>
+  <div class="def"><b>X</b><h3>Externe Kognition</h3><p>Soziale Kultur, Sprache, Schrift, Bibliothek, Datenbanken, RAG, CAS, Beweisassistenten.</p></div>
+ </div>
+ <div class="vizShell">
+  <div class="panel canvasWrap"><canvas id="space3d" aria-label="Interaktiver dreidimensionaler Kognitionsraum"></canvas><div class="rotateTip">drag · rotate · wheel/pinch · zoom</div><div class="axisControls"><label>X <select id="axisX"></select></label><label>Y <select id="axisY"></select></label><label>Z <select id="axisZ"></select></label></div></div>
+  <aside class="panel sideInfo"><div class="species" id="selKind">heuristisches Profil</div><h3 id="selName">Autark Local AI</h3><p class="small" id="selDesc"></p><div class="dimensionList" id="dimList"></div><p class="small" style="margin-top:24px"><strong>Skala:</strong> 10 = kompetenter heutiger Erwachsener in normaler 2026-Kulturumwelt. Ordinal, nicht metrisch. Werte &gt;10 bedeuten nur domänenspezifische Überlegenheit auf dieser Achse.</p></aside>
+ </div>
+ <div class="grid2" style="margin-top:18px">
+  <div class="panel"><div class="panelHead"><h3>5D-Fingerprint</h3><span>Systeme überlagern</span></div><canvas id="radar"></canvas><div class="panelBody"><div class="pills" id="radarPills"></div></div></div>
+  <div class="panel"><div class="panelHead"><h3>Was die Form sagt</h3><span>nicht der Flächeninhalt</span></div><div class="panelBody prose">
+   <p><strong>Frühe Homininen:</strong> stark in <span class="code">E</span> und <span class="code">L</span>, weil sie vollständige autonome Organismen waren; <span class="code">X</span> wächst mit Technik, Übertragung und sozialen Netzen.</p>
+   <p><strong>Lokale KI:</strong> beinahe das Negativ davon — sehr hohes <span class="code">K</span> und <span class="code">X</span>, schwaches <span class="code">L</span> und fast kein <span class="code">E</span>.</p>
+   <p><strong>Darum kreuzen sich Rangfolgen:</strong> Ein früher Homo schlägt das lokale System bei autonomer Weltbewältigung und kontinuierlichem Lernen; das lokale System schlägt ihn bei vielen textuellen, mathematischen und kulturgesättigten Aufgaben.</p>
+   <p>Die Frage „wer ist intelligenter?“ ist ohne Aufgabe <span class="code">T</span> unterbestimmt.</p>
+  </div></div>
+ </div>
+</div></section>
+
+<section id="kompiliert"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">05 · Kompilierte Kognition</div><h2>Rechenarbeit kann vor dem Problem stattgefunden haben.</h2></div><p class="secIntro">Die tiefe Gemeinsamkeit zwischen Tier-Sensomotorik, trainiertem LLM und kumulativer Kultur: teure Suche wird in wiederverwendbare Struktur verwandelt.</p></div>
+ <div class="timeline">
+  <div class="tline"><div class="tlabel"><b>Biologie</b><span>phylogenetisch + ontogenetisch</span></div><div class="ttrack"><div class="tnode">Millionen Jahre<br>Evolution</div><div class="arrow"></div><div class="tnode">Entwicklung +<br>Lernen</div><div class="arrow"></div><div class="tnode">Millisekunden<br>Kontrolle</div></div></div>
+  <div class="tline"><div class="tlabel"><b>LLM</b><span>offline training → inference</span></div><div class="ttrack"><div class="tnode">Architektur +<br>Datenkurierung</div><div class="arrow"></div><div class="tnode">Pretraining +<br>Posttraining</div><div class="arrow"></div><div class="tnode">Sekunden<br>Inference</div></div></div>
+  <div class="tline"><div class="tlabel"><b>Kultur</b><span>kollektive externe Kognition</span></div><div class="ttrack"><div class="tnode">Generationen<br>Entdeckung</div><div class="arrow"></div><div class="tnode">Schrift, Formel,<br>Werkzeug</div><div class="arrow"></div><div class="tnode">Minuten<br>Anwendung</div></div></div>
+ </div>
+ <div class="callout">Moravecs Paradox lässt sich so neu lesen: „mühelos“ heißt biologisch oft nicht „rechenarm“, sondern „über Evolution und Lernen extrem gut kompiliert“. Das Tier löst das Kontrollproblem nicht jedes Mal durch bewusste Suche — genau wie ein LLM sein Weltwissen nicht bei jedem Prompt neu trainiert.</div>
+ <div class="grid2">
+  <div class="panel"><div class="panelHead"><h3>Warum „kristallisiert“ nur halb passt</h3><span>Cattell → breiterer Begriff</span></div><div class="panelBody prose"><p>Cattells frühe Formulierung kristallisierter Fähigkeit bezog sich auf lang etablierte diskriminative Gewohnheiten, die ursprünglich unter Einsatz allgemeiner Fähigkeit erworben wurden. Das erklärt die Intuition hinter automatisierten Fertigkeiten.</p><p>Für Evolution, Motorik <em>und</em> LLM-Gewichte ist jedoch <strong>kompilierte Kompetenz</strong> der sauberere Oberbegriff: Er behauptet keine psychometrische Identität mit modernem <span class="code">G<sub>c</sub></span>.</p></div></div>
+  <div class="panel"><div class="panelHead"><h3>Sensorimotorik als gespeicherte Lösung</h3><span>K ↔ E</span></div><div class="panelBody prose"><p>Der menschliche Cortex und das Cerebellum enthalten extrem unterschiedliche Neuronenzahlen und Mikroarchitekturen. Schon das zerstört „ein Neuron = eine Einheit abstrakter Intelligenz“.</p><p>Vorhersage, Fehlerlernen und anticipatorische Kontrolle liefern ein funktionales Beispiel dafür, wie Erfahrung in schnelle Regelung übersetzt wird.</p></div></div>
+ </div>
+</div></section>
+
+<section id="tasks"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">06 · Task-Abhängigkeit</div><h2>Wer „gewinnt“, hängt von T ab.</h2></div><p class="secIntro">Die Balken sind qualitative Illustrationen, keine Messdaten. Sie zeigen nur, wie radikal ein Ranking beim Wechsel der Aufgabe kippt.</p></div>
+ <div class="taskGrid">
+  <div class="task"><h3>Offene physische Welt · Nahrung, Gefahr, Navigation</h3><div class="duel"><div class="bio">H. erectus<div class="scoreline"><i style="width:94%"></i></div></div><div class="ai">lokale KI<div class="scoreline"><i style="width:8%"></i></div></div></div></div>
+  <div class="task"><h3>Neue sensomotorische Fertigkeit über Wochen lernen</h3><div class="duel"><div class="bio">H. erectus<div class="scoreline"><i style="width:88%"></i></div></div><div class="ai">lokale KI<div class="scoreline"><i style="width:22%"></i></div></div></div></div>
+  <div class="task"><h3>Literatur zu Proklos/Mathematik suchen und synthetisieren</h3><div class="duel"><div class="bio">H. erectus<div class="scoreline"><i style="width:2%"></i></div></div><div class="ai">lokale KI<div class="scoreline"><i style="width:96%"></i></div></div></div></div>
+  <div class="task"><h3>Algebraisches Resultat mit Sage/Lean/PARI prüfen</h3><div class="duel"><div class="bio">früher Homo<div class="scoreline"><i style="width:1%"></i></div></div><div class="ai">lokale KI<div class="scoreline"><i style="width:98%"></i></div></div></div></div>
+ </div>
+ <div class="formulaBox"><div class="small" style="text-align:center">Besser als ein skalarer Intelligenzwert:</div><div class="formulaBig">P(T) = F(H, R, K, L, E, X ; T)</div><div class="small" style="text-align:center">H = Hardware/Substrat · R/K/L/E/X = kognitives Profil · T = konkrete Aufgabe</div></div>
+</div></section>
+
+<section id="autark"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">07 · Das lokale System</div><h2>Nicht ein Gehirn — ein kognitives Verbundsystem.</h2></div><p class="secIntro">Der aktuelle lokale Stack koppelt mehrere trainierte Modelle mit Retrieval, persistentem Gedächtnis und exakten symbolischen Werkzeugen. Das verändert vor allem K und X.</p></div>
+ <div class="arch">
+  <div class="archBox"><h3>Modelle · kompiliertes K</h3><ul><li>Qwen3 235B‑A22B · ≈22B aktiv</li><li>DeepSeek‑R1 Distill Llama 70B · dense</li><li>GLM‑5.x · ≈40B aktiv als Architekturreferenz</li><li>Qwen3.6 35B‑A3B · schneller Interpreter</li></ul></div>
+  <div class="archArrow">→</div>
+  <div class="archBox"><h3>Router · R-Orchestration</h3><ul><li>semantische Modellwahl</li><li>epistemischer Guard</li><li>Health-Probes</li><li>Tool- und Retrievalpfade</li><li>Session-/Slow-Memory</li></ul></div>
+  <div class="archArrow">→</div>
+  <div class="archBox"><h3>Externe Kognition · X</h3><ul><li>lokales arXiv + Vektorindizes</li><li>Neo4j Knowledge Graph</li><li>SageMath · PARI/GP · Macaulay2</li><li>Lean 4 · Julia</li><li>SearXNG / explizite Recherche</li></ul></div>
+ </div>
+ <div class="grid2" style="margin-top:18px">
+  <div class="panel"><div class="panelHead"><h3>Modellarbeit pro Token · grobe FLOP-Äquivalente</h3><span>≈2 × aktive Parameter</span></div><div class="panelBody"><div class="dimensionList">
+   <div class="dimRow"><div>Q3</div><div><div class="bar"><i style="width:31%"></i></div><div class="small">Qwen3‑235B‑A22B</div></div><div class="dimVal">≈44 GF</div></div>
+   <div class="dimRow"><div>R1</div><div><div class="bar"><i style="width:100%"></i></div><div class="small">DeepSeek‑R1 Distill 70.6B dense</div></div><div class="dimVal">≈141 GF</div></div>
+   <div class="dimRow"><div>G5</div><div><div class="bar"><i style="width:57%"></i></div><div class="small">GLM‑5 family · ≈40B aktiv</div></div><div class="dimVal">≈80 GF</div></div>
+  </div><p class="small" style="margin-top:18px">Die 2N-Regel ist nur eine erste Forward-Pass-Abschätzung („model-FLOP-equivalent“). Quantisierung, Attention, MoE-Routing, KV-Cache und Backend machen daraus <strong>keine</strong> physisch gemessenen FP16-Operationen des Macs.</p></div></div>
+  <div class="panel"><div class="panelHead"><h3>Warum wenig raw FLOP viel Kompetenz tragen kann</h3><span>Inference ≠ Training</span></div><div class="panelBody prose"><p>Das Modell führt bei einer Frage nicht sein Pretraining erneut aus. Training hat statistisch-semantische Regularitäten bereits in Gewichte verdichtet. Das lokale System ergänzt diese Gewichte durch externe Such-, Rechen- und Beweiswerkzeuge.</p><p>Die momentane Rechenlast ist deshalb nur der letzte Abschnitt einer langen kausalen Kette aus Evolution/Kultur bzw. Architektur/Training.</p></div></div>
+ </div>
+</div></section>
+
+<section id="schluss"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">08 · Synthese</div><h2>Was kann man am Ende wirklich sagen?</h2></div><p class="secIntro">Vier Aussagen bleiben robust, auch wenn einzelne Zahlen künftig revidiert werden.</p></div>
+ <div class="cards">
+  <article class="card"><div class="metric">01</div><h3>Raw compute</h3><p>Der einzelne M3 Ultra liegt unter plausiblen Whole-brain-Suffizienzankern und — in der Toy-Skalierung — sogar deutlich unter Frühhomininen.</p></article>
+  <article class="card"><div class="metric violet">02</div><h3>Profile kreuzen sich</h3><p>Biologische Organismen dominieren bei Embodiment und dauerhaftem Lernen; das lokale System kann bei symbolischer, kulturgesättigter Arbeit dominieren.</p></article>
+  <article class="card"><div class="metric amber">03</div><h3>Kompilation zählt</h3><p>Evolution, individuelles Lernen, Pretraining und Kultur verschieben Problemlösearbeit zeitlich nach vorn und konservieren Lösungen in Struktur.</p></article>
+  <article class="card"><div class="metric green">04</div><h3>Task first</h3><p>Es gibt ohne Aufgabe T keinen seriösen skalaren Vergleich „Mac gegen Gehirn“. Die richtige Frage lautet: welche Funktion, welche Vorarbeit, welche externen Stützen?</p></article>
+ </div>
+ <div class="callout">Der M3 Ultra ist weder „Mäusegehirn“ noch „Frühmensch im Kasten“. Das lokale System ist kategorial anders: relativ begrenzter momentaner Siliziumdurchsatz, sehr stark kompilierte Modellkompetenz und ungewöhnlich große externe symbolische Erweiterung.</div>
+</div></section>
+
+<section id="methodik"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">09 · Methodik & Grenzen</div><h2>Wo die Zahlen enden und die Analogie beginnt.</h2></div><p class="secIntro">Messwerte, Literaturanker, Toy-Rechnungen und heuristische Profile werden ausdrücklich getrennt.</p></div>
+ <div class="prose">
+  <p><strong>Gemessen / inventarisiert:</strong> Hardwarekonfiguration und Speicherbandbreite (Apple), lokale Modellgrößen und Dienste (read-only Systemhandbuch), publizierte Neuronenzahlen rezenter Primaten, fossile Endocast- und Morphometriedaten.</p>
+  <p><strong>Literaturanker:</strong> Moravecs Retina-Hochrechnung und Carlsmiths FLOP/s-Suffizienzschätzung sind unterschiedliche Methoden und unterschiedliche Einheiten. Sie werden nicht als Naturkonstanten behandelt.</p>
+  <p><strong>Toy-Rechnung:</strong> Frühhomininen-„Ops/s“ sind keine fossilen Messwerte. Sie entstehen nur, indem ECV/Primatenskalierung auf einen modernen menschlichen Rechenanker projiziert wird. Ihr Zweck ist zugleich Größenordnung und Fragilität eines eindimensionalen Rankings sichtbar zu machen.</p>
+  <p><strong>5D-Profile:</strong> R/K/L/E/X sind eine analytische Taxonomie dieser Seite. Die Intervalle sind bewusst heuristisch, ordinal und evidenzgewichtend; sie sind weder psychometrische Scores noch paläoanthropologische Messwerte.</p>
+  <p><strong>Nicht behauptet:</strong> Bewusstsein, subjektives Erleben, menschliche Generalität, neuronale Homologie oder eine FLOP↔Synapsen-Konversion.</p>
+ </div>
+</div></section>
+
+<section id="quellen"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">10 · Quellen</div><h2>Primärquellen & technische Dokumentation.</h2></div><p class="secIntro">Prüfstand: 13. August 2026. Externe Engineering-Schätzungen sind als solche gekennzeichnet.</p></div>
+ <div class="sources">
+  <div class="source"><a href="https://support.apple.com/en-us/122211" target="_blank" rel="noopener noreferrer">Apple — Mac Studio (2025), Technical Specifications</a>. M3 Ultra: bis 32‑Core CPU, 80‑Core GPU, 32‑Core Neural Engine, 819 GB/s; 256 GB Unified Memory konfigurierbar.</div>
+  <div class="source"><a href="https://blog.exolabs.net/nvidia-dgx-spark/" target="_blank" rel="noopener noreferrer">EXO Labs — DGX Spark + M3 Ultra</a>. Engineering-Annahme ≈26 TFLOP/s FP16.</div>
+  <div class="source"><a href="https://github.com/guruswami-ai/mlx-benchmarks/blob/main/docs/FINDINGS.md" target="_blank" rel="noopener noreferrer">MLX benchmark campaign</a>. Unabhängige Community-Schätzung ≈28 TFLOP/s FP16.</div>
+  <div class="source"><a href="https://coefficientgiving.org/research/how-much-computational-power-does-it-take-to-match-the-human-brain/" target="_blank" rel="noopener noreferrer">Joseph Carlsmith (2020) — How Much Computational Power Does It Take to Match the Human Brain?</a>. 10¹⁵ FLOP/s als subjektiver Suffizienz-/Mediananker; große Unsicherheit.</div>
+  <div class="source"><a href="https://frc.ri.cmu.edu/~hpm/project.archive/robot.papers/2003/CACM.2003.html" target="_blank" rel="noopener noreferrer">Hans Moravec (2003) — Robots, After All</a>. Retina als „Rosetta Stone“; riskante Hochrechnung auf ≈10¹⁴ Instruktionen/s.</div>
+  <div class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2776484/" target="_blank" rel="noopener noreferrer">Herculano-Houzel (2009) — The Human Brain in Numbers</a>. ≈86 Mrd. Neuronen; Cortex ≈16 Mrd.; Cerebellum ≈69 Mrd.</div>
+  <div class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1805542/" target="_blank" rel="noopener noreferrer">Herculano-Houzel et al. (2007) — Cellular scaling rules for primate brains</a>. Marmoset und Macaca als Primatenreferenzen.</div>
+  <div class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1567708/" target="_blank" rel="noopener noreferrer">Herculano-Houzel, Mota &amp; Lent (2006), PNAS — Cellular scaling rules for rodent brains</a>. Maus ≈70,9 Mio. und Ratte ≈200,1 Mio. Gesamtneuronen in der zugrunde liegenden Stichprobe.</div>
+  <div class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10517302/" target="_blank" rel="noopener noreferrer">Tattersall (2023) — Endocranial volumes and human evolution</a>. Quelle der auf der Seite verwendeten repräsentativen ECV-Mittelwerte; Taxonomie und Stichproben werden dort ausdrücklich differenziert.</div>
+  <div class="source"><a href="https://doi.org/10.1126/sciadv.aaz4729" target="_blank" rel="noopener noreferrer">Gunz et al. (2020), Science Advances</a>. <em>A. afarensis</em>: ape-like brain organization und verlängertes Gehirnwachstum.</div>
+  <div class="source"><a href="https://doi.org/10.1126/science.aaz0032" target="_blank" rel="noopener noreferrer">Ponce de León et al. (2021), Science</a>. Früher Homo/Dmanisi: primitive Frontalorganisation; abgeleitetere Organisation später.</div>
+  <div class="source"><a href="https://doi.org/10.1038/s41467-026-74739-w" target="_blank" rel="noopener noreferrer">Hubbe &amp; Harvati (2026), Nature Communications</a>. 3D-Kranialmorphometrie: geringe Unterstützung für einfache graduelle Richtungsselektion.</div>
+  <div class="source"><a href="https://doi.org/10.1371/journal.pone.0121804" target="_blank" rel="noopener noreferrer">Stout et al. (2015), PLOS ONE</a>. Experimentelle Neuroarchäologie: Acheuléen, dorsale präfrontale Kontrolle und strategische Urteile.</div>
+  <div class="source"><a href="https://doi.org/10.1073/pnas.1007928107" target="_blank" rel="noopener noreferrer">Woolgar et al. (2010), PNAS</a>. Fluide Intelligenz und frontal-parietales Multiple-Demand-Netz.</div>
+  <div class="source"><a href="https://doi.org/10.1037/h0059973" target="_blank" rel="noopener noreferrer">Cattell (1943), Psychological Bulletin</a>. Frühe Unterscheidung fluid vs. crystallized.</div>
+  <div class="source"><a href="https://doi.org/10.1073/pnas.0707835105" target="_blank" rel="noopener noreferrer">Kirby, Cornish &amp; Smith (2008), PNAS</a>. Iteriertes Lernen und kumulative kulturelle Struktur.</div>
+  <div class="source"><a href="https://qwenlm.github.io/blog/qwen3/" target="_blank" rel="noopener noreferrer">Qwen Team — Qwen3</a>. Qwen3‑235B‑A22B: 235B total, 22B pro Token aktiviert.</div>
+  <div class="source"><a href="https://github.com/deepseek-ai/DeepSeek-R1" target="_blank" rel="noopener noreferrer">DeepSeek — R1 repository</a>. Distill-Llama-70B als dense 70B-Distillmodell.</div>
+  <div class="source"><a href="https://huggingface.co/zai-org/GLM-5" target="_blank" rel="noopener noreferrer">Z.ai — GLM‑5 model card</a>. 744B Gesamtparameter, ≈40B aktiv; Architekturreferenz für den großen GLM-Pfad.</div>
+  <div class="source"><a href="ki-oekosystem.html">Autark Data — Lokales KI-Ökosystem</a> und read-only Systeminventar vom 13.08.2026. Lokale Modelle, Router, Retrieval, Memory und symbolische Werkzeuge.</div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap footerLine"><div>Thomas Riepe · Berlin · August 2026 · Analyse & interaktive Visualisierung</div><div><span class="badge"><i class="dot"></i> static · no tracking · no external JS</span> · <a href="impressum.html">Impressum & Datenschutz</a></div></div></footer>
+
+<script>
+"use strict";
+const DIMS={
+ R:{name:"Online-Rekombination"},K:{name:"Kompilierte Kompetenz"},L:{name:"Dauerhaftes Lernen"},E:{name:"Embodiment"},X:{name:"Externe Kognition"}
+};
+const profiles=[
+ {id:"afar",name:"A. afarensis",kind:"Hominine · ≈3.2–3.0 Ma",c:"#ffcb73",v:{R:[3,5],K:[5,7],L:[6,8],E:[9,10],X:[.5,1.5]},desc:"Kleines, eher ape-like organisiertes Gehirn, aber vollständige ökologische und sensomotorische Autonomie; Hinweise auf verlängerte postnatale Gehirnentwicklung."},
+ {id:"dmanisi",name:"Früher Homo / Dmanisi",kind:"Hominine · ≈1.85–1.77 Ma",c:"#ff9f72",v:{R:[4,6],K:[5.5,7],L:[6.5,8],E:[9,10],X:[1.5,3]},desc:"Früher Homo kann trotz Expansion und Technik noch eine primitive Frontalorganisation zeigen. Volumen und Organisationsform laufen nicht synchron."},
+ {id:"erectus",name:"Später H. erectus",kind:"Hominine · Acheuléen-Kontext",c:"#ff809f",v:{R:[5.5,7.5],K:[6.5,8],L:[7,8.5],E:[9.5,10.5],X:[2.5,4.5]},desc:"Stärkere Anforderungen an hierarchische Handlungsorganisation und strategische Kontrolle; Technik transformiert fluide Suche schrittweise in geübte Kompetenz."},
+ {id:"neand",name:"Neandertaler",kind:"Hominine · Middle/Late Pleistocene",c:"#d99aff",v:{R:[9,10.5],K:[8.5,10],L:[8.5,10],E:[10,11],X:[5.5,8]},desc:"Großes Gehirn und komplexe Technik. Die breite Unsicherheit bei R ist Absicht: Endocastform erlaubt keine seriöse psychometrische Herabstufung."},
+ {id:"psap",name:"Pleistozäner H. sapiens",kind:"Hominine · Pleistozän",c:"#9b9fff",v:{R:[9.5,10.5],K:[9,10.5],L:[9.5,10.5],E:[9.5,10.5],X:[7,9]},desc:"Biologisch nahe moderner Leistungsbreite; externe kumulative Kultur wächst, bevor Schrift und moderne Institutionen X nochmals drastisch erhöhen."},
+ {id:"modern",name:"H. sapiens 2026",kind:"Referenz · Erwachsener + normale Kulturumwelt",c:"#78e6b0",v:{R:[9.5,10.5],K:[9.5,10.5],L:[9.5,10.5],E:[9.5,10.5],X:[9.5,10.5]},desc:"Referenzpunkt 10. X enthält bereits Sprache, Schrift, Institutionen, Bücher, Internet und technische Werkzeuge — nicht nur nacktes Gehirn."},
+ {id:"autark",name:"Autark Local AI",kind:"lokales KI-Verbundsystem · M3 Ultra 256 GB",c:"#64e6ff",v:{R:[8,12],K:[11,14],L:[2,4],E:[.5,1.5],X:[12,15]},desc:"Extrem asymmetrisch: starke symbolisch-semantische und externe Werkzeugdimensionen, aber minimale Verkörperung und nur begrenztes dauerhaftes Online-Lernen."}
+];
+const mid=a=>(a[0]+a[1])/2;
+
+(function(){
+ const c=document.getElementById("heroCanvas"),ctx=c.getContext("2d");let pts=[],w=0,h=0,dpr=1;
+ function resize(){dpr=Math.min(devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);pts=Array.from({length:85},()=>({x:Math.random()*w,y:Math.random()*h,z:Math.random(),vx:(Math.random()-.5)*.08,vy:(Math.random()-.5)*.06}))}
+ function draw(){ctx.clearRect(0,0,w,h);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1}for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<105){ctx.strokeStyle=`rgba(100,230,255,${(1-d/105)*.09})`;ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}for(const p of pts){const r=.7+p.z*1.5;ctx.fillStyle=p.z>.5?`rgba(169,139,255,${.22+p.z*.42})`:`rgba(100,230,255,${.22+p.z*.42})`;ctx.beginPath();ctx.arc(p.x,p.y,r,0,Math.PI*2);ctx.fill()}requestAnimationFrame(draw)}
+ addEventListener("resize",resize);resize();if(!matchMedia("(prefers-reduced-motion: reduce)").matches)draw()
+})();
+
+(function(){
+ const c=document.getElementById("computeChart"),ctx=c.getContext("2d");
+ const items=[
+  {n:"Maus",v:8.26e11,c:"#ffcb73"},{n:"Ratte",v:2.33e12,c:"#ffcb73"},{n:"Marmoset",v:7.39e12,c:"#ffcb73"},
+  {n:"M3 Ultra",lo:2.6e13,hi:2.8e13,c:"#64e6ff"},{n:"Macaca",v:7.44e13,c:"#ffcb73"},
+  {n:"A. afarensis",lo:3.35e14,hi:3.80e14,c:"#ff809f"},{n:"H. habilis",lo:4.58e14,hi:5.01e14,c:"#ff809f"},
+  {n:"H. erectus",lo:7.21e14,hi:7.49e14,c:"#ff809f"},{n:"H. heidelb.",lo:9.23e14,hi:9.31e14,c:"#ff809f"},
+  {n:"H. sapiens anchor",v:1e15,c:"#78e6b0",anchor:true},{n:"Neandertaler",lo:1.056e15,hi:1.064e15,c:"#d99aff"},
+  {n:"Pleist. sapiens",lo:1.112e15,hi:1.127e15,c:"#9b9fff"}];
+ let w,h,dpr;const lx=v=>112+(Math.log10(v)-11)/5*(w-148);
+ const sup=n=>String(n).replace(/0/g,"⁰").replace(/1/g,"¹").replace(/2/g,"²").replace(/3/g,"³").replace(/4/g,"⁴").replace(/5/g,"⁵").replace(/6/g,"⁶").replace(/7/g,"⁷").replace(/8/g,"⁸").replace(/9/g,"⁹");
+ function resize(){dpr=Math.min(devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
+ function draw(){ctx.clearRect(0,0,w,h);ctx.font="11px -apple-system,Segoe UI,sans-serif";ctx.textBaseline="middle";for(let e=11;e<=16;e++){const x=lx(10**e);ctx.strokeStyle="rgba(150,180,225,.12)";ctx.beginPath();ctx.moveTo(x,22);ctx.lineTo(x,h-34);ctx.stroke();ctx.fillStyle="#66738d";ctx.textAlign="center";ctx.fillText("10"+sup(e),x,h-18)}
+  const top=28,dy=(h-72)/items.length;items.forEach((it,i)=>{const y=top+i*dy;ctx.textAlign="right";ctx.fillStyle="#a9b7cf";ctx.fillText(it.n,99,y);if(it.lo){const x1=lx(it.lo),x2=lx(it.hi);ctx.strokeStyle=it.c;ctx.lineWidth=4;ctx.lineCap="round";ctx.beginPath();ctx.moveTo(x1,y);ctx.lineTo(x2,y);ctx.stroke();ctx.fillStyle=it.c;ctx.beginPath();ctx.arc((x1+x2)/2,y,4,0,Math.PI*2);ctx.fill()}else{const x=lx(it.v);ctx.fillStyle=it.c;if(it.anchor){ctx.beginPath();ctx.moveTo(x,y-6);ctx.lineTo(x+6,y+5);ctx.lineTo(x-6,y+5);ctx.closePath();ctx.fill()}else{ctx.beginPath();ctx.arc(x,y,4.5,0,Math.PI*2);ctx.fill()}}});
+  const xm=lx(1e14);ctx.strokeStyle="rgba(255,203,115,.5)";ctx.setLineDash([4,5]);ctx.beginPath();ctx.moveTo(xm,14);ctx.lineTo(xm,h-38);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle="#ffcb73";ctx.textAlign="left";ctx.fillText("Moravec ≈10¹⁴ Instr./s (andere Einheit)",Math.min(xm+7,w-235),14)}
+ addEventListener("resize",resize);resize()
+})();
+
+(function(){
+ const c=document.getElementById("space3d"),ctx=c.getContext("2d"),sx=document.getElementById("axisX"),sy=document.getElementById("axisY"),sz=document.getElementById("axisZ");
+ Object.entries(DIMS).forEach(([k,v])=>[sx,sy,sz].forEach(s=>{const o=document.createElement("option");o.value=k;o.textContent=k+" · "+v.name;s.appendChild(o)}));sx.value="R";sy.value="E";sz.value="X";
+ let w=700,h=620,dpr=1,rx=-.28,ry=.62,zoom=1,drag=false,last=null,selected="autark",points2d=[];const center=7.5,scaleV=1/7.5;
+ function rot(p){let[x,y,z]=p,cy=Math.cos(ry),ss=Math.sin(ry),cx=Math.cos(rx),sxv=Math.sin(rx);let x1=x*cy+z*ss,z1=-x*ss+z*cy;return[x1,y*cx-z1*sxv,y*sxv+z1*cx]}
+ function proj(p){let[x,y,z]=rot(p),pers=3.7/(4.1-z*.55),s=Math.min(w,h)*.29*zoom*pers;return[w*.5+x*s,h*.47-y*s,z,pers]}
+ function raw(pr){return[(mid(pr.v[sx.value])-center)*scaleV,(mid(pr.v[sy.value])-center)*scaleV,(mid(pr.v[sz.value])-center)*scaleV]}
+ function line(a,b,col="rgba(160,180,220,.13)",lw=1){const A=proj(a),B=proj(b);ctx.strokeStyle=col;ctx.lineWidth=lw;ctx.beginPath();ctx.moveTo(A[0],A[1]);ctx.lineTo(B[0],B[1]);ctx.stroke()}
+ function resize(){dpr=Math.min(devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
+ function draw(){ctx.clearRect(0,0,w,h);points2d=[];for(const q of[-1,0,1]){line([-1,q,-1],[1,q,-1]);line([-1,q,1],[1,q,1]);line([q,-1,-1],[q,1,-1]);line([q,-1,1],[q,1,1]);line([-1,-1,q],[-1,1,q]);line([1,-1,q],[1,1,q])}
+  line([-1.12,-1,-1],[1.13,-1,-1],"rgba(100,230,255,.44)",1.5);line([-1,-1.12,-1],[-1,1.13,-1],"rgba(100,230,255,.44)",1.5);line([-1,-1,-1.12],[-1,-1,1.13],"rgba(100,230,255,.44)",1.5);
+  ctx.font="700 12px -apple-system,Segoe UI,sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";[[sx.value,[1.23,-1,-1]],[sy.value,[-1,1.23,-1]],[sz.value,[-1,-1,1.23]]].forEach(([t,p])=>{const P=proj(p);ctx.fillStyle="#64e6ff";ctx.fillText(t,P[0],P[1])});
+  profiles.map(pr=>({pr,P:proj(raw(pr))})).sort((a,b)=>a.P[2]-b.P[2]).forEach(({pr,P})=>{const r=(pr.id===selected?9:6)*P[3];ctx.save();ctx.shadowBlur=pr.id===selected?28:16;ctx.shadowColor=pr.c;ctx.globalAlpha=.22;ctx.fillStyle=pr.c;ctx.beginPath();ctx.arc(P[0],P[1],r*2.1,0,Math.PI*2);ctx.fill();ctx.globalAlpha=1;ctx.fillStyle=pr.c;ctx.beginPath();ctx.arc(P[0],P[1],r,0,Math.PI*2);ctx.fill();ctx.restore();ctx.font=(pr.id===selected?"700 ":"500 ")+"11px -apple-system,Segoe UI,sans-serif";ctx.textAlign="left";ctx.fillStyle=pr.id===selected?"#f5fbff":"#aebed9";ctx.fillText(pr.name,P[0]+r+7,P[1]);points2d.push({x:P[0],y:P[1],r:r+10,id:pr.id})})}
+ function update(){const pr=profiles.find(x=>x.id===selected);document.getElementById("selName").textContent=pr.name;document.getElementById("selKind").textContent=pr.kind;document.getElementById("selDesc").textContent=pr.desc;const box=document.getElementById("dimList");box.innerHTML="";Object.keys(DIMS).forEach(k=>{const a=pr.v[k],m=mid(a),row=document.createElement("div");row.className="dimRow";row.innerHTML=`<div class="dimKey">${k}</div><div><div class="bar"><i style="width:${Math.min(100,m/15*100)}%"></i></div><div class="small">${DIMS[k].name}</div></div><div class="dimVal">${a[0]}–${a[1]}</div>`;box.appendChild(row)})}
+ function pos(e){const r=c.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+ c.addEventListener("pointerdown",e=>{drag=true;last=pos(e);c.setPointerCapture(e.pointerId)});
+ c.addEventListener("pointermove",e=>{if(!drag)return;const p=pos(e);ry+=(p.x-last.x)*.008;rx=Math.max(-1.4,Math.min(1.4,rx+(p.y-last.y)*.008));last=p;draw()});
+ c.addEventListener("pointerup",e=>{const p=pos(e),best=points2d.reduce((b,q)=>{const d=Math.hypot(p.x-q.x,p.y-q.y);return d<b.d?{d,q}:b},{d:1e9});if(best.d<25){selected=best.q.id;update()}drag=false;draw()});
+ c.addEventListener("wheel",e=>{e.preventDefault();zoom=Math.max(.65,Math.min(1.8,zoom*Math.exp(-e.deltaY*.001)));draw()},{passive:false});
+ [sx,sy,sz].forEach(s=>s.addEventListener("change",draw));addEventListener("resize",resize);update();resize()
+})();
+
+(function(){
+ const c=document.getElementById("radar"),ctx=c.getContext("2d"),pills=document.getElementById("radarPills");let active=new Set(["modern","autark","erectus"]),w,h,dpr;
+ profiles.forEach(pr=>{const b=document.createElement("button");b.className="pill"+(active.has(pr.id)?" active":"");b.textContent=pr.name;b.onclick=()=>{active.has(pr.id)?active.delete(pr.id):active.add(pr.id);b.classList.toggle("active");draw()};pills.appendChild(b)});
+ function resize(){dpr=Math.min(devicePixelRatio||1,2);w=c.clientWidth;h=c.clientHeight;c.width=w*dpr;c.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);draw()}
+ function draw(){ctx.clearRect(0,0,w,h);const cx=w/2,cy=h*.5,R=Math.min(w,h)*.34,keys=Object.keys(DIMS),n=keys.length;for(let ring=3;ring<=15;ring+=3){ctx.strokeStyle=ring===9?"rgba(120,230,176,.22)":"rgba(160,180,220,.12)";ctx.beginPath();keys.forEach((k,i)=>{const a=-Math.PI/2+i*2*Math.PI/n,r=R*ring/15,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath();ctx.stroke()}ctx.font="700 12px -apple-system,Segoe UI,sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";keys.forEach((k,i)=>{const a=-Math.PI/2+i*2*Math.PI/n,x=cx+Math.cos(a)*R*1.13,y=cy+Math.sin(a)*R*1.13;ctx.fillStyle="#b9c9e4";ctx.fillText(k,x,y);ctx.strokeStyle="rgba(160,180,220,.12)";ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*R,cy+Math.sin(a)*R);ctx.stroke()});profiles.filter(p=>active.has(p.id)).forEach(pr=>{ctx.strokeStyle=pr.c;ctx.fillStyle=pr.c+"22";ctx.lineWidth=2;ctx.beginPath();keys.forEach((k,i)=>{const a=-Math.PI/2+i*2*Math.PI/n,r=R*mid(pr.v[k])/15,x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath();ctx.fill();ctx.stroke()})}
+ addEventListener("resize",resize);resize()
+})();
+</script>
+</body>
+</html>
