@@ -55,6 +55,19 @@ h2{font-size:clamp(2.1rem,4.4vw,4.18rem);line-height:1.02;letter-spacing:-.046em
 .panelHead{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
 .panelHead h3{margin:0;font-size:.98rem}.panelHead span{color:var(--muted);font-size:.77rem}
 .panelBody{padding:20px}.prose{color:#c3cfe1}.prose p{margin:0 0 1.17rem}.prose strong{color:#f5f8ff}
+.essayLayout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(270px,.55fr);gap:34px;align-items:start}
+.essay{max-width:820px;color:#c8d3e5;font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.02rem,1.35vw,1.14rem);line-height:1.78}
+.essay p{margin:0 0 1.42rem}
+.essay .opening{font-size:clamp(1.22rem,2vw,1.54rem);line-height:1.62;color:#edf4ff}
+.essay h3{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:1.02rem;letter-spacing:.03em;color:#f3f7ff;margin:2.25rem 0 .8rem}
+.essay em{color:#e3ebf8}.essay strong{color:#fff}
+.guide{position:sticky;top:86px;padding:22px}
+.guide h3{margin:0 0 14px;font-size:.95rem}
+.guideItem{padding:13px 0;border-top:1px solid var(--line)}
+.guideItem:first-of-type{border-top:0;padding-top:0}
+.guideItem b{display:block;color:#e8f3ff;font-size:.78rem;margin-bottom:3px}
+.guideItem span{display:block;color:var(--muted);font-size:.76rem;line-height:1.5}
+.term{display:inline-block;font-family:"SFMono-Regular",Consolas,monospace;font-size:.82em;padding:.08em .38em;border:1px solid rgba(100,230,255,.18);border-radius:6px;background:rgba(100,230,255,.06);color:#dffaff}
 .small{font-size:.78rem;color:var(--muted)}
 #computeChart{width:100%;height:475px;display:block}
 .scaleHint{font-size:.75rem;color:var(--faint);padding:0 20px 18px}
@@ -92,13 +105,13 @@ td{color:#b8c5da}td strong{color:#eef6ff}
 .arch{display:grid;grid-template-columns:1fr 70px 1fr 70px 1fr;align-items:stretch;gap:8px}.archBox{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(14,21,39,.72)}.archBox h3{font-size:.92rem;margin:0 0 10px}.archBox ul{list-style:none;padding:0;margin:0;font-size:.77rem;color:var(--muted)}.archBox li+li{margin-top:6px}.archArrow{align-self:center;text-align:center;color:var(--cyan);font-size:2rem}
 .sources{counter-reset:source;display:grid;gap:9px}.source{position:relative;padding:13px 15px 13px 52px;border:1px solid var(--line);border-radius:14px;background:rgba(12,17,31,.6);font-size:.79rem;color:var(--muted)}.source:before{counter-increment:source;content:counter(source,decimal-leading-zero);position:absolute;left:15px;color:var(--cyan);font-family:monospace}.source a{color:#dceaff}
 footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap}.badge{display:inline-flex;gap:7px;align-items:center;padding:6px 9px;border:1px solid var(--line);border-radius:999px;font-size:.69rem}.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
-@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}.grid2,.vizShell,.secHead{grid-template-columns:1fr}.defGrid{grid-template-columns:1fr 1fr}.arch{grid-template-columns:1fr}.archArrow{transform:rotate(90deg)}.tline{grid-template-columns:1fr}.hero{min-height:680px}.canvasWrap{min-height:560px}}
+@media(max-width:900px){.cards{grid-template-columns:1fr 1fr}.grid2,.vizShell,.secHead,.essayLayout{grid-template-columns:1fr}.guide{position:static}.defGrid{grid-template-columns:1fr 1fr}.arch{grid-template-columns:1fr}.archArrow{transform:rotate(90deg)}.tline{grid-template-columns:1fr}.hero{min-height:680px}.canvasWrap{min-height:560px}}
 @media(max-width:620px){.wrap{width:min(100% - 22px,var(--max))}.nav span{display:none}.cards,.taskGrid{grid-template-columns:1fr}.defGrid{grid-template-columns:1fr}section{padding:70px 0}.heroContent{padding:90px 0 70px}.ttrack{grid-template-columns:1fr 26px 1fr 26px 1fr;padding:10px 8px}.tnode{font-size:.66rem}.axisControls{left:9px;right:9px}.rotateTip{left:9px}.panelBody{padding:14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#heroCanvas{display:none}}
 </style>
 </head>
 <body>
-<header class="topbar"><div class="wrap inner"><a class="brand" href="index.html">Autark Data · Thomas Riepe</a><nav class="nav"><a href="ki-oekosystem.html">Infrastruktur</a><span>·</span><a href="#quellen">Quellen</a><span>·</span><a href="index.html">Alle Projekte</a></nav></div></header>
+<header class="topbar"><div class="wrap inner"><a class="brand" href="index.html">Autark Data · Thomas Riepe</a><nav class="nav"><a href="ki-oekosystem.html">Infrastruktur</a><span>·</span><a href="#einfuehrung">Einführung</a><span>·</span><a href="#quellen">Quellen</a><span>·</span><a href="index.html">Alle Projekte</a></nav></div></header>
 
 <main>
 <section class="hero">
@@ -111,6 +124,67 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   <p class="heroNote">Kernaussage: Hardwaredurchsatz ist nicht Intelligenz. „Mühelose“ Tier-Sensomotorik kann hochgradig evolutionär kompiliert sein; LLM-Inferenz nutzt ebenso vorab kompilierte Gewichte; moderne symbolische Leistung hängt zusätzlich massiv an Kultur und Werkzeugen.</p>
  </div>
 </section>
+
+<section id="einfuehrung"><div class="wrap">
+ <div class="secHead"><div><div class="kicker">00 · Einführung</div><h2>Was heißt es überhaupt, einen Rechner mit einem Gehirn zu vergleichen?</h2></div>
+ <p class="secIntro">Die kurze Antwort lautet: Man kann es tun — aber nur, wenn man vorher festlegt, <em>welche</em> Leistung verglichen wird. Eine einzige Zahl verwischt mehr, als sie erklärt.</p></div>
+
+ <div class="essayLayout">
+  <article class="essay">
+   <p class="opening">Die Ausgangsfrage klingt zunächst wie eine Hardwarefrage: Wie viel „Gehirn“ steckt in einem Mac Studio M3 Ultra? Man könnte die Rechenleistung des Prozessors einer geschätzten Rechenleistung biologischer Gehirne gegenüberstellen und anschließend Maus, Affe, Frühmensch und heutigen Menschen auf einer Skala anordnen. Solche Rechnungen sind als Größenordnungsversuche interessant. Als allgemeine Rangliste der Intelligenz sind sie jedoch irreführend.</p>
+
+   <p>Schon die verwendeten Einheiten warnen davor. Hans Moravec leitete seine bekannte Größenordnung von ungefähr <span class="term">10¹⁴ Instruktionen/s</span> aus einem funktionalen Vergleich von Retina und maschineller Bildverarbeitung ab und bezeichnete die Hochrechnung auf das gesamte Gehirn selbst als riskant. Joseph Carlsmith gelangt mit ganz anderen, mechanistischen Überlegungen zu einem sehr breiten Bereich möglicher Rechenanforderungen und verwendet ungefähr <span class="term">10¹⁵ FLOP/s</span> als einen subjektiven Anker dafür, was mit geeigneter Software für menschliche Aufgabenleistung ausreichen könnte. Keine dieser Zahlen ist ein gemessener „Takt“ des Gehirns, und Instruktionen/s sind nicht einfach FLOP/s.</p>
+
+   <h3>Ein Gehirn ist kein leerer Universalprozessor</h3>
+
+   <p>Noch grundlegender ist ein zweiter Punkt. Ein Tier beginnt seine Tätigkeit nicht mit einer unstrukturierten Rechenmaschine, die bei jeder Bewegung das Problem von Grund auf neu lösen müsste. Wahrnehmung, Gleichgewicht, Blicksteuerung, Greifen, Flucht, räumliche Orientierung und soziale Reaktion beruhen auf Nervensystemen, deren Architektur durch Evolution geformt wurde und die sich während Entwicklung und Lernen weiter spezialisieren. Was im Augenblick mühelos erscheint, kann das Ergebnis einer sehr langen Vorgeschichte von Selektion und Lernen sein.</p>
+
+   <p>Deshalb ist die Sensomotorik von Tieren für den Vergleich mit künstlicher Intelligenz besonders aufschlussreich. Ein geübtes biologisches System führt nicht bei jedem Schritt eine explizite physikalische Herleitung durch. Es verfügt über bereits eingeübte beziehungsweise strukturell vorbereitete Lösungen. Das Cerebellum ist hierfür ein wichtiges Beispiel: Es besitzt eine außerordentlich große Zahl von Neuronen und ist an prädiktiver Kontrolle und motorischem Lernen beteiligt, obwohl diese Neuronen keineswegs dieselbe Funktion haben wie kortikale Neuronen. Schon deshalb ist die bloße Neuronenzahl kein verlässliches Maß für abstrakte Problemlösefähigkeit.</p>
+
+   <h3>„Kompilierte Kognition“ als funktionale Analogie</h3>
+
+   <p>Für diese Seite verwende ich deshalb den Ausdruck <strong>kompilierte Kognition</strong>. Er ist kein etablierter neuropsychologischer Fachbegriff und soll keine biologische Identität zwischen Gehirn und Transformer behaupten. Gemeint ist eine allgemeinere Informationsverarbeitungs-Idee: Frühere Such-, Lern- oder Selektionsprozesse können in einer Struktur konserviert werden, die spätere Problemlösung billiger und schneller macht.</p>
+
+   <p>Bei einem Tier geschieht dies unter anderem phylogenetisch durch Evolution und ontogenetisch durch Lernen. Bei einem vortrainierten Sprachmodell steckt ein erheblicher Teil der Vorarbeit in den Gewichten: Die aktuelle Inferenz wiederholt nicht das Training, sondern nutzt dessen Ergebnis. Bei einem modernen Menschen kommt eine dritte Ebene hinzu — kumulative Kultur. Eine mathematische Formel, ein Buch, ein Messinstrument oder ein Computerprogramm konserviert Problemlösearbeit früherer Menschen außerhalb des einzelnen Gehirns. In allen drei Fällen ist es deshalb unzureichend, nur die Rechenoperationen zu betrachten, die im Moment der sichtbaren Leistung stattfinden.</p>
+
+   <p>Die Analogie hat klare Grenzen. Evolution ist kein Gradientenabstieg; synaptische Plastizität ist kein Transformer-Training; ein kulturelles Artefakt ist kein neuronales Gewicht. Der gemeinsame Punkt liegt nicht im Mechanismus, sondern in der zeitlichen Struktur: <em>Vorarbeit wird in wiederverwendbare Organisation verwandelt.</em></p>
+
+   <h3>Was Frühhomininen uns über die falsche Ein-Zahl-Skala zeigen</h3>
+
+   <p>Bei ausgestorbenen Homininen ist die Unsicherheit besonders groß. Wir besitzen keine neuronalen Zählungen und selbstverständlich keine psychometrischen Tests. Rekonstruiert werden können unter anderem Endokranialvolumen, bestimmte Aspekte der Hirnform, Entwicklungsverläufe und archäologische Hinterlassenschaften. Diese Quellen erlauben wichtige Aussagen, aber keine seriöse Zuordnung eines „IQ“ oder einer FLOP/s-Zahl.</p>
+
+   <p>Trotzdem ist der Vergleich lehrreich. Das mittlere Endokranialvolumen nimmt im Verlauf der Homininenevolution stark zu, aber nicht als einfache Fortschrittskurve. Neandertaler und pleistozäne <em>Homo sapiens</em> hatten in vielen Stichproben größere Endokranien als heutige Menschen. Zugleich zeigen Endocasts, dass sich Organisation und Größe zumindest teilweise getrennt verändern konnten. Neuere 3D-Morphometrie spricht ebenfalls gegen die Vorstellung einer einzigen kontinuierlichen Selektionsrampe zu immer größeren Schädeln. Gehirngröße ist also eine biologische Größe mit kognitiver Relevanz — aber kein Tachometer allgemeiner Intelligenz.</p>
+
+   <h3>Warum das lokale KI-System ein anderer Typ von kognitivem Objekt ist</h3>
+
+   <p>Dasselbe Problem erscheint von der anderen Seite beim lokalen KI-System. Der M3 Ultra ist zunächst nur ein physisches Substrat. Erst die trainierten Modelle verleihen ihm statistisch und semantisch verdichtete Kompetenz. Der Router verteilt Aufgaben; Retrieval verbindet die Modelle mit Textbeständen; Neo4j stellt persistente Beziehungen bereit; SageMath, PARI/GP, Macaulay2, Julia und Lean können bestimmte symbolische Operationen und Verifikationen exakt ausführen. Der relevante Gegenstand ist deshalb nicht „ein Siliziumgehirn“, sondern ein Verbund aus Rechenhardware, trainierten Modellen, Gedächtnis, Suchsystemen und formalen Werkzeugen.</p>
+
+   <p>Das erklärt, warum scheinbar widersprüchliche Aussagen gleichzeitig stimmen können. In einer groben Whole-brain-Rechnung liegt der rohe FP16-Durchsatz eines einzelnen M3 Ultra weit unter vielen Schätzungen für ein menschliches Gehirn und sogar unter den Toy-Werten, die man aus frühen Homininen ableiten kann. Bei einer eng definierten symbolischen Aufgabe kann das lokale Gesamtsystem dennoch Operationen in einer Geschwindigkeit, einem Umfang oder mit einer exakten Werkzeugunterstützung ausführen, die einem frühen Homininen nicht zur Verfügung standen und die ein heutiger Mensch ohne entsprechende externe Hilfsmittel oft nicht in derselben Form leisten kann. Das ist kein Beweis für „höhere allgemeine Intelligenz“; es zeigt vielmehr, dass die verglichenen Systeme ihre Ressourcen sehr verschieden verteilen.</p>
+
+   <h3>Deshalb verwendet diese Seite ein Profil statt einer Rangliste</h3>
+
+   <p>Die folgenden Abschnitte trennen zunächst Hardware- und Literaturanker von eigentlichen kognitiven Vergleichen. Danach wird ein bewusst heuristisches Fünf-Dimensionen-Modell eingeführt: <span class="term">R</span> für Online-Rekombination und fluide Kontrolle, <span class="term">K</span> für kompilierte Kompetenz, <span class="term">L</span> für dauerhaftes Lernen, <span class="term">E</span> für Embodiment und ökologische Handlungskompetenz sowie <span class="term">X</span> für externe kulturelle und technische Erweiterung.</p>
+
+   <p>Diese fünf Größen sind keine etablierte psychometrische Skala. Sie dienen hier als analytisches Koordinatensystem. Der entscheidende Zusatz ist die Aufgabe selbst. Statt nach einem einzigen Intelligenzwert zu fragen, lautet die vorsichtigere Form:</p>
+
+   <div class="formulaBox" style="margin:1.8rem 0">
+    <div class="formulaBig">P(T) = F(H, R, K, L, E, X ; T)</div>
+    <div class="small" style="text-align:center;font-family:Inter,ui-sans-serif,sans-serif">Leistung hängt vom Substrat, vom kognitiven Profil, von externen Stützen — und von der konkreten Aufgabe T ab.</div>
+   </div>
+
+   <p>Die Zahlen und Visualisierungen auf dieser Seite sollten deshalb auf drei verschiedenen Ebenen gelesen werden: als <strong>Mess- oder Literaturwerte</strong>, wo belastbare Daten existieren; als ausdrücklich markierte <strong>Toy-Rechnungen</strong>, wenn unterschiedliche Größenordnungen probeweise aufeinander projiziert werden; und als <strong>heuristische Profile</strong>, wenn qualitative Unterschiede zwischen biologischen und künstlichen Systemen sichtbar gemacht werden sollen. Diese Trennung ist wichtiger als jede einzelne Zahl.</p>
+  </article>
+
+  <aside class="panel guide">
+   <h3>So ist die Seite zu lesen</h3>
+   <div class="guideItem"><b>Rechenanker ≠ Intelligenzwerte</b><span>Moravec, Carlsmith und M3-TFLOP/s beantworten verschiedene Fragen und benutzen teilweise verschiedene Einheiten.</span></div>
+   <div class="guideItem"><b>Fossile „Ops/s“ sind Toy-Werte</b><span>Sie visualisieren eine Projektion aus Gehirngröße und einem modernen Referenzanker. Sie sind keine Messwerte ausgestorbener Gehirne.</span></div>
+   <div class="guideItem"><b>R/K/L/E/X ist eine Arbeitstaxonomie</b><span>Die 5D-Profile sind ordinal und heuristisch. Sie sollen Kreuzungen von Fähigkeiten zeigen, nicht einen neuen IQ erfinden.</span></div>
+   <div class="guideItem"><b>„Kompiliert“ ist funktional gemeint</b><span>Evolution, Lernen, Pretraining und Kultur sind mechanistisch verschieden. Gemeinsam ist nur: frühere Arbeit wird in später nutzbarer Struktur bewahrt.</span></div>
+   <div class="guideItem"><b>Die Aufgabe T entscheidet</b><span>Autonome Weltbewältigung, dauerhaftes Lernen und formale Mathematik erzeugen jeweils andere Rangfolgen.</span></div>
+  </aside>
+ </div>
+</div></section>
 
 <section id="anker"><div class="wrap">
  <div class="secHead"><div><div class="kicker">01 · Rechenanker</div><h2>Vier Zahlen. Vier verschiedene Bedeutungen.</h2></div><p class="secIntro">Der häufigste Kategorienfehler ist, FLOP/s, Instruktionen/s, Neuronenzahlen und kognitive Kompetenz als austauschbar zu behandeln. Sie sind es nicht.</p></div>
@@ -259,6 +333,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   <div class="source"><a href="https://coefficientgiving.org/research/how-much-computational-power-does-it-take-to-match-the-human-brain/" target="_blank" rel="noopener noreferrer">Joseph Carlsmith (2020) — How Much Computational Power Does It Take to Match the Human Brain?</a>. 10¹⁵ FLOP/s als subjektiver Suffizienz-/Mediananker; große Unsicherheit.</div>
   <div class="source"><a href="https://frc.ri.cmu.edu/~hpm/project.archive/robot.papers/2003/CACM.2003.html" target="_blank" rel="noopener noreferrer">Hans Moravec (2003) — Robots, After All</a>. Retina als „Rosetta Stone“; riskante Hochrechnung auf ≈10¹⁴ Instruktionen/s.</div>
   <div class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC2776484/" target="_blank" rel="noopener noreferrer">Herculano-Houzel (2009) — The Human Brain in Numbers</a>. ≈86 Mrd. Neuronen; Cortex ≈16 Mrd.; Cerebellum ≈69 Mrd.</div>
+  <div class="source"><a href="https://pubmed.ncbi.nlm.nih.gov/9949826/" target="_blank" rel="noopener noreferrer">Miall (1998) — The cerebellum, predictive control and motor coordination</a>. Klassische Formulierung der Forward-Model-Hypothese für prädiktive Zustandsabschätzung und Online-Motorsteuerung; hier nur als funktionales Beispiel, nicht als vollständige Theorie des Cerebellums verwendet.</div>
   <div class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1805542/" target="_blank" rel="noopener noreferrer">Herculano-Houzel et al. (2007) — Cellular scaling rules for primate brains</a>. Marmoset und Macaca als Primatenreferenzen.</div>
   <div class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC1567708/" target="_blank" rel="noopener noreferrer">Herculano-Houzel, Mota &amp; Lent (2006), PNAS — Cellular scaling rules for rodent brains</a>. Maus ≈70,9 Mio. und Ratte ≈200,1 Mio. Gesamtneuronen in der zugrunde liegenden Stichprobe.</div>
   <div class="source"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10517302/" target="_blank" rel="noopener noreferrer">Tattersall (2023) — Endocranial volumes and human evolution</a>. Quelle der auf der Seite verwendeten repräsentativen ECV-Mittelwerte; Taxonomie und Stichproben werden dort ausdrücklich differenziert.</div>
