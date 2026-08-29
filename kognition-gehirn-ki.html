@@ -278,6 +278,82 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
  </div>
 </div></section>
 
+
+<section id="leistung"><div class="wrap">
+ <div class="secHead">
+  <div><div class="kicker">04b &middot; Systemleistung &amp; Zuverl&auml;ssigkeit</div><h2>Vom Rechenwert zur tats&auml;chlichen KI-Leistung.</h2></div>
+  <p class="secIntro">Hardware-Durchsatz allein sagt wenig dar&uuml;ber, welche KI-Abl&auml;ufe auf diesem Rechner tats&auml;chlich zuverl&auml;ssig funktionieren. Inzwischen gibt es einen direkteren Ma&szlig;stab: das lokale &Ouml;kosystem wurde &uuml;ber Monate systematisch getestet &mdash; und die Ergebnisse sind widerspr&uuml;chlicher als eine einzige Zahl vermuten lie&szlig;e.</p>
+ </div>
+ <div class="cards">
+  <article class="card"><div class="metric">48</div><h3>neue Aufgaben im finalen End-to-End-Test</h3><p>Testmenge, Reihenfolge, Bewertungskontrakt und Antwortschl&uuml;ssel wurden vor der Ausf&uuml;hrung festgeschrieben. Technische und fachliche Ausf&auml;lle werden getrennt erfasst.</p></article>
+  <article class="card"><div class="metric green">91,67&thinsp;%</div><h3>fachliche Trefferquote im 48-Aufgaben-Test</h3><p>44&nbsp;/&nbsp;48 korrekt, 4 falsch, 0 ungelöst, 0 technisch ausgefallen. Geisteswiss. &amp; Literatur je 12/12; Mathematik &amp; Physik je 10/12.</p></article>
+  <article class="card"><div class="metric violet">100&thinsp;%</div><h3>technische Zuverl&auml;ssigkeit in diesem Test</h3><p>Kein technischer Ausfall bei 48 Aufgaben. Router, Modelle und Sicherheitsschichten liefen durch; jede Aufgabe erzeugte eine auswertbare Antwort.</p></article>
+  <article class="card"><div class="metric amber">&asymp;202&thinsp;GiB</div><h3>lokales quantisiertes 671B-Modell</h3><p>Auf dem 256-GB-Mac ausf&uuml;hrbar, unter strikter Ressourcen&uuml;berwachung. Nicht automatische Standardroute, sondern explizit angeforderter Spezialist.</p></article>
+ </div>
+ <div class="alert" style="margin-top:18px"><strong>Einschr&auml;nkung:</strong> 91,67&thinsp;% ist das Ergebnis eines genau definierten 48-Aufgaben-Tests &mdash; kein standardisierter Industriebenchmark und keine Behauptung, das System sei generell zu 91,67&thinsp;% korrekt. &bdquo;PhD-Qualifying&ldquo; bezeichnet die Einstufung der Aufgaben im Testdesign, nicht eine allgemeine Leistungsgarantie.</div>
+
+ <div class="grid2" style="margin-top:44px">
+  <div>
+   <h3 style="font-size:1rem;margin:0 0 14px;color:#e8f4ff">Nicht ein Modell &mdash; ein kleines lokales KI-System</h3>
+   <div class="tableWrap"><table><thead><tr><th>Komponente</th><th>Typische Rolle</th></tr></thead><tbody>
+    <tr><td><strong>Qwen3 235B MoE</strong></td><td>Anspruchsvolle Analyse, Geisteswissenschaften, Synthese</td></tr>
+    <tr><td><strong>DeepSeek-R1 70B</strong></td><td>Mathematik, formales und kontraintuitives Reasoning, Physik</td></tr>
+    <tr><td><strong>Qwen 35B-Klasse</strong></td><td>Schnelle Steuerungs-, Planungs- und Bewertungsaufgaben</td></tr>
+    <tr><td><strong>DSV4-Flash</strong></td><td>Sehr lange Kontexte, zus&auml;tzliche Perspektive, Fallback</td></tr>
+    <tr><td><strong>R1 671B</strong></td><td>Explizit angeforderter, langsamer Hochqualit&auml;ts-Spezialist</td></tr>
+    <tr><td><strong>GLM-Klasse</strong></td><td>Isolierte Adjudikation, spezielle Agentenaufgaben</td></tr>
+   </tbody></table></div>
+  </div>
+  <div class="panel"><div class="panelHead"><h3>Zus&auml;tzliche Werkzeuge</h3><span>&uuml;ber reine Chatmodelle hinaus</span></div>
+   <div class="panelBody prose">
+    <p><strong>Retrieval:</strong> Lokaler wissenschaftlicher Bestand, lokaler arXiv-Korpus, bibliographische Pipelines, Spezialkorpora.</p>
+    <p><strong>Formale Systeme:</strong> Lean 4 + mathlib f&uuml;r formale Beweise; SageMath, PARI/GP, Macaulay2, Julia, Z3 f&uuml;r mathematische und symbolische Berechnungen.</p>
+    <p><strong>Infrastruktur:</strong> Wissensgraph-/Memory-Schicht, Router mit Aufgabenverteilung, unabh&auml;ngige Pr&uuml;finstanzen.</p>
+    <p class="small">Wichtig: Die formalen Werkzeuge sind real integriert und separat getestet. Ihr kausaler Beitrag zum Benchmark-Ergebnis ist f&uuml;r nicht alle F&auml;lle nachgewiesen.</p>
+   </div>
+  </div>
+ </div>
+
+ <h3 style="margin:44px 0 14px;font-size:1rem;color:#e8f4ff">Warum das gr&ouml;&szlig;te Modell nicht automatisch das beste System ergibt</h3>
+ <div class="grid2">
+  <div class="tableWrap"><table><thead><tr><th>Modell</th><th>C</th><th>I</th><th>U</th><th>T</th><th>Verwertbar</th></tr></thead><tbody>
+   <tr><td><strong>R1 70B</strong></td><td>12</td><td>5</td><td>3</td><td>4</td><td><strong>20/24 = 83,3&thinsp;%</strong></td></tr>
+   <tr><td><strong>R1 671B</strong></td><td>13</td><td>2</td><td>0</td><td style="color:var(--rose)">9</td><td style="color:var(--rose)"><strong>15/24 = 62,5&thinsp;%</strong></td></tr>
+  </tbody></table></div>
+  <div class="panel"><div class="panelHead"><h3>Bedingte Korrektheit</h3><span>nur auf fertige Antworten</span></div>
+   <div class="panelBody prose">
+    <p>671B: <strong>13/15 = 86,7&thinsp;%</strong> korrekt. 70B: <strong>12/17 = 70,6&thinsp;%</strong> aufgel&ouml;st &amp; korrekt. Das gr&ouml;&szlig;ere Modell war bei fertigen Antworten akademisch st&auml;rker &mdash; erzeugte aber unter dem experimentellen 8192-Token-Limit viel h&auml;ufiger keine verwertbare Finalantwort.</p>
+    <p>Ein automatischer Router kennt das Ergebnis nicht im Voraus. Konsequenz: <strong>kein automatischer 671B-Selector.</strong> Das Modell bleibt expliziter Spezialist.</p>
+    <p class="small">Das 671B-Limit von 8192 Tokens gilt f&uuml;r diesen Vergleichstest; die Production-Konfiguration erlaubt standardm&auml;&szlig;ig erheblich mehr. Erste diagnostische Ergebnisse (2/9 F&auml;lle) zeigen: nicht alle fr&uuml;heren Ausf&auml;lle sind allein durch das Token-Limit erkl&auml;rbar.</p>
+   </div>
+  </div>
+ </div>
+ <div class="callout" style="margin:28px 0">Das System wurde nicht auf die spektakul&auml;rste, sondern auf die <em>robustere</em> Variante eingefroren. Genau diese F&auml;higkeit &mdash; nicht einfach &bdquo;gr&ouml;&szlig;er&ldquo; mit &bdquo;besser&ldquo; gleichzusetzen &mdash; geh&ouml;rt zur eigentlichen Systemleistung.</div>
+
+ <div class="grid2">
+  <div class="panel"><div class="panelHead" style="border-left:3px solid var(--green);padding-left:17px"><h3>Sehr gut geeignet</h3></div>
+   <div class="panelBody prose">
+    <p><strong>Lange wissenschaftliche Arbeit:</strong> Gro&szlig;e Modelle verarbeiten Prim&auml;rtexte, wissenschaftliche Literatur und umfangreichen Kontext lokal; Retrieval und Spezialkorpora einbindbar.</p>
+    <p><strong>Mathematik &amp; Physik mit Sicherungsebenen:</strong> Reasoning-Modelle kombinierbar mit Lean, SageMath, PARI/GP &mdash; Behauptungen formal oder rechnerisch pr&uuml;fbar, nicht nur durch ein zweites LLM &bdquo;best&auml;tigt&ldquo;.</p>
+    <p><strong>Datenschutzkritische Arbeit:</strong> Keine LLM-Inferenz an Cloud-Anbieter; Texte verbleiben vollst&auml;ndig lokal.</p>
+    <p><strong>Langsame Spezialisten:</strong> 671B lokal als Eskalationsstufe nutzbar, wenn Qualit&auml;tssteigerung die lange Laufzeit rechtfertigt.</p>
+   </div>
+  </div>
+  <div class="panel"><div class="panelHead" style="border-left:3px solid var(--rose);padding-left:17px"><h3>Nicht als pauschale Behauptung belegt</h3></div>
+   <div class="panelBody prose">
+    <p><strong>&bdquo;Das System ist zu 91,67&thinsp;% richtig.&ldquo;</strong> Nein &mdash; das gilt f&uuml;r einen genau definierten 48-Aufgaben-Test.</p>
+    <p><strong>&bdquo;671B ist besser als 70B.&ldquo;</strong> Bei fertigen Antworten war 671B st&auml;rker; End-to-End war seine technische Zuverl&auml;ssigkeit deutlich schlechter.</p>
+    <p><strong>&bdquo;Formale Werkzeuge verhindern Halluzinationen.&ldquo;</strong> Sie k&ouml;nnen Aussagen verifizieren, wenn sie korrekt eingesetzt werden; allein ihre Installation &auml;ndert nichts.</p>
+    <p><strong>&bdquo;Ein Desktop ersetzt Frontier-Rechenzentren.&ldquo;</strong> Die St&auml;rke liegt in lokaler Kapazit&auml;t, Datenschutz und Auditierbarkeit &mdash; nicht im Rechenzentrumsdurchsatz.</p>
+   </div>
+  </div>
+ </div>
+
+ <div class="callout" style="margin-top:28px"><strong>Die wichtigste Erkenntnis:</strong> Die Qualit&auml;t des Gesamtsystems entsteht erst eine Ebene &uuml;ber der Hardware &mdash; aus dem Zusammenspiel von gro&szlig;en lokalen Modellen, passender Spezialisierung, Retrieval, formalen Werkzeugen, unabh&auml;ngiger Bewertung, Ressourcen&uuml;berwachung und der Bereitschaft, negative Ergebnisse stehenzulassen.</div>
+
+ <p class="small" style="margin-top:16px"><strong>Methodischer Hinweis:</strong> Die genannten Prozentwerte sind interne, vorab festgelegte Projekttests und keine allgemein standardisierten Benchmarks. Nicht direkt vergleichbar mit MMLU-, GPQA- oder kommerziellen Chatbot-Benchmarks. Stand: 29. August 2026. SHA-256 des geschlossenen finalen 48-Aufgaben-Tests: <span class="code">2f50add0&hellip;ba39e112</span>.</p>
+</div></section>
+
 <section id="kompiliert"><div class="wrap">
  <div class="secHead"><div><div class="kicker">05 · Kompilierte Kognition</div><h2>Rechenarbeit kann vor dem Problem stattgefunden haben.</h2></div><p class="secIntro">Die tiefe Gemeinsamkeit zwischen Tier-Sensomotorik, trainiertem LLM und kumulativer Kultur: teure Suche wird in wiederverwendbare Struktur verwandelt.</p></div>
  <div class="timeline">
