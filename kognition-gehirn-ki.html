@@ -297,7 +297,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
    <h3 style="font-size:1rem;margin:0 0 14px;color:#e8f4ff">Nicht ein Modell &mdash; ein kleines lokales KI-System</h3>
    <div class="tableWrap"><table><thead><tr><th>Komponente</th><th>Typische Rolle</th></tr></thead><tbody>
     <tr><td><strong>Qwen3 235B MoE</strong></td><td>Anspruchsvolle Analyse, Geisteswissenschaften, Synthese</td></tr>
-    <tr><td><strong>DeepSeek-R1 70B</strong></td><td>Mathematik, formales und kontraintuitives Reasoning, Physik</td></tr>
+    <tr><td><strong>Qwen3 235B MoE</strong></td><td>Allgemeiner anspruchsvoller Default; tiefe Analyse, Geisteswissenschaften, Literatur, Synthese und breite Aufgaben</td></tr><tr><td><strong>DeepSeek-R1 70B</strong></td><td>Mathematik, formales und kontraintuitives Reasoning, Physik</td></tr>
     <tr><td><strong>Qwen 35B-Klasse</strong></td><td>Schnelle Steuerungs-, Planungs- und Bewertungsaufgaben</td></tr>
     <tr><td><strong>DSV4-Flash</strong></td><td>Sehr lange Kontexte, zus&auml;tzliche Perspektive, Fallback</td></tr>
     <tr><td><strong>R1 671B</strong></td><td>Explizit angeforderter, langsamer Hochqualit&auml;ts-Spezialist</td></tr>
@@ -308,23 +308,23 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
    <div class="panelBody prose">
     <p><strong>Retrieval:</strong> Lokaler wissenschaftlicher Bestand, lokaler arXiv-Korpus, bibliographische Pipelines, Spezialkorpora.</p>
     <p><strong>Formale Systeme:</strong> Lean 4 + mathlib f&uuml;r formale Beweise; SageMath, PARI/GP, Macaulay2, Julia, Z3 f&uuml;r mathematische und symbolische Berechnungen.</p>
-    <p><strong>Infrastruktur:</strong> Wissensgraph-/Memory-Schicht, Router mit Aufgabenverteilung, unabh&auml;ngige Pr&uuml;finstanzen.</p>
-    <p class="small">Wichtig: Die formalen Werkzeuge sind real integriert und separat getestet. Ihr kausaler Beitrag zum Benchmark-Ergebnis ist f&uuml;r nicht alle F&auml;lle nachgewiesen.</p>
+    <p><strong>Infrastruktur:</strong> Wissensgraph-/Memory-Schicht, Router mit Aufgabenverteilung, rollengetrennte und teilweise blind arbeitende Pr&uuml;finstanzen.</p>
+    <p class="small">Wichtig: Die formalen Werkzeuge sind real integriert und separat validiert. Der finale 48-Aufgaben-Test belegt jedoch keinen tats&auml;chlichen CAS-/Lean-Einsatz und damit auch keinen kausalen Beitrag dieser Werkzeuge zu seinem 44/48-Ergebnis.</p>
    </div>
   </div>
  </div>
 
- <h3 style="margin:44px 0 14px;font-size:1rem;color:#e8f4ff">Warum das gr&ouml;&szlig;te Modell nicht automatisch das beste System ergibt</h3>
+ <p class="small" style="margin:14px 0 0"><em>Im finalen 48er-Test deskriptiv: Qwen3&nbsp;235B 23/23&thinsp;C, DeepSeek-R1&nbsp;70B 19/23&thinsp;C, Qwen3.6&nbsp;35B 2/2&thinsp;C. Nicht als Modellvergleich zu lesen: Der Router wies unterschiedliche Aufgabentypen zu.</em></p><h3 style="margin:44px 0 14px;font-size:1rem;color:#e8f4ff">Warum das gr&ouml;&szlig;te Modell nicht automatisch das beste System ergibt</h3>
  <div class="grid2">
   <div class="tableWrap"><table><thead><tr><th>Modell</th><th>C</th><th>I</th><th>U</th><th>T</th><th>Verwertbar</th></tr></thead><tbody>
    <tr><td><strong>R1 70B</strong></td><td>12</td><td>5</td><td>3</td><td>4</td><td><strong>20/24 = 83,3&thinsp;%</strong></td></tr>
-   <tr><td><strong>R1 671B</strong></td><td>13</td><td>2</td><td>0</td><td style="color:var(--rose)">9</td><td style="color:var(--rose)"><strong>15/24 = 62,5&thinsp;%</strong></td></tr>
+   <tr><td><strong>R1 70B</strong></td><td>12</td><td>5</td><td>3</td><td>4</td><td><strong>20/24 = 83,3&thinsp;%</strong></td></tr><tr><td><strong>R1 671B</strong></td><td>13</td><td>2</td><td>0</td><td style="color:var(--rose)">9</td><td style="color:var(--rose)"><strong>15/24 = 62,5&thinsp;%</strong></td></tr>
   </tbody></table></div>
   <div class="panel"><div class="panelHead"><h3>Bedingte Korrektheit</h3><span>nur auf fertige Antworten</span></div>
    <div class="panelBody prose">
     <p>671B: <strong>13/15 = 86,7&thinsp;%</strong> korrekt. 70B: <strong>12/17 = 70,6&thinsp;%</strong> aufgel&ouml;st &amp; korrekt. Das gr&ouml;&szlig;ere Modell war bei fertigen Antworten akademisch st&auml;rker &mdash; erzeugte aber unter dem experimentellen 8192-Token-Limit viel h&auml;ufiger keine verwertbare Finalantwort.</p>
     <p>Ein automatischer Router kennt das Ergebnis nicht im Voraus. Konsequenz: <strong>kein automatischer 671B-Selector.</strong> Das Modell bleibt expliziter Spezialist.</p>
-    <p class="small">Das 671B-Limit von 8192 Tokens gilt f&uuml;r diesen Vergleichstest; die Production-Konfiguration erlaubt standardm&auml;&szlig;ig erheblich mehr. Erste diagnostische Ergebnisse (2/9 F&auml;lle) zeigen: nicht alle fr&uuml;heren Ausf&auml;lle sind allein durch das Token-Limit erkl&auml;rbar.</p>
+    <p class="small">Das 671B-Limit von 8192 Tokens gilt f&uuml;r diesen Vergleichstest; die Production-Konfiguration erlaubt standardm&auml;&szlig;ig erheblich mehr. Bisherige Diagnose (2/9 ausgew&auml;hlten F&auml;lle): Einer erzeugte bei 24.576 Tokens eine verwertbare Finalantwort; der andere erreichte auch dieses h&ouml;here Limit erneut mit <span class="code">finish_reason=length</span>. Eine blo&szlig;e Erh&ouml;hung auf den Production-Default behebt also nicht alle F&auml;lle.</p>
    </div>
   </div>
  </div>
@@ -335,7 +335,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
    <div class="panelBody prose">
     <p><strong>Lange wissenschaftliche Arbeit:</strong> Gro&szlig;e Modelle verarbeiten Prim&auml;rtexte, wissenschaftliche Literatur und umfangreichen Kontext lokal; Retrieval und Spezialkorpora einbindbar.</p>
     <p><strong>Mathematik &amp; Physik mit Sicherungsebenen:</strong> Reasoning-Modelle kombinierbar mit Lean, SageMath, PARI/GP &mdash; Behauptungen formal oder rechnerisch pr&uuml;fbar, nicht nur durch ein zweites LLM &bdquo;best&auml;tigt&ldquo;.</p>
-    <p><strong>Datenschutzkritische Arbeit:</strong> Keine LLM-Inferenz an Cloud-Anbieter; Texte verbleiben vollst&auml;ndig lokal.</p>
+    <p><strong>Datenschutzkritische Arbeit:</strong> Die LLM-Inferenz und zu analysierende Dokumente k&ouml;nnen vollst&auml;ndig lokal bleiben; es ist keine externe LLM-API erforderlich. Externe Recherchequellen sind davon getrennte, optionale Dienste.</p>
     <p><strong>Langsame Spezialisten:</strong> 671B lokal als Eskalationsstufe nutzbar, wenn Qualit&auml;tssteigerung die lange Laufzeit rechtfertigt.</p>
    </div>
   </div>
@@ -349,9 +349,9 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   </div>
  </div>
 
- <div class="callout" style="margin-top:28px"><strong>Die wichtigste Erkenntnis:</strong> Die Qualit&auml;t des Gesamtsystems entsteht erst eine Ebene &uuml;ber der Hardware &mdash; aus dem Zusammenspiel von gro&szlig;en lokalen Modellen, passender Spezialisierung, Retrieval, formalen Werkzeugen, unabh&auml;ngiger Bewertung, Ressourcen&uuml;berwachung und der Bereitschaft, negative Ergebnisse stehenzulassen.</div>
+ <div class="callout" style="margin-top:28px"><strong>Die wichtigste Erkenntnis:</strong> Die Qualit&auml;t des Gesamtsystems entsteht erst eine Ebene &uuml;ber der Hardware &mdash; aus dem Zusammenspiel von gro&szlig;en lokalen Modellen, passender Spezialisierung, Retrieval, formalen Werkzeugen, rollengetrennter Bewertung, Ressourcen&uuml;berwachung und der Bereitschaft, negative Ergebnisse stehenzulassen.</div>
 
- <p class="small" style="margin-top:16px"><strong>Methodischer Hinweis:</strong> Die genannten Prozentwerte sind interne, vorab festgelegte Projekttests und keine allgemein standardisierten Benchmarks. Nicht direkt vergleichbar mit MMLU-, GPQA- oder kommerziellen Chatbot-Benchmarks. Stand: 29. August 2026. SHA-256 des geschlossenen finalen 48-Aufgaben-Tests: <span class="code">2f50add0&hellip;ba39e112</span>.</p>
+ <p class="small" style="margin-top:16px"><strong>Methodischer Hinweis:</strong> Die genannten Prozentwerte sind interne, vorab festgelegte Projekttests und keine allgemein standardisierten Benchmarks. Nicht direkt vergleichbar mit MMLU-, GPQA- oder kommerziellen Chatbot-Benchmarks. Stand: 29. August 2026. Familiengeclustertes 95&thinsp;%-Bootstrap-Intervall der Trefferquote: 81,25&thinsp;%&ndash;100&thinsp;% (12 Familien, 20.000 Resamples). SHA-256 des geschlossenen finalen 48-Aufgaben-Tests: <span class="code">2f50add0&hellip;ba39e112</span>.</p>
 </div></section>
 
 <section id="kompiliert"><div class="wrap">
