@@ -172,7 +172,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
     <div class="small" style="text-align:center;font-family:Inter,ui-sans-serif,sans-serif">Leistung hängt vom Substrat, vom kognitiven Profil, von externen Stützen — und von der konkreten Aufgabe T ab.<br><strong>Schema, kein kalibriertes Modell:</strong> F bezeichnet hier keine bekannte berechenbare Funktion; es werden weder Gewichte noch eine funktionale Form behauptet.</div>
    </div>
 
-   <p>Die Zahlen und Visualisierungen auf dieser Seite sollten deshalb auf <strong>vier verschiedenen Ebenen</strong> gelesen werden: als <strong>Mess- oder Literaturwerte</strong>, wo belastbare Daten existieren; als ausdrücklich markierte <strong>Toy-Rechnungen</strong>, wenn unterschiedliche Größenordnungen probeweise aufeinander projiziert werden; und als <strong>heuristische Profile</strong>, wenn qualitative Unterschiede zwischen biologischen und künstlichen Systemen sichtbar gemacht werden sollen; und als <strong>empirische Systemtests</strong>, wo das lokale KI-Ökosystem selbst unter kontrollierten Bedingungen gemessen wurde. Diese Trennung ist wichtiger als jede einzelne Zahl.</p>
+   <p>Die Zahlen und Visualisierungen auf dieser Seite sollten deshalb auf <strong>vier verschiedenen Ebenen</strong> gelesen werden: als <strong>Mess- oder Literaturwerte</strong>, wo belastbare Daten existieren; als ausdrücklich markierte <strong>Toy-Rechnungen</strong>, wenn unterschiedliche Größenordnungen probeweise aufeinander projiziert werden; und als <strong>heuristische Profile</strong>, wenn qualitative Unterschiede zwischen biologischen und künstlichen Systemen sichtbar gemacht werden sollen; sowie als <strong>empirische Systemtests</strong>, wenn das lokale KI-Ökosystem selbst unter kontrollierten Bedingungen gemessen wurde. Diese Trennung ist wichtiger als jede einzelne Zahl.</p>
   </article>
 
   <aside class="panel guide">
@@ -329,7 +329,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
    </div>
   </div>
  </div>
- <div class="callout" style="margin:28px 0">Das System wurde nicht auf die spektakul&auml;rste, sondern auf die <em>robustere</em> Variante eingefroren. Genau diese F&auml;higkeit &mdash; nicht einfach &bdquo;gr&ouml;&szlig;er&ldquo; mit &bdquo;besser&ldquo; gleichzusetzen &mdash; geh&ouml;rt zur eigentlichen Systemleistung.</div>
+ <div class="callout" style="margin:28px 0">Das System Die robustere Production-Architektur blieb bestehen: Der prospektiv getestete automatische 671B-Selector wurde nicht freigegeben. Genau diese F&auml;higkeit &mdash; nicht einfach &bdquo;gr&ouml;&szlig;er&ldquo; mit &bdquo;besser&ldquo; gleichzusetzen &mdash; geh&ouml;rt zur eigentlichen Systemleistung.</div>
 
  <div class="grid2">
   <div class="panel"><div class="panelHead" style="border-left:3px solid var(--green);padding-left:17px"><h3>Sehr gut geeignet</h3></div>
@@ -383,7 +383,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
 <section id="autark"><div class="wrap">
  <div class="secHead"><div><div class="kicker">07 · Das lokale System</div><h2>Nicht ein Gehirn — ein kognitives Verbundsystem.</h2></div><p class="secIntro">Der aktuelle lokale Stack koppelt mehrere trainierte Modelle mit Retrieval, persistentem Gedächtnis und exakten symbolischen Werkzeugen. Das verändert vor allem K und X.</p></div>
  <div class="arch">
-  <div class="archBox"><h3>Repräsentative Kernmodelle · kompiliertes K</h3><ul><li>Qwen3 235B‑A22B · ≈22B aktiv</li><li>DeepSeek‑R1 Distill Llama 70B · dense</li><li>GLM‑5.x · ≈40B aktiv als Architekturreferenz</li><li>Qwen3.6 35B‑A3B · Qwen3.6 35B‑A3B · schneller Steuerungs-/Interpreterpfad</li><li>DSV4‑Flash · Long-Context-/Diversity-/Fallback-Pfad</li><li>DeepSeek‑R1-0528 671B · stark quantisierter expliziter Heavy-Spezialist</li><li>GLM‑5-Klasse · ≈40B aktiv · isolierte Adjudikation/Agentik</li></ul></div>
+  <div class="archBox"><h3>Repräsentative Kernmodelle · kompiliertes K</h3><ul><li>Qwen3 235B‑A22B · ≈22B aktiv</li><li>DeepSeek‑R1 Distill 70B · dense</li><li>Qwen3.6 35B‑A3B · schneller Steuerungs-/Interpreterpfad</li><li>DSV4‑Flash · Long-Context-/Diversity-/Fallback-Pfad</li><li>DeepSeek‑R1-0528 671B · stark quantisierter expliziter Heavy-Spezialist</li><li>GLM‑5-Klasse · ≈40B aktiv · isolierte Adjudikation/Agentik</li></ul></div>
   <div class="archArrow">→</div>
   <div class="archBox"><h3>Router · R-Orchestration</h3><ul><li>semantische Modellwahl</li><li>epistemischer Guard</li><li>Health-Probes</li><li>Tool- und Retrievalpfade</li><li>Session-/Slow-Memory</li></ul></div>
   <div class="archArrow">→</div>
@@ -391,9 +391,9 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
  </div>
  <div class="grid2" style="margin-top:18px">
   <div class="panel"><div class="panelHead"><h3>Modellarbeit pro Token · grobe FLOP-Äquivalente</h3><span>≈2 × aktive Parameter</span></div><div class="panelBody"><div class="dimensionList">
-   <div class="dimRow"><div>Q3</div><div><div class="bar"><i style="width:31%"></i></div><div class="small">Qwen3‑235B‑A22B</div></div><div class="dimVal">≈44 GF</div></div>
-   <div class="dimRow"><div>R1</div><div><div class="bar"><i style="width:100%"></i></div><div class="small">DeepSeek‑R1 Distill 70.6B dense</div></div><div class="dimVal">≈141 GF</div></div>
-   <div class="dimRow"><div>G5</div><div><div class="bar"><i style="width:57%"></i></div><div class="small">GLM‑5 family · ≈40B aktiv</div></div><div class="dimVal">≈80 GF</div></div>
+   <div class="dimRow"><div>Q3</div><div><div class="bar"><i style="width:31%"></i></div><div class="small">Qwen3‑235B‑A22B</div></div><div class="dimVal">≈44 GFLOP/tok.</div></div>
+   <div class="dimRow"><div>R1</div><div><div class="bar"><i style="width:100%"></i></div><div class="small">DeepSeek‑R1 Distill 70.6B dense</div></div><div class="dimVal">≈141 GFLOP/tok.</div></div>
+   <div class="dimRow"><div>G5</div><div><div class="bar"><i style="width:57%"></i></div><div class="small">GLM‑5 family · ≈40B aktiv</div></div><div class="dimVal">≈80 GFLOP/tok.</div></div>
   </div><p class="small" style="margin-top:18px">Die 2N-Regel ist nur eine erste Forward-Pass-Abschätzung („model-FLOP-equivalent“). Quantisierung, Attention, MoE-Routing, KV-Cache und Backend machen daraus <strong>keine</strong> physisch gemessenen FP16-Operationen des Macs.</p></div></div>
   <div class="panel"><div class="panelHead"><h3>Warum wenig raw FLOP viel Kompetenz tragen kann</h3><span>Inference ≠ Training</span></div><div class="panelBody prose"><p>Das Modell führt bei einer Frage nicht sein Pretraining erneut aus. Training hat statistisch-semantische Regularitäten bereits in Gewichte verdichtet. Das lokale System ergänzt diese Gewichte durch externe Such-, Rechen- und Beweiswerkzeuge.</p><p>Die momentane Rechenlast ist deshalb nur der letzte Abschnitt einer langen kausalen Kette aus Evolution/Kultur bzw. Architektur/Training.</p></div></div>
  </div>
@@ -411,7 +411,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
 </div></section>
 
 <section id="methodik"><div class="wrap">
- <div class="secHead"><div><div class="kicker">09 · Methodik & Grenzen</div><h2>Wo die Zahlen enden und die Analogie beginnt.</h2></div><p class="secIntro">Messwerte, Literaturanker, Toy-Rechnungen und heuristische Profile werden ausdrücklich getrennt.</p></div>
+ <div class="secHead"><div><div class="kicker">09 · Methodik & Grenzen</div><h2>Wo die Zahlen enden und die Analogie beginnt.</h2></div><p class="secIntro">Messwerte, Literaturanker, Toy-Rechnungen, heuristische Profile und empirische Systemtests werden ausdrücklich getrennt. <strong>Empirische Systemtests:</strong> RM15, RM16 und RM17 messen das konkrete lokale KI-System unter jeweils vorab festgelegten Bedingungen; ihre Resultate gelten nur innerhalb des jeweiligen Testdesigns und werden nicht mit den Toy- oder Profilwerten verrechnet.</p></div>
  <div class="prose">
   <p><strong>Gemessen / inventarisiert:</strong> Hardwarekonfiguration und Speicherbandbreite (Apple), lokale Modellgrößen und Dienste (read-only Systemhandbuch), publizierte Neuronenzahlen rezenter Primaten, fossile Endocast- und Morphometriedaten.</p>
   <p><strong>Literaturanker:</strong> Moravecs Retina-Hochrechnung und Carlsmiths FLOP/s-Suffizienzschätzung sind unterschiedliche Methoden und unterschiedliche Einheiten. Sie werden nicht als Naturkonstanten behandelt.</p>
@@ -424,7 +424,7 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
 <section id="quellen"><div class="wrap">
  <div class="secHead"><div><div class="kicker">10 · Quellen</div><h2>Quellenbasis & technische Dokumentation.</h2></div><p class="secIntro">Prüfstand: 13. August 2026 (Quellen 01–21); Systemtests RM15, RM16 und RM17.1.1A: 29. August 2026. Externe Engineering-Schätzungen sind als solche gekennzeichnet.</p></div>
  <div class="sources">
-  <div class="source"><a href="https://support.apple.com/en-us/122211" target="_blank" rel="noopener noreferrer">Apple — Mac Studio (2025), Technical Specifications</a>. M3 Ultra: bis 32‑Core CPU, 80‑Core GPU, 32‑Core Neural Engine, 819 GB/s; 256 GB Unified Memory konfigurierbar.</div>
+  <div class="source"><a href="https://support.apple.com/en-us/122211" target="_blank" rel="noopener noreferrer">Apple — Mac Studio (2025), Technical Specifications</a>. M3 Ultra: bis 32‑Core CPU, 80‑Core GPU, 32‑Core Neural Engine, 819 GB/s; Unified Memory bis 512 GB konfigurierbar. Das hier verwendete System besitzt 256 GB.</div>
   <div class="source"><a href="https://blog.exolabs.net/nvidia-dgx-spark/" target="_blank" rel="noopener noreferrer">EXO Labs — DGX Spark + M3 Ultra</a>. Engineering-Annahme ≈26 TFLOP/s FP16.</div>
   <div class="source"><a href="https://github.com/guruswami-ai/mlx-benchmarks/blob/main/docs/FINDINGS.md" target="_blank" rel="noopener noreferrer">Community-Projekt guruswami-ai/mlx-benchmarks</a> — systematische MLX-Inferenzbenchmarks; verwendet ≈28 TFLOP/s FP16 als Compute-Modell.</div>
   <div class="source"><a href="https://coefficientgiving.org/research/how-much-computational-power-does-it-take-to-match-the-human-brain/" target="_blank" rel="noopener noreferrer">Joseph Carlsmith (2020) — How Much Computational Power Does It Take to Match the Human Brain?</a>. 10¹⁵ FLOP/s als subjektiver Suffizienz-/Mediananker; große Unsicherheit.</div>
@@ -445,7 +445,8 @@ footer{padding:48px 0 75px;color:var(--muted);font-size:.79rem}.footerLine{displ
   <div class="source"><a href="https://github.com/deepseek-ai/DeepSeek-R1" target="_blank" rel="noopener noreferrer">DeepSeek — R1 repository</a>. Distill-Llama-70B als dense 70B-Distillmodell.</div>
   <div class="source"><a href="https://huggingface.co/zai-org/GLM-5" target="_blank" rel="noopener noreferrer">Z.ai — GLM‑5 model card</a>. 744B Gesamtparameter, ≈40B aktiv; Architekturreferenz für den großen GLM-Pfad.</div>
   <div class="source"><a href="ki-oekosystem.html">Autark Data — Lokales KI-Ökosystem</a> und read-only Systeminventar vom 13.08.2026. Lokale Modelle, Router, Retrieval, Memory und symbolische Werkzeuge.</div>
-  <div class="source"><a href="https://thomas.autark-data.org">AUTARK Academic V3</a> — finaler 48-Aufgaben-Benchmark (RM15.12.28). C44 / I4 / U0 / T0 · 91,67 % fachlich korrekt · 100 % technische Reliability. SHA-256: <span class="code">2f50add0…ba39e112</span>.</div><div class="source"><a href="https://thomas.autark-data.org">AUTARK Academic V3</a> — RM16 matched R70-vs-R671 closure. R70 20/24 verwertbar · R671 15/24 verwertbar (exp. max_tokens=8192) · automatischer R671-Selector: REJECT. SHA-256: <span class="code">0d825df9…e42054</span>.</div><div class="source"><a href="https://thomas.autark-data.org">AUTARK Academic V3</a> — RM17.1.1A selected-failure budget diagnostic. 2/9 Diagnoseäufe bei max_tokens=24576: 1 recovered, 1 erneut <span class="code">finish_reason=length</span>. SHA-256: <span class="code">4a175a8e…749043af</span>.</div>
+  <div class="source"><a href="https://thomas.autark-data.org">AUTARK Academic V3</a> — finaler 48-Aufgaben-Benchmark (RM15.12.28). C44 / I4 / U0 / T0 · 91,67 % fachlich korrekt · 100 % technische Reliability. SHA-256: <span class="code">2f50add0…ba39e112</span>.</div><div class="source"><a href="https://thomas.autark-data.org">AUTARK Academic V3</a> — RM16 matched R70-vs-R671 closure. R70 20/24 verwertbar · R671 15/24 verwertbar (exp. max_tokens=8192) · automatischer R671-Selector: REJECT. SHA-256: <span class="code">0d825df9…e42054</span>.</div><div class="source"><a href="https://thomas.autark-data.org">AUTARK Academic V3</a> — RM17.1.1A selected-failure budget diagnostic. 2/9 Diagnoseläufe bei max_tokens=24576: 1 recovered, 1 erneut <span class="code">finish_reason=length</span>. SHA-256: <span class="code">4a175a8e…749043af</span>.</div>
+  <div class="source"><a href="https://thomas.autark-data.org">AUTARK Academic V3</a> — RM15.12.20 Final Architecture Freeze. Eingefrorene Production-Rollen: Qwen3-235B für Deep-Analysis/Philosophie/Synthese/Breadth; DeepSeek-R1 70B für Math/Proof/Formal/Counter-intuitive; Qwen3.6 für Control/Planner/Evaluator; DSV4 für Very-long/Document/Diversity/Fallback; GLM für isolierte Adjudication/Agentic; R1-671B als explizite High-Quality-Lane ohne automatischen Selector. SHA-256: <span class="code">ffa5569d50be4b53b2ad8d55ecdb60845f2714c3cacbc7cafd8d536041f83ac8</span>.</div>
  </div>
 </div></section>
 </main>
