@@ -692,20 +692,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 </div>
 </div>
 </section>
-<footer class="wrapper">
-  <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
-  <span>Thomas Riepe &middot; Berlin &middot; August 2026</span>
-  <span>Projekt — von —</span>
-  <span style="margin-top:.5rem;display:block"><a href="impressum.html" style="color:var(--fg-dim)">Impressum &amp; Datenschutz</a> · © Thomas Riepe, Berlin · § 5 DDG</span>
-</footer>
-</div>
-<script>
-function setLang(l){
-  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
-  document.querySelectorAll('.lang-'+l).forEach(e=>{e.style.removeProperty('display')});
-  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
-  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
-}<section id="verfahren"><div class="wrapper">
+<section id="verfahren"><div class="wrapper">
   <h2><span class="nav-num">07</span>    <span class="lang-de">Neue Werkzeuge &amp; Verfahren (Juli 2026)</span>    <span class="lang-en" style="display:none">New Tools &amp; Methods (July 2026)</span>  </h2>
 
   <div class="lang-de">
@@ -742,7 +729,19 @@ function setLang(l){
   <p>Formal invariant checking (rather than single-case tests only) for procedure formalisations &mdash; e.g. in the DoSV coordination-rule implementation: &ldquo;at most one admission at a time&rdquo;, &ldquo;no re-entry of withdrawn applications&rdquo; as properties automatically checked against thousands of generated random cases.</p>
   </div>
 </div></section>
-
-</script>
+<footer class="wrapper">
+  <span><a href="index.html" style="color:var(--fg-dim)">&#8592; Alle Projekte</a></span>
+  <span>Thomas Riepe &middot; Berlin &middot; August 2026</span>
+  <span>Projekt — von —</span>
+  <span style="margin-top:.5rem;display:block"><a href="impressum.html" style="color:var(--fg-dim)">Impressum &amp; Datenschutz</a> · © Thomas Riepe, Berlin · § 5 DDG</span>
+</footer>
+</div>
+<script>
+function setLang(l){
+  document.querySelectorAll('.lang-de,.lang-en').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.lang-'+l).forEach(e=>{e.style.removeProperty('display')});
+  document.querySelectorAll('.lang-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
+}</script>
 </body>
 </html>
