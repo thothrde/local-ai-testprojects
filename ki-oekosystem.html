@@ -85,7 +85,7 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 </div>
 </header><nav class="wrapper"><a href="#hardware"><span class="nav-num">00</span><span class="lang-de">Hardware</span><span class="lang-en" style="display:none">Hardware</span></a>
 <a href="#modelle"><span class="nav-num">01</span><span class="lang-de">LLM-Modelle</span><span class="lang-en" style="display:none">LLM Models</span></a>
-<a href="#router"><span class="nav-num">02</span><span class="lang-de">LLM-Router-Proxy</span><span class="lang-en" style="display:none">LLM Router Proxy</span></a><a href="#memory"><span class="nav-num">03</span><span class="lang-de">Gedächtnis &amp; Projektzustand</span><span class="lang-en" style="display:none">Memory &amp; Project State</span></a>
+<a href="#router"><span class="nav-num">02</span><span class="lang-de">LLM-Router-Proxy</span><span class="lang-en" style="display:none">LLM Router Proxy</span></a><a href="#evaluation"><span class="nav-num">02b</span><span class="lang-de">Evaluation &amp; Anti-Goodhart</span><span class="lang-en" style="display:none">Evaluation &amp; Anti-Goodhart</span></a><a href="#memory"><span class="nav-num">03</span><span class="lang-de">Gedächtnis &amp; Projektzustand</span><span class="lang-en" style="display:none">Memory &amp; Project State</span></a>
 <a href="#math"><span class="nav-num">04</span><span class="lang-de">Mathematik-Stack</span><span class="lang-en" style="display:none">Mathematics Stack</span></a>
 <a href="#chem"><span class="nav-num">05</span><span class="lang-de">Chemie/Bio/Neuro-Stack</span><span class="lang-en" style="display:none">Chem/Bio/Neuro Stack</span></a>
 <a href="#architektur"><span class="nav-num">06</span><span class="lang-de">Systemarchitektur</span><span class="lang-en" style="display:none">System Architecture</span></a><a href="#verfahren"><span class="nav-num">07</span><span class="lang-de">Neue Werkzeuge &amp; Verfahren (Juli 2026)</span><span class="lang-en" style="display:none">New Tools &amp; Methods (July 2026)</span></a>
@@ -235,6 +235,64 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 </div>
 </div>
 </section>
+<section id="evaluation">
+<div class="col">
+  <h2><span class="nav-num">02b</span>
+    <span class="lang-de">Evaluation, Reliability &amp; Anti-Goodhart</span>
+    <span class="lang-en" style="display:none">Evaluation, Reliability &amp; Anti-Goodhart</span>
+  </h2>
+  <div class="lang-de">
+<p>Die öffentlich hervorgehobenen 48 Aufgaben sind der frische, vorab eingefrorene finale End-to-End-Holdout — nicht der gesamte empirische Testumfang. Vor diesem Holdout lagen bereits 288 kontrollierte author-seitige Evaluations-Slots/Runs aus First Pass und den Extensions B/C/A vor (144 + 48 + 40 + 56). Diese 288 sind ausdrücklich <strong>keine 288 unabhängigen Aufgaben</strong> — viele Runs nutzen dieselben Grundaufgaben unter verschiedenen Modellen oder Interventionen. Hinzu kommen umfangreiche Blind-Grader-/Adjudikationsinferenzen, technische Retries sowie die späteren RM16- und RM17-Tests.</p>
+<div class="stat-grid">
+  <div class="stat-card"><span class="stat-num">≈300</span><span class="stat-label">kontrollierte Author-Runs davor (First Pass 144 + Ext. B 48 + Ext. C 40 + Ext. A 56 = 288)</span></div>
+  <div class="stat-card"><span class="stat-num">48</span><span class="stat-label">frische Holdout-Aufgaben, vorab eingefroren</span></div>
+  <div class="stat-card"><span class="stat-num">91,67 %</span><span class="stat-label">44 C / 4 I / 0 U / 0 T · technische Reliability 100 %</span></div>
+</div>
+<h3>RM16 — matched R70-vs-R671 (getrennt vom 48er-Benchmark)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Modell</th><th>C</th><th>I</th><th>U</th><th>T</th></tr></thead>
+<tbody>
+<tr><td>R70</td><td>12</td><td>5</td><td>3</td><td>4</td></tr>
+<tr><td>R671</td><td>13</td><td>2</td><td>0</td><td>9</td></tr>
+</tbody></table></div>
+<p>Automatischer R671-Selector: <strong>REJECT.</strong> Diese Ergebnisse werden nicht mit dem 48-Aufgaben-Holdout zu einem nachträglichen Gesamtscore verrechnet.</p>
+<div class="box open">
+  <div class="label">RM17 — offener Diagnosestrang</div>
+  <p>Selected-Failure-Diagnostic zu den neun eingefrorenen R671-Technical-Failures aus RM16, unter <code>max_tokens 8192 → 24576</code>. Bisher <strong>2/9</strong> exponiert: 1 technisch recovered, 1 erneut <code>finish_reason=length</code>; <strong>7/9 unexponiert.</strong> Keine neue allgemeine R671-Reliability oder Production-Freigabe wird daraus abgeleitet.</p>
+</div>
+<div class="box confirmed">
+  <div class="label">Anti-Goodhart-Prinzip</div>
+  <p>Entwicklung und Evaluation werden institutionell getrennt gehalten: frische Holdouts statt wiederholter Optimierung auf denselben Aufgaben, Blind-Grading über mehrere Bewertungswege, strikte Trennung von C/I/U/T, immutable closure (ein geschlossener Benchmark wird nachträglich nicht umgeschrieben — auch dann nicht, wenn eine spätere Analyse einen alten Fall günstiger erscheinen lässt), append-only Errata und kryptographische Artefaktbindung.</p>
+</div>
+<p>Ausführliche Methodik: <a href="AUTARK_V3_TESTMETHODIK_UND_ANTI_GOODHART_DE_2026-09-09.pdf">Testmethodik &amp; Anti-Goodhart (PDF, DE)</a> · <a href="AUTARK_V3_TEST_METHODOLOGY_AND_ANTI_GOODHART_EN_2026-09-09.pdf">englische Fassung (PDF)</a>.</p>
+</div>
+  <div class="lang-en" style="display:none">
+<p>The publicly highlighted 48 tasks are the fresh, pre-frozen final end-to-end holdout — not the entire empirical testing effort. Before this holdout, 288 controlled author-side evaluation slots/runs had already been carried out across First Pass and Extensions B/C/A (144 + 48 + 40 + 56). These 288 are explicitly <strong>not 288 independent tasks</strong> — many runs reuse the same base tasks under different models or interventions. In addition there were extensive blind grader/adjudication inferences, technical retries, and the later RM16 and RM17 tests.</p>
+<div class="stat-grid">
+  <div class="stat-card"><span class="stat-num">≈300</span><span class="stat-label">controlled author runs before it (First Pass 144 + Ext. B 48 + Ext. C 40 + Ext. A 56 = 288)</span></div>
+  <div class="stat-card"><span class="stat-num">48</span><span class="stat-label">fresh holdout tasks, pre-frozen</span></div>
+  <div class="stat-card"><span class="stat-num">91.67%</span><span class="stat-label">44 C / 4 I / 0 U / 0 T · 100% technical reliability</span></div>
+</div>
+<h3>RM16 — matched R70-vs-R671 (separate from the 48-task benchmark)</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>Model</th><th>C</th><th>I</th><th>U</th><th>T</th></tr></thead>
+<tbody>
+<tr><td>R70</td><td>12</td><td>5</td><td>3</td><td>4</td></tr>
+<tr><td>R671</td><td>13</td><td>2</td><td>0</td><td>9</td></tr>
+</tbody></table></div>
+<p>Automatic R671 selector: <strong>REJECT.</strong> These results are not pooled with the 48-task holdout into a retrospective overall score.</p>
+<div class="box open">
+  <div class="label">RM17 — open diagnostic strand</div>
+  <p>A selected-failure diagnostic on the nine frozen R671 technical failures from RM16, under <code>max_tokens 8192 → 24576</code>. So far <strong>2/9</strong> exposed: 1 technically recovered, 1 again <code>finish_reason=length</code>; <strong>7/9 still unexposed.</strong> No new general R671 reliability estimate or production authorization is inferred from it.</p>
+</div>
+<div class="box confirmed">
+  <div class="label">Anti-Goodhart principle</div>
+  <p>Development and evaluation are kept institutionally separate: fresh holdouts instead of repeated optimization on the same tasks, blind grading across multiple grading paths, strict separation of C/I/U/T, immutable closure (a closed benchmark is not rewritten after the fact — even when a later analysis makes an old case look more favorable), append-only errata, and cryptographic artifact binding.</p>
+</div>
+<p>Full methodology: <a href="AUTARK_V3_TEST_METHODOLOGY_AND_ANTI_GOODHART_EN_2026-09-09.pdf">Test Methodology &amp; Anti-Goodhart (PDF, EN)</a> · <a href="AUTARK_V3_TESTMETHODIK_UND_ANTI_GOODHART_DE_2026-09-09.pdf">German version (PDF)</a>.</p>
+</div>
+</div>
+</section>
 <section id="memory">
 <div class="col">
   <h2><span class="nav-num">03</span>
@@ -340,18 +398,59 @@ footer{border-top:1px solid var(--rule);padding:3rem 0;margin-top:5rem;font-fami
 <tr><td>msolve</td><td>0.10.0</td><td>Polynomial system solver — Gröbner bases over ℤ/pℤ (LIP6, algebraic geometry)</td></tr>
 </tbody></table></div>
 <h3>lean_iterativ v4 — Iterative Proof Refinement Loop</h3>
-<p>Open WebUI tool for iterative Lean 4 proof verification (Ralph Loop, arXiv:2605.22763). Based on Li et al. "Compile to Compress" (ICML 2026): A — inline error injection (+3% MiniF2F), B — Markovian discipline, C — error-type routing, D — BFS/DFS + EVOLVE-BLOCK, E — pre-validation via <code>lake env lean</code> (saves N x lake-build iterations on structural failures).</p>
+<p>Open WebUI tool for iterative Lean 4 proof verification (Ralph Loop, arXiv:2605.22763). Implementation basis: Li et al. "Compile to Compress" (ICML 2026).</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li><strong>A — Inline error injection:</strong> compiler errors directly as a <code>-- ERROR:</code> comment. Li et al. Table 10: +3% on MiniF2F.</li>
+  <li><strong>B — Markovian discipline:</strong> only the current code + compiler error, no history.</li>
+  <li><strong>C — Error-type routing:</strong> unfixable (linarith, omega, nested error — early abort from round 2), hard (unsolved goals, type mismatch), repairable.</li>
+  <li><strong>D — BFS/DFS + EVOLVE-BLOCK:</strong> frische_versuche=N scatters an independent attempt every N rounds. locked_regions=True protects the theorem signature.</li>
+  <li><strong>v4 — Bugfix:</strong> _lean_kompiliere() temporarily overwrites Test.lean; JSON error format now parsed correctly.</li>
+  <li><strong>E — Pre-validation (<code>lake env lean</code>):</strong> new step BEFORE the Ralph Loop: <code>_praeval_lean_env()</code> runs <code>lake env lean MathProject/Test.lean</code>. Structurally unfixable errors (unknown package, file not found, parse error) → immediate abort, saving up to max_runden × lake-build iterations. Round-1 result reused (no double build). New _FEHLER_UNFIXIERBAR patterns: unknown package, file not found, unknown import.</li>
+</ul>
 <div class="box confirmed">
   <div class="label">Signature</div>
   <p><code>lean_iterativ(aufgabe_oder_sketch, modell='deepseek-r1:70b', max_runden=8, frische_versuche=0, locked_regions=True)</code></p>
 </div>
 <h3>Open WebUI Tools — Ecosystem Extensions (June 2026)</h3>
-<p>Based on Sakka et al. 2026 (Osaka): three tools implement the Exploration → Discussion → Review-Memory architecture (komitee_bewertung v2.0, komitee_exploration, forschungsgraph_neo4j). Two additional tools implement the QUEST epistemic framework (Xie et al., arXiv:2605.24218): context_state_condenser and rubrik_baum_komitee.</p>
+<p>Based on Sakka, Mizukami &amp; Mitarai, "An LLM System for Autonomous Variational Quantum Circuit Design" (arXiv, Osaka, June 2026): three new or substantially extended tools implement the paper's core architecture (Exploration → Discussion → Review-Memory).</p>
+<h4>komitee_bewertung v2.0 — Discussion Phase (Sakka et al. 2026)</h4>
+<p>A three-role critique cycle instead of a generic SCORE: X/10:</p>
 <ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
-  <li><strong>komitee_bewertung v2.0:</strong> Expert 1+2 (domain-specific) + Advocate cycle. Valves: discussion_verwenden, expertenrollen_domaene (mathematik/physik/philosophie), r1_671b_url (port 8889).</li>
-  <li><strong>komitee_exploration:</strong> SearXNG search → 8 seed ideas → 3 selected → then komitee_bewertung. Stabilizes trajectory (ablation: -0.57 vs +0.003 correlation).</li>
-  <li><strong>forschungsgraph_neo4j:</strong> Causal research memory. Chain: hypothese_neu → experiment_starten → ergebnis_erfassen → kritik_hinzufuegen → revision_erstellen. 5 node constraints, [:REVIDIERT_ZU] edges.</li>  <li><strong>context_state_condenser:</strong> QUEST-style epistemic context state (arXiv:2605.24218) — trusted/untrusted/uncertain buckets, merge not overwrite, uncertain entries carry an explicit follow-up action.</li>  <li><strong>rubrik_baum_komitee:</strong> hierarchical rubric-tree extension of komitee_bewertung (QUEST Sec. 2.1) — critical/non-critical nodes, sequential/parallel aggregation, single-batch leaf scoring.</li>
+  <li><strong>Expert 1 + 2</strong> (domain-specific): valve <code>expertenrollen_domaene</code>: mathematik (arithmetic geometer · homotopy theorist · Lean 4 logician · falsifier), physik, philosophie, allgemein.</li>
+  <li><strong>Advocate</strong>: decides selectively, delivers an improved proposal.</li>
 </ul>
+<p>R1-671B optionally as critic/comparator backend (port 8889). Ablation evidence: Discussion &gt; Self-Reflection (Sakka et al. Fig. 6).</p>
+<div class="box confirmed">
+  <div class="label">New valves (v2.0)</div>
+  <p><code>discussion_verwenden</code> · <code>expertenrollen_domaene</code> · <code>searxng_url</code> · <code>r1_671b_url</code></p>
+</div>
+<h4>komitee_exploration — Exploration-first mode</h4>
+<p>Sakka et al. ablation (Fig. 6): exploration stabilizes the optimization trajectory independent of starting quality. Without it: correlation = -0.57. With it: +0.003 (stable). SearXNG research → n_seeds=8 diverse ideas → n_final=3 selected → then komitee_bewertung.</p>
+<h4>forschungsgraph_neo4j — Causal Review-Memory</h4>
+<p>Causal chain: <code>hypothese_neu</code> → <code>experiment_starten</code> → <code>ergebnis_erfassen</code> → <code>kritik_hinzufuegen</code> → <code>revision_erstellen</code>. Stores not just WHAT worked or failed, but WHY. Schema: 5 node constraints (Hypothese, FExperiment, FErgebnis, FKritik, FRevision). Projects: ArithGaugeTheory, Anima-IV, FloerCondensed.</p>
+<h4>context_state_condenser — Epistemic Context State (QUEST paradigm)</h4>
+<p>Implements the context-state schema from Xie et al., Quest: Training Frontier Deep Research Agents with Fully Synthetic Tasks (arXiv:2605.24218, May 2026). Compresses long conversation histories into a structured JSON with three buckets: <code>trusted</code> (verified facts with sourcing), <code>untrusted</code> (refuted claims), <code>uncertain</code> (open items with an explicit <code>need</code> field as a concrete action item). Existing states are merged, never overwritten.</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li><strong>kontext_kondensieren:</strong> main function, model choice via valve (qwen3:235b-a22b full, qwen3.6:35b-a3b fast).</li>
+  <li><strong>state_lesen:</strong> Markdown summary of a state, color-coded by bucket.</li>
+  <li><strong>uncertain_aktionen:</strong> extracts open verification steps as a checklist.</li>
+</ul>
+<div class="box confirmed">
+  <div class="label">Endpoint</div>
+  <p>Router proxy (port 11435, OpenAI-compatible) with fallback directly to Ollama (port 11434)</p>
+</div>
+<h4>rubrik_baum_komitee — Rubric-tree extension of komitee_bewertung</h4>
+<p>Extends komitee_bewertung with hierarchical rubric trees per QUEST (Xie et al., arXiv:2605.24218, Section 2.1). Each node carries a critical flag (a critical failure zeroes out the parent node) and an aggregation_strategy (sequential or parallel). Leaf-node scoring happens as a single batch call instead of n individual calls — all criteria for one proposal are scored in one LLM call, then aggregated recursively through the tree.</p>
+<ul style="margin:1rem 0 1rem 1.5rem;color:var(--fg-dim);font-size:.97rem">
+  <li><strong>rubrik_baum_definieren:</strong> automatically generates a rubric tree from the task description (qwen3:235b-a22b).</li>
+  <li><strong>antwort_bewerten:</strong> batch-scores all leaf nodes against a text, recursive aggregation.</li>
+  <li><strong>komitee_mit_rubrik:</strong> complete procedure — k proposals from four epistemic perspectives (analytical, synthetic, adversarial, pragmatic), rubric scoring, ranking.</li>
+  <li><strong>rubrik_analyse_lesen:</strong> readable Markdown analysis with color-coded score bars.</li>
+</ul>
+<div class="box confirmed">
+  <div class="label">Model roles</div>
+  <p>qwen3:235b-a22b for rubric generation and proposals, qwen3.6:35b-a3b for leaf-node batch evaluation</p>
+</div>
 </div>
 </div>
 </section>
