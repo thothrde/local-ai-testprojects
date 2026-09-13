@@ -3,13 +3,13 @@
   "classification": "PUBLIC_ROLE_ONLY_UI_CONTRACT",
   "contains_personal_data": true,
   "direct_person_identifiers_in_public_payload": false,
-  "e5_release_verified": true,
+  "e5_release_verified": false,
   "headline_metrics": [
     "PILLAR_B_ESRS_HIGHEST_PAID_TO_MEDIAN",
     "PILLAR_B_CEO_TO_AVERAGE_FTE_SECTION162"
   ],
   "indirect_identifiability_still_treated_as_personal_data": true,
-  "personal_data_review_required": false,
+  "personal_data_review_required": true,
   "public_identity_representation": "ROLE_ONLY",
   "public_release_enabled": true,
   "rules": {
@@ -37,5 +37,7 @@
     "7LTWFZYICNSX8D621K86": "Deutsche Bank AG",
     "851WYGNLUQLFZBSYGB56": "Commerzbank AG"
   },
-  "publication_decision": "PUBLISH_ROLE_ONLY_WITH_DOCUMENTED_PRIVACY_CONTEXT"
+  "publication_decision": "PUBLISHED_BY_PUBLISHER_DECISION_WITH_OUTSTANDING_HUMAN_REVIEW",
+  "technical_publication_verified": true,
+  "source_reuse_final_review_required": true
 }

@@ -2,7 +2,7 @@
   "use strict";
 
   const EXPECTED_SCHEMA = "PILLAR_C_PUBLIC_READMODEL_V1";
-  const EXPECTED_SHA256 = "7ef8e0965f453956721cfc4917c8e0882e5534160b5de71229ec76fe052337e6";
+  const EXPECTED_SHA256 = "72430d7cece4855b2e5705dc8bf69ade56b90072994e6d74efa09ce11ef71f44";
   const DATA_URL = "data/pillar_c_public_readmodel.json";
 
   const T = {
@@ -29,7 +29,7 @@
       reached: "laut Quelle erreicht",
       climateCaveat: "Die 59,5 % sind der von Munich Re berichtete Wert nach der Climate-Ambition-2025-Methodik. Bei Nominalwerten für Schuldinstrumente wären es 57,2 %. Immobilienemissionen 2025 waren zum Veröffentlichungszeitpunkt teilweise approximiert.",
       remuneration: "ESRS Vergütungsverhältnis",
-      remunerationNote: "Höchstbezahlte Person / Median der jährlichen Gesamtvergütung aller Beschäftigten. Die öffentliche Detaildarstellung bleibt rollenbezogen; personenbezogene Prüfung bleibt erforderlich.",
+      remunerationNote: "Höchstbezahlte Person / Median der jährlichen Gesamtvergütung aller Beschäftigten. Die öffentliche Detaildarstellung bleibt rollenbezogen; die finale menschliche Legal-/Datenschutzprüfung bleibt offen.",
       csm: "ERGO · IFRS 17 CSM",
       csmNote: "Contractual Service Margin ist kein Embedded Value und kein Value of New Business.",
       tax: "Munich Re · Tax Transparency 2024",
@@ -85,7 +85,7 @@
       reached: "reported achieved",
       climateCaveat: "59.5% is Munich Re's reported value under the Climate Ambition 2025 methodology. Using nominal values for debt instruments would yield 57.2%. 2025 direct-real-estate emissions were partly approximated at publication.",
       remuneration: "ESRS remuneration ratio",
-      remunerationNote: "Highest-paid individual / median annual total remuneration for all employees. Public detail remains role-only; direct person names are not served.",
+      remunerationNote: "Highest-paid individual / median annual total remuneration for all employees. Public detail remains role-only; direct person names are not served and final human legal/privacy review remains outstanding.",
       csm: "ERGO · IFRS 17 CSM",
       csmNote: "Contractual Service Margin is not Embedded Value and not Value of New Business.",
       tax: "Munich Re · Tax Transparency 2024",

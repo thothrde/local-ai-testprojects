@@ -7,7 +7,7 @@
   const TXT={
     de:{eyebrow:"Säule B · Vergütung & Pay Ratio",title:"Vergütungsverhältnisse — getrennte Definitionen, sichtbare Grenzen",
     intro:"Zwei bewusst getrennte Kennzahlfamilien: ESRS S1-16 (höchstbezahlte Person / Median) und ein eigener §162-Kontextquotient (CEO-Vergütung / durchschnittliche FTE-Vergütung). Sie werden nicht ineinander umgerechnet oder zu einem Gesamtscore verschmolzen.",
-    warningTitle:"Role-only Public-Payload · Datenschutzkontext",warning:"Vergütungsangaben werden öffentlich nur rollenbezogen dargestellt. Direkte Personennamen und Personen-IDs sind aus der ausgelieferten Säule-B-Payload entfernt; indirekte Identifizierbarkeit bleibt möglich und wird deshalb als personenbezogener Kontext transparent behandelt.",
+    warningTitle:"Role-only Public-Payload · Human Review offen",warning:"Vergütungsangaben werden öffentlich nur rollenbezogen dargestellt. Direkte Personennamen und Personen-IDs sind aus der ausgelieferten Säule-B-Payload entfernt; indirekte Identifizierbarkeit bleibt möglich. Die finale menschliche Legal-/Datenschutz-Einzelfallprüfung ist ausdrücklich noch offen.",
     source:"15 hashgebundene Primärquellen",evidence:"47 E4-Observations",definitions:"2 getrennte Headline-Definitionen",
     esrsTitle:"ESRS S1-16 · höchste Vergütung / Median",esrsDef:"Direkt berichtete Verhältniszahl. „Höchstbezahlte Person“ ist nicht automatisch CEO.",
     ctxTitle:"§162 · CEO / durchschnittliche FTE-Vergütung",ctxDef:"Eigener kontextueller Quotient; kein gesetzlicher Like-for-like-Pay-Ratio.",
@@ -22,7 +22,7 @@
     provenance:"15 Primärquellen · E4 · Role-only Public-Payload · quellengebunden",multiple:"×"},
     en:{eyebrow:"Pillar B · remuneration & pay ratio",title:"Remuneration ratios — separate definitions, visible limits",
     intro:"Two deliberately separate metric families: ESRS S1-16 (highest-paid individual / median) and a separate §162 contextual ratio (CEO remuneration / average FTE remuneration). They are not converted into one another or merged into a composite score.",
-    warningTitle:"Role-only public payload · privacy context",warning:"Public remuneration detail is shown by role only. Direct person names and person IDs are removed from the served Pillar-B payload; indirect identifiability may remain and is therefore treated transparently as personal-data context.",
+    warningTitle:"Role-only public payload · human review outstanding",warning:"Public remuneration detail is shown by role only. Direct person names and person IDs are removed from the served Pillar-B payload; indirect identifiability may remain. Final human legal/privacy case review is explicitly still outstanding.",
     source:"15 hash-bound primary sources",evidence:"47 E4 observations",definitions:"2 separate headline definitions",
     esrsTitle:"ESRS S1-16 · highest-paid / median",esrsDef:"Directly reported ratio. “Highest-paid individual” is not automatically the CEO.",
     ctxTitle:"§162 · CEO / average FTE remuneration",ctxDef:"Separate contextual ratio; not a statutory like-for-like pay ratio.",

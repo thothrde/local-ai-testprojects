@@ -48,9 +48,11 @@
   },
   "release_state": {
     "public_release": true,
-    "e5_release_verified": true,
+    "e5_release_verified": false,
     "proposal_only_publication_policy": false,
-    "publication_path": "https://thomas.autark-data.org/finanztransparenz/"
+    "publication_path": "https://thomas.autark-data.org/finanztransparenz/",
+    "technical_publication_verified": true,
+    "human_reviews_outstanding": true
   },
   "guards": {
     "institutions_119": true,
@@ -69,6 +71,8 @@
     "all_support_e4": true,
     "all_headline_in_institution_universe": true,
     "public_release_true": true,
-    "e5_release_verified_true": true
+    "e5_release_verified_false": true,
+    "technical_publication_verified_true": true,
+    "human_reviews_outstanding_true": true
   }
 }

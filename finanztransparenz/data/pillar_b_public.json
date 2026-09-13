@@ -321,7 +321,7 @@
       "source_url": "https://investor-relations.db.com/files/documents/reports/Compensation-Report-2022.pdf?language_id=1"
     }
   ],
-  "e5_release_verified": true,
+  "e5_release_verified": false,
   "entities": {
     "COMMERZBANK": {
       "entity_id": "cbc3d4ee-0fe2-57fd-9be8-050291cb9c39",
@@ -2485,7 +2485,7 @@
       "role_status": "CEO_FULL_YEAR"
     }
   ],
-  "personal_data_review_required": false,
+  "personal_data_review_required": true,
   "public_payload_redaction": {
     "direct_person_id_fields_removed": 42,
     "direct_person_name_fields_removed": 42,
@@ -2825,5 +2825,7 @@
       "suppression_id": "8fc4e01a-a8bd-5fa3-aa84-fff6d43a6c59"
     }
   ],
-  "publication_decision": "PUBLISH_ROLE_ONLY_WITH_DOCUMENTED_PRIVACY_CONTEXT"
+  "publication_decision": "PUBLISHED_BY_PUBLISHER_DECISION_WITH_OUTSTANDING_HUMAN_REVIEW",
+  "technical_publication_verified": true,
+  "source_reuse_final_review_required": true
 }

@@ -5422,8 +5422,10 @@
   },
   "purpose": "Public source URLs and explicit production uncertainty flags for the released Financial Transparency Monitor without mutating underlying source observations.",
   "release_state": {
-    "E5_RELEASE_VERIFIED": true,
-    "public_release_enabled": true
+    "E5_RELEASE_VERIFIED": false,
+    "public_release_enabled": true,
+    "TECHNICAL_PUBLICATION_VERIFIED": true,
+    "HUMAN_REVIEWS_OUTSTANDING": true
   },
   "schema": "EBA_MONITOR_RELEASE_PROVENANCE_OVERLAY_V1",
   "scope": "EBA_TE2025_CURRENT_FRONTEND_ONLY",

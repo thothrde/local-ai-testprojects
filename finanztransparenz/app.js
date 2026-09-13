@@ -333,7 +333,7 @@ function method(){
     <div class="method-block"><strong>${esc(t("noImpute"))}</strong><p>${esc(t("noImputeText"))}</p></div>
     <div class="method-block"><strong>${esc(t("e4Title"))}</strong><p>${esc(t("e4Text"))}</p></div>
     <div class="method-block"><strong>${esc(t("allDisclaimers"))}</strong><ul class="disclaimer-list">${ds.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
-    <div class="method-block mono">contract_version=${esc(state.data.contract.contract_version)}<br>public_release=true<br>e5_release_verified=true</div>`;
+    <div class="method-block mono">contract_version=${esc(state.data.contract.contract_version)}<br>public_release=true<br>technical_publication_verified=true<br>e5_release_verified=false<br>human_reviews_outstanding=true</div>`;
   $("#methodDialog").showModal();
 }
 
@@ -400,7 +400,12 @@ function legalNotice(){
         imprint_review=${esc(l.release_gate_local_status.imprint_review)}<br>
         privacy_notice_review=${esc(l.release_gate_local_status.privacy_notice_review)}<br>
         pre_publication_legal_review=${esc(l.release_gate_local_status.pre_publication_legal_review)}<br>
+        TECHNICAL_PUBLICATION_VERIFIED=${yesno(l.release_gate_local_status.TECHNICAL_PUBLICATION_VERIFIED)}<br>
         E5_RELEASE_VERIFIED=${yesno(l.release_gate_local_status.E5_RELEASE_VERIFIED)}<br>
+        FINAL_HUMAN_LEGAL_REVIEW_REQUIRED=${yesno(l.release_gate_local_status.FINAL_HUMAN_LEGAL_REVIEW_REQUIRED)}<br>
+        PERSONAL_DATA_REVIEW_REQUIRED=${yesno(l.release_gate_local_status.PERSONAL_DATA_REVIEW_REQUIRED)}<br>
+        SOURCE_REUSE_FINAL_REVIEW_REQUIRED=${yesno(l.release_gate_local_status.SOURCE_REUSE_FINAL_REVIEW_REQUIRED)}<br>
+        ACCESSIBILITY_MANUAL_AT_REVIEW_REQUIRED=${yesno(l.release_gate_local_status.ACCESSIBILITY_MANUAL_AT_REVIEW_REQUIRED)}<br>
         public_release_enabled=${yesno(l.release_gate_local_status.public_release_enabled)}
       </div>
     </section>`;
