@@ -1,8 +1,8 @@
 (() => {
   "use strict";
 
-  const EXPECTED_SCHEMA = "PILLAR_C_INTERNAL_READMODEL_V1";
-  const EXPECTED_SHA256 = "dbb66f8fc74d758b13ea0c30d3863a7ac5b5e888af7fdc287d8cf0addd275d03";
+  const EXPECTED_SCHEMA = "PILLAR_C_PUBLIC_READMODEL_V1";
+  const EXPECTED_SHA256 = "7ef8e0965f453956721cfc4917c8e0882e5534160b5de71229ec76fe052337e6";
   const DATA_URL = "data/pillar_c_public_readmodel.json";
 
   const T = {
