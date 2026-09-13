@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Finanztransparenz-Monitor — Banken · Vergütung · Munich Re / ERGO</title>
+  <meta name="description" content="Dreiteiliger, quellengebundener Transparenzmonitor zu EBA/P3DH-Bankdaten, Vergütung/CbCR sowie Munich Re und ERGO.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://thomas.autark-data.org/finanztransparenz/">
+  <meta property="og:title" content="Finanztransparenz-Monitor">
+  <meta property="og:description" content="Banken, Vergütung/CbCR und Munich Re/ERGO — quellengebunden, zweisprachig und ohne Gesamtrisikoscore.">
+  <meta property="og:url" content="https://thomas.autark-data.org/finanztransparenz/">
+  <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/pillar_b_cbcr.css">
+  <link rel="stylesheet" href="assets/pillar_c.css">
+</head>
+<body>
+  <noscript>JavaScript wird benötigt. / JavaScript is required.</noscript>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">E</div>
+      <div>
+        <div class="brandname" data-i18n="brandName">Finanztransparenz-Monitor</div>
+        <div class="subtle" data-i18n="brandSub">Drei Säulen · quellengebundene Finanz- und Regulierungsdaten</div>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="langButton" class="button" type="button" aria-label="Language">EN</button>
+      <button id="legalButton" class="button" type="button" data-i18n="legal">Impressum &amp; Datenschutz</button>
+      <button id="methodButton" class="button" type="button" data-i18n="method">Methodik</button>
+    </div>
+  </header>
+
+  <div class="statusbar" role="note">
+    <strong data-i18n="notPublic">Öffentliche Forschungs- und Transparenzanwendung</strong>
+    <span>·</span>
+    <span data-i18n="e4">E4 · hashgebundener historischer Snapshot</span>
+    <span>·</span>
+    <span data-i18n="noAdvice">Keine Anlage- oder Bonitätsberatung</span>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow" data-i18n="heroEyebrow">Drei Säulen · Banken · Vergütung/CbCR · Munich Re/ERGO</div>
+        <h1 data-i18n="heroTitle">Finanzdaten verstehen, ohne sie in eine einzige Note zu pressen.</h1>
+        <p class="lead" data-i18n="heroText">Bankenaufsicht, Vergütung/CbCR und Versicherer-/Nachhaltigkeitsdaten bleiben getrennte, quellengebundene Informationsebenen.</p>
+        <div class="reader-intro">
+          <p data-i18n="intro1"></p>
+          <p data-i18n="intro2"></p>
+          <p data-i18n="intro3"></p>
+          <p data-i18n="intro4"></p>
+        </div>
+      </div>
+      <aside id="coverageBox" class="summary-card" aria-live="polite"></aside>
+    </section>
+
+    <nav class="pillar-nav" aria-label="Drei Säulen" data-i18n-aria-label="pillarNavLabel">
+      <a class="pillar-nav-card" href="#pillarAStart" data-pillar="A">
+        <span class="pillar-nav-kicker" data-i18n="pillarALabel">Säule A</span>
+        <strong data-i18n="pillarATitle">Banken · EBA &amp; P3DH</strong>
+        <span data-i18n="pillarADesc">Aufsichtsdaten, Zeitreihen, Peers und methodische Grenzen.</span>
+      </a>
+      <a class="pillar-nav-card" href="#pillarBPreviewSection" data-pillar="B">
+        <span class="pillar-nav-kicker" data-i18n="pillarBLabel">Säule B</span>
+        <strong data-i18n="pillarBTitle">Vergütung &amp; CbCR</strong>
+        <span data-i18n="pillarBDesc">Pay Ratios, Vergütungsdefinitionen und Länderberichterstattung.</span>
+      </a>
+      <a class="pillar-nav-card" href="#pillarCPreviewPanel" data-pillar="C">
+        <span class="pillar-nav-kicker" data-i18n="pillarCLabel">Säule C</span>
+        <strong data-i18n="pillarCTitle">Munich Re &amp; ERGO</strong>
+        <span data-i18n="pillarCDesc">Solvency II, Klima, IFRS 17, Vergütung und Tax Transparency.</span>
+      </a>
+    </nav>
+
+    <section id="pillarAStart" class="pillar-section-lead" aria-labelledby="pillarAStartTitle">
+      <div class="eyebrow" data-i18n="pillarALabel">Säule A</div>
+      <h2 id="pillarAStartTitle" data-i18n="pillarATitle">Banken · EBA &amp; P3DH</h2>
+      <p data-i18n="pillarAIntro">Historische EBA-Transparenzdaten und die kontrollierte P3DH-Fortführung bleiben als eigener prudenzeller Datenbereich sichtbar.</p>
+    </section>
+
+    <section class="chooser card" aria-label="Institution selection">
+      <label for="searchInput">
+        <span data-i18n="search">Institut suchen</span>
+        <input id="searchInput" autocomplete="off" placeholder="Deutsche Bank …">
+      </label>
+      <label for="bankSelect">
+        <span data-i18n="choose">Institut auswählen</span>
+        <select id="bankSelect"></select>
+      </label>
+      <div id="bankMeta" class="chips"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow" data-i18n="latest">Letzter Stichtag · 30.06.2025</div>
+          <h2 data-i18n="metrics">Kernkennzahlen</h2>
+        </div>
+        <div class="legend" aria-label="Metric evidence types">
+          <span><i class="dot direct"></i><span data-i18n="direct">direkter Quellenwert</span></span>
+          <span><i class="dot derived"></i><span data-i18n="derived">abgeleiteter Wert</span></span>
+        </div>
+      </div>
+      <div id="metricCards" class="metric-grid"></div>
+    </section>
+
+
+    <section id="p3dhBridgeSection" class="section p3dh-bridge" aria-labelledby="p3dhBridgeTitle">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow" data-p3dh-eyebrow>P3DH-Fortführung · kontrollierter Pilot</div>
+          <h2 id="p3dhBridgeTitle" data-p3dh-title>P3DH-Fortführung</h2>
+          <p class="p3dh-intro" data-p3dh-intro></p>
+          <div class="p3dh-meta" data-p3dh-meta></div>
+          <div class="p3dh-legend" data-p3dh-legend></div>
+        </div>
+      </div>
+      <div id="p3dhBridgePanel" class="p3dh-grid" aria-live="polite"></div>
+    </section>
+
+
+    <section id="pillarACompletionSection" class="section pillar-a-completion" aria-labelledby="pillarACompletionTitle">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow" data-pa-eyebrow>Säule A · Kennzahlenkatalog</div>
+          <h2 id="pillarACompletionTitle" data-pa-title>Prudenzielle Kennzahlen — Fortsetzung, Reihenbruch und methodische Grenzen</h2>
+          <p class="pa-intro" data-pa-intro></p>
+          <div class="pa-meta" data-pa-meta></div>
+        </div>
+      </div>
+      <div id="pillarACompletionPanel" class="pa-grid" aria-live="polite"></div>
+    </section>
+
+
+    <section id="pillarBPreviewSection" class="section pillar-b-preview" aria-labelledby="pillarBPreviewTitle">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow" data-pb-eyebrow>Säule B · interner Vergütungs-/Pay-Ratio-Prototyp</div>
+          <h2 id="pillarBPreviewTitle" data-pb-title>Vergütungsverhältnisse — getrennte Definitionen, sichtbare Grenzen</h2>
+          <p class="pb-intro" data-pb-intro></p>
+          <div class="pb-meta" data-pb-meta></div>
+        </div>
+      </div>
+      <div class="pb-personal-warning" role="note" data-pb-warning></div>
+      <div id="pillarBPreviewPanel" class="pb-grid" aria-live="polite"></div>
+      <div id="pillarBAuditNotes" class="pb-audit-notes"></div>
+    </section>
+<section id="cbcrSection" class="section cbcr-section" aria-labelledby="cbcrTitle" data-build11ae="cbcr">
+<div class="cbcr-head"><div><div class="cbcr-kicker" id="cbcrKicker"></div><h2 id="cbcrTitle"></h2><p id="cbcrIntro"></p></div><span class="cbcr-badge" id="cbcrInternal"></span></div>
+<div class="cbcr-controls">
+<label for="cbcrYearSelect"><span id="cbcrYearLabel">Jahr</span><select id="cbcrYearSelect"></select></label>
+<label for="cbcrJurisdictionSelect"><span id="cbcrJurisdictionLabel">Land / berichtetes Aggregat</span><select id="cbcrJurisdictionSelect"></select></label>
+</div>
+<div class="cbcr-grid" id="cbcrCards" aria-live="polite"></div>
+<p class="cbcr-note" id="cbcrStateNote" hidden></p>
+<div class="cbcr-note"><strong id="cbcrCompareTitle"></strong><p id="cbcrCompareText"></p></div>
+<p id="cbcrPersonalGate"></p>
+<button type="button" id="cbcrAuditButton" disabled>Quelle &amp; Lineage</button>
+</section>
+<dialog id="cbcrDetailDialog" aria-labelledby="cbcrDetailTitle"><h3 id="cbcrDetailTitle">CbCR-Auditdetail</h3><div id="cbcrDetailBody"></div><button type="button" id="cbcrClose">Schließen</button></dialog>
+
+<!-- BUILD11AL_PILLAR_C_PANEL -->
+<section id="pillarCPreviewPanel" class="pc-shell section pillar-c-section" aria-labelledby="pillarCHeading">
+  <div class="pc-heading-row">
+    <h2 id="pillarCHeading">Säule C · Munich Re / ERGO</h2>
+    <span id="pillarCInternalBadge" class="pc-internal">Öffentliche Daten · E4 · quellengebunden</span>
+  </div>
+  <div id="pillarCRoot" aria-live="polite"></div>
+  <dialog id="pillarCAuditDialog" aria-labelledby="pillarCAuditTitle">
+    <div class="pc-heading-row">
+      <h3 id="pillarCAuditTitle">Audit- und Quellenbeleg</h3>
+      <button type="button" id="pillarCAuditClose" class="pc-close-btn" aria-label="Schließen">Schließen</button>
+    </div>
+    <div id="pillarCAuditBody"></div>
+  </dialog>
+</section>
+
+    <section class="pillar-section-lead pillar-return" aria-labelledby="pillarADeepDiveTitle">
+      <div class="eyebrow" data-i18n="pillarADeepDiveEyebrow">Säule A · Vertiefung</div>
+      <h2 id="pillarADeepDiveTitle" data-i18n="pillarADeepDiveTitle">Zeitreihen, Peer-Kontext und vollständiges Institutsuniversum</h2>
+      <p data-i18n="pillarADeepDiveText">Nach den drei Säulen folgt hier die vertiefte Bankenansicht mit Zeitverlauf, Vergleichskontext, Datenqualität und dem historischen 119-Institute-Snapshot.</p>
+    </section>
+
+    <section class="section two">
+      <article class="card panel">
+        <div class="eyebrow" data-i18n="trend">Zeitverlauf</div>
+        <h2 data-i18n="fourDates">Vier EBA-Stichtage</h2>
+        <p class="panel-intro" data-i18n="trendIntro">Linien zeigen nur die vier berichteten bzw. abgeleiteten Werte; die vertikale Skalierung ist je Kennzahl lokal und dient dem Verlauf, nicht dem Größenvergleich zwischen Kennzahlen.</p>
+        <div id="trendPanel"></div>
+      </article>
+      <article class="card panel">
+        <div class="eyebrow" data-i18n="peers">Peer-Kontext</div>
+        <h2 data-i18n="relative">Relative Position</h2>
+        <p class="panel-intro" data-i18n="peerIntro">Die Marke zeigt die Position innerhalb einer benannten Vergleichsgruppe. Sie ist keine Kapitalquote und kein Risikoscore.</p>
+        <div id="peerPanel"></div>
+      </article>
+    </section>
+
+    <section class="section guardrails" aria-label="Interpretation safeguards">
+      <article class="guardrail-card">
+        <div class="guardrail-icon" aria-hidden="true">i</div>
+        <div>
+          <strong data-i18n="reviewDisclaimerTitle">Review-Hinweis ≠ Fehlverhaltensfeststellung</strong>
+          <p id="reviewDisclaimer"></p>
+        </div>
+      </article>
+      <article class="guardrail-card">
+        <div class="guardrail-icon" aria-hidden="true">≠</div>
+        <div>
+          <strong data-i18n="sizeDisclaimerTitle">Größenkohorte ≠ regulatorische Klassifikation</strong>
+          <p id="sizeDisclaimer"></p>
+        </div>
+      </article>
+    </section>
+
+    <section class="section two">
+      <article class="card panel">
+        <div class="eyebrow" data-i18n="review">Review & Aufsichtskontext</div>
+        <h2 data-i18n="signals">Hinweise, keine Urteile</h2>
+        <div id="signalPanel"></div>
+      </article>
+      <article class="card panel">
+        <div class="eyebrow" data-i18n="quality">Datenqualität</div>
+        <h2 data-i18n="missingTitle">Fehlende Werte bleiben sichtbar</h2>
+        <div id="missingPanel"></div>
+      </article>
+    </section>
+
+    <section class="section card panel">
+      <div class="section-title">
+        <div>
+          <div class="eyebrow" data-i18n="universe">Universum</div>
+          <h2 data-i18n="universeTitle">119 Institute im historischen Snapshot</h2>
+        </div>
+        <div class="subtle" data-i18n="aggregate">„All other banks“ ist als Reconciliation-Aggregat ausgeschlossen.</div>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" data-i18n="institution">Institut</th>
+              <th scope="col">NSA</th>
+              <th scope="col" data-i18n="size">Größenkohorte</th>
+              <th scope="col" data-i18n="missingCells">Fehlende Zellen</th>
+            </tr>
+          </thead>
+          <tbody id="universeBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+</main>
+
+  <dialog id="detailDialog" aria-labelledby="detailDialogTitle">
+    <h2 id="detailDialogTitle" class="sr-only" data-i18n="detailDialogLabel">Auditdetail</h2>
+    <button id="closeDetail" class="close" type="button" aria-label="Schließen" data-i18n-aria-label="close">×</button>
+    <div id="detailContent"></div>
+  </dialog>
+
+  <dialog id="methodDialog" aria-labelledby="methodDialogTitle">
+    <h2 id="methodDialogTitle" class="sr-only" data-i18n="methodDialogLabel">Methodik &amp; Grenzen</h2>
+    <button id="closeMethod" class="close" type="button" aria-label="Schließen" data-i18n-aria-label="close">×</button>
+    <div id="methodContent"></div>
+  </dialog>
+
+  <dialog id="legalDialog" aria-label="Impressum, Datenschutz &amp; Korrekturen">
+    <button id="closeLegal" class="close" type="button" aria-label="Schließen" data-i18n-aria-label="close">×</button>
+    <div id="legalContent"></div>
+  </dialog>
+
+  <footer>
+    <span data-i18n="footer">Drei Säulen · provenance-first · öffentliche Forschungsanwendung</span>
+    <span id="snapshotStamp"></span>
+  </footer>
+
+  <script src="app.js" defer></script>
+  <script src="p3dh_bridge.js" defer></script>
+  <script src="pillar_a_completion.js" defer></script>
+  <script src="pillar_b.js" defer></script>
+<script src="assets/pillar_b_cbcr.js" defer data-build11ae="cbcr-script"></script>
+<!-- BUILD11AL_PILLAR_C_JS -->
+  <script src="assets/pillar_c.js"></script>
+  <script src="assets/accessibility.js" defer data-build11ao="accessibility"></script>
+</body>
+</html>

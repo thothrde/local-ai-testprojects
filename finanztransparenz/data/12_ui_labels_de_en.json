@@ -1,0 +1,118 @@
+{
+  "languages": [
+    "de",
+    "en"
+  ],
+  "metrics": {
+    "EBA_CET1_RATIO_TRANSITIONAL": {
+      "de": {
+        "short": "CET1-Quote",
+        "name": "Harte Kernkapitalquote (Übergangsdefinition)",
+        "description": "Von der EBA direkt berichtete CET1-Quote nach der im Transparenztest verwendeten Übergangsdefinition."
+      },
+      "en": {
+        "short": "CET1 ratio",
+        "name": "Common Equity Tier 1 ratio (transitional definition)",
+        "description": "CET1 ratio directly reported by the EBA under the transitional definition used in the Transparency Exercise."
+      }
+    },
+    "EBA_LEVERAGE_RATIO_TRANSITIONAL": {
+      "de": {
+        "short": "Leverage Ratio",
+        "name": "Verschuldungsquote (Übergangsdefinition Tier 1)",
+        "description": "Von der EBA direkt berichtete Leverage Ratio unter Verwendung der Übergangsdefinition des Tier-1-Kapitals."
+      },
+      "en": {
+        "short": "Leverage ratio",
+        "name": "Leverage ratio (transitional Tier 1 definition)",
+        "description": "Leverage ratio directly reported by the EBA using the transitional definition of Tier 1 capital."
+      }
+    },
+    "EBA_NPL_RATIO_DERIVED_TE2025": {
+      "de": {
+        "short": "NPL-Quote",
+        "name": "Quote notleidender Kredite",
+        "description": "Lokal aus zwei hashgebundenen EBA-Quellwerten abgeleitet: notleidende Kredite und Forderungen geteilt durch Kredite und Forderungen insgesamt."
+      },
+      "en": {
+        "short": "NPL ratio",
+        "name": "Non-performing loans ratio",
+        "description": "Locally derived from two hash-bound EBA source values: non-performing loans and advances divided by total loans and advances."
+      }
+    }
+  },
+  "peer_groups": {
+    "TE2025_DE_GEOGRAPHIC_REFERENCE": {
+      "de": "Deutschland – geografische Referenzgruppe",
+      "en": "Germany — geographic reference group"
+    },
+    "TE2025_SIZE_Q1": {
+      "de": "Größenkohorte Q1 – kleinste 20 %",
+      "en": "Size cohort Q1 — smallest 20%"
+    },
+    "TE2025_SIZE_Q2": {
+      "de": "Größenkohorte Q2 – 20–40 %",
+      "en": "Size cohort Q2 — 20–40%"
+    },
+    "TE2025_SIZE_Q3": {
+      "de": "Größenkohorte Q3 – 40–60 %",
+      "en": "Size cohort Q3 — 40–60%"
+    },
+    "TE2025_SIZE_Q4": {
+      "de": "Größenkohorte Q4 – 60–80 %",
+      "en": "Size cohort Q4 — 60–80%"
+    },
+    "TE2025_SIZE_Q5": {
+      "de": "Größenkohorte Q5 – größte 20 %",
+      "en": "Size cohort Q5 — largest 20%"
+    }
+  },
+  "signal_types": {
+    "STATISTICAL_REVIEW_CANDIDATE": {
+      "de": {
+        "title": "Statistischer Review-Hinweis",
+        "description": "Peer-relative Auffälligkeit zur menschlichen bzw. quellenbezogenen Prüfung. Kein automatisches Risiko-, Compliance- oder Anomalieurteil."
+      },
+      "en": {
+        "title": "Statistical review signal",
+        "description": "Peer-relative signal for human/source review. Not an automatic risk, compliance or anomaly conclusion."
+      }
+    },
+    "SUPERVISORY_NPL_5PCT_CONTEXT": {
+      "de": {
+        "title": "Aufsichtsrechtlicher NPL-Kontext",
+        "description": "Separater EBA-Kontext zur 5%-Brutto-NPL-Schwelle. Kein optimaler Zielwert und kein automatisches Compliance-Urteil."
+      },
+      "en": {
+        "title": "Supervisory NPL context",
+        "description": "Separate EBA context for the 5% gross NPL threshold. Not an optimal target and not an automatic compliance conclusion."
+      }
+    }
+  },
+  "evidence": {
+    "E4_HASH_BOUND_EVIDENCE": {
+      "de": "Quellbeleg und lokales Original sind kryptografisch per SHA-256 gebunden.",
+      "en": "Source evidence and the locally archived original are cryptographically bound by SHA-256."
+    }
+  },
+  "missingness": {
+    "MISSING": {
+      "de": "Für diese Bank, Kennzahl und diesen Stichtag liegt im eingefrorenen Quelldatensatz kein als verfügbar validierter Wert vor.",
+      "en": "No value validated as available exists for this bank, metric and reference date in the frozen source dataset."
+    }
+  },
+  "disclaimers": {
+    "de": [
+      "Die Anwendung ist keine Anlageberatung und keine Bonitätsbeurteilung.",
+      "Statistische Review-Hinweise sind keine Feststellung eines Fehlverhaltens, Risikos oder Regelverstoßes.",
+      "Fehlende Werte werden nicht imputiert.",
+      "Die Größenkohorten sind analytische Vergleichsgruppen und keine regulatorischen Klassifikationen."
+    ],
+    "en": [
+      "The application is not investment advice or a credit assessment.",
+      "Statistical review signals are not findings of misconduct, risk or regulatory breach.",
+      "Missing values are not imputed.",
+      "Size cohorts are analytical comparison groups, not regulatory classifications."
+    ]
+  }
+}

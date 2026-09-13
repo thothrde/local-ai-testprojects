@@ -1,0 +1,201 @@
+{
+  "as_of": "2026-09-13",
+  "current_app_facts": {
+    "analytics_or_tracking_scripts": false,
+    "app_sets_cookies": false,
+    "e5_release_verified": true,
+    "editorial_standards_documented": true,
+    "external_runtime_resources": false,
+    "local_only": false,
+    "personal_data_publication_review_documented_but_not_legally_closed": true,
+    "personal_remuneration_profiles_in_current_prudential_layer": true,
+    "pillar_c_role_linked_remuneration_ratio_present": true,
+    "public_release_enabled": true,
+    "source_reuse_policy_documented": true,
+    "hosting": "GitHub Pages via thomas.autark-data.org/finanztransparenz/",
+    "external_legal_opinion_obtained": false,
+    "publisher_release_decision": true
+  },
+  "privacy_posture": {
+    "hosting": "GITHUB_PAGES_CUSTOM_DOMAIN",
+    "app_level_tracking": "NONE",
+    "app_level_cookies": "NONE",
+    "app_level_external_runtime_resources": "NONE",
+    "github_pages_ip_logging": "GitHub states that visitor IP addresses are logged and stored for security purposes.",
+    "contact_processing": "ORDINARY_GDPR_WHERE_APPLICABLE",
+    "journalistic_special_regime_not_assumed_as_blanket_exemption": true,
+    "role_linked_remuneration_minimised_to_role_only_public_payload": true,
+    "correction_and_privacy_contact_available": true
+  },
+  "provider": {
+    "address_lines": [
+      "Heinz-Kapelle-Straße 12",
+      "10407 Berlin",
+      "Deutschland"
+    ],
+    "email": "thomasriepe(at)gmail.com",
+    "name": "Thomas Riepe",
+    "phone_published": false
+  },
+  "public_deployment_profile": "GITHUB_PAGES_CUSTOM_DOMAIN_THOMAS_AUTARK_DATA_ORG_FINANZTRANSPARENZ",
+  "release_gate_local_status": {
+    "E5_RELEASE_VERIFIED": true,
+    "accessibility_automated_remediation": "PASS_BUILD11AW_66_OF_66_REAL_SAFARI_BASELINE; PUBLICATION_RC_REQUIRES_FINAL_BROWSER_SMOKE_BEFORE_PUSH",
+    "correction_contact_route": "PUBLIC",
+    "editorial_governance": "DOCUMENTED",
+    "imprint_review": "PUBLICATION_TEXT_FROZEN",
+    "integrated_release_preflight": "PUBLICATION_RC",
+    "pillar_b_personal_data_review": "ROLE_ONLY_MINIMISATION_ACCEPTED_BY_PUBLISHER_FOR_PUBLICATION",
+    "pre_publication_legal_review": "PUBLISHER_EDITORIAL_DECISION_NO_EXTERNAL_LEGAL_OPINION",
+    "privacy_notice_review": "GITHUB_PAGES_HOSTING_PROFILE_FROZEN",
+    "public_release_enabled": true,
+    "source_reuse_policy": "CONSERVATIVE_FACTS_ONLY_ACCEPTED_BY_PUBLISHER_FOR_PUBLICATION"
+  },
+  "responsible_editor": {
+    "address_lines": [
+      "Heinz-Kapelle-Straße 12",
+      "10407 Berlin",
+      "Deutschland"
+    ],
+    "name": "Thomas Riepe",
+    "posture": "NAMED_PRECAUTIONARILY_UNDER_MSTV_18_2_WHERE_APPLICABLE"
+  },
+  "schema": "EBA_MONITOR_LEGAL_PROFILE_V1_2",
+  "sources": [
+    {
+      "id": "MSTV18_BERLIN",
+      "title": "MStV § 18 — Informationspflichten und Auskunftsrechte",
+      "url": "https://gesetze.berlin.de/bsbe/?docId=jlr-NNLBE00004926NN00000000043",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "MSTV19",
+      "title": "MStV § 19 — Sorgfaltspflichten",
+      "url": "https://www.gesetze-bayern.de/Content/Document/MStV-19",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "MSTV20",
+      "title": "MStV § 20 — Gegendarstellung",
+      "url": "https://www.gesetze-bayern.de/Content/Document/MStV-20",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "DDG5",
+      "title": "DDG § 5 — Allgemeine Informationspflichten",
+      "url": "https://www.gesetze-im-internet.de/ddg/__5.html",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "BLNDSG2",
+      "title": "BlnDSG § 2 Abs. 7",
+      "url": "https://gesetze.berlin.de/bsbe/document/jlr-NNLBE000047CE/part/X",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "BLNDSG19",
+      "title": "BlnDSG § 19",
+      "url": "https://gesetze.berlin.de/bsbe/?query=DOKNR%3Ajlr-NNLBE000047CENN00000000040&source=PermaLink",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "GDPR",
+      "title": "DSGVO / Regulation (EU) 2016/679",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "BAYVGH_7_CE_26_397",
+      "note": "Rn. 29 leaves application of §18(2) to Apollo News open; Rn. 30 states online-only journalistic/editorial offers can fall within §18(2) due to ‘insbesondere’.",
+      "title": "VGH München, Beschluss 19.05.2026 — 7 CE 26.397",
+      "url": "https://www.gesetze-bayern.de/Content/Document/Y-300-Z-BECKRS-B-2026-N-9946",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "BERLIN_DPA_CONTACT",
+      "title": "Berliner Beauftragte für Datenschutz und Informationsfreiheit — Kontakt",
+      "url": "https://www.datenschutz-berlin.de/ueber-uns/kontakt/",
+      "verified_at": "2026-09-10"
+    },
+    {
+      "id": "CJEU_C199_24",
+      "note": "Editorial line, factual verification and professional/ethical context are materially relevant; applicability to this app is not assumed.",
+      "title": "CJEU C-199/24 — Legal Newsdesk Sweden, 9 July 2026",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=celex:62024CJ0199",
+      "verified_at": "2026-09-13"
+    },
+    {
+      "id": "GITHUB_PAGES_HOSTING",
+      "title": "GitHub Docs — What is GitHub Pages?",
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+      "verified_at": "2026-09-13",
+      "note": "GitHub states that visitor IP addresses are logged and stored for security purposes when a GitHub Pages site is visited."
+    },
+    {
+      "id": "GITHUB_PRIVACY",
+      "title": "GitHub General Privacy Statement",
+      "url": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+      "verified_at": "2026-09-13",
+      "note": "Describes GitHub processing of service-usage data including IP address, device/session and request information."
+    }
+  ],
+  "status": "PUBLIC_RELEASE_GITHUB_PAGES_2026_09_13",
+  "ui": {
+    "de": {
+      "contact_label": "Kontakt für Impressum, Datenschutz und Korrekturen",
+      "correction_text": "Hinweise auf mögliche sachliche Fehler, Quellenprobleme oder eine erforderliche Gegendarstellung können unmittelbar an die unten genannte Kontaktadresse gesendet werden. Bitte möglichst Institut, Stichtag, konkrete Aussage und Quelle nennen. Ein Einwand führt nicht automatisch zu Korrektur oder Rückzug; Originalevidenz bleibt unverändert. Gesetzliche Gegendarstellungsrechte, soweit anwendbar, werden durch die interne Contest-/Correction-Governance weder ersetzt noch verzögert.",
+      "correction_title": "Korrektur, Beanstandung & Gegendarstellung",
+      "editorial_text": "Die App folgt einer dokumentierten redaktionellen Linie: Primärquellenprüfung, Trennung von Quellenfakten und Ableitungen, keine Gesamt-Risikonote, sichtbare Vergleichsgrenzen sowie ein nachvollziehbarer Korrektur- und Contest-Pfad. Diese Standards dokumentieren die Arbeitsweise, ersetzen aber keine rechtliche Prüfung der journalistischen Ausnahme.",
+      "editorial_title": "Redaktionelle Standards",
+      "independence_text": "Privates, unabhängiges Forschungs- und Transparenzprojekt. Nicht mit der Europäischen Bankenaufsichtsbehörde (EBA), der EZB, der BaFin oder den dargestellten Instituten verbunden, von ihnen betrieben oder genehmigt. EBA-Logos werden nicht als App-Branding verwendet.",
+      "independence_title": "Unabhängigkeit",
+      "local_badge": "Öffentliche Fassung · GitHub Pages · Stand 13. September 2026",
+      "privacy_basis": "Bei einer freiwilligen Kontaktaufnahme per E-Mail werden die übermittelten personenbezogenen Daten nur zur Bearbeitung des Anliegens verarbeitet; hierfür gilt die normale DSGVO, soweit anwendbar. Eine journalistische Sonderregelung nach Art. 85 DSGVO/BlnDSG wird nicht pauschal für sämtliche Verarbeitungsvorgänge vorausgesetzt.",
+      "privacy_editorial": "Die öffentliche Fassung enthält rollenbezogene Vergütungsverhältnisse aus primären Unternehmensberichten. Direkte Personennamen und Personen-IDs werden in der ausgelieferten Säule-B-Payload nicht bereitgestellt. Rollenbezug kann dennoch indirekte Identifizierbarkeit ermöglichen; die Darstellung ist deshalb auf den beruflichen Veröffentlichungskontext, Datenminimierung, Quellenbezug und eine sichtbare Korrekturroute beschränkt.",
+      "privacy_future": "GitHub weist für GitHub Pages darauf hin, dass beim Seitenabruf die IP-Adresse des Besuchers zu Sicherheitszwecken protokolliert und gespeichert wird. Nach der GitHub-Datenschutzerklärung können außerdem technische Nutzungs-, Geräte-, Sitzungs- und Requestdaten verarbeitet werden. Die App selbst erstellt keine Besucherprofile und betreibt kein eigenes Tracking.",
+      "privacy_local": "Diese öffentliche Fassung wird als statische Website über GitHub Pages unter thomas.autark-data.org/finanztransparenz/ bereitgestellt. Die App selbst setzt keine Cookies, verwendet keine Analytics- oder Tracking-Skripte und lädt im normalen Betrieb keine externen Laufzeitressourcen. Sprachwahl, Filter und Dialoge werden ausschließlich im Browser ausgeführt und von der App nicht gespeichert.",
+      "privacy_title": "Datenschutz & Hosting",
+      "provider_intro": "Vorsorglich strenge Anbieterkennzeichnung für ein öffentliches Telemedium; die konkrete Anwendbarkeit einzelner Normen wird nicht weitergehend behauptet als geprüft.",
+      "provider_title": "Anbieter & Verantwortlichkeit",
+      "release_text": "Öffentliche Forschungs- und Transparenzfassung. Die technische Release-Basis bestand 66/66 reale Safari-Checks; der Publication-Runner prüft die öffentliche GitHub-Pages-Fassung unmittelbar vor dem Push nochmals separat. Die Veröffentlichung ist eine redaktionelle Entscheidung des Herausgebers und keine externe Rechtsberatung oder anwaltliche Freigabe.",
+      "release_title": "Veröffentlichungsstatus",
+      "responsible_label": "Vorsorglich benannter Verantwortlicher nach § 18 Abs. 2 MStV, soweit anwendbar",
+      "reviewed": "Rechts-/Datenschutz- und Hostingstand: 13. September 2026",
+      "rights_text": "Soweit die normale DSGVO anwendbar ist, bestehen insbesondere die Rechte aus Art. 15–21 DSGVO nach deren Voraussetzungen. Zuständige Aufsichtsbehörde: Berliner Beauftragte für Datenschutz und Informationsfreiheit, Alt-Moabit 59–61, 10555 Berlin.",
+      "rights_title": "Betroffenenrechte bei normaler DSGVO-Verarbeitung",
+      "source_reuse_policy_text": "Die öffentliche App verteilt keine Primär-PDFs, Screenshots, Unternehmenslogos oder vollständigen Quelltabellen weiter. Sie zeigt eigene Faktendarstellungen und Visualisierungen mit Quellenangabe und Link zur offiziellen Quelle. Für Unternehmensquellen gilt konservativ eine Facts-only-Nutzung; EBA-Material wird mit Quellenangabe verwendet.",
+      "source_reuse_title": "Quellen & Nutzungsrechte",
+      "source_text": "Primär geprüft wurden insbesondere § 18–20 MStV, § 5 DDG, Art. 6/13/14/85 DSGVO sowie § 2 Abs. 7 und § 19 BlnDSG. Die BayVGH-Entscheidung 7 CE 26.397 vom 19.05.2026 ist im offiziellen Bayern-Recht verifiziert; sie lässt die konkrete Anwendbarkeit von § 18 Abs. 2 MStV im entschiedenen Fall offen, hält aber ausdrücklich fest, dass auch ausschließlich online publizierte journalistisch-redaktionelle Angebote wegen „insbesondere“ erfasst sein können.",
+      "source_title": "Rechtliche Arbeitsgrundlage",
+      "title": "Impressum, Datenschutz & Korrekturen"
+    },
+    "en": {
+      "contact_label": "Contact for imprint, privacy and corrections",
+      "correction_text": "Potential factual errors, source problems or a required counterstatement can be sent directly to the contact address below. Please identify the institution, reference date, concrete statement and source where possible. A challenge does not automatically cause correction or withdrawal; original evidence remains immutable. Any statutory counterstatement rights, where applicable, are neither replaced nor delayed by the internal contest/correction governance.",
+      "correction_title": "Correction, challenge & counterstatement",
+      "editorial_text": "The app follows a documented editorial line: primary-source verification, separation of source facts from derivations, no composite risk grade, explicit comparability limits, and a traceable correction/contest path. These standards document working practice; they do not themselves establish the applicability of a journalistic derogation.",
+      "editorial_title": "Editorial standards",
+      "independence_text": "Private, independent research and transparency project. Not affiliated with, operated by or endorsed by the European Banking Authority (EBA), the ECB, BaFin or the institutions shown. EBA logos are not used as app branding.",
+      "independence_title": "Independence",
+      "local_badge": "Public edition · GitHub Pages · 13 September 2026",
+      "privacy_basis": "If you voluntarily contact the publisher by email, the personal data you send are processed only to handle that communication; ordinary GDPR rules apply where applicable. A journalistic special regime under GDPR Article 85/Berlin law is not assumed as a blanket exemption for all processing.",
+      "privacy_editorial": "The public edition includes role-linked remuneration ratios from primary corporate reports. Direct person names and person IDs are not served in the Pillar-B public payload. Role context may still allow indirect identifiability, so presentation is limited to the professional publication context, data minimisation, source traceability and a visible correction route.",
+      "privacy_future": "GitHub states that when a GitHub Pages site is visited, the visitor's IP address is logged and stored for security purposes. GitHub's privacy statement also describes processing of technical service-usage, device, session and request information. The app itself creates no visitor profiles and operates no first-party tracking.",
+      "privacy_local": "This public edition is served as a static website through GitHub Pages at thomas.autark-data.org/finanztransparenz/. The app itself sets no cookies, uses no analytics or tracking scripts, and loads no external runtime resources during normal operation. Language selection, filters and dialogs run entirely in the browser and are not stored by the app.",
+      "privacy_title": "Privacy & hosting",
+      "provider_intro": "A deliberately conservative provider notice for a future public telemedia service; the applicability of individual provisions is not asserted beyond what has been reviewed.",
+      "provider_title": "Provider & editorial responsibility",
+      "release_text": "Public research and transparency edition. The technical release baseline passed 66/66 real Safari checks; the publication runner separately checks the public GitHub Pages edition immediately before pushing it. Publication is an editorial decision by the publisher, not external legal advice or a lawyer's approval.",
+      "release_title": "Publication status",
+      "responsible_label": "Responsible editor named as a precaution under § 18(2) MStV where applicable",
+      "reviewed": "Legal/privacy and hosting status: 13 September 2026",
+      "rights_text": "Where the ordinary GDPR applies, rights under Arts. 15–21 GDPR apply subject to their conditions. Supervisory authority: Berlin Commissioner for Data Protection and Freedom of Information, Alt-Moabit 59–61, 10555 Berlin, Germany.",
+      "rights_title": "Data-subject rights under ordinary GDPR processing",
+      "source_reuse_policy_text": "The public app does not redistribute primary PDFs, screenshots, company logos or complete copied source tables. It presents its own factual displays and visualisations with attribution and links to official sources. Corporate sources follow a conservative facts-only policy; EBA material is used with attribution.",
+      "source_reuse_title": "Sources & reuse rights",
+      "source_text": "Primary-source review covered in particular §§ 18–20 MStV, § 5 DDG, Arts. 6/13/14/85 GDPR, and § 2(7) plus § 19 BlnDSG. The BayVGH decision 7 CE 26.397 of 19 May 2026 is verified in the official Bavaria law portal; it leaves the concrete applicability of § 18(2) MStV open in the case before it, while expressly stating that online-only journalistic/editorial offers can fall within the provision because of the word “insbesondere”.",
+      "source_title": "Legal working basis",
+      "title": "Imprint, privacy & corrections"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "source_document_id": "73ad1bb1-19cd-57d6-911d-3fefe8d48980",
+    "source_id": "EBA_TE2025_CREDIT_RISK",
+    "title": "2025 EU-wide Transparency Exercise — CREDIT_RISK",
+    "sha256": "a29ca3b808d4f51b6aa2d74ccb3cd39d05f416e10d26e16340cce45842637c99",
+    "retrieved_at_utc": "2026-09-10T11:21:03.238473+02:00",
+    "local_relpath": "data/source_archive/legacy_te2025/EBA_TE2025_CREDIT_RISK__20260910T092103Z__a29ca3b808d4.csv"
+  },
+  {
+    "source_document_id": "f03c19a6-cb95-5f01-aeaa-baf1bae84689",
+    "source_id": "EBA_TE2025_OTHER_TEMPLATES",
+    "title": "2025 EU-wide Transparency Exercise — OTHER_TEMPLATES",
+    "sha256": "1785417e172907b3a49623eb13e2cc6c7af26a02ae982bfe2ba3a70f782e4104",
+    "retrieved_at_utc": "2026-09-10T11:21:20.388958+02:00",
+    "local_relpath": "data/source_archive/legacy_te2025/EBA_TE2025_OTHER_TEMPLATES__20260910T092120Z__1785417e1729.csv"
+  }
+]

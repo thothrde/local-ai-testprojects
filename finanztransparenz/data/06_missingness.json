@@ -1,0 +1,762 @@
+[
+  {
+    "legal_name": "BNG Bank N.V.",
+    "lei": "529900GGYMNGRQTDOO93",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "BNG Bank N.V.",
+    "lei": "529900GGYMNGRQTDOO93",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "BNG Bank N.V.",
+    "lei": "529900GGYMNGRQTDOO93",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "BNG Bank N.V.",
+    "lei": "529900GGYMNGRQTDOO93",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "BNG Bank N.V.",
+    "lei": "529900GGYMNGRQTDOO93",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "BNG Bank N.V.",
+    "lei": "529900GGYMNGRQTDOO93",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Bank of America Europe Designated Activity Company",
+    "lei": "EQYXK86SF381Q21S3020",
+    "nsa": "IE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Bank of America Europe Designated Activity Company",
+    "lei": "EQYXK86SF381Q21S3020",
+    "nsa": "IE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Bank of America Europe Designated Activity Company",
+    "lei": "EQYXK86SF381Q21S3020",
+    "nsa": "IE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Bank of America Europe Designated Activity Company",
+    "lei": "EQYXK86SF381Q21S3020",
+    "nsa": "IE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Banque et Caisse d´Epargne de l´Etat, Luxembourg",
+    "lei": "R7CQUF1DQM73HUTV1078",
+    "nsa": "LU",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Banque et Caisse d´Epargne de l´Etat, Luxembourg",
+    "lei": "R7CQUF1DQM73HUTV1078",
+    "nsa": "LU",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Banque et Caisse d´Epargne de l´Etat, Luxembourg",
+    "lei": "R7CQUF1DQM73HUTV1078",
+    "nsa": "LU",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Banque et Caisse d´Epargne de l´Etat, Luxembourg",
+    "lei": "R7CQUF1DQM73HUTV1078",
+    "nsa": "LU",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Barclays Bank Ireland plc",
+    "lei": "2G5BKIC2CB69PRJH1W31",
+    "nsa": "IE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Barclays Bank Ireland plc",
+    "lei": "2G5BKIC2CB69PRJH1W31",
+    "nsa": "IE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Barclays Bank Ireland plc",
+    "lei": "2G5BKIC2CB69PRJH1W31",
+    "nsa": "IE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Barclays Bank Ireland plc",
+    "lei": "2G5BKIC2CB69PRJH1W31",
+    "nsa": "IE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "BofA Securities Europe SA",
+    "lei": "549300FH0WJAPEHTIQ77",
+    "nsa": "FR",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "BofA Securities Europe SA",
+    "lei": "549300FH0WJAPEHTIQ77",
+    "nsa": "FR",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "BofA Securities Europe SA",
+    "lei": "549300FH0WJAPEHTIQ77",
+    "nsa": "FR",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "BofA Securities Europe SA",
+    "lei": "549300FH0WJAPEHTIQ77",
+    "nsa": "FR",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Citigroup Global Markets Europe AG",
+    "lei": "6TJCK1B7E7UTXP528Y04",
+    "nsa": "DE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Citigroup Global Markets Europe AG",
+    "lei": "6TJCK1B7E7UTXP528Y04",
+    "nsa": "DE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Citigroup Global Markets Europe AG",
+    "lei": "6TJCK1B7E7UTXP528Y04",
+    "nsa": "DE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Citigroup Global Markets Europe AG",
+    "lei": "6TJCK1B7E7UTXP528Y04",
+    "nsa": "DE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Coöperatieve Rabobank U.A.",
+    "lei": "DG3RU1DBUFHT4ZF9WN62",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Coöperatieve Rabobank U.A.",
+    "lei": "DG3RU1DBUFHT4ZF9WN62",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "DEUTSCHE APOTHEKER- UND ÄRZTEBANK EG",
+    "lei": "5299007S3UH5RKUYDA52",
+    "nsa": "DE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "DEUTSCHE APOTHEKER- UND ÄRZTEBANK EG",
+    "lei": "5299007S3UH5RKUYDA52",
+    "nsa": "DE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "DEUTSCHE APOTHEKER- UND ÄRZTEBANK EG",
+    "lei": "5299007S3UH5RKUYDA52",
+    "nsa": "DE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "DEUTSCHE APOTHEKER- UND ÄRZTEBANK EG",
+    "lei": "5299007S3UH5RKUYDA52",
+    "nsa": "DE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "DNB BANK ASA",
+    "lei": "549300GKFG0RYRRQ1414",
+    "nsa": "NO",
+    "period_text": "202503",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "DNB BANK ASA",
+    "lei": "549300GKFG0RYRRQ1414",
+    "nsa": "NO",
+    "period_text": "202503",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "Goldman Sachs Bank Europe SE",
+    "lei": "8IBZUGJ7JPLH368JE346",
+    "nsa": "DE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Goldman Sachs Bank Europe SE",
+    "lei": "8IBZUGJ7JPLH368JE346",
+    "nsa": "DE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Goldman Sachs Bank Europe SE",
+    "lei": "8IBZUGJ7JPLH368JE346",
+    "nsa": "DE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Goldman Sachs Bank Europe SE",
+    "lei": "8IBZUGJ7JPLH368JE346",
+    "nsa": "DE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "J.P. Morgan SE",
+    "lei": "549300ZK53CNGEEI6A29",
+    "nsa": "DE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "J.P. Morgan SE",
+    "lei": "549300ZK53CNGEEI6A29",
+    "nsa": "DE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "J.P. Morgan SE",
+    "lei": "549300ZK53CNGEEI6A29",
+    "nsa": "DE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "J.P. Morgan SE",
+    "lei": "549300ZK53CNGEEI6A29",
+    "nsa": "DE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "LGT Group Foundation",
+    "lei": "5493009EIBTCB1X12G89",
+    "nsa": "LI",
+    "period_text": "202503",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "LGT Group Foundation",
+    "lei": "5493009EIBTCB1X12G89",
+    "nsa": "LI",
+    "period_text": "202503",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "Liechtensteinische Landesbank AG",
+    "lei": "529900OE1FOAM50XLP72",
+    "nsa": "LI",
+    "period_text": "202503",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "Liechtensteinische Landesbank AG",
+    "lei": "529900OE1FOAM50XLP72",
+    "nsa": "LI",
+    "period_text": "202503",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "Münchener Hypothekenbank eG",
+    "lei": "529900GM944JT8YIRL63",
+    "nsa": "DE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Münchener Hypothekenbank eG",
+    "lei": "529900GM944JT8YIRL63",
+    "nsa": "DE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Münchener Hypothekenbank eG",
+    "lei": "529900GM944JT8YIRL63",
+    "nsa": "DE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Münchener Hypothekenbank eG",
+    "lei": "529900GM944JT8YIRL63",
+    "nsa": "DE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Nederlandse Waterschapsbank N.V.",
+    "lei": "JLP5FSPH9WPSHY3NIM24",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "Nederlandse Waterschapsbank N.V.",
+    "lei": "JLP5FSPH9WPSHY3NIM24",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "Nederlandse Waterschapsbank N.V.",
+    "lei": "JLP5FSPH9WPSHY3NIM24",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Nederlandse Waterschapsbank N.V.",
+    "lei": "JLP5FSPH9WPSHY3NIM24",
+    "nsa": "NL",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Nederlandse Waterschapsbank N.V.",
+    "lei": "JLP5FSPH9WPSHY3NIM24",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "Nederlandse Waterschapsbank N.V.",
+    "lei": "JLP5FSPH9WPSHY3NIM24",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "Nederlandse Waterschapsbank N.V.",
+    "lei": "JLP5FSPH9WPSHY3NIM24",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Nederlandse Waterschapsbank N.V.",
+    "lei": "JLP5FSPH9WPSHY3NIM24",
+    "nsa": "NL",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "SpareBank 1 SMN",
+    "lei": "7V6Z97IO7R1SEAO84Q32",
+    "nsa": "NO",
+    "period_text": "202503",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "SpareBank 1 SMN",
+    "lei": "7V6Z97IO7R1SEAO84Q32",
+    "nsa": "NO",
+    "period_text": "202503",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "SpareBank 1 Sør-Norge",
+    "lei": "549300Q3OIWRHQUQM052",
+    "nsa": "NO",
+    "period_text": "202503",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "SpareBank 1 Sør-Norge",
+    "lei": "549300Q3OIWRHQUQM052",
+    "nsa": "NO",
+    "period_text": "202503",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "The Bank of New York Mellon",
+    "lei": "MMYX0N4ZEZ13Z4XCG897",
+    "nsa": "BE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "The Bank of New York Mellon",
+    "lei": "MMYX0N4ZEZ13Z4XCG897",
+    "nsa": "BE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "The Bank of New York Mellon",
+    "lei": "MMYX0N4ZEZ13Z4XCG897",
+    "nsa": "BE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "The Bank of New York Mellon",
+    "lei": "MMYX0N4ZEZ13Z4XCG897",
+    "nsa": "BE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Wüstenrot Bausparkasse Aktiengesellschaft",
+    "lei": "529900S1KHKOEQL5CK20",
+    "nsa": "DE",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Wüstenrot Bausparkasse Aktiengesellschaft",
+    "lei": "529900S1KHKOEQL5CK20",
+    "nsa": "DE",
+    "period_text": "202412",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Wüstenrot Bausparkasse Aktiengesellschaft",
+    "lei": "529900S1KHKOEQL5CK20",
+    "nsa": "DE",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "Wüstenrot Bausparkasse Aktiengesellschaft",
+    "lei": "529900S1KHKOEQL5CK20",
+    "nsa": "DE",
+    "period_text": "202506",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "de Volksbank N.V.",
+    "lei": "724500A1FNICHSDF2I11",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "de Volksbank N.V.",
+    "lei": "724500A1FNICHSDF2I11",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "de Volksbank N.V.",
+    "lei": "724500A1FNICHSDF2I11",
+    "nsa": "NL",
+    "period_text": "202409",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  },
+  {
+    "legal_name": "de Volksbank N.V.",
+    "lei": "724500A1FNICHSDF2I11",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "de Volksbank N.V.",
+    "lei": "724500A1FNICHSDF2I11",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": ""
+  },
+  {
+    "legal_name": "de Volksbank N.V.",
+    "lei": "724500A1FNICHSDF2I11",
+    "nsa": "NL",
+    "period_text": "202503",
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "availability_status": "MISSING",
+    "source_row_count": 0,
+    "qa_note": "missing numerator or denominator"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "build": "Build11AR",
+  "classification": "PUBLIC_ROLE_ONLY_UI_CONTRACT",
+  "contains_personal_data": true,
+  "direct_person_identifiers_in_public_payload": false,
+  "e5_release_verified": true,
+  "headline_metrics": [
+    "PILLAR_B_ESRS_HIGHEST_PAID_TO_MEDIAN",
+    "PILLAR_B_CEO_TO_AVERAGE_FTE_SECTION162"
+  ],
+  "indirect_identifiability_still_treated_as_personal_data": true,
+  "personal_data_review_required": false,
+  "public_identity_representation": "ROLE_ONLY",
+  "public_release_enabled": true,
+  "rules": {
+    "cbk_2024_numeric_ratio_forbidden": true,
+    "cbk_2024_suppression_required": true,
+    "cbk_section162_basis": "SECTION162_GRANTED_AND_OWED",
+    "ceo_average_fte_ratio_is_contextual_not_statutory": true,
+    "db_section162_basis": "SECTION162_PAID_OR_OWED",
+    "direct_person_identifiers_in_public_payload_forbidden": true,
+    "do_not_show_person_names_on_headline_cards": true,
+    "indirect_identifiability_treated_as_personal_data": true,
+    "missing_never_zero": true,
+    "named_person_data_detail_only": false,
+    "never_assume_highest_paid_is_ceo": true,
+    "never_merge_esrs_highest_paid_median_with_ceo_average_fte": true,
+    "role_only_public_detail": true,
+    "show_assertion_and_evidence_in_detail": true,
+    "show_source_sha256_in_detail": true
+  },
+  "schema": "PILLAR_B_PUBLIC_UI_CONTRACT_V1",
+  "source_schema_version": "0.8.1-build11m",
+  "source_snapshot_schema": "PILLAR_B_INTERNAL_READMODEL_V1",
+  "source_snapshot_sha256": "6b45290b3c09c526b765f8e9ce09fe601acaeefd834de8f9cb2fb2465e43dd8b",
+  "supported_institutions": {
+    "7LTWFZYICNSX8D621K86": "Deutsche Bank AG",
+    "851WYGNLUQLFZBSYGB56": "Commerzbank AG"
+  },
+  "publication_decision": "PUBLISH_ROLE_ONLY_WITH_DOCUMENTED_PRIVACY_CONTEXT"
+}

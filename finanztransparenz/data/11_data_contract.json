@@ -1,0 +1,43 @@
+{
+  "contract_version": "1.0.0",
+  "primary_keys": {
+    "institution": [
+      "lei"
+    ],
+    "headline_observation": [
+      "lei",
+      "reference_date",
+      "metric_id"
+    ],
+    "support_component": [
+      "lei",
+      "reference_date",
+      "metric_id"
+    ],
+    "peer_score": [
+      "peer_group_snapshot_id",
+      "lei",
+      "reference_date",
+      "metric_id"
+    ],
+    "review_signal": [
+      "review_signal_candidate_id"
+    ]
+  },
+  "types": {
+    "SOURCE_FACT": "Direct source value.",
+    "DERIVED_METRIC": "Value derived from explicitly linked source facts.",
+    "STATISTICAL_REVIEW_CANDIDATE": "Human/source review cue only; not an anomaly conclusion.",
+    "SUPERVISORY_NPL_5PCT_CONTEXT": "Separate supervisory-context cue; not a quality or compliance conclusion.",
+    "MISSING": "No validated available source value; never imputed."
+  },
+  "frontend_rules": {
+    "do_not_merge_review_and_supervisory_signals": true,
+    "do_not_render_missing_as_zero": true,
+    "do_not_call_review_signal_anomaly": true,
+    "do_not_use_size_peer_scores_before_2025_06": true,
+    "show_assertion_and_evidence_on_provenance_detail": true,
+    "show_source_sha256_on_provenance_detail": true,
+    "display_ratio_as_percent_by_multiplying_by_100": true
+  }
+}

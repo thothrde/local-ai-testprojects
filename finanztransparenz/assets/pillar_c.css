@@ -1,0 +1,36 @@
+/* Build11AL — isolated Pillar-C preview. No external assets. */
+#pillarCPreviewPanel.pc-shell {
+  margin-top: 2rem;
+  border-top: 1px solid var(--line, #d7d7d7);
+  padding-top: 1.25rem;
+}
+.pc-kicker { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; opacity: .72; }
+.pc-heading-row { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.pc-internal { border:1px solid currentColor; border-radius:999px; padding:.2rem .55rem; font-size:.76rem; font-weight:700; white-space:nowrap; }
+.pc-lede,.pc-note,.pc-subtle { max-width:78ch; }
+.pc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr)); gap:1rem; margin:1rem 0 1.5rem; }
+.pc-card,.pc-panel { border:1px solid var(--line,#d7d7d7); border-radius:.8rem; padding:1rem; background:var(--surface,transparent); }
+.pc-card h3,.pc-panel h3 { margin-top:0; }
+.pc-value { font-size:1.7rem; line-height:1.15; font-weight:750; margin:.3rem 0; }
+.pc-delta { font-size:.9rem; opacity:.78; }
+.pc-table-wrap { overflow-x:auto; }
+.pc-table { width:100%; border-collapse:collapse; font-size:.92rem; }
+.pc-table th,.pc-table td { padding:.55rem .65rem; text-align:left; vertical-align:top; border-bottom:1px solid var(--line,#d7d7d7); }
+.pc-table th { font-weight:700; }
+.pc-badge { display:inline-block; border:1px solid currentColor; border-radius:999px; padding:.12rem .45rem; font-size:.72rem; line-height:1.25; }
+.pc-controls { display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin:.8rem 0; }
+.pc-controls label { font-weight:650; }
+.pc-controls select { max-width:100%; }
+.pc-audit-btn,.pc-close-btn { font:inherit; padding:.35rem .65rem; border:1px solid currentColor; border-radius:.5rem; background:transparent; cursor:pointer; }
+.pc-audit-btn:focus-visible,.pc-close-btn:focus-visible,#pcTaxJurisdiction:focus-visible { outline:3px solid currentColor; outline-offset:2px; }
+#pillarCAuditDialog { width:min(46rem,calc(100vw - 2rem)); max-height:calc(100vh - 2rem); overflow:auto; border:1px solid currentColor; border-radius:.8rem; padding:1rem; }
+#pillarCAuditDialog::backdrop { background:rgba(0,0,0,.45); }
+.pc-audit-grid { display:grid; grid-template-columns:minmax(8rem,12rem) 1fr; gap:.45rem .8rem; }
+.pc-audit-grid dt { font-weight:700; }
+.pc-audit-grid dd { margin:0; overflow-wrap:anywhere; }
+.pc-warning { border-left:.3rem solid currentColor; padding-left:.8rem; }
+.pc-error { border:1px solid currentColor; border-radius:.6rem; padding:.8rem; font-weight:650; }
+@media (max-width:700px) {
+  .pc-audit-grid { grid-template-columns:1fr; }
+  .pc-audit-grid dt { margin-top:.4rem; }
+}

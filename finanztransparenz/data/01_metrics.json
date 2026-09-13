@@ -1,0 +1,26 @@
+[
+  {
+    "metric_id": "EBA_CET1_RATIO_TRANSITIONAL",
+    "assertion_type": "SOURCE_FACT",
+    "direction": "HIGHER_BETTER",
+    "unit": "ratio",
+    "display_as": "percent",
+    "source_mode": "DIRECT_EBA_VALUE"
+  },
+  {
+    "metric_id": "EBA_LEVERAGE_RATIO_TRANSITIONAL",
+    "assertion_type": "SOURCE_FACT",
+    "direction": "HIGHER_BETTER",
+    "unit": "ratio",
+    "display_as": "percent",
+    "source_mode": "DIRECT_EBA_VALUE"
+  },
+  {
+    "metric_id": "EBA_NPL_RATIO_DERIVED_TE2025",
+    "assertion_type": "DERIVED_METRIC",
+    "direction": "LOWER_BETTER",
+    "unit": "ratio",
+    "display_as": "percent",
+    "source_mode": "DERIVED_FROM_TWO_E4_SOURCE_COMPONENTS"
+  }
+]

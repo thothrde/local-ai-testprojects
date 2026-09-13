@@ -1,0 +1,80 @@
+[
+  {
+    "peer_group_id": "TE2025_DE_GEOGRAPHIC_REFERENCE",
+    "name": "Germany — 2025 Transparency Exercise institutions",
+    "peer_group_snapshot_id": "8156b805-1c3f-5a5a-aa06-f45702e3a691",
+    "as_of_date": "2025-06-30",
+    "member_count": 23,
+    "input_population_count": 119,
+    "input_unavailable_count": 0,
+    "input_coverage_fraction": "1",
+    "input_scope_status": "NOT_APPLICABLE",
+    "frozen_membership_sha256": "54e28ba07bd682a9307bb2200640d191129b86bf123ddda2757a968b97c783ec",
+    "method_version": "0.3.2-build03c"
+  },
+  {
+    "peer_group_id": "TE2025_SIZE_Q1",
+    "name": "Size cohort Q1 — smallest 20% of banks with Total Assets input",
+    "peer_group_snapshot_id": "fa2c302a-1364-5149-a88c-c83d0c189260",
+    "as_of_date": "2025-06-30",
+    "member_count": 22,
+    "input_population_count": 107,
+    "input_unavailable_count": 12,
+    "input_coverage_fraction": "0.899159663865546",
+    "input_scope_status": "AVAILABLE_INPUT_SUBSET",
+    "frozen_membership_sha256": "0c778ae9d14743a243d07c00b5f7c9143e0371a3d0c1997f06eadba7b7a659dc",
+    "method_version": "0.3.3-build03c2"
+  },
+  {
+    "peer_group_id": "TE2025_SIZE_Q2",
+    "name": "Size cohort Q2 — 20–40% of banks with Total Assets input",
+    "peer_group_snapshot_id": "baa7d31b-a304-5a6f-aad8-f0487d3bfea7",
+    "as_of_date": "2025-06-30",
+    "member_count": 21,
+    "input_population_count": 107,
+    "input_unavailable_count": 12,
+    "input_coverage_fraction": "0.899159663865546",
+    "input_scope_status": "AVAILABLE_INPUT_SUBSET",
+    "frozen_membership_sha256": "80fe4e5897d2f9d603d1a18b2401339db0724b2622b1f1a6d092da7c79ae21bd",
+    "method_version": "0.3.3-build03c2"
+  },
+  {
+    "peer_group_id": "TE2025_SIZE_Q3",
+    "name": "Size cohort Q3 — 40–60% of banks with Total Assets input",
+    "peer_group_snapshot_id": "69028068-7264-52bd-9b6c-af5270fb4a11",
+    "as_of_date": "2025-06-30",
+    "member_count": 21,
+    "input_population_count": 107,
+    "input_unavailable_count": 12,
+    "input_coverage_fraction": "0.899159663865546",
+    "input_scope_status": "AVAILABLE_INPUT_SUBSET",
+    "frozen_membership_sha256": "3520bf8cc44c17e3f0d2658adb57e0a79e1b032371dbab6f096680539b45be53",
+    "method_version": "0.3.3-build03c2"
+  },
+  {
+    "peer_group_id": "TE2025_SIZE_Q4",
+    "name": "Size cohort Q4 — 60–80% of banks with Total Assets input",
+    "peer_group_snapshot_id": "0346b6a1-5f3b-5fd5-b221-f2fd99dbb3bb",
+    "as_of_date": "2025-06-30",
+    "member_count": 21,
+    "input_population_count": 107,
+    "input_unavailable_count": 12,
+    "input_coverage_fraction": "0.899159663865546",
+    "input_scope_status": "AVAILABLE_INPUT_SUBSET",
+    "frozen_membership_sha256": "b638895c8f08c0659291084e3b21acdbf8ee94881cda216103a2661c0583e613",
+    "method_version": "0.3.3-build03c2"
+  },
+  {
+    "peer_group_id": "TE2025_SIZE_Q5",
+    "name": "Size cohort Q5 — largest 20% of banks with Total Assets input",
+    "peer_group_snapshot_id": "0e93b2d8-b661-5484-80b1-4c8a266cd5fb",
+    "as_of_date": "2025-06-30",
+    "member_count": 22,
+    "input_population_count": 107,
+    "input_unavailable_count": 12,
+    "input_coverage_fraction": "0.899159663865546",
+    "input_scope_status": "AVAILABLE_INPUT_SUBSET",
+    "frozen_membership_sha256": "d62665c7f4bf6396b8e17e32f86fb4465fcc7d672b4daa55fa67c8e6c6307094",
+    "method_version": "0.3.3-build03c2"
+  }
+]
