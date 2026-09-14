@@ -1,0 +1,118 @@
+/* Cross-App Reader Clarity Layer — 2026-09-14
+   Additive presentation only: no data, calculation, governance or provenance mutation. */
+
+.clarity-note,
+.clarity-key,
+.clarity-inline,
+.clarity-scope,
+.clarity-explainer {
+  box-sizing: border-box;
+}
+
+.clarity-key,
+.clarity-note,
+.clarity-scope,
+.clarity-explainer {
+  margin: 0.8rem 0;
+  padding: 0.72rem 0.86rem;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.clarity-key summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.clarity-key p,
+.clarity-note p,
+.clarity-scope p,
+.clarity-explainer p {
+  margin: 0.35rem 0 0;
+}
+
+.clarity-term-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.4rem 1rem;
+  margin-top: 0.6rem;
+}
+
+.clarity-term-grid div {
+  min-width: 0;
+}
+
+.clarity-term-grid dt {
+  font-weight: 700;
+  display: inline;
+}
+
+.clarity-term-grid dd {
+  display: inline;
+  margin: 0 0 0 0.25rem;
+}
+
+.clarity-inline,
+.clarity-chip,
+.clarity-peer-scope,
+.clarity-card-scope {
+  display: block;
+  margin: 0.28rem 0 0.45rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  font-weight: 650;
+  opacity: 0.86;
+}
+
+.clarity-chip {
+  display: inline-block;
+  margin-right: 0.35rem;
+  padding: 0.12rem 0.4rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+}
+
+.clarity-pair-list {
+  margin: 0.45rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.clarity-pair-list li {
+  margin: 0.25rem 0;
+}
+
+#readerClarityPrintNote {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .clarity-term-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  #readerClarityPrintNote {
+    display: block !important;
+    margin: 0 0 1rem 0;
+    padding: 0.75rem 0.9rem;
+    border: 2px solid #000;
+    border-radius: 0;
+    font-size: 10.5pt;
+    line-height: 1.35;
+    break-inside: avoid;
+  }
+
+  .clarity-key,
+  .clarity-note,
+  .clarity-scope,
+  .clarity-explainer {
+    break-inside: avoid;
+  }
+
+  .clarity-key > * {
+    display: block !important;
+  }
+}
