@@ -1,0 +1,44 @@
+<!doctype html><html lang="de"><head>  <meta charset="utf-8">  <meta name="viewport" content="width=device-width,initial-scale=1">  <title>ClaimTrace — Unternehmens-Claims im Zeitverlauf</title>  <meta name="description" content="ClaimTrace verfolgt einzelne öffentlich dokumentierte Aussagen namentlich genannter Unternehmen gegen ihre späteren belegbaren Ergebnisse.">  <link rel="stylesheet" href="styles.css"></head><body>  <header class="topbar">    <div class="brand">      <div class="eyebrow">Quellengebundenes Transparenzprojekt</div>      <h1>ClaimTrace</h1>      <p class="lede">ClaimTrace verfolgt einzelne öffentlich dokumentierte Aussagen namentlich genannter Unternehmen gegen ihre späteren belegbaren Ergebnisse.</p>    </div>    <div class="snapshot" id="snapshotBox" aria-label="Snapshot-Status"></div>  </header>  <main>    <section class="summary" aria-label="Datenstand">      <div class="stat"><span class="stat-value" id="statClaims">—</span><span class="stat-label">kanonische Claims</span></div>      <div class="stat"><span class="stat-value" id="statInstitutions">—</span><span class="stat-label">Institutionen</span></div>      <div class="stat"><span class="stat-value" id="statHuman">—</span><span class="stat-label">Human Review</span></div>      <div class="stat"><span class="stat-value" id="statDeferred">—</span><span class="stat-label">vor-kanonisch zurückgestellt</span></div>    </section>    <details class="methodology">      <summary>Methodik und Leselogik</summary>      <div class="method-grid">        <section>          <h2>Claim-Ebene</h2>          <p>Jeder Eintrag bezieht sich auf eine konkrete dokumentierte Aussage. Scope, Quelle, Ziel und Entscheidung bleiben getrennt sichtbar.</p>        </section>        <section>          <h2>Human Review</h2>          <p>„Human Review“ markiert kanonisch <strong>AMBIGUOUS</strong> gebliebene Fälle, in denen eine automatisierte eindeutige Entscheidung nicht gerechtfertigt ist.</p>        </section>        <section>          <h2>Vor-kanonisch</h2>          <p>Zurückgestellte Kandidaten bleiben mit Begründung und Re-entry-Bedingung sichtbar, gehören aber nicht zu den kanonischen Claims.</p>        </section>        <section>          <h2>Datenautorität</h2>          <p>Canonical Claim + Decision sind maßgeblich. Diese Oberfläche ist eine deterministische Projektion des eingefrorenen Read Models.</p>        </section>      </div>    </details>
+    <!-- CLAIMTRACE_READABILITY_VISUALIZATION_V1_START -->
+    <section class="visual-overview" id="visualOverview" aria-labelledby="vizTitle">
+      <div class="visual-head">
+        <div>
+          <div class="eyebrow">Datensatz im Überblick</div>
+          <h2 id="vizTitle">Verteilungen der dokumentierten Claims</h2>
+          <p>Die Diagramme beschreiben einzelne Claims und die Zusammensetzung des Datensatzes. Sie sind keine Bewertung oder Rangfolge von Unternehmen.</p>
+        </div>
+        <div class="visual-selection" id="vizSelectionText">—</div>
+      </div>
+      <div class="viz-grid">
+        <section class="viz-card" aria-labelledby="statusChartTitle">
+          <h3 id="statusChartTitle">Statusverteilung</h3>
+          <p>Wie viele Claims in der aktuellen Auswahl welchem Claim-Status zugeordnet sind.</p>
+          <div class="bar-chart" id="statusChart"></div>
+          <details class="chart-table">
+            <summary>Werte als Tabelle</summary>
+            <table><thead><tr><th>Status</th><th>Anzahl</th></tr></thead><tbody id="statusTableBody"></tbody></table>
+          </details>
+        </section>
+        <section class="viz-card" aria-labelledby="familyChartTitle">
+          <h3 id="familyChartTitle">Claim-Familien</h3>
+          <p>Verteilung nach fachlichem Themenbereich.</p>
+          <div class="bar-chart" id="familyChart"></div>
+          <details class="chart-table">
+            <summary>Werte als Tabelle</summary>
+            <table><thead><tr><th>Familie</th><th>Anzahl</th></tr></thead><tbody id="familyTableBody"></tbody></table>
+          </details>
+        </section>
+        <section class="viz-card" aria-labelledby="horizonChartTitle">
+          <h3 id="horizonChartTitle">Zielhorizonte</h3>
+          <p>Explizite Zieljahre sowie – bei künftigen v0.7-Daten – wörtliche Doppeljahre oder qualitative Horizonte.</p>
+          <div class="bar-chart" id="horizonChart"></div>
+          <details class="chart-table">
+            <summary>Werte als Tabelle</summary>
+            <table><thead><tr><th>Zielhorizont</th><th>Anzahl</th></tr></thead><tbody id="horizonTableBody"></tbody></table>
+          </details>
+        </section>
+      </div>
+    </section>
+    <!-- CLAIMTRACE_READABILITY_VISUALIZATION_V1_END -->
+
+    <nav class="tabs" aria-label="Ansichten">      <button class="tab active" data-view="claims">Claims</button>      <button class="tab" data-view="human">Human Review</button>      <button class="tab" data-view="deferred">Zurückgestellt</button>    </nav>    <section class="controls" id="claimControls">      <label class="search-control">        <span>Suche</span>        <input id="searchInput" type="search" placeholder="Unternehmen, Metrik, Scope oder Quelle …">      </label>      <label>        <span>Institution</span>        <select id="institutionFilter"><option value="">Alle</option></select>      </label>      <label>        <span>Status</span>        <select id="statusFilter"><option value="">Alle</option></select>      </label>      <label>        <span>Familie</span>        <select id="familyFilter"><option value="">Alle</option></select>      </label>      <label>        <span>Sortierung</span>        <select id="sortOrder">          <option value="institution">Institution</option>          <option value="status">Status</option>          <option value="family">Familie</option>          <option value="target">Zielzeit</option>        </select>      </label>      <button class="secondary" id="clearFilters">Zurücksetzen</button>    </section>    <section class="results-head">      <div><strong id="resultCount">—</strong> <span id="resultLabel">Claims</span></div>      <div class="legend">        <span class="dot human-dot"></span> Human Review        <span class="dot deferred-dot"></span> Vor-kanonisch      </div>    </section>    <section id="content" class="content" aria-live="polite"></section>  </main>  <footer>    <p>ClaimTrace dokumentiert einzelne Unternehmens-Claims quellengebunden und ohne Unternehmensranking.</p>    <p>Die Detailansicht zeigt Source-ID, Scope, Statusbasis, Vergleichbarkeit, Observation und Relationsbezug, soweit im Read Model vorhanden.</p>    <nav class="legal-links" aria-label="Rechtliche Angaben">      <a href="impressum.html">Impressum</a>      <a href="datenschutz.html">Datenschutzerklärung</a>    </nav>  </footer>  <script src="app.js" defer></script></body></html>

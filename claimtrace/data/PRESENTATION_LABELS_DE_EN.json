@@ -1,0 +1,935 @@
+{
+  "deferred": {
+    "de": "Vor-kanonisch zurückgestellt",
+    "en": "Pre-canonical deferred"
+  },
+  "family": {
+    "CLIMATE_ESG": {
+      "de": "Klima & ESG",
+      "en": "Climate & ESG"
+    },
+    "EFFICIENCY_TRANSFORMATION": {
+      "de": "Effizienz & Transformation",
+      "en": "Efficiency & transformation"
+    },
+    "FINANCIAL_GUIDANCE": {
+      "de": "Finanzprognosen",
+      "en": "Financial guidance"
+    },
+    "WORKFORCE_REMUNERATION_DISTRIBUTION_CONTEXT": {
+      "de": "Belegschaft, Vergütung & Verteilung",
+      "en": "Workforce, remuneration & distribution"
+    }
+  },
+  "horizon_literal": {
+    "medium term": {
+      "de": "mittelfristig"
+    }
+  },
+  "horizon_type": {
+    "DUAL_YEAR_LITERAL": {
+      "de": "Expliziter Doppeljahres-Horizont"
+    },
+    "QUALITATIVE_HORIZON": {
+      "de": "Qualitativer Zeithorizont"
+    },
+    "SINGLE_END_DATE": {
+      "de": "Fester Zieltermin"
+    }
+  },
+  "human_review": {
+    "de": "Menschliche Prüfung erforderlich",
+    "en": "Human review required"
+  },
+  "metric": {
+    "adjusted_ebitda_al": {
+      "de": "Bereinigtes EBITDA AL"
+    },
+    "adjusted_eps": {
+      "de": "Bereinigtes Ergebnis je Aktie (EPS)"
+    },
+    "adjusted_net_cash_flow": {
+      "de": "Bereinigter Netto-Cashflow"
+    },
+    "annual_co2_emissions_forecast": {
+      "de": "Jährliche CO₂-Emissionsprognose"
+    },
+    "annual_cost_savings": {
+      "de": "Jährliche Kosteneinsparungen"
+    },
+    "annual_group_logistics_ghg_emissions": {
+      "de": "Jährliche THG-Emissionen der Konzernlogistik"
+    },
+    "annual_net_cost_savings": {
+      "de": "Jährliche Nettokosteneinsparungen"
+    },
+    "bev_model_portfolio_share": {
+      "de": "Anteil batterieelektrischer Modelle im Modellportfolio"
+    },
+    "bev_share": {
+      "de": "Anteil batterieelektrischer Fahrzeuge (BEV)"
+    },
+    "brand_europe_co2_reduction": {
+      "de": "CO₂-Reduktion der Marke in Europa"
+    },
+    "cars_adjusted_return_on_sales": {
+      "de": "Bereinigte Umsatzrendite Mercedes-Benz Cars"
+    },
+    "circular_materials_use_rate": {
+      "de": "Einsatzquote zirkulärer Materialien"
+    },
+    "combined_ratio_ergo_germany": {
+      "de": "Combined Ratio ERGO Deutschland"
+    },
+    "combined_ratio_ergo_international": {
+      "de": "Combined Ratio ERGO International"
+    },
+    "commercial_insurance_ghg_intensity_reduction": {
+      "de": "THG-Intensitätsreduktion im gewerblichen Versicherungsgeschäft"
+    },
+    "core_eps_cagr": {
+      "de": "Jährliche Wachstumsrate des Core EPS"
+    },
+    "core_return_on_equity": {
+      "de": "Core-Eigenkapitalrendite"
+    },
+    "cost_income_ratio": {
+      "de": "Aufwand-Ertrag-Verhältnis"
+    },
+    "cumulative_free_cash_flow": {
+      "de": "Kumulierter Free Cashflow"
+    },
+    "cumulative_net_cash_remittance": {
+      "de": "Kumulierte Netto-Cash-Remittance"
+    },
+    "cumulative_sustainable_transition_finance_esg_investments_ex_dws": {
+      "de": "Kumulierte nachhaltige Transformationsfinanzierung und ESG-Investitionen (ohne DWS)"
+    },
+    "dso_annual_organizational_costs_removed": {
+      "de": "Jährlich abgebauter organisatorischer Kostenblock (DSO)"
+    },
+    "dso_incremental_savings": {
+      "de": "Zusätzliche Einsparungen aus DSO"
+    },
+    "ebitda_before_special_items": {
+      "de": "EBITDA vor Sondereinflüssen"
+    },
+    "electric_last_mile_vehicle_share": {
+      "de": "Anteil elektrischer Fahrzeuge auf der letzten Meile"
+    },
+    "electric_pickup_delivery_vehicle_share": {
+      "de": "Anteil elektrifizierter Abhol- und Zustellfahrzeuge"
+    },
+    "electric_vehicle_group_fleet_share": {
+      "de": "Anteil elektrischer Fahrzeuge in der Konzernflotte"
+    },
+    "employee_engagement": {
+      "de": "Mitarbeiterengagement"
+    },
+    "ergo_insurance_revenue": {
+      "de": "Versicherungsumsatz ERGO"
+    },
+    "ergo_net_result": {
+      "de": "Nettoergebnis ERGO"
+    },
+    "fiber_homes_passed_eu_footprint": {
+      "de": "Mit Glasfaser erreichbare Haushalte im EU-Footprint"
+    },
+    "fiber_homes_passed_germany": {
+      "de": "Mit Glasfaser erreichbare Haushalte in Deutschland"
+    },
+    "free_cash_flow": {
+      "de": "Free Cashflow"
+    },
+    "free_cash_flow_al": {
+      "de": "Free Cashflow nach Leasingzahlungen (AL)"
+    },
+    "free_cash_flow_excluding_ma": {
+      "de": "Free Cashflow ohne M&A"
+    },
+    "gross_fte_positions_cut": {
+      "de": "Abbau von Brutto-FTE-Stellen"
+    },
+    "group_co2_emissions_production_and_vehicle": {
+      "de": "Konzern-CO₂-Emissionen aus Produktion und Fahrzeugen"
+    },
+    "group_ebit": {
+      "de": "Konzern-EBIT"
+    },
+    "group_net_result_ifrs": {
+      "de": "Konzernergebnis nach IFRS"
+    },
+    "group_revenue_growth_vs_2023": {
+      "de": "Konzern-Umsatzwachstum gegenüber 2023"
+    },
+    "group_sales": {
+      "de": "Konzernumsatz"
+    },
+    "indirect_costs_over_service_revenues_share": {
+      "de": "Anteil indirekter Kosten an Serviceumsätzen"
+    },
+    "international_management_share": {
+      "de": "Anteil international besetzter Managementpositionen"
+    },
+    "international_top_management_share": {
+      "de": "Anteil international besetzter Top-Managementpositionen"
+    },
+    "investment_portfolio_ghg_reduction": {
+      "de": "THG-Reduktion im Anlageportfolio"
+    },
+    "lifecycle_ghg_per_vehicle": {
+      "de": "THG-Emissionen je Fahrzeug über den Lebenszyklus"
+    },
+    "listed_enterprises_emissions_intensity_reduction": {
+      "de": "Reduktion der Emissionsintensität börsennotierter Unternehmen"
+    },
+    "logistics_related_ghg_emissions": {
+      "de": "Logistikbezogene THG-Emissionen"
+    },
+    "ltifr_per_million_hours": {
+      "de": "Unfallhäufigkeit (LTIFR) je Mio. Arbeitsstunden"
+    },
+    "net_carbon_neutrality": {
+      "de": "Netto-Klimaneutralität"
+    },
+    "net_cash_flow": {
+      "de": "Netto-Cashflow"
+    },
+    "net_commission_income_yoy_growth": {
+      "de": "Wachstum des Provisionsüberschusses gegenüber Vorjahr"
+    },
+    "net_interest_income": {
+      "de": "Zinsüberschuss"
+    },
+    "net_result_after_restructuring": {
+      "de": "Nettoergebnis nach Restrukturierung"
+    },
+    "net_revenues": {
+      "de": "Nettoerträge"
+    },
+    "new_fleet_use_phase_co2_reduction": {
+      "de": "CO₂-Reduktion in der Nutzungsphase der Neufahrzeugflotte"
+    },
+    "new_fleet_value_chain_carbon_neutrality": {
+      "de": "Klimaneutralität der Neufahrzeugflotte über die Wertschöpfungskette"
+    },
+    "operating_profit": {
+      "de": "Operatives Ergebnis"
+    },
+    "operating_return_on_sales": {
+      "de": "Operative Umsatzrendite"
+    },
+    "operational_efficiency_program_savings": {
+      "de": "Einsparungen aus dem operativen Effizienzprogramm"
+    },
+    "overhead_costs": {
+      "de": "Gemeinkosten"
+    },
+    "own_operations_co2_zero": {
+      "de": "CO₂-Nullziel im eigenen Betrieb"
+    },
+    "own_operations_ghg_intensity_per_employee_reduction": {
+      "de": "Reduktion der THG-Intensität je Mitarbeitendem im eigenen Betrieb"
+    },
+    "own_operations_ghg_per_employee_reduction": {
+      "de": "Reduktion der THG-Emissionen je Mitarbeitendem im eigenen Betrieb"
+    },
+    "passenger_car_global_production_capacity": {
+      "de": "Globale Pkw-Produktionskapazität"
+    },
+    "portfolio_co2_net_zero": {
+      "de": "Netto-Null-CO₂ im Portfolio"
+    },
+    "positions_reduced": {
+      "de": "Abgebaute Stellen"
+    },
+    "post_tax_rote": {
+      "de": "Eigenkapitalrendite nach Steuern (RoTE)"
+    },
+    "production_co2_per_vehicle": {
+      "de": "CO₂-Emissionen je produziertem Fahrzeug"
+    },
+    "production_cost_reduction": {
+      "de": "Senkung der Produktionskosten"
+    },
+    "production_scope12_co2_reduction": {
+      "de": "CO₂-Reduktion in der Produktion (Scope 1+2)"
+    },
+    "production_scope1_2_co2": {
+      "de": "CO₂-Emissionen der Produktion (Scope 1+2)"
+    },
+    "production_site_ghg": {
+      "de": "THG-Emissionen der Produktionsstandorte"
+    },
+    "production_site_net_carbon_neutrality": {
+      "de": "Netto-Klimaneutralität der Produktionsstandorte"
+    },
+    "proprietary_investment_ghg_reduction": {
+      "de": "THG-Reduktion bei Eigenanlagen"
+    },
+    "renewable_energy_share_production": {
+      "de": "Anteil erneuerbarer Energien in der Produktion"
+    },
+    "retail_motor_carbon_emissions_reduction": {
+      "de": "Reduktion der CO₂-Emissionen im Kfz-Privatkundengeschäft"
+    },
+    "sales_revenue_yoy": {
+      "de": "Umsatzveränderung gegenüber Vorjahr"
+    },
+    "scope1231_net_zero": {
+      "de": "Netto-Null für Scope 1, 2 und 3.1"
+    },
+    "scope12_ghg_emissions_reduction": {
+      "de": "Reduktion der THG-Emissionen Scope 1+2"
+    },
+    "scope1_2_absolute_ghg_emissions_reduction": {
+      "de": "Absolute THG-Reduktion Scope 1+2"
+    },
+    "scope1_2_operational_net_zero": {
+      "de": "Operatives Netto-Null-Ziel Scope 1+2"
+    },
+    "scope1_3_absolute_emissions_reduction": {
+      "de": "Absolute Emissionsreduktion Scope 1–3"
+    },
+    "scope1_3_value_chain_net_zero": {
+      "de": "Netto-Null Scope 1–3 entlang der Wertschöpfungskette"
+    },
+    "scope3_absolute_ghg_emissions_reduction": {
+      "de": "Absolute THG-Reduktion Scope 3"
+    },
+    "scope3_categories_1_14_absolute_emissions_reduction": {
+      "de": "Absolute Emissionsreduktion in Scope-3-Kategorien 1–14"
+    },
+    "shareholder_distributions": {
+      "de": "Ausschüttungen an Aktionäre"
+    },
+    "solvency_ii_operating_capital_generation": {
+      "de": "Operative Kapitalgenerierung nach Solvency II"
+    },
+    "solvency_ii_ratio": {
+      "de": "Solvency-II-Quote"
+    },
+    "structural_cost_base_improvement": {
+      "de": "Strukturelle Verbesserung der Kostenbasis"
+    },
+    "transport_logistics_co2_reduction": {
+      "de": "CO₂-Reduktion in der Transportlogistik"
+    },
+    "uep_environmental_impact_per_vehicle": {
+      "de": "Umweltauswirkung je Fahrzeug (UEP)"
+    },
+    "use_phase_scope3_co2e": {
+      "de": "CO₂e-Emissionen der Nutzungsphase (Scope 3)"
+    },
+    "vans_adjusted_return_on_sales": {
+      "de": "Bereinigte Umsatzrendite Mercedes-Benz Vans"
+    },
+    "women_in_management_share": {
+      "de": "Frauenanteil im Management"
+    },
+    "women_leadership_disciplinary_share": {
+      "de": "Frauenanteil in Führungspositionen mit disziplinarischer Verantwortung"
+    },
+    "women_senior_management_share": {
+      "de": "Frauenanteil im Senior Management"
+    },
+    "women_share_management": {
+      "de": "Frauenanteil im Management"
+    },
+    "women_share_management_board_level_minus_1": {
+      "de": "Frauenanteil auf Managementebene unterhalb des Vorstands"
+    },
+    "women_share_management_ergo_germany": {
+      "de": "Frauenanteil im Management bei ERGO Deutschland"
+    },
+    "women_share_management_group": {
+      "de": "Frauenanteil im Konzernmanagement"
+    },
+    "women_share_management_positions_esrs": {
+      "de": "Frauenanteil in Managementpositionen nach ESRS"
+    },
+    "women_share_management_positions_group": {
+      "de": "Frauenanteil in Managementpositionen im Konzern"
+    },
+    "women_share_md_director_vp_ex_asset_management": {
+      "de": "Frauenanteil MD/Director/VP (ohne Asset Management)"
+    },
+    "women_share_senior_middle_management_hr_factbook": {
+      "de": "Frauenanteil im mittleren und oberen Management (HR Factbook)"
+    },
+    "women_share_top_management": {
+      "de": "Frauenanteil im Top-Management"
+    },
+    "workforce_reduction": {
+      "de": "Personalabbau"
+    },
+    "xev_share": {
+      "de": "Anteil elektrifizierter Fahrzeuge (xEV)"
+    },
+    "zero_emission_new_vehicle_share": {
+      "de": "Anteil emissionsfreier Neufahrzeuge"
+    },
+    "business_health_culture_index": {
+      "de": "Business Health Culture Index (BHCI)"
+    },
+    "cloud_and_software_revenue": {
+      "de": "Cloud- und Softwareerlöse"
+    },
+    "cloud_revenue": {
+      "de": "Cloud-Erlöse"
+    },
+    "effective_tax_rate_non_ifrs": {
+      "de": "Effektiver Steuersatz (Non-IFRS)"
+    },
+    "employee_engagement_index": {
+      "de": "Mitarbeiterengagement-Index"
+    },
+    "gross_ghg_emissions": {
+      "de": "Brutto-Treibhausgasemissionen"
+    },
+    "hm_alternative_fuel_rate": {
+      "de": "Anteil alternativer Brennstoffe"
+    },
+    "hm_cash_conversion": {
+      "de": "Cash Conversion"
+    },
+    "hm_clinker_ratio": {
+      "de": "Klinkerfaktor"
+    },
+    "hm_comparable_revenue_growth": {
+      "de": "Vergleichbares Umsatzwachstum"
+    },
+    "hm_group_sustainable_product_revenue_share": {
+      "de": "Umsatzanteil nachhaltiger Produkte im Konzern"
+    },
+    "hm_leverage_ratio": {
+      "de": "Verschuldungsgrad (Leverage)"
+    },
+    "hm_rco": {
+      "de": "Ergebnis des laufenden Geschäftsbetriebs (RCO)"
+    },
+    "hm_rco_average_annual_growth": {
+      "de": "Durchschnittliches jährliches RCO-Wachstum"
+    },
+    "hm_rcobd_margin": {
+      "de": "RCOBD-Marge"
+    },
+    "hm_roic": {
+      "de": "Kapitalrendite (ROIC)"
+    },
+    "hm_specific_net_co2_per_t_cementitious_material": {
+      "de": "Spezifische Netto-CO₂-Emissionen je Tonne zementartigem Material"
+    },
+    "hm_transformation_accelerator_savings": {
+      "de": "Einsparungen durch den Transformation Accelerator"
+    },
+    "hm_transformation_accelerator_yearly_result_contribution": {
+      "de": "Jährlicher Ergebnisbeitrag des Transformation Accelerator"
+    },
+    "non_ifrs_cloud_gross_profit": {
+      "de": "Cloud-Bruttoergebnis (Non-IFRS)"
+    },
+    "non_ifrs_operating_profit": {
+      "de": "Operatives Ergebnis (Non-IFRS)"
+    },
+    "share_more_predictable_revenue": {
+      "de": "Anteil besser planbarer Umsätze"
+    },
+    "total_revenue": {
+      "de": "Gesamtumsatz"
+    },
+    "value_chain_gross_ghg_reduction_and_net_zero": {
+      "de": "Brutto-THG-Reduktion und Netto-Null entlang der Wertschöpfungskette"
+    }
+  },
+  "operator": {
+    "<": {
+      "de": "weniger als",
+      "symbol": "<"
+    },
+    "<=": {
+      "de": "höchstens",
+      "symbol": "≤"
+    },
+    "=": {
+      "de": "genau",
+      "symbol": "="
+    },
+    ">": {
+      "de": "mehr als",
+      "symbol": ">"
+    },
+    ">=": {
+      "de": "mindestens",
+      "symbol": "≥"
+    },
+    "APPROXIMATE_POINT": {
+      "de": "ungefähr",
+      "symbol": "≈"
+    },
+    "AROUND": {
+      "de": "rund",
+      "symbol": "≈"
+    },
+    "AS_HIGH_AS": {
+      "de": "bis zu",
+      "symbol": "bis zu"
+    },
+    "COMPOSITE_MIN_REDUCTION_AND_NET_ZERO": {
+      "de": "Mindest-Reduktion und Netto-Null",
+      "symbol": ""
+    },
+    "GUIDANCE_RANGE": {
+      "de": "Prognosekorridor",
+      "symbol": ""
+    },
+    "MILESTONE_BY_DATE": {
+      "de": "Meilenstein bis Datum",
+      "symbol": ""
+    },
+    "NET_ZERO_BY": {
+      "de": "Netto-Null bis",
+      "symbol": ""
+    },
+    "QUALITATIVE": {
+      "de": "qualitatives Ziel",
+      "symbol": ""
+    },
+    "RANGE": {
+      "de": "Zielkorridor",
+      "symbol": ""
+    },
+    "REDUCE_BY_AT_LEAST": {
+      "de": "Reduktion um mindestens",
+      "symbol": "≥"
+    },
+    "REDUCE_BY_RANGE": {
+      "de": "Reduktionskorridor",
+      "symbol": ""
+    },
+    "TARGET_REDUCTION": {
+      "de": "Zielreduktion",
+      "symbol": ""
+    }
+  },
+  "relation": {
+    "EXTENDS_DEADLINE_OF": {
+      "de": "Frist verlängert durch"
+    },
+    "RESTATES_UNCHANGED": {
+      "de": "unverändert neu dargestellt als"
+    },
+    "SUPERSEDED_BY": {
+      "de": "wird ersetzt durch"
+    },
+    "TECHNICALLY_ADJUSTED_TO": {
+      "de": "technisch angepasst zu"
+    }
+  },
+  "scope": {
+    "2021 origin says annual Group CO2 emissions; later SBTi definition covers Scopes 1-3 with specified Scope 3 categories.": {
+      "de": "Ausgangsformulierung 2021: jährliche CO₂-Emissionen des Konzerns; spätere SBTi-Definition: Scope 1–3 mit festgelegten Scope-3-Kategorien."
+    },
+    "2024 revision wording: e-vehicles in pickup and delivery fleet; current 2025 wording: electrified pickup and delivery vehicles": {
+      "de": "Formulierung 2024: E-Fahrzeuge in der Abhol- und Zustellflotte; aktuelle Formulierung 2025: elektrifizierte Abhol- und Zustellfahrzeuge."
+    },
+    "AUTOMOTIVE_DIVISION": {
+      "de": "Automobilsparte"
+    },
+    "AUTOMOTIVE_DIVISION; literal target horizon 2025/2026": {
+      "de": "Automobilsparte; wörtlicher Zielhorizont 2025/2026"
+    },
+    "Across the Group; aggregated and weighted annual Group-wide employee survey metric": {
+      "de": "Konzernweit; aggregierte und gewichtete jährliche Kennzahl aus der konzernweiten Mitarbeitendenbefragung."
+    },
+    "Allianz Group / Capital Markets Day 2024 target set": {
+      "de": "Allianz Gruppe / Zielset vom Capital Markets Day 2024."
+    },
+    "Allianz Group / FY2025": {
+      "de": "Allianz Gruppe / Geschäftsjahr 2025."
+    },
+    "Allianz Group / FY2025; issuer additionally states most likely EUR 17-17.5bn absent specified unforeseen events": {
+      "de": "Allianz Gruppe / Geschäftsjahr 2025; der Emittent nennt zusätzlich voraussichtlich 17–17,5 Mrd. €, sofern keine spezifizierten unvorhergesehenen Ereignisse eintreten."
+    },
+    "BASF Group / 2028 / midcycle-to-upcycle economic conditions": {
+      "de": "BASF-Gruppe / 2028 / wirtschaftliche Bedingungen von Mid-Cycle bis Up-Cycle."
+    },
+    "BASF Group / 2028 after planned Coatings-divestiture technical adjustment": {
+      "de": "BASF-Gruppe / 2028 / nach technischer Anpassung wegen der geplanten Veräußerung des Coatings-Geschäfts."
+    },
+    "BASF Group / FY2025": {
+      "de": "BASF-Gruppe / Geschäftsjahr 2025."
+    },
+    "BASF Group / FY2025 CO2 emissions forecast": {
+      "de": "BASF-Gruppe / Geschäftsjahr 2025 / CO₂-Emissionsprognose."
+    },
+    "BASF Group / FY2025 after Coatings disposal-group presentation adjustment": {
+      "de": "BASF-Gruppe / Geschäftsjahr 2025 / nach Darstellungsanpassung für die als zur Veräußerung gehaltene Coatings-Gruppe."
+    },
+    "BASF Group / FY2025, pre-Coatings technical presentation adjustment": {
+      "de": "BASF-Gruppe / Geschäftsjahr 2025 / vor technischer Darstellungsanpassung für Coatings."
+    },
+    "BASF Group / cumulative 2025–2028": {
+      "de": "BASF-Gruppe / kumuliert 2025–2028."
+    },
+    "BASF Group / cumulative 2025–2028 after planned Coatings-divestiture technical adjustment": {
+      "de": "BASF-Gruppe / kumuliert 2025–2028 / nach technischer Anpassung wegen der geplanten Veräußerung des Coatings-Geschäfts."
+    },
+    "BASF Group worldwide leadership positions with disciplinary responsibility": {
+      "de": "BASF-Gruppe weltweit / Führungspositionen mit disziplinarischer Verantwortung."
+    },
+    "BASF SE shareholders / 2025–2028": {
+      "de": "Aktionärinnen und Aktionäre der BASF SE / 2025–2028."
+    },
+    "BASF Scope 1, Scope 2 and Scope 3.1 emissions": {
+      "de": "BASF / Emissionen Scope 1, Scope 2 und Scope 3.1."
+    },
+    "BASF cost-savings programs / worldwide total": {
+      "de": "BASF-Kosteneinsparprogramme / weltweite Gesamtsumme."
+    },
+    "BASF production processes Scope 1 and energy purchases Scope 2; coverage stated by BASF": {
+      "de": "BASF-Produktionsprozesse Scope 1 und Energiebezug Scope 2; Abdeckung gemäß BASF-Angabe."
+    },
+    "BASF worldwide / all ongoing programs and measures / base year 2022": {
+      "de": "BASF weltweit / alle laufenden Programme und Maßnahmen / Basisjahr 2022."
+    },
+    "Bayer Group Leadership Circle (Top 540), including Group Executive Circle (Top 75)": {
+      "de": "Bayer-Konzern / Leadership Circle (Top 540), einschließlich Group Executive Circle (Top 75)."
+    },
+    "Bayer Scope 1 and 2": {
+      "de": "Bayer / Scope 1 und 2."
+    },
+    "Bayer Scope 3 — five target-relevant categories": {
+      "de": "Bayer / Scope 3 – fünf für das Ziel relevante Kategorien."
+    },
+    "Bayer Scope 3 — origin category set partially specified; later reporting defines all Scope 3 categories": {
+      "de": "Bayer / Scope 3 – ursprünglicher Kategoriensatz teilweise spezifiziert; spätere Berichterstattung definiert sämtliche Scope-3-Kategorien."
+    },
+    "Commerzbank Group": {
+      "de": "Commerzbank-Konzern."
+    },
+    "Commerzbank Group; origin wording: all management levels": {
+      "de": "Commerzbank-Konzern; ursprüngliche Formulierung: alle Managementebenen."
+    },
+    "DHL Group / fiscal year 2025": {
+      "de": "DHL Group / Geschäftsjahr 2025."
+    },
+    "DHL Group / fiscal year 2025 / excluding M&A": {
+      "de": "DHL Group / Geschäftsjahr 2025 / ohne M&A."
+    },
+    "DHL Group; comparison base 2023": {
+      "de": "DHL Group / Vergleichsbasis 2023."
+    },
+    "DHL Group; work-related accidents resulting in at least one working day lost after the accident day": {
+      "de": "DHL Group / Arbeitsunfälle mit mindestens einem Ausfallarbeitstag nach dem Unfalltag."
+    },
+    "ERGO Germany": {
+      "de": "ERGO Deutschland."
+    },
+    "ERGO International": {
+      "de": "ERGO International."
+    },
+    "ERGO field of business": {
+      "de": "Geschäftsfeld ERGO."
+    },
+    "Global delivery vehicles for the last mile": {
+      "de": "Globale Zustellfahrzeuge auf der letzten Meile."
+    },
+    "Group-wide program across all business units; full impact in FY2027": {
+      "de": "Konzernweites Programm über alle Geschäftsbereiche; volle Wirkung im Geschäftsjahr 2027."
+    },
+    "Includes Scope 3 categories 3, 4 and 6 as defined in the 2024 Annual Report target table": {
+      "de": "Umfasst die Scope-3-Kategorien 3, 4 und 6 gemäß Zieltabelle des Geschäftsberichts 2024."
+    },
+    "Investment portfolio / proprietary investments; exact baseline and asset-class definition require later source-version guard": {
+      "de": "Anlageportfolio / Eigenanlagen; exakte Basis und Anlageklassenabgrenzung erfordern einen späteren Source-Version-Guard."
+    },
+    "Mercedes-Benz Cars / FY2025": {
+      "de": "Mercedes-Benz Cars / Geschäftsjahr 2025."
+    },
+    "Mercedes-Benz Cars / FY2025; Q2 revision includes tariffs in forecast": {
+      "de": "Mercedes-Benz Cars / Geschäftsjahr 2025; Q2-Revision berücksichtigt Zölle in der Prognose."
+    },
+    "Mercedes-Benz Cars production": {
+      "de": "Produktion Mercedes-Benz Cars."
+    },
+    "Mercedes-Benz Group production / Next Level Performance": {
+      "de": "Produktion Mercedes-Benz Group / Next Level Performance."
+    },
+    "Mercedes-Benz Group worldwide senior management; Annual Report defines management levels 1-3": {
+      "de": "Mercedes-Benz Group / weltweites Senior Management; der Geschäftsbericht definiert die Managementebenen 1–3."
+    },
+    "Mercedes-Benz Vans / FY2025": {
+      "de": "Mercedes-Benz Vans / Geschäftsjahr 2025."
+    },
+    "Mercedes-Benz Vans production": {
+      "de": "Produktion Mercedes-Benz Vans."
+    },
+    "Mercedes-Benz new vehicle fleet / all stages of value chain and lifecycle": {
+      "de": "Mercedes-Benz Neufahrzeugflotte / alle Stufen der Wertschöpfungskette und des Lebenszyklus."
+    },
+    "Mercedes-Benz new vehicle fleet / use phase (well-to-wheel); SBTi-linked": {
+      "de": "Mercedes-Benz Neufahrzeugflotte / Nutzungsphase (Well-to-Wheel); SBTi-bezogen."
+    },
+    "Mercedes-Benz passenger-car global production network": {
+      "de": "Globales Pkw-Produktionsnetzwerk von Mercedes-Benz."
+    },
+    "Mercedes-Benz production plants / Scope 1+2": {
+      "de": "Mercedes-Benz Produktionswerke / Scope 1+2."
+    },
+    "Mercedes-Benz vehicle sales / 2021 climate target wording": {
+      "de": "Mercedes-Benz Fahrzeugabsatz / Formulierung des Klimaziels von 2021."
+    },
+    "Munich Re Group": {
+      "de": "Munich Re Gruppe."
+    },
+    "Munich Re investment portfolio — listed enterprises": {
+      "de": "Munich-Re-Anlageportfolio – börsennotierte Unternehmen."
+    },
+    "Origin wording: 'female executives in management'; do not back-project later 'middle and upper management' definition or later US exclusion.": {
+      "de": "Ursprüngliche Formulierung: „weibliche Führungskräfte im Management“; spätere Definition „mittleres und oberes Management“ bzw. spätere US-Ausnahme nicht rückwirkend anwenden."
+    },
+    "Own operations / GHG emission intensity per employee / baseline 2019": {
+      "de": "Eigener Geschäftsbetrieb / THG-Emissionsintensität je Mitarbeitendem / Basisjahr 2019."
+    },
+    "Own operations; per employee; Scope 1, Scope 2 and selected Scope 3; baseline 2019": {
+      "de": "Eigener Geschäftsbetrieb / je Mitarbeitendem / Scope 1, Scope 2 und ausgewählte Scope-3-Kategorien / Basisjahr 2019."
+    },
+    "P&C insurance portfolio / commercial insurance segment / intensity metric": {
+      "de": "Schaden-/Unfall-Versicherungsportfolio / Gewerbeversicherung / Intensitätskennzahl."
+    },
+    "P&C insurance portfolio / retail motor segment": {
+      "de": "Schaden-/Unfall-Versicherungsportfolio / Kfz-Privatkundengeschäft."
+    },
+    "Post & Parcel Germany; socially responsible reductions; 2025; part of Fit for Growth": {
+      "de": "Post & Paket Deutschland / sozialverträglicher Abbau / 2025 / Teil von Fit for Growth."
+    },
+    "Selected asset classes in portfolio of customer funds; source highlights equities and corporate bonds; baseline 2019": {
+      "de": "Ausgewählte Anlageklassen im Portfolio der Kundengelder; Quelle hebt Aktien und Unternehmensanleihen hervor; Basisjahr 2019."
+    },
+    "Transport logistics of Mercedes-Benz Cars and Mercedes-Benz Vans": {
+      "de": "Transportlogistik von Mercedes-Benz Cars und Mercedes-Benz Vans."
+    },
+    "VOLKSWAGEN_AG_GERMANY": {
+      "de": "Volkswagen AG in Deutschland"
+    },
+    "VOLKSWAGEN_AG_GERMANY; target horizon: medium term (no explicit calendar year)": {
+      "de": "Volkswagen AG in Deutschland; Zielhorizont: mittelfristig (kein explizites Kalenderjahr)"
+    },
+    "VOLKSWAGEN_BRAND_EUROPE": {
+      "de": "Marke Volkswagen in Europa"
+    },
+    "VOLKSWAGEN_GROUP": {
+      "de": "Volkswagen Konzern"
+    },
+    "VOLKSWAGEN_GROUP; literal target horizon 2025/2026": {
+      "de": "Volkswagen Konzern; wörtlicher Zielhorizont 2025/2026"
+    },
+    "VOLKSWAGEN_GROUP_DIVERSITY_INDEX_POPULATION": {
+      "de": "Volkswagen Konzern – Population des Diversity Index"
+    },
+    "VOLKSWAGEN_GROUP_DIVERSITY_INDEX_POPULATION_ADJUSTED": {
+      "de": "Volkswagen Konzern – angepasste Population des Diversity Index"
+    },
+    "VOLKSWAGEN_GROUP_EX_CHINA": {
+      "de": "Volkswagen Konzern ohne China"
+    },
+    "VOLKSWAGEN_GROUP_GERMANY_PROGRAMS": {
+      "de": "Volkswagen Konzern – Programme in Deutschland"
+    },
+    "VOLKSWAGEN_GROUP_MAJOR_MARKETS": {
+      "de": "Volkswagen Konzern – wichtige Märkte"
+    },
+    "VOLKSWAGEN_GROUP_PRODUCTION": {
+      "de": "Volkswagen Konzern – Produktion"
+    },
+    "VOLKSWAGEN_GROUP_PRODUCTION_SCOPE1_2": {
+      "de": "Volkswagen Konzern – Produktion, Scope 1+2"
+    },
+    "VOLKSWAGEN_GROUP_PRODUCTION_SITES": {
+      "de": "Volkswagen Konzern – Produktionsstandorte"
+    },
+    "VOLKSWAGEN_GROUP_USE_PHASE_SCOPE3_PC_LCV": {
+      "de": "Volkswagen Konzern – Nutzungsphase Scope 3, Pkw & leichte Nutzfahrzeuge"
+    },
+    "entire lending and investment portfolio": {
+      "de": "Gesamtes Kredit- und Anlageportfolio."
+    },
+    "own banking operations": {
+      "de": "Eigener Bankbetrieb."
+    },
+    "Heidelberg Materials Group": {
+      "de": "Heidelberg Materials Konzern"
+    },
+    "SAP 2026 outlook; constant currencies": {
+      "de": "SAP-Ausblick 2026; zu konstanten Wechselkursen"
+    },
+    "SAP 2026 outlook; free cash flow at actual currencies": {
+      "de": "SAP-Ausblick 2026; Free Cashflow zu Ist-Wechselkursen"
+    },
+    "SAP 2026 outlook; non-IFRS effective tax rate": {
+      "de": "SAP-Ausblick 2026; effektiver Steuersatz (Non-IFRS)"
+    },
+    "SAP 2026 outlook; non-IFRS; constant currencies": {
+      "de": "SAP-Ausblick 2026; Non-IFRS; zu konstanten Wechselkursen"
+    },
+    "SAP 2026 outlook; non-IFRS; constant currencies; July revision after Dremio/Prior Labs acquisitions": {
+      "de": "SAP-Ausblick 2026; Non-IFRS; zu konstanten Wechselkursen; Juli-Revision nach den Akquisitionen von Dremio/Prior Labs"
+    },
+    "SAP Ambition 2025": {
+      "de": "SAP Ambition 2025"
+    },
+    "SAP Ambition 2025; assumes restructuring-program payouts completed in 2024": {
+      "de": "SAP Ambition 2025; unter der Annahme, dass Auszahlungen aus dem Restrukturierungsprogramm 2024 abgeschlossen sind"
+    },
+    "SAP Ambition 2025; exchange-rate assumption 1.10 USD/EUR": {
+      "de": "SAP Ambition 2025; Wechselkursannahme 1,10 USD/EUR"
+    },
+    "SAP Ambition 2025; explicitly restated unchanged in January 2024": {
+      "de": "SAP Ambition 2025; im Januar 2024 ausdrücklich unverändert bestätigt"
+    },
+    "SAP Ambition 2025; pre-2024 non-IFRS definition; excludes share-based compensation": {
+      "de": "SAP Ambition 2025; Non-IFRS-Definition vor 2024; aktienbasierte Vergütung ausgeschlossen"
+    },
+    "SAP Ambition 2025; updated 2024 non-IFRS definition": {
+      "de": "SAP Ambition 2025; aktualisierte Non-IFRS-Definition 2024"
+    },
+    "SAP Group employee engagement": {
+      "de": "SAP-Konzern; Mitarbeiterengagement"
+    },
+    "SAP Group employee-engagement-survey based BHCI": {
+      "de": "SAP-Konzern; BHCI auf Basis der Mitarbeiterengagement-Befragung"
+    },
+    "SAP Group; BHCI under 2025-revised definition": {
+      "de": "SAP-Konzern; BHCI nach der 2025 revidierten Definition"
+    },
+    "SAP continuing operations; Qualtrics excluded; Ambition 2025; exchange-rate assumption 1.10 USD/EUR": {
+      "de": "SAP fortgeführte Aktivitäten; Qualtrics ausgeschlossen; Ambition 2025; Wechselkursannahme 1,10 USD/EUR"
+    },
+    "SAP relevant value chain; 2026 updated GHG calculation methodology and rebaselining": {
+      "de": "Relevante SAP-Wertschöpfungskette; 2026 aktualisierte THG-Berechnungsmethodik und Neubasierung"
+    },
+    "SAP relevant value chain; Scope 1, Scope 2 market-based, business-relevant Scope 3; residual emissions neutralized by max 10% removals": {
+      "de": "Relevante SAP-Wertschöpfungskette; Scope 1, Scope 2 marktbasiert und geschäftsrelevanter Scope 3; Restemissionen durch höchstens 10 % Entnahmen neutralisiert"
+    },
+    "SAP relevant value chain; pre-2026-rebaselining reporting basis": {
+      "de": "Relevante SAP-Wertschöpfungskette; Berichtsgrundlage vor der Neubasierung 2026"
+    },
+    "SAP women in management: managers managing teams, managers managing managers, Executive Board members; individuals not FTEs": {
+      "de": "SAP Frauen im Management: Teamleitungen, Führungskräfte mit Führungsverantwortung für Führungskräfte und Vorstandsmitglieder; Personen, nicht FTE"
+    }
+  },
+  "status": {
+    "AMBIGUOUS": {
+      "de": "Nicht eindeutig beurteilbar",
+      "en": "Ambiguous"
+    },
+    "EXCEEDED": {
+      "de": "Übertroffen",
+      "en": "Exceeded"
+    },
+    "MET": {
+      "de": "Erreicht",
+      "en": "Met"
+    },
+    "NOT_COMPARABLE": {
+      "de": "Nicht direkt vergleichbar",
+      "en": "Not directly comparable"
+    },
+    "NOT_MET": {
+      "de": "Nicht erreicht",
+      "en": "Not met"
+    },
+    "SUPERSEDED": {
+      "de": "Durch spätere Aussage ersetzt",
+      "en": "Superseded by later statement"
+    },
+    "UNRESOLVED": {
+      "de": "Noch offen",
+      "en": "Unresolved"
+    }
+  },
+  "unit": {
+    "EUR_billion": {
+      "de": "Mrd. €"
+    },
+    "EUR_billion_annual": {
+      "de": "Mrd. € jährlich"
+    },
+    "EUR_billion_per_year": {
+      "de": "Mrd. € pro Jahr"
+    },
+    "EUR_million_per_year": {
+      "de": "Mio. € pro Jahr"
+    },
+    "EUR_per_share": {
+      "de": "€ je Aktie"
+    },
+    "FTE_positions": {
+      "de": "FTE-Stellen"
+    },
+    "boolean_target": {
+      "de": "Zielzustand"
+    },
+    "compound_percent_and_EUR_billion": {
+      "de": "Reduktion in % mit Zielwert in Mrd. €"
+    },
+    "milestone": {
+      "de": "Meilenstein"
+    },
+    "million_homes": {
+      "de": "Mio. Haushalte"
+    },
+    "million_metric_tons": {
+      "de": "Mio. t"
+    },
+    "million_metric_tons_CO2e": {
+      "de": "Mio. t CO₂e"
+    },
+    "million_units": {
+      "de": "Mio. Einheiten"
+    },
+    "net_zero": {
+      "de": "Netto-Null"
+    },
+    "percent": {
+      "de": "%"
+    },
+    "percent_CAGR": {
+      "de": "% CAGR"
+    },
+    "percent_growth": {
+      "de": "% Wachstum"
+    },
+    "percent_improvement": {
+      "de": "% Verbesserung"
+    },
+    "percent_minimum_absolute_reduction": {
+      "de": "% mind. absolute Reduktion"
+    },
+    "percent_reduction": {
+      "de": "% Reduktion"
+    },
+    "percentage_points": {
+      "de": "Prozentpunkte"
+    },
+    "positions": {
+      "de": "Stellen"
+    },
+    "qualitative": {
+      "de": "qualitativ"
+    },
+    "ratio_per_million_hours": {
+      "de": "je Mio. Arbeitsstunden"
+    },
+    "EUR_million": {
+      "de": "Mio. €"
+    },
+    "kg_CO2_per_t_cementitious_material": {
+      "de": "kg CO₂ je t zementartigem Material"
+    },
+    "ratio_x": {
+      "de": "×"
+    }
+  }
+}
