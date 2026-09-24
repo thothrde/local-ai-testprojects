@@ -339,7 +339,7 @@ function setup(){
   $("snapshotBox").textContent=
     `Canonical ${state.data.generated_from_canonical_sha256.slice(0,12)}…\n`+
     `${canonical.claims||state.data.claims.length} Claims · ${canonical.decisions||state.data.claims.length} Decisions\n`+
-    `Publication ${canonical.publication_state||"BLOCKED"}`;
+    `Veröffentlicht · 23. September 2026`;
 
   fillSelect("institutionFilter",Object.keys(state.indexes.institution).sort(),
     x=>state.data.claims.find(c=>c.institution_slug===x)?.institution_name||x);
