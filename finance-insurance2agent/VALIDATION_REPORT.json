@@ -1,0 +1,15 @@
+{
+  "status": "PASS_FINAL_PUBLIC_RELEASE_STATIC_VALIDATION",
+  "bound_database_sha256": "89a75747ef2cfe149bcaa954867ceb05d4246f41e79ba72b17c409e773d75a10",
+  "public_release_gate": "OPEN",
+  "raw_source_redistribution_gate": "CLOSED",
+  "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
+  "independent_audit_status": "PASS_FINAL_PUBLIC_RELEASE_INDEPENDENT_AUDIT",
+  "independent_audit_md_sha256": "c621f49ea038e409774714009d8db05e2ebb97d741ccec116ef8d5524e9bdba2",
+  "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
+  "runtime_external_resource_count": 0,
+  "operator_tracking": false,
+  "operator_cookies": false,
+  "raw_source_files": 0,
+  "deployment_performed": false
+}

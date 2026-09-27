@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Final public release: indexing is permitted.

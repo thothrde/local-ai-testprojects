@@ -1,0 +1,164 @@
+{
+  "build": "FINAL_PUBLIC_RELEASE_20260927",
+  "bound_database_sha256": "89a75747ef2cfe149bcaa954867ceb05d4246f41e79ba72b17c409e773d75a10",
+  "generated_at_utc": "2026-09-27T12:28:01Z",
+  "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
+  "generative_ai_at_runtime": false,
+  "external_runtime_resources": false,
+  "operator_tracking": false,
+  "operator_cookies": false,
+  "public_release_gate": "OPEN",
+  "raw_source_redistribution_gate": "CLOSED",
+  "languages": [
+    "de",
+    "en"
+  ],
+  "implemented_capabilities": [
+    {
+      "code": "ASK_STRUCTURED",
+      "mode": "ASK",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "ASK_FREE_EVIDENCE",
+      "mode": "ASK",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED_DETERMINISTIC_LEXICAL"
+    },
+    {
+      "code": "INSTITUTION_BROWSER",
+      "mode": "ASK",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "COMPARE_PAIR",
+      "mode": "COMPARE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED_FAIL_CLOSED"
+    },
+    {
+      "code": "COMPARE_COHORT",
+      "mode": "COMPARE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED_FAIL_CLOSED"
+    },
+    {
+      "code": "INVESTIGATE_DOSSIER",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "INVESTIGATE_METRIC_EXPLORER",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "INVESTIGATE_TIME_SERIES",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED_SEMANTIC_TRANSITIONS"
+    },
+    {
+      "code": "INVESTIGATE_COMPONENT_EXPLORER",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "INVESTIGATE_SOURCE_BROWSER",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "INVESTIGATE_OWNERSHIP_GRAPH",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED_DEPENDENCY_AWARE"
+    },
+    {
+      "code": "INVESTIGATE_ROBUST_STATS",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED_FAIL_CLOSED"
+    },
+    {
+      "code": "DISCOVER_CANDIDATES",
+      "mode": "DISCOVER",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED_EXPLORATORY_ONLY"
+    },
+    {
+      "code": "DISCOVER_THREADS",
+      "mode": "DISCOVER",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "AUDIT_TRACE",
+      "mode": "AUDIT",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "AUDIT_EVIDENCE_GRAPH",
+      "mode": "AUDIT",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED"
+    },
+    {
+      "code": "AUDIT_RERUN",
+      "mode": "AUDIT",
+      "public_static_supported": 1,
+      "local_full_supported": 1,
+      "status": "STATIC_RECOMPUTE_LOCAL_SERVER_RERUN"
+    },
+    {
+      "code": "AGENT_ORCHESTRATOR",
+      "mode": "AGENT",
+      "public_static_supported": 0,
+      "local_full_supported": 1,
+      "status": "IMPLEMENTED_TYPED_DETERMINISTIC"
+    },
+    {
+      "code": "LOCAL_LLM_SYNTHESIS",
+      "mode": "AGENT",
+      "public_static_supported": 0,
+      "local_full_supported": 1,
+      "status": "OPTIONAL_LOOPBACK_ONLY"
+    }
+  ],
+  "release_preflight": "PASS_FINAL_INDEPENDENT_RELEASE_AUDIT",
+  "legal_accountability_pages": [
+    "impressum.html",
+    "datenschutz.html",
+    "unabhaengigkeit.html",
+    "korrekturen.html",
+    "versionen.html",
+    "methodik.html",
+    "ai-transparenz.html"
+  ],
+  "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
+  "independent_audit_md_sha256": "c621f49ea038e409774714009d8db05e2ebb97d741ccec116ef8d5524e9bdba2",
+  "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62"
+}

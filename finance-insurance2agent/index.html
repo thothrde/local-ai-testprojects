@@ -1,0 +1,53 @@
+<!doctype html><html lang="de" data-runtime="static"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Finance / Insurance2Agent</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="topbar"><div><div class="eyebrow">CANONICAL EVIDENCE · SEMANTICS · METHODS · PROVENANCE</div><h1>Finance / Insurance<span>2Agent</span></h1></div><div class="top-actions"><button id="langToggle" class="ghost" aria-label="Language">DE / EN</button><div class="status-pill"><i></i><span id="buildStatus">loading</span></div></div></header>
+<main>
+<section class="hero"><div><div class="kicker" data-i18n="heroKicker"></div><h2 data-i18n="heroTitle"></h2><p data-i18n="heroText"></p></div><div class="gate-card" id="gateCard"></div></section>
+<section class="metrics" id="metrics"></section>
+<nav class="mode-tabs" id="modeTabs"><button data-mode="ask" class="active" data-i18n="tabAsk"></button><button data-mode="compare" data-i18n="tabCompare"></button><button data-mode="investigate" data-i18n="tabInvestigate"></button><button data-mode="discover" data-i18n="tabDiscover"></button><button data-mode="audit" data-i18n="tabAudit"></button></nav>
+
+<section class="mode active" id="mode-ask">
+<div class="section-head"><div><div class="eyebrow">01 · ASK / ABFRAGEN</div><h3 data-i18n="askTitle"></h3></div><p data-i18n="askHelp"></p></div>
+<div class="subgrid">
+ <div>
+  <h4 data-i18n="structuredQuery"></h4>
+  <div class="controls three"><label><span data-i18n="institution"></span><select id="askEntity"></select></label><label><span data-i18n="metric"></span><select id="askMetric"></select></label><button id="askShow" data-i18n="show"></button></div>
+  <div id="askResult" class="result"></div>
+ </div>
+ <div>
+  <h4 data-i18n="freeEvidence"></h4>
+  <div class="controls"><label class="wide"><span data-i18n="searchTerms"></span><input id="searchQ"></label><button id="searchRun" data-i18n="search"></button></div>
+  <div id="searchResult" class="result"></div>
+ </div>
+</div>
+<div class="result"><div class="section-mini"><h4 data-i18n="institutionBrowser"></h4><div class="controls compact"><label><span data-i18n="filter"></span><input id="entityFilter"></label><label><span data-i18n="type"></span><select id="entityTypeFilter"></select></label><label><span data-i18n="country"></span><select id="entityCountryFilter"></select></label></div></div><div id="entityBrowser"></div></div>
+<div class="result local-only" id="agentPanel"><h4 data-i18n="agentOrchestrator"></h4><p class="muted" data-i18n="agentHelp"></p><div class="controls"><label class="wide"><span data-i18n="question"></span><input id="agentQ"></label><button id="agentRun" data-i18n="route"></button></div><div id="agentResult"></div></div>
+</section>
+
+<section class="mode" id="mode-compare">
+<div class="section-head"><div><div class="eyebrow">02 · COMPARE / VERGLEICHEN</div><h3 data-i18n="compareTitle"></h3></div><p data-i18n="compareHelp"></p></div>
+<div class="controls four"><label><span data-i18n="metric"></span><select id="cmpMetric"></select></label><label><span data-i18n="institutionA"></span><select id="cmpA"></select></label><label><span data-i18n="institutionB"></span><select id="cmpB"></select></label><button id="cmpRun" data-i18n="compare"></button></div>
+<div class="controls"><label class="wide"><span data-i18n="cohort"></span><select id="cmpCohort" multiple size="8"></select></label><button id="cmpCohortRun" data-i18n="checkCohort"></button></div><div id="compareResult" class="result"></div>
+</section>
+
+<section class="mode" id="mode-investigate">
+<div class="section-head"><div><div class="eyebrow">03 · INVESTIGATE / UNTERSUCHEN</div><h3 data-i18n="investigateTitle"></h3></div><p data-i18n="investigateHelp"></p></div>
+<div class="controls three"><label><span data-i18n="institution"></span><select id="invEntity"></select></label><label><span data-i18n="metric"></span><select id="invMetric"></select></label><button id="invRun" data-i18n="investigate"></button></div>
+<div id="invDossier" class="result"></div>
+<div class="split"><div id="timeSeries" class="result"></div><div id="ownership" class="result"></div></div>
+<div class="split"><div id="componentExplorer" class="result"></div><div id="metricExplorer" class="result"></div></div>
+<div id="sourceBrowser" class="result"></div>
+</section>
+
+<section class="mode" id="mode-discover">
+<div class="section-head"><div><div class="eyebrow">04 · DISCOVER / ENTDECKEN</div><h3 data-i18n="discoverTitle"></h3></div><p data-i18n="discoverHelp"></p></div>
+<div class="controls"><label><span data-i18n="institutionOptional"></span><select id="discEntity"></select></label><button id="discRun" data-i18n="showCandidates"></button></div>
+<div class="split"><div id="discoverResult" class="result"></div><div id="threadResult" class="result"></div></div>
+</section>
+
+<section class="mode" id="mode-audit">
+<div class="section-head"><div><div class="eyebrow">05 · AUDIT / PRÜFEN</div><h3 data-i18n="auditTitle"></h3></div><p data-i18n="auditHelp"></p></div>
+<div class="controls"><label class="wide"><span data-i18n="observationId"></span><input id="auditId"></label><button id="auditRun" data-i18n="trace"></button><button id="auditRerun" data-i18n="rerun"></button></div><div id="auditResult" class="result"></div><div id="evidenceGraph" class="result"></div>
+</section>
+</main>
+<footer><span>Finance/Insurance2Agent · canonical evidence → semantics → deterministic methods → provenance</span><span><a href="methodik.html" data-i18n="methodology"></a> · <a href="ai-transparenz.html" data-i18n="aiTransparency"></a> · <a href="unabhaengigkeit.html">Unabhängigkeit / Independence</a> · <a href="korrekturen.html">Korrekturen / Corrections</a> · <a href="versionen.html">Version</a> · <a href="datenschutz.html" data-i18n="privacy"></a> · <a href="impressum.html" data-i18n="imprint"></a></span></footer>
+<script src="data/public_snapshot.js"></script><script src="app.js"></script></body></html>
