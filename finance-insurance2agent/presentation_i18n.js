@@ -1,6 +1,6 @@
 /* Finance/Insurance2Agent — global presentation i18n/readability layer
  * Presentation only. Canonical values/codes remain untouched in data and code/pre audit areas.
- * Version 1.2 — 2026-09-27
+ * Version 1.3 — 2026-09-27
  */
 (function (global) {
   "use strict";
@@ -114,6 +114,19 @@
   };
 
   const DE_PHRASES = [
+    [/\bOPEN\b/g,"Offen"],
+    [/\bCLOSED\b/g,"Geschlossen"],
+    [/\bFinance\s*\/\s*Insurance\b/gi,"Finanzen / Versicherungen"],
+    [/\bOwnership\s*\/\s*Dependency\b/gi,"Eigentum / Abhängigkeiten"],
+    [/\bInstitutionen-Browser\b/gi,"Institutionenübersicht"],
+    [/\bPeer-Cohorts?\b/gi,"Vergleichsgruppe"],
+    [/\bdes Cohorts\b/gi,"der Vergleichsgruppe"],
+    [/\bCohorts?\b/gi,"Vergleichsgruppe"],
+    [/\bScope\b/gi,"Abgrenzung"],
+    [/\bDiscovery-Kandidaten\b/gi,"Entdeckungskandidaten"],
+    [/\bMethoden-Gate\b/gi,"Methodenfreigabe"],
+    [/Direct EBA 2025 EU-wide Transparency Exercise source item/gi,"Direkter EBA-Quelleneintrag aus der EU-weiten Transparenzübung 2025"],
+    [/\bCOMMON EQUITY Tier-1-Kapitalquote\b/gi,"Harte Kernkapitalquote (CET1)"],
     [/CANONICAL EVIDENCE\s*·\s*SEMANTICS\s*·\s*METHODS\s*·\s*PROVENANCE/gi,"KANONISCHE EVIDENZ · SEMANTIK · METHODEN · PROVENIENZ"],
     [/\bPublic Release\b/gi,"Öffentliche Freigabe"],
     [/\bRaw Quelle Redistribution\b/gi,"Weitergabe von Rohquellen"],
@@ -184,6 +197,16 @@
   ];
 
   const EN_PHRASES = [
+    [/\bOffen\b/gi,"Open"],
+    [/\bGeschlossen\b/gi,"Closed"],
+    [/\bFinanzen\s*\/\s*Versicherungen\b/gi,"Finance / Insurance"],
+    [/\bEigentum\s*\/\s*Abhängigkeiten\b/gi,"Ownership / dependencies"],
+    [/\bInstitutionenübersicht\b/gi,"Institution browser"],
+    [/\bVergleichsgruppe\b/gi,"peer cohort"],
+    [/\bAbgrenzung\b/gi,"scope"],
+    [/\bEntdeckungskandidaten\b/gi,"discovery candidates"],
+    [/\bMethodenfreigabe\b/gi,"method gate"],
+    [/Direkter EBA-Quelleneintrag aus der EU-weiten Transparenzübung 2025/gi,"Direct EBA 2025 EU-wide Transparency Exercise source item"],
     [/\bÖffentliche Freigabe\b/gi,"Public release"],
     [/\bWeitergabe von Rohquellen\b/gi,"Raw-source redistribution"],
     [/\bAutonome LLM-Hypothesen\b/gi,"Autonomous LLM hypotheses"],
@@ -410,6 +433,11 @@
           "ESRS S1-16: remuneration ratio — highest-paid individual / median employee"],
         [sanitizeText("SOLVENCY_II_EEA","de"),"Solvency II (EWR)"],
         [sanitizeText("Public Release","de"),"Öffentliche Freigabe"],
+        [sanitizeText("OPEN","de"),"Offen"],
+        [sanitizeText("CLOSED","de"),"Geschlossen"],
+        [sanitizeText("Ownership / Dependency","de"),"Eigentum / Abhängigkeiten"],
+        [sanitizeText("Institutionen-Browser","de"),"Institutionenübersicht"],
+        [sanitizeText("Peer-Cohorts · Scope","de"),"Vergleichsgruppe · Abgrenzung"],
         [sanitizeText("Raw Quelle Redistribution","de"),"Weitergabe von Rohquellen"],
         [sanitizeText("geschlossen Normalization","de"),"Geschlossen – Normalisierung"],
         [sanitizeText("Observation → Entity → Metric → Semantic Profile → Source → Lineage → Time-Series-Entscheidung → Evidence Graph.","de"),
