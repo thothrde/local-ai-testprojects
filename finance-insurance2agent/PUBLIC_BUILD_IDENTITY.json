@@ -1,5 +1,5 @@
 {
-  "build": "FINAL_PUBLIC_RELEASE_20260927",
+  "build": "FINAL_PUBLIC_RELEASE_V1_0_1_PRESENTATION_CORRECTION_20260927",
   "bound_database_sha256": "89a75747ef2cfe149bcaa954867ceb05d4246f41e79ba72b17c409e773d75a10",
   "generated_at_utc": "2026-09-27T12:28:01Z",
   "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
@@ -148,7 +148,7 @@
       "status": "OPTIONAL_LOOPBACK_ONLY"
     }
   ],
-  "release_preflight": "PASS_FINAL_INDEPENDENT_RELEASE_AUDIT",
+  "release_preflight": "V1_0_PARENT_INDEPENDENT_AUDIT_PASS__V1_0_1_NARROW_PRESENTATION_PATCH_VALIDATED",
   "legal_accountability_pages": [
     "impressum.html",
     "datenschutz.html",
@@ -160,5 +160,16 @@
   ],
   "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
   "independent_audit_md_sha256": "c621f49ea038e409774714009d8db05e2ebb97d741ccec116ef8d5524e9bdba2",
-  "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62"
+  "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
+  "presentation_patch_parent_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
+  "canonical_data_unchanged": true,
+  "independent_audit_scope_note": "The independent final audit binds the v1.0 parent release candidate. v1.0.1 changes only public presentation/rendering; canonical data and release gates are unchanged.",
+  "presentation_patch_scope": [
+    "restore and update bilingual explanatory introduction",
+    "hide empty result containers",
+    "label missing scope as not recorded",
+    "display unit=ratio observations as percentages",
+    "show source table/datapoint locators",
+    "explain AUTONOMOUS_LLM_HYPOTHESIS=CLOSED"
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "status": "PASS_FINAL_PUBLIC_RELEASE_STATIC_VALIDATION",
+  "status": "PASS_V1_0_1_PRESENTATION_CORRECTION_STATIC_VALIDATION",
   "bound_database_sha256": "89a75747ef2cfe149bcaa954867ceb05d4246f41e79ba72b17c409e773d75a10",
   "public_release_gate": "OPEN",
   "raw_source_redistribution_gate": "CLOSED",
@@ -11,5 +11,15 @@
   "operator_tracking": false,
   "operator_cookies": false,
   "raw_source_files": 0,
-  "deployment_performed": false
+  "deployment_performed": false,
+  "parent_public_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
+  "canonical_data_unchanged": true,
+  "v1_0_1_checks": {
+    "updated_bilingual_intro_present": true,
+    "empty_result_containers_hidden_until_content": true,
+    "missing_scope_labeled_not_recorded": true,
+    "unit_ratio_rendered_as_percentage": true,
+    "eba_datapoint_locator_visible": true,
+    "autonomous_llm_gate_explained": true
+  }
 }
