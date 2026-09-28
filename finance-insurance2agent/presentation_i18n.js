@@ -1,6 +1,6 @@
 /* Finance/Insurance2Agent — global presentation i18n/readability layer
  * Presentation only. Canonical values/codes remain untouched in data and code/pre audit areas.
- * Version 1.7 — 2026-09-28
+ * Version 1.8 — 2026-09-28
  */
 (function (global) {
   "use strict";
@@ -114,6 +114,26 @@
   };
 
   const DE_PHRASES = [
+    [/^READY$/g,"BEREIT"],
+    [/^Language$/gi,"Sprache"],
+    [/\bInvestigation Threads\b/gi,"Untersuchungsstränge"],
+    [/\bInvestigation Candidate\b/gi,"Untersuchungskandidat"],
+    [/\bExploratory Only\b/gi,"Nur explorativ"],
+    [/\bTime Series Change Candidate\b/gi,"Zeitreihen-Veränderungskandidat"],
+    [/\bDeterministische Kandidaten und Threads\b/gi,"Deterministische Kandidaten und Untersuchungsstränge"],
+    [/\bExplorative Kandidaten und Investigation Threads\b/gi,"Explorative Kandidaten und Untersuchungsstränge"],
+    [/\bCbCR employees\s*—\s*Commerzbank average FTE\b/gi,"CbCR-Beschäftigte — durchschnittliche FTE der Commerzbank"],
+    [/\bRelease-\/Methoden-Gates\b/gi,"Freigabe- und Methodenregeln"],
+    [/\bAuditpfade\b/gi,"Prüfpfade"],
+    [/\bPeer-Erkennung für Versicherungen\b/gi,"Vergleichsgruppen-Erkennung für Versicherungen"],
+    [/Das ist ein Methodenfreigabe/gi,"Das ist eine Methodenfreigabe"],
+    [/innerhalb eines semantisch homogenen Vergleichsgruppe/gi,"innerhalb einer semantisch homogenen Vergleichsgruppe"],
+    [/durch die unterschiedliche Transitional-Behandlung/gi,"durch die unterschiedliche Behandlung von Übergangsmaßnahmen"],
+    [/^01\s*·\s*ASK\s*\/\s*ABFRAGEN$/gi,"01 · ABFRAGEN"],
+    [/^02\s*·\s*COMPARE\s*\/\s*VERGLEICHEN$/gi,"02 · VERGLEICHEN"],
+    [/^03\s*·\s*INVESTIGATE\s*\/\s*UNTERSUCHEN$/gi,"03 · UNTERSUCHEN"],
+    [/^04\s*·\s*DISCOVER\s*\/\s*ENTDECKEN$/gi,"04 · ENTDECKEN"],
+    [/^05\s*·\s*AUDIT\s*\/\s*PRÜFEN$/gi,"05 · PRÜFEN"],
     [/\bOPEN\b/g,"Offen"],
     [/\bCLOSED\b/g,"Geschlossen"],
     [/\bFinance\s*\/\s*Insurance\b/gi,"Finanzen / Versicherungen"],
@@ -197,6 +217,11 @@
   ];
 
   const EN_PHRASES = [
+    [/^01\s*·\s*ASK\s*\/\s*ABFRAGEN$/gi,"01 · ASK"],
+    [/^02\s*·\s*COMPARE\s*\/\s*VERGLEICHEN$/gi,"02 · COMPARE"],
+    [/^03\s*·\s*INVESTIGATE\s*\/\s*UNTERSUCHEN$/gi,"03 · INVESTIGATE"],
+    [/^04\s*·\s*DISCOVER\s*\/\s*ENTDECKEN$/gi,"04 · DISCOVER"],
+    [/^05\s*·\s*AUDIT\s*\/\s*PRÜFEN$/gi,"05 · AUDIT"],
     [/Warum erscheint\s+(.+?)\s+bei\s+[„"](.+?)[“"]\s+wiederholt als robuster Peer-Kandidat,\s+und bleibt der Befund nach Prüfung von Geschäftsmodell,\s+Nenner-\/Komponentenmechanik,\s+Scope und benachbarten Perioden bestehen\?/gi,
       'Why does $1 repeatedly appear as a robust peer candidate for “$2”, and does the finding remain after checking business model, denominator/component mechanics, scope, and adjacent periods?'],
     [/Warum erscheint\s+(.+?)\s+bei\s+[„"](.+?)[“"]\s+an einem Stichtag als robuster Peer-Kandidat,\s+und bleibt der Befund nach Prüfung von Geschäftsmodell,\s+Nenner-\/Komponentenmechanik,\s+Scope und benachbarten Perioden bestehen\?/gi,
@@ -350,6 +375,68 @@
 
   const CODE_RE=/\b[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)+\b/g;
 
+  const JSON_KEY_LABELS = {
+    multiple_testing_status:{de:"Status Mehrfachtests",en:"Multiple-testing status"},
+    purpose:{de:"Zweck",en:"Purpose"},
+    variant_kind:{de:"Variantenart",en:"Variant type"},
+    candidate_condition:{de:"Kandidatenbedingung",en:"Candidate condition"},
+    scale:{de:"Skala",en:"Scale"},
+    top_per_semantic_cohort:{de:"Max. Kandidaten je semantischer Vergleichsgruppe",en:"Max. candidates per semantic cohort"},
+    unit_filter:{de:"Einheitenfilter",en:"Unit filter"},
+    thread_id:{de:"Untersuchungsstrang-ID",en:"Thread ID"},
+    thread_type:{de:"Typ des Untersuchungsstrangs",en:"Thread type"},
+    entity_id:{de:"Institutions-ID",en:"Institution ID"},
+    entity_name:{de:"Institution",en:"Institution"},
+    metric_code:{de:"Kennzahl-Code",en:"Metric code"},
+    metric_name:{de:"Kennzahl",en:"Metric"},
+    persistence_class:{de:"Persistenzklasse",en:"Persistence class"},
+    occurrence_count:{de:"Anzahl Vorkommen",en:"Occurrence count"},
+    period_count:{de:"Anzahl Perioden",en:"Period count"},
+    first_date:{de:"Erstes Datum",en:"First date"},
+    last_date:{de:"Letztes Datum",en:"Last date"},
+    max_abs_robust_z:{de:"Max. |robustes z|",en:"Max. |robust z|"},
+    median_abs_robust_z:{de:"Median |robustes z|",en:"Median |robust z|"},
+    min_cohort_n:{de:"Min. Größe der Vergleichsgruppe",en:"Min. cohort size"},
+    quality_flags_json:{de:"Qualitätshinweise",en:"Quality flags"},
+    question:{de:"Fragestellung",en:"Question"},
+    thread_version:{de:"Version des Untersuchungsstrangs",en:"Thread version"}
+  };
+
+  function escapeRegExp(s) {
+    return String(s).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  }
+
+  function humanizeReaderJson(s,lang) {
+    for (const [key,labels] of Object.entries(JSON_KEY_LABELS)) {
+      const rx=new RegExp('"'+escapeRegExp(key)+'"\\s*:','g');
+      s=s.replace(rx,'"'+labels[lang]+'":');
+    }
+    if (lang==="de") {
+      const reps=[
+        ["Prevent semantic collapse and create an explicit investigation question",
+         "Semantischen Kollaps verhindern und eine explizite Untersuchungsfrage erzeugen"],
+        ["Not Applicable","Nicht anwendbar"],
+        ["Exploratory Only","Nur explorativ"],
+        ["Ratio Like Only","Nur quotenartige Kennzahlen"],
+        ["Peer Pattern","Vergleichsgruppenmuster"],
+        ["Semantic Variant","Semantische Variante"],
+        ["Single Period","Einzelperiode"],
+        ["REPEATED","Wiederholt"],
+        ["PERSISTENT","Anhaltend"],
+        ["TRANSITIONAL","Übergangsmaßnahmen"],
+        ["Small Cohort Requires Structure Check","Kleine Vergleichsgruppe – Strukturprüfung erforderlich"],
+        ["P3DH Partial Cohort","P3DH – unvollständige Vergleichsgruppe"],
+        ["Extreme Robust Z Requires Denominator And Business Model Check",
+         "Extremer robuster z-Wert – Nenner und Geschäftsmodell prüfen"],
+        ["abs(robust_z) >= 3.5","|robustes z| ≥ 3,5"]
+      ];
+      for (const [a,b] of reps) s=s.split(a).join(b);
+    } else {
+      s=s.split("abs(robust_z) >= 3.5").join("|robust z| ≥ 3.5");
+    }
+    return s;
+  }
+
   function sanitizeText(raw, lang) {
     lang=lang==="en"?"en":"de";
     let s=String(raw==null?"":raw);
@@ -382,6 +469,9 @@
     // Compact units.
     s=s.replace(/(\b[-+]?\d+(?:[.,]\d+)?)\s+RATIO_MULTIPLE\b/g,"$1×");
     s=s.replace(/(\b[-+]?\d+(?:[.,]\d+)?)\s+PERCENT\b/g,"$1 %");
+
+    // First preserve exact reader-facing JSON semantics before generic word substitutions.
+    s=humanizeReaderJson(s,lang);
 
     const phraseMap=lang==="de"?DE_PHRASES:EN_PHRASES;
     for (const [repl,to] of phraseMap) s=s.replace(repl,to);
@@ -488,6 +578,17 @@
         [sanitizeText("Warum erscheint HASPA Finanzholding bei „NPL coverage ratio“ an einem Stichtag als robuster Peer-Kandidat, und bleibt der Befund nach Prüfung von Geschäftsmodell, Nenner-/Komponentenmechanik, Scope und benachbarten Perioden bestehen?","en"),
           "Why does HASPA Finanzholding appear as a robust peer candidate for “NPL coverage ratio” at a single reporting date, and does the finding remain after checking business model, denominator/component mechanics, scope, and adjacent periods?"],
         [sanitizeText("MUNICH_RE_GROUP","de"),"Munich Re Group"],
+        [sanitizeText("Investigation Threads","de"),"Untersuchungsstränge"],
+        [sanitizeText("Investigation Candidate","de"),"Untersuchungskandidat"],
+        [sanitizeText("Exploratory Only","de"),"Nur explorativ"],
+        [sanitizeText("Time Series Change Candidate","de"),"Zeitreihen-Veränderungskandidat"],
+        [sanitizeText("READY","de"),"BEREIT"],
+        [sanitizeText("04 · DISCOVER / ENTDECKEN","de"),"04 · ENTDECKEN"],
+        [sanitizeText("04 · DISCOVER / ENTDECKEN","en"),"04 · DISCOVER"],
+        [sanitizeText('{"thread_id":"x","thread_type":"Peer Pattern","persistence_class":"PERSISTENT","max_abs_robust_z":4.2,"quality_flags_json":"Small Cohort Requires Structure Check","question":"Q","thread_version":"1.0.0"}',"de"),
+          '{"Untersuchungsstrang-ID":"x","Typ des Untersuchungsstrangs":"Vergleichsgruppenmuster","Persistenzklasse":"Anhaltend","Max. |robustes z|":4.2,"Qualitätshinweise":"Kleine Vergleichsgruppe – Strukturprüfung erforderlich","Fragestellung":"Q","Version des Untersuchungsstrangs":"1.0.0"}'],
+        [sanitizeText('{"thread_id":"x","thread_type":"Peer Pattern","persistence_class":"PERSISTENT","max_abs_robust_z":4.2,"quality_flags_json":"Small Cohort Requires Structure Check","question":"Q","thread_version":"1.0.0"}',"en"),
+          '{"Thread ID":"x","Thread type":"Peer Pattern","Persistence class":"PERSISTENT","Max. |robust z|":4.2,"Quality flags":"Small Cohort Requires Structure Check","Question":"Q","Thread version":"1.0.0"}'],
         [sanitizeText("Seitenlocator: PDF_PAGE_1BASED=143 · Tabelle: PILLAR_C_SCALAR_SOURCE_FACT · Datapoint: ESRS_HIGHEST_PAID_TO_MEDIAN","de"),
           "PDF-Seite 143 · Datensatz: Primärquellenwert · Datenpunkt: ESRS S1-16: Vergütungsverhältnis – höchstbezahlte Person / Median der Beschäftigten"]
       ];
