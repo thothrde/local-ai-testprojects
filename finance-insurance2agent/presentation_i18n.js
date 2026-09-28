@@ -1,6 +1,6 @@
 /* Finance/Insurance2Agent — global presentation i18n/readability layer
  * Presentation only. Canonical values/codes remain untouched in data and code/pre audit areas.
- * Version 1.9 — 2026-09-28
+ * Version 1.10 — 2026-09-28
  */
 (function (global) {
   "use strict";
@@ -498,6 +498,7 @@
         ["Small Vergleichsgruppe Requires Structure Check","Kleine Vergleichsgruppe – Strukturprüfung erforderlich"],
         ["Extreme Robust Z Requires Denominator And Business Modell Check","Extremer robuster z-Wert – Nenner und Geschäftsmodell prüfen"],
         ["P3DH partiell Vergleichsgruppe","P3DH – unvollständige Vergleichsgruppe"],
+        ["Quote Like Only","Nur quotenartige Kennzahlen"],
         ["EBA_CET1_RATIO_Übergangsmaßnahmen","Harte Kernkapitalquote (CET1) – Übergangsdefinition"],
         ["EBA_LEVERAGE_RATIO_Übergangsmaßnahmen","Verschuldungsquote – Übergangsdefinition des Tier-1-Kapitals"],
         ["EBA_TIER1_RATIO_Übergangsmaßnahmen","Tier-1-Kapitalquote – Übergangsdefinition"],
@@ -620,6 +621,7 @@
         [sanitizeText("Small Vergleichsgruppe Requires Structure Check","de"),"Kleine Vergleichsgruppe – Strukturprüfung erforderlich"],
         [sanitizeText("Extreme Robust Z Requires Denominator And Business Modell Check","de"),"Extremer robuster z-Wert – Nenner und Geschäftsmodell prüfen"],
         [sanitizeText("P3DH partiell Vergleichsgruppe","de"),"P3DH – unvollständige Vergleichsgruppe"],
+        [sanitizeText("Quote Like Only","de"),"Nur quotenartige Kennzahlen"],
         [sanitizeText("EBA_CET1_RATIO_Übergangsmaßnahmen","de"),"Harte Kernkapitalquote (CET1) – Übergangsdefinition"],
         [sanitizeText("EBA_LEVERAGE_RATIO_Übergangsmaßnahmen","de"),"Verschuldungsquote – Übergangsdefinition des Tier-1-Kapitals"],
         [sanitizeText("EBA_TIER1_RATIO_Übergangsmaßnahmen","de"),"Tier-1-Kapitalquote – Übergangsdefinition"],
