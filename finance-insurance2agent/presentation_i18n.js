@@ -1,6 +1,6 @@
 /* Finance/Insurance2Agent — global presentation i18n/readability layer
  * Presentation only. Canonical values/codes remain untouched in data and code/pre audit areas.
- * Version 1.3 — 2026-09-27
+ * Version 1.4 — 2026-09-27
  */
 (function (global) {
   "use strict";
@@ -197,6 +197,14 @@
   ];
 
   const EN_PHRASES = [
+    [/Welche analytische Aussage ändert sich bei\s+(.+?)\s+für\s+[„"](.+?)[“"]\s+am\s+(\d{4}-\d{2}-\d{2})\s+durch die unterschiedliche Transitional-Behandlung,\s+und in welchem Kontext darf welche Variante verwendet werden\?/gi,
+      'How does the analytical statement change for $1 on “$2” as of $3 due to different transitional treatment, and in which context may each variant be used?'],
+    [/Welche analytische Aussage ändert sich bei\s+(.+?)\s+für\s+[„"](.+?)[“"]\s+am\s+(\d{4}-\d{2}-\d{2})\s+durch die unterschiedliche LTG-Behandlung,\s+und in welchem Kontext darf welche Variante verwendet werden\?/gi,
+      'How does the analytical statement change for $1 on “$2” as of $3 due to different LTG treatment, and in which context may each variant be used?'],
+    [/Warum liegt\s+(.+?)\s+bei\s+[„"](.+?)[“"]\s+am\s+(\d{4}-\d{2}-\d{2})\s+innerhalb eines semantisch homogenen Peer-Cohorts \(n=(\d+)\) robust deutlich oberhalb des Cohorts\s+—\s+und bleibt der Befund nach Prüfung von Quelle, Scope, Zeitverlauf und Geschäftsstruktur bestehen\?/gi,
+      'Why is $1 on “$2” as of $3 robustly well above the peer cohort within a semantically homogeneous peer cohort (n=$4), and does the finding remain after checking source, scope, time trend, and business structure?'],
+    [/Warum liegt\s+(.+?)\s+bei\s+[„"](.+?)[“"]\s+am\s+(\d{4}-\d{2}-\d{2})\s+innerhalb eines semantisch homogenen Peer-Cohorts \(n=(\d+)\) robust deutlich unterhalb des Cohorts\s+—\s+und bleibt der Befund nach Prüfung von Quelle, Scope, Zeitverlauf und Geschäftsstruktur bestehen\?/gi,
+      'Why is $1 on “$2” as of $3 robustly well below the peer cohort within a semantically homogeneous peer cohort (n=$4), and does the finding remain after checking source, scope, time trend, and business structure?'],
     [/\bOffen\b/gi,"Open"],
     [/\bGeschlossen\b/gi,"Closed"],
     [/\bFinanzen\s*\/\s*Versicherungen\b/gi,"Finance / Insurance"],
@@ -220,7 +228,20 @@
     [/Beobachtung\s*→\s*Institution\s*→\s*Kennzahl\s*→\s*Semantikprofil\s*→\s*Quelle\s*→\s*Herkunftskette\s*→\s*Zeitreihen-Entscheidung\s*→\s*Evidenzgraph\.?/gi,"Observation → Institution → Metric → Semantic profile → Source → Lineage → Time-series decision → Evidence graph."],
     [/kanonische Evidenz\s*→\s*Semantik\s*→\s*deterministische Methoden\s*→\s*Provenienz/gi,"canonical evidence → semantics → deterministic methods → provenance"],
     [/\bUnabhängigkeit\s*\/\s*Independence\b/gi,"Independence"],
-    [/\bKorrekturen\s*\/\s*Corrections\b/gi,"Corrections"]
+    [/\bKorrekturen\s*\/\s*Corrections\b/gi,"Corrections"],
+    [/\bWelche analytische Aussage ändert sich bei\b/gi,"How does the analytical statement change for"],
+    [/\bdurch die unterschiedliche Transitional-Behandlung\b/gi,"due to different transitional treatment"],
+    [/\bdurch die unterschiedliche LTG-Behandlung\b/gi,"due to different LTG treatment"],
+    [/\bund in welchem Kontext darf welche Variante verwendet werden\?/gi,"and in which context may each variant be used?"],
+    [/\bWarum liegt\b/gi,"Why is"],
+    [/\binnerhalb eines semantisch homogenen Peer-Cohorts\b/gi,"within a semantically homogeneous peer cohort"],
+    [/\brobust deutlich oberhalb des Cohorts\b/gi,"robustly well above the cohort"],
+    [/\brobust deutlich unterhalb des Cohorts\b/gi,"robustly well below the cohort"],
+    [/\bund bleibt der Befund nach Prüfung von Quelle, Scope, Zeitverlauf und Geschäftsstruktur bestehen\?/gi,
+      "and does the finding remain after checking source, scope, time trend, and business structure?"],
+    [/\bZeitverlauf\b/gi,"time trend"],
+    [/\bGeschäftsstruktur\b/gi,"business structure"],
+    [/\bQuelle\b/gi,"source"]
   ];
 
   const TOK_DE = {
@@ -371,7 +392,7 @@
   function skipNode(n) {
     const p=n && n.parentElement;
     if (!p) return true;
-    return !!p.closest("script,style,noscript,textarea,pre,code,[data-keep-technical='true']");
+    return !!p.closest("script,style,noscript,textarea,[data-keep-technical='true']");
   }
 
   function processTextNode(n, lang) {
@@ -389,7 +410,7 @@
   }
 
   function processAttrs(el, lang) {
-    if (!el || el.nodeType!==1 || el.matches("script,style,pre,code")) return;
+    if (!el || el.nodeType!==1 || el.matches("script,style")) return;
     let map=attrState.get(el)||{};
     for (const a of ["placeholder","aria-label"]) {
       if (!el.hasAttribute(a)) continue;
@@ -446,6 +467,10 @@
         [sanitizeText("Common Equity Tier 1 capital ratio — transitional period","de"),"Harte Kernkapitalquote (CET1) – Übergangsdefinition"],
         [sanitizeText("VIG Insurance Group · INSURANCE_GROUP","de"),"VIG Insurance Group · Versicherungsgruppe"],
         [sanitizeText("VIG Insurance Group · INSURANCE_GROUP","en"),"VIG Insurance Group · Insurance group"],
+        [sanitizeText("Welche analytische Aussage ändert sich bei Munich Re Group für „Solvency II ratio — source-reported“ am 2025-12-31 durch die unterschiedliche Transitional-Behandlung, und in welchem Kontext darf welche Variante verwendet werden?","en"),
+          "How does the analytical statement change for Munich Re Group on “Solvency II ratio — source-reported” as of 2025-12-31 due to different transitional treatment, and in which context may each variant be used?"],
+        [sanitizeText("Warum liegt Erwerbsgesellschaft der S-Finanzgruppe mbH & Co. KG bei „Net Stable Funding Ratio“ am 2025-06-30 innerhalb eines semantisch homogenen Peer-Cohorts (n=15) robust deutlich oberhalb des Cohorts — und bleibt der Befund nach Prüfung von Quelle, Scope, Zeitverlauf und Geschäftsstruktur bestehen?","en"),
+          "Why is Erwerbsgesellschaft der S-Finanzgruppe mbH & Co. KG on “Net Stable Funding Ratio” as of 2025-06-30 robustly well above the peer cohort within a semantically homogeneous peer cohort (n=15), and does the finding remain after checking source, scope, time trend, and business structure?"],
         [sanitizeText("MUNICH_RE_GROUP","de"),"Munich Re Group"],
         [sanitizeText("Seitenlocator: PDF_PAGE_1BASED=143 · Tabelle: PILLAR_C_SCALAR_SOURCE_FACT · Datapoint: ESRS_HIGHEST_PAID_TO_MEDIAN","de"),
           "PDF-Seite 143 · Datensatz: Primärquellenwert · Datenpunkt: ESRS S1-16: Vergütungsverhältnis – höchstbezahlte Person / Median der Beschäftigten"]
