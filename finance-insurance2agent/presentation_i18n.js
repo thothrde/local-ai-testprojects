@@ -1,6 +1,6 @@
 /* Finance/Insurance2Agent — global presentation i18n/readability layer
  * Presentation only. Canonical values/codes remain untouched in data and code/pre audit areas.
- * Version 1.8 — 2026-09-28
+ * Version 1.9 — 2026-09-28
  */
 (function (global) {
   "use strict";
@@ -481,6 +481,32 @@
 
     // Fallback code humanization can expose phrase fragments; normalize once more.
     for (const [repl,to] of phraseMap) s=s.replace(repl,to);
+
+    // Final reader cleanup is deliberately last. It catches mixed forms created by
+    // earlier generic localization passes and prevents technical underscore codes
+    // from remaining visible in ordinary reader UI.
+    if (lang==="de") {
+      const finalDe=[
+        ["Not Applicable","Nicht anwendbar"],
+        ["Semantic Variant","Semantische Variante"],
+        ["Peer Pattern","Vergleichsgruppenmuster"],
+        ["Single Period","Einzelperiode"],
+        ["Check Quelle Version","Quellenversion prüfen"],
+        ["Check Restatement","Neudarstellung prüfen"],
+        ["Check Perimeter Change","Änderung des Konsolidierungskreises prüfen"],
+        ["Check Method Change","Methodenänderung prüfen"],
+        ["Small Vergleichsgruppe Requires Structure Check","Kleine Vergleichsgruppe – Strukturprüfung erforderlich"],
+        ["Extreme Robust Z Requires Denominator And Business Modell Check","Extremer robuster z-Wert – Nenner und Geschäftsmodell prüfen"],
+        ["P3DH partiell Vergleichsgruppe","P3DH – unvollständige Vergleichsgruppe"],
+        ["EBA_CET1_RATIO_Übergangsmaßnahmen","Harte Kernkapitalquote (CET1) – Übergangsdefinition"],
+        ["EBA_LEVERAGE_RATIO_Übergangsmaßnahmen","Verschuldungsquote – Übergangsdefinition des Tier-1-Kapitals"],
+        ["EBA_TIER1_RATIO_Übergangsmaßnahmen","Tier-1-Kapitalquote – Übergangsdefinition"],
+        ["EBA_TOTAL_CAPITAL_RATIO_Übergangsmaßnahmen","Gesamtkapitalquote – Übergangsdefinition"],
+        ["robuster Peer-Kandidat","robuster Vergleichsgruppen-Kandidat"],
+        ["Peer-Kandidat","Vergleichsgruppen-Kandidat"]
+      ];
+      for (const [a,b] of finalDe) s=s.split(a).join(b);
+    }
     return s;
   }
 
@@ -583,6 +609,21 @@
         [sanitizeText("Exploratory Only","de"),"Nur explorativ"],
         [sanitizeText("Time Series Change Candidate","de"),"Zeitreihen-Veränderungskandidat"],
         [sanitizeText("READY","de"),"BEREIT"],
+        [sanitizeText("Not Applicable","de"),"Nicht anwendbar"],
+        [sanitizeText("Semantic Variant","de"),"Semantische Variante"],
+        [sanitizeText("Peer Pattern","de"),"Vergleichsgruppenmuster"],
+        [sanitizeText("Single Period","de"),"Einzelperiode"],
+        [sanitizeText("Check Quelle Version","de"),"Quellenversion prüfen"],
+        [sanitizeText("Check Restatement","de"),"Neudarstellung prüfen"],
+        [sanitizeText("Check Perimeter Change","de"),"Änderung des Konsolidierungskreises prüfen"],
+        [sanitizeText("Check Method Change","de"),"Methodenänderung prüfen"],
+        [sanitizeText("Small Vergleichsgruppe Requires Structure Check","de"),"Kleine Vergleichsgruppe – Strukturprüfung erforderlich"],
+        [sanitizeText("Extreme Robust Z Requires Denominator And Business Modell Check","de"),"Extremer robuster z-Wert – Nenner und Geschäftsmodell prüfen"],
+        [sanitizeText("P3DH partiell Vergleichsgruppe","de"),"P3DH – unvollständige Vergleichsgruppe"],
+        [sanitizeText("EBA_CET1_RATIO_Übergangsmaßnahmen","de"),"Harte Kernkapitalquote (CET1) – Übergangsdefinition"],
+        [sanitizeText("EBA_LEVERAGE_RATIO_Übergangsmaßnahmen","de"),"Verschuldungsquote – Übergangsdefinition des Tier-1-Kapitals"],
+        [sanitizeText("EBA_TIER1_RATIO_Übergangsmaßnahmen","de"),"Tier-1-Kapitalquote – Übergangsdefinition"],
+        [sanitizeText("EBA_TOTAL_CAPITAL_RATIO_Übergangsmaßnahmen","de"),"Gesamtkapitalquote – Übergangsdefinition"],
         [sanitizeText("04 · DISCOVER / ENTDECKEN","de"),"04 · ENTDECKEN"],
         [sanitizeText("04 · DISCOVER / ENTDECKEN","en"),"04 · DISCOVER"],
         [sanitizeText('{"thread_id":"x","thread_type":"Peer Pattern","persistence_class":"PERSISTENT","max_abs_robust_z":4.2,"quality_flags_json":"Small Cohort Requires Structure Check","question":"Q","thread_version":"1.0.0"}',"de"),
