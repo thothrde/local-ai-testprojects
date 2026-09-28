@@ -1,6 +1,6 @@
 /* Finance/Insurance2Agent — global presentation i18n/readability layer
  * Presentation only. Canonical values/codes remain untouched in data and code/pre audit areas.
- * Version 1.4 — 2026-09-27
+ * Version 1.7 — 2026-09-28
  */
 (function (global) {
   "use strict";
@@ -197,6 +197,10 @@
   ];
 
   const EN_PHRASES = [
+    [/Warum erscheint\s+(.+?)\s+bei\s+[„"](.+?)[“"]\s+wiederholt als robuster Peer-Kandidat,\s+und bleibt der Befund nach Prüfung von Geschäftsmodell,\s+Nenner-\/Komponentenmechanik,\s+Scope und benachbarten Perioden bestehen\?/gi,
+      'Why does $1 repeatedly appear as a robust peer candidate for “$2”, and does the finding remain after checking business model, denominator/component mechanics, scope, and adjacent periods?'],
+    [/Warum erscheint\s+(.+?)\s+bei\s+[„"](.+?)[“"]\s+an einem Stichtag als robuster Peer-Kandidat,\s+und bleibt der Befund nach Prüfung von Geschäftsmodell,\s+Nenner-\/Komponentenmechanik,\s+Scope und benachbarten Perioden bestehen\?/gi,
+      'Why does $1 appear as a robust peer candidate for “$2” at a single reporting date, and does the finding remain after checking business model, denominator/component mechanics, scope, and adjacent periods?'],
     [/Welche analytische Aussage ändert sich bei\s+(.+?)\s+für\s+[„"](.+?)[“"]\s+am\s+(\d{4}-\d{2}-\d{2})\s+durch die unterschiedliche Transitional-Behandlung,\s+und in welchem Kontext darf welche Variante verwendet werden\?/gi,
       'How does the analytical statement change for $1 on “$2” as of $3 due to different transitional treatment, and in which context may each variant be used?'],
     [/Welche analytische Aussage ändert sich bei\s+(.+?)\s+für\s+[„"](.+?)[“"]\s+am\s+(\d{4}-\d{2}-\d{2})\s+durch die unterschiedliche LTG-Behandlung,\s+und in welchem Kontext darf welche Variante verwendet werden\?/gi,
@@ -241,7 +245,15 @@
       "and does the finding remain after checking source, scope, time trend, and business structure?"],
     [/\bZeitverlauf\b/gi,"time trend"],
     [/\bGeschäftsstruktur\b/gi,"business structure"],
-    [/\bQuelle\b/gi,"source"]
+    [/\bQuelle\b/gi,"source"],
+    [/\bWarum erscheint\b/gi,"Why does"],
+    [/\bwiederholt als robuster Peer-Kandidat\b/gi,"repeatedly appear as a robust peer candidate"],
+    [/\ban einem Stichtag als robuster Peer-Kandidat\b/gi,"appear as a robust peer candidate at a single reporting date"],
+    [/\bund bleibt der Befund nach Prüfung von Geschäftsmodell,\s*Nenner-\/Komponentenmechanik,\s*Scope und benachbarten Perioden bestehen\?/gi,
+      "and does the finding remain after checking business model, denominator/component mechanics, scope, and adjacent periods?"],
+    [/\bGeschäftsmodell\b/gi,"business model"],
+    [/\bNenner-\/Komponentenmechanik\b/gi,"denominator/component mechanics"],
+    [/\bbenachbarten Perioden\b/gi,"adjacent periods"]
   ];
 
   const TOK_DE = {
@@ -471,6 +483,10 @@
           "How does the analytical statement change for Munich Re Group on “Solvency II ratio — source-reported” as of 2025-12-31 due to different transitional treatment, and in which context may each variant be used?"],
         [sanitizeText("Warum liegt Erwerbsgesellschaft der S-Finanzgruppe mbH & Co. KG bei „Net Stable Funding Ratio“ am 2025-06-30 innerhalb eines semantisch homogenen Peer-Cohorts (n=15) robust deutlich oberhalb des Cohorts — und bleibt der Befund nach Prüfung von Quelle, Scope, Zeitverlauf und Geschäftsstruktur bestehen?","en"),
           "Why is Erwerbsgesellschaft der S-Finanzgruppe mbH & Co. KG on “Net Stable Funding Ratio” as of 2025-06-30 robustly well above the peer cohort within a semantically homogeneous peer cohort (n=15), and does the finding remain after checking source, scope, time trend, and business structure?"],
+        [sanitizeText("Warum erscheint Kommuninvest - Grupp bei „Common Equity Tier 1 capital ratio — transitional period“ wiederholt als robuster Peer-Kandidat, und bleibt der Befund nach Prüfung von Geschäftsmodell, Nenner-/Komponentenmechanik, Scope und benachbarten Perioden bestehen?","en"),
+          "Why does Kommuninvest - Grupp repeatedly appear as a robust peer candidate for “Common Equity Tier 1 capital ratio — transitional period”, and does the finding remain after checking business model, denominator/component mechanics, scope, and adjacent periods?"],
+        [sanitizeText("Warum erscheint HASPA Finanzholding bei „NPL coverage ratio“ an einem Stichtag als robuster Peer-Kandidat, und bleibt der Befund nach Prüfung von Geschäftsmodell, Nenner-/Komponentenmechanik, Scope und benachbarten Perioden bestehen?","en"),
+          "Why does HASPA Finanzholding appear as a robust peer candidate for “NPL coverage ratio” at a single reporting date, and does the finding remain after checking business model, denominator/component mechanics, scope, and adjacent periods?"],
         [sanitizeText("MUNICH_RE_GROUP","de"),"Munich Re Group"],
         [sanitizeText("Seitenlocator: PDF_PAGE_1BASED=143 · Tabelle: PILLAR_C_SCALAR_SOURCE_FACT · Datapoint: ESRS_HIGHEST_PAID_TO_MEDIAN","de"),
           "PDF-Seite 143 · Datensatz: Primärquellenwert · Datenpunkt: ESRS S1-16: Vergütungsverhältnis – höchstbezahlte Person / Median der Beschäftigten"]
