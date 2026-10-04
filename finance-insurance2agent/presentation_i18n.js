@@ -667,17 +667,21 @@
   else start();
 })(typeof window!=="undefined"?window:globalThis);
 
-/* FI2A_COMPLETE_INVESTIGATIVE_INTRO_20261004_R1_BEGIN */
+/* FI2A_COMPLETE_INVESTIGATIVE_INTRO_20261004_R3_BEGIN */
 (() => {
   "use strict";
   const COPY = { de: ["Finance/Insurance2Agent verbindet Finanz-, Versicherungs-, Aufsichts-, Unternehmens- und öffentliche Daten zu einer provenance-first Forschungsumgebung. Banken, Versicherer, Konzernstrukturen, regulatorische Meldungen und – wo belastbare öffentliche Quellen vorliegen – Vergabeverfahren und weitere institutionelle Zusammenhänge lassen sich gemeinsam untersuchen. Jede verwendete Zahl und jede belastbare Verbindung soll bis zu ihrer Quelle zurückverfolgbar bleiben. Die App ist weder Aufsichtsveröffentlichung noch Anlage-, Versicherungs- oder Rechtsberatung: Sie ist ein Forschungsinstrument für diejenigen, die wissen wollen, wie ein Befund zustande kommt – und was die verfügbaren Daten gerade nicht hergeben.", "Das Herzstück ist das Untersuchen selbst. Eine auffällige Kapitalquote, eine unerwartete Strukturänderung oder ein Unternehmen, das zugleich in einem Vergabeverfahren und in einer komplexen Konzernstruktur auftaucht, wird nicht zur Schlagzeile, sondern zum Forschungsfall. Die App zeigt den Auslöser, bestimmt die relevante Vergleichsgruppe, prüft konkurrierende Erklärungen, sucht nach Gegenevidenz und macht sichtbar, welche Informationen noch fehlen, um zwischen verschiedenen Hypothesen zu unterscheiden. So entsteht ein nachvollziehbares Dossier – vom ersten Befund bis zur offenen Frage, nie ein automatisches Urteil.", "Dafür verbindet Finance/Insurance2Agent Datenebenen, die gewöhnlich getrennt betrachtet werden: Rechtsträger- und Konzernbeziehungen aus offiziellen Referenzdaten, europäische Vergabeverfahren mit Auftraggeber-, Bieter- und Gewinnerrollen, aufsichtsrechtliche Bankendaten bis zur einzelnen Meldeposition, Solvenz- und Versicherungskennzahlen mit Rückbindung an ihre Ursprungsberichte sowie Länder-, Branchen- und weitere Risikodimensionen. Hinzu kommen, soweit verlässlich erschlossen und rechtlich zugänglich, weitere öffentliche Quellen zu Projekten, Fördermitteln, Insolvenz- und Restrukturierungsereignissen, Sanktionen sowie Verfahren europäischer Kontroll- und Strafverfolgungsinstitutionen.", "Dabei gelten strenge Identitäts- und Evidenzregeln. Eine Tochtergesellschaft wird nie stillschweigend zur Mutter, eine Bieterrolle nie zum Zuschlag, eine Namensähnlichkeit nie zur bestätigten Identität. Jede Verbindung trägt ihre eigene Belegkette. Wo diese Belegkette nicht ausreicht, bleibt die Zuordnung offen.", "DISCOVER sucht systematisch nach Forschungsanlässen: Kennzahlen, die ihre Bedeutung verändert haben, später revidierte Werte, scheinbar gleiche Varianten mit unterschiedlicher Semantik, unerwartete Brüche in Zeitreihen, Beobachtungen, die eigentlich vorhanden sein müssten, aber fehlen. Solche Funde sind Research Leads — Ausgangspunkte für INVESTIGATE, keine Behauptungen.", "INVESTIGATE verfolgt solche Leads weiter. Ein Befund kann mit Vergleichsgruppen, Eigentums- und Abhängigkeitsstrukturen, öffentlichen Aufträgen, regulatorischen Daten, Projekten, Geographie, Handels- oder Enforcement-Kontext verbunden werden. Dabei werden nicht nur eine erste Hypothese, sondern auch ernsthafte Alternativerklärungen, Gegenevidenz, Datenlücken und der jeweilige epistemische Status festgehalten.", "Langfristig soll dieselbe Strenge auch dynamische Fragen tragen: Wie verändert sich ein Risiko unter Stress, welche unauffällige Verbindung wird bei einem Regimewechsel plötzlich relevant, welche Stabilität zeigt sich nur, solange man ein vereinfachtes Modell betrachtet. Dieselben Provenienz- und Unsicherheitsregeln würden auch dafür gelten.", "Eine Grenze bleibt dabei unverhandelbar: Muster sind keine Urteile. Kein Kriminalitäts- oder Betrugs-Score, kein Ranking von Verdächtigen, keine automatische Schuld- oder Korruptionszuschreibung, keine Analyse natürlicher Personen. Gleich benannte Kennzahlen werden nie gleichgesetzt, wenn Regime, Modell, Übergangsmaßnahme oder Konsolidierungsebene verschieden sind — ist die Vergleichsgrundlage ungeklärt, bleibt die Rechnung aus. Was sich nicht belastbar zuordnen lässt, bleibt sichtbar als offene Frage.", "Finance/Insurance2Agent soll Unsicherheit nicht verstecken, sondern untersuchbar machen."], en: ["Finance/Insurance2Agent connects financial, insurance, supervisory, corporate and public data in a provenance-first research environment. Banks, insurers, group structures, regulatory filings and – where reliable public sources are available – procurement procedures and other institutional relationships can be investigated together. Every number used and every substantiated connection should remain traceable to its source. The app is neither a supervisory publication nor investment, insurance or legal advice: it is a research instrument for those who want to know how a finding arises – and what the available data do not support.", "The core is investigation itself. An unusual capital ratio, an unexpected structural change, or a company that appears both in a procurement procedure and in a complex group structure is not turned into a headline but into a research case. The app shows the trigger, determines the relevant comparison group, tests competing explanations, searches for counterevidence, and makes visible what information is still missing to distinguish between competing hypotheses. The result is a traceable dossier – from the first finding to the open question, never an automatic judgment.", "To do this, Finance/Insurance2Agent connects data layers that are usually considered separately: legal-entity and group relationships from official reference data, European procurement procedures with buyer, tenderer and winner roles, supervisory banking data down to the individual reporting position, solvency and insurance metrics linked back to their source reports, as well as country, sector and other risk dimensions. Added to these, where reliably sourced and legally accessible, are further public sources on projects, funding, insolvency and restructuring events, sanctions, and proceedings of European oversight and prosecutorial institutions.", "Strict identity and evidence rules apply. A subsidiary is never silently turned into its parent, a tenderer role never into an award, and name similarity never into confirmed identity. Every connection carries its own chain of evidence. Where that chain is insufficient, the assignment remains open.", "DISCOVER systematically looks for research leads: metrics whose meaning has changed, values that were later revised, apparently identical variants with different semantics, unexpected breaks in time series, and observations that ought to be present but are missing. Such findings are Research Leads — starting points for INVESTIGATE, not claims.", "INVESTIGATE follows such leads further. A finding can be connected with comparison groups, ownership and dependency structures, public contracts, regulatory data, projects, geography, trade or enforcement context. The system records not only an initial hypothesis, but also serious alternative explanations, counterevidence, data gaps, and the respective epistemic status.", "In the long term, the same rigor should also support dynamic questions: How does a risk change under stress, which inconspicuous connection suddenly becomes relevant when the regime changes, which apparent stability persists only as long as one looks at a simplified model. The same provenance and uncertainty rules would apply there as well.", "One boundary remains non-negotiable: patterns are not judgments. No crime or fraud score, no ranking of suspects, no automatic attribution of guilt or corruption, no analysis of natural persons. Metrics with the same name are never equated when regime, model, transitional measure, or consolidation level differ — if the basis for comparison is unresolved, the calculation is withheld. What cannot be assigned reliably remains visible as an open question.", "Finance/Insurance2Agent is meant not to hide uncertainty, but to make it investigable."] };
-  const OLD_DE = ["Finanzdaten verstehen, ohne sie in eine einzige Note zu pressen.", "Bankenaufsicht, Vergütung/CbCR und Versicherer-/Nachhaltigkeitsdaten bleiben getrennte, quellengebundene Informationsebenen.", "Der Monitor verbindet drei bewusst getrennte Transparenzbereiche", "Säule A erschließt EBA- und P3DH-Daten", "Vergleiche bleiben dort begrenzt", "Entscheidend bleibt die Nachprüfbarkeit"];
-  const OLD_EN = ["banking supervision", "remuneration", "country-by-country", "Munich Re", "ERGO", "traceability"];
   const COMPLETE_KEY_DE = "Finance/Insurance2Agent soll Unsicherheit nicht verstecken, sondern untersuchbar machen.";
   const COMPLETE_KEY_EN = "Finance/Insurance2Agent is meant not to hide uncertainty, but to make it investigable.";
+  const LEGACY_DE = [
+    "Finance/Insurance2Agent ist ein privates, unabhängiges Analyse- und Informationswerkzeug",
+    "Gemeldete Werte und Komponenten werden aus veröffentlichten Unternehmens- und Aufsichtsquellen übernommen.",
+    "Ebenso wichtig wie die Zahl selbst ist ihre Vergleichbarkeit."
+  ];
+  const INTRO_HEADINGS = ["Worum es hier geht", "What this app does", "What this is about"];
   let target = null;
-  let companionNodes = [];
   let busy = false;
+  let timer = 0;
 
   function detectLang() {
     const l = (document.documentElement.getAttribute("lang") || "").toLowerCase();
@@ -686,51 +690,48 @@
     const t = (document.body && document.body.innerText) || "";
     return /\bCOMPARE\b/.test(t) && /\bINVESTIGATE\b/.test(t) ? "en" : "de";
   }
-
-  function score(el, anchors) {
-    if (!el || !el.textContent) return -1;
-    const txt = el.textContent.trim();
-    if (txt.length < 120) return -1;
-    const n = anchors.filter(a => txt.includes(a)).length;
+  function text(el) { return ((el && el.textContent) || "").replace(/\s+/g," ").trim(); }
+  function scoreLegacy(el) {
+    const t = text(el);
+    if (t.length < 350) return -1;
+    const n = LEGACY_DE.filter(a => t.includes(a)).length;
     if (!n) return -1;
-    let s = n * 100000 - txt.length;
-    const cls = ((el.id || "") + " " + (typeof el.className === "string" ? el.className : "")).toLowerCase();
-    if (/intro|hero|copy|description|lead|overview/.test(cls)) s += 5000;
-    return s;
+    return n * 1000000 - t.length;
   }
-
-  function bestContaining(anchors) {
-    const all = Array.from(document.querySelectorAll("main *, body > *"));
-    const ranked = all.map(el => [score(el, anchors), el]).filter(x => x[0] >= 0).sort((a,b)=>b[0]-a[0]);
+  function findByCurrentCopy() {
+    const nodes = Array.from(document.querySelectorAll("main p, main div, main section, main article, body p, body div, body section, body article"));
+    const ranked = nodes.map(el => [scoreLegacy(el), el]).filter(x => x[0] >= 0).sort((a,b)=>b[0]-a[0]);
+    if (ranked.length && ranked[0][0] >= 2000000) return ranked[0][1];
     return ranked.length ? ranked[0][1] : null;
   }
-
+  function isHeading(el) { return INTRO_HEADINGS.includes(text(el)); }
+  function findByHeading() {
+    const all = Array.from(document.querySelectorAll("h1,h2,h3,h4,h5,h6,p,div,span"));
+    const headings = all.filter(isHeading);
+    for (const h of headings) {
+      let box = h;
+      for (let level=0; level<6 && box; level++, box=box.parentElement) {
+        const cands = Array.from(box.querySelectorAll(":scope > *, :scope > * > *"))
+          .filter(el => el !== h && !el.contains(h) && text(el).length >= 300);
+        if (!cands.length) continue;
+        cands.sort((a,b) => {
+          const ta=text(a), tb=text(b);
+          const ma = /Methodik und Evidenzmodell|Methodology and evidence model/i.test(ta) ? 50000 : 0;
+          const mb = /Methodik und Evidenzmodell|Methodology and evidence model/i.test(tb) ? 50000 : 0;
+          const la = LEGACY_DE.filter(x=>ta.includes(x)).length * 100000;
+          const lb = LEGACY_DE.filter(x=>tb.includes(x)).length * 100000;
+          return (mb+lb-tb.length) - (ma+la-ta.length);
+        });
+        return cands[0];
+      }
+    }
+    return null;
+  }
   function findRegion() {
     const existing = document.querySelector("[data-fi2a-complete-intro='1']");
     if (existing) return existing;
-    let el = bestContaining(OLD_DE);
-    if (el) return el;
-
-    // English fallback: prefer likely intro/hero containers with several characteristic hints.
-    const cands = Array.from(document.querySelectorAll("main p, main div, main section, .hero *, #hero *"));
-    let best = null, bestScore = -1;
-    for (const x of cands) {
-      const txt = (x.textContent || "").trim();
-      if (txt.length < 250) continue;
-      const lower = txt.toLowerCase();
-      const n = OLD_EN.filter(a => lower.includes(a.toLowerCase())).length;
-      const cls = ((x.id || "") + " " + (typeof x.className === "string" ? x.className : "")).toLowerCase();
-      const s = n * 1000 + (/intro|hero|copy|description|lead|overview/.test(cls) ? 500 : 0) - txt.length/10000;
-      if (n >= 3 && s > bestScore) { best = x; bestScore = s; }
-    }
-    if (best) return best;
-
-    // Last-resort direct selectors, but only if the element is substantial.
-    const sels = ["#heroText","#heroCopy","#heroIntro","#heroSubtitle","#intro","#introText","[data-i18n*='intro']","[data-i18n*='hero']",".hero-copy",".hero-text",".hero-intro",".intro-copy",".intro-text"];
-    const ds = [...new Set(sels.flatMap(s => Array.from(document.querySelectorAll(s))))].filter(x => (x.textContent||"").trim().length > 250);
-    return ds.length === 1 ? ds[0] : null;
+    return findByCurrentCopy() || findByHeading();
   }
-
   function paragraphHTML(lang, p, i) {
     let x = p;
     if (i === 0) x = x.replace("Finance/Insurance2Agent", "<strong>Finance/Insurance2Agent</strong>");
@@ -747,34 +748,48 @@
     if (i === 8) x = "<strong>" + x + "</strong>";
     return '<span class="fi2a-complete-intro-paragraph" style="display:block;margin:0 0 1.05em 0">' + x + '</span>';
   }
-
-  function render(lang) {
-    return COPY[lang].map((p,i)=>paragraphHTML(lang,p,i)).join("");
+  function preservedMethodLink(el) {
+    if (!el) return "";
+    const a = Array.from(el.querySelectorAll("a")).find(a => /Methodik und Evidenzmodell|Methodology and evidence model/i.test(text(a)));
+    return a ? '<span class="fi2a-complete-intro-method-link" style="display:block;margin-top:.25em">' + a.outerHTML + '</span>' : "";
   }
-
+  function render(lang, linkHTML) { return COPY[lang].map((p,i)=>paragraphHTML(lang,p,i)).join("") + (linkHTML || ""); }
+  function normalizeVisibleLabels() {
+    if (!document.body) return;
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const edits = [];
+    while (walker.nextNode()) {
+      const n = walker.currentNode;
+      const v = (n.nodeValue || "").trim();
+      if (v === "Finanzen / Versicherungen2Agent") edits.push([n, "Finance/Insurance2Agent"]);
+      else if (v === "EBA Crd Crr") edits.push([n, "EBA CRD/CRR"]);
+    }
+    for (const [n,v] of edits) n.nodeValue = n.nodeValue.replace(n.nodeValue.trim(), v);
+  }
   function apply() {
     if (busy) return;
     busy = true;
     try {
+      normalizeVisibleLabels();
       if (!target || !document.contains(target)) target = findRegion();
       if (!target) {
-        document.documentElement.setAttribute("data-fi2a-complete-intro-status","TARGET_NOT_FOUND");
+        document.documentElement.setAttribute("data-fi2a-complete-intro-status","TARGET_NOT_FOUND_R3");
         return;
       }
       const lang = detectLang();
       const key = lang === "de" ? COMPLETE_KEY_DE : COMPLETE_KEY_EN;
-      if (!target.textContent.includes(key) || target.getAttribute("data-fi2a-complete-intro-lang") !== lang) {
-        target.innerHTML = render(lang);
-      }
+      const linkHTML = preservedMethodLink(target);
+      if (!text(target).includes(key) || target.getAttribute("data-fi2a-complete-intro-lang") !== lang) target.innerHTML = render(lang, linkHTML);
       target.setAttribute("data-fi2a-complete-intro","1");
       target.setAttribute("data-fi2a-complete-intro-lang",lang);
-      document.documentElement.setAttribute("data-fi2a-complete-intro-status","PASS_" + lang.toUpperCase());
+      document.documentElement.setAttribute("data-fi2a-complete-intro-status","PASS_R3_" + lang.toUpperCase());
+      normalizeVisibleLabels();
     } finally { busy = false; }
   }
-
-  function schedule() { setTimeout(apply, 20); setTimeout(apply, 120); setTimeout(apply, 400); }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", schedule, {once:true}); else schedule();
-  document.addEventListener("click", schedule, true);
-  new MutationObserver(() => { if (!busy) schedule(); }).observe(document.documentElement, {attributes:true, attributeFilter:["lang"]});
+  function schedule() { clearTimeout(timer); timer = setTimeout(apply, 35); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", () => { apply(); setTimeout(apply,150); setTimeout(apply,500); }, {once:true});
+  else { apply(); setTimeout(apply,150); setTimeout(apply,500); }
+  document.addEventListener("click", () => { schedule(); setTimeout(apply,180); }, true);
+  new MutationObserver(() => { if (!busy) schedule(); }).observe(document.documentElement, {attributes:true, attributeFilter:["lang"], childList:true, subtree:true});
 })();
-/* FI2A_COMPLETE_INVESTIGATIVE_INTRO_20261004_R1_END */
+/* FI2A_COMPLETE_INVESTIGATIVE_INTRO_20261004_R3_END */
