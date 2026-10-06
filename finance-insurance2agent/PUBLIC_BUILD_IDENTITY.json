@@ -1,5 +1,5 @@
 {
-  "build": "POSTAUDIT_R2_F1_SCOPE_REMEDIATION_PENDING_INDEPENDENT_FOLLOWUP_20261006",
+  "build": "POSTAUDIT_R2_F1_F8_FOLLOWUP_PASS__R1_R4_GUARD_HARDENING_20261006",
   "bound_database_sha256": "89a75747ef2cfe149bcaa954867ceb05d4246f41e79ba72b17c409e773d75a10",
   "generated_at_utc": "2026-09-27T12:28:01Z",
   "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
@@ -219,7 +219,7 @@
   "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
   "presentation_patch_parent_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
   "canonical_data_unchanged": true,
-  "independent_audit_scope_note": "The 27 September 2026 independent final audit binds the legacy public core release candidate. The 6 October 2026 POSTAUDIT-R2 scope remediation changes presentation/capability metadata only, does not refresh public data, and awaits a narrow independent follow-up. FI/network local layers are not cleared for public release by the legacy PUBLIC_RELEASE gate.",
+  "independent_audit_scope_note": "The 6 October 2026 narrow independent follow-up passed for the bounded F1-F8 remediation. That PASS does not cover a public data refresh, Network/FI0/FI1B content, insurer-LEI enrichment, FI3, comparability/arithmetic authorization, or later phase ordering. The subsequent R1-R4 guard hardening is a post-audit technical change and is not represented as part of that independent PASS.",
   "presentation_patch_scope": [
     "restore and update bilingual explanatory introduction",
     "hide empty result containers",
@@ -231,12 +231,30 @@
   "current_public_snapshot_refresh": "NOT_PERFORMED_IN_POSTAUDIT_R2",
   "fi_network_public_release_gate": "CLOSED_PENDING_SEPARATE_RELEASE_DECISION",
   "postaudit_r2_scope_remediation": {
-    "status": "APPLIED_PENDING_NARROW_INDEPENDENT_FOLLOWUP",
+    "status": "INDEPENDENT_FOLLOWUP_PASS",
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
     "public_data_refresh": false,
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "fe27d1c261b0de645abdf26426d41c51e73a40780f727915728c66b13401750e",
-    "claims_as_code_binding": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_TEST_BOUND_PENDING_INDEPENDENT_FOLLOWUP"
+    "capability_evidence_sha256": "d2bff69b0fc7e7c97dcbb72f62b226442eaf336b11abf89ef1193a5e2052cd99",
+    "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE"
+  },
+  "independent_followup_audit": {
+    "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
+    "timestamp_utc": "2026-10-06T07:06:42Z",
+    "zip_sha256": "10bd0281e31fd904cdb9ae263f46d9adcfc03bf831c677519ac55ce3295479e2",
+    "md_sha256": "ba25e0e7c874ca3f2bcd7fa32556050333dcc8e71b495c07af140f017d61f3b8",
+    "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
+    "scope": "BOUNDED_F1_F8_REMEDIATION_DELTA_ONLY"
+  },
+  "postaudit_guard_hardening": {
+    "status": "WRITER_VALIDATED_POST_AUDIT_CHANGE",
+    "scope": "R1_R4_GUARD_HARDENING_ONLY",
+    "public_data_refresh": false,
+    "canonical_data_unchanged": true,
+    "fi_staging_data_unchanged": true,
+    "standing_capability_validator": "tests/validate_capability_contract.py",
+    "standing_capability_validator_sha256": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
+    "note": "This hardening addresses residual guard findings R1-R4 after the independent PASS; it is not itself claimed as part of that preceding audit."
   }
 }

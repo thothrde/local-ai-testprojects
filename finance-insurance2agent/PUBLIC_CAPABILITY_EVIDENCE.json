@@ -1,6 +1,6 @@
 {
-  "schema": "FI2A_PUBLIC_CAPABILITY_EVIDENCE_V2",
-  "generated_for": "POSTAUDIT_R2_BOUNDED_REMEDIATION_20261006",
+  "schema": "FI2A_PUBLIC_CAPABILITY_EVIDENCE_V3",
+  "generated_for": "POSTAUDIT_R2_F1_F8_FOLLOWUP_PASS__R1_R4_GUARD_HARDENING_20261006",
   "evidence_scope": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_PLUS_LOCAL_FI_NETWORK_BOUNDARY",
   "public_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
   "bound_public_bytes": {
@@ -8,10 +8,11 @@
     "index.html": "3741d2cdb98232adb5c151e087890ee743f1b2395d4d607f4d5dd5c424081a4d",
     "presentation_i18n.js": "76677aa4e2c3aaa12fa56072ef6a0d91f54a7f1c3879dc5e619cf902b2fa4a9b",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
-    "versionen.html": "c507e3b31d403ec502f92c5aa7d0483f83a654e7b6222476e547cc313e739365"
+    "versionen.html": "98001131b8923fa95d7344f3afdb9f615a3ee32259cd4f9cc3e75a41cf89d42b",
+    "tests/validate_capability_contract.py": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a"
   },
   "bound_local_bytes": {
-    "financial_integrity_runtime.py": "a56c8933b48e3520e2203c24615c0ec0ac8ab37d99c008615d4132b3940d7681",
+    "financial_integrity_runtime.py": "736cf91a405b066c1f77038021f607013dc3e9859742a6560ebe464d2faf425e",
     "server.py": "9df91bb56c00a015fbe374683633ba94815ca6d925841d5d40c77f92239b81a7",
     "web/app.js": "598756ef3be8de920514a29fc54899d930f90f8047db74890ab6a7565f994a66"
   },
@@ -503,7 +504,219 @@
       "note": "Full hypothesis/counterevidence workflow remains gated."
     }
   ],
-  "claims_as_code_rule": "A capability flag is not evidence by itself. R2 validates the F1-affected/public-static boundary against exact build bytes and executable/source markers; independent follow-up remains required for the remediation gate.",
+  "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "public_data_refresh_performed": false,
-  "independent_followup_status": "PENDING"
+  "independent_followup_status": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
+  "capability_contract": {
+    "ASK_STRUCTURED": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_ASK_STRUCTURED"
+      ]
+    },
+    "ASK_FREE_EVIDENCE": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_ASK_FREE_EVIDENCE"
+      ]
+    },
+    "INSTITUTION_BROWSER": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_INSTITUTION_BROWSER"
+      ]
+    },
+    "COMPARE_PAIR": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_COMPARE_PAIR"
+      ]
+    },
+    "COMPARE_COHORT": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_COMPARE_COHORT"
+      ]
+    },
+    "INVESTIGATE_DOSSIER": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_INVESTIGATE_DOSSIER"
+      ]
+    },
+    "INVESTIGATE_METRIC_EXPLORER": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_INVESTIGATE_METRIC_EXPLORER"
+      ]
+    },
+    "INVESTIGATE_TIME_SERIES": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_INVESTIGATE_TIME_SERIES"
+      ]
+    },
+    "INVESTIGATE_COMPONENT_EXPLORER": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_INVESTIGATE_COMPONENT_EXPLORER"
+      ]
+    },
+    "INVESTIGATE_SOURCE_BROWSER": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_INVESTIGATE_SOURCE_BROWSER"
+      ]
+    },
+    "INVESTIGATE_OWNERSHIP_GRAPH": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_INVESTIGATE_OWNERSHIP_GRAPH"
+      ]
+    },
+    "INVESTIGATE_ROBUST_STATS": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_INVESTIGATE_ROBUST_STATS_FAIL_CLOSED"
+      ]
+    },
+    "DISCOVER_CANDIDATES": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_DISCOVER_CANDIDATES"
+      ]
+    },
+    "DISCOVER_THREADS": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_DISCOVER_THREADS"
+      ]
+    },
+    "AUDIT_TRACE": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_AUDIT_TRACE"
+      ]
+    },
+    "AUDIT_EVIDENCE_GRAPH": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_AUDIT_EVIDENCE_GRAPH"
+      ]
+    },
+    "AUDIT_RERUN": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_AUDIT_RERUN_STATIC"
+      ]
+    },
+    "AGENT_ORCHESTRATOR": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "PUBLIC_AGENT_GUARD"
+      ]
+    },
+    "LOCAL_LLM_SYNTHESIS": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "PUBLIC_SCOPE_DE",
+        "PUBLIC_SCOPE_EN"
+      ]
+    },
+    "FI2_PROCUREMENT_CONTEXT": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "PUBLIC_FI2_ROUTE_ABSENT",
+        "LOCAL_FI2_PRESENT"
+      ]
+    },
+    "NETWORK_REFERENCE_CONTEXT": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "PUBLIC_NETWORK_ROUTE_ABSENT",
+        "LOCAL_NETWORK_PRESENT"
+      ]
+    },
+    "FI1_ENFORCEMENT_CORPUS": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "LOCAL_FI1_PRESENT"
+      ]
+    },
+    "CASE_HYPOTHESIS_COUNTEREVIDENCE_WORKFLOW": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "LOCAL_CASE_WORKFLOW_NOT_CLAIMED",
+        "PUBLIC_SCOPE_DE",
+        "PUBLIC_SCOPE_EN"
+      ]
+    },
+    "PROJECTS_FUNDING_CONTEXT": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "PUBLIC_SCOPE_DE",
+        "PUBLIC_SCOPE_EN"
+      ]
+    },
+    "INSOLVENCY_RESTRUCTURING_CONTEXT": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "PUBLIC_SCOPE_DE",
+        "PUBLIC_SCOPE_EN"
+      ]
+    },
+    "SANCTIONS_CONTEXT": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "PUBLIC_SCOPE_DE",
+        "PUBLIC_SCOPE_EN"
+      ]
+    },
+    "TRADE_CONTEXT": {
+      "public_static_supported": 0,
+      "test_ids": [
+        "PUBLIC_SCOPE_DE",
+        "PUBLIC_SCOPE_EN"
+      ]
+    }
+  },
+  "copy_contract_sha256": {
+    "presentation_i18n.js": "76677aa4e2c3aaa12fa56072ef6a0d91f54a7f1c3879dc5e619cf902b2fa4a9b",
+    "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
+    "versionen.html": "98001131b8923fa95d7344f3afdb9f615a3ee32259cd4f9cc3e75a41cf89d42b",
+    "index.html": "3741d2cdb98232adb5c151e087890ee743f1b2395d4d607f4d5dd5c424081a4d",
+    "methodik.html": "50e89c51d01ec5547b2471b7835f8a0d261ba2138ac49ac01f73937e04321405",
+    "unabhaengigkeit.html": "03ef54d274beb03111db1b5ff457eebe0ed75a62742d94f5de309e036928886b",
+    "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5"
+  },
+  "standing_repo_validator": {
+    "path": "tests/validate_capability_contract.py",
+    "sha256": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
+    "requirements": [
+      "IDENTITY_CAPABILITY_CODES_EQUAL_CONTRACT_CODES",
+      "EVERY_PUBLIC_STATIC_SUPPORTED_CAPABILITY_HAS_PASS_TEST",
+      "UNKNOWN_CAPABILITY_CODES_FAIL",
+      "BOUND_PUBLIC_BYTES_FAIL_ON_DRIFT",
+      "REVIEWED_PUBLIC_COPY_FAILS_ON_UNBOUND_FREE_TEXT_CHANGE",
+      "IDENTITY_BINDS_EXACT_EVIDENCE_BYTES"
+    ]
+  },
+  "independent_followup_audit": {
+    "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
+    "zip_sha256": "10bd0281e31fd904cdb9ae263f46d9adcfc03bf831c677519ac55ce3295479e2",
+    "md_sha256": "ba25e0e7c874ca3f2bcd7fa32556050333dcc8e71b495c07af140f017d61f3b8",
+    "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
+    "scope": "BOUNDED_F1_F8_REMEDIATION_DELTA_ONLY"
+  },
+  "postaudit_guard_hardening": {
+    "scope": "R1_R4_GUARD_HARDENING_ONLY",
+    "evidence_class": "WRITER_VALIDATED_POST_AUDIT_CHANGE",
+    "canonical_db_write": false,
+    "staging_db_write": false,
+    "public_data_refresh": false,
+    "r1": "TOP_LEVEL_AND_INVARIANT_STATUS_DERIVED_FROM_ALL_GOVERNANCE_INVARIANTS_AND_NEGATIVE_TESTABLE",
+    "r2": "FAIL_CLOSED_CANONICAL_RELATION_AND_STAGING_SCHEMA_ALLOWLISTS",
+    "r3": "STANDING_REPOSITORY_CAPABILITY_CONTRACT_VALIDATOR",
+    "r4": "PUBLIC_FOLLOWUP_STATUS_UPDATED_TO_INDEPENDENT_PASS"
+  }
 }
