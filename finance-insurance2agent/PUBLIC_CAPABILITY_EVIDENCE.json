@@ -1,0 +1,509 @@
+{
+  "schema": "FI2A_PUBLIC_CAPABILITY_EVIDENCE_V2",
+  "generated_for": "POSTAUDIT_R2_BOUNDED_REMEDIATION_20261006",
+  "evidence_scope": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_PLUS_LOCAL_FI_NETWORK_BOUNDARY",
+  "public_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
+  "bound_public_bytes": {
+    "app.js": "555ecf49a51122de7022d4c0342c403eb4b00ccda47cd664f36e4f31efed25bb",
+    "index.html": "3741d2cdb98232adb5c151e087890ee743f1b2395d4d607f4d5dd5c424081a4d",
+    "presentation_i18n.js": "76677aa4e2c3aaa12fa56072ef6a0d91f54a7f1c3879dc5e619cf902b2fa4a9b",
+    "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
+    "versionen.html": "c507e3b31d403ec502f92c5aa7d0483f83a654e7b6222476e547cc313e739365"
+  },
+  "bound_local_bytes": {
+    "financial_integrity_runtime.py": "a56c8933b48e3520e2203c24615c0ec0ac8ab37d99c008615d4132b3940d7681",
+    "server.py": "9df91bb56c00a015fbe374683633ba94815ca6d925841d5d40c77f92239b81a7",
+    "web/app.js": "598756ef3be8de920514a29fc54899d930f90f8047db74890ab6a7565f994a66"
+  },
+  "tests": [
+    {
+      "id": "PUBLIC_ASK_STRUCTURED",
+      "capability": "ASK_STRUCTURED",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function runAsk",
+            "function latest"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "id=\"askShow\"",
+            "id=\"askEntity\""
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_ASK_FREE_EVIDENCE",
+      "capability": "ASK_FREE_EVIDENCE",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function evidenceSearchLocal",
+            "async function runSearch"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "id=\"searchRun\"",
+            "id=\"searchQ\""
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_INSTITUTION_BROWSER",
+      "capability": "INSTITUTION_BROWSER",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function renderEntityBrowser"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "id=\"entityFilter\"",
+            "id=\"entityBrowser\""
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_COMPARE_PAIR",
+      "capability": "COMPARE_PAIR",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function compareLocal",
+            "async function runCompare"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "id=\"cmpRun\"",
+            "id=\"cmpA\"",
+            "id=\"cmpB\""
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_COMPARE_COHORT",
+      "capability": "COMPARE_COHORT",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function compareLocal",
+            "statistics_authorized"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "id=\"cmpCohortRun\"",
+            "id=\"cmpCohort\""
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_INVESTIGATE_DOSSIER",
+      "capability": "INVESTIGATE_DOSSIER",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function dossierHtml",
+            "function runInvestigate"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_INVESTIGATE_METRIC_EXPLORER",
+      "capability": "INVESTIGATE_METRIC_EXPLORER",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function metricHtml",
+            "$('#metricExplorer')"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_INVESTIGATE_TIME_SERIES",
+      "capability": "INVESTIGATE_TIME_SERIES",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function svgSeries",
+            "$('#timeSeries')"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_INVESTIGATE_COMPONENT_EXPLORER",
+      "capability": "INVESTIGATE_COMPONENT_EXPLORER",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function componentHtml",
+            "$('#componentExplorer')"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_INVESTIGATE_SOURCE_BROWSER",
+      "capability": "INVESTIGATE_SOURCE_BROWSER",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "$('#sourceBrowser')",
+            "source-grid"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_INVESTIGATE_OWNERSHIP_GRAPH",
+      "capability": "INVESTIGATE_OWNERSHIP_GRAPH",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function ownershipSvg",
+            "$('#ownership')"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_INVESTIGATE_ROBUST_STATS_FAIL_CLOSED",
+      "capability": "INVESTIGATE_ROBUST_STATS",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "statistics_authorized",
+            "ranking_authorized:false",
+            "status==='EXACTLY_COMPARABLE'"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_DISCOVER_CANDIDATES",
+      "capability": "DISCOVER_CANDIDATES",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "generated_discovery_candidates",
+            "function runDiscover"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_DISCOVER_THREADS",
+      "capability": "DISCOVER_THREADS",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "investigation_threads",
+            "function runDiscover"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_AUDIT_TRACE",
+      "capability": "AUDIT_TRACE",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "async function runAudit",
+            "time_series_decisions"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_AUDIT_EVIDENCE_GRAPH",
+      "capability": "AUDIT_EVIDENCE_GRAPH",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function evidenceGraphLocal",
+            "$('#evidenceGraph')"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_AUDIT_RERUN_STATIC",
+      "capability": "AUDIT_RERUN",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "if(state.runtime==='static')return runAudit()"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "id=\"auditRerun\""
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ],
+      "note": "Static edition recomputes locally; local edition may call the rerun route."
+    },
+    {
+      "id": "PUBLIC_AGENT_GUARD",
+      "capability": "AGENT_ORCHESTRATOR",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "if(state.runtime==='static')return;",
+            "/api/agent/query"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "class=\"result local-only\" id=\"agentPanel\""
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ],
+      "note": "Agent UI/code is shipped for parity but is hidden and execution-guarded in static runtime."
+    },
+    {
+      "id": "PUBLIC_SCOPE_DE",
+      "capability": "PUBLIC_SCOPE_BOUNDARY",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/presentation_i18n.js",
+          "must_contain": [
+            "Geltungsbereich dieser Seite.",
+            "auf dieser Seite sind sie nicht verfügbar."
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_SCOPE_EN",
+      "capability": "PUBLIC_SCOPE_BOUNDARY",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/presentation_i18n.js",
+          "must_contain": [
+            "Scope of this page.",
+            "they are not available on this page."
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_FI2_ROUTE_ABSENT",
+      "capability": "FI2_PROCUREMENT_CONTEXT",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [],
+          "must_not_contain": [
+            "/api/integrity/",
+            "HELD_MULTIPLE_BUYER_CLUSTERS"
+          ],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_NETWORK_ROUTE_ABSENT",
+      "capability": "NETWORK_REFERENCE_CONTEXT",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [],
+          "must_not_contain": [
+            "/api/network/"
+          ],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "LOCAL_FI2_PRESENT",
+      "capability": "FI2_PROCUREMENT_CONTEXT",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "local/server.py",
+          "must_contain": [
+            "/api/integrity/status",
+            "/api/integrity/invariants"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "local/web/app.js",
+          "must_contain": [
+            "__FI2A_POSTAUDIT_R2_BUILD__",
+            "HELD_MULTIPLE_BUYER_CLUSTERS"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "LOCAL_NETWORK_PRESENT",
+      "capability": "NETWORK_REFERENCE_CONTEXT",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "local/server.py",
+          "must_contain": [
+            "/api/network/status"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "LOCAL_FI1_PRESENT",
+      "capability": "FI1_ENFORCEMENT_CORPUS",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "local/financial_integrity_runtime.py",
+          "must_contain": [
+            "fi1b_case_corpus"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "LOCAL_CASE_WORKFLOW_NOT_CLAIMED",
+      "capability": "CASE_HYPOTHESIS_COUNTEREVIDENCE_WORKFLOW",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "local/web/app.js",
+          "must_contain": [
+            "full H1/H2/H3 hypothesis, counterevidence and case workflow remains gated",
+            "must not be read as implemented"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ],
+      "note": "Full hypothesis/counterevidence workflow remains gated."
+    }
+  ],
+  "claims_as_code_rule": "A capability flag is not evidence by itself. R2 validates the F1-affected/public-static boundary against exact build bytes and executable/source markers; independent follow-up remains required for the remediation gate.",
+  "public_data_refresh_performed": false,
+  "independent_followup_status": "PENDING"
+}

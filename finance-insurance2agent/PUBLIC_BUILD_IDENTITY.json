@@ -1,5 +1,5 @@
 {
-  "build": "FINAL_PUBLIC_RELEASE_V1_0_1_PRESENTATION_CORRECTION_20260927",
+  "build": "POSTAUDIT_R2_F1_SCOPE_REMEDIATION_PENDING_INDEPENDENT_FOLLOWUP_20261006",
   "bound_database_sha256": "89a75747ef2cfe149bcaa954867ceb05d4246f41e79ba72b17c409e773d75a10",
   "generated_at_utc": "2026-09-27T12:28:01Z",
   "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
@@ -146,6 +146,62 @@
       "public_static_supported": 0,
       "local_full_supported": 1,
       "status": "OPTIONAL_LOOPBACK_ONLY"
+    },
+    {
+      "code": "FI2_PROCUREMENT_CONTEXT",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 0,
+      "local_full_supported": 1,
+      "status": "LOCAL_ONLY_INDEPENDENT_MILESTONE_AUDIT_PASS"
+    },
+    {
+      "code": "NETWORK_REFERENCE_CONTEXT",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 0,
+      "local_full_supported": 1,
+      "status": "LOCAL_ONLY_PRESENT_NOT_YET_INDEPENDENTLY_CONTENT_AUDITED"
+    },
+    {
+      "code": "FI1_ENFORCEMENT_CORPUS",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 0,
+      "local_full_supported": 1,
+      "status": "LOCAL_ONLY_PRESENT_NOT_YET_INDEPENDENTLY_CONTENT_AUDITED"
+    },
+    {
+      "code": "CASE_HYPOTHESIS_COUNTEREVIDENCE_WORKFLOW",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 0,
+      "local_full_supported": 0,
+      "status": "PLANNED_GATED_NOT_IMPLEMENTED"
+    },
+    {
+      "code": "PROJECTS_FUNDING_CONTEXT",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 0,
+      "local_full_supported": 0,
+      "status": "PLANNED_GATED_NOT_IMPLEMENTED"
+    },
+    {
+      "code": "INSOLVENCY_RESTRUCTURING_CONTEXT",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 0,
+      "local_full_supported": 0,
+      "status": "PLANNED_GATED_NOT_IMPLEMENTED"
+    },
+    {
+      "code": "SANCTIONS_CONTEXT",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 0,
+      "local_full_supported": 0,
+      "status": "CLOSED_NOT_IMPLEMENTED"
+    },
+    {
+      "code": "TRADE_CONTEXT",
+      "mode": "INVESTIGATE",
+      "public_static_supported": 0,
+      "local_full_supported": 0,
+      "status": "PLANNED_GATED_NOT_IMPLEMENTED"
     }
   ],
   "release_preflight": "V1_0_PARENT_INDEPENDENT_AUDIT_PASS__V1_0_1_NARROW_PRESENTATION_PATCH_VALIDATED",
@@ -163,7 +219,7 @@
   "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
   "presentation_patch_parent_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
   "canonical_data_unchanged": true,
-  "independent_audit_scope_note": "The independent final audit binds the v1.0 parent release candidate. v1.0.1 changes only public presentation/rendering; canonical data and release gates are unchanged.",
+  "independent_audit_scope_note": "The 27 September 2026 independent final audit binds the legacy public core release candidate. The 6 October 2026 POSTAUDIT-R2 scope remediation changes presentation/capability metadata only, does not refresh public data, and awaits a narrow independent follow-up. FI/network local layers are not cleared for public release by the legacy PUBLIC_RELEASE gate.",
   "presentation_patch_scope": [
     "restore and update bilingual explanatory introduction",
     "hide empty result containers",
@@ -171,5 +227,16 @@
     "display unit=ratio observations as percentages",
     "show source table/datapoint locators",
     "explain AUTONOMOUS_LLM_HYPOTHESIS=CLOSED"
-  ]
+  ],
+  "current_public_snapshot_refresh": "NOT_PERFORMED_IN_POSTAUDIT_R2",
+  "fi_network_public_release_gate": "CLOSED_PENDING_SEPARATE_RELEASE_DECISION",
+  "postaudit_r2_scope_remediation": {
+    "status": "APPLIED_PENDING_NARROW_INDEPENDENT_FOLLOWUP",
+    "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
+    "public_data_refresh": false,
+    "canonical_data_unchanged": true,
+    "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
+    "capability_evidence_sha256": "fe27d1c261b0de645abdf26426d41c51e73a40780f727915728c66b13401750e",
+    "claims_as_code_binding": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_TEST_BOUND_PENDING_INDEPENDENT_FOLLOWUP"
+  }
 }
