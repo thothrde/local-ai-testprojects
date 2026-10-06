@@ -1,6 +1,6 @@
 {
-  "status": "PASS_V1_0_1_PRESENTATION_CORRECTION_STATIC_VALIDATION",
-  "bound_database_sha256": "89a75747ef2cfe149bcaa954867ceb05d4246f41e79ba72b17c409e773d75a10",
+  "status": "PASS_PUBLIC_DATA_REFRESH_R1_CANDIDATE_STATIC_VALIDATION",
+  "bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
   "public_release_gate": "OPEN",
   "raw_source_redistribution_gate": "CLOSED",
   "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
@@ -21,5 +21,30 @@
     "unit_ratio_rendered_as_percentage": true,
     "eba_datapoint_locator_visible": true,
     "autonomous_llm_gate_explained": true
+  },
+  "public_snapshot_sha256": "09ca0d67627f2e591da80912288dc289b18ec444c051670c9694ea377422d353",
+  "snapshot_generated_at_utc": "2026-10-06T10:36:48Z",
+  "fi_staging_data_unchanged": true,
+  "candidate_checkout_installed": true,
+  "deterministic_double_generation_byte_identical": true,
+  "old_public_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
+  "counts": {
+    "entities": 140,
+    "metrics": 117,
+    "observations": 7501,
+    "sources": 207,
+    "relations": 7,
+    "time_series_decisions": 119
+  },
+  "exactly_comparable_time_series_decisions": 0,
+  "refresh_scope": "CANONICAL_PUBLIC_CORE_ONLY__NO_FI_NETWORK_NO_IDENTITY_BOUNDARY_NO_FI3_NO_COMPARABILITY_AUTHORIZATION",
+  "current_static_validation": {
+    "runtime_external_resource_count": 0,
+    "operator_tracking": false,
+    "operator_cookies": false,
+    "raw_source_files": 0,
+    "static_snapshot_present": true,
+    "required_ui_ids": 11,
+    "files": 19
   }
 }

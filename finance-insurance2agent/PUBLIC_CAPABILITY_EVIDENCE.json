@@ -1,15 +1,18 @@
 {
   "schema": "FI2A_PUBLIC_CAPABILITY_EVIDENCE_V3",
-  "generated_for": "POSTAUDIT_R2_F1_F8_FOLLOWUP_PASS__R1_R4_GUARD_HARDENING_20261006",
+  "generated_for": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS",
   "evidence_scope": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_PLUS_LOCAL_FI_NETWORK_BOUNDARY",
-  "public_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
+  "public_snapshot_sha256": "09ca0d67627f2e591da80912288dc289b18ec444c051670c9694ea377422d353",
   "bound_public_bytes": {
     "app.js": "555ecf49a51122de7022d4c0342c403eb4b00ccda47cd664f36e4f31efed25bb",
-    "index.html": "3741d2cdb98232adb5c151e087890ee743f1b2395d4d607f4d5dd5c424081a4d",
+    "index.html": "2cbaa488a060a56f415566279fc5489024505b7b09a9ebed4d86ddcbb5b7c09e",
     "presentation_i18n.js": "76677aa4e2c3aaa12fa56072ef6a0d91f54a7f1c3879dc5e619cf902b2fa4a9b",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
-    "versionen.html": "98001131b8923fa95d7344f3afdb9f615a3ee32259cd4f9cc3e75a41cf89d42b",
-    "tests/validate_capability_contract.py": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a"
+    "versionen.html": "bb16321db9dc09bdd13296331fa8608a6a60d035e5c3fff431dedf0588d90c74",
+    "tests/validate_capability_contract.py": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
+    "tests/validate_public_data_release.py": "4913c1d474d5625bddfc07ab5b84c0e25f2238f4cbacf2e92d61b323a3e4f312",
+    "data/public_snapshot.js": "09ca0d67627f2e591da80912288dc289b18ec444c051670c9694ea377422d353",
+    "VALIDATION_REPORT.json": "6922ebe1b3d711b1668e7971af335b43914f1b552e551de3957e68f589205364"
   },
   "bound_local_bytes": {
     "financial_integrity_runtime.py": "736cf91a405b066c1f77038021f607013dc3e9859742a6560ebe464d2faf425e",
@@ -505,7 +508,7 @@
     }
   ],
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
-  "public_data_refresh_performed": false,
+  "public_data_refresh_performed": true,
   "independent_followup_status": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
   "capability_contract": {
     "ASK_STRUCTURED": {
@@ -683,8 +686,8 @@
   "copy_contract_sha256": {
     "presentation_i18n.js": "76677aa4e2c3aaa12fa56072ef6a0d91f54a7f1c3879dc5e619cf902b2fa4a9b",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
-    "versionen.html": "98001131b8923fa95d7344f3afdb9f615a3ee32259cd4f9cc3e75a41cf89d42b",
-    "index.html": "3741d2cdb98232adb5c151e087890ee743f1b2395d4d607f4d5dd5c424081a4d",
+    "versionen.html": "bb16321db9dc09bdd13296331fa8608a6a60d035e5c3fff431dedf0588d90c74",
+    "index.html": "2cbaa488a060a56f415566279fc5489024505b7b09a9ebed4d86ddcbb5b7c09e",
     "methodik.html": "50e89c51d01ec5547b2471b7835f8a0d261ba2138ac49ac01f73937e04321405",
     "unabhaengigkeit.html": "03ef54d274beb03111db1b5ff457eebe0ed75a62742d94f5de309e036928886b",
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5"
@@ -718,5 +721,36 @@
     "r2": "FAIL_CLOSED_CANONICAL_RELATION_AND_STAGING_SCHEMA_ALLOWLISTS",
     "r3": "STANDING_REPOSITORY_CAPABILITY_CONTRACT_VALIDATOR",
     "r4": "PUBLIC_FOLLOWUP_STATUS_UPDATED_TO_INDEPENDENT_PASS"
+  },
+  "public_data_refresh_20261006": {
+    "scope": "CANONICAL_PUBLIC_CORE_ONLY",
+    "bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
+    "old_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
+    "new_snapshot_sha256": "09ca0d67627f2e591da80912288dc289b18ec444c051670c9694ea377422d353",
+    "generated_at_utc": "2026-10-06T10:36:48Z",
+    "counts": {
+      "entities": 140,
+      "metrics": 117,
+      "observations": 7501,
+      "sources": 207,
+      "relations": 7,
+      "time_series_decisions": 119
+    },
+    "deterministic_double_generation_byte_identical": true,
+    "exactly_comparable_time_series_decisions": 0,
+    "fi_network_release_unchanged_closed": true
+  },
+  "standing_public_data_release_validator": {
+    "path": "tests/validate_public_data_release.py",
+    "sha256": "4913c1d474d5625bddfc07ab5b84c0e25f2238f4cbacf2e92d61b323a3e4f312",
+    "requirements": [
+      "SNAPSHOT_SHA_BOUND",
+      "SNAPSHOT_DB_HASH_EQUALS_IDENTITY_DB_HASH",
+      "SNAPSHOT_ARRAY_COUNTS_EQUAL_META_AND_RELEASE_COUNTS",
+      "NO_LOCAL_PATH_LEAKAGE",
+      "VALIDATION_REPORT_BINDS_SNAPSHOT",
+      "MANIFEST_BINDS_SNAPSHOT_AND_RELEASE_TEST",
+      "INDEX_CACHEBUSTER_PRESENT"
+    ]
   }
 }

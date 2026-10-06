@@ -1,7 +1,7 @@
 {
-  "build": "POSTAUDIT_R2_F1_F8_FOLLOWUP_PASS__R1_R4_GUARD_HARDENING_20261006",
-  "bound_database_sha256": "89a75747ef2cfe149bcaa954867ceb05d4246f41e79ba72b17c409e773d75a10",
-  "generated_at_utc": "2026-09-27T12:28:01Z",
+  "build": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS",
+  "bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
+  "generated_at_utc": "2026-10-06T10:36:48Z",
   "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
   "generative_ai_at_runtime": false,
   "external_runtime_resources": false,
@@ -228,7 +228,7 @@
     "show source table/datapoint locators",
     "explain AUTONOMOUS_LLM_HYPOTHESIS=CLOSED"
   ],
-  "current_public_snapshot_refresh": "NOT_PERFORMED_IN_POSTAUDIT_R2",
+  "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_EF65_20261006",
   "fi_network_public_release_gate": "CLOSED_PENDING_SEPARATE_RELEASE_DECISION",
   "postaudit_r2_scope_remediation": {
     "status": "INDEPENDENT_FOLLOWUP_PASS",
@@ -236,7 +236,7 @@
     "public_data_refresh": false,
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "d2bff69b0fc7e7c97dcbb72f62b226442eaf336b11abf89ef1193a5e2052cd99",
+    "capability_evidence_sha256": "d83fb15f9f93ab8176992691898a2cae100e827e5848cccb7180c70bf2c8c386",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE"
   },
   "independent_followup_audit": {
@@ -256,5 +256,28 @@
     "standing_capability_validator": "tests/validate_capability_contract.py",
     "standing_capability_validator_sha256": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
     "note": "This hardening addresses residual guard findings R1-R4 after the independent PASS; it is not itself claimed as part of that preceding audit."
+  },
+  "public_data_refresh_20261006": {
+    "status": "DETERMINISTIC_REGENERATION_COMPLETED",
+    "scope": "CANONICAL_PUBLIC_CORE_ONLY",
+    "source_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
+    "old_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
+    "snapshot_sha256": "09ca0d67627f2e591da80912288dc289b18ec444c051670c9694ea377422d353",
+    "generated_at_utc": "2026-10-06T10:36:48Z",
+    "counts": {
+      "entities": 140,
+      "metrics": 117,
+      "observations": 7501,
+      "sources": 207,
+      "relations": 7,
+      "time_series_decisions": 119
+    },
+    "deterministic_double_generation_byte_identical": true,
+    "canonical_db_write": false,
+    "fi_staging_db_write": false,
+    "fi_network_public_release_gate": "UNCHANGED_CLOSED",
+    "identity_boundary_change": false,
+    "fi3": false,
+    "comparability_arithmetic_authorization_change": false
   }
 }
