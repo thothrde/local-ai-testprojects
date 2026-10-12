@@ -1,210 +1,219 @@
 {
-  "build": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS",
+  "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
   "bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
-  "generated_at_utc": "2026-10-06T10:36:48Z",
-  "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
-  "generative_ai_at_runtime": false,
+  "build": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS",
+  "canonical_data_unchanged": true,
+  "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_EF65_20261006",
   "external_runtime_resources": false,
-  "operator_tracking": false,
-  "operator_cookies": false,
-  "public_release_gate": "OPEN",
-  "raw_source_redistribution_gate": "CLOSED",
-  "languages": [
-    "de",
-    "en"
-  ],
+  "fi_network_public_release_gate": "CLOSED_PENDING_SEPARATE_RELEASE_DECISION",
+  "generated_at_utc": "2026-10-06T10:36:48Z",
+  "generative_ai_at_runtime": false,
   "implemented_capabilities": [
     {
       "code": "ASK_STRUCTURED",
+      "local_full_supported": 1,
       "mode": "ASK",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "ASK_FREE_EVIDENCE",
+      "local_full_supported": 1,
       "mode": "ASK",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED_DETERMINISTIC_LEXICAL"
     },
     {
       "code": "INSTITUTION_BROWSER",
+      "local_full_supported": 1,
       "mode": "ASK",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "COMPARE_PAIR",
+      "local_full_supported": 1,
       "mode": "COMPARE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED_FAIL_CLOSED"
     },
     {
       "code": "COMPARE_COHORT",
+      "local_full_supported": 1,
       "mode": "COMPARE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED_FAIL_CLOSED"
     },
     {
       "code": "INVESTIGATE_DOSSIER",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "INVESTIGATE_METRIC_EXPLORER",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "INVESTIGATE_TIME_SERIES",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED_SEMANTIC_TRANSITIONS"
     },
     {
       "code": "INVESTIGATE_COMPONENT_EXPLORER",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "INVESTIGATE_SOURCE_BROWSER",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "INVESTIGATE_OWNERSHIP_GRAPH",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED_DEPENDENCY_AWARE"
     },
     {
       "code": "INVESTIGATE_ROBUST_STATS",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED_FAIL_CLOSED"
     },
     {
       "code": "DISCOVER_CANDIDATES",
+      "local_full_supported": 1,
       "mode": "DISCOVER",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED_EXPLORATORY_ONLY"
     },
     {
       "code": "DISCOVER_THREADS",
+      "local_full_supported": 1,
       "mode": "DISCOVER",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "AUDIT_TRACE",
+      "local_full_supported": 1,
       "mode": "AUDIT",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "AUDIT_EVIDENCE_GRAPH",
+      "local_full_supported": 1,
       "mode": "AUDIT",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED"
     },
     {
       "code": "AUDIT_RERUN",
+      "local_full_supported": 1,
       "mode": "AUDIT",
       "public_static_supported": 1,
-      "local_full_supported": 1,
       "status": "STATIC_RECOMPUTE_LOCAL_SERVER_RERUN"
     },
     {
       "code": "AGENT_ORCHESTRATOR",
+      "local_full_supported": 1,
       "mode": "AGENT",
       "public_static_supported": 0,
-      "local_full_supported": 1,
       "status": "IMPLEMENTED_TYPED_DETERMINISTIC"
     },
     {
       "code": "LOCAL_LLM_SYNTHESIS",
+      "local_full_supported": 1,
       "mode": "AGENT",
       "public_static_supported": 0,
-      "local_full_supported": 1,
       "status": "OPTIONAL_LOOPBACK_ONLY"
     },
     {
       "code": "FI2_PROCUREMENT_CONTEXT",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
-      "local_full_supported": 1,
       "status": "LOCAL_ONLY_INDEPENDENT_MILESTONE_AUDIT_PASS"
     },
     {
       "code": "NETWORK_REFERENCE_CONTEXT",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
-      "local_full_supported": 1,
       "status": "LOCAL_ONLY_PRESENT_NOT_YET_INDEPENDENTLY_CONTENT_AUDITED"
     },
     {
       "code": "FI1_ENFORCEMENT_CORPUS",
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
-      "local_full_supported": 1,
       "status": "LOCAL_ONLY_PRESENT_NOT_YET_INDEPENDENTLY_CONTENT_AUDITED"
     },
     {
       "code": "CASE_HYPOTHESIS_COUNTEREVIDENCE_WORKFLOW",
+      "local_full_supported": 0,
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
-      "local_full_supported": 0,
       "status": "PLANNED_GATED_NOT_IMPLEMENTED"
     },
     {
       "code": "PROJECTS_FUNDING_CONTEXT",
+      "local_full_supported": 0,
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
-      "local_full_supported": 0,
       "status": "PLANNED_GATED_NOT_IMPLEMENTED"
     },
     {
       "code": "INSOLVENCY_RESTRUCTURING_CONTEXT",
+      "local_full_supported": 0,
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
-      "local_full_supported": 0,
       "status": "PLANNED_GATED_NOT_IMPLEMENTED"
     },
     {
       "code": "SANCTIONS_CONTEXT",
+      "local_full_supported": 0,
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
-      "local_full_supported": 0,
       "status": "CLOSED_NOT_IMPLEMENTED"
     },
     {
       "code": "TRADE_CONTEXT",
+      "local_full_supported": 0,
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
-      "local_full_supported": 0,
       "status": "PLANNED_GATED_NOT_IMPLEMENTED"
     }
   ],
-  "release_preflight": "V1_0_PARENT_INDEPENDENT_AUDIT_PASS__V1_0_1_NARROW_PRESENTATION_PATCH_VALIDATED",
+  "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
+  "independent_audit_md_sha256": "c621f49ea038e409774714009d8db05e2ebb97d741ccec116ef8d5524e9bdba2",
+  "independent_audit_scope_note": "The 6 October 2026 narrow independent follow-up passed for the bounded F1-F8 remediation. That PASS does not cover a public data refresh, Network/FI0/FI1B content, insurer-LEI enrichment, FI3, comparability/arithmetic authorization, or later phase ordering. The subsequent R1-R4 guard hardening is a post-audit technical change and is not represented as part of that independent PASS.",
+  "independent_followup_audit": {
+    "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
+    "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
+    "md_sha256": "ba25e0e7c874ca3f2bcd7fa32556050333dcc8e71b495c07af140f017d61f3b8",
+    "scope": "BOUNDED_F1_F8_REMEDIATION_DELTA_ONLY",
+    "timestamp_utc": "2026-10-06T07:06:42Z",
+    "zip_sha256": "10bd0281e31fd904cdb9ae263f46d9adcfc03bf831c677519ac55ce3295479e2"
+  },
+  "languages": [
+    "de",
+    "en"
+  ],
   "legal_accountability_pages": [
     "impressum.html",
     "datenschutz.html",
@@ -214,12 +223,46 @@
     "methodik.html",
     "ai-transparenz.html"
   ],
-  "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
-  "independent_audit_md_sha256": "c621f49ea038e409774714009d8db05e2ebb97d741ccec116ef8d5524e9bdba2",
-  "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
+  "lei_hygiene_20261012": {
+    "accepted_active_leis_added": 6,
+    "base_bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
+    "base_public_snapshot_sha256": "09ca0d67627f2e591da80912288dc289b18ec444c051670c9694ea377422d353",
+    "entity_lei_changes": 9,
+    "epistemic_note": "Oct-6 public canonical core plus a bounded lineage-backed LEI identity overlay; EBA source_datapoint selectors remain source provenance.",
+    "metrics_changed": 0,
+    "observations_changed": 0,
+    "post_lei_canonical_sha256": "51a1b5a7bd94b8035bf3037e807de2a232ebf73fde3257c85f1d09286d139aa8",
+    "quarantined_invalid_active_leis_removed": 3,
+    "raw_full_snapshot_of_post_lei_canonical": false,
+    "relations_changed": 0,
+    "release_id": "LEI_HYGIENE_20261012_POSTLEI_51A1",
+    "release_kind": "DERIVED_PUBLIC_SNAPSHOT_IDENTITY_OVERLAY",
+    "result_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+    "source_datapoint_provenance": "UNCHANGED",
+    "sources_changed": 0
+  },
+  "operator_cookies": false,
+  "operator_tracking": false,
+  "postaudit_guard_hardening": {
+    "canonical_data_unchanged": true,
+    "fi_staging_data_unchanged": true,
+    "note": "This hardening addresses residual guard findings R1-R4 after the independent PASS; it is not itself claimed as part of that preceding audit.",
+    "public_data_refresh": false,
+    "scope": "R1_R4_GUARD_HARDENING_ONLY",
+    "standing_capability_validator": "tests/validate_capability_contract.py",
+    "standing_capability_validator_sha256": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
+    "status": "WRITER_VALIDATED_POST_AUDIT_CHANGE"
+  },
+  "postaudit_r2_scope_remediation": {
+    "canonical_data_unchanged": true,
+    "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
+    "capability_evidence_sha256": "17009d881f0967718c4a15eec8ed9157b014828f0919de80d99e191fd86a947d",
+    "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
+    "public_data_refresh": false,
+    "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
+    "status": "INDEPENDENT_FOLLOWUP_PASS"
+  },
   "presentation_patch_parent_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
-  "canonical_data_unchanged": true,
-  "independent_audit_scope_note": "The 6 October 2026 narrow independent follow-up passed for the bounded F1-F8 remediation. That PASS does not cover a public data refresh, Network/FI0/FI1B content, insurer-LEI enrichment, FI3, comparability/arithmetic authorization, or later phase ordering. The subsequent R1-R4 guard hardening is a post-audit technical change and is not represented as part of that independent PASS.",
   "presentation_patch_scope": [
     "restore and update bilingual explanatory introduction",
     "hide empty result containers",
@@ -228,56 +271,31 @@
     "show source table/datapoint locators",
     "explain AUTONOMOUS_LLM_HYPOTHESIS=CLOSED"
   ],
-  "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_EF65_20261006",
-  "fi_network_public_release_gate": "CLOSED_PENDING_SEPARATE_RELEASE_DECISION",
-  "postaudit_r2_scope_remediation": {
-    "status": "INDEPENDENT_FOLLOWUP_PASS",
-    "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
-    "public_data_refresh": false,
-    "canonical_data_unchanged": true,
-    "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "d83fb15f9f93ab8176992691898a2cae100e827e5848cccb7180c70bf2c8c386",
-    "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE"
-  },
-  "independent_followup_audit": {
-    "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
-    "timestamp_utc": "2026-10-06T07:06:42Z",
-    "zip_sha256": "10bd0281e31fd904cdb9ae263f46d9adcfc03bf831c677519ac55ce3295479e2",
-    "md_sha256": "ba25e0e7c874ca3f2bcd7fa32556050333dcc8e71b495c07af140f017d61f3b8",
-    "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
-    "scope": "BOUNDED_F1_F8_REMEDIATION_DELTA_ONLY"
-  },
-  "postaudit_guard_hardening": {
-    "status": "WRITER_VALIDATED_POST_AUDIT_CHANGE",
-    "scope": "R1_R4_GUARD_HARDENING_ONLY",
-    "public_data_refresh": false,
-    "canonical_data_unchanged": true,
-    "fi_staging_data_unchanged": true,
-    "standing_capability_validator": "tests/validate_capability_contract.py",
-    "standing_capability_validator_sha256": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
-    "note": "This hardening addresses residual guard findings R1-R4 after the independent PASS; it is not itself claimed as part of that preceding audit."
-  },
   "public_data_refresh_20261006": {
-    "status": "DETERMINISTIC_REGENERATION_COMPLETED",
-    "scope": "CANONICAL_PUBLIC_CORE_ONLY",
-    "source_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
-    "old_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
-    "snapshot_sha256": "09ca0d67627f2e591da80912288dc289b18ec444c051670c9694ea377422d353",
-    "generated_at_utc": "2026-10-06T10:36:48Z",
+    "canonical_db_write": false,
+    "comparability_arithmetic_authorization_change": false,
     "counts": {
       "entities": 140,
       "metrics": 117,
       "observations": 7501,
-      "sources": 207,
       "relations": 7,
+      "sources": 207,
       "time_series_decisions": 119
     },
     "deterministic_double_generation_byte_identical": true,
-    "canonical_db_write": false,
-    "fi_staging_db_write": false,
-    "fi_network_public_release_gate": "UNCHANGED_CLOSED",
-    "identity_boundary_change": false,
     "fi3": false,
-    "comparability_arithmetic_authorization_change": false
-  }
+    "fi_network_public_release_gate": "UNCHANGED_CLOSED",
+    "fi_staging_db_write": false,
+    "generated_at_utc": "2026-10-06T10:36:48Z",
+    "identity_boundary_change": false,
+    "old_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
+    "scope": "CANONICAL_PUBLIC_CORE_ONLY",
+    "snapshot_sha256": "09ca0d67627f2e591da80912288dc289b18ec444c051670c9694ea377422d353",
+    "source_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
+    "status": "DETERMINISTIC_REGENERATION_COMPLETED"
+  },
+  "public_release_gate": "OPEN",
+  "raw_source_redistribution_gate": "CLOSED",
+  "release_preflight": "V1_0_PARENT_INDEPENDENT_AUDIT_PASS__V1_0_1_NARROW_PRESENTATION_PATCH_VALIDATED",
+  "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC"
 }
