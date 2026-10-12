@@ -32,6 +32,17 @@ def main():
     if expected_evidence_hash!=actual_evidence_hash:
         fail(f'identity/evidence hash mismatch: {expected_evidence_hash} != {actual_evidence_hash}')
 
+    # FI3 validator pins are current integrity bindings, not historical annotations.
+    # Both current FI3 capability blocks must follow the exact standing FI3 validator bytes.
+    actual_fi3_validator_hash=sha256(ROOT/'tests/validate_fi3_public_projection.py')
+    for block_name in ('fi3_public_r15','fi3_hold_amount_public_hardening'):
+        block=evidence.get(block_name)
+        if not isinstance(block,dict):
+            fail(f'missing current FI3 capability block: {block_name}')
+        pinned=block.get('standing_validator_sha256')
+        if pinned!=actual_fi3_validator_hash:
+            fail(f'stale FI3 validator pin in {block_name}: {pinned} != {actual_fi3_validator_hash}')
+
     caps=identity.get('implemented_capabilities',[])
     by_code={c.get('code'):c for c in caps}
     if None in by_code or len(by_code)!=len(caps):

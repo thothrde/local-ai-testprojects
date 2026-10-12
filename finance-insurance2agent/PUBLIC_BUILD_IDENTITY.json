@@ -7,7 +7,7 @@
   "external_runtime_resources": false,
   "fi3_hold_amount_public_hardening": {
     "base_public_head": "10e12517ba95225e3b0a28810e20e8c06cce5ed0",
-    "capability_evidence_sha256": "67abddea092de5222aa1cc97086b5424f13daad6f641100c34ac659213030ed9",
+    "capability_evidence_sha256": "2833febcce7af43e16353108cdf53376687e3bff035bc2e0b34fba331ebb9d1a",
     "hold_role_count": 81,
     "policy": "PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT",
     "policy_state": "PUBLIC_HOLD_AMOUNT_POLICY_V1",
@@ -20,7 +20,7 @@
   "fi3_public_r15": {
     "base_public_head": "4305ed8c10816333ee8b524fa0dd5c62714f4919",
     "base_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
-    "capability_evidence_sha256": "67abddea092de5222aa1cc97086b5424f13daad6f641100c34ac659213030ed9",
+    "capability_evidence_sha256": "2833febcce7af43e16353108cdf53376687e3bff035bc2e0b34fba331ebb9d1a",
     "confirmed": 0,
     "epistemic_class": "CANDIDATE_EVIDENCE_ONLY",
     "fi3_public_build_identity_sha256": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
@@ -274,6 +274,22 @@
   },
   "operator_cookies": false,
   "operator_tracking": false,
+  "post_fi3_hold_ux_guard_hardening": {
+    "base_public_head": "c016696f20a0b30a872042030cbbac7033a5a3af",
+    "canonical_data_unchanged": true,
+    "capability_evidence_sha256": "2833febcce7af43e16353108cdf53376687e3bff035bc2e0b34fba331ebb9d1a",
+    "fi3_projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
+    "grouped_hold_role_count": 81,
+    "grouped_institution_count": 20,
+    "public_snapshot_unchanged": true,
+    "render_only_grouping": true,
+    "review_role_rows_unchanged": 48,
+    "robots_unchanged": true,
+    "stale_fi3_validator_pin_guard": true,
+    "standing_capability_validator_sha256": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
+    "whole_site_regeneration": false,
+    "wording": "LOCAL_RESEARCH_ENVIRONMENT"
+  },
   "postaudit_guard_hardening": {
     "canonical_data_unchanged": true,
     "fi_staging_data_unchanged": true,
@@ -281,13 +297,13 @@
     "public_data_refresh": false,
     "scope": "R1_R4_GUARD_HARDENING_ONLY",
     "standing_capability_validator": "tests/validate_capability_contract.py",
-    "standing_capability_validator_sha256": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
+    "standing_capability_validator_sha256": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
     "status": "WRITER_VALIDATED_POST_AUDIT_CHANGE"
   },
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "67abddea092de5222aa1cc97086b5424f13daad6f641100c34ac659213030ed9",
+    "capability_evidence_sha256": "2833febcce7af43e16353108cdf53376687e3bff035bc2e0b34fba331ebb9d1a",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",

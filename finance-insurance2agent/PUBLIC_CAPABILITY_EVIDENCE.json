@@ -8,17 +8,17 @@
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
     "VALIDATION_REPORT.json": "2558541ecb34f32fcaa2a07f2f47ddc64e6fae7463f81f2f052bcc0de182a82a",
-    "app.js": "e5ecd2233a2f352555a2d896ab033031a97ceed1ecd03f9ba92c3ebe43341e5b",
+    "app.js": "0b7fe497afba5afbac66a63fe8658d8cba7cd966ec2d4a87a07b3f362dd29364",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_snapshot.js": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
-    "index.html": "f9c850f3e0d480d8778ad90f771c761319dfb11fc7b5d67859f24085d51e3415",
+    "index.html": "7e91b205741fa77a0923206031d6f8e0603477a88da7af65ef559f824c2086dd",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
-    "tests/validate_capability_contract.py": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
+    "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
     "tests/validate_fi3_public_projection.py": "e2bf7438df82ab891066c8a3d04dd332334ddd064d26fd220a8821fd600d0e31",
     "tests/validate_public_data_release.py": "3a0ee5d3ed586aca33a198a5c73e68b97c1417b84bffab30bf268ada9f23bf36",
-    "versionen.html": "65290f1855ad15464632de3c27b314676820c73be06221b5c5ff40cb3db3461f"
+    "versionen.html": "4c26b8cbdacae3455d9f3f0ac7e0dcc701214df8c83b3260cdd1efbec3f9040c"
   },
   "capability_contract": {
     "AGENT_ORCHESTRATOR": {
@@ -197,12 +197,12 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "f9c850f3e0d480d8778ad90f771c761319dfb11fc7b5d67859f24085d51e3415",
+    "index.html": "7e91b205741fa77a0923206031d6f8e0603477a88da7af65ef559f824c2086dd",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
     "methodik.html": "50e89c51d01ec5547b2471b7835f8a0d261ba2138ac49ac01f73937e04321405",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "unabhaengigkeit.html": "03ef54d274beb03111db1b5ff457eebe0ed75a62742d94f5de309e036928886b",
-    "versionen.html": "65290f1855ad15464632de3c27b314676820c73be06221b5c5ff40cb3db3461f"
+    "versionen.html": "4c26b8cbdacae3455d9f3f0ac7e0dcc701214df8c83b3260cdd1efbec3f9040c"
   },
   "evidence_scope": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_PLUS_LOCAL_FI_NETWORK_BOUNDARY",
   "fi3_hold_amount_public_hardening": {
@@ -254,6 +254,19 @@
     "result_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
     "source_datapoint_provenance": "UNCHANGED",
     "sources_changed": 0
+  },
+  "post_fi3_hold_ux_guard_hardening": {
+    "base_public_head": "c016696f20a0b30a872042030cbbac7033a5a3af",
+    "clarified_local_research_environment_wording": true,
+    "fi3_validator_sha256": "e2bf7438df82ab891066c8a3d04dd332334ddd064d26fd220a8821fd600d0e31",
+    "grouped_hold_role_count": 81,
+    "grouped_institution_count": 20,
+    "projection_unchanged": true,
+    "public_snapshot_unchanged": true,
+    "render_only_grouping": true,
+    "robots_unchanged": true,
+    "stale_fi3_validator_pin_guard": true,
+    "standing_capability_validator_sha256": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93"
   },
   "postaudit_guard_hardening": {
     "canonical_db_write": false,
@@ -308,9 +321,10 @@
       "UNKNOWN_CAPABILITY_CODES_FAIL",
       "BOUND_PUBLIC_BYTES_FAIL_ON_DRIFT",
       "REVIEWED_PUBLIC_COPY_FAILS_ON_UNBOUND_FREE_TEXT_CHANGE",
-      "IDENTITY_BINDS_EXACT_EVIDENCE_BYTES"
+      "IDENTITY_BINDS_EXACT_EVIDENCE_BYTES",
+      "CURRENT_FI3_STANDING_VALIDATOR_PINS_EQUAL_EXACT_VALIDATOR_BYTES"
     ],
-    "sha256": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a"
+    "sha256": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93"
   },
   "tests": [
     {
