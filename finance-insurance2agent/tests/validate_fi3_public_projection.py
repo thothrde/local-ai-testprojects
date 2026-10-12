@@ -2,8 +2,8 @@
 from pathlib import Path
 import hashlib,json
 ROOT=Path(__file__).resolve().parents[1]
-EXPECTED_PROJECTION="79e0a5d13eceb187408b097f51f548107f2036c3b3946cd735b600c88c53084e"
-EXPECTED_IDENTITY="b5bfa2a4a896063ec6debf1437f8770ad089171eab3f1fff3ea8198c1cd32d06"
+EXPECTED_PROJECTION="fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b"
+EXPECTED_IDENTITY="2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7"
 EXPECTED_SNAPSHOT="ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53"
 EXPECTED_ROBOTS="fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d"
 REVIEW="CANDIDATE_REVIEW_REQUIRED"
@@ -46,6 +46,17 @@ def main():
     assert p["reject_summary"]["role_count"]==46
     assert p["reject_summary"]["reason_classes"]==REJECT_REASONS
     ids=p["identity_candidates"]; roles=p["role_assertions"]
+    hold_roles=[r for r in roles if r.get("decision_status")==HOLD]
+    review_roles=[r for r in roles if r.get("decision_status")==REVIEW]
+    assert len(hold_roles)==81 and len(review_roles)==48
+    assert all(r.get("amount_text") is None for r in hold_roles)
+    assert all(r.get("currency") is None for r in hold_roles)
+    assert all(r.get("amount_publication")=="WITHHELD_IDENTITY_HOLD_PUBLIC" for r in hold_roles)
+    assert all("amount_publication" not in r for r in review_roles)
+    assert p["meta"].get("hold_amount_public_policy")=="PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT"
+    assert p["meta"].get("hold_amount_withheld_role_count")==81
+    assert p["meta"].get("hold_amount_exact_values_public")=="NO"
+    assert p["meta"].get("hold_amount_exact_values_local_audit")=="YES"
     assert len(ids)==42 and len(roles)==129 and len(p["seed_entities"])==32
     assert all(x["decision_status"] in {REVIEW,HOLD} for x in ids+roles)
     assert not any(x["decision_status"] in {REJECT,CONFIRMED} for x in ids+roles)
@@ -55,6 +66,8 @@ def main():
     raw=json.dumps(p,ensure_ascii=False)
     app=(ROOT/"app.js").read_text("utf-8")
     assert "/api/fi3" not in app
+    assert "fi3AmountWithheld" in app
+    assert "WITHHELD_IDENTITY_HOLD_PUBLIC" in app
     assert "function fi3ContextHtml" in app and "$('#fi3Context')" in app
     assert "fi3_public_projection.js" in (ROOT/"index.html").read_text("utf-8")
     compare_seg=app.split("async function runCompare",1)[1].split("function svgSeries",1)[0]

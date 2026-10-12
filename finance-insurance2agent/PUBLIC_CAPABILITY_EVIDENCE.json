@@ -5,20 +5,20 @@
     "web/app.js": "598756ef3be8de920514a29fc54899d930f90f8047db74890ab6a7565f994a66"
   },
   "bound_public_bytes": {
-    "FI3_PUBLIC_BUILD_IDENTITY.json": "b5bfa2a4a896063ec6debf1437f8770ad089171eab3f1fff3ea8198c1cd32d06",
-    "FI3_VALIDATION_REPORT.json": "1834db5076847e075f89b82445452e78f771cf2a11a44947b88f47c4def0808c",
+    "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
+    "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
     "VALIDATION_REPORT.json": "2558541ecb34f32fcaa2a07f2f47ddc64e6fae7463f81f2f052bcc0de182a82a",
-    "app.js": "e79d11364264270cdbeba562736eddcb9ea057cb6552fc1e49897b6e335eb2d4",
-    "data/fi3_public_projection.js": "79e0a5d13eceb187408b097f51f548107f2036c3b3946cd735b600c88c53084e",
+    "app.js": "e5ecd2233a2f352555a2d896ab033031a97ceed1ecd03f9ba92c3ebe43341e5b",
+    "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_snapshot.js": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
-    "index.html": "36c5254d250c1bf05bd58116e4acfc249dfd9fd328006a2d7d24a8504c71db01",
+    "index.html": "f9c850f3e0d480d8778ad90f771c761319dfb11fc7b5d67859f24085d51e3415",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
     "tests/validate_capability_contract.py": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
-    "tests/validate_fi3_public_projection.py": "20c67e44e28901f3ecf7be312ee7791d22b474bffffd41bec0783309576ea573",
+    "tests/validate_fi3_public_projection.py": "e2bf7438df82ab891066c8a3d04dd332334ddd064d26fd220a8821fd600d0e31",
     "tests/validate_public_data_release.py": "3a0ee5d3ed586aca33a198a5c73e68b97c1417b84bffab30bf268ada9f23bf36",
-    "versionen.html": "29b363baa8f1a88c5e18e6ee1d5b23bb4a7fbe68a2b60442b3cdd5e0efa06df2"
+    "versionen.html": "65290f1855ad15464632de3c27b314676820c73be06221b5c5ff40cb3db3461f"
   },
   "capability_contract": {
     "AGENT_ORCHESTRATOR": {
@@ -197,26 +197,36 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "36c5254d250c1bf05bd58116e4acfc249dfd9fd328006a2d7d24a8504c71db01",
+    "index.html": "f9c850f3e0d480d8778ad90f771c761319dfb11fc7b5d67859f24085d51e3415",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
     "methodik.html": "50e89c51d01ec5547b2471b7835f8a0d261ba2138ac49ac01f73937e04321405",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "unabhaengigkeit.html": "03ef54d274beb03111db1b5ff457eebe0ed75a62742d94f5de309e036928886b",
-    "versionen.html": "29b363baa8f1a88c5e18e6ee1d5b23bb4a7fbe68a2b60442b3cdd5e0efa06df2"
+    "versionen.html": "65290f1855ad15464632de3c27b314676820c73be06221b5c5ff40cb3db3461f"
   },
   "evidence_scope": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_PLUS_LOCAL_FI_NETWORK_BOUNDARY",
+  "fi3_hold_amount_public_hardening": {
+    "base_public_head": "10e12517ba95225e3b0a28810e20e8c06cce5ed0",
+    "exact_hold_amounts_public": false,
+    "governance_preflight_zip_sha256": "5f4505f381152cca8d9a777c53367d6667620994e379e1c4c716fa1a8855f204",
+    "hold_role_count": 81,
+    "policy": "PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT",
+    "policy_state": "PUBLIC_HOLD_AMOUNT_POLICY_V1",
+    "policy_version": "FI3_HOLD_AMOUNT_GOVERNANCE_V1_20261012",
+    "standing_validator_sha256": "e2bf7438df82ab891066c8a3d04dd332334ddd064d26fd220a8821fd600d0e31"
+  },
   "fi3_public_r15": {
     "confirmed": 0,
     "epistemic_class": "CANDIDATE_EVIDENCE_ONLY",
-    "fi3_public_build_identity_sha256": "b5bfa2a4a896063ec6debf1437f8770ad089171eab3f1fff3ea8198c1cd32d06",
-    "fi3_validation_report_sha256": "1834db5076847e075f89b82445452e78f771cf2a11a44947b88f47c4def0808c",
+    "fi3_public_build_identity_sha256": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
+    "fi3_validation_report_sha256": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
     "funding_edges": 0,
     "integrity_signals": 0,
     "natural_person_layer": "OFF",
-    "projection_sha256": "79e0a5d13eceb187408b097f51f548107f2036c3b3946cd735b600c88c53084e",
+    "projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "public_snapshot_unchanged": true,
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
-    "standing_validator_sha256": "20c67e44e28901f3ecf7be312ee7791d22b474bffffd41bec0783309576ea573"
+    "standing_validator_sha256": "e2bf7438df82ab891066c8a3d04dd332334ddd064d26fd220a8821fd600d0e31"
   },
   "generated_for": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS",
   "independent_followup_audit": {
