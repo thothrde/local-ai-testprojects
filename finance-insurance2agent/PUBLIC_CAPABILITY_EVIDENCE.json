@@ -5,15 +5,20 @@
     "web/app.js": "598756ef3be8de920514a29fc54899d930f90f8047db74890ab6a7565f994a66"
   },
   "bound_public_bytes": {
+    "FI3_PUBLIC_BUILD_IDENTITY.json": "b5bfa2a4a896063ec6debf1437f8770ad089171eab3f1fff3ea8198c1cd32d06",
+    "FI3_VALIDATION_REPORT.json": "1834db5076847e075f89b82445452e78f771cf2a11a44947b88f47c4def0808c",
     "VALIDATION_REPORT.json": "2558541ecb34f32fcaa2a07f2f47ddc64e6fae7463f81f2f052bcc0de182a82a",
-    "app.js": "555ecf49a51122de7022d4c0342c403eb4b00ccda47cd664f36e4f31efed25bb",
+    "app.js": "e79d11364264270cdbeba562736eddcb9ea057cb6552fc1e49897b6e335eb2d4",
+    "data/fi3_public_projection.js": "79e0a5d13eceb187408b097f51f548107f2036c3b3946cd735b600c88c53084e",
     "data/public_snapshot.js": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
-    "index.html": "8a50aadd173c07ad8b99d2a71fc13d3f15a5033f90068c2996e6247aaa824d8d",
+    "index.html": "36c5254d250c1bf05bd58116e4acfc249dfd9fd328006a2d7d24a8504c71db01",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
-    "presentation_i18n.js": "76677aa4e2c3aaa12fa56072ef6a0d91f54a7f1c3879dc5e619cf902b2fa4a9b",
+    "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
+    "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
     "tests/validate_capability_contract.py": "479469e535c286345c56262d09acd2876df261ba68e56a3340725ede9fc90b5a",
+    "tests/validate_fi3_public_projection.py": "20c67e44e28901f3ecf7be312ee7791d22b474bffffd41bec0783309576ea573",
     "tests/validate_public_data_release.py": "3a0ee5d3ed586aca33a198a5c73e68b97c1417b84bffab30bf268ada9f23bf36",
-    "versionen.html": "5a5b646ce7ea7224aec3cd6a80e4f8ed31a65fe5ccaed00b5a1ad76e7721710b"
+    "versionen.html": "29b363baa8f1a88c5e18e6ee1d5b23bb4a7fbe68a2b60442b3cdd5e0efa06df2"
   },
   "capability_contract": {
     "AGENT_ORCHESTRATOR": {
@@ -167,8 +172,9 @@
       ]
     },
     "PROJECTS_FUNDING_CONTEXT": {
-      "public_static_supported": 0,
+      "public_static_supported": 1,
       "test_ids": [
+        "PUBLIC_FI3_BOUNDED_CANDIDATE_LAYER",
         "PUBLIC_SCOPE_DE",
         "PUBLIC_SCOPE_EN"
       ]
@@ -191,14 +197,27 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "8a50aadd173c07ad8b99d2a71fc13d3f15a5033f90068c2996e6247aaa824d8d",
+    "index.html": "36c5254d250c1bf05bd58116e4acfc249dfd9fd328006a2d7d24a8504c71db01",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
     "methodik.html": "50e89c51d01ec5547b2471b7835f8a0d261ba2138ac49ac01f73937e04321405",
-    "presentation_i18n.js": "76677aa4e2c3aaa12fa56072ef6a0d91f54a7f1c3879dc5e619cf902b2fa4a9b",
+    "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "unabhaengigkeit.html": "03ef54d274beb03111db1b5ff457eebe0ed75a62742d94f5de309e036928886b",
-    "versionen.html": "5a5b646ce7ea7224aec3cd6a80e4f8ed31a65fe5ccaed00b5a1ad76e7721710b"
+    "versionen.html": "29b363baa8f1a88c5e18e6ee1d5b23bb4a7fbe68a2b60442b3cdd5e0efa06df2"
   },
   "evidence_scope": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_PLUS_LOCAL_FI_NETWORK_BOUNDARY",
+  "fi3_public_r15": {
+    "confirmed": 0,
+    "epistemic_class": "CANDIDATE_EVIDENCE_ONLY",
+    "fi3_public_build_identity_sha256": "b5bfa2a4a896063ec6debf1437f8770ad089171eab3f1fff3ea8198c1cd32d06",
+    "fi3_validation_report_sha256": "1834db5076847e075f89b82445452e78f771cf2a11a44947b88f47c4def0808c",
+    "funding_edges": 0,
+    "integrity_signals": 0,
+    "natural_person_layer": "OFF",
+    "projection_sha256": "79e0a5d13eceb187408b097f51f548107f2036c3b3946cd735b600c88c53084e",
+    "public_snapshot_unchanged": true,
+    "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
+    "standing_validator_sha256": "20c67e44e28901f3ecf7be312ee7791d22b474bffffd41bec0783309576ea573"
+  },
   "generated_for": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS",
   "independent_followup_audit": {
     "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
@@ -642,7 +661,7 @@
           "file": "public/presentation_i18n.js",
           "must_contain": [
             "Geltungsbereich dieser Seite.",
-            "auf dieser Seite sind sie nicht verfügbar."
+            "auf dieser Seite sind sie nicht verf\u00fcgbar."
           ],
           "must_not_contain": [],
           "pass": true
@@ -768,6 +787,47 @@
       ],
       "id": "LOCAL_CASE_WORKFLOW_NOT_CLAIMED",
       "note": "Full hypothesis/counterevidence workflow remains gated.",
+      "result": "PASS"
+    },
+    {
+      "capability": "PROJECTS_FUNDING_CONTEXT",
+      "checks": [
+        {
+          "file": "public/data/fi3_public_projection.js",
+          "must_contain": [
+            "CANDIDATE_EVIDENCE_ONLY",
+            "Candidate \u2013 not confirmed"
+          ],
+          "must_not_contain": [
+            "origin_record_json",
+            "independent_audit_json",
+            "source_identifiers_json",
+            "source_locators_json"
+          ],
+          "pass": true
+        },
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function fi3ContextHtml",
+            "fi3Context"
+          ],
+          "must_not_contain": [
+            "/api/fi3"
+          ],
+          "pass": true
+        },
+        {
+          "file": "public/tests/validate_fi3_public_projection.py",
+          "must_contain": [
+            "PASS_FI3_PUBLIC_STATIC_PROJECTION_STANDING_TEST"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ],
+      "id": "PUBLIC_FI3_BOUNDED_CANDIDATE_LAYER",
+      "note": "Bounded static FI3 REVIEW/HOLD candidate evidence in INVESTIGATE only; no confirmed edges/signals; REJECT aggregate only.",
       "result": "PASS"
     }
   ]

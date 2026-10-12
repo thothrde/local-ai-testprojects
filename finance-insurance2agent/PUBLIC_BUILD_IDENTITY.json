@@ -1,11 +1,30 @@
 {
   "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
   "bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
-  "build": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS",
+  "build": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS__FI3_R15_BOUNDED_STATIC_CANDIDATE",
   "canonical_data_unchanged": true,
   "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_EF65_20261006",
   "external_runtime_resources": false,
-  "fi_network_public_release_gate": "CLOSED_PENDING_SEPARATE_RELEASE_DECISION",
+  "fi3_public_r15": {
+    "base_public_head": "4305ed8c10816333ee8b524fa0dd5c62714f4919",
+    "base_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+    "capability_evidence_sha256": "6efc2f039042756edaf1d6c223328f4922ce46dc6199d114fac8ae186fd04142",
+    "confirmed": 0,
+    "epistemic_class": "CANDIDATE_EVIDENCE_ONLY",
+    "fi3_public_build_identity_sha256": "b5bfa2a4a896063ec6debf1437f8770ad089171eab3f1fff3ea8198c1cd32d06",
+    "fi3_validation_report_sha256": "1834db5076847e075f89b82445452e78f771cf2a11a44947b88f47c4def0808c",
+    "funding_edges": 0,
+    "identity_detail_published": 42,
+    "integrity_signals": 0,
+    "projection_sha256": "79e0a5d13eceb187408b097f51f548107f2036c3b3946cd735b600c88c53084e",
+    "public_snapshot_unchanged": true,
+    "reject_detail_published": 0,
+    "release_governance": "EXACT_BYTES_REQUIRE_INDEPENDENT_NARROW_AUDIT_BEFORE_DEPLOY",
+    "robots_unchanged": true,
+    "role_detail_published": 129,
+    "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a"
+  },
+  "fi_network_public_release_gate": "FI3_BOUNDED_CANDIDATE_LAYER_ONLY__OTHER_FI_NETWORK_REMAINS_CLOSED",
   "generated_at_utc": "2026-10-06T10:36:48Z",
   "generative_ai_at_runtime": false,
   "implemented_capabilities": [
@@ -172,10 +191,10 @@
     },
     {
       "code": "PROJECTS_FUNDING_CONTEXT",
-      "local_full_supported": 0,
+      "local_full_supported": 1,
       "mode": "INVESTIGATE",
-      "public_static_supported": 0,
-      "status": "PLANNED_GATED_NOT_IMPLEMENTED"
+      "public_static_supported": 1,
+      "status": "IMPLEMENTED_BOUNDED_FI3_CANDIDATE_EVIDENCE_ONLY"
     },
     {
       "code": "INSOLVENCY_RESTRUCTURING_CONTEXT",
@@ -256,7 +275,7 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "17009d881f0967718c4a15eec8ed9157b014828f0919de80d99e191fd86a947d",
+    "capability_evidence_sha256": "6efc2f039042756edaf1d6c223328f4922ce46dc6199d114fac8ae186fd04142",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",

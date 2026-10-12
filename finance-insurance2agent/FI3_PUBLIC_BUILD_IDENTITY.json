@@ -1,0 +1,51 @@
+{
+  "audited_source_counts": {
+    "CONFIRMED": 0,
+    "HOLD": 28,
+    "REJECT": 43,
+    "REVIEW": 14,
+    "identity": 85,
+    "roles": 175
+  },
+  "authoritative_recovery2_role_ledger_sha256": "f641cba46bccbbedcc7326b58751c752481a95970ccab28772a55e1b7660217c",
+  "base_public_head": "4305ed8c10816333ee8b524fa0dd5c62714f4919",
+  "base_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+  "confirmed_identity_candidates": 0,
+  "epistemic_class": "CANDIDATE_EVIDENCE_ONLY",
+  "fi3_validation_report_sha256": "1834db5076847e075f89b82445452e78f771cf2a11a44947b88f47c4def0808c",
+  "freeze_catalog_sha256": "3ee8036ec7fa448c3b54c663da3766192a33acbd426de5f645e6afdd28877e3b",
+  "freeze_manifest_sha256": "444628a034e16505e5c9ebc042f8de8e6fd757fa1c6a150c38bda7c0affa3535",
+  "freeze_status": "FROZEN_VERIFIED_POSTAUDIT_RECOVERY2",
+  "funding_edges": 0,
+  "integrity_signals": 0,
+  "languages": [
+    "de",
+    "en"
+  ],
+  "natural_person_layer": "OFF",
+  "plus_268_refresh": false,
+  "projection_sha256": "79e0a5d13eceb187408b097f51f548107f2036c3b3946cd735b600c88c53084e",
+  "public_core_refresh": false,
+  "public_snapshot_policy": "PRESERVE_BYTE_IDENTICAL",
+  "published_detail_counts": {
+    "identity_review_hold": 42,
+    "reject_detail": 0,
+    "role_review_hold": 129
+  },
+  "r13_independent_audit_zip_sha256": "38c42181a370a1924290d9ea4f2f7571f2f707f57959b0e0b4c0e9ccdb7ef110",
+  "recovery2_seal_sha256": "503cad87cae2a41d81f1577a58546306706f6a46ce56d1a8d332636110c523ad",
+  "reject_summary": {
+    "identity_count": 43,
+    "reason_classes": {
+      "BROAD_QUERY_HIT_WITH_MATERIALLY_DIFFERENT_LEGAL_NAME": 38,
+      "INDEPENDENT_AUDIT_RECONCILIATION": 5
+    },
+    "role_count": 46
+  },
+  "release_governance": "DEPLOY_ONLY_IF_EXACT_CANDIDATE_BYTES_PASS_INDEPENDENT_NARROW_AUDIT",
+  "release_kind": "BOUNDED_STATIC_FI3_CANDIDATE_EVIDENCE_LAYER",
+  "robots_policy": "PRESERVE_ALLOW_SLASH",
+  "schema": "FI3_PUBLIC_BUILD_IDENTITY_V1",
+  "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+  "whole_site_regeneration": false
+}

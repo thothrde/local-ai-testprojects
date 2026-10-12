@@ -1,0 +1,21 @@
+{
+  "base_public_head": "4305ed8c10816333ee8b524fa0dd5c62714f4919",
+  "base_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+  "epistemic_class": "CANDIDATE_EVIDENCE_ONLY",
+  "privacy": {
+    "flagged_reject_candidate_ids_absent": true,
+    "natural_person_layer": "OFF",
+    "positive_allowlist": true,
+    "reject_detail_rows": 0
+  },
+  "projection_sha256": "79e0a5d13eceb187408b097f51f548107f2036c3b3946cd735b600c88c53084e",
+  "schema": "FI3_PUBLIC_VALIDATION_REPORT_V1",
+  "semantics": {
+    "confirmed_identity_candidates": 0,
+    "cross_baseline_math_or_scoring": "FORBIDDEN",
+    "funding_edges": 0,
+    "integrity_signals": 0
+  },
+  "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+  "status": "CANDIDATE_SELF_VALIDATED_AWAITING_INDEPENDENT_NARROW_AUDIT"
+}
