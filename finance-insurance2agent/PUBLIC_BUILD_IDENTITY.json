@@ -1,13 +1,57 @@
 {
-  "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
-  "bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
-  "build": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS__FI3_R15_BOUNDED_STATIC_CANDIDATE",
+  "audited_candidate_sha256": null,
+  "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+  "build": "CORE_TRUTH_PARITY_CANONICAL_7863537_20261013__FI3_SEPARATE_UNCHANGED",
   "canonical_data_unchanged": true,
-  "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_EF65_20261006",
+  "core_truth_parity_20261013": {
+    "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
+    "allianz_replacement_class_axes": "epistemic_class=DERIVED_FACT__assertion_level=DERIVED_METRIC",
+    "base_public_head": "25624c435f48908502a515699e3a964fdb843cc6",
+    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
+    "counts": {
+      "entities": 140,
+      "metrics": 118,
+      "observations": 7769,
+      "relations": 7,
+      "sources": 264,
+      "time_series_decisions": 119
+    },
+    "eba_scope_display_localized": true,
+    "existing_observation_semantic_delta": {
+      "P1B_INSURER_SEMANTIC_ONLY": 17,
+      "P2A_P4A_EBA_BLANK_SCOPE_NORMALIZATION": 2196,
+      "P2B_EBA_CONSOLIDATED_SCOPE_HARMONIZATION": 548
+    },
+    "fi1_fi2_network_publication": false,
+    "fi3_projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
+    "fi3_projection_unchanged": true,
+    "fi3_standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
+    "fi3_validator_rebind_contract": "ONLY_EXPECTED_SNAPSHOT_LITERAL_CHANGES__ALL_OTHER_VALIDATOR_LOGIC_PRESERVED",
+    "functional_core_sha256": "8a6164d18691ca5f5f3ff8b2139ac015843dd017dbe932df3ef031fd56a9dcc5",
+    "lineage_additive_delta": 2,
+    "p4a_public_discovery_state": {
+      "candidates": 34,
+      "members": 34,
+      "threads": 14
+    },
+    "previous_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+    "required10": {
+      "nonterminal": 1,
+      "terminal": 199,
+      "total": 200
+    },
+    "scor_r0610_conflict": "UNRESOLVED_NO_WINNER",
+    "snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "source_quality_issue_count": 3,
+    "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS",
+    "whole_site_regeneration": false
+  },
+  "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_7863537_20261013",
   "external_runtime_resources": false,
   "fi3_hold_amount_public_hardening": {
     "base_public_head": "10e12517ba95225e3b0a28810e20e8c06cce5ed0",
-    "capability_evidence_sha256": "2833febcce7af43e16353108cdf53376687e3bff035bc2e0b34fba331ebb9d1a",
+    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
     "hold_role_count": 81,
     "policy": "PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT",
     "policy_state": "PUBLIC_HOLD_AMOUNT_POLICY_V1",
@@ -20,7 +64,7 @@
   "fi3_public_r15": {
     "base_public_head": "4305ed8c10816333ee8b524fa0dd5c62714f4919",
     "base_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
-    "capability_evidence_sha256": "2833febcce7af43e16353108cdf53376687e3bff035bc2e0b34fba331ebb9d1a",
+    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
     "confirmed": 0,
     "epistemic_class": "CANDIDATE_EVIDENCE_ONLY",
     "fi3_public_build_identity_sha256": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
@@ -37,7 +81,7 @@
     "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a"
   },
   "fi_network_public_release_gate": "FI3_BOUNDED_CANDIDATE_LAYER_ONLY__OTHER_FI_NETWORK_REMAINS_CLOSED",
-  "generated_at_utc": "2026-10-06T10:36:48Z",
+  "generated_at_utc": "2026-10-12T22:20:00Z",
   "generative_ai_at_runtime": false,
   "implemented_capabilities": [
     {
@@ -277,7 +321,7 @@
   "post_fi3_hold_ux_guard_hardening": {
     "base_public_head": "c016696f20a0b30a872042030cbbac7033a5a3af",
     "canonical_data_unchanged": true,
-    "capability_evidence_sha256": "2833febcce7af43e16353108cdf53376687e3bff035bc2e0b34fba331ebb9d1a",
+    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
     "fi3_projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "grouped_hold_role_count": 81,
     "grouped_institution_count": 20,
@@ -303,7 +347,7 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "2833febcce7af43e16353108cdf53376687e3bff035bc2e0b34fba331ebb9d1a",
+    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
@@ -343,6 +387,29 @@
   },
   "public_release_gate": "OPEN",
   "raw_source_redistribution_gate": "CLOSED",
+  "recovery8_latest_date_multiplicity": {
+    "capability_validator_byte_identical_to_recovery7": true,
+    "compare_arithmetic_policy": "SINGLE_ONLY",
+    "fi3_projection_byte_identical_to_recovery7": true,
+    "independent_release_audit": "EXTERNAL_DEPLOY_GATE_NOT_EMBEDDED_IN_CANDIDATE",
+    "latest_date_multiplicity_pairs": 39,
+    "multiple_rows_pairs": 38,
+    "recovery7_frozen_result_zip_sha256": "d3ec5c785e78bb03ed1f63f089ff56ae34d434762b71f9167b25dd4774840e83",
+    "release_kind": "NARROW_CONSUMER_SEMANTICS_FIX_NO_DATA_REGENERATION",
+    "required_external_pass_token": "PASS_CORE_TRUTH_PARITY_PUBLIC_CANDIDATE_RECOVERY8_INDEPENDENT_DELTA_REAUDIT_BEFORE_ATOMIC_WRITE",
+    "robots_byte_identical_to_recovery7": true,
+    "scalar_selection_policy": "SINGLE_ONLY",
+    "snapshot_byte_identical_to_recovery7": true,
+    "snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "state_model": [
+      "NONE",
+      "SINGLE",
+      "MULTIPLE_ROWS",
+      "UNRESOLVED_CONFLICT"
+    ],
+    "survey_heuristics_promoted_to_product_semantics": false,
+    "unresolved_conflict_pairs": 1
+  },
   "release_preflight": "V1_0_PARENT_INDEPENDENT_AUDIT_PASS__V1_0_1_NARROW_PRESENTATION_PATCH_VALIDATED",
   "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC"
 }

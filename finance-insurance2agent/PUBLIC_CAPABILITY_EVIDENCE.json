@@ -7,18 +7,18 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "VALIDATION_REPORT.json": "2558541ecb34f32fcaa2a07f2f47ddc64e6fae7463f81f2f052bcc0de182a82a",
-    "app.js": "0b7fe497afba5afbac66a63fe8658d8cba7cd966ec2d4a87a07b3f362dd29364",
+    "VALIDATION_REPORT.json": "1095834c359e9fd081bdd78a2bfe4e4827b7b906af32f6c89bdc547c8f6af6cc",
+    "app.js": "333fa084b78f5daf0a1dc5ed42478c896d24f1aa5863aa0d8d73daa00741787b",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
-    "data/public_snapshot.js": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
-    "index.html": "7e91b205741fa77a0923206031d6f8e0603477a88da7af65ef559f824c2086dd",
+    "data/public_snapshot.js": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "index.html": "5272a08c51f08dc19ba93f8d328cb681deb94e9e6fe8e35101b398c8f946e5f9",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
     "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
-    "tests/validate_fi3_public_projection.py": "e2bf7438df82ab891066c8a3d04dd332334ddd064d26fd220a8821fd600d0e31",
-    "tests/validate_public_data_release.py": "3a0ee5d3ed586aca33a198a5c73e68b97c1417b84bffab30bf268ada9f23bf36",
-    "versionen.html": "4c26b8cbdacae3455d9f3f0ac7e0dcc701214df8c83b3260cdd1efbec3f9040c"
+    "tests/validate_fi3_public_projection.py": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
+    "tests/validate_public_data_release.py": "aa2c8b227dc0dada816ae984e2ed8c4fd4826630f83a8cb956efab60beba83d0",
+    "versionen.html": "f3cb691e8228f7240f97709caac899b14d6a24f352e8bca657e843c62e6cecd5"
   },
   "capability_contract": {
     "AGENT_ORCHESTRATOR": {
@@ -30,13 +30,15 @@
     "ASK_FREE_EVIDENCE": {
       "public_static_supported": 1,
       "test_ids": [
-        "PUBLIC_ASK_FREE_EVIDENCE"
+        "PUBLIC_ASK_FREE_EVIDENCE",
+        "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED"
       ]
     },
     "ASK_STRUCTURED": {
       "public_static_supported": 1,
       "test_ids": [
-        "PUBLIC_ASK_STRUCTURED"
+        "PUBLIC_ASK_STRUCTURED",
+        "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED"
       ]
     },
     "AUDIT_EVIDENCE_GRAPH": {
@@ -54,7 +56,8 @@
     "AUDIT_TRACE": {
       "public_static_supported": 1,
       "test_ids": [
-        "PUBLIC_AUDIT_TRACE"
+        "PUBLIC_AUDIT_TRACE",
+        "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED"
       ]
     },
     "CASE_HYPOTHESIS_COUNTEREVIDENCE_WORKFLOW": {
@@ -68,13 +71,15 @@
     "COMPARE_COHORT": {
       "public_static_supported": 1,
       "test_ids": [
-        "PUBLIC_COMPARE_COHORT"
+        "PUBLIC_COMPARE_COHORT",
+        "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED"
       ]
     },
     "COMPARE_PAIR": {
       "public_static_supported": 1,
       "test_ids": [
-        "PUBLIC_COMPARE_PAIR"
+        "PUBLIC_COMPARE_PAIR",
+        "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED"
       ]
     },
     "DISCOVER_CANDIDATES": {
@@ -118,7 +123,8 @@
     "INVESTIGATE_COMPONENT_EXPLORER": {
       "public_static_supported": 1,
       "test_ids": [
-        "PUBLIC_INVESTIGATE_COMPONENT_EXPLORER"
+        "PUBLIC_INVESTIGATE_COMPONENT_EXPLORER",
+        "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED"
       ]
     },
     "INVESTIGATE_DOSSIER": {
@@ -197,12 +203,57 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "7e91b205741fa77a0923206031d6f8e0603477a88da7af65ef559f824c2086dd",
+    "index.html": "5272a08c51f08dc19ba93f8d328cb681deb94e9e6fe8e35101b398c8f946e5f9",
     "korrekturen.html": "08f48019dd52884b095bb1eb5a98cd36d79a5618022a163bab46f338991bd56e",
     "methodik.html": "50e89c51d01ec5547b2471b7835f8a0d261ba2138ac49ac01f73937e04321405",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "unabhaengigkeit.html": "03ef54d274beb03111db1b5ff457eebe0ed75a62742d94f5de309e036928886b",
-    "versionen.html": "4c26b8cbdacae3455d9f3f0ac7e0dcc701214df8c83b3260cdd1efbec3f9040c"
+    "versionen.html": "f3cb691e8228f7240f97709caac899b14d6a24f352e8bca657e843c62e6cecd5"
+  },
+  "core_truth_parity_20261013": {
+    "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
+    "allianz_replacement_class_axes": "epistemic_class=DERIVED_FACT__assertion_level=DERIVED_METRIC",
+    "base_public_head": "25624c435f48908502a515699e3a964fdb843cc6",
+    "canonical_db_write": false,
+    "counts": {
+      "entities": 140,
+      "metrics": 118,
+      "observations": 7769,
+      "relations": 7,
+      "sources": 264,
+      "time_series_decisions": 119
+    },
+    "deterministic_double_generation_byte_identical": true,
+    "eba_scope_display_localized": true,
+    "existing_observation_semantic_delta": {
+      "P1B_INSURER_SEMANTIC_ONLY": 17,
+      "P2A_P4A_EBA_BLANK_SCOPE_NORMALIZATION": 2196,
+      "P2B_EBA_CONSOLIDATED_SCOPE_HARMONIZATION": 548
+    },
+    "fi1_fi2_network_publication": false,
+    "fi3_projection_unchanged": true,
+    "fi3_standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
+    "fi3_validator_rebind_contract": "ONLY_EXPECTED_SNAPSHOT_LITERAL_CHANGES__ALL_OTHER_VALIDATOR_LOGIC_PRESERVED",
+    "fi_staging_db_write": false,
+    "functional_core_sha256": "8a6164d18691ca5f5f3ff8b2139ac015843dd017dbe932df3ef031fd56a9dcc5",
+    "lineage_additive_delta": 2,
+    "p4a_public_discovery_state": {
+      "candidates": 34,
+      "members": 34,
+      "threads": 14
+    },
+    "previous_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+    "required10": {
+      "nonterminal": 1,
+      "terminal": 199,
+      "total": 200
+    },
+    "scor_r0610_conflict_publicly_visible": true,
+    "scor_value_resolution": "UNRESOLVED_NO_WINNER",
+    "snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "source_quality_issue_count": 3,
+    "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS"
   },
   "evidence_scope": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_PLUS_LOCAL_FI_NETWORK_BOUNDARY",
   "fi3_hold_amount_public_hardening": {
@@ -213,7 +264,7 @@
     "policy": "PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT",
     "policy_state": "PUBLIC_HOLD_AMOUNT_POLICY_V1",
     "policy_version": "FI3_HOLD_AMOUNT_GOVERNANCE_V1_20261012",
-    "standing_validator_sha256": "e2bf7438df82ab891066c8a3d04dd332334ddd064d26fd220a8821fd600d0e31"
+    "standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46"
   },
   "fi3_public_r15": {
     "confirmed": 0,
@@ -226,9 +277,9 @@
     "projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "public_snapshot_unchanged": true,
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
-    "standing_validator_sha256": "e2bf7438df82ab891066c8a3d04dd332334ddd064d26fd220a8821fd600d0e31"
+    "standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46"
   },
-  "generated_for": "PUBLIC_DATA_REFRESH_CANONICAL_EF65_20261006__POSTAUDIT_GUARDS",
+  "generated_for": "CORE_TRUTH_PARITY_CANONICAL_7863537_20261013",
   "independent_followup_audit": {
     "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
     "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
@@ -298,7 +349,27 @@
     "scope": "CANONICAL_PUBLIC_CORE_ONLY"
   },
   "public_data_refresh_performed": true,
-  "public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+  "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+  "recovery8_latest_date_multiplicity": {
+    "baseline_candidate": "RECOVERY7_FROZEN_D3EC5C785E78BB03ED1F63F089FF56AE34D434762B71F9167B25DD4774840E83",
+    "conflict_binding_rule": "VALUE_RESOLUTION_UNRESOLVED_NO_WINNER_AND_NO_CANONICAL_VALUE_SELECTION_AND_EXACT_AFFECTED_LATEST_ROW_BINDING",
+    "empty_entity_count": 3,
+    "entity_metric_pairs": 1125,
+    "f2_abcd_categories": "AUDIT_TEST_HEURISTIC_ONLY_NOT_PRODUCT_SEMANTICS",
+    "latest_date_multiplicity_pairs": 39,
+    "multiple_rows_pairs": 38,
+    "multiple_rows_policy": "SHOW_ALL_LATEST_ROWS_NO_SCALAR_SELECTION_NO_COMPARE_ARITHMETIC",
+    "non_tie_differential_pairs": 1086,
+    "runtime_selftest_status": "PASS_RECOVERY8_RUNTIME_RESOLVER_SELFTEST",
+    "scor_conflict_observation_ids": [
+      "3b6796d3-7502-5dac-9f99-f126252b1ec8",
+      "e139a579-28d6-511d-ba51-b1a3afb06aae"
+    ],
+    "single_pairs": 1086,
+    "snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "synthetic_ungoverned_tie_expected_state": "MULTIPLE_ROWS",
+    "unresolved_conflict_pairs": 1
+  },
   "schema": "FI2A_PUBLIC_CAPABILITY_EVIDENCE_V3",
   "standing_public_data_release_validator": {
     "path": "tests/validate_public_data_release.py",
@@ -309,9 +380,18 @@
       "NO_LOCAL_PATH_LEAKAGE",
       "VALIDATION_REPORT_BINDS_SNAPSHOT",
       "MANIFEST_BINDS_SNAPSHOT_AND_RELEASE_TEST",
-      "INDEX_CACHEBUSTER_PRESENT"
+      "INDEX_CACHEBUSTER_PRESENT",
+      "NO_EXACTLY_COMPARABLE_DECISIONS",
+      "NO_FI1_FI2_NETWORK_LEAKAGE_IN_CORE_SNAPSHOT",
+      "SCOR_R0610_OFFICIAL_SOURCE_CONFLICT_UNRESOLVED_NO_WINNER",
+      "CURRENT_CORE_IDENTITY_COLLECTION_PRESERVES_RELEASED_LEI_HYGIENE",
+      "EXISTING_OBSERVATION_DELTA_CLASSIFIED_2196_548_17",
+      "P4A_DISCOVERY_STATE_34_14_34_AUDIT_REQUIRED",
+      "EBA_HIGHEST_LEVEL_SCOPE_PUBLIC_DISPLAY_LOCALIZED",
+      "SOURCE_QUALITY_EXISTING_ROW_EXACT_NORMALIZER_PROJECTION_RAW_BYTES_PRESERVED",
+      "SOURCE_QUALITY_TWO_ADDITIONS_EXACTLY_ALLIANZ_PROVENANCE_MISLABEL_AND_SCOR_CONFLICT"
     ],
-    "sha256": "3a0ee5d3ed586aca33a198a5c73e68b97c1417b84bffab30bf268ada9f23bf36"
+    "sha256": "aa2c8b227dc0dada816ae984e2ed8c4fd4826630f83a8cb956efab60beba83d0"
   },
   "standing_repo_validator": {
     "path": "tests/validate_capability_contract.py",
@@ -685,7 +765,7 @@
           "file": "public/presentation_i18n.js",
           "must_contain": [
             "Geltungsbereich dieser Seite.",
-            "auf dieser Seite sind sie nicht verf\u00fcgbar."
+            "auf dieser Seite sind sie nicht verfügbar."
           ],
           "must_not_contain": [],
           "pass": true
@@ -820,7 +900,7 @@
           "file": "public/data/fi3_public_projection.js",
           "must_contain": [
             "CANDIDATE_EVIDENCE_ONLY",
-            "Candidate \u2013 not confirmed"
+            "Candidate – not confirmed"
           ],
           "must_not_contain": [
             "origin_record_json",
@@ -852,6 +932,32 @@
       ],
       "id": "PUBLIC_FI3_BOUNDED_CANDIDATE_LAYER",
       "note": "Bounded static FI3 REVIEW/HOLD candidate evidence in INVESTIGATE only; no confirmed edges/signals; REJECT aggregate only.",
+      "result": "PASS"
+    },
+    {
+      "capability": "LATEST_DATE_MULTIPLICITY_GOVERNANCE",
+      "checks": [
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function latestRows",
+            "function resolveLatestEvidence",
+            "function ordinaryScalarAllowed",
+            "state:'MULTIPLE_ROWS'",
+            "state:'UNRESOLVED_CONFLICT'",
+            "MULTIPLE_LATEST_ROWS",
+            "UNRESOLVED_SOURCE_CONFLICT",
+            "function componentMetricValueHtml",
+            "function observationContextLabel"
+          ],
+          "must_not_contain": [
+            "return xs.at(-1)||null"
+          ],
+          "pass": true
+        }
+      ],
+      "id": "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED",
+      "note": "Recovery8: same-date multiplicity is non-scalar; only explicit unresolved governance is labelled conflict; A/B/C/D survey heuristics are not product semantics.",
       "result": "PASS"
     }
   ]

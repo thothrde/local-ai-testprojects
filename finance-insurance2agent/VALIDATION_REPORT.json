@@ -1,14 +1,94 @@
 {
-  "audited_candidate_sha256": "efd8dfdd8548dab0ddd64cfc3425da172420dcc6347a03417468b36e60b08dc5",
-  "bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
+  "audited_candidate_sha256": null,
+  "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
   "candidate_checkout_installed": true,
   "canonical_data_unchanged": true,
+  "core_truth_parity_20261013": {
+    "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
+    "allianz_replacement_class_axes": "epistemic_class=DERIVED_FACT__assertion_level=DERIVED_METRIC",
+    "base_public_head": "25624c435f48908502a515699e3a964fdb843cc6",
+    "counts": {
+      "entities": 140,
+      "metrics": 118,
+      "observations": 7769,
+      "relations": 7,
+      "sources": 264,
+      "time_series_decisions": 119
+    },
+    "deterministic_double_generation_byte_identical": true,
+    "eba_scope_display_localized": true,
+    "existing_observation_semantic_delta": {
+      "P1B_INSURER_SEMANTIC_ONLY": 17,
+      "P2A_P4A_EBA_BLANK_SCOPE_NORMALIZATION": 2196,
+      "P2B_EBA_CONSOLIDATED_SCOPE_HARMONIZATION": 548
+    },
+    "fi1_fi2_network_publication": false,
+    "fi3_projection_unchanged": true,
+    "fi3_standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
+    "fi3_validator_rebind_contract": "ONLY_EXPECTED_SNAPSHOT_LITERAL_CHANGES__ALL_OTHER_VALIDATOR_LOGIC_PRESERVED",
+    "functional_core_sha256": "8a6164d18691ca5f5f3ff8b2139ac015843dd017dbe932df3ef031fd56a9dcc5",
+    "generated_at_utc": "2026-10-12T22:20:00Z",
+    "lineage_additive_delta": 2,
+    "p4a_public_discovery_state": {
+      "candidates": 34,
+      "members": 34,
+      "threads": 14
+    },
+    "previous_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+    "primary_array_delta": {
+      "entities": {
+        "added": 0,
+        "changed_existing": 0,
+        "removed": 0
+      },
+      "metrics": {
+        "added": 1,
+        "changed_existing": 6,
+        "removed": 0
+      },
+      "observations": {
+        "added": 268,
+        "changed_existing": 2761,
+        "removed": 0
+      },
+      "relations": {
+        "added": 0,
+        "changed_existing": 0,
+        "removed": 0
+      },
+      "source_quality_issues": {
+        "added": 2,
+        "changed_existing": 1,
+        "removed": 0
+      },
+      "sources": {
+        "added": 57,
+        "changed_existing": 0,
+        "removed": 0
+      },
+      "time_series_decisions": {
+        "added": 0,
+        "changed_existing": 0,
+        "removed": 0
+      }
+    },
+    "required10": {
+      "nonterminal": 1,
+      "terminal": 199,
+      "total": 200
+    },
+    "scor_r0610_conflict": "CONFIRMED_OFFICIAL_SOURCE_INTERNAL_CONFLICT__UNRESOLVED_NO_WINNER",
+    "snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "source_quality_issue_count": 3,
+    "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS"
+  },
   "counts": {
     "entities": 140,
-    "metrics": 117,
-    "observations": 7501,
+    "metrics": 118,
+    "observations": 7769,
     "relations": 7,
-    "sources": 207,
+    "sources": 264,
     "time_series_decisions": 119
   },
   "current_static_validation": {
@@ -24,9 +104,16 @@
   "deterministic_double_generation_byte_identical": true,
   "exactly_comparable_time_series_decisions": 0,
   "fi_staging_data_unchanged": true,
-  "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
-  "independent_audit_md_sha256": "c621f49ea038e409774714009d8db05e2ebb97d741ccec116ef8d5524e9bdba2",
-  "independent_audit_status": "PASS_FINAL_PUBLIC_RELEASE_INDEPENDENT_AUDIT",
+  "independent_audit_json_sha256": null,
+  "independent_audit_md_sha256": null,
+  "independent_audit_status": "EXTERNAL_RELEASE_GATE_OUTSIDE_CANDIDATE_ARTIFACT",
+  "independent_release_audit": {
+    "artifact_embeds_transient_audit_result": false,
+    "deployment_authorized_by_this_artifact": false,
+    "gate_location": "EXTERNAL_TO_CANDIDATE_ARTIFACT",
+    "policy": "PUBLIC_DEPLOYMENT_REQUIRES_SEPARATE_INDEPENDENT_DELTA_REAUDIT_PASS",
+    "required_pass_token": "PASS_CORE_TRUTH_PARITY_PUBLIC_CANDIDATE_RECOVERY8_INDEPENDENT_DELTA_REAUDIT_BEFORE_ATOMIC_WRITE"
+  },
   "lei_hygiene_20261012": {
     "accepted_active_leis_added": 6,
     "base_bound_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
@@ -45,18 +132,37 @@
     "source_datapoint_provenance": "UNCHANGED",
     "sources_changed": 0
   },
-  "old_public_snapshot_sha256": "7629e903f88cce70110546f59c28b275954ff9ce45348b079a3b1ccb665c7c11",
+  "old_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
   "operator_cookies": false,
   "operator_tracking": false,
   "parent_public_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
   "public_release_gate": "OPEN",
-  "public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+  "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
   "raw_source_files": 0,
   "raw_source_redistribution_gate": "CLOSED",
-  "refresh_scope": "CANONICAL_PUBLIC_CORE_ONLY__NO_FI_NETWORK_NO_IDENTITY_BOUNDARY_NO_FI3_NO_COMPARABILITY_AUTHORIZATION",
+  "recovery8_latest_date_multiplicity": {
+    "canonical_data_unchanged": true,
+    "deployment_performed_by_build": false,
+    "entity_metric_pairs": 1125,
+    "fi3_projection_unchanged": true,
+    "governance_bound_unresolved_conflicts": 1,
+    "heuristic_categories_published_as_product_semantics": false,
+    "multiple_rows_pairs": 38,
+    "policy": "NO_SILENT_SCALAR_SELECTION_ON_LATEST_DATE_MULTIPLICITY",
+    "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "single_pairs": 1086,
+    "state_model": [
+      "NONE",
+      "SINGLE",
+      "MULTIPLE_ROWS",
+      "UNRESOLVED_CONFLICT"
+    ],
+    "unresolved_conflict_source": "EXPLICIT_SOURCE_QUALITY_GOVERNANCE_ONLY"
+  },
+  "refresh_scope": "CURRENT_CANONICAL_PUBLIC_CORE_ONLY__FI1_FI2_NETWORK_EXCLUDED__FI3_PROJECTION_UNCHANGED",
   "runtime_external_resource_count": 0,
-  "snapshot_generated_at_utc": "2026-10-06T10:36:48Z",
-  "status": "PASS_PUBLIC_DATA_REFRESH_R1_CANDIDATE_STATIC_VALIDATION",
+  "snapshot_generated_at_utc": "2026-10-12T22:20:00Z",
+  "status": "PASS_CORE_TRUTH_PARITY_PUBLIC_SCRATCH_CANDIDATE_STATIC_VALIDATION",
   "v1_0_1_checks": {
     "autonomous_llm_gate_explained": true,
     "eba_datapoint_locator_visible": true,
