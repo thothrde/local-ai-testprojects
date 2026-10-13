@@ -1,13 +1,13 @@
 {
   "audited_candidate_sha256": null,
   "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
-  "build": "CORE_TRUTH_PARITY_CANONICAL_7863537_20261013__FI3_SEPARATE_UNCHANGED",
+  "build": "PUBLIC_STATIC_COMMON_DATE_R1_CANONICAL_7863537_20261013__FI3_SEPARATE_UNCHANGED",
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
     "allianz_replacement_class_axes": "epistemic_class=DERIVED_FACT__assertion_level=DERIVED_METRIC",
     "base_public_head": "25624c435f48908502a515699e3a964fdb843cc6",
-    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
+    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
     "counts": {
       "entities": 140,
       "metrics": 118,
@@ -51,7 +51,7 @@
   "external_runtime_resources": false,
   "fi3_hold_amount_public_hardening": {
     "base_public_head": "10e12517ba95225e3b0a28810e20e8c06cce5ed0",
-    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
+    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
     "hold_role_count": 81,
     "policy": "PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT",
     "policy_state": "PUBLIC_HOLD_AMOUNT_POLICY_V1",
@@ -64,7 +64,7 @@
   "fi3_public_r15": {
     "base_public_head": "4305ed8c10816333ee8b524fa0dd5c62714f4919",
     "base_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
-    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
+    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
     "confirmed": 0,
     "epistemic_class": "CANDIDATE_EVIDENCE_ONLY",
     "fi3_public_build_identity_sha256": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
@@ -81,7 +81,7 @@
     "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a"
   },
   "fi_network_public_release_gate": "FI3_BOUNDED_CANDIDATE_LAYER_ONLY__OTHER_FI_NETWORK_REMAINS_CLOSED",
-  "generated_at_utc": "2026-10-12T22:20:00Z",
+  "generated_at_utc": "2026-10-13T17:50:00Z",
   "generative_ai_at_runtime": false,
   "implemented_capabilities": [
     {
@@ -321,7 +321,7 @@
   "post_fi3_hold_ux_guard_hardening": {
     "base_public_head": "c016696f20a0b30a872042030cbbac7033a5a3af",
     "canonical_data_unchanged": true,
-    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
+    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
     "fi3_projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "grouped_hold_role_count": 81,
     "grouped_institution_count": 20,
@@ -347,7 +347,7 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "97de71659ae63795630f17e0fbf9a5c8ea95aa3fb863fed5b270fd7c9a64d252",
+    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
@@ -411,5 +411,34 @@
     "unresolved_conflict_pairs": 1
   },
   "release_preflight": "V1_0_PARENT_INDEPENDENT_AUDIT_PASS__V1_0_1_NARROW_PRESENTATION_PATCH_VALIDATED",
-  "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC"
+  "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
+  "public_static_common_date_r1_20261013": {
+    "base_public_head": "49ee7831fff701b2f285ebc8f9c0ce2df53c5638",
+    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "snapshot_byte_identical_to_recovery8": true,
+    "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
+    "index_html_sha256": "7af669976aa61858ef69af725d68bc138afe5b2d1e7db575b798185de8d10ad7",
+    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
+    "semantic_scope": "EBA_P3DH_*_ONLY",
+    "p3dh_pair_count": 1759,
+    "p3dh_common_pair_count": 1757,
+    "p3dh_no_common_pair_count": 2,
+    "p3dh_divergent_own_latest_count": 523,
+    "p3dh_divergent_corrected_count": 523,
+    "non_p3dh_dispatch_mismatches": 0,
+    "statistics_and_ranking_policy": "WITHHELD_FOR_STATIC_P3DH_COMPARE",
+    "baseline_mixed_date_cohort_statistics_previously_possible": true,
+    "out_of_scope_non_eba_divergent_with_common_date": 27,
+    "out_of_scope_non_p3dh_no_common_date": 12,
+    "semantic_review_result_sha256": "0f6d3d81681236110bc03c7072207c41ff8dab75438a35c25b37aa5e943b5fda",
+    "semantic_review_pass_token": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_INDEPENDENT_SEMANTIC_REVIEW_BEFORE_FULL_RELEASE_CANDIDATE",
+    "required_external_full_candidate_pass_token": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_FULL_RELEASE_CANDIDATE_INDEPENDENT_AUDIT_BEFORE_WRITE",
+    "canonical_data_unchanged": true,
+    "fi3_projection_unchanged": true,
+    "robots_unchanged": true,
+    "deployment_authorized_by_build": false,
+    "p3dh_total_changed_pair_outcomes": 525,
+    "p3dh_no_common_previously_misclassified_exact_count": 2
+  }
 }

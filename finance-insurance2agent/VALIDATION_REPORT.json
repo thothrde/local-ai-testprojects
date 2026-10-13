@@ -92,7 +92,7 @@
     "time_series_decisions": 119
   },
   "current_static_validation": {
-    "files": 19,
+    "files": 20,
     "operator_cookies": false,
     "operator_tracking": false,
     "raw_source_files": 0,
@@ -111,8 +111,8 @@
     "artifact_embeds_transient_audit_result": false,
     "deployment_authorized_by_this_artifact": false,
     "gate_location": "EXTERNAL_TO_CANDIDATE_ARTIFACT",
-    "policy": "PUBLIC_DEPLOYMENT_REQUIRES_SEPARATE_INDEPENDENT_DELTA_REAUDIT_PASS",
-    "required_pass_token": "PASS_CORE_TRUTH_PARITY_PUBLIC_CANDIDATE_RECOVERY8_INDEPENDENT_DELTA_REAUDIT_BEFORE_ATOMIC_WRITE"
+    "policy": "PUBLIC_DEPLOYMENT_REQUIRES_SEPARATE_INDEPENDENT_FULL_RELEASE_CANDIDATE_AUDIT_PASS",
+    "required_pass_token": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_FULL_RELEASE_CANDIDATE_INDEPENDENT_AUDIT_BEFORE_WRITE"
   },
   "lei_hygiene_20261012": {
     "accepted_active_leis_added": 6,
@@ -162,7 +162,7 @@
   "refresh_scope": "CURRENT_CANONICAL_PUBLIC_CORE_ONLY__FI1_FI2_NETWORK_EXCLUDED__FI3_PROJECTION_UNCHANGED",
   "runtime_external_resource_count": 0,
   "snapshot_generated_at_utc": "2026-10-12T22:20:00Z",
-  "status": "PASS_CORE_TRUTH_PARITY_PUBLIC_SCRATCH_CANDIDATE_STATIC_VALIDATION",
+  "status": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_FULL_RELEASE_CANDIDATE_STATIC_VALIDATION_AWAITING_INDEPENDENT_AUDIT",
   "v1_0_1_checks": {
     "autonomous_llm_gate_explained": true,
     "eba_datapoint_locator_visible": true,
@@ -170,5 +170,28 @@
     "missing_scope_labeled_not_recorded": true,
     "unit_ratio_rendered_as_percentage": true,
     "updated_bilingual_intro_present": true
+  },
+  "public_static_common_date_r1_20261013": {
+    "release_kind": "NARROW_PUBLIC_STATIC_COMPARE_SEMANTICS_FIX_NO_DATA_REGENERATION",
+    "semantic_scope": "EBA_P3DH_*_ONLY",
+    "public_snapshot_unchanged": true,
+    "canonical_data_unchanged": true,
+    "fi3_projection_unchanged": true,
+    "robots_unchanged": true,
+    "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
+    "index_html_sha256": "7af669976aa61858ef69af725d68bc138afe5b2d1e7db575b798185de8d10ad7",
+    "p3dh_pair_count": 1759,
+    "p3dh_common_pair_count": 1757,
+    "p3dh_no_common_pair_count": 2,
+    "p3dh_divergent_own_latest_count": 523,
+    "p3dh_divergent_corrected_count": 523,
+    "non_p3dh_dispatch_mismatches": 0,
+    "statistics_policy": "P3DH_STATIC_COMPARE_STATISTICS_AND_RANKING_WITHHELD",
+    "prior_mixed_date_cohort_statistics": "POSSIBLE_IN_BASELINE__NOW_WITHHELD",
+    "out_of_scope_non_eba_divergent_with_common_date": 27,
+    "out_of_scope_non_p3dh_no_common_date": 12,
+    "semantic_review_pass_token": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_INDEPENDENT_SEMANTIC_REVIEW_BEFORE_FULL_RELEASE_CANDIDATE",
+    "semantic_review_result_sha256": "0f6d3d81681236110bc03c7072207c41ff8dab75438a35c25b37aa5e943b5fda",
+    "deployment_performed_by_build": false
   }
 }

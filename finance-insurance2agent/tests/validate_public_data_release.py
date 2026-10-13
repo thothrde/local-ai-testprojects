@@ -6,7 +6,7 @@ EXPECTED_DB='7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a'
 EXPECTED_SNAPSHOT='4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2'
 EXPECTED_COUNTS={'entities': 140, 'metrics': 118, 'observations': 7769, 'relations': 7, 'sources': 264, 'time_series_decisions': 119}
 CACHEBUSTER='20261013-core-truth-parity-7863537'
-APP_CACHEBUSTER='20261013-core-truth-parity-semantic-scope-v1'
+APP_CACHEBUSTER='20261013-public-static-common-date-r1'
 ENTITY_HASH='440c84d85ec19beed1f8b9abb7e066338ee6285a0150dad945d4759945bca981'
 RELATION_HASH='31c74edb7667e880cdc472c96714fac9d7be965a70f78fe71eb91cea3c401c67'
 DECISION_HASH='0b5701a5747784496552f0f3c0f421e0d8c3318ad8e8385efaf57198cc7307a3'
@@ -47,9 +47,13 @@ def main():
  ec=evidence["core_truth_parity_20261013"];assert ec["source_database_sha256"]==EXPECTED_DB and ec["snapshot_sha256"]==EXPECTED_SNAPSHOT and ec["source_quality_issue_count"]==3
  idx=(ROOT/"index.html").read_text();assert "data/public_snapshot.js?v="+CACHEBUSTER in idx and "app.js?v="+APP_CACHEBUSTER in idx
  app=(ROOT/"app.js").read_text();assert "sourceQualityIssuesForEntity" in app and "source-quality-notice" in app and "7.769" in app and "7,769" in app
+ assert "function compareP3DHLocal" in app and "function compareGenericLocal" in app and "function latestCommonReferenceDate" in app and "EBA_P3DH_" in app
  assert "scopeLabel" in app and "EBA · höchste Konsolidierungsebene" in app and "EBA · highest level of consolidation" in app
  assert len(s["lineage"])==EXPECTED_AUX_COUNTS["lineage"] and len(s["investigation_candidates"])==EXPECTED_AUX_COUNTS["investigation_candidates"] and len(s["investigation_threads"])==EXPECTED_AUX_COUNTS["investigation_threads"] and len(s["investigation_thread_members"])==EXPECTED_AUX_COUNTS["investigation_thread_members"] and len(s["investigative_methods"])==EXPECTED_AUX_COUNTS["investigative_methods"] and len(s["generated_discovery_candidates"])==EXPECTED_AUX_COUNTS["generated_discovery_candidates"]
  ver=(ROOT/"versionen.html").read_text();assert EXPECTED_DB in ver and EXPECTED_SNAPSHOT in ver and "SCOR" in ver and "199" in ver
+ assert "Public Static Common-Date R1" in ver and "523" in ver and "gemischte Stichtage" in ver and "mixed dates" in ver
+ cor=(ROOT/"korrekturen.html").read_text();assert "P3DH-Vergleichsstichtag" in cor and "P3DH comparison date" in cor
+ assert (ROOT/"tests/validate_public_static_common_date.py").is_file()
  for line in (ROOT/"MANIFEST_SHA256.txt").read_text().splitlines():
   if not line.strip():continue
   h,rel=line.split(None,1);rel=rel.lstrip("*").strip();assert (ROOT/rel).is_file() and sh(ROOT/rel)==h,(rel,sh(ROOT/rel),h)
