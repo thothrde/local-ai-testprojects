@@ -7,19 +7,20 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "VALIDATION_REPORT.json": "73f9a240d38fbf8628f0742f4fafa4e273fdb01ffa090ab799aec052e7378810",
-    "app.js": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
+    "VALIDATION_REPORT.json": "e8b8ad711e5598c4913902719d7feaf4072147053088a84ac7b8e1f70daab9a8",
+    "app.js": "f132680afe4357f07e10859319e88e3d6fc0855784af0cb455ff8ccbbf4dfe10",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_snapshot.js": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
-    "index.html": "7af669976aa61858ef69af725d68bc138afe5b2d1e7db575b798185de8d10ad7",
+    "index.html": "ab2891c66b542219eaf9eae3d10aac5896c782ab3f1d6c9dd42ee771b6ebf60d",
     "korrekturen.html": "ebc7648306e148d5aa4f8412b10dbf8188192921fb50fd2e6d4d64362daa36a5",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
     "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
     "tests/validate_fi3_public_projection.py": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
-    "tests/validate_public_data_release.py": "785492484b411a01d82c2cdedced127aa6e88932ab6e60812f3ddbabf678ab20",
-    "versionen.html": "dd3e08f8c81f3711f1ca4610a45206589a312765031f55c8d75dde95588b50f4",
-    "tests/validate_public_static_common_date.py": "ef98e5f204387fcd281e9d0cb2a5f174b5c0f59dd3b1c4a6534df3d96f64c51c"
+    "tests/validate_public_data_release.py": "7d6779e781df284fe35e49f66ee2d7aa6db83799c12f1a415db95b9061911d5f",
+    "versionen.html": "85486e4c9e4eac2b21c90489b0ca94d1e01993134773406e981f2c97e1012352",
+    "tests/validate_public_static_common_date.py": "dbdc89c7d608234e6d26ffac6a7f9ac5aee3dba7e4f3795f16551530e732a696",
+    "data/research_context_v1.js": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92"
   },
   "capability_contract": {
     "AGENT_ORCHESTRATOR": {
@@ -201,17 +202,35 @@
         "PUBLIC_SCOPE_DE",
         "PUBLIC_SCOPE_EN"
       ]
+    },
+    "FI1_BOUNDED_PUBLIC_CORPUS_STATUS": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_SPRINT_A_FI1_BOUNDED_CONTEXT"
+      ]
+    },
+    "FI2_BOUNDED_PUBLIC_TED_NOTICE_CONTEXT": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_SPRINT_A_FI2_BOUNDED_TED_CONTEXT"
+      ]
+    },
+    "NETWORK_BOUNDED_PUBLIC_EBA_P3DH_CONTEXT": {
+      "public_static_supported": 1,
+      "test_ids": [
+        "PUBLIC_SPRINT_A_NETWORK_BOUNDED_CONTEXT"
+      ]
     }
   },
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "7af669976aa61858ef69af725d68bc138afe5b2d1e7db575b798185de8d10ad7",
+    "index.html": "ab2891c66b542219eaf9eae3d10aac5896c782ab3f1d6c9dd42ee771b6ebf60d",
     "korrekturen.html": "ebc7648306e148d5aa4f8412b10dbf8188192921fb50fd2e6d4d64362daa36a5",
     "methodik.html": "50e89c51d01ec5547b2471b7835f8a0d261ba2138ac49ac01f73937e04321405",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "unabhaengigkeit.html": "03ef54d274beb03111db1b5ff457eebe0ed75a62742d94f5de309e036928886b",
-    "versionen.html": "dd3e08f8c81f3711f1ca4610a45206589a312765031f55c8d75dde95588b50f4"
+    "versionen.html": "85486e4c9e4eac2b21c90489b0ca94d1e01993134773406e981f2c97e1012352"
   },
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -258,7 +277,7 @@
     "source_quality_issue_count": 3,
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS"
   },
-  "evidence_scope": "F1_AFFECTED_AND_PUBLIC_STATIC_CAPABILITIES_PLUS_LOCAL_FI_NETWORK_BOUNDARY",
+  "evidence_scope": "PUBLIC_STATIC_CAPABILITIES_PLUS_SPRINT_A_BOUNDED_FI1_FI2_EBA_P3DH_CONTEXT__BROADER_FI_NETWORK_FUNCTIONS_REMAIN_CLOSED",
   "fi3_hold_amount_public_hardening": {
     "base_public_head": "10e12517ba95225e3b0a28810e20e8c06cce5ed0",
     "exact_hold_amounts_public": false,
@@ -282,7 +301,7 @@
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
     "standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46"
   },
-  "generated_for": "PUBLIC_STATIC_COMMON_DATE_R1_CANONICAL_7863537_20261013",
+  "generated_for": "FIRST_COMPLETE_VERSION_SPRINT_A_BOUNDED_PUBLIC_CONTEXT_RC1_CANONICAL_7863537_20261016",
   "independent_followup_audit": {
     "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
     "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
@@ -373,7 +392,7 @@
     "synthetic_ungoverned_tie_expected_state": "MULTIPLE_ROWS",
     "unresolved_conflict_pairs": 1
   },
-  "schema": "FI2A_PUBLIC_CAPABILITY_EVIDENCE_V3",
+  "schema": "FI2A_PUBLIC_CAPABILITY_EVIDENCE_V4",
   "standing_public_data_release_validator": {
     "path": "tests/validate_public_data_release.py",
     "requirements": [
@@ -395,9 +414,15 @@
       "SOURCE_QUALITY_TWO_ADDITIONS_EXACTLY_ALLIANZ_PROVENANCE_MISLABEL_AND_SCOR_CONFLICT",
       "P3DH_STATIC_LATEST_COMMON_REFERENCE_DATE_1759_1757_2_523",
       "P3DH_STATIC_STATISTICS_AND_RANKING_WITHHELD",
-      "PUBLIC_COMMON_DATE_RELEASE_COPY_PRESENT"
+      "PUBLIC_COMMON_DATE_RELEASE_COPY_PRESENT",
+      "SPRINT_A_RESEARCH_CONTEXT_EXACT_SHA_BOUND",
+      "SPRINT_A_FI1_427_0_5_SOURCE_HOLD_BOUNDARY",
+      "SPRINT_A_FI2_21_156_84_92_NARROW_SCHEMA",
+      "SPRINT_A_NETWORK_116_113_105_104_16_EXACT_SOURCE_CONTRACT",
+      "SPRINT_A_COVERAGE_200_199_1_SCOR_NO_WINNER",
+      "SPRINT_A_NO_GLEIF_RAW_NO_SCREENING_NO_RISK_SCORE"
     ],
-    "sha256": "785492484b411a01d82c2cdedced127aa6e88932ab6e60812f3ddbabf678ab20"
+    "sha256": "7d6779e781df284fe35e49f66ee2d7aa6db83799c12f1a415db95b9061911d5f"
   },
   "standing_repo_validator": {
     "path": "tests/validate_capability_contract.py",
@@ -995,6 +1020,88 @@
           "pass": true
         }
       ]
+    },
+    {
+      "id": "PUBLIC_SPRINT_A_FI1_BOUNDED_CONTEXT",
+      "capability": "FI1_BOUNDED_PUBLIC_CORPUS_STATUS",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/data/research_context_v1.js",
+          "must_contain": [
+            "HOLD_EXTERNAL_OFFICIAL_SOURCE",
+            "NO_CASE_ATTACHMENT_WITHOUT_EXACT_EVIDENCE"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "Global official case corpus",
+            "not clearance and is not a screening result"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_SPRINT_A_FI2_BOUNDED_TED_CONTEXT",
+      "capability": "FI2_BOUNDED_PUBLIC_TED_NOTICE_CONTEXT",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/data/research_context_v1.js",
+          "must_contain": [
+            "FIRST_COMPLETE_VERSION_SPRINT_A_CONTEXT_V1"
+          ],
+          "must_not_contain": [
+            "buyer_cluster_id",
+            "value_evidence_json"
+          ],
+          "pass": true
+        },
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "function researchContextHtml",
+            "ted.europa.eu",
+            "noopener noreferrer"
+          ],
+          "must_not_contain": [
+            ".slice(0,8)"
+          ],
+          "pass": true
+        }
+      ]
+    },
+    {
+      "id": "PUBLIC_SPRINT_A_NETWORK_BOUNDED_CONTEXT",
+      "capability": "NETWORK_BOUNDED_PUBLIC_EBA_P3DH_CONTEXT",
+      "result": "PASS",
+      "checks": [
+        {
+          "file": "public/data/research_context_v1.js",
+          "must_contain": [
+            "CONTEXTUAL_OFFICIAL_EBA",
+            "CONTEXTUAL_P3DH_NO_DIRECT_LEAD_METRIC_MAPPING"
+          ],
+          "must_not_contain": [
+            "GLEIF_LEVEL2_SEED_RELATIONSHIPS"
+          ],
+          "pass": true
+        },
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "Descriptive context, not causal evidence",
+            "Raw GLEIF relationships are not shipped publicly"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        }
+      ]
     }
   ],
   "public_static_common_date_r1_20261013": {
@@ -1018,5 +1125,27 @@
     "full_release_candidate_independent_audit_required": true,
     "p3dh_total_changed_pair_outcomes": 525,
     "p3dh_no_common_previously_misclassified_exact_count": 2
+  },
+  "generated_at_utc": "2026-10-16T07:48:38.004936+00:00",
+  "sprint_a_public_context_20261016": {
+    "release_kind": "BOUNDED_STATIC_CONTEXT_EXCERPT",
+    "base_public_head": "f964050b1163dfb94f347ead19356766697aeadf",
+    "context_data_sha256": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
+    "app_js_sha256": "f132680afe4357f07e10859319e88e3d6fc0855784af0cb455ff8ccbbf4dfe10",
+    "index_html_sha256": "ab2891c66b542219eaf9eae3d10aac5896c782ab3f1d6c9dd42ee771b6ebf60d",
+    "delta_reaudit_pass_result_sha256": "c078622c1157b6ebfea82584659faa0556affd750e0eac5fdbee5f68d6dfa18e",
+    "candidate_data_lanes_independently_audited": true,
+    "fi1_seed_candidates": 0,
+    "fi2_notice_refs": 84,
+    "network_entities": 116,
+    "coverage": {
+      "logical_cells": 200,
+      "terminal": 199,
+      "nonterminal": 1
+    },
+    "raw_gleif_relationship_publication": false,
+    "screening": false,
+    "risk_scoring": false,
+    "natural_person_layer": false
   }
 }

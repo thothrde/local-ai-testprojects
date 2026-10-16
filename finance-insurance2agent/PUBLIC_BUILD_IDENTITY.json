@@ -1,7 +1,7 @@
 {
   "audited_candidate_sha256": null,
   "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
-  "build": "PUBLIC_STATIC_COMMON_DATE_R1_CANONICAL_7863537_20261013__FI3_SEPARATE_UNCHANGED",
+  "build": "FIRST_COMPLETE_VERSION_SPRINT_A_BOUNDED_PUBLIC_CONTEXT_RC1_CANONICAL_7863537_20261016",
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -80,8 +80,8 @@
     "role_detail_published": 129,
     "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a"
   },
-  "fi_network_public_release_gate": "FI3_BOUNDED_CANDIDATE_LAYER_ONLY__OTHER_FI_NETWORK_REMAINS_CLOSED",
-  "generated_at_utc": "2026-10-13T17:50:00Z",
+  "fi_network_public_release_gate": "SPRINT_A_BOUNDED_STATIC_CONTEXT_CANDIDATE_AUDITED__BROADER_FI_NETWORK_FUNCTIONS_REMAIN_CLOSED",
+  "generated_at_utc": "2026-10-16T07:48:38.004936+00:00",
   "generative_ai_at_runtime": false,
   "implemented_capabilities": [
     {
@@ -272,6 +272,27 @@
       "mode": "INVESTIGATE",
       "public_static_supported": 0,
       "status": "PLANNED_GATED_NOT_IMPLEMENTED"
+    },
+    {
+      "code": "FI1_BOUNDED_PUBLIC_CORPUS_STATUS",
+      "local_full_supported": 1,
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "status": "IMPLEMENTED_BOUNDED_STATIC_CONTEXT_EXCERPT"
+    },
+    {
+      "code": "FI2_BOUNDED_PUBLIC_TED_NOTICE_CONTEXT",
+      "local_full_supported": 1,
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "status": "IMPLEMENTED_BOUNDED_STATIC_CONTEXT_EXCERPT"
+    },
+    {
+      "code": "NETWORK_BOUNDED_PUBLIC_EBA_P3DH_CONTEXT",
+      "local_full_supported": 1,
+      "mode": "INVESTIGATE",
+      "public_static_supported": 1,
+      "status": "IMPLEMENTED_BOUNDED_STATIC_CONTEXT_EXCERPT"
     }
   ],
   "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
@@ -347,7 +368,7 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
+    "capability_evidence_sha256": "50e78f070b80e6a0a3631e67033bcbf68eb0394a5c546c4737e9fa1a13d4fd06",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
@@ -385,7 +406,7 @@
     "source_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
     "status": "DETERMINISTIC_REGENERATION_COMPLETED"
   },
-  "public_release_gate": "OPEN",
+  "public_release_gate": "PENDING_INDEPENDENT_SPRINT_A_FULL_RELEASE_CANDIDATE_AUDIT_BEFORE_WRITE",
   "raw_source_redistribution_gate": "CLOSED",
   "recovery8_latest_date_multiplicity": {
     "capability_validator_byte_identical_to_recovery7": true,
@@ -410,7 +431,7 @@
     "survey_heuristics_promoted_to_product_semantics": false,
     "unresolved_conflict_pairs": 1
   },
-  "release_preflight": "V1_0_PARENT_INDEPENDENT_AUDIT_PASS__V1_0_1_NARROW_PRESENTATION_PATCH_VALIDATED",
+  "release_preflight": "SPRINT_A_MULTI_LANE_AND_UI_DELTA_AUDITS_PASS__FULL_RELEASE_CANDIDATE_AUDIT_REQUIRED_BEFORE_WRITE",
   "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
   "public_static_common_date_r1_20261013": {
     "base_public_head": "49ee7831fff701b2f285ebc8f9c0ce2df53c5638",
@@ -440,5 +461,57 @@
     "deployment_authorized_by_build": false,
     "p3dh_total_changed_pair_outcomes": 525,
     "p3dh_no_common_previously_misclassified_exact_count": 2
+  },
+  "sprint_a_public_context_20261016": {
+    "release_kind": "BOUNDED_STATIC_FI1_FI2_EBA_P3DH_CONTEXT_EXCERPT",
+    "base_public_head": "f964050b1163dfb94f347ead19356766697aeadf",
+    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "source_fi_staging_sha256": "649a44182a54e01a9d80a9a8d4b4a1da5efe9ed27f825de2ba5fd3e1e51b8281",
+    "core_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "fi3_projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
+    "context_data_sha256": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
+    "app_js_sha256": "f132680afe4357f07e10859319e88e3d6fc0855784af0cb455ff8ccbbf4dfe10",
+    "index_html_sha256": "ab2891c66b542219eaf9eae3d10aac5896c782ab3f1d6c9dd42ee771b6ebf60d",
+    "capability_evidence_sha256": "50e78f070b80e6a0a3631e67033bcbf68eb0394a5c546c4737e9fa1a13d4fd06",
+    "validation_report_sha256": "e8b8ad711e5598c4913902719d7feaf4072147053088a84ac7b8e1f70daab9a8",
+    "candidate_result_sha256": "721449766cbec25607067b702e55354623bf87dfa8b0890f387106578df814ff",
+    "multi_lane_independent_audit_hold_sha256": "2f86920079aa2cb32b7a05bd1413eeea14d0e61868afb2fb8c6df2c46d4e196b",
+    "ui_recovery2_result_sha256": "e1cec951c1c6be16f4da51a3b8cb85b276315b3579c35bc8a163d59ee2064c9a",
+    "delta_reaudit_pass_result_sha256": "c078622c1157b6ebfea82584659faa0556affd750e0eac5fdbee5f68d6dfa18e",
+    "delta_reaudit_pass_token": "PASS_FINANCE_INSURANCE2AGENT_FIRST_COMPLETE_VERSION_SPRINT_A_UI_CORRECTION_RECOVERY2_DELTA_REAUDIT",
+    "fi1": {
+      "case_corpus": 427,
+      "seed_candidates": 0,
+      "residual_source_gaps": 5,
+      "source_status": "HOLD_EXTERNAL_OFFICIAL_SOURCE"
+    },
+    "fi2": {
+      "entities": 21,
+      "identity_role_bindings": 156,
+      "notice_references": 84,
+      "winner_events": 92
+    },
+    "network": {
+      "entities": 116,
+      "sovereign": 113,
+      "credit_geography": 105,
+      "nace": 104,
+      "p3dh": 16
+    },
+    "coverage": {
+      "logical_cells": 200,
+      "terminal": 199,
+      "nonterminal": 1
+    },
+    "canonical_data_unchanged": true,
+    "fi_staging_data_unchanged": true,
+    "core_snapshot_unchanged": true,
+    "fi3_projection_unchanged": true,
+    "raw_gleif_relationship_publication": false,
+    "screening": false,
+    "risk_scoring": false,
+    "natural_person_layer": false,
+    "deployment_performed_by_build": false,
+    "required_external_full_release_candidate_pass_token": "PASS_FINANCE_INSURANCE2AGENT_FIRST_COMPLETE_VERSION_SPRINT_A_FULL_RELEASE_CANDIDATE_INDEPENDENT_AUDIT_BEFORE_WRITE"
   }
 }
