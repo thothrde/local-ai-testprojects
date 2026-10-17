@@ -157,7 +157,19 @@ function researchContextHtml(eid){
  const fi1Html=`<article class="card"><h4>FI1 · EPPO/OLAF</h4><div class="kv"><span>${esc(L('Globaler offizieller Fallkorpus','Global official case corpus'))}</span><b>${esc(f.case_corpus_count??0)}</b><span>${esc(L('Institutionell gebundene Seed-Kandidaten','Institution-bound seed candidates'))}</span><b>${esc(f.seed_candidate_count??0)}</b><span>${esc(L('Quellenstatus','Source status'))}</span><b>${esc(fs.status||'—')}</b><span>${esc(L('Offene Quellenlücken','Residual source gaps'))}</span><b>${esc(f.residual_source_gap_count??0)}</b></div><p class="guard">${esc(L('Der Fallkorpus ist global und keiner Institution zugeordnet. 0 institutionell gebundene Kandidaten ist keine Entwarnung und kein Screening-Ergebnis. Kein Fall wird ohne exakte Evidenz an eine Institution angehängt.','The case corpus is global and is not assigned to any institution. 0 institution-bound candidates is not clearance and is not a screening result. No case is attached to an institution without exact evidence.'))}</p><p class="muted"><b>${esc(L('Grund des Quellenstatus:','Source-state reason:'))}</b> ${esc(fs.reason||'—')}</p><p class="muted"><b>${esc(L('Rechtlich-authentische Grenze:','Legal-authenticity boundary:'))}</b> ${esc(fs.legal_authenticity_boundary||'—')}</p></article>`;
  return `<h4>${esc(L('Begrenzter statischer Forschungs- und Kontextauszug','Bounded static research and context excerpt'))}</h4><p class="muted">${esc(L('Dieser Auszug zeigt ausschließlich die hier quellengebundenen FI1/FI2/EBA/P3DH-Kontexte. Er ersetzt nicht die weitergehenden Vergabe-, Network- oder Enforcement-Fallfunktionen, die auf dieser öffentlichen Seite weiterhin nicht verfügbar sind. Nicht Screening, nicht Risiko-Score, keine natürliche-Personen-Schicht.','This excerpt shows only the source-bound FI1/FI2/EBA/P3DH contexts exposed here. It does not replace the broader procurement, network or enforcement-case functions that remain unavailable on this public page. Not screening, not a risk score, no natural-person layer.'))}</p><div class="card-grid">${fi2Html}${netHtml}${covHtml}${fi1Html}</div>`;
 }
-function runInvestigate(){const eid=$('#invEntity').value,mc=$('#invMetric').value,xs=state.snapshot.observations.filter(o=>o.entity_id===eid&&o.metric_code===mc).sort((a,b)=>(a.reference_date||'').localeCompare(b.reference_date||'')),dec=state.snapshot.time_series_decisions.filter(d=>d.entity_id===eid&&d.metric_code===mc);$('#invDossier').innerHTML=dossierHtml(eid)+entityEmptyStateHtml(eid);$('#timeSeries').innerHTML=`<h4>${t('timeSeries')} · ${esc(metricOf(mc).name||mc)}</h4>${svgSeries(xs)}<div class="decision-list">${dec.map(d=>`<div>${badge(d.comparability_status)}<span>${esc(d.period_a)} → ${esc(d.period_b)}</span><small>${esc(JSON.stringify(d.reasons_json||{}))}</small></div>`).join('')}</div>`;$('#ownership').innerHTML=`<h4>${t('ownership')}</h4>${ownershipSvg(eid)}`;$('#componentExplorer').innerHTML=`<h4>${t('components')}</h4>${componentHtml(eid)}`;$('#metricExplorer').innerHTML=`<h4>${t('metricExplorer')}</h4>${metricHtml(mc)}`;const srcs=[...new Set(state.snapshot.observations.filter(o=>o.entity_id===eid).map(o=>o.source_id))].map(sourceOf).filter(Boolean);$('#sourceBrowser').innerHTML=`<h4>${t('sourceBrowser')}</h4><div class="source-grid">${srcs.map(s=>`<article class="card"><b>${esc(s.publisher||'')}</b><div>${esc(s.title||'')}</div><small>${esc(s.source_family||'')} · ${esc(s.publication_date||'')}</small><code>${esc(s.sha256||'')}</code>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">${t('officialSource')}</a>`:''}</article>`).join('')}</div>${sourceQualityHtml(eid)}`;$('#fi3Context').innerHTML=fi3ContextHtml(eid);$('#researchContext').innerHTML=researchContextHtml(eid)}
+
+function publicSourceLinkHtml(s){
+  if(!s?.url)return'';
+  let host='';
+  try{host=new URL(s.url,location.href).hostname.toLowerCase()}catch(_){}
+  if(host==='scor.com'||host.endsWith('.scor.com')){
+    const msg=state.lang==='de'?'Bibliografisch identifiziert · Direktlink hier aus Quellenrechtsgründen nicht ausgegeben':'Bibliographically identified · direct link not emitted here for source-rights reasons';
+    return`<span class="source-link-restricted">${esc(msg)}</span>`;
+  }
+  return`<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${t('officialSource')}</a>`;
+}
+
+function runInvestigate(){const eid=$('#invEntity').value,mc=$('#invMetric').value,xs=state.snapshot.observations.filter(o=>o.entity_id===eid&&o.metric_code===mc).sort((a,b)=>(a.reference_date||'').localeCompare(b.reference_date||'')),dec=state.snapshot.time_series_decisions.filter(d=>d.entity_id===eid&&d.metric_code===mc);$('#invDossier').innerHTML=dossierHtml(eid)+entityEmptyStateHtml(eid);$('#timeSeries').innerHTML=`<h4>${t('timeSeries')} · ${esc(metricOf(mc).name||mc)}</h4>${svgSeries(xs)}<div class="decision-list">${dec.map(d=>`<div>${badge(d.comparability_status)}<span>${esc(d.period_a)} → ${esc(d.period_b)}</span><small>${esc(JSON.stringify(d.reasons_json||{}))}</small></div>`).join('')}</div>`;$('#ownership').innerHTML=`<h4>${t('ownership')}</h4>${ownershipSvg(eid)}`;$('#componentExplorer').innerHTML=`<h4>${t('components')}</h4>${componentHtml(eid)}`;$('#metricExplorer').innerHTML=`<h4>${t('metricExplorer')}</h4>${metricHtml(mc)}`;const srcs=[...new Set(state.snapshot.observations.filter(o=>o.entity_id===eid).map(o=>o.source_id))].map(sourceOf).filter(Boolean);$('#sourceBrowser').innerHTML=`<h4>${t('sourceBrowser')}</h4><div class="source-grid">${srcs.map(s=>`<article class="card"><b>${esc(s.publisher||'')}</b><div>${esc(s.title||'')}</div><small>${esc(s.source_family||'')} · ${esc(s.publication_date||'')}</small><code>${esc(s.sha256||'')}</code>${publicSourceLinkHtml(s)}</article>`).join('')}</div>${sourceQualityHtml(eid)}`;$('#fi3Context').innerHTML=fi3ContextHtml(eid);$('#researchContext').innerHTML=researchContextHtml(eid)}
 function runDiscover(){const eid=$('#discEntity').value,cands=(state.snapshot.generated_discovery_candidates||[]).filter(c=>!eid||c.entity_id===eid),threads=state.snapshot.investigation_threads||[];$('#discoverResult').innerHTML=`<h4>${t('candidates')}</h4><div class="candidate-grid">${cands.slice(0,120).map(c=>`<article class="candidate"><div class="eyebrow">${esc(c.kind)}</div>${badge(c.status||'EXPLORATORY_ONLY','warn')}<h4>${esc(c.question||metricOf(c.metric_code||'').name||'Candidate')}</h4><small>${esc(nameOf(c.entity_id))}${c.period_a?' · '+esc(c.period_a)+' → '+esc(c.period_b):''}</small><pre>${esc(JSON.stringify(c.countercheck_plan||c.detail||{},null,2))}</pre></article>`).join('')||`<div class="empty">${t('noResults')}</div>`}</div>`;$('#threadResult').innerHTML=`<h4>${t('threads')}</h4><div class="thread-list">${threads.slice(0,80).map(th=>`<article class="card"><b>${esc(th.title||th.thread_title||th.thread_id||th.id)}</b><small>${esc(th.status||'')}</small><pre>${esc(JSON.stringify(th,null,2))}</pre></article>`).join('')||`<div class="empty">${t('noResults')}</div>`}</div>`}
 function graphHtml(g){if(!g||!g.nodes?.length)return`<div class="empty">${t('noResults')}</div>`;return`<h4>${t('evidenceGraph')}</h4><div class="evidence-nodes">${g.nodes.map(n=>`<div class="node ${esc(n.kind.toLowerCase())}"><b>${esc(n.kind)}</b><span>${esc(n.label)}</span></div>`).join('')}</div><div class="edge-list">${g.edges.map(e=>`<div>${esc(e.from)} → <b>${esc(e.type)}</b> → ${esc(e.to)}</div>`).join('')}</div>`}
 function evidenceGraphLocal(oid){const o=state.snapshot.observations.find(x=>x.id===oid);if(!o)return null;const nodes=[{id:oid,kind:'OBSERVATION',label:oid}],edges=[],e=state.entityMap.get(o.entity_id),m=metricOf(o.metric_code),s=sourceOf(o.source_id);if(e){nodes.push({id:e.id,kind:'ENTITY',label:e.legal_name});edges.push({from:oid,to:e.id,type:'ABOUT_ENTITY'})}if(m){nodes.push({id:'metric:'+m.code,kind:'METRIC',label:m.name||m.code});edges.push({from:oid,to:'metric:'+m.code,type:'USES_METRIC'})}if(s){nodes.push({id:'source:'+s.id,kind:'SOURCE',label:s.title||s.id});edges.push({from:oid,to:'source:'+s.id,type:'SUPPORTED_BY'})}(state.snapshot.lineage||[]).filter(x=>x.derived_observation_id===oid).forEach(x=>{nodes.push({id:x.input_observation_id,kind:'OBSERVATION',label:x.input_observation_id});edges.push({from:x.input_observation_id,to:oid,type:x.input_role||'INPUT'})});return{nodes,edges}}
@@ -166,3 +178,105 @@ async function runAgent(){if(state.runtime==='static')return;const q=$('#agentQ'
 async function init(){state.snapshot=await loadSnapshot();state.entityMap=new Map(state.snapshot.entities.map(x=>[x.id,x]));state.metricMap=new Map(state.snapshot.metrics.map(x=>[x.code,x]));state.sourceMap=new Map(state.snapshot.sources.map(x=>[x.id,x]));$('#buildStatus').textContent='READY';if(state.runtime==='static')$$('.local-only').forEach(x=>x.style.display='none');const ents=[...state.snapshot.entities].sort((a,b)=>(a.legal_name||'').localeCompare(b.legal_name||'')),mets=[...state.snapshot.metrics].sort((a,b)=>(a.name||a.code).localeCompare(b.name||b.code));['askEntity','cmpA','cmpB','invEntity'].forEach(id=>fillSelect($('#'+id),ents,x=>x.id,x=>`${x.legal_name} · ${x.type}`));fillSelect($('#discEntity'),ents,x=>x.id,x=>x.legal_name,true);['cmpMetric'].forEach(id=>fillSelect($('#'+id),mets,x=>x.code,x=>`${x.name||x.code} · ${x.code}`));fillSelect($('#cmpCohort'),ents,x=>x.id,x=>x.legal_name);const types=[...new Set(ents.map(e=>e.type).filter(Boolean))].sort(),countries=[...new Set(ents.map(e=>e.country).filter(Boolean))].sort();fillSelect($('#entityTypeFilter'),types,x=>x,x=>x,true);fillSelect($('#entityCountryFilter'),countries,x=>x,x=>x,true);const first=ents[0]?.id;if(first){$('#askEntity').value=first;$('#invEntity').value=first;syncEntityMetric('ask');syncEntityMetric('inv')}renderMetrics();renderGates();renderEntityBrowser();setLang('de');}
 $('#modeTabs').onclick=e=>{if(e.target.dataset.mode)showMode(e.target.dataset.mode)};$('#langToggle').onclick=()=>setLang(state.lang==='de'?'en':'de');$('#askEntity').onchange=()=>{syncEntityMetric('ask');runAsk()};$('#askShow').onclick=runAsk;$('#searchRun').onclick=runSearch;$('#searchQ').onkeydown=e=>{if(e.key==='Enter')runSearch()};$('#entityFilter').oninput=renderEntityBrowser;$('#entityTypeFilter').onchange=renderEntityBrowser;$('#entityCountryFilter').onchange=renderEntityBrowser;$('#cmpRun').onclick=()=>runCompare([$('#cmpA').value,$('#cmpB').value]);$('#cmpCohortRun').onclick=()=>runCompare(Array.from($('#cmpCohort').selectedOptions).map(o=>o.value));$('#invEntity').onchange=()=>{syncEntityMetric('inv');runInvestigate()};$('#invRun').onclick=runInvestigate;$('#discRun').onclick=runDiscover;$('#auditRun').onclick=runAudit;$('#auditRerun').onclick=async()=>{if(state.runtime==='static')return runAudit();const id=$('#auditId').value.trim(),r=await api('/api/rerun',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({operation:'AUDIT_TRACE',observation_id:id})});$('#auditResult').insertAdjacentHTML('afterbegin',`<div class="rerun-ok">RERUN PASS · ${esc(r.result?.observation?.id||'')}</div>`)};$('#agentRun').onclick=runAgent;
 init().catch(e=>{$('#buildStatus').textContent='ERROR';document.body.insertAdjacentHTML('beforeend',`<div class="fatal">${esc(e.message)}</div>`);console.error(e)});
+
+
+/* === FI2A Public Static Research Workspace v1 · read-only curated projection === */
+window.__FI2A_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1__='PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_20261017';
+const PRW=window.FI2A_PUBLIC_RESEARCH_WORKSPACE_V1||null;
+let prwSelectedCaseId=null;
+let prwSyntheticOpen=false;
+
+const PRW_I18N={
+ de:{
+  kicker:'PUBLIC · STATISCH · READ-ONLY',
+  title:'Research Workspace',
+  help:'Geprüfte Forschungsfälle machen Forschungsfrage, Hypothesen, Tests, zulässige Aussage und Auditstatus sichtbar. Ein SUPPORTED-Status gilt nur innerhalb seiner ausdrücklich genannten Grenzen.',
+  howTitle:'So lesen Sie den Workspace',
+  realCases:'Reale Forschungsfälle',
+  syntheticTitle:'Technische Demo / synthetischer Testfall',
+  open:'Fall öffnen', close:'Fall schließen',
+  researchQuestion:'Forschungsfrage', hypotheses:'Hypothesen', tests:'Tests',
+  allowed:'Zulässige Aussage', sourcePolicy:'Quellen- und Rechtegrenze',
+  calculations:'Deterministische Rechenkontrollen', audit:'Audit / Integrität',
+  legal:'Wichtige Einordnung', counts:'Umfang',
+  noData:'Research-Workspace-Projektion nicht verfügbar.',
+  staticBoundary:'STATISCH · KEINE API',
+  noRanking:'KEIN RANKING / RATING',
+  noWriter:'KEIN WRITER',
+  noDb:'KEINE NUTZERPERSISTENZ',
+  supported:'SUPPORTED', untested:'UNTESTED', pass:'PASS', planned:'PLANNED',
+  technical:'TECHNISCHE DEMO · KEINE REALDATEN',
+  independent:'Unabhängigkeit / Independence'
+ },
+ en:{
+  kicker:'PUBLIC · STATIC · READ-ONLY',
+  title:'Research Workspace',
+  help:'Reviewed research cases expose the research question, hypotheses, tests, allowed inference and audit status. SUPPORTED applies only within the expressly stated boundary.',
+  howTitle:'How to read the workspace',
+  realCases:'Real research cases',
+  syntheticTitle:'Technical demo / synthetic test case',
+  open:'Open case', close:'Close case',
+  researchQuestion:'Research question', hypotheses:'Hypotheses', tests:'Tests',
+  allowed:'Allowed inference', sourcePolicy:'Source and rights boundary',
+  calculations:'Deterministic calculation checks', audit:'Audit / integrity',
+  legal:'Important scope notice', counts:'Scope',
+  noData:'Research Workspace projection unavailable.',
+  staticBoundary:'STATIC · NO API',
+  noRanking:'NO RANKING / RATING',
+  noWriter:'NO WRITER',
+  noDb:'NO USER PERSISTENCE',
+  supported:'SUPPORTED', untested:'UNTESTED', pass:'PASS', planned:'PLANNED',
+  technical:'TECHNICAL DEMO · NO REAL-WORLD DATA',
+  independent:'Unabhängigkeit / Independence'
+ }
+};
+function prwt(k){return(PRW_I18N[state.lang]||PRW_I18N.de)[k]||k}
+function prwText(v){if(v&&typeof v==='object'&&('de'in v||'en'in v))return v[state.lang]||v.de||v.en||'';return v??''}
+function prwStatusClass(s){s=String(s||'').toUpperCase();return s==='SUPPORTED'||s==='PASS'?'good':s==='REJECTED'?'bad':'warn'}
+function prwBadgeStatus(s){return badge(String(s||'').toUpperCase(),prwStatusClass(s))}
+function prwHypothesis(h){return`<article class="card prw-hypothesis"><div class="compare-status">${prwBadgeStatus(h.status)}</div><h4>${esc(h.hypothesis_id)}</h4><p>${esc(prwText(h.statement))}</p><p class="muted"><b>${esc(prwt('allowed'))}:</b> ${esc(prwText(h.allowed_inference))}</p></article>`}
+function prwTest(t){return`<article class="card prw-test"><div class="compare-status">${prwBadgeStatus(t.status)}</div><h4>${esc(t.test_id)}</h4><p>${esc(state.lang==='de'?t.action_de:t.action_en)}</p></article>`}
+function prwCaseCard(c){return`<article class="card prw-case-card"><div class="eyebrow">REAL CASE · READ-ONLY</div><h4>${esc(prwText(c.title))}</h4><p>${esc(prwText(c.research_question))}</p><p class="muted">${esc(prwText(c.reader_context))}</p><div class="prw-counts"><span>${esc(prwt('counts'))}</span><b>${esc(c.counts.items)} items · ${esc(c.counts.hypotheses)} H · ${esc(c.counts.tests)} tests</b></div><button class="mini prw-open" data-case-id="${esc(c.case_id)}">${esc(prwt('open'))}</button></article>`}
+function prwAuditRows(a){return[
+ ['validation',a.validation_status],['package',a.package_integrity_sha256],['overlay',a.overlay_sha256],['source authority',a.source_authority_sha256],['event tip',a.event_tip_hash]
+ ].filter(x=>x[1]).map(([k,v])=>`<div class="rw-hash-row"><span>${esc(k)}</span><code>${esc(v)}</code></div>`).join('')}
+function prwDetail(c){
+ const calcs=(c.key_calculations||[]).map(x=>`<article class="card prw-calc"><b>${esc(prwText(x.label))}</b><code>${esc(x.expression)} = ${esc(x.result)}</code><small>${esc(prwText(x.comparison))}</small></article>`).join('');
+ return`<div class="prw-detail">
+  <div class="section-head"><div><div class="eyebrow">REAL CASE · STATIC PROJECTION</div><h3>${esc(prwText(c.title))}</h3></div><button class="mini prw-close">${esc(prwt('close'))}</button></div>
+  <div class="rw-boundary-strip">${badge(prwt('staticBoundary'),'good')} ${badge(prwt('noRanking'),'bad')} ${badge(prwt('noWriter'),'bad')} ${badge(prwt('noDb'),'warn')}</div>
+  <article class="card rw-question"><div class="eyebrow">${esc(prwt('researchQuestion'))}</div><p>${esc(prwText(c.research_question))}</p><p class="muted">${esc(prwText(c.reader_context))}</p></article>
+  ${calcs?`<h4>${esc(prwt('calculations'))}</h4><div class="card-grid">${calcs}</div>`:''}
+  <h4>${esc(prwt('hypotheses'))}</h4><div class="rw-hypothesis-grid">${c.hypotheses.map(prwHypothesis).join('')}</div>
+  <h4>${esc(prwt('tests'))}</h4><div class="card-grid prw-test-grid">${c.tests.map(prwTest).join('')}</div>
+  <article class="card prw-source-policy"><div class="eyebrow">${esc(prwt('sourcePolicy'))}</div><p>${esc(prwText(c.source_policy))}</p></article>
+  <details class="rw-audit"><summary>${esc(prwt('audit'))}</summary><div class="rw-audit-grid">${prwAuditRows(c.audit)}</div></details>
+ </div>`;
+}
+function prwSynthetic(){
+ const s=PRW.synthetic_demo;
+ if(!s)return'';
+ return`<details class="prw-synthetic" ${prwSyntheticOpen?'open':''}><summary><span class="badge warn">${esc(prwt('technical'))}</span> ${esc(prwText(s.title))}</summary>
+ <div class="card prw-synthetic-body"><p><strong>${esc(prwText(s.warning))}</strong></p><p><b>${esc(prwt('researchQuestion'))}:</b> ${esc(prwText(s.research_question))}</p>
+ <div class="rw-hypothesis-grid">${s.hypotheses.map(prwHypothesis).join('')}</div><div class="card-grid prw-test-grid">${s.tests.map(prwTest).join('')}</div>
+ <details class="rw-audit"><summary>${esc(prwt('audit'))}</summary><div class="rw-audit-grid">${prwAuditRows(s.audit)}</div></details></div></details>`;
+}
+function renderPublicResearchWorkspace(){
+ const host=document.querySelector('#publicResearchWorkspace');if(!host)return;
+ if(!PRW){host.innerHTML=`<div class="empty">${esc(prwt('noData'))}</div>`;return}
+ const selected=PRW.cases.find(c=>c.case_id===prwSelectedCaseId);
+ host.innerHTML=`<div class="section-head"><div><div class="eyebrow">${esc(prwt('kicker'))}</div><h3>${esc(prwt('title'))}</h3></div><p>${esc(prwt('help'))}</p></div>
+ <div class="rw-boundary-strip">${badge(prwt('staticBoundary'),'good')} ${badge(prwt('noRanking'),'bad')} ${badge(prwt('noWriter'),'bad')} ${badge(prwt('noDb'),'warn')}</div>
+ <article class="card prw-reader-guide"><h4>${esc(prwt('howTitle'))}</h4><div class="prw-legend">${Object.entries(PRW.status_legend).map(([k,v])=>`<div>${prwBadgeStatus(k)}<span>${esc(prwText(v))}</span></div>`).join('')}</div></article>
+ <article class="card prw-legal"><div class="eyebrow">${esc(prwt('legal'))}</div>${PRW.legal_and_reader_notice[state.lang].map(x=>`<p>${esc(x)}</p>`).join('')}<p><a href="unabhaengigkeit.html">${esc(prwt('independent'))}</a></p></article>
+ ${selected?prwDetail(selected):`<h4>${esc(prwt('realCases'))}</h4><div class="rw-case-grid">${PRW.cases.map(prwCaseCard).join('')}</div><h4>${esc(prwt('syntheticTitle'))}</h4>${prwSynthetic()}`}
+ `;
+ host.querySelectorAll('.prw-open').forEach(b=>b.onclick=()=>{prwSelectedCaseId=b.dataset.caseId;renderPublicResearchWorkspace()});
+ const close=host.querySelector('.prw-close');if(close)close.onclick=()=>{prwSelectedCaseId=null;renderPublicResearchWorkspace()};
+ const syn=host.querySelector('.prw-synthetic');if(syn)syn.addEventListener('toggle',()=>{prwSyntheticOpen=syn.open});
+}
+const prwLangObserver=new MutationObserver(()=>renderPublicResearchWorkspace());
+prwLangObserver.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+renderPublicResearchWorkspace();
+/* === end FI2A Public Static Research Workspace v1 === */
+

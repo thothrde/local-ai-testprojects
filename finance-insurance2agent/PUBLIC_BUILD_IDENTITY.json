@@ -1,7 +1,7 @@
 {
   "audited_candidate_sha256": null,
   "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
-  "build": "FIRST_COMPLETE_VERSION_SPRINT_A_BOUNDED_PUBLIC_CONTEXT_RC1_CANONICAL_7863537_20261016",
+  "build": "PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_RC2_CANONICAL_7863537_20261017",
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -47,6 +47,7 @@
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS",
     "whole_site_regeneration": false
   },
+  "current_capability_evidence_sha256": "446a8e202190cd084bf6be3cabff32d4890ff6b7eeab9e7f2dd38fb3b309cd3d",
   "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_7863537_20261013",
   "external_runtime_resources": false,
   "fi3_hold_amount_public_hardening": {
@@ -81,7 +82,7 @@
     "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a"
   },
   "fi_network_public_release_gate": "SPRINT_A_BOUNDED_STATIC_CONTEXT_CANDIDATE_AUDITED__BROADER_FI_NETWORK_FUNCTIONS_REMAIN_CLOSED",
-  "generated_at_utc": "2026-10-16T07:48:38.004936+00:00",
+  "generated_at_utc": "2026-10-17T00:00:00Z",
   "generative_ai_at_runtime": false,
   "implemented_capabilities": [
     {
@@ -293,6 +294,13 @@
       "mode": "INVESTIGATE",
       "public_static_supported": 1,
       "status": "IMPLEMENTED_BOUNDED_STATIC_CONTEXT_EXCERPT"
+    },
+    {
+      "code": "PUBLIC_STATIC_REVIEWED_RESEARCH_WORKSPACE",
+      "local_full_supported": 1,
+      "mode": "RESEARCH",
+      "public_static_supported": 1,
+      "status": "IMPLEMENTED_CURATED_READ_ONLY_PROJECTION_VWFS_SCOR_PLUS_SYNTHETIC_DEMO"
     }
   ],
   "independent_audit_json_sha256": "d4b403ab359e2c5f6ed241c00270050423db55f1d97211ad977d484275c3da62",
@@ -305,6 +313,14 @@
     "scope": "BOUNDED_F1_F8_REMEDIATION_DELTA_ONLY",
     "timestamp_utc": "2026-10-06T07:06:42Z",
     "zip_sha256": "10bd0281e31fd904cdb9ae263f46d9adcfc03bf831c677519ac55ce3295479e2"
+  },
+  "independent_release_audit": {
+    "artifact_embeds_transient_audit_result": true,
+    "deployment_authorized_by_this_artifact": false,
+    "embedded_hold_result_sha256": "1e17611f537ec5fdca88364512662187a9a427b711db88df41fe917929664243",
+    "gate_location": "EXTERNAL_TO_CANDIDATE_ARTIFACT",
+    "policy": "PUBLIC_DEPLOYMENT_REQUIRES_NARROW_RECOVERY1_DELTA_REAUDIT_PASS",
+    "required_pass_token": "PASS_FINANCE_INSURANCE2AGENT_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_DELTA_REAUDIT"
   },
   "languages": [
     "de",
@@ -368,11 +384,11 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "50e78f070b80e6a0a3631e67033bcbf68eb0394a5c546c4737e9fa1a13d4fd06",
+    "capability_evidence_sha256": "446a8e202190cd084bf6be3cabff32d4890ff6b7eeab9e7f2dd38fb3b309cd3d",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
-    "status": "INDEPENDENT_FOLLOWUP_PASS"
+    "status": "CURRENT_CAPABILITY_EVIDENCE_REBOUND_RECOVERY1_PENDING_DELTA_REAUDIT"
   },
   "presentation_patch_parent_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
   "presentation_patch_scope": [
@@ -406,7 +422,73 @@
     "source_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
     "status": "DETERMINISTIC_REGENERATION_COMPLETED"
   },
-  "public_release_gate": "PENDING_INDEPENDENT_SPRINT_A_FULL_RELEASE_CANDIDATE_AUDIT_BEFORE_WRITE",
+  "public_release_gate": "PENDING_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_DELTA_REAUDIT_BEFORE_WRITE",
+  "public_static_common_date_r1_20261013": {
+    "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
+    "base_public_head": "49ee7831fff701b2f285ebc8f9c0ce2df53c5638",
+    "baseline_mixed_date_cohort_statistics_previously_possible": true,
+    "canonical_data_unchanged": true,
+    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
+    "deployment_authorized_by_build": false,
+    "fi3_projection_unchanged": true,
+    "index_html_sha256": "7af669976aa61858ef69af725d68bc138afe5b2d1e7db575b798185de8d10ad7",
+    "non_p3dh_dispatch_mismatches": 0,
+    "out_of_scope_non_eba_divergent_with_common_date": 27,
+    "out_of_scope_non_p3dh_no_common_date": 12,
+    "p3dh_common_pair_count": 1757,
+    "p3dh_divergent_corrected_count": 523,
+    "p3dh_divergent_own_latest_count": 523,
+    "p3dh_no_common_pair_count": 2,
+    "p3dh_no_common_previously_misclassified_exact_count": 2,
+    "p3dh_pair_count": 1759,
+    "p3dh_total_changed_pair_outcomes": 525,
+    "required_external_full_candidate_pass_token": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_FULL_RELEASE_CANDIDATE_INDEPENDENT_AUDIT_BEFORE_WRITE",
+    "robots_unchanged": true,
+    "semantic_review_pass_token": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_INDEPENDENT_SEMANTIC_REVIEW_BEFORE_FULL_RELEASE_CANDIDATE",
+    "semantic_review_result_sha256": "0f6d3d81681236110bc03c7072207c41ff8dab75438a35c25b37aa5e943b5fda",
+    "semantic_scope": "EBA_P3DH_*_ONLY",
+    "snapshot_byte_identical_to_recovery8": true,
+    "snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "statistics_and_ranking_policy": "WITHHELD_FOR_STATIC_P3DH_COMPARE"
+  },
+  "public_static_research_workspace_v1": {
+    "baseline_live_manifest_sha256": "8253cb8f9a09cc39154481c385d428a316a1ef621b139c3a3524bdf84cab6dc6",
+    "baseline_public_head": "b6fcfa2dd0aaa42ff7d0ccf84a4c4e3fdb4c2d09",
+    "database_materialized": false,
+    "deployment_performed_by_candidate": false,
+    "public_projection_file": "data/public_research_workspace_v1.js",
+    "ranking_authorized": false,
+    "rating_or_investment_recommendation": false,
+    "raw_source_files": 0,
+    "real_case_ids": [
+      "RW-V0.1-VWFS-LEVERAGE-PEER-PATTERN",
+      "RW-V0.6-SCOR-SOLVENCYII-PRECISION-RECONCILIATION"
+    ],
+    "release_gate": "REQUIRES_NARROW_INDEPENDENT_AUDIT_BEFORE_WRITE",
+    "release_kind": "CURATED_STATIC_READ_ONLY_RESEARCH_CASE_PROJECTION",
+    "runtime_api_exposed": false,
+    "scor_direct_links_added": 0,
+    "source_workspace_digest_sha256": "3161f2a4cd174357916f0c958401afe5eb51dac168e72614fb8f3b360110b88c",
+    "source_workspace_version": "v0_6_reusable",
+    "synthetic_demo_case_id": "SYNTHETIC_CASE_ALPHA",
+    "user_content_storage": false,
+    "writer_authorized": false
+  },
+  "public_static_research_workspace_v1_recovery1": {
+    "blocking_findings": [
+      "F-1",
+      "F-2",
+      "F-3",
+      "F-4"
+    ],
+    "content_application_data_pages_preserved": true,
+    "deployment_authorized": false,
+    "independent_hold_result_sha256": "1e17611f537ec5fdca88364512662187a9a427b711db88df41fe917929664243",
+    "independent_hold_token": "HOLD_FINANCE_INSURANCE2AGENT_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_INDEPENDENT_AUDIT",
+    "required_pass_token": "PASS_FINANCE_INSURANCE2AGENT_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_DELTA_REAUDIT",
+    "resolution": "REGENERATED_IDENTITY_EVIDENCE_CAPABILITY_CONTRACT_STANDING_TEST_PINS_AND_MANIFEST_ONLY"
+  },
   "raw_source_redistribution_gate": "CLOSED",
   "recovery8_latest_date_multiplicity": {
     "capability_validator_byte_identical_to_recovery7": true,
@@ -433,56 +515,27 @@
   },
   "release_preflight": "SPRINT_A_MULTI_LANE_AND_UI_DELTA_AUDITS_PASS__FULL_RELEASE_CANDIDATE_AUDIT_REQUIRED_BEFORE_WRITE",
   "runtime_model": "STATIC_CLIENT_SIDE_DETERMINISTIC",
-  "public_static_common_date_r1_20261013": {
-    "base_public_head": "49ee7831fff701b2f285ebc8f9c0ce2df53c5638",
-    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
-    "snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
-    "snapshot_byte_identical_to_recovery8": true,
-    "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
-    "index_html_sha256": "7af669976aa61858ef69af725d68bc138afe5b2d1e7db575b798185de8d10ad7",
-    "capability_evidence_sha256": "dbbde1f6c7176e0215c576ea2cf160c1c0b8d8061f9afeec42784c6ec55b263d",
-    "semantic_scope": "EBA_P3DH_*_ONLY",
-    "p3dh_pair_count": 1759,
-    "p3dh_common_pair_count": 1757,
-    "p3dh_no_common_pair_count": 2,
-    "p3dh_divergent_own_latest_count": 523,
-    "p3dh_divergent_corrected_count": 523,
-    "non_p3dh_dispatch_mismatches": 0,
-    "statistics_and_ranking_policy": "WITHHELD_FOR_STATIC_P3DH_COMPARE",
-    "baseline_mixed_date_cohort_statistics_previously_possible": true,
-    "out_of_scope_non_eba_divergent_with_common_date": 27,
-    "out_of_scope_non_p3dh_no_common_date": 12,
-    "semantic_review_result_sha256": "0f6d3d81681236110bc03c7072207c41ff8dab75438a35c25b37aa5e943b5fda",
-    "semantic_review_pass_token": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_INDEPENDENT_SEMANTIC_REVIEW_BEFORE_FULL_RELEASE_CANDIDATE",
-    "required_external_full_candidate_pass_token": "PASS_PUBLIC_STATIC_COMMON_DATE_R1_FULL_RELEASE_CANDIDATE_INDEPENDENT_AUDIT_BEFORE_WRITE",
-    "canonical_data_unchanged": true,
-    "fi3_projection_unchanged": true,
-    "robots_unchanged": true,
-    "deployment_authorized_by_build": false,
-    "p3dh_total_changed_pair_outcomes": 525,
-    "p3dh_no_common_previously_misclassified_exact_count": 2
-  },
   "sprint_a_public_context_20261016": {
-    "release_kind": "BOUNDED_STATIC_FI1_FI2_EBA_P3DH_CONTEXT_EXCERPT",
-    "base_public_head": "f964050b1163dfb94f347ead19356766697aeadf",
-    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
-    "source_fi_staging_sha256": "649a44182a54e01a9d80a9a8d4b4a1da5efe9ed27f825de2ba5fd3e1e51b8281",
-    "core_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
-    "fi3_projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
-    "context_data_sha256": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
     "app_js_sha256": "f132680afe4357f07e10859319e88e3d6fc0855784af0cb455ff8ccbbf4dfe10",
-    "index_html_sha256": "ab2891c66b542219eaf9eae3d10aac5896c782ab3f1d6c9dd42ee771b6ebf60d",
-    "capability_evidence_sha256": "50e78f070b80e6a0a3631e67033bcbf68eb0394a5c546c4737e9fa1a13d4fd06",
-    "validation_report_sha256": "e8b8ad711e5598c4913902719d7feaf4072147053088a84ac7b8e1f70daab9a8",
+    "base_public_head": "f964050b1163dfb94f347ead19356766697aeadf",
     "candidate_result_sha256": "721449766cbec25607067b702e55354623bf87dfa8b0890f387106578df814ff",
-    "multi_lane_independent_audit_hold_sha256": "2f86920079aa2cb32b7a05bd1413eeea14d0e61868afb2fb8c6df2c46d4e196b",
-    "ui_recovery2_result_sha256": "e1cec951c1c6be16f4da51a3b8cb85b276315b3579c35bc8a163d59ee2064c9a",
+    "canonical_data_unchanged": true,
+    "capability_evidence_sha256": "50e78f070b80e6a0a3631e67033bcbf68eb0394a5c546c4737e9fa1a13d4fd06",
+    "context_data_sha256": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
+    "core_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "core_snapshot_unchanged": true,
+    "coverage": {
+      "logical_cells": 200,
+      "nonterminal": 1,
+      "terminal": 199
+    },
     "delta_reaudit_pass_result_sha256": "c078622c1157b6ebfea82584659faa0556affd750e0eac5fdbee5f68d6dfa18e",
     "delta_reaudit_pass_token": "PASS_FINANCE_INSURANCE2AGENT_FIRST_COMPLETE_VERSION_SPRINT_A_UI_CORRECTION_RECOVERY2_DELTA_REAUDIT",
+    "deployment_performed_by_build": false,
     "fi1": {
       "case_corpus": 427,
-      "seed_candidates": 0,
       "residual_source_gaps": 5,
+      "seed_candidates": 0,
       "source_status": "HOLD_EXTERNAL_OFFICIAL_SOURCE"
     },
     "fi2": {
@@ -491,27 +544,27 @@
       "notice_references": 84,
       "winner_events": 92
     },
-    "network": {
-      "entities": 116,
-      "sovereign": 113,
-      "credit_geography": 105,
-      "nace": 104,
-      "p3dh": 16
-    },
-    "coverage": {
-      "logical_cells": 200,
-      "terminal": 199,
-      "nonterminal": 1
-    },
-    "canonical_data_unchanged": true,
-    "fi_staging_data_unchanged": true,
-    "core_snapshot_unchanged": true,
+    "fi3_projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "fi3_projection_unchanged": true,
-    "raw_gleif_relationship_publication": false,
-    "screening": false,
-    "risk_scoring": false,
+    "fi_staging_data_unchanged": true,
+    "index_html_sha256": "ab2891c66b542219eaf9eae3d10aac5896c782ab3f1d6c9dd42ee771b6ebf60d",
+    "multi_lane_independent_audit_hold_sha256": "2f86920079aa2cb32b7a05bd1413eeea14d0e61868afb2fb8c6df2c46d4e196b",
     "natural_person_layer": false,
-    "deployment_performed_by_build": false,
-    "required_external_full_release_candidate_pass_token": "PASS_FINANCE_INSURANCE2AGENT_FIRST_COMPLETE_VERSION_SPRINT_A_FULL_RELEASE_CANDIDATE_INDEPENDENT_AUDIT_BEFORE_WRITE"
+    "network": {
+      "credit_geography": 105,
+      "entities": 116,
+      "nace": 104,
+      "p3dh": 16,
+      "sovereign": 113
+    },
+    "raw_gleif_relationship_publication": false,
+    "release_kind": "BOUNDED_STATIC_FI1_FI2_EBA_P3DH_CONTEXT_EXCERPT",
+    "required_external_full_release_candidate_pass_token": "PASS_FINANCE_INSURANCE2AGENT_FIRST_COMPLETE_VERSION_SPRINT_A_FULL_RELEASE_CANDIDATE_INDEPENDENT_AUDIT_BEFORE_WRITE",
+    "risk_scoring": false,
+    "screening": false,
+    "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "source_fi_staging_sha256": "649a44182a54e01a9d80a9a8d4b4a1da5efe9ed27f825de2ba5fd3e1e51b8281",
+    "ui_recovery2_result_sha256": "e1cec951c1c6be16f4da51a3b8cb85b276315b3579c35bc8a163d59ee2064c9a",
+    "validation_report_sha256": "e8b8ad711e5598c4913902719d7feaf4072147053088a84ac7b8e1f70daab9a8"
   }
 }

@@ -6,7 +6,7 @@ EXPECTED_DB='7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a'
 EXPECTED_SNAPSHOT='4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2'
 EXPECTED_COUNTS={'entities': 140, 'metrics': 118, 'observations': 7769, 'relations': 7, 'sources': 264, 'time_series_decisions': 119}
 CACHEBUSTER='20261013-core-truth-parity-7863537'
-APP_CACHEBUSTER='20261013-public-static-common-date-r1'
+APP_CACHEBUSTER='20261017-public-static-rw-v1'
 EXPECTED_RESEARCH_CONTEXT='195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92'
 ENTITY_HASH='440c84d85ec19beed1f8b9abb7e066338ee6285a0150dad945d4759945bca981'
 RELATION_HASH='31c74edb7667e880cdc472c96714fac9d7be965a70f78fe71eb91cea3c401c67'
@@ -69,7 +69,7 @@ def main():
  cov=rctx["coverage"];assert cov["logical_cells"]==200 and cov["terminal"]==199 and cov["nonterminal"]==1 and len(cov["frozen_contracts"])==17 and all(x["status"]=="FROZEN_CURRENT_CANONICAL_COVERAGE" for x in cov["frozen_contracts"])
  cq=cov["nonterminal_conflict"];assert cq["external_issue_id"]=="SCOR_GROUP_FY2025_R0610_OFFICIAL_INTERNAL_SOURCE_CONFLICT" and cq["value_resolution_status"]=="UNRESOLVED_NO_WINNER" and cq["selection_policy"]=="NO_CANONICAL_VALUE_SELECTION"
  low=rctx_txt.lower();assert "gleif_level2_seed_relationships" not in low and "buyer_cluster_id" not in low and "value_evidence_json" not in low
- assert 'id="researchContext"' in idx and idx.index("data/research_context_v1.js")<idx.index("app.js?v=20261013-public-static-common-date-r1")
+ assert 'id="researchContext"' in idx and idx.index("data/research_context_v1.js")<idx.index("app.js?v="+APP_CACHEBUSTER)
  assert "function researchContextHtml" in app
  assert all(x in app for x in ["fs.status","fs.reason","fs.legal_authenticity_boundary","residual_source_gap_count","not clearance and is not a screening result","keine Entwarnung und kein Screening-Ergebnis","x.protocol==='https:'&&x.hostname==='ted.europa.eu'","Bounded static research and context excerpt","does not replace the broader procurement, network or enforcement-case functions"])
  sa=identity["sprint_a_public_context_20261016"];assert sa["context_data_sha256"]==EXPECTED_RESEARCH_CONTEXT and sa["delta_reaudit_pass_result_sha256"]=="c078622c1157b6ebfea82584659faa0556affd750e0eac5fdbee5f68d6dfa18e" and sa["coverage"]=={"logical_cells":200,"terminal":199,"nonterminal":1}
