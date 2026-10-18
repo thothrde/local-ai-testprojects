@@ -75,8 +75,14 @@ def main():
     assert "fi3Context" not in compare_seg and "FI2A_FI3_PUBLIC_PROJECTION" not in compare_seg
     assert "fi3Context" not in discover_seg and "FI2A_FI3_PUBLIC_PROJECTION" not in discover_seg
     scope=(ROOT/"presentation_i18n.js").read_text("utf-8")
-    assert "a bounded FI3 project/funding candidate-evidence layer" in scope
-    assert "eine eng begrenzte FI3-Projekt-/Funding-Kandidatenevidenzschicht" in scope
+    assert "a tightly bounded candidate extract on EU projects and funding from FTS, CORDIS, and Kohesio (internal FI3 layer)" in scope
+    assert "einen eng begrenzten Kandidatenauszug zu EU-Projekten und Förderungen aus FTS, CORDIS und Kohesio (interne Schicht FI3)" in scope
+    assert "REVIEW/HOLD explicitly marks unconfirmed candidates; REJECT is shown only in aggregate" in scope
+    assert "REVIEW/HOLD kennzeichnet dort ausdrücklich unbestätigte Kandidaten; REJECT wird nur aggregiert gezeigt" in scope
+    assert "static FI1/FI2 and EBA/P3DH context extract" in scope
+    assert "statischen FI1/FI2- und EBA/P3DH-Kontextauszug" in scope
+    assert "Confirmed funding edges, Integrity Signals, and analysis of natural persons" in scope
+    assert "Bestätigte Förderverbindungen (Funding Edges), Integritätssignale und die Analyse natürlicher Personen" in scope
     assert ident["epistemic_class"]=="CANDIDATE_EVIDENCE_ONLY"
     assert ident["confirmed_identity_candidates"]==0
     assert ident["funding_edges"]==0 and ident["integrity_signals"]==0

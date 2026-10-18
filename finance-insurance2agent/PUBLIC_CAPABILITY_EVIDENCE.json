@@ -7,7 +7,7 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "VALIDATION_REPORT.json": "5700e0496cd92b8973f54ec0694660efe9b87e60da9b87fb87ac9933a3391df4",
+    "VALIDATION_REPORT.json": "369fb2e056de2956ad7b4235188f5cdef746dfa1c20363adb392a6cd03c2db14",
     "app.js": "37603ffe411f9122435d8c2f31a9a9fda3a1d54ea5194542ced663333ac8f32b",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_research_workspace_v1.js": "d9e644ad6025c7b500c807ef7da6e300236a0355800c9efd4ce2970790ba04e1",
@@ -16,11 +16,11 @@
     "index.html": "1f46a2405c537e8e66c025f8a3331c01822a155da976be9742254701d5b13838",
     "korrekturen.html": "ebc7648306e148d5aa4f8412b10dbf8188192921fb50fd2e6d4d64362daa36a5",
     "methodik.html": "aeccad52e44627547426f373975e6efc52fe965684841f245a3e3b9d51229b0d",
-    "presentation_i18n.js": "ea812d5600429b2852a17bdcca22ee3ca2de83bfe57b9813c2af4c09c484159f",
+    "presentation_i18n.js": "69fd6e840580735fe2fca4dd9788675db757fc2320bee818dbc9cbb54287aeac",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
     "styles.css": "101fd2c82999247c8d06b1b99fa9d7e067f5e6521a05dce9ea7b6193beb76e24",
     "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
-    "tests/validate_fi3_public_projection.py": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
+    "tests/validate_fi3_public_projection.py": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e",
     "tests/validate_public_data_release.py": "06e7029c4e3a56bfb6464c240e43f02114d434b8e06424ade071f8ecaf345eac",
     "tests/validate_public_static_common_date.py": "977dc1e5891382b6bfd43b89b9c3b745489dac83754cfdb94395af2283a0b697",
     "unabhaengigkeit.html": "744657fc06b1d700d9ac709b274a5b64d6f181047db95e2e3914f901f3b38a9b",
@@ -283,7 +283,7 @@
     "index.html": "1f46a2405c537e8e66c025f8a3331c01822a155da976be9742254701d5b13838",
     "korrekturen.html": "ebc7648306e148d5aa4f8412b10dbf8188192921fb50fd2e6d4d64362daa36a5",
     "methodik.html": "aeccad52e44627547426f373975e6efc52fe965684841f245a3e3b9d51229b0d",
-    "presentation_i18n.js": "ea812d5600429b2852a17bdcca22ee3ca2de83bfe57b9813c2af4c09c484159f",
+    "presentation_i18n.js": "69fd6e840580735fe2fca4dd9788675db757fc2320bee818dbc9cbb54287aeac",
     "unabhaengigkeit.html": "744657fc06b1d700d9ac709b274a5b64d6f181047db95e2e3914f901f3b38a9b",
     "versionen.html": "4919faa9e9f4b4322604a4c671fb030b7bd48cf54c9560f21cfb1bcc827ea51d"
   },
@@ -309,7 +309,7 @@
     },
     "fi1_fi2_network_publication": false,
     "fi3_projection_unchanged": true,
-    "fi3_standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
+    "fi3_standing_validator_sha256": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e",
     "fi3_validator_rebind_contract": "ONLY_EXPECTED_SNAPSHOT_LITERAL_CHANGES__ALL_OTHER_VALIDATOR_LOGIC_PRESERVED",
     "fi_staging_db_write": false,
     "functional_core_sha256": "8a6164d18691ca5f5f3ff8b2139ac015843dd017dbe932df3ef031fd56a9dcc5",
@@ -341,7 +341,7 @@
     "policy": "PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT",
     "policy_state": "PUBLIC_HOLD_AMOUNT_POLICY_V1",
     "policy_version": "FI3_HOLD_AMOUNT_GOVERNANCE_V1_20261012",
-    "standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46"
+    "standing_validator_sha256": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e"
   },
   "fi3_public_r15": {
     "confirmed": 0,
@@ -354,10 +354,10 @@
     "projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "public_snapshot_unchanged": true,
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
-    "standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46"
+    "standing_validator_sha256": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e"
   },
-  "generated_at_utc": "2026-10-18T20:30:00Z",
-  "generated_for": "PUBLIC_SCOPE_TEXT_RESEARCH_ALIGNMENT_20261018",
+  "generated_at_utc": "2026-10-18T19:00:00Z",
+  "generated_for": "PUBLIC_INTRO_SCOPE_SEMANTIC_CLARIFICATION_SCRATCH_CANDIDATE_20261018",
   "independent_followup_audit": {
     "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
     "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
@@ -438,6 +438,34 @@
     "style_tuning": "WIDER_AND_RED_FOR_IMMEDIATE_VISUAL_DISCOVERABILITY",
     "styles_sha256": "101fd2c82999247c8d06b1b99fa9d7e067f5e6521a05dce9ea7b6193beb76e24",
     "target": "https://thomas.autark-data.org/finance2agent-game-europe/"
+  },
+  "public_intro_scope_semantic_clarification_20261018": {
+    "base_public_commit": "d28d3caef0b9c35c764f1dfa9cf4d5e0488bad94",
+    "fi3_standing_validator_sha256": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e",
+    "presentation_i18n_sha256": "69fd6e840580735fe2fca4dd9788675db757fc2320bee818dbc9cbb54287aeac",
+    "public_data_changed": false,
+    "recovery1_of_hold_sha256": "7923e2b2bd5a0bdf4572432d23bdaf10f00480890fc37d6e6127324bd6f279f4",
+    "render_gate": "CHROMIUM_INLINE_DE_EN_NO_PAGEERROR_PASS_R3_MARKERS_AND_FOUR_SCOPE_ROWS",
+    "research_case_data_changed": false,
+    "runtime_changed": false,
+    "scope_structure": [
+      "PUBLIC_TODAY",
+      "DELIBERATELY_LOCAL",
+      "NOT_INCLUDED",
+      "NOT_YET_IMPLEMENTED"
+    ],
+    "semantic_contract": [
+      "CURRENT_PUBLIC_CAPABILITIES_USE_PRESENT_TENSE_ONLY",
+      "TARGET_STATE_USES_FUTURE_OR_INTENDED_LANGUAGE",
+      "DIRECT_SOURCE_LINK_NOT_PROMISED_WHERE_BIBLIOGRAPHIC_TRACEABILITY_IS_USED",
+      "PUBLIC_VS_LOCAL_VS_NOT_YET_IMPLEMENTED_DISTINGUISHED",
+      "GERMAN_UI_LABELS_MATCH_NAVIGATION_WITH_INTERNAL_NAMES_IN_PARENTHESES",
+      "NO_CRIME_SUSPECT_CORRUPTION_FRAMING_IN_GENERAL_INTRO",
+      "STATIC_FI1_FI2_EBA_P3DH_CONTEXT_EXTRACT_DISCLOSED",
+      "NOT_INCLUDED_SEPARATE_FROM_DELIBERATELY_LOCAL",
+      "TARGET_STATE_PARAGRAPH_NOT_DUPLICATE_OF_NOT_YET_IMPLEMENTED_ROW"
+    ],
+    "status": "RECOVERY1_PENDING_INDEPENDENT_DELTA_REAUDIT_NO_PUBLIC_WRITE_AUTHORIZED"
   },
   "public_scope_text_research_alignment_20261018": {
     "obsolete_scope_claim_removed": true,
