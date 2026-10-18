@@ -7,7 +7,7 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "VALIDATION_REPORT.json": "96b56a9d11b5b0db7ab46768a4f2c4b6bc8574756f9542090570b9eb3e57999d",
+    "VALIDATION_REPORT.json": "a8d949326709fc24282e9a71b2cdf07dc7fbaf89729a72233d673acf34b86e92",
     "app.js": "37603ffe411f9122435d8c2f31a9a9fda3a1d54ea5194542ced663333ac8f32b",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_research_workspace_v1.js": "d9e644ad6025c7b500c807ef7da6e300236a0355800c9efd4ce2970790ba04e1",
@@ -18,7 +18,7 @@
     "methodik.html": "aeccad52e44627547426f373975e6efc52fe965684841f245a3e3b9d51229b0d",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
-    "styles.css": "e8897ab8bf992013584149fb54a2f3eda37466fed144841c9db619fcdb9d564b",
+    "styles.css": "101fd2c82999247c8d06b1b99fa9d7e067f5e6521a05dce9ea7b6193beb76e24",
     "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
     "tests/validate_fi3_public_projection.py": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
     "tests/validate_public_data_release.py": "06e7029c4e3a56bfb6464c240e43f02114d434b8e06424ade071f8ecaf345eac",
@@ -356,8 +356,8 @@
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
     "standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46"
   },
-  "generated_at_utc": "2026-10-18T00:00:00Z",
-  "generated_for": "PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_RC2_CANONICAL_7863537_20261017",
+  "generated_at_utc": "2026-10-18T09:45:00Z",
+  "generated_for": "PUBLIC_GAME_LINK_BUTTON_STYLE_TUNING_20261018",
   "independent_followup_audit": {
     "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
     "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
@@ -430,11 +430,13 @@
   "public_game_link_ui_20261018": {
     "index_sha256": "1f46a2405c537e8e66c025f8a3331c01822a155da976be9742254701d5b13838",
     "placement_before": "heroKicker",
+    "previous_commit": "5507f9363562fa1d22fa5082d9fdd0c50a1e509d",
     "public_data_changed": false,
     "research_workspace_changed": false,
     "runtime_changed": false,
     "same_tab": true,
-    "styles_sha256": "e8897ab8bf992013584149fb54a2f3eda37466fed144841c9db619fcdb9d564b",
+    "style_tuning": "WIDER_AND_RED_FOR_IMMEDIATE_VISUAL_DISCOVERABILITY",
+    "styles_sha256": "101fd2c82999247c8d06b1b99fa9d7e067f5e6521a05dce9ea7b6193beb76e24",
     "target": "https://thomas.autark-data.org/finance2agent-game-europe/"
   },
   "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",

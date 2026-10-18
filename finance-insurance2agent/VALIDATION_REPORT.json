@@ -91,6 +91,7 @@
     "sources": 264,
     "time_series_decisions": 119
   },
+  "current_capability_evidence_sha256": "da7d872da40c7c59dcf7312fe96de89279aecf7d8613ab53edf39b13a70b087b",
   "current_static_validation": {
     "files": 21,
     "operator_cookies": false,
@@ -104,7 +105,7 @@
   "deterministic_double_generation_byte_identical": true,
   "exactly_comparable_time_series_decisions": 0,
   "fi_staging_data_unchanged": true,
-  "generated_at_utc": "2026-10-18T00:00:00Z",
+  "generated_at_utc": "2026-10-18T09:45:00Z",
   "independent_audit_json_sha256": null,
   "independent_audit_md_sha256": null,
   "independent_audit_status": "EXTERNAL_RELEASE_GATE_OUTSIDE_CANDIDATE_ARTIFACT",
@@ -140,13 +141,16 @@
   "parent_public_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
   "public_game_link_ui_20261018": {
     "independent_second_ai_required": false,
-    "label": "Finance2Agent Game Europe · Zum Spiel / Play →",
+    "label": "Finance2Agent Game Europe · enlarged red CTA",
     "placement": "HERO_LEFT_BEFORE_HERO_KICKER_AND_TITLE",
+    "previous_commit": "5507f9363562fa1d22fa5082d9fdd0c50a1e509d",
     "public_data_changed": false,
     "ranking_writer_db_changed": false,
     "research_workspace_changed": false,
     "runtime_api_changed": false,
     "same_tab": true,
+    "style_tuning": "WIDER_AND_RED_FOR_IMMEDIATE_VISUAL_DISCOVERABILITY",
+    "styles_sha256": "101fd2c82999247c8d06b1b99fa9d7e067f5e6521a05dce9ea7b6193beb76e24",
     "target": "https://thomas.autark-data.org/finance2agent-game-europe/"
   },
   "public_release_gate": "PUBLIC_GAME_LINK_UI_BOUNDED_RELEASE_READY_FOR_ATOMIC_EXECUTION_AFTER_LIVE_BASELINE_CHECK",
