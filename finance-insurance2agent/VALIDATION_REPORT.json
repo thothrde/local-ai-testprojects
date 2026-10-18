@@ -104,7 +104,7 @@
   "deterministic_double_generation_byte_identical": true,
   "exactly_comparable_time_series_decisions": 0,
   "fi_staging_data_unchanged": true,
-  "generated_at_utc": "2026-10-17T00:00:00Z",
+  "generated_at_utc": "2026-10-18T00:00:00Z",
   "independent_audit_json_sha256": null,
   "independent_audit_md_sha256": null,
   "independent_audit_status": "EXTERNAL_RELEASE_GATE_OUTSIDE_CANDIDATE_ARTIFACT",
@@ -138,7 +138,18 @@
   "operator_cookies": false,
   "operator_tracking": false,
   "parent_public_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
-  "public_release_gate": "PENDING_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_DELTA_REAUDIT_BEFORE_WRITE",
+  "public_game_link_ui_20261018": {
+    "independent_second_ai_required": false,
+    "label": "Finance2Agent Game Europe · Zum Spiel / Play →",
+    "placement": "HERO_LEFT_BEFORE_HERO_KICKER_AND_TITLE",
+    "public_data_changed": false,
+    "ranking_writer_db_changed": false,
+    "research_workspace_changed": false,
+    "runtime_api_changed": false,
+    "same_tab": true,
+    "target": "https://thomas.autark-data.org/finance2agent-game-europe/"
+  },
+  "public_release_gate": "PUBLIC_GAME_LINK_UI_BOUNDED_RELEASE_READY_FOR_ATOMIC_EXECUTION_AFTER_LIVE_BASELINE_CHECK",
   "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
@@ -255,10 +266,10 @@
   "standing_validators": {
     "validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
     "validate_fi3_public_projection.py": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
-    "validate_public_data_release.py": "ccf39c4047d9671abfe9c20d8046e26b15cf1fb3b5bf1b7f0116240d6ccf0393",
-    "validate_public_static_common_date.py": "afa0ee62751c05d47e46414aea8301bdfc1c9a26c6b6ae245d4aa542c23b0e89"
+    "validate_public_data_release.py": "06e7029c4e3a56bfb6464c240e43f02114d434b8e06424ade071f8ecaf345eac",
+    "validate_public_static_common_date.py": "977dc1e5891382b6bfd43b89b9c3b745489dac83754cfdb94395af2283a0b697"
   },
-  "status": "PASS_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_SCRATCH_CANDIDATE_RECOVERY1_STATIC_VALIDATION_AWAITING_INDEPENDENT_DELTA_REAUDIT",
+  "status": "PASS_PUBLIC_GAME_LINK_UI_BOUNDED_CANDIDATE_STATIC_VALIDATION",
   "v1_0_1_checks": {
     "autonomous_llm_gate_explained": true,
     "eba_datapoint_locator_visible": true,

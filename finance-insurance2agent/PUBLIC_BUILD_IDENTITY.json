@@ -1,7 +1,7 @@
 {
   "audited_candidate_sha256": null,
   "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
-  "build": "PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_RC2_CANONICAL_7863537_20261017",
+  "build": "PUBLIC_GAME_LINK_UI_R1_CANONICAL_7863537_20261018",
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -82,7 +82,7 @@
     "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a"
   },
   "fi_network_public_release_gate": "SPRINT_A_BOUNDED_STATIC_CONTEXT_CANDIDATE_AUDITED__BROADER_FI_NETWORK_FUNCTIONS_REMAIN_CLOSED",
-  "generated_at_utc": "2026-10-17T00:00:00Z",
+  "generated_at_utc": "2026-10-18T00:00:00Z",
   "generative_ai_at_runtime": false,
   "implemented_capabilities": [
     {
@@ -384,7 +384,7 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "446a8e202190cd084bf6be3cabff32d4890ff6b7eeab9e7f2dd38fb3b309cd3d",
+    "capability_evidence_sha256": "0e788bfe2eeeaff40d7021ea4197c6b6cec59e225a10012289eb463e08135f06",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT",
@@ -422,7 +422,18 @@
     "source_database_sha256": "ef65ecc870aa99629c5d955247d00393814c81c4d7102ee7d182986e092a97c2",
     "status": "DETERMINISTIC_REGENERATION_COMPLETED"
   },
-  "public_release_gate": "PENDING_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_DELTA_REAUDIT_BEFORE_WRITE",
+  "public_game_link_ui_20261018": {
+    "local_runtime_changed": false,
+    "new_public_capability": false,
+    "placement": "HERO_LEFT_BEFORE_HERO_KICKER_AND_TITLE",
+    "public_data_changed": false,
+    "reason_second_ai_not_required": "COSMETIC_OUTBOUND_NAVIGATION_ONLY_NO_NEW_FINANCIAL_SEMANTICS_OR_SOURCE_RIGHTS_BOUNDARY",
+    "research_workspace_changed": false,
+    "same_tab": true,
+    "second_ai_gate_required": false,
+    "target": "https://thomas.autark-data.org/finance2agent-game-europe/"
+  },
+  "public_release_gate": "PUBLIC_GAME_LINK_UI_BOUNDED_RELEASE_READY_FOR_ATOMIC_EXECUTION_AFTER_LIVE_BASELINE_CHECK",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
     "base_public_head": "49ee7831fff701b2f285ebc8f9c0ce2df53c5638",

@@ -51,6 +51,10 @@ def main():
  cp=identity["core_truth_parity_20261013"];assert cp["source_database_sha256"]==EXPECTED_DB and cp["snapshot_sha256"]==EXPECTED_SNAPSHOT and cp["counts"]==EXPECTED_COUNTS and cp["required10"]=={"terminal":199,"nonterminal":1,"total":200} and cp["fi3_projection_unchanged"] is True
  ec=evidence["core_truth_parity_20261013"];assert ec["source_database_sha256"]==EXPECTED_DB and ec["snapshot_sha256"]==EXPECTED_SNAPSHOT and ec["source_quality_issue_count"]==3
  idx=(ROOT/"index.html").read_text();assert "data/public_snapshot.js?v="+CACHEBUSTER in idx and "app.js?v="+APP_CACHEBUSTER in idx
+ game_link='<a class="game-cta" href="https://thomas.autark-data.org/finance2agent-game-europe/" aria-label="Finance2Agent Game Europe – Zum Spiel / Play"><span>Finance2Agent Game Europe</span><span class="game-cta-action">Zum Spiel / Play →</span></a>'
+ assert game_link in idx and idx.index(game_link)<idx.index('data-i18n="heroKicker"')
+ assert 'target="_blank"' not in game_link
+
  app=(ROOT/"app.js").read_text();assert "sourceQualityIssuesForEntity" in app and "source-quality-notice" in app and "7.769" in app and "7,769" in app
  assert "function compareP3DHLocal" in app and "function compareGenericLocal" in app and "function latestCommonReferenceDate" in app and "EBA_P3DH_" in app
  assert "scopeLabel" in app and "EBA · höchste Konsolidierungsebene" in app and "EBA · highest level of consolidation" in app

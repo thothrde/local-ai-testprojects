@@ -74,3 +74,6 @@ button,select,input{max-width:100%}
 .prw-synthetic-body{margin-top:12px}
 .source-link-restricted{display:block;margin-top:8px;font-size:.8rem;color:var(--muted);font-style:italic}
 @media(max-width:760px){.prw-counts{flex-direction:column}.prw-legend>div{grid-template-columns:1fr}}
+
+/* Finance2Agent Game Europe · compact hero CTA */
+.game-cta{display:inline-flex;align-items:center;gap:10px;margin:0 0 16px;padding:8px 12px;border:1px solid rgba(143,240,189,.42);border-radius:999px;background:rgba(143,240,189,.075);color:var(--text);text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.015em;box-shadow:0 0 0 1px rgba(0,0,0,.08) inset;transition:border-color .16s ease,background .16s ease,transform .16s ease}.game-cta::before{content:"◆";font-size:7px;color:var(--gold);opacity:.9}.game-cta-action{color:var(--accent);font-weight:850;white-space:nowrap}.game-cta:hover{border-color:rgba(143,240,189,.85);background:rgba(143,240,189,.13);transform:translateY(-1px)}.game-cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px}@media(max-width:700px){.game-cta{gap:8px;margin-bottom:14px;padding:8px 10px;font-size:10px;max-width:100%;flex-wrap:wrap}}

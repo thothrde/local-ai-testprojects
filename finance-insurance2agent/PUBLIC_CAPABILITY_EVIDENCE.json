@@ -7,22 +7,22 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "VALIDATION_REPORT.json": "39f01a51b190ab81df4f824f713b3fd782013997b66400992a3940b17bef772c",
+    "VALIDATION_REPORT.json": "96b56a9d11b5b0db7ab46768a4f2c4b6bc8574756f9542090570b9eb3e57999d",
     "app.js": "37603ffe411f9122435d8c2f31a9a9fda3a1d54ea5194542ced663333ac8f32b",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_research_workspace_v1.js": "d9e644ad6025c7b500c807ef7da6e300236a0355800c9efd4ce2970790ba04e1",
     "data/public_snapshot.js": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
     "data/research_context_v1.js": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
-    "index.html": "addbde3df7068e1b7902f41bd979946840a68c42b795692648e418f77e636ae0",
+    "index.html": "1f46a2405c537e8e66c025f8a3331c01822a155da976be9742254701d5b13838",
     "korrekturen.html": "ebc7648306e148d5aa4f8412b10dbf8188192921fb50fd2e6d4d64362daa36a5",
     "methodik.html": "aeccad52e44627547426f373975e6efc52fe965684841f245a3e3b9d51229b0d",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
-    "styles.css": "b9df8f8d249c764a1556b26c3bdf7c40e9567bdf39e994ff4fa41d1e89d4df56",
+    "styles.css": "e8897ab8bf992013584149fb54a2f3eda37466fed144841c9db619fcdb9d564b",
     "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
     "tests/validate_fi3_public_projection.py": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46",
-    "tests/validate_public_data_release.py": "ccf39c4047d9671abfe9c20d8046e26b15cf1fb3b5bf1b7f0116240d6ccf0393",
-    "tests/validate_public_static_common_date.py": "afa0ee62751c05d47e46414aea8301bdfc1c9a26c6b6ae245d4aa542c23b0e89",
+    "tests/validate_public_data_release.py": "06e7029c4e3a56bfb6464c240e43f02114d434b8e06424ade071f8ecaf345eac",
+    "tests/validate_public_static_common_date.py": "977dc1e5891382b6bfd43b89b9c3b745489dac83754cfdb94395af2283a0b697",
     "unabhaengigkeit.html": "744657fc06b1d700d9ac709b274a5b64d6f181047db95e2e3914f901f3b38a9b",
     "versionen.html": "4919faa9e9f4b4322604a4c671fb030b7bd48cf54c9560f21cfb1bcc827ea51d"
   },
@@ -280,7 +280,7 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "addbde3df7068e1b7902f41bd979946840a68c42b795692648e418f77e636ae0",
+    "index.html": "1f46a2405c537e8e66c025f8a3331c01822a155da976be9742254701d5b13838",
     "korrekturen.html": "ebc7648306e148d5aa4f8412b10dbf8188192921fb50fd2e6d4d64362daa36a5",
     "methodik.html": "aeccad52e44627547426f373975e6efc52fe965684841f245a3e3b9d51229b0d",
     "presentation_i18n.js": "f715a42dae10afd197222646a89b9fa76f737afbe8289daf13924926f3d598f9",
@@ -356,7 +356,7 @@
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
     "standing_validator_sha256": "a6adb2e71793bb5a8548a6ba17dee1f075cb267e0114d3edb147b121e3dfae46"
   },
-  "generated_at_utc": "2026-10-17T00:00:00Z",
+  "generated_at_utc": "2026-10-18T00:00:00Z",
   "generated_for": "PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_RC2_CANONICAL_7863537_20261017",
   "independent_followup_audit": {
     "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
@@ -427,6 +427,16 @@
     "scope": "CANONICAL_PUBLIC_CORE_ONLY"
   },
   "public_data_refresh_performed": true,
+  "public_game_link_ui_20261018": {
+    "index_sha256": "1f46a2405c537e8e66c025f8a3331c01822a155da976be9742254701d5b13838",
+    "placement_before": "heroKicker",
+    "public_data_changed": false,
+    "research_workspace_changed": false,
+    "runtime_changed": false,
+    "same_tab": true,
+    "styles_sha256": "e8897ab8bf992013584149fb54a2f3eda37466fed144841c9db619fcdb9d564b",
+    "target": "https://thomas.autark-data.org/finance2agent-game-europe/"
+  },
   "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
@@ -527,7 +537,7 @@
       "SPRINT_A_COVERAGE_200_199_1_SCOR_NO_WINNER",
       "SPRINT_A_NO_GLEIF_RAW_NO_SCREENING_NO_RISK_SCORE"
     ],
-    "sha256": "ccf39c4047d9671abfe9c20d8046e26b15cf1fb3b5bf1b7f0116240d6ccf0393"
+    "sha256": "06e7029c4e3a56bfb6464c240e43f02114d434b8e06424ade071f8ecaf345eac"
   },
   "standing_repo_validator": {
     "path": "tests/validate_capability_contract.py",
@@ -1249,6 +1259,29 @@
       ],
       "id": "PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_PRESENT",
       "note": "Static read-only curated VWFS+SCOR research cases plus clearly separated synthetic technical demo; no public runtime/API, writer, ranking/rating, DB materialization or user persistence.",
+      "result": "PASS"
+    },
+    {
+      "checks": [
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "class=\"game-cta\"",
+            "https://thomas.autark-data.org/finance2agent-game-europe/",
+            "Zum Spiel / Play →"
+          ],
+          "pass": true
+        },
+        {
+          "file": "public/styles.css",
+          "must_contain": [
+            ".game-cta{",
+            ".game-cta-action{"
+          ],
+          "pass": true
+        }
+      ],
+      "id": "PUBLIC_GAME_LINK_UI_VISIBLE_AND_BOUNDED",
       "result": "PASS"
     }
   ]
