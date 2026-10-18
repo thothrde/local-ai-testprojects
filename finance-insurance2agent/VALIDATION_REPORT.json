@@ -154,6 +154,20 @@
     "target": "https://thomas.autark-data.org/finance2agent-game-europe/"
   },
   "public_release_gate": "PUBLIC_GAME_LINK_UI_BOUNDED_RELEASE_READY_FOR_ATOMIC_EXECUTION_AFTER_LIVE_BASELINE_CHECK",
+  "public_scope_text_research_alignment_20261018": {
+    "english_research_scope_added": true,
+    "german_research_scope_added": true,
+    "independent_second_ai_required": false,
+    "obsolete_public_unavailable_claim_removed": true,
+    "presentation_file": "presentation_i18n.js",
+    "previous_public_commit": "2b7994078f7deb31103bfc53ea7ae7ef6144ff4c",
+    "public_data_changed": false,
+    "ranking_writer_db_changed": false,
+    "reason_second_ai_not_required": "DOCUMENTATION_ALIGNMENT_TO_ALREADY_RELEASED_AND_INDEPENDENTLY_AUDITED_PUBLIC_RESEARCH_CAPABILITY",
+    "research_workspace_bytes_changed": false,
+    "runtime_api_changed": false,
+    "status": "PASS_CANDIDATE_STATIC_TEXT_ALIGNMENT"
+  },
   "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
