@@ -12,8 +12,8 @@
     },
     {
       "file": "STATUS.md",
-      "bytes": 542,
-      "sha256": "eaa9453769b952348637e443d95e4ec64b5f86eeb11622b8b6b528d686ee6937"
+      "bytes": 389,
+      "sha256": "26ab9d102cca11602f2f4d6a6831b97b621e3f66f7788f18b0da4a261732bd9f"
     },
     {
       "file": "index.apple-touch-icon.png",
@@ -32,8 +32,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 5771,
-      "sha256": "1a4f24058a5fed452821370b6727a406f29aa56f99778c156d4ef24030bbf0da"
+      "bytes": 5747,
+      "sha256": "2c3ccb8e629e38adf91d756ad81f51b5c08e27e6b1570f6c1ef441f0fda08507"
     },
     {
       "file": "index.icon.png",
@@ -47,8 +47,8 @@
     },
     {
       "file": "index.pck",
-      "bytes": 175692,
-      "sha256": "216b78d03c24ea87de1662a5a023d99029adb09fb00317f36bcfcde0d0eee61f"
+      "bytes": 189500,
+      "sha256": "85ff29627a3fd309141be41d691380c3d22c4514be0ff397d8fa498613616241"
     },
     {
       "file": "index.png",
