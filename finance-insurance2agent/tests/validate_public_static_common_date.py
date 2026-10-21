@@ -2,9 +2,9 @@
 from pathlib import Path
 import hashlib,json,itertools
 ROOT=Path(__file__).resolve().parents[1]
-EXPECTED_SNAPSHOT="4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2"
-EXPECTED_APP="62ef882f90da52f943fb2aa376a18b846f4d0f593251f19519589edd9dc29a00"
-EXPECTED_INDEX="9f53b64fd723f6daa244b1e74473185b4fe7a80dbb8c5954d453db956f5a4063"
+EXPECTED_SNAPSHOT="c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae"
+EXPECTED_APP="002700f1a159ac5c50c81963c694997762b2f18d39bf1dcc852ff75cd7672ea2"
+EXPECTED_INDEX="4c005191edd9f7ccbf01becfbc74afd1d7949150c012878ed10a66212c19f432"
 EXPECTED_P3DH_PAIR_COUNT=1759
 EXPECTED_P3DH_COMMON_PAIR_COUNT=1757
 EXPECTED_P3DH_NO_COMMON_PAIR_COUNT=2
@@ -39,7 +39,7 @@ def main():
     assert "function latestCommonReferenceDate" in app
     assert "function resolveEvidenceAtDate" in app
     assert "String(mc||'').startsWith('EBA_P3DH_')?compareP3DHLocal(mc,ids):compareGenericLocal(mc,ids)" in app
-    assert "app.js?v=20261021-guided-ux-term-final" in idx
+    assert "app.js?v=20261021-r5b-public-data" in idx
 
     s=load()
     by={}

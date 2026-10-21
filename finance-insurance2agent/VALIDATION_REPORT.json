@@ -1,6 +1,6 @@
 {
   "audited_candidate_sha256": null,
-  "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+  "bound_database_sha256": "9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62",
   "candidate_checkout_installed": false,
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
@@ -197,7 +197,7 @@
     "runtime_api_changed": false,
     "status": "PASS_CANDIDATE_STATIC_TEXT_ALIGNMENT"
   },
-  "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+  "public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
     "canonical_data_unchanged": true,
@@ -241,6 +241,50 @@
     "independent_hold_token": "HOLD_FINANCE_INSURANCE2AGENT_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_INDEPENDENT_AUDIT",
     "required_next_gate": "NARROW_DELTA_REAUDIT_ONLY",
     "root_cause": "STALE_INTERNAL_HASH_BINDINGS_AND_STANDING_TEST_PINS_ONLY"
+  },
+  "r5b_public_data_refresh_20261021": {
+    "counts": {
+      "entities": 144,
+      "metrics": 118,
+      "observations": 7793,
+      "relations": 7,
+      "sources": 269,
+      "time_series_decisions": 119
+    },
+    "delta": {
+      "entities": 4,
+      "observations": 24,
+      "sources": 5
+    },
+    "discovery_context_changed": false,
+    "independent_full_audit_status": "HOLD_INDEPENDENT_FINANCE_INSURANCE2AGENT_R5B_PUBLIC_DATA_REFRESH_RELEASE_CANDIDATE_20261021",
+    "internal_runtime_keys_exposed": false,
+    "n1_dead_intro_copy_corrected": true,
+    "n2_top_level_validator_contract_added": true,
+    "narrow_delta_reaudit_required": true,
+    "new_entities": [
+      "BNP Paribas Cardif",
+      "CNP Assurances Holding",
+      "Crédit Agricole Assurances Group",
+      "Unipol Group"
+    ],
+    "new_observations": 24,
+    "official_public_projection": true,
+    "previous_public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "profile_status": "PROFILED_CDE_R5B_GROUP_QRT_2025_V1_TREATMENT_UNRESOLVED",
+    "r0610_peer_scan_tie_resolved_here": false,
+    "ranking_or_statistics_newly_authorized": false,
+    "reference_date": "2025-12-31",
+    "removed_internal_runtime_keys": [
+      "_dependency_group",
+      "_active_regimes"
+    ],
+    "semantic_comparability_gate": "CLOSED_NO_TIMESERIES_DECISION",
+    "snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+    "source_database_sha256": "9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62",
+    "status": "LOCAL_CANDIDATE__NO_PUBLIC_DEPLOYMENT",
+    "time_series_decisions_changed": false,
+    "top_level_public_surface_matches_released_schema": true
   },
   "raw_source_files": 0,
   "raw_source_redistribution_gate": "CLOSED",

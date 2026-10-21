@@ -1,7 +1,7 @@
 {
   "audited_candidate_sha256": null,
-  "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
-  "build": "GUIDED_UX_V1_TERMINOLOGY_FINAL_HARDENING_20261021",
+  "bound_database_sha256": "9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62",
+  "build": "R5B_PUBLIC_DATA_REFRESH_B1_REMEDIATED_LOCAL_CANDIDATE_20261021",
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -47,8 +47,8 @@
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS",
     "whole_site_regeneration": false
   },
-  "current_capability_evidence_sha256": "1fdb2769f7ad11c005d46d96b561d63b71619a5380fe5d286aa3d759e323f77f",
-  "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_7863537_20261013",
+  "current_capability_evidence_sha256": "6dfc7f46146c7d539089b90f982de49b8c27408d4723e14a03406643849d8a12",
+  "current_public_snapshot_refresh": "R5B_20261021_CANONICAL_9e904a3f",
   "external_runtime_resources": false,
   "fi3_hold_amount_public_hardening": {
     "base_public_head": "10e12517ba95225e3b0a28810e20e8c06cce5ed0",
@@ -590,7 +590,7 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "1fdb2769f7ad11c005d46d96b561d63b71619a5380fe5d286aa3d759e323f77f",
+    "capability_evidence_sha256": "6dfc7f46146c7d539089b90f982de49b8c27408d4723e14a03406643849d8a12",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT__BUTTON_STYLE_ONLY",
@@ -767,6 +767,79 @@
     "source_audit_result_sha256": "52467ebcbe0a7226f84e52e85e9b9164e60cd88b0e880a597deecdcf09bada8e",
     "status": "LOCAL_INSTALLED_AUTOMATED_REAL_SAFARI_PASS__PUBLIC_RELEASE_NOT_YET_PERFORMED",
     "technical_identifiers_preserved": true
+  },
+  "r5b_public_data_refresh_20261021": {
+    "canonical_db_write": false,
+    "capability_evidence_sha256": "6dfc7f46146c7d539089b90f982de49b8c27408d4723e14a03406643849d8a12",
+    "counts": {
+      "entities": 144,
+      "metrics": 118,
+      "observations": 7793,
+      "relations": 7,
+      "sources": 269,
+      "time_series_decisions": 119
+    },
+    "delta": {
+      "entities": 4,
+      "observations": 24,
+      "sources": 5
+    },
+    "deterministic_double_generation_byte_identical": true,
+    "discovery_context_changed": false,
+    "fi3_projection_unchanged": true,
+    "fi3_validator_sha256": "ce19b5eea718b51764024f427fa5f0102faab14f1efcd8fe6a1ced6f63b0bff1",
+    "independent_full_audit_blocker": "B1_INTERNAL_RUNTIME_KEYS",
+    "independent_full_audit_status": "HOLD_INDEPENDENT_FINANCE_INSURANCE2AGENT_R5B_PUBLIC_DATA_REFRESH_RELEASE_CANDIDATE_20261021",
+    "internal_runtime_keys_exposed": false,
+    "n1_dead_intro_copy_corrected": true,
+    "n2_top_level_validator_contract_added": true,
+    "narrow_delta_reaudit_pass_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_R5B_PUBLIC_DATA_REFRESH_B1_DELTA_REAUDIT_20261021",
+    "narrow_delta_reaudit_required": true,
+    "new_entities": [
+      "BNP Paribas Cardif",
+      "CNP Assurances Holding",
+      "Crédit Agricole Assurances Group",
+      "Unipol Group"
+    ],
+    "new_observations": 24,
+    "official_public_projection": true,
+    "old_rows_preserved_exactly": true,
+    "previous_public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "profile_status": "PROFILED_CDE_R5B_GROUP_QRT_2025_V1_TREATMENT_UNRESOLVED",
+    "public_common_date_validator_sha256": "cb1bcc9caa6349f8ffdb8e98dc0fa2d09f919dfa3f9551d031c5b45598ea6aa2",
+    "public_data_release_validator_sha256": "aba48afb8762d6c9120919eaeda27434cb76603b4375321ae4ff6e4bfb1fdb0e",
+    "public_deployment_performed": false,
+    "r0610_peer_scan_tie_resolved_here": false,
+    "ranking_or_statistics_newly_authorized": false,
+    "reference_date": "2025-12-31",
+    "removed_internal_runtime_keys": [
+      "_dependency_group",
+      "_active_regimes"
+    ],
+    "research_context_unchanged": true,
+    "runtime_write": false,
+    "semantic_comparability_gate": "CLOSED_NO_TIMESERIES_DECISION",
+    "snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+    "source_database_sha256": "9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62",
+    "standing_contract_rebound_files": {
+      "bound_public_bytes": [
+        "app.js",
+        "index.html",
+        "data/public_snapshot.js",
+        "versionen.html",
+        "VALIDATION_REPORT.json",
+        "tests/validate_public_data_release.py",
+        "tests/validate_public_static_common_date.py",
+        "tests/validate_fi3_public_projection.py"
+      ],
+      "copy_contract_sha256": [
+        "index.html",
+        "versionen.html"
+      ]
+    },
+    "status": "LOCAL_CANDIDATE__INDEPENDENT_RELEASE_AUDIT_REQUIRED",
+    "time_series_decisions_changed": false,
+    "top_level_public_surface_matches_released_schema": true
   },
   "raw_source_redistribution_gate": "CLOSED",
   "recovery8_latest_date_multiplicity": {

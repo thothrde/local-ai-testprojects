@@ -7,24 +7,24 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "VALIDATION_REPORT.json": "369fb2e056de2956ad7b4235188f5cdef746dfa1c20363adb392a6cd03c2db14",
-    "app.js": "62ef882f90da52f943fb2aa376a18b846f4d0f593251f19519589edd9dc29a00",
+    "VALIDATION_REPORT.json": "098f4e4aa272bc1e903851d4cbf3f145937242939c80480fc01ec5cc7137d6f9",
+    "app.js": "002700f1a159ac5c50c81963c694997762b2f18d39bf1dcc852ff75cd7672ea2",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_research_workspace_v1.js": "b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f",
-    "data/public_snapshot.js": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "data/public_snapshot.js": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
     "data/research_context_v1.js": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
-    "index.html": "9f53b64fd723f6daa244b1e74473185b4fe7a80dbb8c5954d453db956f5a4063",
+    "index.html": "4c005191edd9f7ccbf01becfbc74afd1d7949150c012878ed10a66212c19f432",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
     "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
     "styles.css": "48acc78962afa12dfe8c614667eb11ee396e5165692d3d7f51c759a61a7a1473",
     "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
-    "tests/validate_fi3_public_projection.py": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e",
-    "tests/validate_public_data_release.py": "2e42acf86e64ba714df5520becc4dbfa6f3e634d71060f0d5f60da56f63b770d",
-    "tests/validate_public_static_common_date.py": "9b77061b1e81ff04b896b34aa653cfa8027fe16e98eb56c8cf73927fb97c443e",
+    "tests/validate_fi3_public_projection.py": "ce19b5eea718b51764024f427fa5f0102faab14f1efcd8fe6a1ced6f63b0bff1",
+    "tests/validate_public_data_release.py": "aba48afb8762d6c9120919eaeda27434cb76603b4375321ae4ff6e4bfb1fdb0e",
+    "tests/validate_public_static_common_date.py": "cb1bcc9caa6349f8ffdb8e98dc0fa2d09f919dfa3f9551d031c5b45598ea6aa2",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
-    "versionen.html": "4919faa9e9f4b4322604a4c671fb030b7bd48cf54c9560f21cfb1bcc827ea51d"
+    "versionen.html": "87f89a66ec23d1b8403ac47c4f83e15b8f23ea397786127e30f0ac8d088ae40c"
   },
   "capability_checks": [
     {
@@ -280,12 +280,12 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "9f53b64fd723f6daa244b1e74473185b4fe7a80dbb8c5954d453db956f5a4063",
+    "index.html": "4c005191edd9f7ccbf01becfbc74afd1d7949150c012878ed10a66212c19f432",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
     "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
-    "versionen.html": "4919faa9e9f4b4322604a4c671fb030b7bd48cf54c9560f21cfb1bcc827ea51d"
+    "versionen.html": "87f89a66ec23d1b8403ac47c4f83e15b8f23ea397786127e30f0ac8d088ae40c"
   },
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -341,7 +341,7 @@
     "policy": "PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT",
     "policy_state": "PUBLIC_HOLD_AMOUNT_POLICY_V1",
     "policy_version": "FI3_HOLD_AMOUNT_GOVERNANCE_V1_20261012",
-    "standing_validator_sha256": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e"
+    "standing_validator_sha256": "ce19b5eea718b51764024f427fa5f0102faab14f1efcd8fe6a1ced6f63b0bff1"
   },
   "fi3_public_r15": {
     "confirmed": 0,
@@ -354,7 +354,7 @@
     "projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "public_snapshot_unchanged": true,
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
-    "standing_validator_sha256": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e"
+    "standing_validator_sha256": "ce19b5eea718b51764024f427fa5f0102faab14f1efcd8fe6a1ced6f63b0bff1"
   },
   "final_pre_release_hardening_20261021": {
     "app_js_sha256": "62ef882f90da52f943fb2aa376a18b846f4d0f593251f19519589edd9dc29a00",
@@ -376,7 +376,7 @@
     "status": "LOCAL_AND_REMOTE_RC_GATES_REQUIRED__NARROW_INDEPENDENT_DELTA_AUDIT_REQUIRED"
   },
   "generated_at_utc": "2026-10-21T00:38:26.577Z",
-  "generated_for": "GUIDED_UX_V1_TERMINOLOGY_FINAL_HARDENING_20261021",
+  "generated_for": "R5B_PUBLIC_DATA_REFRESH_B1_REMEDIATED_LOCAL_CANDIDATE_20261021",
   "guided_ux_v1_20261020": {
     "canonical_data_changed": false,
     "default_view": "GUIDED",
@@ -714,7 +714,7 @@
     "runtime_changed": false,
     "validation_report_sha256": "5700e0496cd92b8973f54ec0694660efe9b87e60da9b87fb87ac9933a3391df4"
   },
-  "public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+  "public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
     "baseline_mixed_date_cohort_statistics_previously_possible": true,
@@ -791,6 +791,78 @@
     "status": "FINAL_HARDENING_CANDIDATE__PENDING_NARROW_INDEPENDENT_DELTA_AUDIT",
     "technical_identifiers_preserved": true
   },
+  "r5b_public_data_refresh_20261021": {
+    "canonical_db_write": false,
+    "counts": {
+      "entities": 144,
+      "metrics": 118,
+      "observations": 7793,
+      "relations": 7,
+      "sources": 269,
+      "time_series_decisions": 119
+    },
+    "delta": {
+      "entities": 4,
+      "observations": 24,
+      "sources": 5
+    },
+    "deterministic_double_generation_byte_identical": true,
+    "discovery_context_changed": false,
+    "fi3_projection_unchanged": true,
+    "fi3_validator_sha256": "ce19b5eea718b51764024f427fa5f0102faab14f1efcd8fe6a1ced6f63b0bff1",
+    "independent_full_audit_blocker": "B1_INTERNAL_RUNTIME_KEYS",
+    "independent_full_audit_status": "HOLD_INDEPENDENT_FINANCE_INSURANCE2AGENT_R5B_PUBLIC_DATA_REFRESH_RELEASE_CANDIDATE_20261021",
+    "internal_runtime_keys_exposed": false,
+    "n1_dead_intro_copy_corrected": true,
+    "n2_top_level_validator_contract_added": true,
+    "narrow_delta_reaudit_pass_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_R5B_PUBLIC_DATA_REFRESH_B1_DELTA_REAUDIT_20261021",
+    "narrow_delta_reaudit_required": true,
+    "new_entities": [
+      "BNP Paribas Cardif",
+      "CNP Assurances Holding",
+      "Crédit Agricole Assurances Group",
+      "Unipol Group"
+    ],
+    "new_observations": 24,
+    "official_public_projection": true,
+    "old_rows_preserved_exactly": true,
+    "previous_public_snapshot_sha256": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
+    "profile_status": "PROFILED_CDE_R5B_GROUP_QRT_2025_V1_TREATMENT_UNRESOLVED",
+    "public_common_date_validator_sha256": "cb1bcc9caa6349f8ffdb8e98dc0fa2d09f919dfa3f9551d031c5b45598ea6aa2",
+    "public_data_release_validator_sha256": "aba48afb8762d6c9120919eaeda27434cb76603b4375321ae4ff6e4bfb1fdb0e",
+    "public_deployment_performed": false,
+    "r0610_peer_scan_tie_resolved_here": false,
+    "ranking_or_statistics_newly_authorized": false,
+    "reference_date": "2025-12-31",
+    "removed_internal_runtime_keys": [
+      "_dependency_group",
+      "_active_regimes"
+    ],
+    "research_context_unchanged": true,
+    "runtime_write": false,
+    "semantic_comparability_gate": "CLOSED_NO_TIMESERIES_DECISION",
+    "snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+    "source_database_sha256": "9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62",
+    "standing_contract_rebound_files": {
+      "bound_public_bytes": [
+        "app.js",
+        "index.html",
+        "data/public_snapshot.js",
+        "versionen.html",
+        "VALIDATION_REPORT.json",
+        "tests/validate_public_data_release.py",
+        "tests/validate_public_static_common_date.py",
+        "tests/validate_fi3_public_projection.py"
+      ],
+      "copy_contract_sha256": [
+        "index.html",
+        "versionen.html"
+      ]
+    },
+    "status": "LOCAL_CANDIDATE__INDEPENDENT_RELEASE_AUDIT_REQUIRED",
+    "time_series_decisions_changed": false,
+    "top_level_public_surface_matches_released_schema": true
+  },
   "recovery8_latest_date_multiplicity": {
     "baseline_candidate": "RECOVERY7_FROZEN_D3EC5C785E78BB03ED1F63F089FF56AE34D434762B71F9167B25DD4774840E83",
     "conflict_binding_rule": "VALUE_RESOLUTION_UNRESOLVED_NO_WINNER_AND_NO_CANONICAL_VALUE_SELECTION_AND_EXACT_AFFECTED_LATEST_ROW_BINDING",
@@ -862,7 +934,7 @@
       "SPRINT_A_COVERAGE_200_199_1_SCOR_NO_WINNER",
       "SPRINT_A_NO_GLEIF_RAW_NO_SCREENING_NO_RISK_SCORE"
     ],
-    "sha256": "2e42acf86e64ba714df5520becc4dbfa6f3e634d71060f0d5f60da56f63b770d"
+    "sha256": "aba48afb8762d6c9120919eaeda27434cb76603b4375321ae4ff6e4bfb1fdb0e"
   },
   "standing_repo_validator": {
     "path": "tests/validate_capability_contract.py",

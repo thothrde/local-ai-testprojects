@@ -2,13 +2,13 @@
 from pathlib import Path
 import hashlib,json
 ROOT=Path(__file__).resolve().parents[1]
-EXPECTED_DB='7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a'
-EXPECTED_SNAPSHOT='4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2'
-EXPECTED_COUNTS={'entities': 140, 'metrics': 118, 'observations': 7769, 'relations': 7, 'sources': 264, 'time_series_decisions': 119}
-CACHEBUSTER='20261013-core-truth-parity-7863537'
-APP_CACHEBUSTER='20261021-guided-ux-term-final'
+EXPECTED_DB='9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62'
+EXPECTED_SNAPSHOT='c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae'
+EXPECTED_COUNTS={'entities': 144, 'metrics': 118, 'observations': 7793, 'relations': 7, 'sources': 269, 'time_series_decisions': 119}
+CACHEBUSTER='20261021-r5b-public-data'
+APP_CACHEBUSTER='20261021-r5b-public-data'
 EXPECTED_RESEARCH_CONTEXT='195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92'
-ENTITY_HASH='440c84d85ec19beed1f8b9abb7e066338ee6285a0150dad945d4759945bca981'
+ENTITY_HASH='e77e37b1fae224fca6a555a72f07e1dcb8f66974d36f11809df8cae06c20b2f8'
 RELATION_HASH='31c74edb7667e880cdc472c96714fac9d7be965a70f78fe71eb91cea3c401c67'
 DECISION_HASH='0b5701a5747784496552f0f3c0f421e0d8c3318ad8e8385efaf57198cc7307a3'
 FORBIDDEN=['/api/integrity', '/api/network', 'fi2_ted', 'TED_PROCUREMENT', 'EPPO', 'OLAF', 'HELD_MULTIPLE_BUYER_CLUSTERS']
@@ -48,20 +48,20 @@ def main():
   if o.get("external_issue_id")=="SCOR_GROUP_FY2025_R0610_OFFICIAL_INTERNAL_SOURCE_CONFLICT":scor.append(o)
  assert len(scor)==1;q=scor[0];assert q["conflict_status"]=="CONFIRMED_OFFICIAL_SOURCE_INTERNAL_CONFLICT" and q["value_resolution_status"]=="UNRESOLVED_NO_WINNER" and q["selection_policy"]=="NO_CANONICAL_VALUE_SELECTION" and q["statistics_authorized"] is False and q["discovery_value_authorized"] is False
  assert sorted(float(w["numeric_value_real"]) for w in q.get("witnesses",[]) if w.get("numeric_value_real") is not None)==[3554000.0,3574832.0]
- cp=identity["core_truth_parity_20261013"];assert cp["source_database_sha256"]==EXPECTED_DB and cp["snapshot_sha256"]==EXPECTED_SNAPSHOT and cp["counts"]==EXPECTED_COUNTS and cp["required10"]=={"terminal":199,"nonterminal":1,"total":200} and cp["fi3_projection_unchanged"] is True
- ec=evidence["core_truth_parity_20261013"];assert ec["source_database_sha256"]==EXPECTED_DB and ec["snapshot_sha256"]==EXPECTED_SNAPSHOT and ec["source_quality_issue_count"]==3
+ cp=identity["core_truth_parity_20261013"];assert cp["source_database_sha256"]=="7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a" and cp["snapshot_sha256"]=="4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2" and cp["counts"]=={'entities': 140, 'metrics': 118, 'observations': 7769, 'relations': 7, 'sources': 264, 'time_series_decisions': 119} and cp["required10"]=={"terminal":199,"nonterminal":1,"total":200} and cp["fi3_projection_unchanged"] is True
+ ec=evidence["core_truth_parity_20261013"];assert ec["source_database_sha256"]=="7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a" and ec["snapshot_sha256"]=="4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2" and ec["source_quality_issue_count"]==3
  idx=(ROOT/"index.html").read_text();assert "data/public_snapshot.js?v="+CACHEBUSTER in idx and "app.js?v="+APP_CACHEBUSTER in idx
  game_link='<a class="game-cta" href="https://thomas.autark-data.org/finance2agent-game-europe/" aria-label="Finance2Agent Game Europe – Zum Spiel / Play"><span>Finance2Agent Game Europe</span><span class="game-cta-action">Zum Spiel / Play →</span></a>'
  assert game_link in idx and idx.index(game_link)<idx.index('data-i18n="heroKicker"')
  assert 'target="_blank"' not in game_link
 
- app=(ROOT/"app.js").read_text();assert "sourceQualityIssuesForEntity" in app and "source-quality-notice" in app and "7.769" in app and "7,769" in app
+ app=(ROOT/"app.js").read_text();assert "sourceQualityIssuesForEntity" in app and "source-quality-notice" in app and "7.793" in app and "7,793" in app
  assert "function compareP3DHLocal" in app and "function compareGenericLocal" in app and "function latestCommonReferenceDate" in app and "EBA_P3DH_" in app
  assert "scopeLabel" in app and "EBA · höchste Konsolidierungsebene" in app and "EBA · highest level of consolidation" in app
  # Guided UX Recovery3 usability guardrails — current-byte regression checks.
  assert all(x in app for x in ["function compareMetricItems","function syncCompareSelectors","function syncAuditMetric","function syncAuditObservation","function setAuditSelectionFromObservationId","function objectContainsEntityId","details.progressive[data-expert-opened"] )
  assert all(x in idx for x in ['data-guide-focus="#auditEntity"','id="auditEntity"','id="auditMetric"','id="auditObservation"','id="auditGuidedRun"','class="local-only" data-i18n="rerun"'])
- assert all(x in idx for x in ['href="styles.css?v=20261021-guided-ux-term-final"','data/public_research_workspace_v1.js?v=20261021-guided-ux-term-final','app.js?v=20261021-guided-ux-term-final','presentation_i18n.js?v=20261021-guided-ux-term-final'])
+ assert all(x in idx for x in ['href="styles.css?v=20261021-r5b-public-data"','data/public_research_workspace_v1.js?v=20261021-r5b-public-data','app.js?v=20261021-r5b-public-data','presentation_i18n.js?v=20261021-r5b-public-data'])
  assert "o.uncertain?`<div class=\"badges\">${badge('UNCERTAIN','warn')}</div>`" in app and '<details class="progressive inline-evidence">' in app
  assert "metricEntityIds(mc)" in app and "ids.size>=2" in app and "objectContainsEntityId(th,eid)" in app
  # Sprint A bounded static context — standing fail-closed checks.
@@ -86,6 +86,8 @@ def main():
  assert evidence["sprint_a_public_context_20261016"]["delta_reaudit_pass_result_sha256"]==sa["delta_reaudit_pass_result_sha256"]
 
  assert len(s["lineage"])==EXPECTED_AUX_COUNTS["lineage"] and len(s["investigation_candidates"])==EXPECTED_AUX_COUNTS["investigation_candidates"] and len(s["investigation_threads"])==EXPECTED_AUX_COUNTS["investigation_threads"] and len(s["investigation_thread_members"])==EXPECTED_AUX_COUNTS["investigation_thread_members"] and len(s["investigative_methods"])==EXPECTED_AUX_COUNTS["investigative_methods"] and len(s["generated_discovery_candidates"])==EXPECTED_AUX_COUNTS["generated_discovery_candidates"]
+ r5=identity["r5b_public_data_refresh_20261021"];assert r5["source_database_sha256"]==EXPECTED_DB and r5["snapshot_sha256"]==EXPECTED_SNAPSHOT and r5["counts"]==EXPECTED_COUNTS and r5["new_observations"]==24 and r5["ranking_or_statistics_newly_authorized"] is False and r5["r0610_peer_scan_tie_resolved_here"] is False
+ re5=evidence["r5b_public_data_refresh_20261021"];assert re5["source_database_sha256"]==EXPECTED_DB and re5["snapshot_sha256"]==EXPECTED_SNAPSHOT and re5["counts"]==EXPECTED_COUNTS and re5["discovery_context_changed"] is False and re5["time_series_decisions_changed"] is False
  ver=(ROOT/"versionen.html").read_text();assert EXPECTED_DB in ver and EXPECTED_SNAPSHOT in ver and "SCOR" in ver and "199" in ver
  assert "Public Static Common-Date R1" in ver and "523" in ver and "gemischte Stichtage" in ver and "mixed dates" in ver
  cor=(ROOT/"korrekturen.html").read_text();assert "P3DH-Vergleichsstichtag" in cor and "P3DH comparison date" in cor
@@ -95,3 +97,17 @@ def main():
   h,rel=line.split(None,1);rel=rel.lstrip("*").strip();assert (ROOT/rel).is_file() and sh(ROOT/rel)==h,(rel,sh(ROOT/rel),h)
  print("PASS_PUBLIC_DATA_RELEASE_STANDING_REPO_TEST");print(json.dumps({"db":EXPECTED_DB,"snapshot":EXPECTED_SNAPSHOT,"counts":actual,"source_quality_issues":3},sort_keys=True))
 if __name__=="__main__":main()
+
+# R5B_PUBLIC_TOP_LEVEL_SURFACE_CONTRACT_20261021
+import json as _r5b_surface_json
+from pathlib import Path as _r5b_surface_Path
+_r5b_surface_root=_r5b_surface_Path(__file__).resolve().parents[1]
+_r5b_surface_text=(_r5b_surface_root/'data/public_snapshot.js').read_text(encoding='utf-8')
+_r5b_surface_prefix='window.FI2A_PUBLIC_SNAPSHOT='
+assert _r5b_surface_text.startswith(_r5b_surface_prefix)
+_r5b_surface_body=_r5b_surface_text[len(_r5b_surface_prefix):].strip()
+if _r5b_surface_body.endswith(';'):_r5b_surface_body=_r5b_surface_body[:-1]
+_r5b_surface_snapshot=_r5b_surface_json.loads(_r5b_surface_body)
+_R5B_EXPECTED_PUBLIC_TOP_LEVEL_KEYS=['meta', 'entities', 'metrics', 'observations', 'sources', 'relations', 'regime_memberships', 'time_series_decisions', 'coverage_contracts', 'lineage', 'investigation_candidates', 'investigation_threads', 'investigation_thread_members', 'investigative_methods', 'tool_registry', 'source_quality_issues', 'implemented_capabilities', 'generated_discovery_candidates']
+assert list(_r5b_surface_snapshot.keys())==_R5B_EXPECTED_PUBLIC_TOP_LEVEL_KEYS, 'public snapshot top-level surface drift'
+assert not any(k.startswith('_') for k in _r5b_surface_snapshot), 'internal runtime key exposed in public snapshot'
