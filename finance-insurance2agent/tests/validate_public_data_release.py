@@ -6,7 +6,7 @@ EXPECTED_DB='7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a'
 EXPECTED_SNAPSHOT='4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2'
 EXPECTED_COUNTS={'entities': 140, 'metrics': 118, 'observations': 7769, 'relations': 7, 'sources': 264, 'time_series_decisions': 119}
 CACHEBUSTER='20261013-core-truth-parity-7863537'
-APP_CACHEBUSTER='20261017-public-static-rw-v1'
+APP_CACHEBUSTER='20261021-guided-ux-term-final'
 EXPECTED_RESEARCH_CONTEXT='195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92'
 ENTITY_HASH='440c84d85ec19beed1f8b9abb7e066338ee6285a0150dad945d4759945bca981'
 RELATION_HASH='31c74edb7667e880cdc472c96714fac9d7be965a70f78fe71eb91cea3c401c67'
@@ -58,6 +58,12 @@ def main():
  app=(ROOT/"app.js").read_text();assert "sourceQualityIssuesForEntity" in app and "source-quality-notice" in app and "7.769" in app and "7,769" in app
  assert "function compareP3DHLocal" in app and "function compareGenericLocal" in app and "function latestCommonReferenceDate" in app and "EBA_P3DH_" in app
  assert "scopeLabel" in app and "EBA · höchste Konsolidierungsebene" in app and "EBA · highest level of consolidation" in app
+ # Guided UX Recovery3 usability guardrails — current-byte regression checks.
+ assert all(x in app for x in ["function compareMetricItems","function syncCompareSelectors","function syncAuditMetric","function syncAuditObservation","function setAuditSelectionFromObservationId","function objectContainsEntityId","details.progressive[data-expert-opened"] )
+ assert all(x in idx for x in ['data-guide-focus="#auditEntity"','id="auditEntity"','id="auditMetric"','id="auditObservation"','id="auditGuidedRun"','class="local-only" data-i18n="rerun"'])
+ assert all(x in idx for x in ['href="styles.css?v=20261021-guided-ux-term-final"','data/public_research_workspace_v1.js?v=20261021-guided-ux-term-final','app.js?v=20261021-guided-ux-term-final','presentation_i18n.js?v=20261021-guided-ux-term-final'])
+ assert "o.uncertain?`<div class=\"badges\">${badge('UNCERTAIN','warn')}</div>`" in app and '<details class="progressive inline-evidence">' in app
+ assert "metricEntityIds(mc)" in app and "ids.size>=2" in app and "objectContainsEntityId(th,eid)" in app
  # Sprint A bounded static context — standing fail-closed checks.
  assert rctx["version"]=="FIRST_COMPLETE_VERSION_SPRINT_A_CONTEXT_V1"
  gov=rctx["governance"];assert gov=={"research_context_only":True,"screening":False,"risk_scoring":False,"natural_person_layer":False,"fi2_procurement_edges_installed":False,"fi2_value_currency_aggregation":False,"gleif_raw_relationships_public":False,"network_context_is_causal_evidence":False,"p3dh_direct_lead_metric_mapping":False}
@@ -75,7 +81,7 @@ def main():
  low=rctx_txt.lower();assert "gleif_level2_seed_relationships" not in low and "buyer_cluster_id" not in low and "value_evidence_json" not in low
  assert 'id="researchContext"' in idx and idx.index("data/research_context_v1.js")<idx.index("app.js?v="+APP_CACHEBUSTER)
  assert "function researchContextHtml" in app
- assert all(x in app for x in ["fs.status","fs.reason","fs.legal_authenticity_boundary","residual_source_gap_count","not clearance and is not a screening result","keine Entwarnung und kein Screening-Ergebnis","x.protocol==='https:'&&x.hostname==='ted.europa.eu'","Bounded static research and context excerpt","does not replace the broader procurement, network or enforcement-case functions"])
+ assert all(x in app for x in ["fs.status","fs.reason","fs.legal_authenticity_boundary","residual_source_gap_count","not clearance and is not a screening result","keine Entwarnung und kein Screening-Ergebnis","x.protocol==='https:'&&x.hostname==='ted.europa.eu'","Bounded static analysis and context excerpt","does not replace the broader procurement, network or enforcement-case functions"])
  sa=identity["sprint_a_public_context_20261016"];assert sa["context_data_sha256"]==EXPECTED_RESEARCH_CONTEXT and sa["delta_reaudit_pass_result_sha256"]=="c078622c1157b6ebfea82584659faa0556affd750e0eac5fdbee5f68d6dfa18e" and sa["coverage"]=={"logical_cells":200,"terminal":199,"nonterminal":1}
  assert evidence["sprint_a_public_context_20261016"]["delta_reaudit_pass_result_sha256"]==sa["delta_reaudit_pass_result_sha256"]
 

@@ -1,7 +1,7 @@
 {
   "audited_candidate_sha256": null,
   "bound_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
-  "build": "PUBLIC_INTRO_SCOPE_SEMANTIC_CLARIFICATION_SCRATCH_CANDIDATE_20261018",
+  "build": "GUIDED_UX_V1_TERMINOLOGY_FINAL_HARDENING_20261021",
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -47,7 +47,7 @@
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS",
     "whole_site_regeneration": false
   },
-  "current_capability_evidence_sha256": "aa81b66ef5b2e5da1ec61a856061b0ffb1b516d49df144f54ba0b615d1ae403b",
+  "current_capability_evidence_sha256": "1fdb2769f7ad11c005d46d96b561d63b71619a5380fe5d286aa3d759e323f77f",
   "current_public_snapshot_refresh": "PERFORMED_FROM_CANONICAL_7863537_20261013",
   "external_runtime_resources": false,
   "fi3_hold_amount_public_hardening": {
@@ -82,8 +82,214 @@
     "source_canonical_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a"
   },
   "fi_network_public_release_gate": "SPRINT_A_BOUNDED_STATIC_CONTEXT_CANDIDATE_AUDITED__BROADER_FI_NETWORK_FUNCTIONS_REMAIN_CLOSED",
-  "generated_at_utc": "2026-10-18T00:00:00Z",
+  "final_pre_release_hardening_20261021": {
+    "app_js_sha256": "62ef882f90da52f943fb2aa376a18b846f4d0f593251f19519589edd9dc29a00",
+    "cache_token": "20261021-guided-ux-term-final",
+    "canonical_data_unchanged": true,
+    "capability_evidence_sha256": "1fdb2769f7ad11c005d46d96b561d63b71619a5380fe5d286aa3d759e323f77f",
+    "index_html_sha256": "9f53b64fd723f6daa244b1e74473185b4fe7a80dbb8c5954d453db956f5a4063",
+    "public_common_date_validator_sha256": "9b77061b1e81ff04b896b34aa653cfa8027fe16e98eb56c8cf73927fb97c443e",
+    "public_data_release_validator_sha256": "2e42acf86e64ba714df5520becc4dbfa6f3e634d71060f0d5f60da56f63b770d",
+    "public_deployment_performed": false,
+    "required_independent_delta_pass_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_GUIDED_UX_TERMINOLOGY_FINAL_HARDENING_DELTA_20261021",
+    "status": "LOCAL_AND_REMOTE_RC_GATES_REQUIRED__NARROW_INDEPENDENT_DELTA_AUDIT_REQUIRED"
+  },
+  "generated_at_utc": "2026-10-21T00:38:26.577Z",
   "generative_ai_at_runtime": false,
+  "guided_ux_v1_20261020": {
+    "app_js_sha256": "0b6cd8619fd7061b07639dc682d3c87c95e0f810bdf677843b21c69fa0011768",
+    "canonical_data_unchanged": true,
+    "capability_evidence_sha256": "1fdb2769f7ad11c005d46d96b561d63b71619a5380fe5d286aa3d759e323f77f",
+    "default_view": "GUIDED",
+    "deployment_performed_by_candidate": false,
+    "expert_view_preserved": true,
+    "fi3_projection_unchanged": true,
+    "historical_intermediate_snapshot": true,
+    "historical_note": "Dated block preserved as the 2026-10-20 intermediate Guided UX milestone; current release-candidate bytes are bound by MANIFEST_SHA256.txt and final_pre_release_hardening_20261021.",
+    "index_html_sha256": "771f532f9a42d1f5d456c075b23c7a55d22007eb9c02b45eb07ccfb9bf87fa44",
+    "legacy_top_level_function_inventory_preserved": true,
+    "local_install_performed": true,
+    "local_install_result_sha256": "904a9b269a928a8c99f8eda34ea95163bb407846ab36b300ddc373f61f083284",
+    "local_install_status": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_BOUNDED_LOCAL_INSTALL",
+    "ownership_helpers_restored_from_prepatch": true,
+    "public_common_date_validator_sha256": "a6ba541949c9b4fdd003819d47a9f618ad3e11eada77b69408fb3cf85b965f69",
+    "public_data_release_validator_sha256": "ec2107e98412647519c6bb1d37122b5e9e977eb847a04e9f096c4a9def1d8311",
+    "public_deployment_performed": false,
+    "public_snapshot_unchanged": true,
+    "ranking_or_score_added": false,
+    "recovery2_reason": "Safari exposed missing legacy ownership helpers connectedRelations + ownershipSvg; both are restored byte-exactly from the bound prepatch app.js.",
+    "recovery2_resmoke_result_sha256": "6cece5eff806db299605aab7ad36668534212e0bdae4fe44acbf0c39e541077f",
+    "recovery2_resmoke_status": "HOLD_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_REAL_SAFARI_RESMOKE_RECOVERY2",
+    "recovery3_automated_safari_closure": {
+      "api_requests": [],
+      "browser_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Safari/605.1.15",
+      "checks_required_failed": 0,
+      "checks_total": 41,
+      "narrow_css_px": {
+        "inner_width": 380,
+        "samples": [
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 447,
+            "innerWidth": 380,
+            "label": "ready+0ms",
+            "scrollWidth": 447,
+            "t": 80
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+50ms",
+            "scrollWidth": 380,
+            "t": 141
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+100ms",
+            "scrollWidth": 380,
+            "t": 192
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+250ms",
+            "scrollWidth": 380,
+            "t": 342
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+500ms",
+            "scrollWidth": 380,
+            "t": 594
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+1000ms",
+            "scrollWidth": 380,
+            "t": 1095
+          }
+        ],
+        "settled_after_ms": 1000,
+        "settled_body_width": 380,
+        "settled_scroll_width": 380,
+        "transient_overflow_observed": true
+      },
+      "protected_state_drift": [],
+      "public_deployment_performed": false,
+      "safari_result_sha256": "8414d39a86dce9d709cb09748a5ec56cb6e0744b74edefe0dff8b36328e25cb7",
+      "safari_status_token": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_RECOVERY3_AUTOMATED_SAFARI_INPAGE_VERIFICATION_RECOVERY2",
+      "second_ai_used": false,
+      "status": "PASS_AUTOMATED_REAL_SAFARI_RECOVERY3_CLOSURE"
+    },
+    "recovery3_candidate_only": false,
+    "recovery3_canonical_write_performed": false,
+    "recovery3_local_install_result_sha256": "c8418de423ee3b45b1dc510c1c95e99429f884d22d40178546c3ef910915421d",
+    "recovery3_local_install_status": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_RECOVERY3_BOUNDED_ATOMIC_LOCAL_INSTALL",
+    "recovery3_project_write_performed": true,
+    "recovery3_reason": "Real Safari use showed novice-path coherence defects in COMPARE, DISCOVER and direct AUDIT; Recovery3 is a bounded UI/control-flow repair candidate only.",
+    "recovery3_repairs": [
+      "COMPARE_SELECTOR_FILTERING",
+      "DISCOVER_THREAD_FILTERING",
+      "GUIDED_AUDIT_PICKER",
+      "STATIC_RERUN_HIDDEN",
+      "EXPERT_GUIDED_DETAILS_RESTORE"
+    ],
+    "recovery3_second_ai_used": false,
+    "research_workspace_data_unchanged": true,
+    "safari_smoke_hold_result_sha256": "0a0c6bb9b52f71527432c21ee3389c192252710a0f0a3dc5079174727ee42c75",
+    "safari_smoke_status": "HOLD_RECOVERY2_REQUIRED__OWNERSHIP_HELPERS_MISSING__PENDING_RESMOKE",
+    "status": "RECOVERY3_LOCAL_INSTALLED_AUTOMATED_REAL_SAFARI_PASS__PUBLIC_RELEASE_NOT_YET_PERFORMED",
+    "styles_css_sha256": "48acc78962afa12dfe8c614667eb11ee396e5165692d3d7f51c759a61a7a1473"
+  },
+  "guided_ux_v1_recovery3_closure_20261021": {
+    "api_requests": [],
+    "browser_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Safari/605.1.15",
+    "checks_required_failed": 0,
+    "checks_total": 41,
+    "narrow_css_px": {
+      "inner_width": 380,
+      "samples": [
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 447,
+          "innerWidth": 380,
+          "label": "ready+0ms",
+          "scrollWidth": 447,
+          "t": 80
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+50ms",
+          "scrollWidth": 380,
+          "t": 141
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+100ms",
+          "scrollWidth": 380,
+          "t": 192
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+250ms",
+          "scrollWidth": 380,
+          "t": 342
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+500ms",
+          "scrollWidth": 380,
+          "t": 594
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+1000ms",
+          "scrollWidth": 380,
+          "t": 1095
+        }
+      ],
+      "settled_after_ms": 1000,
+      "settled_body_width": 380,
+      "settled_scroll_width": 380,
+      "transient_overflow_observed": true
+    },
+    "protected_state_drift": [],
+    "public_deployment_performed": false,
+    "safari_result_sha256": "8414d39a86dce9d709cb09748a5ec56cb6e0744b74edefe0dff8b36328e25cb7",
+    "safari_status_token": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_RECOVERY3_AUTOMATED_SAFARI_INPAGE_VERIFICATION_RECOVERY2",
+    "second_ai_used": false,
+    "status": "PASS_AUTOMATED_REAL_SAFARI_RECOVERY3_CLOSURE"
+  },
   "implemented_capabilities": [
     {
       "code": "ASK_STRUCTURED",
@@ -384,7 +590,7 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "aa81b66ef5b2e5da1ec61a856061b0ffb1b516d49df144f54ba0b615d1ae403b",
+    "capability_evidence_sha256": "1fdb2769f7ad11c005d46d96b561d63b71619a5380fe5d286aa3d759e323f77f",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT__BUTTON_STYLE_ONLY",
@@ -527,6 +733,40 @@
     "independent_hold_token": "HOLD_FINANCE_INSURANCE2AGENT_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_INDEPENDENT_AUDIT",
     "required_pass_token": "PASS_FINANCE_INSURANCE2AGENT_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_DELTA_REAUDIT",
     "resolution": "REGENERATED_IDENTITY_EVIDENCE_CAPABILITY_CONTRACT_STANDING_TEST_PINS_AND_MANIFEST_ONLY"
+  },
+  "public_terminology_alignment_20261021": {
+    "automated_real_safari_postinstall_sha256": "e6cfae83e9549b5a6464371bcbb63073e956c9bf06c5278ff7412573c24a9a48",
+    "canonical_data_unchanged": true,
+    "capability_evidence_sha256": "1fdb2769f7ad11c005d46d96b561d63b71619a5380fe5d286aa3d759e323f77f",
+    "copy_changed_files": {
+      "app.js": "c78d32da665972fb697b1fb4669b1f1be33cd4694e201b261dc54953498a6dc2",
+      "data/public_research_workspace_v1.js": "b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f",
+      "index.html": "034582340377b6de77edba1cd28783dcb891e33410db82ba4df7224818780000",
+      "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
+      "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
+      "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
+      "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f"
+    },
+    "fi3_projection_unchanged": true,
+    "historical_version_log_preserved_sha256": "4919faa9e9f4b4322604a4c671fb030b7bd48cf54c9560f21cfb1bcc827ea51d",
+    "policy": "TARGETED_PUBLIC_COPY_ONLY__NO_GLOBAL_SEARCH_REPLACE",
+    "preferred_public_vocabulary_de": [
+      "Analyse",
+      "Information",
+      "Projekt"
+    ],
+    "preferred_public_vocabulary_en": [
+      "analysis",
+      "information",
+      "project"
+    ],
+    "public_snapshot_unchanged": true,
+    "recovery1_validator_copy_guard_sha256": "ec2107e98412647519c6bb1d37122b5e9e977eb847a04e9f096c4a9def1d8311",
+    "runtime_capability_unchanged": true,
+    "second_ai_used": false,
+    "source_audit_result_sha256": "52467ebcbe0a7226f84e52e85e9b9164e60cd88b0e880a597deecdcf09bada8e",
+    "status": "LOCAL_INSTALLED_AUTOMATED_REAL_SAFARI_PASS__PUBLIC_RELEASE_NOT_YET_PERFORMED",
+    "technical_identifiers_preserved": true
   },
   "raw_source_redistribution_gate": "CLOSED",
   "recovery8_latest_date_multiplicity": {

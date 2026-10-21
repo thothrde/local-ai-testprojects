@@ -8,22 +8,22 @@
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
     "VALIDATION_REPORT.json": "369fb2e056de2956ad7b4235188f5cdef746dfa1c20363adb392a6cd03c2db14",
-    "app.js": "37603ffe411f9122435d8c2f31a9a9fda3a1d54ea5194542ced663333ac8f32b",
+    "app.js": "62ef882f90da52f943fb2aa376a18b846f4d0f593251f19519589edd9dc29a00",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
-    "data/public_research_workspace_v1.js": "d9e644ad6025c7b500c807ef7da6e300236a0355800c9efd4ce2970790ba04e1",
+    "data/public_research_workspace_v1.js": "b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f",
     "data/public_snapshot.js": "4ba2d5f1462bc1c40499e5ef643e6bb6f601d6298ba7af93ee8fbb7f37e565b2",
     "data/research_context_v1.js": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
-    "index.html": "1f46a2405c537e8e66c025f8a3331c01822a155da976be9742254701d5b13838",
-    "korrekturen.html": "ebc7648306e148d5aa4f8412b10dbf8188192921fb50fd2e6d4d64362daa36a5",
-    "methodik.html": "aeccad52e44627547426f373975e6efc52fe965684841f245a3e3b9d51229b0d",
-    "presentation_i18n.js": "69fd6e840580735fe2fca4dd9788675db757fc2320bee818dbc9cbb54287aeac",
+    "index.html": "9f53b64fd723f6daa244b1e74473185b4fe7a80dbb8c5954d453db956f5a4063",
+    "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
+    "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
+    "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
-    "styles.css": "101fd2c82999247c8d06b1b99fa9d7e067f5e6521a05dce9ea7b6193beb76e24",
+    "styles.css": "48acc78962afa12dfe8c614667eb11ee396e5165692d3d7f51c759a61a7a1473",
     "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
     "tests/validate_fi3_public_projection.py": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e",
-    "tests/validate_public_data_release.py": "06e7029c4e3a56bfb6464c240e43f02114d434b8e06424ade071f8ecaf345eac",
-    "tests/validate_public_static_common_date.py": "977dc1e5891382b6bfd43b89b9c3b745489dac83754cfdb94395af2283a0b697",
-    "unabhaengigkeit.html": "744657fc06b1d700d9ac709b274a5b64d6f181047db95e2e3914f901f3b38a9b",
+    "tests/validate_public_data_release.py": "2e42acf86e64ba714df5520becc4dbfa6f3e634d71060f0d5f60da56f63b770d",
+    "tests/validate_public_static_common_date.py": "9b77061b1e81ff04b896b34aa653cfa8027fe16e98eb56c8cf73927fb97c443e",
+    "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
     "versionen.html": "4919faa9e9f4b4322604a4c671fb030b7bd48cf54c9560f21cfb1bcc827ea51d"
   },
   "capability_checks": [
@@ -280,11 +280,11 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "1f46a2405c537e8e66c025f8a3331c01822a155da976be9742254701d5b13838",
-    "korrekturen.html": "ebc7648306e148d5aa4f8412b10dbf8188192921fb50fd2e6d4d64362daa36a5",
-    "methodik.html": "aeccad52e44627547426f373975e6efc52fe965684841f245a3e3b9d51229b0d",
-    "presentation_i18n.js": "69fd6e840580735fe2fca4dd9788675db757fc2320bee818dbc9cbb54287aeac",
-    "unabhaengigkeit.html": "744657fc06b1d700d9ac709b274a5b64d6f181047db95e2e3914f901f3b38a9b",
+    "index.html": "9f53b64fd723f6daa244b1e74473185b4fe7a80dbb8c5954d453db956f5a4063",
+    "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
+    "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
+    "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
+    "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
     "versionen.html": "4919faa9e9f4b4322604a4c671fb030b7bd48cf54c9560f21cfb1bcc827ea51d"
   },
   "core_truth_parity_20261013": {
@@ -356,8 +356,245 @@
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
     "standing_validator_sha256": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e"
   },
-  "generated_at_utc": "2026-10-18T19:00:00Z",
-  "generated_for": "PUBLIC_INTRO_SCOPE_SEMANTIC_CLARIFICATION_SCRATCH_CANDIDATE_20261018",
+  "final_pre_release_hardening_20261021": {
+    "app_js_sha256": "62ef882f90da52f943fb2aa376a18b846f4d0f593251f19519589edd9dc29a00",
+    "canonical_data_unchanged": true,
+    "changes": [
+      "consistent cache-busters for changed browser assets",
+      "UNCERTAIN warning immediately visible while date/framework/scope remain progressively disclosed",
+      "current build metadata clarified while preserving historical milestone hashes"
+    ],
+    "fi3_projection_unchanged": true,
+    "index_html_sha256": "9f53b64fd723f6daa244b1e74473185b4fe7a80dbb8c5954d453db956f5a4063",
+    "prior_independent_audit_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_GUIDED_UX_TERMINOLOGY_RELEASE_CANDIDATE_20261021",
+    "public_common_date_validator_sha256": "9b77061b1e81ff04b896b34aa653cfa8027fe16e98eb56c8cf73927fb97c443e",
+    "public_data_release_validator_sha256": "2e42acf86e64ba714df5520becc4dbfa6f3e634d71060f0d5f60da56f63b770d",
+    "public_deployment_performed": false,
+    "public_snapshot_unchanged": true,
+    "required_independent_delta_pass_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_GUIDED_UX_TERMINOLOGY_FINAL_HARDENING_DELTA_20261021",
+    "research_context_unchanged": true,
+    "status": "LOCAL_AND_REMOTE_RC_GATES_REQUIRED__NARROW_INDEPENDENT_DELTA_AUDIT_REQUIRED"
+  },
+  "generated_at_utc": "2026-10-21T00:38:26.577Z",
+  "generated_for": "GUIDED_UX_V1_TERMINOLOGY_FINAL_HARDENING_20261021",
+  "guided_ux_v1_20261020": {
+    "canonical_data_changed": false,
+    "default_view": "GUIDED",
+    "expert_view_preserved": true,
+    "fi3_projection_changed": false,
+    "files": {
+      "app.js": "0b6cd8619fd7061b07639dc682d3c87c95e0f810bdf677843b21c69fa0011768",
+      "index.html": "771f532f9a42d1f5d456c075b23c7a55d22007eb9c02b45eb07ccfb9bf87fa44",
+      "styles.css": "48acc78962afa12dfe8c614667eb11ee396e5165692d3d7f51c759a61a7a1473"
+    },
+    "historical_intermediate_snapshot": true,
+    "historical_note": "The files/validators hashes in this dated block describe the 2026-10-20 intermediate Guided UX milestone. Current release-candidate bytes are bound by MANIFEST_SHA256.txt and final_pre_release_hardening_20261021.",
+    "legacy_top_level_function_inventory_preserved": true,
+    "local_install_performed": true,
+    "local_install_result_sha256": "904a9b269a928a8c99f8eda34ea95163bb407846ab36b300ddc373f61f083284",
+    "local_install_status": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_BOUNDED_LOCAL_INSTALL",
+    "ownership_helpers_restored_from_prepatch": true,
+    "plain_language_comparability": true,
+    "progressive_disclosure": true,
+    "public_common_date_validator_sha256": "243c5a88d6692bc089954350789d92f86f2a4770218e78e35ad671b1f1b4e60a",
+    "public_data_release_validator_sha256": "ec2107e98412647519c6bb1d37122b5e9e977eb847a04e9f096c4a9def1d8311",
+    "public_deployment_performed": false,
+    "public_snapshot_changed": false,
+    "ranking_or_score_added": false,
+    "recovery2_reason": "Safari exposed missing legacy ownership helpers connectedRelations + ownershipSvg; both are restored byte-exactly from the bound prepatch app.js.",
+    "recovery2_resmoke_result_sha256": "6cece5eff806db299605aab7ad36668534212e0bdae4fe44acbf0c39e541077f",
+    "recovery2_resmoke_status": "HOLD_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_REAL_SAFARI_RESMOKE_RECOVERY2",
+    "recovery3_automated_safari_closure": {
+      "api_requests": [],
+      "browser_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Safari/605.1.15",
+      "checks_required_failed": 0,
+      "checks_total": 41,
+      "narrow_css_px": {
+        "inner_width": 380,
+        "samples": [
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 447,
+            "innerWidth": 380,
+            "label": "ready+0ms",
+            "scrollWidth": 447,
+            "t": 80
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+50ms",
+            "scrollWidth": 380,
+            "t": 141
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+100ms",
+            "scrollWidth": 380,
+            "t": 192
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+250ms",
+            "scrollWidth": 380,
+            "t": 342
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+500ms",
+            "scrollWidth": 380,
+            "t": 594
+          },
+          {
+            "bad": [],
+            "bodyRectWidth": 380,
+            "bodyWidth": 380,
+            "innerWidth": 380,
+            "label": "ready+1000ms",
+            "scrollWidth": 380,
+            "t": 1095
+          }
+        ],
+        "settled_after_ms": 1000,
+        "settled_body_width": 380,
+        "settled_scroll_width": 380,
+        "transient_overflow_observed": true
+      },
+      "protected_state_drift": [],
+      "public_deployment_performed": false,
+      "safari_result_sha256": "8414d39a86dce9d709cb09748a5ec56cb6e0744b74edefe0dff8b36328e25cb7",
+      "safari_status_token": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_RECOVERY3_AUTOMATED_SAFARI_INPAGE_VERIFICATION_RECOVERY2",
+      "second_ai_used": false,
+      "status": "PASS_AUTOMATED_REAL_SAFARI_RECOVERY3_CLOSURE"
+    },
+    "recovery3_candidate_only": false,
+    "recovery3_canonical_write_performed": false,
+    "recovery3_local_install_result_sha256": "c8418de423ee3b45b1dc510c1c95e99429f884d22d40178546c3ef910915421d",
+    "recovery3_local_install_status": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_RECOVERY3_BOUNDED_ATOMIC_LOCAL_INSTALL",
+    "recovery3_project_write_performed": true,
+    "recovery3_reason": "Real Safari use showed novice-path coherence defects: COMPARE offered entity/metric combinations without observations, DISCOVER kept global threads under an institution filter, and direct AUDIT still centered a technical observation ID. Expert-to-guided progressive disclosure state also needed deterministic restoration.",
+    "recovery3_repairs": [
+      "COMPARE_METRICS_REQUIRE_AT_LEAST_TWO_OBSERVED_ENTITIES",
+      "COMPARE_ENTITY_SELECTORS_FILTER_TO_SELECTED_METRIC_AND_DISTINCT_PAIR",
+      "DISCOVER_THREADS_FILTER_WITH_SELECTED_INSTITUTION",
+      "GUIDED_AUDIT_ENTITY_METRIC_OBSERVATION_PICKER",
+      "STATIC_AUDIT_RERUN_HIDDEN",
+      "AUDIT_LINKS_SYNCHRONIZE_GUIDED_SELECTION",
+      "EXPERT_AUTOPENED_DETAILS_CLOSE_ON_RETURN_TO_GUIDED"
+    ],
+    "recovery3_second_ai_used": false,
+    "requirements": [
+      "GUIDED_START_FIVE_INTENTS",
+      "PLAIN_LANGUAGE_MODE_GUIDANCE",
+      "CONTEXT_BAR",
+      "PROGRESSIVE_DISCLOSURE",
+      "EXPERT_VIEW_TOGGLE",
+      "PLAIN_LANGUAGE_COMPARABILITY_WITH_EXACT_TECHNICAL_STATUS_PRESERVED",
+      "NO_RANKING_NO_SCORE_NO_ADVICE",
+      "DE_EN_PARITY",
+      "EXISTING_FIVE_MODES_PLUS_RESEARCH_PRESERVED",
+      "COMPARE_SELECTION_COHERENCE",
+      "DISCOVER_FILTER_COHERENCE",
+      "GUIDED_AUDIT_WITHOUT_TECHNICAL_ID",
+      "EXPERT_GUIDED_PROGRESSIVE_DISCLOSURE_STATE_RESTORATION"
+    ],
+    "research_workspace_data_changed": false,
+    "safari_smoke_hold_result_sha256": "0a0c6bb9b52f71527432c21ee3389c192252710a0f0a3dc5079174727ee42c75",
+    "safari_smoke_status": "HOLD_RECOVERY2_REQUIRED__OWNERSHIP_HELPERS_MISSING__PENDING_RESMOKE",
+    "scope": "PRESENTATION_NAVIGATION_AND_SELECTOR_COHERENCE_ONLY",
+    "status": "RECOVERY3_LOCAL_INSTALLED_AUTOMATED_REAL_SAFARI_PASS__PUBLIC_RELEASE_NOT_YET_PERFORMED",
+    "validators": {
+      "tests/validate_public_data_release.py": "e73dfdd942288210e301936b2bcf607831b34ed10d3f368f2e66b46c2ef79a83",
+      "tests/validate_public_static_common_date.py": "a6ba541949c9b4fdd003819d47a9f618ad3e11eada77b69408fb3cf85b965f69"
+    }
+  },
+  "guided_ux_v1_recovery3_closure_20261021": {
+    "api_requests": [],
+    "browser_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Safari/605.1.15",
+    "checks_required_failed": 0,
+    "checks_total": 41,
+    "narrow_css_px": {
+      "inner_width": 380,
+      "samples": [
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 447,
+          "innerWidth": 380,
+          "label": "ready+0ms",
+          "scrollWidth": 447,
+          "t": 80
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+50ms",
+          "scrollWidth": 380,
+          "t": 141
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+100ms",
+          "scrollWidth": 380,
+          "t": 192
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+250ms",
+          "scrollWidth": 380,
+          "t": 342
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+500ms",
+          "scrollWidth": 380,
+          "t": 594
+        },
+        {
+          "bad": [],
+          "bodyRectWidth": 380,
+          "bodyWidth": 380,
+          "innerWidth": 380,
+          "label": "ready+1000ms",
+          "scrollWidth": 380,
+          "t": 1095
+        }
+      ],
+      "settled_after_ms": 1000,
+      "settled_body_width": 380,
+      "settled_scroll_width": 380,
+      "transient_overflow_observed": true
+    },
+    "protected_state_drift": [],
+    "public_deployment_performed": false,
+    "safari_result_sha256": "8414d39a86dce9d709cb09748a5ec56cb6e0744b74edefe0dff8b36328e25cb7",
+    "safari_status_token": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_RECOVERY3_AUTOMATED_SAFARI_INPAGE_VERIFICATION_RECOVERY2",
+    "second_ai_used": false,
+    "status": "PASS_AUTOMATED_REAL_SAFARI_RECOVERY3_CLOSURE"
+  },
   "independent_followup_audit": {
     "decision": "PASS_POSTAUDIT_R2_F1_F8_REMEDIATION_NARROW_INDEPENDENT_FOLLOWUP_AUDIT",
     "json_sha256": "9037def6e5cb712632782490c6292f785328965ba879c08ed43de82224fb2b0b",
@@ -506,6 +743,54 @@
     "hold_root_cause": "INTEGRITY_BINDINGS_AND_STANDING_TEST_PINS_STALE",
     "independent_hold_result_sha256": "1e17611f537ec5fdca88364512662187a9a427b711db88df41fe917929664243"
   },
+  "public_terminology_alignment_20261021": {
+    "automated_real_safari_postinstall": {
+      "api_requests": [],
+      "browser_result_sha256": "e6cfae83e9549b5a6464371bcbb63073e956c9bf06c5278ff7412573c24a9a48",
+      "browser_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.0.1 Safari/605.1.15",
+      "checks_required_failed": 0,
+      "checks_total": 44,
+      "public_deployment_performed": false,
+      "second_ai_used": false
+    },
+    "cache_token": "20261021-guided-ux-term-final",
+    "canonical_data_unchanged": true,
+    "copy_changed_files": {
+      "app.js": "c78d32da665972fb697b1fb4669b1f1be33cd4694e201b261dc54953498a6dc2",
+      "data/public_research_workspace_v1.js": "b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f",
+      "index.html": "034582340377b6de77edba1cd28783dcb891e33410db82ba4df7224818780000",
+      "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
+      "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
+      "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
+      "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f"
+    },
+    "fi3_projection_unchanged": true,
+    "historical_version_log_preserved_sha256": "4919faa9e9f4b4322604a4c671fb030b7bd48cf54c9560f21cfb1bcc827ea51d",
+    "policy": "TARGETED_PUBLIC_COPY_ONLY__NO_GLOBAL_SEARCH_REPLACE",
+    "preferred_public_vocabulary_de": [
+      "Analyse",
+      "Information",
+      "Projekt"
+    ],
+    "preferred_public_vocabulary_en": [
+      "analysis",
+      "information",
+      "project"
+    ],
+    "public_snapshot_unchanged": true,
+    "recovery1_validator_copy_guard_rebase": {
+      "new_literal": "Bounded static analysis and context excerpt",
+      "old_literal": "Bounded static research and context excerpt",
+      "path": "tests/validate_public_data_release.py",
+      "reason": "Standing validator copy assertion must follow the intentionally changed current public copy; validator semantics otherwise unchanged.",
+      "sha256": "ec2107e98412647519c6bb1d37122b5e9e977eb847a04e9f096c4a9def1d8311"
+    },
+    "runtime_capability_unchanged": true,
+    "second_ai_used": false,
+    "source_audit_result_sha256": "52467ebcbe0a7226f84e52e85e9b9164e60cd88b0e880a597deecdcf09bada8e",
+    "status": "FINAL_HARDENING_CANDIDATE__PENDING_NARROW_INDEPENDENT_DELTA_AUDIT",
+    "technical_identifiers_preserved": true
+  },
   "recovery8_latest_date_multiplicity": {
     "baseline_candidate": "RECOVERY7_FROZEN_D3EC5C785E78BB03ED1F63F089FF56AE34D434762B71F9167B25DD4774840E83",
     "conflict_binding_rule": "VALUE_RESOLUTION_UNRESOLVED_NO_WINNER_AND_NO_CANONICAL_VALUE_SELECTION_AND_EXACT_AFFECTED_LATEST_ROW_BINDING",
@@ -577,7 +862,7 @@
       "SPRINT_A_COVERAGE_200_199_1_SCOR_NO_WINNER",
       "SPRINT_A_NO_GLEIF_RAW_NO_SCREENING_NO_RISK_SCORE"
     ],
-    "sha256": "06e7029c4e3a56bfb6464c240e43f02114d434b8e06424ade071f8ecaf345eac"
+    "sha256": "2e42acf86e64ba714df5520becc4dbfa6f3e634d71060f0d5f60da56f63b770d"
   },
   "standing_repo_validator": {
     "path": "tests/validate_capability_contract.py",
@@ -1328,6 +1613,16 @@
         }
       ],
       "id": "PUBLIC_GAME_LINK_UI_VISIBLE_AND_BOUNDED",
+      "result": "PASS"
+    },
+    {
+      "evidence": "ChatGPT builder-side deterministic static checks only: JS syntax, duplicate-ID check, DE/EN key parity, five guided-intent cards, six preserved modes, cachebuster and comparability explainer markers. This is not an independent audit.",
+      "id": "GUIDED_UX_V1_BUILDER_SELFTEST",
+      "result": "PASS"
+    },
+    {
+      "evidence": "Builder-side candidate checks: JS syntax, duplicate-ID check, DE/EN key parity markers, metric/entity compare filtering markers, institution-scoped DISCOVER thread marker, guided AUDIT selectors, static Rerun hidden, and Expert→Guided auto-open restoration. No Mac project write and no independent second-AI audit.",
+      "id": "GUIDED_UX_V1_RECOVERY3_BUILDER_PREFLIGHT",
       "result": "PASS"
     }
   ]
