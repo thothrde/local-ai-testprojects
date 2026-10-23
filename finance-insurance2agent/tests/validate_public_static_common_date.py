@@ -3,8 +3,8 @@ from pathlib import Path
 import hashlib,json,itertools
 ROOT=Path(__file__).resolve().parents[1]
 EXPECTED_SNAPSHOT="d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13"
-EXPECTED_APP="8ed410813383f3f5746760ec309e5da614c978b6d00e7605f4afd1f12beebdfb"
-EXPECTED_INDEX="b22152234b7c4f4604c2d5ec9635d9211b641098ede3b4101c8512e8858c52f8"
+EXPECTED_APP="65d9530f430401ccbc360cb8bf813b703e6161ea409678b3ea4172b0df43deed"
+EXPECTED_INDEX="29ca4d4185ae3456af2ba26197891e77bb9acb05e7b10920053a4fb2bf4681a6"
 EXPECTED_P3DH_PAIR_COUNT=1759
 EXPECTED_P3DH_COMMON_PAIR_COUNT=1757
 EXPECTED_P3DH_NO_COMMON_PAIR_COUNT=2
@@ -39,7 +39,7 @@ def main():
     assert "function latestCommonReferenceDate" in app
     assert "function resolveEvidenceAtDate" in app
     assert "String(mc||'').startsWith('EBA_P3DH_')?compareP3DHLocal(mc,ids):compareGenericLocal(mc,ids)" in app
-    assert "app.js?v=20261023-r38-public-final" in idx
+    assert "app.js?v=20261023-v2a-guided-research-v1" in idx
 
     s=load()
     by={}

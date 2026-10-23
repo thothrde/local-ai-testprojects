@@ -91,9 +91,9 @@
     "sources": 279,
     "time_series_decisions": 119
   },
-  "current_capability_evidence_sha256": "67534bf3362e573a9d6d2a16b14dfc3c3ad0eadba6fe44599050bf2f32ec682e",
+  "current_capability_evidence_sha256": "0f1d5d0025ea3bbc7b558c7779796a6efaecad44988ecd7680c2fbfc7c098d53",
   "current_static_validation": {
-    "files": 21,
+    "files": 22,
     "operator_cookies": false,
     "operator_tracking": false,
     "raw_source_files": 0,
@@ -105,17 +105,16 @@
   "deterministic_double_generation_byte_identical": true,
   "exactly_comparable_time_series_decisions": 0,
   "fi_staging_data_unchanged": true,
-  "generated_at_utc": "2026-10-23T15:00:00Z",
+  "generated_at_utc": "2026-10-23T20:25:57Z",
   "independent_audit_json_sha256": null,
   "independent_audit_md_sha256": null,
-  "independent_audit_status": "EXTERNAL_RELEASE_GATE_OUTSIDE_CANDIDATE_ARTIFACT",
+  "independent_audit_status": "REQUIRED_BEFORE_PUBLIC_WRITE",
   "independent_release_audit": {
-    "artifact_embeds_transient_audit_result": true,
+    "artifact_embeds_transient_audit_result": false,
     "deployment_authorized_by_this_artifact": false,
-    "embedded_hold_result_sha256": "1e17611f537ec5fdca88364512662187a9a427b711db88df41fe917929664243",
     "gate_location": "EXTERNAL_TO_CANDIDATE_ARTIFACT",
-    "policy": "PUBLIC_DEPLOYMENT_REQUIRES_NARROW_RECOVERY1_DELTA_REAUDIT_PASS",
-    "required_pass_token": "PASS_FINANCE_INSURANCE2AGENT_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1_DELTA_REAUDIT"
+    "policy": "PUBLIC_DEPLOYMENT_REQUIRES_NARROW_INDEPENDENT_V2A_RELEASE_AUDIT_PASS",
+    "required_pass_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_V2A_GUIDED_RESEARCH_RELEASE_CANDIDATE_20261023"
   },
   "lei_hygiene_20261012": {
     "accepted_active_leis_added": 6,
@@ -445,10 +444,11 @@
   "standing_validators": {
     "validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
     "validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
-    "validate_public_data_release.py": "94fa95adf1d611c7a22ae3f21e6092852023ca563326285b28825fe76694707c",
-    "validate_public_static_common_date.py": "a5b18a601ebaa646df550d8a90cc00120edde407baaa4f27d40836516e4c0643"
+    "validate_public_data_release.py": "9e5d2ac7e4f36083ae88b95bc7d6a4115dbfba0e24041f67bd54d08825104b2f",
+    "validate_public_static_common_date.py": "69cf7f188b4c2a5531aa6e93f1000002b8bc33bdc981456067ed2827f8508313",
+    "validate_v2a_guided_explainer.py": "c8f46eb670600fe37afc6f6e9fd56c192040c21ec05146dce5b29a8775e1a230"
   },
-  "status": "PASS_R38_PUBLIC_STATIC_RELEASE_VALIDATORS",
+  "status": "PASS_V2A_GUIDED_RESEARCH_RELEASE_CANDIDATE_SELF_VALIDATION",
   "v1_0_1_checks": {
     "autonomous_llm_gate_explained": true,
     "eba_datapoint_locator_visible": true,
@@ -456,5 +456,30 @@
     "missing_scope_labeled_not_recorded": true,
     "unit_ratio_rendered_as_percentage": true,
     "updated_bilingual_intro_present": true
+  },
+  "v2a_guided_research_20261023": {
+    "browser_parity_pairs": 34801,
+    "canonical_data_unchanged": true,
+    "comparability_and_evidence_axes_separate": true,
+    "independent_release_audit_required": true,
+    "pair_count": 34801,
+    "phase_b_pass_result_sha256": "8d32ce1e055f74c44b3cce85bb830737d993069c4d0451629344fa832b7c1d0a",
+    "phase_b_tests_passed": 50,
+    "phase_c_browser_verified_overlay_sha256": "74e48c3b1c90cea241ed6c3b68a89a4668b30e37725c09e9fe25b264a3281579",
+    "phase_c_recovery2_pass_result_sha256": "a9e584ac82aee1c5b80c92979d8adb6fc62d646c59db072240074e605fbca9d9",
+    "public_llm_used": false,
+    "public_runtime_api_added": false,
+    "public_snapshot_unchanged": true,
+    "ranking_added": false,
+    "real_safari_checks_passed": 47,
+    "release_candidate_deployment_performed": false,
+    "spec_version": "0.2.1",
+    "spec_zip_sha256": "67b64525f0949064c3db34c33e02e5e5eab437ed96ac083b9058aa7de1d92581",
+    "verdict_counts": {
+      "COMPARABLE": 30637,
+      "COMPARABLE_WITH_CAVEATS": 2921,
+      "NOT_COMPARABLE": 116,
+      "NOT_DETERMINABLE": 1127
+    }
   }
 }

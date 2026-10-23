@@ -7,23 +7,25 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "app.js": "8ed410813383f3f5746760ec309e5da614c978b6d00e7605f4afd1f12beebdfb",
+    "app.js": "65d9530f430401ccbc360cb8bf813b703e6161ea409678b3ea4172b0df43deed",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_research_workspace_v1.js": "b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f",
     "data/public_snapshot.js": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
     "data/research_context_v1.js": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
-    "index.html": "b22152234b7c4f4604c2d5ec9635d9211b641098ede3b4101c8512e8858c52f8",
+    "index.html": "29ca4d4185ae3456af2ba26197891e77bb9acb05e7b10920053a4fb2bf4681a6",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
     "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
-    "styles.css": "35a8c1a5e9959e481488931ebd80713aa51d678f5a017c06fa1b99cacf8aab38",
+    "styles.css": "767593151cd8b107e0f7378c437ec73f8b02c501c254f970e77528ef32c8b794",
     "tests/validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
     "tests/validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
-    "tests/validate_public_data_release.py": "94fa95adf1d611c7a22ae3f21e6092852023ca563326285b28825fe76694707c",
-    "tests/validate_public_static_common_date.py": "a5b18a601ebaa646df550d8a90cc00120edde407baaa4f27d40836516e4c0643",
+    "tests/validate_public_data_release.py": "9e5d2ac7e4f36083ae88b95bc7d6a4115dbfba0e24041f67bd54d08825104b2f",
+    "tests/validate_public_static_common_date.py": "69cf7f188b4c2a5531aa6e93f1000002b8bc33bdc981456067ed2827f8508313",
+    "tests/validate_v2a_guided_explainer.py": "c8f46eb670600fe37afc6f6e9fd56c192040c21ec05146dce5b29a8775e1a230",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
-    "versionen.html": "293f2a3c75fa7a42cf6e5e3debcf66eaf79464eeb2519b195a5e0bbd21c32fc3"
+    "v2a_explainer.js": "53b0c547d9964c7a3267bbdcafa4bba7b195fb2c2fa2342288fff5b2aae2eb14",
+    "versionen.html": "2f746ac357acac260949010c215331d84281592e8847affb57748178de331d09"
   },
   "capability_checks": [
     {
@@ -67,6 +69,53 @@
       ],
       "id": "PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_PRESENT",
       "note": "Curated static read-only projection only; no public runtime/API, writer, ranking/rating or DB materialization.",
+      "result": "PASS"
+    },
+    {
+      "capability": "COMPARE_PAIR",
+      "checks": [
+        {
+          "file": "public/v2a_explainer.js",
+          "must_contain": [
+            "V2A_SPEC_V0_2_1",
+            "CURRENCY_REQUIRED_BUT_UNKNOWN",
+            "REFERENCE_DATE_DIFF_UNGOVERNED"
+          ],
+          "must_not_contain": [
+            "/api/",
+            "fetch(",
+            "XMLHttpRequest",
+            "localStorage",
+            "sessionStorage"
+          ],
+          "pass": true
+        },
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "v2aExplainerHtml",
+            "v2aEvidenceAxis",
+            "v2aStatsSafe",
+            "Nicht bestimmbar aus den verfügbaren Daten",
+            "Cannot be determined from the available data"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "v2a_explainer.js?v=20261023-v2a-guided-research-v1",
+            "id=\"compareResult\" class=\"result\" aria-live=\"polite\""
+          ],
+          "must_not_contain": [
+            "v2a-phasec-scratch"
+          ],
+          "pass": true
+        }
+      ],
+      "id": "PUBLIC_V2A_GUIDED_COMPARISON_EXPLAINER",
+      "note": "Deterministic public-static guided comparison explanation; semantic reference passed 50 tests, 34,801 real-pair parity and real Safari scratch verification. No public LLM/runtime writer/ranking.",
       "result": "PASS"
     }
   ],
@@ -131,7 +180,8 @@
       "test_ids": [
         "PUBLIC_COMPARE_PAIR",
         "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED",
-        "PUBLIC_STATIC_P3DH_COMMON_DATE_COMPARE"
+        "PUBLIC_STATIC_P3DH_COMMON_DATE_COMPARE",
+        "PUBLIC_V2A_GUIDED_COMPARISON_EXPLAINER"
       ]
     },
     "DISCOVER_CANDIDATES": {
@@ -279,12 +329,12 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "b22152234b7c4f4604c2d5ec9635d9211b641098ede3b4101c8512e8858c52f8",
+    "index.html": "29ca4d4185ae3456af2ba26197891e77bb9acb05e7b10920053a4fb2bf4681a6",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
     "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
-    "versionen.html": "293f2a3c75fa7a42cf6e5e3debcf66eaf79464eeb2519b195a5e0bbd21c32fc3"
+    "versionen.html": "2f746ac357acac260949010c215331d84281592e8847affb57748178de331d09"
   },
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -374,8 +424,8 @@
     "research_context_unchanged": true,
     "status": "LOCAL_AND_REMOTE_RC_GATES_REQUIRED__NARROW_INDEPENDENT_DELTA_AUDIT_REQUIRED"
   },
-  "generated_at_utc": "2026-10-23T15:00:00Z",
-  "generated_for": "R5B_PUBLIC_DATA_REFRESH_B1_REMEDIATED_LOCAL_CANDIDATE_20261021",
+  "generated_at_utc": "2026-10-23T20:25:57Z",
+  "generated_for": "V2A_GUIDED_RESEARCH_RELEASE_CANDIDATE_20261023",
   "guided_ux_v1_20261020": {
     "canonical_data_changed": false,
     "default_view": "GUIDED",
@@ -991,37 +1041,7 @@
     "risk_scoring": false,
     "screening": false
   },
-  "standing_public_data_release_validator": {
-    "path": "tests/validate_public_data_release.py",
-    "requirements": [
-      "SNAPSHOT_SHA_BOUND",
-      "SNAPSHOT_DB_HASH_EQUALS_IDENTITY_DB_HASH",
-      "SNAPSHOT_ARRAY_COUNTS_EQUAL_META_AND_RELEASE_COUNTS",
-      "NO_LOCAL_PATH_LEAKAGE",
-      "VALIDATION_REPORT_BINDS_SNAPSHOT",
-      "MANIFEST_BINDS_SNAPSHOT_AND_RELEASE_TEST",
-      "INDEX_CACHEBUSTER_PRESENT",
-      "NO_EXACTLY_COMPARABLE_DECISIONS",
-      "NO_FI1_FI2_NETWORK_LEAKAGE_IN_CORE_SNAPSHOT",
-      "SCOR_R0610_OFFICIAL_SOURCE_CONFLICT_UNRESOLVED_NO_WINNER",
-      "CURRENT_CORE_IDENTITY_COLLECTION_PRESERVES_RELEASED_LEI_HYGIENE",
-      "EXISTING_OBSERVATION_DELTA_CLASSIFIED_2196_548_17",
-      "P4A_DISCOVERY_STATE_34_14_34_AUDIT_REQUIRED",
-      "EBA_HIGHEST_LEVEL_SCOPE_PUBLIC_DISPLAY_LOCALIZED",
-      "SOURCE_QUALITY_EXISTING_ROW_EXACT_NORMALIZER_PROJECTION_RAW_BYTES_PRESERVED",
-      "SOURCE_QUALITY_TWO_ADDITIONS_EXACTLY_ALLIANZ_PROVENANCE_MISLABEL_AND_SCOR_CONFLICT",
-      "P3DH_STATIC_LATEST_COMMON_REFERENCE_DATE_1759_1757_2_523",
-      "P3DH_STATIC_STATISTICS_AND_RANKING_WITHHELD",
-      "PUBLIC_COMMON_DATE_RELEASE_COPY_PRESENT",
-      "SPRINT_A_RESEARCH_CONTEXT_EXACT_SHA_BOUND",
-      "SPRINT_A_FI1_427_0_5_SOURCE_HOLD_BOUNDARY",
-      "SPRINT_A_FI2_21_156_84_92_NARROW_SCHEMA",
-      "SPRINT_A_NETWORK_116_113_105_104_16_EXACT_SOURCE_CONTRACT",
-      "SPRINT_A_COVERAGE_200_199_1_SCOR_NO_WINNER",
-      "SPRINT_A_NO_GLEIF_RAW_NO_SCREENING_NO_RISK_SCORE"
-    ],
-    "sha256": "aba48afb8762d6c9120919eaeda27434cb76603b4375321ae4ff6e4bfb1fdb0e"
-  },
+  "standing_public_data_release_validator": "9e5d2ac7e4f36083ae88b95bc7d6a4115dbfba0e24041f67bd54d08825104b2f",
   "standing_repo_validator": {
     "path": "tests/validate_capability_contract.py",
     "requirements": [
@@ -1782,6 +1802,78 @@
       "evidence": "Builder-side candidate checks: JS syntax, duplicate-ID check, DE/EN key parity markers, metric/entity compare filtering markers, institution-scoped DISCOVER thread marker, guided AUDIT selectors, static Rerun hidden, and Expert→Guided auto-open restoration. No Mac project write and no independent second-AI audit.",
       "id": "GUIDED_UX_V1_RECOVERY3_BUILDER_PREFLIGHT",
       "result": "PASS"
+    },
+    {
+      "capability": "COMPARE_PAIR",
+      "checks": [
+        {
+          "file": "public/v2a_explainer.js",
+          "must_contain": [
+            "V2A_SPEC_V0_2_1",
+            "CURRENCY_REQUIRED_BUT_UNKNOWN",
+            "REFERENCE_DATE_DIFF_UNGOVERNED"
+          ],
+          "must_not_contain": [
+            "/api/",
+            "fetch(",
+            "XMLHttpRequest",
+            "localStorage",
+            "sessionStorage"
+          ],
+          "pass": true
+        },
+        {
+          "file": "public/app.js",
+          "must_contain": [
+            "v2aExplainerHtml",
+            "v2aEvidenceAxis",
+            "v2aStatsSafe",
+            "Nicht bestimmbar aus den verfügbaren Daten",
+            "Cannot be determined from the available data"
+          ],
+          "must_not_contain": [],
+          "pass": true
+        },
+        {
+          "file": "public/index.html",
+          "must_contain": [
+            "v2a_explainer.js?v=20261023-v2a-guided-research-v1",
+            "id=\"compareResult\" class=\"result\" aria-live=\"polite\""
+          ],
+          "must_not_contain": [
+            "v2a-phasec-scratch"
+          ],
+          "pass": true
+        }
+      ],
+      "id": "PUBLIC_V2A_GUIDED_COMPARISON_EXPLAINER",
+      "note": "Deterministic public-static guided comparison explanation; semantic reference passed 50 tests, 34,801 real-pair parity and real Safari scratch verification. No public LLM/runtime writer/ranking.",
+      "result": "PASS"
     }
-  ]
+  ],
+  "v2a_guided_research_20261023": {
+    "browser_parity_pairs": 34801,
+    "canonical_data_unchanged": true,
+    "comparability_and_evidence_axes_separate": true,
+    "independent_release_audit_required": true,
+    "pair_count": 34801,
+    "phase_b_pass_result_sha256": "8d32ce1e055f74c44b3cce85bb830737d993069c4d0451629344fa832b7c1d0a",
+    "phase_b_tests_passed": 50,
+    "phase_c_browser_verified_overlay_sha256": "74e48c3b1c90cea241ed6c3b68a89a4668b30e37725c09e9fe25b264a3281579",
+    "phase_c_recovery2_pass_result_sha256": "a9e584ac82aee1c5b80c92979d8adb6fc62d646c59db072240074e605fbca9d9",
+    "public_llm_used": false,
+    "public_runtime_api_added": false,
+    "public_snapshot_unchanged": true,
+    "ranking_added": false,
+    "real_safari_checks_passed": 47,
+    "release_candidate_deployment_performed": false,
+    "spec_version": "0.2.1",
+    "spec_zip_sha256": "67b64525f0949064c3db34c33e02e5e5eab437ed96ac083b9058aa7de1d92581",
+    "verdict_counts": {
+      "COMPARABLE": 30637,
+      "COMPARABLE_WITH_CAVEATS": 2921,
+      "NOT_COMPARABLE": 116,
+      "NOT_DETERMINABLE": 1127
+    }
+  }
 }
