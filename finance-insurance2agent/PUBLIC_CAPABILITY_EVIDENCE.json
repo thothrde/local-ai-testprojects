@@ -7,24 +7,23 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "VALIDATION_REPORT.json": "098f4e4aa272bc1e903851d4cbf3f145937242939c80480fc01ec5cc7137d6f9",
-    "app.js": "002700f1a159ac5c50c81963c694997762b2f18d39bf1dcc852ff75cd7672ea2",
+    "app.js": "8ed410813383f3f5746760ec309e5da614c978b6d00e7605f4afd1f12beebdfb",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_research_workspace_v1.js": "b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f",
-    "data/public_snapshot.js": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+    "data/public_snapshot.js": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
     "data/research_context_v1.js": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
-    "index.html": "4c005191edd9f7ccbf01becfbc74afd1d7949150c012878ed10a66212c19f432",
+    "index.html": "b22152234b7c4f4604c2d5ec9635d9211b641098ede3b4101c8512e8858c52f8",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
     "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
-    "styles.css": "48acc78962afa12dfe8c614667eb11ee396e5165692d3d7f51c759a61a7a1473",
-    "tests/validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
-    "tests/validate_fi3_public_projection.py": "ce19b5eea718b51764024f427fa5f0102faab14f1efcd8fe6a1ced6f63b0bff1",
-    "tests/validate_public_data_release.py": "aba48afb8762d6c9120919eaeda27434cb76603b4375321ae4ff6e4bfb1fdb0e",
-    "tests/validate_public_static_common_date.py": "cb1bcc9caa6349f8ffdb8e98dc0fa2d09f919dfa3f9551d031c5b45598ea6aa2",
+    "styles.css": "35a8c1a5e9959e481488931ebd80713aa51d678f5a017c06fa1b99cacf8aab38",
+    "tests/validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
+    "tests/validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
+    "tests/validate_public_data_release.py": "94fa95adf1d611c7a22ae3f21e6092852023ca563326285b28825fe76694707c",
+    "tests/validate_public_static_common_date.py": "a5b18a601ebaa646df550d8a90cc00120edde407baaa4f27d40836516e4c0643",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
-    "versionen.html": "87f89a66ec23d1b8403ac47c4f83e15b8f23ea397786127e30f0ac8d088ae40c"
+    "versionen.html": "293f2a3c75fa7a42cf6e5e3debcf66eaf79464eeb2519b195a5e0bbd21c32fc3"
   },
   "capability_checks": [
     {
@@ -280,12 +279,12 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "4c005191edd9f7ccbf01becfbc74afd1d7949150c012878ed10a66212c19f432",
+    "index.html": "b22152234b7c4f4604c2d5ec9635d9211b641098ede3b4101c8512e8858c52f8",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
     "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
-    "versionen.html": "87f89a66ec23d1b8403ac47c4f83e15b8f23ea397786127e30f0ac8d088ae40c"
+    "versionen.html": "293f2a3c75fa7a42cf6e5e3debcf66eaf79464eeb2519b195a5e0bbd21c32fc3"
   },
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -341,7 +340,7 @@
     "policy": "PUBLIC_HOLD_AMOUNT_WITHHELD_IDENTITY_INSUFFICIENT",
     "policy_state": "PUBLIC_HOLD_AMOUNT_POLICY_V1",
     "policy_version": "FI3_HOLD_AMOUNT_GOVERNANCE_V1_20261012",
-    "standing_validator_sha256": "ce19b5eea718b51764024f427fa5f0102faab14f1efcd8fe6a1ced6f63b0bff1"
+    "standing_validator_sha256": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61"
   },
   "fi3_public_r15": {
     "confirmed": 0,
@@ -354,7 +353,7 @@
     "projection_sha256": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "public_snapshot_unchanged": true,
     "reject_policy": "AGGREGATE_COUNTS_AND_REASON_CLASSES_ONLY",
-    "standing_validator_sha256": "ce19b5eea718b51764024f427fa5f0102faab14f1efcd8fe6a1ced6f63b0bff1"
+    "standing_validator_sha256": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61"
   },
   "final_pre_release_hardening_20261021": {
     "app_js_sha256": "62ef882f90da52f943fb2aa376a18b846f4d0f593251f19519589edd9dc29a00",
@@ -375,7 +374,7 @@
     "research_context_unchanged": true,
     "status": "LOCAL_AND_REMOTE_RC_GATES_REQUIRED__NARROW_INDEPENDENT_DELTA_AUDIT_REQUIRED"
   },
-  "generated_at_utc": "2026-10-21T00:38:26.577Z",
+  "generated_at_utc": "2026-10-23T15:00:00Z",
   "generated_for": "R5B_PUBLIC_DATA_REFRESH_B1_REMEDIATED_LOCAL_CANDIDATE_20261021",
   "guided_ux_v1_20261020": {
     "canonical_data_changed": false,
@@ -714,7 +713,7 @@
     "runtime_changed": false,
     "validation_report_sha256": "5700e0496cd92b8973f54ec0694660efe9b87e60da9b87fb87ac9933a3391df4"
   },
-  "public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+  "public_snapshot_sha256": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
     "baseline_mixed_date_cohort_statistics_previously_possible": true,
@@ -790,6 +789,93 @@
     "source_audit_result_sha256": "52467ebcbe0a7226f84e52e85e9b9164e60cd88b0e880a597deecdcf09bada8e",
     "status": "FINAL_HARDENING_CANDIDATE__PENDING_NARROW_INDEPENDENT_DELTA_AUDIT",
     "technical_identifiers_preserved": true
+  },
+  "r37_public_first_complete_version_20261023": {
+    "baseline_public_head": "fc043ec80f79c89673a0fb66798fcba04e98e83c",
+    "counts": {
+      "entities": 144,
+      "metrics": 118,
+      "observations": 7839,
+      "relations": 7,
+      "sources": 279,
+      "time_series_decisions": 119
+    },
+    "delta": {
+      "entities": 0,
+      "metrics": 0,
+      "observations": 46,
+      "relations": 0,
+      "sources": 10,
+      "time_series_decisions": 0
+    },
+    "deployment_performed": false,
+    "independent_final_audit_required": true,
+    "local_runtime_published": false,
+    "previous_public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+    "public_parent_head": "ba4e6215da8dfc608f613f578ace512e60a3bff8",
+    "raw_source_files_bundled": false,
+    "snapshot_sha256": "dd5be0890639e27532c7aceaab8b6b62ea3daf33efb92a514543731f7c247d36",
+    "source_database_sha256": "80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64"
+  },
+  "r38_public_quality_polish_20261023": {
+    "based_on_r37_candidate_zip_sha256": "0b63d50ef7547cb5a649eb4a29c925eed5bd36d60f160da81428d2b547881fb1",
+    "based_on_r37_snapshot_sha256": "dd5be0890639e27532c7aceaab8b6b62ea3daf33efb92a514543731f7c247d36",
+    "baseline_public_head": "fc043ec80f79c89673a0fb66798fcba04e98e83c",
+    "counts": {
+      "entities": 144,
+      "metrics": 118,
+      "observations": 7839,
+      "relations": 7,
+      "sources": 279,
+      "time_series_decisions": 119
+    },
+    "data_delta_from_public_baseline": {
+      "entities": 0,
+      "metrics": 0,
+      "observations": 46,
+      "relations": 0,
+      "sources": 10,
+      "time_series_decisions": 0
+    },
+    "independent_full_audit_result_sha256": "c4aeafd23d447bd1129eaa5f98f6073d5aa36c5222eef3dd2857c9f0b4390286",
+    "independent_full_audit_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_R37_RECOVERY6_PUBLIC_STATIC_RELEASE_CANDIDATE_AUDIT_20261023",
+    "local_runtime_published": false,
+    "previous_public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+    "public_parent_head": "ba4e6215da8dfc608f613f578ace512e60a3bff8",
+    "quality_fixes": [
+      "F1_NULL_EMPTY_PUBLIC_PAYLOAD_COMPACTION",
+      "F2_380PX_COMPARE_GUIDE_WRAP",
+      "F3_STATIC_LOCAL_ONLY_CONTROLS_HIDDEN",
+      "F4_CURRENT_RELEASE_LABELS_AND_HISTORICAL_EVIDENCE_LABEL_FIXED",
+      "ASSET_CACHEBUSTER_REFRESH"
+    ],
+    "r37_snapshot_size_bytes": 58677186,
+    "raw_source_files_bundled": false,
+    "release_audit_policy": "POSTAUDIT_BYTE_CHANGES_REQUIRE_INDEPENDENT_DELTA_AUDIT_BEFORE_ATOMIC_PUBLIC_WRITE",
+    "snapshot_compaction_semantics": "DROP_NULL_EMPTY_ONLY_SELECTED_DIMENSIONS_AND_TRANSFORMATION_CONTRACT",
+    "snapshot_sha256": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
+    "snapshot_size_bytes": 14877774,
+    "source_database_sha256": "80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64"
+  },
+  "r38_recovery2_version_history_repair_20261023": {
+    "app_js_unchanged": true,
+    "based_on_r38_candidate_zip_sha256": "a1aa44c021bb21a019d7b874d428da11a9d1bb2e1405ac2e2cb723cfa58ae31e",
+    "current_source_database_sha256": "80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64",
+    "historical_core_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "history_guard_validator_sha256": "94fa95adf1d611c7a22ae3f21e6092852023ca563326285b28825fe76694707c",
+    "independent_hold_result_sha256": "96715334c9b12085999be3869337688033c873094dc9b3031010a547b7d5c61f",
+    "independent_hold_token": "HOLD_INDEPENDENT_FINANCE_INSURANCE2AGENT_R38_PUBLIC_QUALITY_POLISH_DELTA_AUDIT_20261023",
+    "index_html_unchanged": true,
+    "public_parent_head_policy": "Candidate build provenance remains bound to its audited build parent; final writer must accept a newer repository HEAD only if the finance-insurance2agent subtree tree object is unchanged and remote/local HEAD agree.",
+    "public_parent_head_rebound": false,
+    "repair_scope": [
+      "RESTORE_TWO_DE_HISTORICAL_CORE_DB_HASHES_TO_7863537C",
+      "RESTORE_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_20261017_HISTORY_DE_EN",
+      "ADD_VERSION_HISTORY_REGRESSION_GUARD_TO_PUBLIC_DATA_VALIDATOR"
+    ],
+    "requires_narrow_independent_reaudit": true,
+    "snapshot_unchanged": true,
+    "styles_css_unchanged": true
   },
   "r5b_public_data_refresh_20261021": {
     "canonical_db_write": false,

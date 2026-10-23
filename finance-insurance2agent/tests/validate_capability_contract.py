@@ -31,6 +31,10 @@ def main():
     actual_evidence_hash=sha256(evidence_path)
     if expected_evidence_hash!=actual_evidence_hash:
         fail(f'identity/evidence hash mismatch: {expected_evidence_hash} != {actual_evidence_hash}')
+    expected_validation_hash=identity.get('current_validation_report_sha256')
+    actual_validation_hash=sha256(ROOT/'VALIDATION_REPORT.json')
+    if expected_validation_hash!=actual_validation_hash:
+        fail(f'identity/validation hash mismatch: {expected_validation_hash} != {actual_validation_hash}')
 
     # FI3 validator pins are current integrity bindings, not historical annotations.
     # Both current FI3 capability blocks must follow the exact standing FI3 validator bytes.

@@ -1,6 +1,6 @@
 {
   "audited_candidate_sha256": null,
-  "bound_database_sha256": "9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62",
+  "bound_database_sha256": "80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64",
   "candidate_checkout_installed": false,
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
@@ -84,14 +84,14 @@
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS"
   },
   "counts": {
-    "entities": 140,
+    "entities": 144,
     "metrics": 118,
-    "observations": 7769,
+    "observations": 7839,
     "relations": 7,
-    "sources": 264,
+    "sources": 279,
     "time_series_decisions": 119
   },
-  "current_capability_evidence_sha256": "da7d872da40c7c59dcf7312fe96de89279aecf7d8613ab53edf39b13a70b087b",
+  "current_capability_evidence_sha256": "67534bf3362e573a9d6d2a16b14dfc3c3ad0eadba6fe44599050bf2f32ec682e",
   "current_static_validation": {
     "files": 21,
     "operator_cookies": false,
@@ -105,7 +105,7 @@
   "deterministic_double_generation_byte_identical": true,
   "exactly_comparable_time_series_decisions": 0,
   "fi_staging_data_unchanged": true,
-  "generated_at_utc": "2026-10-18T19:00:00Z",
+  "generated_at_utc": "2026-10-23T15:00:00Z",
   "independent_audit_json_sha256": null,
   "independent_audit_md_sha256": null,
   "independent_audit_status": "EXTERNAL_RELEASE_GATE_OUTSIDE_CANDIDATE_ARTIFACT",
@@ -135,7 +135,7 @@
     "source_datapoint_provenance": "UNCHANGED",
     "sources_changed": 0
   },
-  "old_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
+  "old_public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
   "operator_cookies": false,
   "operator_tracking": false,
   "parent_public_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
@@ -197,7 +197,7 @@
     "runtime_api_changed": false,
     "status": "PASS_CANDIDATE_STATIC_TEXT_ALIGNMENT"
   },
-  "public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+  "public_snapshot_sha256": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
     "canonical_data_unchanged": true,
@@ -242,6 +242,94 @@
     "required_next_gate": "NARROW_DELTA_REAUDIT_ONLY",
     "root_cause": "STALE_INTERNAL_HASH_BINDINGS_AND_STANDING_TEST_PINS_ONLY"
   },
+  "r37_public_first_complete_version_20261023": {
+    "baseline_public_head": "fc043ec80f79c89673a0fb66798fcba04e98e83c",
+    "counts": {
+      "entities": 144,
+      "metrics": 118,
+      "observations": 7839,
+      "relations": 7,
+      "sources": 279,
+      "time_series_decisions": 119
+    },
+    "delta": {
+      "entities": 0,
+      "metrics": 0,
+      "observations": 46,
+      "relations": 0,
+      "sources": 10,
+      "time_series_decisions": 0
+    },
+    "deployment_performed": false,
+    "independent_final_audit_required": true,
+    "local_runtime_published": false,
+    "previous_public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+    "public_parent_head": "ba4e6215da8dfc608f613f578ace512e60a3bff8",
+    "raw_source_files_bundled": false,
+    "snapshot_sha256": "dd5be0890639e27532c7aceaab8b6b62ea3daf33efb92a514543731f7c247d36",
+    "source_database_sha256": "80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64"
+  },
+  "r38_public_quality_polish_20261023": {
+    "based_on_r37_candidate_zip_sha256": "0b63d50ef7547cb5a649eb4a29c925eed5bd36d60f160da81428d2b547881fb1",
+    "based_on_r37_snapshot_sha256": "dd5be0890639e27532c7aceaab8b6b62ea3daf33efb92a514543731f7c247d36",
+    "baseline_public_head": "fc043ec80f79c89673a0fb66798fcba04e98e83c",
+    "counts": {
+      "entities": 144,
+      "metrics": 118,
+      "observations": 7839,
+      "relations": 7,
+      "sources": 279,
+      "time_series_decisions": 119
+    },
+    "data_delta_from_public_baseline": {
+      "entities": 0,
+      "metrics": 0,
+      "observations": 46,
+      "relations": 0,
+      "sources": 10,
+      "time_series_decisions": 0
+    },
+    "independent_full_audit_result_sha256": "c4aeafd23d447bd1129eaa5f98f6073d5aa36c5222eef3dd2857c9f0b4390286",
+    "independent_full_audit_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_R37_RECOVERY6_PUBLIC_STATIC_RELEASE_CANDIDATE_AUDIT_20261023",
+    "local_runtime_published": false,
+    "previous_public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
+    "public_parent_head": "ba4e6215da8dfc608f613f578ace512e60a3bff8",
+    "quality_fixes": [
+      "F1_NULL_EMPTY_PUBLIC_PAYLOAD_COMPACTION",
+      "F2_380PX_COMPARE_GUIDE_WRAP",
+      "F3_STATIC_LOCAL_ONLY_CONTROLS_HIDDEN",
+      "F4_CURRENT_RELEASE_LABELS_AND_HISTORICAL_EVIDENCE_LABEL_FIXED",
+      "ASSET_CACHEBUSTER_REFRESH"
+    ],
+    "r37_snapshot_size_bytes": 58677186,
+    "raw_source_files_bundled": false,
+    "release_audit_policy": "POSTAUDIT_BYTE_CHANGES_REQUIRE_INDEPENDENT_DELTA_AUDIT_BEFORE_ATOMIC_PUBLIC_WRITE",
+    "snapshot_compaction_semantics": "DROP_NULL_EMPTY_ONLY_SELECTED_DIMENSIONS_AND_TRANSFORMATION_CONTRACT",
+    "snapshot_sha256": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
+    "snapshot_size_bytes": 14877774,
+    "source_database_sha256": "80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64"
+  },
+  "r38_recovery2_version_history_repair_20261023": {
+    "app_js_unchanged": true,
+    "based_on_r38_candidate_zip_sha256": "a1aa44c021bb21a019d7b874d428da11a9d1bb2e1405ac2e2cb723cfa58ae31e",
+    "current_source_database_sha256": "80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64",
+    "historical_core_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
+    "history_guard_validator_sha256": "94fa95adf1d611c7a22ae3f21e6092852023ca563326285b28825fe76694707c",
+    "independent_hold_result_sha256": "96715334c9b12085999be3869337688033c873094dc9b3031010a547b7d5c61f",
+    "independent_hold_token": "HOLD_INDEPENDENT_FINANCE_INSURANCE2AGENT_R38_PUBLIC_QUALITY_POLISH_DELTA_AUDIT_20261023",
+    "index_html_unchanged": true,
+    "public_parent_head_policy": "Candidate build provenance remains bound to its audited build parent; final writer must accept a newer repository HEAD only if the finance-insurance2agent subtree tree object is unchanged and remote/local HEAD agree.",
+    "public_parent_head_rebound": false,
+    "repair_scope": [
+      "RESTORE_TWO_DE_HISTORICAL_CORE_DB_HASHES_TO_7863537C",
+      "RESTORE_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_20261017_HISTORY_DE_EN",
+      "ADD_VERSION_HISTORY_REGRESSION_GUARD_TO_PUBLIC_DATA_VALIDATOR"
+    ],
+    "requires_narrow_independent_reaudit": true,
+    "snapshot_unchanged": true,
+    "styles_css_unchanged": true
+  },
+  "r5b_capability_evidence_sha256_historical": "6dfc7f46146c7d539089b90f982de49b8c27408d4723e14a03406643849d8a12",
   "r5b_public_data_refresh_20261021": {
     "counts": {
       "entities": 144,
@@ -307,9 +395,9 @@
     ],
     "unresolved_conflict_source": "EXPLICIT_SOURCE_QUALITY_GOVERNANCE_ONLY"
   },
-  "refresh_scope": "CURRENT_CANONICAL_PUBLIC_CORE_UNCHANGED__SPRINT_A_BOUNDED_STATIC_FI1_FI2_EBA_P3DH_CONTEXT_ADDED__FI3_UNCHANGED",
+  "refresh_scope": "POSTAUDIT_PUBLIC_QUALITY_POLISH__COMPACT_STATIC_SNAPSHOT__NARROW_UI__STATIC_LOCAL_ONLY_HIDE__CURRENT_RELEASE_LABELS__CACHEBUSTER",
   "runtime_external_resource_count": 0,
-  "snapshot_generated_at_utc": "2026-10-12T22:20:00Z",
+  "snapshot_generated_at_utc": "2026-10-23T14:29:49Z",
   "sprint_a_public_context_20261016": {
     "app_js_sha256": "f132680afe4357f07e10859319e88e3d6fc0855784af0cb455ff8ccbbf4dfe10",
     "base_public_head": "f964050b1163dfb94f347ead19356766697aeadf",
@@ -355,12 +443,12 @@
     "ui_recovery2_result_sha256": "e1cec951c1c6be16f4da51a3b8cb85b276315b3579c35bc8a163d59ee2064c9a"
   },
   "standing_validators": {
-    "validate_capability_contract.py": "4112cc59f641621ca674e684d60c955994daf015827235fe9efd82f81b627e93",
-    "validate_fi3_public_projection.py": "3345df943efe93cbabd4fb2eab97dfc421dd47ddeccf52515f5d56a940d9f89e",
-    "validate_public_data_release.py": "06e7029c4e3a56bfb6464c240e43f02114d434b8e06424ade071f8ecaf345eac",
-    "validate_public_static_common_date.py": "977dc1e5891382b6bfd43b89b9c3b745489dac83754cfdb94395af2283a0b697"
+    "validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
+    "validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
+    "validate_public_data_release.py": "94fa95adf1d611c7a22ae3f21e6092852023ca563326285b28825fe76694707c",
+    "validate_public_static_common_date.py": "a5b18a601ebaa646df550d8a90cc00120edde407baaa4f27d40836516e4c0643"
   },
-  "status": "PASS_PUBLIC_GAME_LINK_UI_BOUNDED_CANDIDATE_STATIC_VALIDATION",
+  "status": "PASS_R38_PUBLIC_STATIC_RELEASE_VALIDATORS",
   "v1_0_1_checks": {
     "autonomous_llm_gate_explained": true,
     "eba_datapoint_locator_visible": true,

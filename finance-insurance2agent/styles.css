@@ -91,3 +91,6 @@ details.progressive>summary{cursor:pointer;color:var(--muted);font-weight:750;li
 @media(max-width:760px){.guide-heading{display:block}.guide-heading p{margin-top:8px}.guide-grid{grid-template-columns:1fr 1fr}.mode-guide{display:block}.mode-guide span{display:block;margin-top:5px}.context-bar{top:86px}.guide-card{min-height:145px}}
 @media(max-width:480px){.guide-grid{grid-template-columns:1fr}.context-bar{position:static}.top-actions{flex-wrap:wrap;justify-content:flex-end}.guide-toggle{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.guide-card{transition:none}.guide-card:hover{transform:none}}
+/* R38 public quality polish: narrow-screen guide wrapping + static-only controls hidden. */
+.local-only{display:none!important}.expert-view .expert-panel.local-only{display:none!important}
+@media(max-width:760px){.mode-guide strong{white-space:normal;overflow-wrap:anywhere}}

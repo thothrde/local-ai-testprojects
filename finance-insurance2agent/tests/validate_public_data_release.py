@@ -2,11 +2,17 @@
 from pathlib import Path
 import hashlib,json
 ROOT=Path(__file__).resolve().parents[1]
-EXPECTED_DB='9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62'
-EXPECTED_SNAPSHOT='c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae'
-EXPECTED_COUNTS={'entities': 144, 'metrics': 118, 'observations': 7793, 'relations': 7, 'sources': 269, 'time_series_decisions': 119}
-CACHEBUSTER='20261021-r5b-public-data'
-APP_CACHEBUSTER='20261021-r5b-public-data'
+EXPECTED_DB='80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64'
+EXPECTED_SNAPSHOT='d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13'
+EXPECTED_COUNTS={'entities': 144, 'metrics': 118, 'observations': 7839, 'relations': 7, 'sources': 279, 'time_series_decisions': 119}
+R5B_DB='9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62'
+R5B_SNAPSHOT='c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae'
+R5B_COUNTS={'entities': 144, 'metrics': 118, 'observations': 7793, 'relations': 7, 'sources': 269, 'time_series_decisions': 119}
+CACHEBUSTER='20261023-r38-public-final'
+APP_CACHEBUSTER='20261023-r38-public-final'
+HISTORICAL_CORE_DB='7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a'
+HISTORICAL_RW_DE='Public Static Research Workspace v1 · 17. Oktober 2026 (historisch)'
+HISTORICAL_RW_EN='Public Static Research Workspace v1 · 17 October 2026 (historical)'
 EXPECTED_RESEARCH_CONTEXT='195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92'
 ENTITY_HASH='e77e37b1fae224fca6a555a72f07e1dcb8f66974d36f11809df8cae06c20b2f8'
 RELATION_HASH='31c74edb7667e880cdc472c96714fac9d7be965a70f78fe71eb91cea3c401c67'
@@ -55,13 +61,13 @@ def main():
  assert game_link in idx and idx.index(game_link)<idx.index('data-i18n="heroKicker"')
  assert 'target="_blank"' not in game_link
 
- app=(ROOT/"app.js").read_text();assert "sourceQualityIssuesForEntity" in app and "source-quality-notice" in app and "7.793" in app and "7,793" in app
+ app=(ROOT/"app.js").read_text();assert "sourceQualityIssuesForEntity" in app and "source-quality-notice" in app and "7.839" in app and "7,839" in app
  assert "function compareP3DHLocal" in app and "function compareGenericLocal" in app and "function latestCommonReferenceDate" in app and "EBA_P3DH_" in app
  assert "scopeLabel" in app and "EBA · höchste Konsolidierungsebene" in app and "EBA · highest level of consolidation" in app
  # Guided UX Recovery3 usability guardrails — current-byte regression checks.
  assert all(x in app for x in ["function compareMetricItems","function syncCompareSelectors","function syncAuditMetric","function syncAuditObservation","function setAuditSelectionFromObservationId","function objectContainsEntityId","details.progressive[data-expert-opened"] )
  assert all(x in idx for x in ['data-guide-focus="#auditEntity"','id="auditEntity"','id="auditMetric"','id="auditObservation"','id="auditGuidedRun"','class="local-only" data-i18n="rerun"'])
- assert all(x in idx for x in ['href="styles.css?v=20261021-r5b-public-data"','data/public_research_workspace_v1.js?v=20261021-r5b-public-data','app.js?v=20261021-r5b-public-data','presentation_i18n.js?v=20261021-r5b-public-data'])
+ assert all(x in idx for x in ['href="styles.css?v=20261023-r38-public-final"','data/public_research_workspace_v1.js?v=20261023-r38-public-final','app.js?v=20261023-r38-public-final','presentation_i18n.js?v=20261023-r38-public-final'])
  assert "o.uncertain?`<div class=\"badges\">${badge('UNCERTAIN','warn')}</div>`" in app and '<details class="progressive inline-evidence">' in app
  assert "metricEntityIds(mc)" in app and "ids.size>=2" in app and "objectContainsEntityId(th,eid)" in app
  # Sprint A bounded static context — standing fail-closed checks.
@@ -86,9 +92,18 @@ def main():
  assert evidence["sprint_a_public_context_20261016"]["delta_reaudit_pass_result_sha256"]==sa["delta_reaudit_pass_result_sha256"]
 
  assert len(s["lineage"])==EXPECTED_AUX_COUNTS["lineage"] and len(s["investigation_candidates"])==EXPECTED_AUX_COUNTS["investigation_candidates"] and len(s["investigation_threads"])==EXPECTED_AUX_COUNTS["investigation_threads"] and len(s["investigation_thread_members"])==EXPECTED_AUX_COUNTS["investigation_thread_members"] and len(s["investigative_methods"])==EXPECTED_AUX_COUNTS["investigative_methods"] and len(s["generated_discovery_candidates"])==EXPECTED_AUX_COUNTS["generated_discovery_candidates"]
- r5=identity["r5b_public_data_refresh_20261021"];assert r5["source_database_sha256"]==EXPECTED_DB and r5["snapshot_sha256"]==EXPECTED_SNAPSHOT and r5["counts"]==EXPECTED_COUNTS and r5["new_observations"]==24 and r5["ranking_or_statistics_newly_authorized"] is False and r5["r0610_peer_scan_tie_resolved_here"] is False
- re5=evidence["r5b_public_data_refresh_20261021"];assert re5["source_database_sha256"]==EXPECTED_DB and re5["snapshot_sha256"]==EXPECTED_SNAPSHOT and re5["counts"]==EXPECTED_COUNTS and re5["discovery_context_changed"] is False and re5["time_series_decisions_changed"] is False
+ r5=identity["r5b_public_data_refresh_20261021"];assert r5["source_database_sha256"]==R5B_DB and r5["snapshot_sha256"]==R5B_SNAPSHOT and r5["counts"]==R5B_COUNTS and r5["new_observations"]==24 and r5["ranking_or_statistics_newly_authorized"] is False and r5["r0610_peer_scan_tie_resolved_here"] is False
+ re5=evidence["r5b_public_data_refresh_20261021"];assert re5["source_database_sha256"]==R5B_DB and re5["snapshot_sha256"]==R5B_SNAPSHOT and re5["counts"]==R5B_COUNTS and re5["discovery_context_changed"] is False and re5["time_series_decisions_changed"] is False
+ r38=identity["r38_public_quality_polish_20261023"];assert r38["source_database_sha256"]==EXPECTED_DB and r38["snapshot_sha256"]==EXPECTED_SNAPSHOT and r38["counts"]==EXPECTED_COUNTS and r38["data_delta_from_public_baseline"]=={"entities":0,"metrics":0,"observations":46,"sources":10,"relations":0,"time_series_decisions":0} and r38["raw_source_files_bundled"] is False and r38["local_runtime_published"] is False and r38["snapshot_compaction_semantics"]=="DROP_NULL_EMPTY_ONLY_SELECTED_DIMENSIONS_AND_TRANSFORMATION_CONTRACT"
+ er38=evidence["r38_public_quality_polish_20261023"];assert er38["source_database_sha256"]==EXPECTED_DB and er38["snapshot_sha256"]==EXPECTED_SNAPSHOT and er38["counts"]==EXPECTED_COUNTS and er38["data_delta_from_public_baseline"]==r38["data_delta_from_public_baseline"] and er38["based_on_r37_candidate_zip_sha256"]==r38["based_on_r37_candidate_zip_sha256"]
  ver=(ROOT/"versionen.html").read_text();assert EXPECTED_DB in ver and EXPECTED_SNAPSHOT in ver and "SCOR" in ver and "199" in ver
+ assert ver.count(HISTORICAL_CORE_DB)==6,(ver.count(HISTORICAL_CORE_DB),6)
+ assert ver.count(EXPECTED_DB)==2,(ver.count(EXPECTED_DB),2)
+ assert HISTORICAL_RW_DE in ver and HISTORICAL_RW_EN in ver
+ assert "Aktuelle öffentliche Version:" in ver and "Current public version:" in ver
+ assert "Aktueller Release-Kandidat:" not in ver and "Current release candidate:" not in ver
+ assert f'Core Truth Parity · 13. Oktober 2026:</strong> Der aktuelle statische Kern wurde deterministisch aus dem autoritativen lokalen Canonical <code>{HISTORICAL_CORE_DB}</code>' in ver
+ assert f'Core Truth Parity · 13 October 2026:</strong> The current static core was deterministically regenerated from authoritative local canonical <code>{HISTORICAL_CORE_DB}</code>' in ver
  assert "Public Static Common-Date R1" in ver and "523" in ver and "gemischte Stichtage" in ver and "mixed dates" in ver
  cor=(ROOT/"korrekturen.html").read_text();assert "P3DH-Vergleichsstichtag" in cor and "P3DH comparison date" in cor
  assert (ROOT/"tests/validate_public_static_common_date.py").is_file()
