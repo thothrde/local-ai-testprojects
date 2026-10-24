@@ -1,7 +1,7 @@
 {
   "audited_candidate_sha256": null,
   "bound_database_sha256": "80311d6c0c86f510f2cf2087dcccc30cc8fc6493eaabb685fcbb59352d7d8d64",
-  "build": "V2A_GUIDED_RESEARCH_RELEASE_CANDIDATE_20261023",
+  "build": "V2B_G2_G3_SEMANTIC_HARDENING_RELEASE_CANDIDATE_20261024",
   "canonical_data_unchanged": true,
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -47,9 +47,9 @@
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS",
     "whole_site_regeneration": false
   },
-  "current_capability_evidence_sha256": "0f1d5d0025ea3bbc7b558c7779796a6efaecad44988ecd7680c2fbfc7c098d53",
+  "current_capability_evidence_sha256": "1a2197dff0aa13a6d3a0edeb6f6d90e8f9e9f65e5e91d76e1254eecce59f58ac",
   "current_public_snapshot_refresh": "R38_20261023_CANONICAL_80311d6c",
-  "current_validation_report_sha256": "ff214721ad77bb03e149c164463439181099d3bdeee41024eb39f5941a9fd07b",
+  "current_validation_report_sha256": "808a9412ccc8ff36c71dca0868384a6eb0427fe1f09c79ac0360c40b886bb37c",
   "external_runtime_resources": false,
   "fi3_hold_amount_public_hardening": {
     "base_public_head": "10e12517ba95225e3b0a28810e20e8c06cce5ed0",
@@ -95,7 +95,7 @@
     "required_independent_delta_pass_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_GUIDED_UX_TERMINOLOGY_FINAL_HARDENING_DELTA_20261021",
     "status": "LOCAL_AND_REMOTE_RC_GATES_REQUIRED__NARROW_INDEPENDENT_DELTA_AUDIT_REQUIRED"
   },
-  "generated_at_utc": "2026-10-23T20:25:57Z",
+  "generated_at_utc": "2026-10-23T23:05:00Z",
   "generative_ai_at_runtime": false,
   "guided_ux_v1_20261020": {
     "app_js_sha256": "0b6cd8619fd7061b07639dc682d3c87c95e0f810bdf677843b21c69fa0011768",
@@ -591,11 +591,11 @@
   "postaudit_r2_scope_remediation": {
     "canonical_data_unchanged": true,
     "capability_evidence_file": "PUBLIC_CAPABILITY_EVIDENCE.json",
-    "capability_evidence_sha256": "0f1d5d0025ea3bbc7b558c7779796a6efaecad44988ecd7680c2fbfc7c098d53",
+    "capability_evidence_sha256": "1a2197dff0aa13a6d3a0edeb6f6d90e8f9e9f65e5e91d76e1254eecce59f58ac",
     "claims_as_code_binding": "STANDING_REPOSITORY_VALIDATOR_PLUS_EXACT_BYTE_BOUND_CAPABILITY_EVIDENCE",
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT__BUTTON_STYLE_ONLY",
-    "status": "V2A_CURRENT_CAPABILITY_EVIDENCE_REBOUND"
+    "status": "V2B_G2_G3_CURRENT_CAPABILITY_EVIDENCE_REBOUND"
   },
   "presentation_patch_parent_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
   "presentation_patch_scope": [
@@ -1017,8 +1017,10 @@
   "standing_validators": {
     "validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
     "validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
-    "validate_public_data_release.py": "94fa95adf1d611c7a22ae3f21e6092852023ca563326285b28825fe76694707c",
-    "validate_public_static_common_date.py": "a5b18a601ebaa646df550d8a90cc00120edde407baaa4f27d40836516e4c0643"
+    "validate_public_data_release.py": "d60ad7d5c5688789f4f3463f3df6b4a13cb75cac32acf52b8ea63fcdd6fa34bb",
+    "validate_public_static_common_date.py": "491dd5f8b9dd0f6579e0f2fba7aa4fc3f0cd3589ddb9f44dd3371378557cfe59",
+    "validate_v2a_guided_explainer.py": "b496e20b1372d4d00d2d61ff98060c6078f82710cf6380bf60995507bcda3ceb",
+    "validate_v2b_semantic_invariants.py": "65bebe38d32669aab3a65782a40c7e6169b1a807c5b00377c82668a71ad8b554"
   },
   "v2a_guided_research_20261023": {
     "app_js_sha256": "65d9530f430401ccbc360cb8bf813b703e6161ea409678b3ea4172b0df43deed",
@@ -1051,5 +1053,54 @@
       "NOT_COMPARABLE": 116,
       "NOT_DETERMINABLE": 1127
     }
+  },
+  "v2b_g2_g3_recovery1_after_independent_hold_20261024": {
+    "canonical_data_unchanged": true,
+    "fix": "OWN_PROPERTY_SAFE_UNIT_POLICY_LOOKUP",
+    "g5_scope_status": "PROPOSED_NOT_FROZEN",
+    "hold_reason": "PLAIN_OBJECT_UNIT_POLICY_LOOKUP_ACCEPTED_OBJECT_PROTOTYPE_NAMES",
+    "independent_delta_reaudit_required": true,
+    "independent_hold_result_sha256": "628edb79ed6f4acad4d95be15542c9c4dc49d5a6562149381436bbc48427615a",
+    "prior_candidate_sha256": "0af3a5d3e040432db5a4230e0114fb2dd3605177ca9f5dcf84ba0b1be269f9ee",
+    "product_semantics_delta": "UNKNOWN_UNIT_HANDLING_ONLY",
+    "public_snapshot_unchanged": true,
+    "real_dataset_pair_distribution_unchanged": true
+  },
+  "v2b_g2_g3_semantic_hardening_20261024": {
+    "app_js_sha256": "0685b9dd032da92c724e8b2e54b37847de4ba67e54bb33105ad89edea84b627b",
+    "canonical_data_unchanged": true,
+    "capability_evidence_sha256": "1a2197dff0aa13a6d3a0edeb6f6d90e8f9e9f65e5e91d76e1254eecce59f58ac",
+    "data_expansion_performed": false,
+    "delta_reaudit_required": true,
+    "durable_invariants_standing_test": true,
+    "g5_scope_status": "PROPOSED_NOT_FROZEN",
+    "independent_hold_result_sha256": "628edb79ed6f4acad4d95be15542c9c4dc49d5a6562149381436bbc48427615a",
+    "independent_release_audit_required": true,
+    "index_html_sha256": "1308030a8ac7a3740f1b41800dc7118873f03231d6a39d5fb2eaafde8a55d4f6",
+    "pair_count": 34801,
+    "policy_unit_count": 21,
+    "prototype_name_fail_open_fixed": true,
+    "public_snapshot_unchanged": true,
+    "readiness_result_sha256": "6bef12e0b7b50c5c0b086e511996c59b729c032fb6156d9fc5c14d0e2ba5deca",
+    "real_safari_scratch_checks_passed": 8,
+    "real_unit_count": 21,
+    "real_verdict_distribution_unchanged": true,
+    "recovery1_prototype_safe_unit_lookup": true,
+    "release_candidate_deployment_performed": false,
+    "scratch_pass_result_sha256": "287caf6b627a0d90f2c7e1bfb9499cf8e124bcb5ecbc056994c3ea0210d0554c",
+    "single_pair_unit_matrix_count": 34542,
+    "standing_invariant_validator_sha256": "65bebe38d32669aab3a65782a40c7e6169b1a807c5b00377c82668a71ad8b554",
+    "unit_scenario_count": 20,
+    "unknown_unit_reason": "UNKNOWN_UNIT_UNGOVERNED",
+    "unknown_unit_verdict": "NOT_DETERMINABLE",
+    "v2a_explainer_sha256": "9adbebd412cd87328292f5443ec34ec6c79563dcf8ef9aeef0e5d13d94212762",
+    "validation_report_sha256": "808a9412ccc8ff36c71dca0868384a6eb0427fe1f09c79ac0360c40b886bb37c",
+    "verdict_counts": {
+      "COMPARABLE": 30637,
+      "COMPARABLE_WITH_CAVEATS": 2921,
+      "NOT_COMPARABLE": 116,
+      "NOT_DETERMINABLE": 1127
+    },
+    "version_history_sha256": "43c430903199a361036f0eacdffe27dff13758447e6f244eb5be75c2bf2762a3"
   }
 }

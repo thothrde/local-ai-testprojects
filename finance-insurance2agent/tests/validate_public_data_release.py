@@ -9,7 +9,7 @@ R5B_DB='9e904a3f128faf2ac965cb42668de62c41365e06ea275e4f4eaa5621c7a34f62'
 R5B_SNAPSHOT='c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae'
 R5B_COUNTS={'entities': 144, 'metrics': 118, 'observations': 7793, 'relations': 7, 'sources': 269, 'time_series_decisions': 119}
 CACHEBUSTER='20261023-r38-public-final'
-APP_CACHEBUSTER='20261023-v2a-guided-research-v1'
+APP_CACHEBUSTER='20261024-v2b-g2-g3-v1'
 HISTORICAL_CORE_DB='7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a'
 HISTORICAL_RW_DE='Public Static Research Workspace v1 · 17. Oktober 2026 (historisch)'
 HISTORICAL_RW_EN='Public Static Research Workspace v1 · 17 October 2026 (historical)'
@@ -67,7 +67,7 @@ def main():
  # Guided UX Recovery3 usability guardrails — current-byte regression checks.
  assert all(x in app for x in ["function compareMetricItems","function syncCompareSelectors","function syncAuditMetric","function syncAuditObservation","function setAuditSelectionFromObservationId","function objectContainsEntityId","details.progressive[data-expert-opened"] )
  assert all(x in idx for x in ['data-guide-focus="#auditEntity"','id="auditEntity"','id="auditMetric"','id="auditObservation"','id="auditGuidedRun"','class="local-only" data-i18n="rerun"'])
- assert all(x in idx for x in ['href="styles.css?v=20261023-v2a-guided-research-v1"','data/public_research_workspace_v1.js?v=20261023-r38-public-final','v2a_explainer.js?v=20261023-v2a-guided-research-v1','app.js?v=20261023-v2a-guided-research-v1','presentation_i18n.js?v=20261023-r38-public-final'])
+ assert all(x in idx for x in ['href="styles.css?v=20261023-v2a-guided-research-v1"','data/public_research_workspace_v1.js?v=20261023-r38-public-final','v2a_explainer.js?v=20261024-v2b-g2-g3-v1','app.js?v=20261024-v2b-g2-g3-v1','presentation_i18n.js?v=20261023-r38-public-final'])
  assert "o.uncertain?`<div class=\"badges\">${badge('UNCERTAIN','warn')}</div>`" in app and '<details class="progressive inline-evidence">' in app
  assert "metricEntityIds(mc)" in app and "ids.size>=2" in app and "objectContainsEntityId(th,eid)" in app
  # Sprint A bounded static context — standing fail-closed checks.
@@ -100,7 +100,7 @@ def main():
  assert ver.count(HISTORICAL_CORE_DB)==6,(ver.count(HISTORICAL_CORE_DB),6)
  assert ver.count(EXPECTED_DB)==2,(ver.count(EXPECTED_DB),2)
  assert HISTORICAL_RW_DE in ver and HISTORICAL_RW_EN in ver
- assert "Aktuelle öffentliche Version:" in ver and "Current public version:" in ver
+ assert "Aktuelle öffentliche Version:" in ver and "Current public version:" in ver and "V2-B Prewrite-Härtung G2/G3" in ver and "UNKNOWN_UNIT_UNGOVERNED" in ver
  assert "Aktueller Release-Kandidat:" not in ver and "Current release candidate:" not in ver
  assert f'Core Truth Parity · 13. Oktober 2026:</strong> Der aktuelle statische Kern wurde deterministisch aus dem autoritativen lokalen Canonical <code>{HISTORICAL_CORE_DB}</code>' in ver
  assert f'Core Truth Parity · 13 October 2026:</strong> The current static core was deterministically regenerated from authoritative local canonical <code>{HISTORICAL_CORE_DB}</code>' in ver

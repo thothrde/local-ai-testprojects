@@ -37,6 +37,12 @@ const UNIT_POLICY = Object.freeze({
   "ratio": {currency_policy:"NOT_APPLICABLE", value_kind:"NUMERIC"}
 });
 
+function unitPolicyOf(u) {
+  return (typeof u === "string" && Object.prototype.hasOwnProperty.call(UNIT_POLICY,u))
+    ? UNIT_POLICY[u]
+    : undefined;
+}
+
 const VERDICT_RANK = Object.freeze({
   COMPARABLE: 0,
   COMPARABLE_WITH_CAVEATS: 1,
@@ -59,14 +65,14 @@ function jsonObj(s) {
   try { return JSON.parse(s || "{}"); } catch (_) { return {}; }
 }
 function embeddedCurrency(unit) {
-  const p = UNIT_POLICY[unit];
+  const p = unitPolicyOf(unit);
   if (!p) return null;
   if (p.currency_policy === "EMBEDDED_EUR") return "EUR";
   if (p.currency_policy === "EMBEDDED_USD") return "USD";
   return null;
 }
 function currencyState(o) {
-  const p = UNIT_POLICY[o.unit];
+  const p = unitPolicyOf(o.unit);
   if (!p) return {policy:"UNKNOWN_UNIT", known:false, value:null, conflict:false};
   const explicit = o.currency || "";
   const embedded = embeddedCurrency(o.unit);
@@ -182,11 +188,13 @@ function createExplainer(snapshot) {
   }
   function evaluateGeneric(a,b) {
     const blocking=[], unknown=[], caveats=[];
-    const pa=UNIT_POLICY[a.unit], pb=UNIT_POLICY[b.unit];
+    const pa=unitPolicyOf(a.unit), pb=unitPolicyOf(b.unit);
+    const unitGoverned=!!pa && !!pb;
+    if (!unitGoverned) unknown.push("UNKNOWN_UNIT_UNGOVERNED");
     if (pa?.value_kind === "NON_NUMERIC_UNSUPPORTED_V0_2" || pb?.value_kind === "NON_NUMERIC_UNSUPPORTED_V0_2")
       unknown.push("NON_NUMERIC_VALUE_UNSUPPORTED_V0_2");
     if ((a.reference_date || "") !== (b.reference_date || "")) unknown.push("REFERENCE_DATE_DIFF_UNGOVERNED");
-    if (a.unit !== b.unit) blocking.push("UNIT_MISMATCH");
+    if (unitGoverned && a.unit !== b.unit) blocking.push("UNIT_MISMATCH");
     const ca=currencyState(a), cb=currencyState(b);
     if (ca.conflict || cb.conflict) blocking.push("UNIT_CURRENCY_INTERNAL_CONFLICT");
     if ((ca.policy === "EXPLICIT_REQUIRED" && !ca.known) || (cb.policy === "EXPLICIT_REQUIRED" && !cb.known))
@@ -207,11 +215,13 @@ function createExplainer(snapshot) {
   }
   function evaluateP3DH(a,b) {
     const blocking=[], unknown=[], caveats=[];
-    const pa=UNIT_POLICY[a.unit], pb=UNIT_POLICY[b.unit];
+    const pa=unitPolicyOf(a.unit), pb=unitPolicyOf(b.unit);
+    const unitGoverned=!!pa && !!pb;
+    if (!unitGoverned) unknown.push("UNKNOWN_UNIT_UNGOVERNED");
     if (pa?.value_kind === "NON_NUMERIC_UNSUPPORTED_V0_2" || pb?.value_kind === "NON_NUMERIC_UNSUPPORTED_V0_2")
       unknown.push("NON_NUMERIC_VALUE_UNSUPPORTED_V0_2");
     if ((a.reference_date || "") !== (b.reference_date || "")) blocking.push("REFERENCE_DATE_DIFF");
-    if (a.unit !== b.unit) blocking.push("UNIT_DIFF");
+    if (unitGoverned && a.unit !== b.unit) blocking.push("UNIT_DIFF");
     const ca=currencyState(a), cb=currencyState(b);
     if (ca.conflict || cb.conflict) blocking.push("UNIT_CURRENCY_INTERNAL_CONFLICT");
     if ((ca.policy === "EXPLICIT_REQUIRED" && !ca.known) || (cb.policy === "EXPLICIT_REQUIRED" && !cb.known))
