@@ -189,45 +189,58 @@ html body .nimstring-card a[href*="nimstring-laboratory"]:active {
 
 
 <style>
-/* MAIN SITE PARK BACKGROUND FINAL */
+/* MAIN SITE PARK BACKGROUND CROSS DEVICE RECOVERY1 */
 
-html {
-  min-height: 100%;
+.site-photo-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
   background: #090d0b;
+  pointer-events: none;
 }
 
-body {
-  min-height: 100vh;
-  background-color: #090d0b !important;
-  background-image:
+.site-photo-background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.site-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background:
     linear-gradient(
       to bottom,
       rgba(8, 12, 10, .56),
       rgba(8, 12, 10, .71)
-    ),
-    url("ppark_background.jpg") !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-  background-attachment: fixed !important;
+    );
 }
 
-main,
-header,
-footer {
+html,
+body {
+  min-height: 100%;
+  background: transparent !important;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.wrapper {
   position: relative;
-}
-
-@media (max-width: 760px) {
-  body {
-    background-position: center center !important;
-    background-attachment: scroll !important;
-  }
+  z-index: 0;
 }
 </style>
 
 </head>
 <body>
+<div class="site-photo-background" aria-hidden="true">
+  <img src="ppark_background.jpg?v=12bd6a3" alt="" decoding="async">
+  <div class="site-photo-overlay"></div>
+</div>
 <div class="wrapper">
 
 <header>
