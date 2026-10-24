@@ -75,3 +75,46 @@ body {
     background-attachment: scroll !important;
   }
 }
+
+
+/* NOVELS BACKGROUND CROSS DEVICE RECOVERY1 */
+
+.novels-photo-background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #071c16;
+  pointer-events: none;
+}
+
+.novels-photo-background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+.novels-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(7, 28, 22, .74),
+      rgba(7, 28, 22, .86)
+    );
+}
+
+body {
+  background-color: transparent !important;
+  background-image: none !important;
+  background-attachment: scroll !important;
+}
+
+@media (max-width: 760px) {
+  .novels-photo-background img {
+    object-position: 52% center;
+  }
+}
