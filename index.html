@@ -187,6 +187,45 @@ html body .nimstring-card a[href*="nimstring-laboratory"]:active {
 </style>
 <!-- NIMSTRING-CONTRAST-FIX:END -->
 
+
+<style>
+/* MAIN SITE PARK BACKGROUND FINAL */
+
+html {
+  min-height: 100%;
+  background: #090d0b;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #090d0b !important;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(8, 12, 10, .56),
+      rgba(8, 12, 10, .71)
+    ),
+    url("ppark_background.jpg") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+main,
+header,
+footer {
+  position: relative;
+}
+
+@media (max-width: 760px) {
+  body {
+    background-position: center center !important;
+    background-attachment: scroll !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <div class="wrapper">
