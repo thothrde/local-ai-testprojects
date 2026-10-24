@@ -77,15 +77,20 @@ body {
 }
 
 
-/* NOVELS BACKGROUND CROSS DEVICE RECOVERY1 */
+/* NOVELS BACKGROUND CROSS DEVICE RECOVERY2 */
 
 .novels-photo-background {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
   overflow: hidden;
   background: #071c16;
   pointer-events: none;
+}
+
+body > :not(.novels-photo-background) {
+  position: relative;
+  z-index: 1;
 }
 
 .novels-photo-background img {
