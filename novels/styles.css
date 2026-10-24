@@ -24,3 +24,54 @@
 @media(max-width:620px){.preview{-webkit-line-clamp:2;margin-bottom:12px}.card{padding-top:20px;padding-bottom:18px}.card h3,.card-title{margin-top:18px}}
 
 .card-title{display:block;font:400 29px/1.08 Georgia,serif;margin:24px 0 10px}
+
+
+/* NOVELS v4.5.2 READING CORNER FINAL */
+
+html {
+  min-height: 100%;
+  background-color: #071c16;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #071c16 !important;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(7, 28, 22, .74),
+      rgba(7, 28, 22, .86)
+    ),
+    url("lesesessel.jpg") !important;
+  background-size: cover !important;
+  background-position: center 38% !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+.hero {
+  background:
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(216,255,104,.10),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 25% 72%,
+      rgba(130,157,185,.07),
+      transparent 24%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(7,28,22,.54),
+      rgba(7,28,22,.66) 70%,
+      rgba(7,28,22,.72)
+    ) !important;
+}
+
+@media (max-width: 760px) {
+  body {
+    background-position: 52% center !important;
+    background-attachment: scroll !important;
+  }
+}
