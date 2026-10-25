@@ -51,9 +51,51 @@ function reset(focus=true){activeCat='all';activeRole='all';$('#search').value='
 function renderCards(){const arr=visibleItems();$('#resultInfo').textContent=`${arr.length} ${lang==='de'?'Positionen sichtbar':'entries visible'}`;
  const sb=$('#selectionBar');sb.hidden=activeCat==='all';if(activeCat!=='all')$('#selectionText').innerHTML=`${lang==='de'?'Aktives Feld:':'Active field:'} <strong>${C[activeCat][lang]}</strong>`;
  $('#empty').hidden=arr.length!==0;$('#cards').hidden=arr.length===0;$('#cards').innerHTML=arr.map(x=>{let i=D.indexOf(x);return `<button class="card" data-i="${i}" aria-label="${x.author}: ${x.works}"><span class="role">${roleLabel(x.role)}</span><span class="card-title">${x.author}</span><span class="works">${x.works}</span><span class="preview">${x[lang]}</span><div class="tags">${x.cats.map(k=>`<span class="tag">${C[k][lang]}</span>`).join('')}</div></button>`}).join('');$$('.card').forEach(b=>b.onclick=()=>openItem(D[+b.dataset.i],b))}
-function renderAll(){renderRoutes();renderCats();renderRoles();renderCards()}
+function renderAll(){renderRoutes();renderCats();renderRoles();renderCards();if($('#topographySelect'))renderTopography(+$('#topographySelect').value||0)}
 function stableHash(s){let h=2166136261;for(const ch of s){h^=ch.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h}
 function buildRelated(){const usage=new Map(D.map(x=>[x,0])),map=new Map();D.forEach(x=>{const candidates=D.filter(y=>y!==x).map(y=>({y,shared:y.cats.filter(k=>x.cats.includes(k))})).filter(z=>z.shared.length).sort((a,b)=>b.shared.length-a.shared.length||(usage.get(a.y)-usage.get(b.y))||stableHash(x.author+'|'+a.y.author)-stableHash(x.author+'|'+b.y.author));const picks=candidates.slice(0,4);picks.forEach(z=>usage.set(z.y,usage.get(z.y)+1));map.set(x,picks)});return map}
+
+function routeLinksFor(x,y){
+ const links=[];
+ R.forEach((r,ri)=>{const a=r.authors.indexOf(x.author),b=r.authors.indexOf(y.author);if(a>=0&&b>=0){const distance=Math.abs(a-b);links.push({ri,distance})}});
+ return links;
+}
+function topologyCandidates(x){
+ return D.filter(y=>y!==x).map(y=>{
+  const shared=y.cats.filter(k=>x.cats.includes(k));
+  const routes=routeLinksFor(x,y);
+  const adjacent=routes.some(r=>r.distance===1);
+  const sameRoute=routes.length>0;
+  const connected=shared.length>0||sameRoute;
+  const score=connected?(shared.length*10+(adjacent?9:sameRoute?4:0)+(y.role==='signature'?1:0)):0;
+  return {y,shared,routes,adjacent,sameRoute,score};
+ }).filter(z=>z.score>0).sort((a,b)=>b.score-a.score||stableHash(x.author+'|'+a.y.author)-stableHash(x.author+'|'+b.y.author)).slice(0,6);
+}
+function topologyReason(z){
+ const bits=[];
+ if(z.shared.length)bits.push((lang==='de'?'gemeinsame Felder: ':'shared fields: ')+z.shared.map(k=>C[k][lang]).join(' · '));
+ if(z.adjacent)bits.push(lang==='de'?'direkt benachbart in einem redaktionellen Leseweg':'adjacent on an editorial reading route');
+ else if(z.sameRoute)bits.push(lang==='de'?'im selben redaktionellen Leseweg':'on the same editorial reading route');
+ return bits.join(' · ');
+}
+function renderTopography(index){
+ const select=$('#topographySelect'); if(!select)return;
+ if(!select.options.length){select.innerHTML=D.map((x,i)=>`<option value="${i}">${x.author} — ${x.works}</option>`).join('')}
+ const i=Math.max(0,Math.min(D.length-1,index==null?+select.value:index));select.value=String(i);const x=D[i],rel=topologyCandidates(x);
+ const positions=[[50,50],[18,18],[50,12],[82,18],[84,72],[50,88],[16,72]];
+ let svg=`<svg viewBox="0 0 100 100" role="img" aria-labelledby="topologySvgTitle topologySvgDesc"><title id="topologySvgTitle">${x.author}</title><desc id="topologySvgDesc">${lang==='de'?'Redaktionelle Nachbarschaften von ':'Editorial neighbourhoods of '}${x.author}</desc>`;
+ rel.forEach((z,j)=>{const p=positions[j+1];svg+=`<line x1="50" y1="50" x2="${p[0]}" y2="${p[1]}" class="topo-edge ${z.adjacent?'route-edge':''}"/>`});
+ svg+=`<g class="topo-focus" tabindex="0" role="button" data-topo-open="${i}"><circle cx="50" cy="50" r="10"/><text x="50" y="48">${x.author}</text><text class="topo-work" x="50" y="54">${x.works.length>30?x.works.slice(0,28)+'…':x.works}</text></g>`;
+ rel.forEach((z,j)=>{const p=positions[j+1],yi=p[1];svg+=`<g class="topo-node" tabindex="0" role="button" data-topo-select="${D.indexOf(z.y)}"><circle cx="${p[0]}" cy="${yi}" r="7"/><text x="${p[0]}" y="${yi+1}">${z.y.author}</text></g>`});
+ svg+='</svg>';
+ const reasons=rel.map(z=>`<button class="topo-reason" data-topo-select="${D.indexOf(z.y)}"><strong>${z.y.author}</strong><span>${topologyReason(z)}</span></button>`).join('');
+ $('#topographyMap').innerHTML=svg+`<div class="topography-reasons">${reasons}</div>`;
+ $('#topographyNote').textContent=lang==='de'?`${x.author}: ${rel.length} redaktionelle Nachbarn. Die Auswahl wird aus Feldüberschneidungen und den vier bewusst gesetzten Lesewegen gebildet; sie behauptet weder Einfluss noch objektive Ähnlichkeit.`:`${x.author}: ${rel.length} editorial neighbours. The selection is formed from overlapping fields and the four deliberately composed reading routes; it claims neither influence nor objective similarity.`;
+ $$('[data-topo-select]').forEach(el=>{const go=()=>renderTopography(+el.dataset.topoSelect);el.onclick=go;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
+ $$('[data-topo-open]').forEach(el=>{const go=()=>openItem(D[+el.dataset.topoOpen],el);el.onclick=go;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
+}
+function initTopography(){const s=$('#topographySelect');if(!s)return;s.innerHTML=D.map((x,i)=>`<option value="${i}">${x.author} — ${x.works}</option>`).join('');s.value='0';s.onchange=()=>renderTopography(+s.value);$('#topographySurprise').onclick=()=>{let i=Math.floor(Math.random()*D.length);if(D.length>1&&i===+s.value)i=(i+1)%D.length;renderTopography(i)};renderTopography(0)}
+
 const RELATED=buildRelated();
 function relatedFor(x){return RELATED.get(x)||[]}
 function renderModal(x,focusTitle=false){currentItem=x;const rel=relatedFor(x);let routeBlock='';if(currentRoute){const r=R[currentRoute.ri],pos=currentRoute.pos,prev=pos>0?r.authors[pos-1]:null,next=pos<r.authors.length-1?r.authors[pos+1]:null;routeBlock=`<div class="route-context"><span>${lang==='de'?'Leseweg':'Reading route'} ${currentRoute.ri+1} · ${lang==='de'?'Station':'station'} ${pos+1}/${r.authors.length}</span><strong>${r[lang]}</strong><div>${prev?`<button data-route-step="-1">← ${prev}</button>`:''}${next?`<button data-route-step="1">${next} →</button>`:''}<button data-route-exit>${lang==='de'?'Weg verlassen':'Leave route'}</button></div></div>`}$('#modalBody').innerHTML=`<div class="modal-content">${routeBlock}<div class="modal-tags">${x.cats.map(k=>`<span class="tag">${C[k][lang]}</span>`).join('')}</div><h2 id="modalTitle" tabindex="-1">${x.author}</h2><h3>${x.works}</h3><p>${x[lang]}</p><div class="modal-meta">${roleLabel(x.role)} · ${lang==='de'?'Redaktionelle Einordnung innerhalb dieser Bibliothek; keine Rangliste und kein Lektürenachweis.':'Editorial position within this library; neither a ranking nor a claim of reading status.'}</div>${rel.length?`<div class="related"><h4>${lang==='de'?'Von hier weiterwandern':'Wander on from here'}</h4><div class="related-list">${rel.map(z=>`<button data-related="${D.indexOf(z.y)}">${z.y.author}<small>${lang==='de'?'teilt':'shares'}: ${z.shared.map(k=>C[k][lang]).join(' · ')}</small></button>`).join('')}</div></div>`:''}</div>`;$$('[data-related]').forEach(b=>b.onclick=()=>{currentRoute=null;renderModal(D[+b.dataset.related],true)});$$('[data-route-step]').forEach(b=>b.onclick=()=>{currentRoute.pos+=+b.dataset.routeStep;const author=R[currentRoute.ri].authors[currentRoute.pos];renderModal(D.find(y=>y.author===author),true)});const exit=$('[data-route-exit]');if(exit)exit.onclick=()=>{currentRoute=null;renderModal(x,true)};if(focusTitle){$('#modal').scrollTop=0;$('#modalTitle').focus()}}
@@ -67,4 +109,5 @@ $$('[data-hero-cat]').forEach(b=>b.onclick=()=>{activeCat=b.dataset.heroCat;acti
 $('#aboutBtn').onclick=e=>{lastFocus=e.currentTarget;$('#about').showModal();$('#about .close').focus()};
 $$('.close').forEach(b=>b.onclick=()=>closeDialog(b.closest('dialog')));
 $$('dialog').forEach(d=>{d.addEventListener('click',e=>{if(e.target===d)closeDialog(d)});d.addEventListener('cancel',e=>{e.preventDefault();closeDialog(d)})});
+initTopography();
 setLang();
