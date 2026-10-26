@@ -78,14 +78,15 @@ function topologyReason(z){
  else if(z.sameRoute)bits.push(lang==='de'?'im selben redaktionellen Leseweg':'on the same editorial reading route');
  return bits.join(' · ');
 }
+function topologyWorkLabel(x){const v=x.works_label;return v&&typeof v==='object'?(v[lang]||v.de||v.en||x.works):x.works}
 function renderTopography(index){
  const select=$('#topographySelect'); if(!select)return;
- if(!select.options.length){select.innerHTML=D.map((x,i)=>`<option value="${i}">${x.author} — ${x.works}</option>`).join('')}
+ select.innerHTML=D.map((x,i)=>`<option value="${i}">${x.author} — ${topologyWorkLabel(x)}</option>`).join('')
  const i=Math.max(0,Math.min(D.length-1,index==null?+select.value:index));select.value=String(i);const x=D[i],rel=topologyCandidates(x);
  const positions=[[50,50],[18,18],[50,12],[82,18],[84,72],[50,88],[16,72]];
  let svg=`<svg viewBox="0 0 100 100" role="img" aria-labelledby="topologySvgTitle topologySvgDesc"><title id="topologySvgTitle">${x.author}</title><desc id="topologySvgDesc">${lang==='de'?'Redaktionelle Nachbarschaften von ':'Editorial neighbourhoods of '}${x.author}</desc>`;
  rel.forEach((z,j)=>{const p=positions[j+1];svg+=`<line x1="50" y1="50" x2="${p[0]}" y2="${p[1]}" class="topo-edge ${z.adjacent?'route-edge':''}"/>`});
- svg+=`<g class="topo-focus" tabindex="0" role="button" data-topo-open="${i}"><circle cx="50" cy="50" r="10"/><text x="50" y="48">${x.author}</text><text class="topo-work" x="50" y="54">${x.works.length>30?x.works.slice(0,28)+'…':x.works}</text></g>`;
+ svg+=`<g class="topo-focus" tabindex="0" role="button" data-topo-open="${i}"><circle cx="50" cy="50" r="10"/><text x="50" y="48">${x.author}</text><text class="topo-work" x="50" y="54">${topologyWorkLabel(x).length>30?topologyWorkLabel(x).slice(0,28)+'…':topologyWorkLabel(x)}</text></g>`;
  rel.forEach((z,j)=>{const p=positions[j+1],yi=p[1];svg+=`<g class="topo-node" tabindex="0" role="button" data-topo-select="${D.indexOf(z.y)}"><circle cx="${p[0]}" cy="${yi}" r="7"/><text x="${p[0]}" y="${yi+1}">${z.y.author}</text></g>`});
  svg+='</svg>';
  const reasons=rel.map(z=>`<button class="topo-reason" data-topo-select="${D.indexOf(z.y)}"><strong>${z.y.author}</strong><span>${topologyReason(z)}</span></button>`).join('');
@@ -94,7 +95,7 @@ function renderTopography(index){
  $$('[data-topo-select]').forEach(el=>{const go=()=>renderTopography(+el.dataset.topoSelect);el.onclick=go;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
  $$('[data-topo-open]').forEach(el=>{const go=()=>openItem(D[+el.dataset.topoOpen],el);el.onclick=go;el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
 }
-function initTopography(){const s=$('#topographySelect');if(!s)return;s.innerHTML=D.map((x,i)=>`<option value="${i}">${x.author} — ${x.works}</option>`).join('');s.value='0';s.onchange=()=>renderTopography(+s.value);$('#topographySurprise').onclick=()=>{let i=Math.floor(Math.random()*D.length);if(D.length>1&&i===+s.value)i=(i+1)%D.length;renderTopography(i)};renderTopography(0)}
+function initTopography(){const s=$('#topographySelect');if(!s)return;s.innerHTML=D.map((x,i)=>`<option value="${i}">${x.author} — ${topologyWorkLabel(x)}</option>`).join('');s.value='0';s.onchange=()=>renderTopography(+s.value);$('#topographySurprise').onclick=()=>{let i=Math.floor(Math.random()*D.length);if(D.length>1&&i===+s.value)i=(i+1)%D.length;renderTopography(i)};renderTopography(0)}
 
 const RELATED=buildRelated();
 function relatedFor(x){return RELATED.get(x)||[]}
