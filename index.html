@@ -235,6 +235,58 @@ body {
 }
 </style>
 
+
+<!-- ROOTS-STYLE:START -->
+<style>
+.photo-roots-grid{
+  display:grid;
+  grid-template-columns:minmax(260px,.72fr) minmax(0,1.55fr);
+  gap:1.2rem;
+  margin:1.5rem 0;
+  align-items:stretch;
+}
+.photo-roots-grid > .proj-card{margin:0;height:100%}
+.roots-card{
+  background:var(--bg2);
+  border:1px solid var(--rule);
+  border-left:3px solid var(--gold2);
+  padding:1.4rem 1.6rem;
+  border-radius:2px;
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(190px,.72fr);
+  gap:1.35rem;
+  align-items:start;
+}
+.roots-copy .proj-desc:last-child{margin-bottom:0}
+.roots-photo{margin:0;align-self:start}
+.roots-photo img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:1px solid var(--rule);
+  border-radius:1px;
+  filter:grayscale(100%);
+}
+.roots-credit{
+  margin:.5rem 0 0;
+  font-family:var(--sans);
+  font-size:.58rem;
+  line-height:1.4;
+  color:var(--fg-dim);
+}
+.roots-credit a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--fg-dim)}
+.roots-credit a:hover{color:var(--gold)}
+@media(max-width:860px){
+  .photo-roots-grid{grid-template-columns:1fr}
+  .roots-card{grid-template-columns:minmax(0,1.35fr) minmax(180px,.65fr)}
+}
+@media(max-width:560px){
+  .roots-card{grid-template-columns:1fr}
+  .roots-photo{max-width:320px;margin:.25rem auto 0}
+}
+</style>
+<!-- ROOTS-STYLE:END -->
+
 </head>
 <body>
 <div class="site-photo-background" aria-hidden="true">
@@ -390,15 +442,40 @@ body {
 <a class="proj-card" href="https://thomas.autark-data.org/inner-room/" target="_blank" rel="noopener">
     <p class="proj-title lang-de">THE INNER ROOM — Atlas einsamer Denk-Räume</p>
     <p class="proj-title lang-en" style="display:none">THE INNER ROOM — An Atlas of Solitary Minds</p>
-    <p class="proj-desc lang-de">Interaktiver Atlas literarischer und dokumentarischer Innenräume: acht Kernfiguren, drei Brücken sowie Bibliothek und Horizont erkunden, wann Rückzug zur Technik des Denkens wird – und wann der Denkraum zum Gefängnis.</p>
-    <p class="proj-desc lang-en" style="display:none">An interactive atlas of literary and documentary inner rooms: eight core figures, three bridges, a library and a horizon explore when withdrawal becomes a technique of thought — and when the thinking-space becomes a prison.</p>
-    <p class="proj-status">↗ thomas.autark-data.org/inner-room/</p>
+    <p class="proj-desc lang-de">Interaktiver Atlas literarischer und<!-- ROOTS-COSIACA:START -->
+<p class="sect-group lang-de">Fotografie</p>
+<p class="sect-group lang-en" style="display:none">Photography</p>
+<div class="photo-roots-grid">
+  <a class="proj-card" href="https://thothrde.github.io/verschobene-ordnungen/" target="_blank" rel="noopener">
+    <p class="proj-title lang-de">Verschobene Ordnungen — Bilder, Nachbilder, zweite Lesarten</p>
+    <p class="proj-title lang-en" style="display:none">Verschobene Ordnungen — Bilder, Nachbilder, zweite Lesarten</p>
+    <p class="proj-desc lang-de">Automatisch ablaufende Folge aus 66 eigenen Fotografien mit kurzen Zwischentiteln.</p>
+    <p class="proj-desc lang-en" style="display:none">An automatically running sequence of 66 photographs with short intertitles.</p>
+    <p class="proj-status lang-de">↗ Öffnen</p>
+    <p class="proj-status lang-en" style="display:none">↗ Open</p>
   </a>
-<a class="proj-card" href="https://palefire.autark-data.org" target="_blank" rel="noopener">
-  <p class="proj-num">PALEFIRE · KNOWLEDGE GRAPH / LLM</p>
-  <p class="proj-title lang-de">PaleFire</p>
-  <p class="proj-title lang-en" style="display:none">PaleFire</p>
-  <p class="proj-desc lang-de">Experimentelle Web-App zur explorativen Verbindung von Sprachmodellen und Wissensgraphen: verknüpftes Wissen wird strukturiert, durchsuchbar und interaktiv untersuchbar.</p>
+
+  <div class="proj-card roots-card">
+    <div class="roots-copy">
+      <p class="proj-title">Roots</p>
+      <div class="lang-de">
+        <p class="proj-desc">Paisa nennt man die Kulturregion um Antioquia im Nordwesten Kolumbiens. Ihr historisches Selbstbild ist geprägt von Eigenständigkeit, Improvisation und der Vorstellung, Wege nicht vorzufinden, sondern selbst zu schaffen. Die Axt wurde dafür zum regionalen Symbol – Arbeit und Freiheit in einem Bild: einen Weg durch die materielle Welt schaffen.</p>
+        <p class="proj-desc">Neben der Figur des Gründers und Unternehmers steht <strong>Cosiaca (José García)</strong>, ein legendärer Wanderer und Witzbold des späten 19. und frühen 20. Jahrhunderts. Um ihn ranken sich zahllose Geschichten, in denen Status und Konvention durch Schlagfertigkeit unterlaufen werden – gleichsam ein Weg durch die symbolische Ordnung.</p>
+      </div>
+      <div class="lang-en" style="display:none">
+        <p class="proj-desc">Paisa is the name given to the cultural region around Antioquia in north-western Colombia. Its historical self-image is shaped by independence, improvisation and the idea of not finding paths, but making them oneself. The axe became a regional symbol of this — labour and freedom in one image: making a path through the material world.</p>
+        <p class="proj-desc">Alongside the figure of the founder and entrepreneur stands <strong>Cosiaca (José García)</strong>, a legendary wanderer and wit of the late nineteenth and early twentieth centuries. Countless stories grew around him in which status and convention are undercut by quick wit — as it were, a path through the symbolic order.</p>
+      </div>
+    </div>
+    <figure class="roots-photo">
+      <img src="cosiaca-roots.png" alt="Cosiaca (José García), historische Fotografie / historical photograph" loading="lazy" decoding="async">
+      <figcaption class="roots-credit lang-de">Historische Fotografie · Reproduktion/Quelle: <a href="https://www.elescenariodelosclasicos.com/page.php?id=4797" target="_blank" rel="noopener">El Escenario de los Clásicos</a></figcaption>
+      <figcaption class="roots-credit lang-en" style="display:none">Historical photograph · reproduction/source: <a href="https://www.elescenariodelosclasicos.com/page.php?id=4797" target="_blank" rel="noopener">El Escenario de los Clásicos</a></figcaption>
+    </figure>
+  </div>
+</div>
+<!-- ROOTS-COSIACA:END -->
+le Web-App zur explorativen Verbindung von Sprachmodellen und Wissensgraphen: verknüpftes Wissen wird strukturiert, durchsuchbar und interaktiv untersuchbar.</p>
   <p class="proj-desc lang-en" style="display:none">Experimental web app connecting language models and knowledge graphs for exploration: linked knowledge becomes structured, searchable and interactively inspectable.</p>
   <p class="proj-status">&#8599;&nbsp;palefire.autark-data.org</p>
 </a>
