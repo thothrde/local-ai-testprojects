@@ -283,6 +283,41 @@ body {
 }
 .roots-credit a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--fg-dim)}
 .roots-credit a:hover{color:var(--gold)}
+.owl-roots-card{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  margin-top:1.2rem;
+  padding:0;
+  min-height:360px;
+  background:var(--bg2);
+  border:1px solid var(--rule);
+  border-left:3px solid var(--gold2);
+  border-radius:2px;
+  text-decoration:none;
+}
+.owl-roots-card img{
+  display:block;
+  width:100%;
+  height:360px;
+  object-fit:cover;
+}
+.owl-roots-label{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--sans);
+  font-size:1.25rem;
+  font-weight:600;
+  letter-spacing:.18em;
+  transform:translateX(-2.15rem);
+  color:rgba(255,255,255,.88);
+  text-shadow:0 1px 5px rgba(0,0,0,.8);
+  background:rgba(0,0,0,.08);
+  pointer-events:none;
+}
 @media(max-width:860px){
   .photo-roots-grid{grid-template-columns:1fr}
   .roots-card{grid-template-columns:minmax(0,1.35fr) minmax(180px,.65fr)}
@@ -613,6 +648,11 @@ body {
       <figcaption class="roots-credit lang-en" style="display:none">Historical photograph · reproduction/source: <a href="https://www.elescenariodelosclasicos.com/page.php?id=4797" target="_blank" rel="noopener">El Escenario de los Clásicos</a></figcaption>
     </figure>
   </div>
+
+  <a class="owl-roots-card" href="https://stumbleduponthis.de/OWL/" target="_blank" rel="noopener" aria-label="OWL">
+    <img src="owl-roots.jpg" alt="Bewachsenes weißes Gartentor in Ostwestfalen-Lippe / Overgrown white garden gate in East Westphalia-Lippe" loading="lazy" decoding="async">
+    <span class="owl-roots-label">OWL</span>
+  </a>
 </div>
 
 
