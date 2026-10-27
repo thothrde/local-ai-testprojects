@@ -307,7 +307,7 @@
     const bridgeDe = bridgeCount === 1 ? 'Eine Verbindung im aktuellen Stand; sie zeigt auch ihre Grenze.' : `${bridgeCount} Verbindungen im aktuellen Stand; jede zeigt auch ihre Grenze.`;
     const bridgeEn = bridgeCount === 1 ? 'One connection in the current state; it also shows its limit.' : `${bridgeCount} connections in the current state; each also shows its limit.`;
     const copy = {
-      rooms:{de:'Acht Kernräume. Berühre ein Licht.',en:'Eight core rooms. Touch a light.'},
+      rooms:{de:'Neun Kernräume. Berühre ein Licht.',en:'Nine core rooms. Touch a light.'},
       bridges:{de:bridgeDe,en:bridgeEn},
       library:{de:'Resonanzen aus der Privatbibliothek; mit Kurzbeschreibung und ausdrücklich genanntem persönlichem Status.',en:'Resonances from the private library, with a short description and explicit personal reading status.'},
       horizon:{de:'Lesehinweise jenseits der bestätigten Bibliotheks-Aura; mit Kurzbeschreibung und ohne behaupteten persönlichen Lesestatus.',en:'Reading leads beyond the confirmed Library aura, with a short description and no asserted personal reading status.'}
