@@ -699,5 +699,56 @@ function setLang(l){
   document.querySelectorAll('.lang-tab').forEach(b=>{if(b.textContent.trim()===l.toUpperCase())b.classList.add('active')});
 }
 </script>
+
+<script>
+(() => {
+  const marker = "KONSTELLATIONEN-WIDTH-SYNC";
+
+  function syncKonstellationenWidth() {
+    const reference = document.querySelector(
+      '.photo-roots-grid a[href="https://thothrde.github.io/verschobene-ordnungen/"]'
+    );
+    const target = document.querySelector(
+      '.photo-roots-grid a[href="https://thothrde.github.io/konstellationen/"]'
+    );
+
+    if (!reference || !target) return;
+
+    const width = reference.getBoundingClientRect().width;
+
+    if (width > 0) {
+      target.style.width = `${width}px`;
+      target.style.maxWidth = "100%";
+      target.style.justifySelf = "start";
+      target.style.alignSelf = "stretch";
+    }
+  }
+
+  window.addEventListener("load", syncKonstellationenWidth);
+  window.addEventListener("resize", syncKonstellationenWidth);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    syncKonstellationenWidth();
+
+    const reference = document.querySelector(
+      '.photo-roots-grid a[href="https://thothrde.github.io/verschobene-ordnungen/"]'
+    );
+
+    if (reference && "ResizeObserver" in window) {
+      const observer = new ResizeObserver(syncKonstellationenWidth);
+      observer.observe(reference);
+    }
+
+    const languageObserver = new MutationObserver(syncKonstellationenWidth);
+    languageObserver.observe(document.documentElement, {
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["style", "class"]
+    });
+  });
+})();
+</script>
+<!-- KONSTELLATIONEN-WIDTH-SYNC -->
+
 </body>
 </html>
