@@ -265,6 +265,18 @@ body {
   align-items:start;
 }
 .roots-copy .proj-desc:last-child{margin-bottom:0}
+.roots-copy-stack{min-width:0}
+.roots-article-quote{
+  margin:.95rem 0 0;
+  padding-top:.85rem;
+  border-top:1px solid var(--rule);
+  font-family:var(--sans);
+  font-size:.74rem;
+  line-height:1.55;
+  color:var(--fg-dim);
+}
+.roots-article-quote p{margin:0}
+.roots-article-source{color:var(--fg-dim)}
 .roots-primary-link{
   display:block;
   color:inherit;
@@ -650,6 +662,7 @@ body {
 <p class="sect-group">Roots</p>
 <div class="roots-grid">
   <div class="proj-card roots-card">
+    <div class="roots-copy-stack">
     <a class="roots-copy roots-primary-link" href="https://en.wikipedia.org/wiki/Paisa_people" target="_blank" rel="noopener">
       <p class="proj-title">Roots</p>
       <div class="lang-de">
@@ -661,6 +674,11 @@ body {
         <p class="proj-desc">Alongside the figure of the founder and entrepreneur stands <strong>Cosiaca (José García)</strong>, a legendary wanderer and wit of the late nineteenth and early twentieth centuries. Countless stories grew around him in which status and convention are undercut by quick wit — as it were, a path through the symbolic order.</p>
       </div>
     </a>
+    <div class="roots-article-quote">
+      <p class="lang-de"><span class="roots-article-source"><strong>Aus einem Artikel (eigene Übersetzung nach Jaime Horacio Arango Duque, <em>El Colombiano</em>, 7. Januar 2024):</strong></span> „Sie sind schlagfertig, finden schnell Lösungen – selbst wenn sie sich damit in ein neues Problem hineinreiten. Sie sind Menschenversteher, große Sprücheklopfer, geistig flink und lösen Probleme mit dem Mundwerk“, sagt Betancur. Er räumt zwar ein, dass Cosiaca sehr derb und vulgär war und nicht gern arbeitete, betont aber zugleich, dass er niemandem etwas zuleide tat.</p>
+      <p class="lang-en" style="display:none"><span class="roots-article-source"><strong>From an article (own translation from Jaime Horacio Arango Duque, <em>El Colombiano</em>, 7 January 2024):</strong></span> “They are quick-witted and find solutions fast — even if that gets them into another problem. They are good at reading people, big talkers, mentally agile, and solve problems with their gift of gab,” says Betancur. He concedes that Cosiaca was very coarse and vulgar and did not like to work, while stressing that he never harmed anyone.</p>
+    </div>
+    </div>
     <figure class="roots-photo">
       <a class="roots-photo-link" href="https://en.wikipedia.org/wiki/Paisa_people" target="_blank" rel="noopener" aria-label="Paisa people — Wikipedia">
         <img src="cosiaca-roots.png" alt="Cosiaca (José García), historische Fotografie / historical photograph" loading="lazy" decoding="async">
