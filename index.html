@@ -265,6 +265,16 @@ body {
   align-items:start;
 }
 .roots-copy .proj-desc:last-child{margin-bottom:0}
+.roots-primary-link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+.roots-photo-link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
 .roots-photo{margin:0;align-self:start}
 .roots-photo img{
   display:block;
@@ -640,7 +650,7 @@ body {
 <p class="sect-group">Roots</p>
 <div class="roots-grid">
   <div class="proj-card roots-card">
-    <div class="roots-copy">
+    <a class="roots-copy roots-primary-link" href="https://en.wikipedia.org/wiki/Paisa_people" target="_blank" rel="noopener">
       <p class="proj-title">Roots</p>
       <div class="lang-de">
         <p class="proj-desc">Paisa nennt man die Kulturregion um Antioquia im Nordwesten Kolumbiens. Ihr historisches Selbstbild ist geprägt von Eigenständigkeit, Improvisation und der Vorstellung, Wege nicht vorzufinden, sondern selbst zu schaffen. Die Axt wurde dafür zum regionalen Symbol – Arbeit und Freiheit in einem Bild: einen Weg durch die materielle Welt schaffen.</p>
@@ -650,9 +660,11 @@ body {
         <p class="proj-desc">Paisa is the name given to the cultural region around Antioquia in north-western Colombia. Its historical self-image is shaped by independence, improvisation and the idea of not finding paths, but making them oneself. The axe became a regional symbol of this — labour and freedom in one image: making a path through the material world.</p>
         <p class="proj-desc">Alongside the figure of the founder and entrepreneur stands <strong>Cosiaca (José García)</strong>, a legendary wanderer and wit of the late nineteenth and early twentieth centuries. Countless stories grew around him in which status and convention are undercut by quick wit — as it were, a path through the symbolic order.</p>
       </div>
-    </div>
+    </a>
     <figure class="roots-photo">
-      <img src="cosiaca-roots.png" alt="Cosiaca (José García), historische Fotografie / historical photograph" loading="lazy" decoding="async">
+      <a class="roots-photo-link" href="https://en.wikipedia.org/wiki/Paisa_people" target="_blank" rel="noopener" aria-label="Paisa people — Wikipedia">
+        <img src="cosiaca-roots.png" alt="Cosiaca (José García), historische Fotografie / historical photograph" loading="lazy" decoding="async">
+      </a>
       <figcaption class="roots-credit lang-de">Historische Fotografie · Reproduktion/Quelle: <a href="https://www.elescenariodelosclasicos.com/page.php?id=4797" target="_blank" rel="noopener">El Escenario de los Clásicos</a></figcaption>
       <figcaption class="roots-credit lang-en" style="display:none">Historical photograph · reproduction/source: <a href="https://www.elescenariodelosclasicos.com/page.php?id=4797" target="_blank" rel="noopener">El Escenario de los Clásicos</a></figcaption>
     </figure>
