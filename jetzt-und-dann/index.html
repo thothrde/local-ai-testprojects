@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Jetzt und dann: Vergütung, Arbeitszeit, Urlaub und Ausschüttungsgrößen transparent vergleichen." />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#00516c" />
+  <title>Jetzt und dann</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="shell">
+      <div class="hero-meta">
+        <p class="eyebrow">Konzern &amp; Wir</p>
+        <a class="app-link" href="https://ergo.autark-data.org/" target="_blank" rel="noopener noreferrer" aria-label="ERGO-App in neuem Tab öffnen">ERGO-App ↗</a>
+      </div>
+      <h1>Jetzt und dann</h1>
+      <p class="lead">Was verändert sich, wenn Vergütung, Arbeitszeit, Urlaub und 13. Gehalt anders gestaltet werden?</p>
+      <div class="fixed-facts" aria-label="Feste Bezugsgrößen">
+        <span><strong>15.000</strong> Beschäftigte in Deutschland</span>
+        <span><strong>300</strong> Wir</span>
+        <span><strong>2,0 %</strong> der Beschäftigten</span>
+      </div>
+      <div class="hero-actions">
+        <button id="copySummary" class="primary" type="button">Ergebnis kopieren</button>
+        <button id="copyLink" type="button">Link mit Werten kopieren</button>
+        <button id="resetAll" type="button">Beispielwerte zurücksetzen</button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </div>
+  </header>
+
+  <main class="shell grid-main">
+    <section class="panel inputs" aria-labelledby="input-title">
+      <div class="section-heading">
+        <p class="kicker">Eingaben</p>
+        <h2 id="input-title">Annahmen verändern</h2>
+        <p>Die Beschäftigtenzahlen sind fest. Alle anderen Annahmen können verändert werden.</p>
+      </div>
+
+      <fieldset>
+        <legend>1 · Einkommen</legend>
+        <div class="field-grid">
+          <label>Geschätzter Abstand zum Konzern pro Monat
+            <span class="money-row">
+              <input id="monthlyGap" type="number" min="0" step="10" inputmode="decimal" />
+              <select id="gapBasis" aria-label="Basis des geschätzten Abstands">
+                <option value="net">netto</option>
+                <option value="gross">brutto</option>
+              </select>
+            </span>
+          </label>
+          <label>Zusatzgehalt pro Monat
+            <span class="money-row">
+              <input id="monthlyIncrease" type="number" min="0" step="10" inputmode="decimal" />
+              <select id="monthlyIncreaseBasis" aria-label="Basis des monatlichen Zusatzgehalts">
+                <option value="net">netto</option>
+                <option value="gross">brutto</option>
+              </select>
+            </span>
+          </label>
+          <label>13. Gehalt
+            <span class="money-row">
+              <input id="thirteenth" type="number" min="0" step="50" inputmode="decimal" />
+              <select id="thirteenthBasis" aria-label="Basis des 13. Gehalts">
+                <option value="net">netto</option>
+                <option value="gross">brutto</option>
+              </select>
+            </span>
+          </label>
+        </div>
+        <p class="notice">Netto und Brutto werden nicht ineinander umgerechnet. Eine Gesamtsumme wird nur gebildet, wenn Zusatzgehalt und 13. Gehalt dieselbe Basis haben.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 · Arbeitszeit &amp; Urlaub</legend>
+        <div class="field-grid">
+          <label>Vollzeit jetzt
+            <span class="unit-row"><input id="hoursCurrent" type="number" min="1" max="80" step="0.1" inputmode="decimal" /><span>Std./Woche</span></span>
+          </label>
+          <label>Vollzeit dann
+            <span class="unit-row"><input id="hoursTarget" type="number" min="1" max="80" step="0.1" inputmode="decimal" /><span>Std./Woche</span></span>
+          </label>
+          <label>Zusätzliche Urlaubstage
+            <input id="extraVacation" type="number" min="0" max="100" step="0.5" inputmode="decimal" />
+          </label>
+          <label>Arbeitstage/Woche
+            <input id="daysPerWeek" type="number" min="1" max="7" step="0.5" inputmode="decimal" />
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3 · Ausschüttungsbetrag</legend>
+        <div class="field-grid single">
+          <label>Ausschüttungs-/Vergleichsbetrag pro Jahr – jetzt
+            <input id="annualProfit" type="number" min="0" step="1000" inputmode="decimal" />
+            <span class="hint">Frei änderbarer Vergleichswert. Die Voreinstellung ist ein konkreter Beispielwert; Herkunft und Einordnung stehen unter „Quellen &amp; Einordnung“.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <details>
+        <summary>Vergleichsannahmen</summary>
+        <div class="field-grid details-grid">
+          <label>Arbeitstage/Jahr
+            <input id="workdaysYear" type="number" min="1" max="366" step="1" inputmode="numeric" />
+          </label>
+          <label>Vergleichs-Arbeitsstunden/Jahr
+            <input id="workhoursYear" type="number" min="1" max="4000" step="1" inputmode="numeric" />
+            <span class="hint">Für „Jetzt“ und „Dann“ identisch, damit der Profitvergleich nicht mit der Arbeitszeitforderung vermischt wird.</span>
+          </label>
+          <label>Arbeitswochen/Jahr für Zeitschätzung
+            <input id="workingWeeks" type="number" min="1" max="52" step="0.5" inputmode="decimal" />
+          </label>
+        </div>
+        <p class="notice">Arbeitstage/Jahr, Vergleichs-Arbeitsstunden/Jahr und Arbeitswochen/Jahr sind bewusst unabhängige Annahmen für unterschiedliche Größenvergleiche.</p>
+        <p id="yearBasisNote" class="basis-note" aria-live="polite"></p>
+      </details>
+    </section>
+
+    <section class="results" aria-labelledby="result-title">
+      <div class="section-heading results-heading">
+        <p class="profit-overline">Ausschüttungs-/Vergleichsbetrag pro Jahr:</p>
+        <h2 id="result-title">Jetzt ↔ Dann</h2>
+      </div>
+
+      <section class="now-then" aria-label="Ausschüttungsvergleich jetzt und dann">
+        <article class="state-card now-card">
+          <div class="state-label">JETZT</div>
+          <div class="state-total" id="profitNowTotal"></div>
+          <div class="state-sub">Ausgangs-/Vergleichsbetrag pro Jahr</div>
+          <div class="profit-grid" id="profitNowGrid"></div>
+        </article>
+        <div class="arrow" aria-hidden="true">→</div>
+        <article class="state-card then-card">
+          <div class="state-label">DANN</div>
+          <div class="state-total" id="profitThenTotal"></div>
+          <div class="state-sub" id="profitThenSub">rechnerischer Restbetrag pro Jahr</div>
+          <div class="profit-grid" id="profitThenGrid"></div>
+        </article>
+      </section>
+      <p id="profitCaveat" class="profit-caveat"></p>
+
+      <div class="cards" id="headlineCards"></div>
+
+      <article class="result-block">
+        <div class="block-title">
+          <h3>Wir im Konzern</h3>
+          <span class="pill">15.000 / 300 fix</span>
+        </div>
+        <div class="metrics" id="structureMetrics"></div>
+      </article>
+
+      <article class="result-block">
+        <div class="block-title">
+          <h3>Geld</h3>
+          <span class="pill">Netto/Brutto sauber getrennt</span>
+        </div>
+        <div id="moneyResults"></div>
+      </article>
+
+      <article class="result-block">
+        <div class="block-title">
+          <h3>Zeit</h3>
+          <span class="pill">Arbeitszeit &amp; Urlaub</span>
+        </div>
+        <div class="metrics" id="timeMetrics"></div>
+      </article>
+
+      <article class="result-block">
+        <div class="block-title">
+          <h3>Was ändert sich beim Ausschüttungs-/Vergleichsbetrag?</h3>
+          <span class="pill">reiner Größenvergleich pro Beschäftigtem in Deutschland</span>
+        </div>
+        <div class="delta-table-wrap">
+          <table class="delta-table">
+            <thead><tr><th>Zeitraum</th><th>Jetzt</th><th>Dann</th><th>Differenz</th></tr></thead>
+            <tbody id="profitTable"></tbody>
+          </table>
+        </div>
+        <p class="notice strong">Bei Nettoforderungen ist „Dann“ eine Größenrechnung: Nettozahlungen sind nicht identisch mit tatsächlichen Arbeitgeberkosten. Auch bei Bruttobeträgen sind Arbeitgebernebenkosten nicht enthalten. Der Ausgangsbetrag ist frei änderbar und nicht automatisch Konzernergebnis oder Jahresüberschuss.</p>
+      </article>
+
+      <article class="result-block methodology">
+        <div class="block-title">
+          <h3>Methodik</h3>
+          <span class="pill">transparent</span>
+        </div>
+        <ul>
+          <li>Rund 15.000 Beschäftigte in Deutschland und 300 Personen in „Wir“ sind feste Bezugsgrößen. Die öffentliche Sprecherangabe zur 15.000er-Zahl spezifiziert die genaue Abgrenzung der Beschäftigtengruppen nicht weiter.</li>
+          <li>Netto- und Bruttobeträge werden nicht automatisch ineinander umgerechnet.</li>
+          <li>„Dann“ zieht das gewählte Geldpaket rechnerisch vom frei eingegebenen Ausschüttungs-/Vergleichsbetrag ab; bei Nettoangaben ist das ausdrücklich keine buchhalterische Prognose.</li>
+          <li>Arbeitszeit und Urlaub werden separat in Zeitgrößen dargestellt und nicht als Geldkosten in den Ausschüttungs-/Vergleichsbetrag eingerechnet.</li>
+          <li>Die Division des Ausschüttungs-/Vergleichsbetrags durch 15.000 ist ausschließlich ein Größenvergleich. Der Betrag kann Beteiligungserträge aus dem In- und Ausland enthalten; daraus folgt keine individuelle Wertschöpfung pro Beschäftigtem.</li>
+          <li>Ausschüttungsbetrag pro Arbeitstag und Arbeitsstunde nutzt dieselben Vergleichsannahmen für „Jetzt“ und „Dann“.</li>
+          <li>Alle Berechnungen erfolgen lokal im Browser.</li>
+        </ul>
+      </article>
+
+      <article class="result-block sources-block">
+        <div class="block-title">
+          <h3>Quellen &amp; Einordnung</h3>
+          <span class="pill">Voreinstellungen</span>
+        </div>
+        <ul class="source-list">
+          <li><strong>15.000 Beschäftigte:</strong> öffentliche Sprecherangabe vom 17.02.2026 („rund 15.000 Menschen“ in Deutschland), verbreitet u. a. über dpa-AFX/cash-online. Die Meldung grenzt Außendienst, Töchter oder einzelne Gesellschaften nicht näher ab. <a href="https://www.cash-online.de/a/ergo-baut-bis-2030-rund-1-000-stellen-ab-ohne-kuendigungen-712100/" target="_blank" rel="noopener noreferrer">Quelle ↗</a></li>
+          <li><strong>849.288.000 €:</strong> Beispielwert aus dem HGB-Einzelabschluss 2025 der ERGO Group AG. Der Geschäftsbericht weist einen Bilanzgewinn von 849.288 Tsd. € aus; dieser soll an die Aktionärin ausgeschüttet werden. Darin enthalten sind rund 581,5 Mio. € aus einer Entnahme aus Gewinnrücklagen. Der Wert ist <strong>nicht</strong> identisch mit Konzernergebnis oder Jahresüberschuss und kann in der App frei geändert werden. <a href="https://www.lobbyregister.bundestag.de/media/b5/e0/787558/ERGO-Group-AG_Geschaeftsbericht-2025.pdf" target="_blank" rel="noopener noreferrer">Geschäftsbericht 2025 ↗</a></li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="shell footer">
+    <p><strong>Jetzt und dann</strong> · interaktiver Vergleichsrechner</p>
+    <p>Rechenmodell, keine steuerliche, arbeitsrechtliche oder betriebswirtschaftliche Beratung.</p>
+    <p class="legal-links"><a href="impressum.html">Impressum</a><span aria-hidden="true">·</span><a href="datenschutz.html">Datenschutz</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
