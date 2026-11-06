@@ -230,3 +230,101 @@ summary { cursor: pointer; font-weight: 850; }
 .source-list li + li { margin-top: 10px; }
 .source-list a { color: var(--brand-deep); font-weight: 800; }
 .source-list a:hover, .source-list a:focus-visible { color: var(--accent); }
+
+/* V10 – zwei HGB-Größen, ein konsistentes Arbeitsjahr und optionale Kosten-Sensitivität */
+.group-context {
+  color: rgba(255,255,255,.88);
+  border-left: 3px solid #ffd2dc;
+  font-size: .9rem;
+  font-weight: 720;
+  padding-left: 12px;
+  margin: 17px 0 0;
+}
+.optional-scenario {
+  border-top: 1px solid var(--line);
+}
+.basis-help {
+  align-self: center;
+  margin: 6px 0;
+}
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+.reference-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 17px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: #fff;
+}
+.reference-card:first-child {
+  background: #eaf5f8;
+  border-color: #b9dce7;
+}
+.reference-card:last-child {
+  background: #fff1f4;
+  border-color: #f0c8d0;
+}
+.reference-top h4 {
+  margin: 0;
+  font-size: 1.03rem;
+  font-weight: 900;
+}
+.reference-top p {
+  color: var(--muted);
+  font-size: .74rem;
+  margin: 4px 0 10px;
+}
+.reference-amount {
+  margin-top: 7px;
+  font-size: clamp(1.18rem, 2vw, 1.55rem);
+  font-weight: 950;
+  letter-spacing: -.03em;
+  overflow-wrap: anywhere;
+}
+.reference-values {
+  margin-top: auto;
+}
+.reference-values > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 9px;
+  align-items: baseline;
+  border-top: 1px solid rgba(16,37,45,.12);
+  padding: 7px 0;
+}
+.reference-values span {
+  font-size: .72rem;
+  color: #455f68;
+}
+.reference-values strong {
+  font-size: .91rem;
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.reference-share {
+  border-top: 1px solid rgba(16,37,45,.16);
+  margin-top: 4px;
+  padding-top: 8px;
+  font-size: .76rem;
+  color: #415a65;
+}
+.reference-share strong { color: var(--then-strong); white-space: nowrap; font-size: 1.02rem; }
+.reference-note {
+  margin: 11px 0 0;
+  font-size: .75rem;
+  color: var(--muted);
+}
+.scenario-block .metrics { margin-top: 6px; }
+.scenario-block .notice { margin-bottom: 0; }
+@media (max-width: 680px) {
+  .reference-grid { grid-template-columns: minmax(0, 1fr); }
+  .reference-card { padding: 15px; }
+  .reference-amount { font-size: 1.32rem; }
+}

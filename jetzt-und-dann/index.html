@@ -23,6 +23,7 @@
         <span><strong>300</strong> Wir</span>
         <span><strong>2,0 %</strong> der Beschäftigten</span>
       </div>
+      <p class="group-context">Für unsere Gruppe: geschätzter Einkommensabstand und kein Standort- und Arbeitsplatzschutz.</p>
       <div class="hero-actions">
         <button id="copySummary" class="primary" type="button">Ergebnis kopieren</button>
         <button id="copyLink" type="button">Link mit Werten kopieren</button>
@@ -93,14 +94,36 @@
       </fieldset>
 
       <fieldset>
-        <legend>3 · Ausschüttungsbetrag</legend>
+        <legend>3 · Finanzielle Vergleichsbasis</legend>
         <div class="field-grid single">
-          <label>Ausschüttungs-/Vergleichsbetrag pro Jahr – jetzt
-            <input id="annualProfit" type="number" min="0" step="1000" inputmode="decimal" />
-            <span class="hint">Frei änderbarer Vergleichswert. Die Voreinstellung ist ein konkreter Beispielwert; Herkunft und Einordnung stehen unter „Quellen &amp; Einordnung“.</span>
+          <label>Vergleichswert auswählen
+            <select id="financialPreset" aria-label="Finanzielle Vergleichsbasis">
+              <option value="bilanz">Bilanzgewinn 2025 · ERGO Group AG</option>
+              <option value="ueberschuss">Jahresüberschuss 2025 · ERGO Group AG</option>
+              <option value="custom">Eigener Vergleichswert</option>
+            </select>
+          </label>
+          <label>Betrag pro Jahr (frei änderbar)
+            <input id="annualProfit" type="number" min="0" step="any" inputmode="decimal" />
+            <span class="hint">Die beiden Berichtsgrößen bleiben weiter unten immer nebeneinander sichtbar. Eigene Beträge verändern nur den „Jetzt ↔ Dann“-Vergleich.</span>
           </label>
         </div>
       </fieldset>
+
+      <details class="optional-scenario">
+        <summary>4 · Optional: mögliche Arbeitgeberkosten durchspielen</summary>
+        <div class="field-grid details-grid">
+          <label>Faktor für das Geldpaket
+            <input id="costFactor" type="number" min="1" max="10" step="0.1" inputmode="decimal" />
+            <span class="hint">1 = nur der eingegebene Geldbetrag; z. B. 3 = dreifacher Betrag. Keine automatische Netto-Brutto-Umrechnung.</span>
+          </label>
+          <label>Hypothetischer Geldwert je zusätzlicher freier Stunde
+            <input id="timeHourlyCost" type="number" min="0" max="1000" step="1" inputmode="decimal" />
+            <span class="hint">0 €/Std. = Zeit wird nicht monetarisiert; frei wählbares Szenario.</span>
+          </label>
+        </div>
+        <p class="notice">Der Faktor und der Zeitwert sind nur Rechenannahmen. Keine tatsächlichen Arbeitgeberkosten, keine Obergrenze und keine Prognose der Ausschüttung.</p>
+      </details>
 
       <details>
         <summary>Vergleichsannahmen</summary>
@@ -108,22 +131,16 @@
           <label>Arbeitstage/Jahr
             <input id="workdaysYear" type="number" min="1" max="366" step="1" inputmode="numeric" />
           </label>
-          <label>Vergleichs-Arbeitsstunden/Jahr
-            <input id="workhoursYear" type="number" min="1" max="4000" step="1" inputmode="numeric" />
-            <span class="hint">Für „Jetzt“ und „Dann“ identisch, damit der Profitvergleich nicht mit der Arbeitszeitforderung vermischt wird.</span>
-          </label>
-          <label>Arbeitswochen/Jahr für Zeitschätzung
-            <input id="workingWeeks" type="number" min="1" max="52" step="0.5" inputmode="decimal" />
-          </label>
+          <p class="hint basis-help">Arbeitswochen und Vergleichsstunden ergeben sich automatisch aus den Arbeitstagen, Tagen je Woche und der aktuellen Wochenarbeitszeit.</p>
         </div>
-        <p class="notice">Arbeitstage/Jahr, Vergleichs-Arbeitsstunden/Jahr und Arbeitswochen/Jahr sind bewusst unabhängige Annahmen für unterschiedliche Größenvergleiche.</p>
+        <p class="notice">Eine gemeinsame Basis verhindert widersprüchliche Arbeitsjahre. Beispiel: 220 Tage ÷ 5 = 44 Wochen; 44 × 40 Stunden = 1.760 Stunden.</p>
         <p id="yearBasisNote" class="basis-note" aria-live="polite"></p>
       </details>
     </section>
 
     <section class="results" aria-labelledby="result-title">
       <div class="section-heading results-heading">
-        <p class="profit-overline">Ausschüttungs-/Vergleichsbetrag pro Jahr:</p>
+        <p class="profit-overline">Ausgewählte finanzielle Basis: <strong id="selectedBasisName">Bilanzgewinn 2025</strong></p>
         <h2 id="result-title">Jetzt ↔ Dann</h2>
       </div>
 
@@ -144,6 +161,12 @@
       </section>
       <p id="profitCaveat" class="profit-caveat"></p>
 
+      <article class="result-block references-block" aria-labelledby="reference-title">
+        <div class="block-title"><h3 id="reference-title">Zwei Größen, eine Jahresbasis · 2025</h3><span class="pill">ERGO Group AG · HGB</span></div>
+        <div class="reference-grid" id="referenceCards"></div>
+        <p class="reference-note">Jeweils geteilt durch 15.000 Beschäftigte in Deutschland; pro Arbeitstag und Arbeitsstunde zusätzlich durch die gewählte Arbeitsjahresbasis. <strong>Reiner Größenvergleich, kein Gewinn je Mitarbeiter und kein Lohnbudget.</strong></p>
+      </article>
+
       <div class="cards" id="headlineCards"></div>
 
       <article class="result-block">
@@ -160,6 +183,12 @@
           <span class="pill">Netto/Brutto sauber getrennt</span>
         </div>
         <div id="moneyResults"></div>
+      </article>
+
+      <article class="result-block scenario-block">
+        <div class="block-title"><h3>Arbeitgeberkosten? · frei durchspielbares Szenario</h3><span class="pill">kein Kostenbescheid</span></div>
+        <div id="scenarioResults"></div>
+        <p class="notice">Geldpaket × gewählter Faktor plus positiver Zeitbilanz × optionaler Stundensatz. Der erste Teil ist bei Nettoangaben ausdrücklich <strong>keine echte Netto-Brutto-Umrechnung</strong>; der zweite kein gemessener Produktivitätsverlust.</p>
       </article>
 
       <article class="result-block">
@@ -181,7 +210,7 @@
             <tbody id="profitTable"></tbody>
           </table>
         </div>
-        <p class="notice strong">Bei Nettoforderungen ist „Dann“ eine Größenrechnung: Nettozahlungen sind nicht identisch mit tatsächlichen Arbeitgeberkosten. Auch bei Bruttobeträgen sind Arbeitgebernebenkosten nicht enthalten. Der Ausgangsbetrag ist frei änderbar und nicht automatisch Konzernergebnis oder Jahresüberschuss.</p>
+        <p class="notice strong">„Dann“ zieht das Geldpaket nur rechnerisch von der ausgewählten Basis ab. Das ist weder eine tatsächliche Ausschüttungsprognose noch eine vollständige Arbeitgeberkostenrechnung. Das separate Szenario zeigt mögliche höhere Ansätze.</p>
       </article>
 
       <article class="result-block methodology">
@@ -193,9 +222,10 @@
           <li>Rund 15.000 Beschäftigte in Deutschland und 300 Personen in „Wir“ sind feste Bezugsgrößen. Die öffentliche Sprecherangabe zur 15.000er-Zahl spezifiziert die genaue Abgrenzung der Beschäftigtengruppen nicht weiter.</li>
           <li>Netto- und Bruttobeträge werden nicht automatisch ineinander umgerechnet.</li>
           <li>„Dann“ zieht das gewählte Geldpaket rechnerisch vom frei eingegebenen Ausschüttungs-/Vergleichsbetrag ab; bei Nettoangaben ist das ausdrücklich keine buchhalterische Prognose.</li>
-          <li>Arbeitszeit und Urlaub werden separat in Zeitgrößen dargestellt und nicht als Geldkosten in den Ausschüttungs-/Vergleichsbetrag eingerechnet.</li>
-          <li>Die Division des Ausschüttungs-/Vergleichsbetrags durch 15.000 ist ausschließlich ein Größenvergleich. Der Betrag kann Beteiligungserträge aus dem In- und Ausland enthalten; daraus folgt keine individuelle Wertschöpfung pro Beschäftigtem.</li>
-          <li>Ausschüttungsbetrag pro Arbeitstag und Arbeitsstunde nutzt dieselben Vergleichsannahmen für „Jetzt“ und „Dann“.</li>
+          <li>Arbeitswochen = Arbeitstage pro Jahr ÷ Arbeitstage pro Woche; Vergleichsstunden = Arbeitswochen × bisherige Wochenstunden. Der Beispielansatz ergibt 44 Wochen und 1.760 Stunden. Die zusätzliche Freizeit errechnet sich aus Wochenstundenänderung und zusätzlichen Urlaubstagen.</li>
+          <li>„Jetzt ↔ Dann“ vermindert nur modellhaft den ausgewählten Betrag um das Geldpaket. Das optionale Kostenszenario wird getrennt gerechnet; beide Aussagen sind keine buchhalterische Prognose.</li>
+          <li>Bilanzgewinn und Jahresüberschuss sind unterschiedliche HGB-Größen derselben Gesellschaft. Ein erheblicher Teil des Bilanzgewinns stammt aus aufgelösten Gewinnrücklagen.</li>
+          <li>Die Division durch 15.000 Beschäftigte in Deutschland ist ausschließlich ein Größenvergleich; Beteiligungserträge können aus dem In- und Ausland stammen. Daraus folgt keine individuelle Wertschöpfung je Beschäftigtem.</li>
           <li>Alle Berechnungen erfolgen lokal im Browser.</li>
         </ul>
       </article>
@@ -207,7 +237,9 @@
         </div>
         <ul class="source-list">
           <li><strong>15.000 Beschäftigte:</strong> öffentliche Sprecherangabe vom 17.02.2026 („rund 15.000 Menschen“ in Deutschland), verbreitet u. a. über dpa-AFX/cash-online. Die Meldung grenzt Außendienst, Töchter oder einzelne Gesellschaften nicht näher ab. <a href="https://www.cash-online.de/a/ergo-baut-bis-2030-rund-1-000-stellen-ab-ohne-kuendigungen-712100/" target="_blank" rel="noopener noreferrer">Quelle ↗</a></li>
-          <li><strong>849.288.000 €:</strong> Beispielwert aus dem HGB-Einzelabschluss 2025 der ERGO Group AG. Der Geschäftsbericht weist einen Bilanzgewinn von 849.288 Tsd. € aus; dieser soll an die Aktionärin ausgeschüttet werden. Darin enthalten sind rund 581,5 Mio. € aus einer Entnahme aus Gewinnrücklagen. Der Wert ist <strong>nicht</strong> identisch mit Konzernergebnis oder Jahresüberschuss und kann in der App frei geändert werden. <a href="https://www.lobbyregister.bundestag.de/media/b5/e0/787558/ERGO-Group-AG_Geschaeftsbericht-2025.pdf" target="_blank" rel="noopener noreferrer">Geschäftsbericht 2025 ↗</a></li>
+          <li><strong>Geschäftsbericht 2025 der ERGO Group AG:</strong> HGB-Bilanzgewinn <strong>849.288.465 €</strong> (Vorschlag zur Ausschüttung an die Aktionärin), HGB-Jahresüberschuss <strong>267.778.316,91 €</strong>, Entnahme aus Gewinnrücklagen <strong>581.510.148,09 €</strong> (rund 68,5 % des Bilanzgewinns). Der Bilanzgewinn ist nicht der Jahresüberschuss und nicht das IFRS-Konzernergebnis. <a href="https://www.lobbyregister.bundestag.de/media/b5/e0/787558/ERGO-Group-AG_Geschaeftsbericht-2025.pdf" target="_blank" rel="noopener noreferrer">Geschäftsbericht 2025 ↗</a></li>
+          <li><strong>Bezugsgröße:</strong> Im selben HGB-Bericht nennt die ERGO Group AG durchschnittlich 9.067 Beschäftigte. Für diesen breit angelegten Konzern-Größenvergleich bleiben aber bewusst die rund 15.000 in Deutschland maßgeblich; die beiden Personenkreise sind nicht deckungsgleich.</li>
+          <li><strong>Vergütung und Schutz:</strong> Der Abstand von rund 1.000 € netto im Ausgangsbeispiel ist eine Schätzung. Der fehlende Standort- und Arbeitsplatzschutz bezieht sich auf die angesprochene Gruppe von etwa 300 Beschäftigten, nicht pauschal auf alle ERGO-Beschäftigten.</li>
         </ul>
       </article>
     </section>

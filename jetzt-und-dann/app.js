@@ -3,6 +3,10 @@
 
   const GROUP_EMPLOYEES = 15000;
   const OUR_EMPLOYEES = 300;
+  // Beides HGB-Einzelabschluss 2025 der ERGO Group AG, nicht IFRS-Konzernergebnis.
+  const BILANZGEWINN_2025 = 849288465;
+  const JAHRESUEBERSCHUSS_2025 = 267778316.91;
+  const RUECKLAGENENTNAHME_2025 = 581510148.09;
 
   const defaults = {
     monthlyGap: 1000,
@@ -15,10 +19,10 @@
     hoursTarget: 38,
     extraVacation: 4,
     daysPerWeek: 5,
-    annualProfit: 849288000,
+    annualProfit: BILANZGEWINN_2025,
     workdaysYear: 220,
-    workhoursYear: 1760,
-    workingWeeks: 46
+    costFactor: 1,
+    timeHourlyCost: 0
   };
 
   const ids = Object.keys(defaults);
@@ -33,12 +37,15 @@
     daysPerWeek: [1, 7],
     annualProfit: [0, 10000000000000],
     workdaysYear: [1, 366],
-    workhoursYear: [1, 4000],
-    workingWeeks: [1, 52]
+    costFactor: [1, 10],
+    timeHourlyCost: [0, 1000]
   };
   const basisIds = new Set(['gapBasis', 'monthlyIncreaseBasis', 'thirteenthBasis']);
   const $ = id => document.getElementById(id);
   const basisLabel = b => b === 'net' ? 'netto' : 'brutto';
+  const basisName = value => value === BILANZGEWINN_2025 ? 'Bilanzgewinn 2025'
+    : value === JAHRESUEBERSCHUSS_2025 ? 'Jahresüberschuss 2025'
+    : 'frei gewählter Vergleichswert';
 
   const nf0 = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 0 });
   const nf1 = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
@@ -124,13 +131,22 @@
     const extraVacationHoursPerPerson = s.extraVacation * targetDaily;
     const extraVacationHoursGroup = extraVacationHoursPerPerson * OUR_EMPLOYEES;
     const nominalWeeklyHoursGroup = Math.abs(weeklyChange) * OUR_EMPLOYEES;
-    const weeklyTimeBalancePerPerson = (s.hoursCurrent - s.hoursTarget) * s.workingWeeks;
+    // Eine gemeinsame Jahresbasis für Wochen-Zeitbilanz und Vergleichsstunden:
+    // 220 Arbeitstage / 5 Arbeitstage je Woche = 44 Wochenäquivalente.
+    const workingWeeks = safeDiv(s.workdaysYear, s.daysPerWeek);
+    const workhoursYear = s.workdaysYear * safeDiv(s.hoursCurrent, s.daysPerWeek);
+    const weeklyTimeBalancePerPerson = (s.hoursCurrent - s.hoursTarget) * workingWeeks;
     const annualTimeBalancePerPerson = weeklyTimeBalancePerPerson + extraVacationHoursPerPerson;
     const annualTimeBalanceGroup = annualTimeBalancePerPerson * OUR_EMPLOYEES;
     const hourlyValueRise = s.hoursTarget > 0 ? (s.hoursCurrent / s.hoursTarget - 1) * 100 : 0;
-    const impliedWeeksFromDays = safeDiv(s.workdaysYear, s.daysPerWeek);
-    const impliedWeeksFromHours = safeDiv(s.workhoursYear, s.hoursCurrent);
+    const impliedWeeksFromDays = workingWeeks;
 
+    // Zusätzliche Sensitivitätsrechnung: Faktor nur für das Geldpaket,
+    // Zeitwert (optional) separat; keine behauptete echte Arbeitgeberkosten-Prognose.
+    const extraFreedHours = Math.max(0, annualTimeBalanceGroup);
+    const scenarioMoneyCost = moneyGroup === null ? null : moneyGroup * s.costFactor;
+    const scenarioTimeCost = extraFreedHours * s.timeHourlyCost;
+    const scenarioCost = scenarioMoneyCost === null ? null : scenarioMoneyCost + scenarioTimeCost;
     const profitThen = moneyGroup !== null ? Math.max(0, s.annualProfit - moneyGroup) : null;
     const profitExhausted = moneyGroup !== null && moneyGroup > s.annualProfit;
     const profitReductionPct = moneyGroup !== null && s.annualProfit > 0 ? Math.min(100, moneyGroup / s.annualProfit * 100) : (moneyGroup === 0 && s.annualProfit === 0 ? 0 : null);
@@ -138,12 +154,12 @@
     const profitNowYear = safeDiv(s.annualProfit, GROUP_EMPLOYEES);
     const profitNowMonth = profitNowYear / 12;
     const profitNowDay = safeDiv(profitNowYear, s.workdaysYear);
-    const profitNowHour = safeDiv(profitNowYear, s.workhoursYear);
+    const profitNowHour = safeDiv(profitNowYear, workhoursYear);
 
     const profitThenYear = profitThen !== null ? safeDiv(profitThen, GROUP_EMPLOYEES) : null;
     const profitThenMonth = profitThenYear !== null ? profitThenYear / 12 : null;
     const profitThenDay = profitThenYear !== null ? safeDiv(profitThenYear, s.workdaysYear) : null;
-    const profitThenHour = profitThenYear !== null ? safeDiv(profitThenYear, s.workhoursYear) : null;
+    const profitThenHour = profitThenYear !== null ? safeDiv(profitThenYear, workhoursYear) : null;
 
     const deltaYear = profitThenYear !== null ? profitNowYear - profitThenYear : null;
     const deltaMonth = profitThenMonth !== null ? profitNowMonth - profitThenMonth : null;
@@ -160,7 +176,8 @@
       extraVacationHoursPerPerson, extraVacationHoursGroup,
       nominalWeeklyHoursGroup, weeklyTimeBalancePerPerson,
       annualTimeBalancePerPerson, annualTimeBalanceGroup, hourlyValueRise,
-      impliedWeeksFromDays, impliedWeeksFromHours,
+      impliedWeeksFromDays, workingWeeks, workhoursYear,
+      extraFreedHours, scenarioMoneyCost, scenarioTimeCost, scenarioCost,
       profitThen, profitExhausted, profitReductionPct,
       profitNowYear, profitNowMonth, profitNowDay, profitNowHour,
       profitThenYear, profitThenMonth, profitThenDay, profitThenHour,
@@ -181,7 +198,7 @@
       setStateTotal('profitThenTotal', euro0.format(c.profitThen));
       $('profitThenSub').textContent = c.profitExhausted
         ? `Geldpaket übersteigt den Ausgangsbetrag; Restbetrag auf 0 € begrenzt`
-        : `rechnerischer Rest nach ${euro0.format(c.moneyGroup)} ${basisLabel(c.monthlyIncreaseBasis)} Geldpaket`;
+        : `rechnerischer Rest nach ${euro0.format(c.moneyGroup)} ${basisLabel(c.monthlyIncreaseBasis)} Geldpaket (kein Arbeitgeberkostenwert)`;
       $('profitThenGrid').innerHTML = [
         profitMetric('pro Beschäftigtem / Jahr', euro2.format(c.profitThenYear)),
         profitMetric('pro Monat', euro2.format(c.profitThenMonth)),
@@ -206,9 +223,46 @@
     }
   }
 
+  function renderReferences(c) {
+    const refs = [
+      {name:'Bilanzgewinn 2025', amount:BILANZGEWINN_2025, tag:'vorgeschlagene Ausschüttung'},
+      {name:'Jahresüberschuss 2025', amount:JAHRESUEBERSCHUSS_2025, tag:'Ergebnis des Geschäftsjahres'}
+    ];
+    $('referenceCards').innerHTML = refs.map(r => {
+      const perPerson = safeDiv(r.amount, GROUP_EMPLOYEES);
+      const relative = c.moneyGroup === null ? '—' : pct(safeDiv(c.moneyGroup, r.amount) * 100, 2);
+      return `<article class="reference-card"><div class="reference-top"><h4>${r.name}</h4><div class="reference-amount">${euro0.format(r.amount)}</div><p>${r.tag}</p></div>`+
+        `<div class="reference-values">`+
+        profitMetric('pro Beschäftigtem/Jahr', euro0.format(perPerson))+
+        profitMetric('pro Arbeitstag', euro2.format(safeDiv(perPerson,c.workdaysYear)))+
+        profitMetric('pro Arbeitsstunde', euro2.format(safeDiv(perPerson,c.workhoursYear)))+
+        `</div><div class="reference-share">Netto-/Brutto-Geldpaket als reine Größenrelation: <strong>${relative}</strong></div></article>`;
+    }).join('');
+  }
+
+  function renderScenario(c) {
+    if (c.scenarioCost === null) {
+      $('scenarioResults').innerHTML = `<p class="notice strong">Keine addierbare Gesamtforderung bei gemischter Netto-/Bruttobasis. Das Kostenszenario wird daher nicht ausgewiesen.</p>`;
+      return;
+    }
+    $('scenarioResults').innerHTML = `<div class="metrics">${[
+      metric('Geldpaket für 300 Personen (ohne Umrechnung)', `${euro0.format(c.moneyGroup)} ${basisLabel(c.monthlyIncreaseBasis)}`),
+      metric('Zusätzlich frei werdende Zeit', `${nf0.format(c.extraFreedHours)} Std./Jahr`, 'nur positive Zeitbilanz im Szenario bewertet'),
+      metric('Angenommener jährlicher Geldaufwand', euro0.format(c.scenarioMoneyCost), `Geldpaket × ${nf1.format(c.costFactor)} (Szenario)`),
+      metric('Angenommener Zeitwert/Jahr', euro0.format(c.scenarioTimeCost), `${euro2.format(c.timeHourlyCost)} je zusätzlicher freier Stunde`),
+      metric('Kosten-Szenario gesamt', euro0.format(c.scenarioCost), 'keine betriebliche Kostenschätzung'),
+      metric('Relation zu Bilanzgewinn / Jahresüberschuss', `${pct(safeDiv(c.scenarioCost,BILANZGEWINN_2025)*100)} / ${pct(safeDiv(c.scenarioCost,JAHRESUEBERSCHUSS_2025)*100)}`)
+    ].join('')}</div>`;
+  }
+
   function render() {
     const c = calculate();
     renderProfitState(c);
+    renderReferences(c);
+    renderScenario(c);
+    $('financialPreset').value = c.annualProfit === BILANZGEWINN_2025 ? 'bilanz'
+      : c.annualProfit === JAHRESUEBERSCHUSS_2025 ? 'ueberschuss' : 'custom';
+    $('selectedBasisName').textContent = basisName(c.annualProfit);
 
     $('headlineCards').innerHTML = [
       card('Geschätzter Abstand', `${euro0.format(c.monthlyGap)} ${basisLabel(c.gapBasis)}`, 'pro Person und Monat'),
@@ -255,11 +309,11 @@
       metric('zusätzlicher Urlaub', `${nf1.format(c.extraVacation)} Tage/Person`, `${nf0.format(c.extraVacation * OUR_EMPLOYEES)} Tage für uns`),
       metric('zusätzliche Urlaubszeit', `${nf1.format(c.extraVacationHoursPerPerson)} Std./Person`, `${nf0.format(c.extraVacationHoursGroup)} Std. für uns`),
       metric('grobe Zeitbilanz/Jahr', `${c.annualTimeBalancePerPerson >= 0 ? '+' : '−'}${nf1.format(Math.abs(c.annualTimeBalancePerPerson))} Std./Person`, c.annualTimeBalancePerPerson >= 0 ? 'zusätzliche freie Zeit (Wochenänderung + Urlaub)' : 'zusätzliche Arbeitszeit nach Verrechnung mit Urlaub'),
-      metric('Zeitbilanz für uns/Jahr', `${c.annualTimeBalanceGroup >= 0 ? '+' : '−'}${nf0.format(Math.abs(c.annualTimeBalanceGroup))} Std.`, `mit ${nf1.format(c.workingWeeks)} Arbeitswochen`),
+      metric('Zeitbilanz für uns/Jahr', `${c.annualTimeBalanceGroup >= 0 ? '+' : '−'}${nf0.format(Math.abs(c.annualTimeBalanceGroup))} Std.`, `mit ${nf1.format(c.workingWeeks)} Wochenäquivalenten`),
       metric('Stundenwert bei gleichem Monatsentgelt', `${c.hourlyValueRise > 0 ? '+' : ''}${pct(c.hourlyValueRise, 2)}`, 'rein rechnerisch aus der Wochenstundenänderung')
     ].join('');
 
-    $('yearBasisNote').textContent = `Aktuell: ${nf0.format(c.workdaysYear)} Arbeitstage bei ${nf1.format(c.daysPerWeek)} Tagen/Woche entsprechen ${nf1.format(c.impliedWeeksFromDays)} Wochen; ${nf0.format(c.workhoursYear)} Vergleichsstunden bei ${nf1.format(c.hoursCurrent)} Std./Woche entsprechen ${nf1.format(c.impliedWeeksFromHours)} Wochen; die Zeitschätzung nutzt ${nf1.format(c.workingWeeks)} Wochen.`;
+    $('yearBasisNote').textContent = `${nf0.format(c.workdaysYear)} Arbeitstage ÷ ${nf1.format(c.daysPerWeek)} Tage je Woche = ${nf1.format(c.workingWeeks)} Wochenäquivalente. Bei ${nf1.format(c.hoursCurrent)} Std./Woche entsprechen sie ${nf0.format(c.workhoursYear)} Vergleichs-Arbeitsstunden/Jahr. Zeit- und Geldvergleich nutzen dieselbe Jahresbasis.`;
 
     const rows = [
       ['Jahr', c.profitNowYear, c.profitThenYear, c.deltaYear],
@@ -333,7 +387,12 @@
       lines.push('Geldpaket gesamt: nicht summiert (gemischte Netto-/Bruttobasis)');
     }
     if (c.annualTimeBalancePerPerson < 0) lines.push('Hinweis Zeitbilanz: negativer Wert = zusätzliche Arbeitszeit nach Verrechnung mit zusätzlichem Urlaub.');
-    lines.push('', `Ausschüttungs-/Vergleichsbetrag jetzt: ${euro0.format(c.annualProfit)}`);
+    lines.push('', `Vergleichsbasis: ${basisName(c.annualProfit)} (${euro2.format(c.annualProfit)})`);
+    lines.push(`Zeitbasis: ${nf0.format(c.workdaysYear)} Arbeitstage / ${nf1.format(c.daysPerWeek)} Tage pro Woche = ${nf1.format(c.workingWeeks)} Wochenäquivalente = ${nf0.format(c.workhoursYear)} Stunden`);
+    lines.push(`Bilanzgewinn 2025 (HGB ERGO Group AG): ${euro2.format(BILANZGEWINN_2025)}`);
+    lines.push(`Jahresüberschuss 2025 (HGB ERGO Group AG): ${euro2.format(JAHRESUEBERSCHUSS_2025)}`);
+    lines.push(`Entnahme aus Rücklagen 2025: ${euro2.format(RUECKLAGENENTNAHME_2025)}`);
+    lines.push(`Ausschüttungs-/Vergleichsbetrag jetzt: ${euro0.format(c.annualProfit)}`);
     if (c.profitThen !== null) {
       lines.push(`Ausschüttungs-/Vergleichsbetrag dann (rechnerisch): ${euro0.format(c.profitThen)}`);
       lines.push(`Ausschüttungsbetrag pro Beschäftigtem in Deutschland – Jahr: ${euro2.format(c.profitNowYear)} → ${euro2.format(c.profitThenYear)}`);
@@ -344,7 +403,14 @@
       lines.push(`Rechnerische Reduktion des Ausschüttungsbetrags: ${c.profitReductionPct === null ? 'nicht definiert' : pct(c.profitReductionPct, 4)}`);
       if (c.profitExhausted) lines.push('Hinweis: Geldpaket übersteigt den Ausgangsbetrag; Restbetrag wurde auf 0 € begrenzt.');
     }
-    lines.push('', 'Hinweis: Der Ausschüttungs-/Vergleichsbetrag ist frei änderbar und nicht automatisch Konzernergebnis oder Jahresüberschuss. Bei Nettoforderungen ist „Dann“ nur eine Größenrechnung; tatsächliche Arbeitgeberkosten werden nicht vollständig abgebildet. Arbeitszeit und Urlaub werden nicht monetarisiert.');
+    if (c.scenarioCost !== null) {
+      lines.push('', `Kostenszenario: Geldpaket × ${nf1.format(c.costFactor)} plus ${nf2.format(c.timeHourlyCost)} € je zusätzlicher freier Stunde`);
+      lines.push(`Zusätzliche freie Stunden unserer Gruppe: ${nf1.format(c.extraFreedHours)} Std./Jahr`);
+      lines.push(`Hypothetischer jährlicher Arbeitgeberaufwand gesamt: ${euro2.format(c.scenarioCost)}`);
+      lines.push(`Davon im Verhältnis zum Bilanzgewinn: ${pct(safeDiv(c.scenarioCost, BILANZGEWINN_2025)) * 100}`);
+      lines.push(`Davon im Verhältnis zum Jahresüberschuss: ${pct(safeDiv(c.scenarioCost, JAHRESUEBERSCHUSS_2025)) * 100}`);
+    }
+    lines.push('', 'Hinweis: Bilanzgewinn und Jahresüberschuss sind verschiedene HGB-Größen derselben Gesellschaft, keine erwirtschaftete Leistung pro Beschäftigtem. Die Division durch 15.000, 220 Tage bzw. 1.760 Stunden ist ein Größenvergleich. Die „Dann“-Rechnung ist keine Prognose tatsächlicher Ausschüttungen oder Arbeitgeberkosten; das Kostenmodell ist ein frei gesetztes Szenario.');
     return lines.join('\n');
   }
 
@@ -369,6 +435,11 @@
   $('copySummary').addEventListener('click', () => copy(summaryText(), 'Ergebnis wurde kopiert.'));
   $('copyLink').addEventListener('click', () => copy(location.href, 'Link mit aktuellen Werten wurde kopiert.'));
   $('resetAll').addEventListener('click', () => applyState(defaults));
+  $('financialPreset').addEventListener('change', () => {
+    if ($('financialPreset').value === 'bilanz') $('annualProfit').value = BILANZGEWINN_2025;
+    else if ($('financialPreset').value === 'ueberschuss') $('annualProfit').value = JAHRESUEBERSCHUSS_2025;
+    render();
+  });
   window.addEventListener('hashchange', () => { loadFromHash(); });
 
   if (!loadFromHash()) applyState(defaults);
