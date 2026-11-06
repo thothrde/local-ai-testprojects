@@ -407,8 +407,8 @@
       lines.push('', `Kostenszenario: Geldpaket × ${nf1.format(c.costFactor)} plus ${nf2.format(c.timeHourlyCost)} € je zusätzlicher freier Stunde`);
       lines.push(`Zusätzliche freie Stunden unserer Gruppe: ${nf1.format(c.extraFreedHours)} Std./Jahr`);
       lines.push(`Hypothetischer jährlicher Arbeitgeberaufwand gesamt: ${euro2.format(c.scenarioCost)}`);
-      lines.push(`Davon im Verhältnis zum Bilanzgewinn: ${pct(safeDiv(c.scenarioCost, BILANZGEWINN_2025)) * 100}`);
-      lines.push(`Davon im Verhältnis zum Jahresüberschuss: ${pct(safeDiv(c.scenarioCost, JAHRESUEBERSCHUSS_2025)) * 100}`);
+      lines.push(`Davon im Verhältnis zum Bilanzgewinn: ${pct(safeDiv(c.scenarioCost, BILANZGEWINN_2025) * 100)}`);
+      lines.push(`Davon im Verhältnis zum Jahresüberschuss: ${pct(safeDiv(c.scenarioCost, JAHRESUEBERSCHUSS_2025) * 100)}`);
     }
     lines.push('', 'Hinweis: Bilanzgewinn und Jahresüberschuss sind verschiedene HGB-Größen derselben Gesellschaft, keine erwirtschaftete Leistung pro Beschäftigtem. Die Division durch 15.000, 220 Tage bzw. 1.760 Stunden ist ein Größenvergleich. Die „Dann“-Rechnung ist keine Prognose tatsächlicher Ausschüttungen oder Arbeitgeberkosten; das Kostenmodell ist ein frei gesetztes Szenario.');
     return lines.join('\n');
