@@ -351,12 +351,77 @@ body {
 </style>
 <!-- ROOTS-STYLE:END -->
 
+<style>
+/* SITE PORTRAIT: fixed in the viewport (stays while scrolling), above the park background (z -2),
+   below all page content. Desktop: left edge at the end of the title "Testprojekte",
+   bottom edge on the header rule (header bottom border). Small screens: small, top right. */
+.site-portrait {
+  --pw: 190px;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 28vw;
+  opacity: .7;
+  pointer-events: none;
+  line-height: 0;
+}
+.site-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* darkened to blend with the autumn background (whose overlay is rgba .56-.71) */
+  filter: brightness(.6) saturate(.9);
+}
+@media (min-width: 900px) {
+  .site-portrait {
+    right: auto;
+    left: var(--px, calc(50% + 230.5px));
+    top: var(--pt, calc(454.4px - var(--pw) * 669 / 640));
+    width: var(--pw);
+    opacity: 1;
+  }
+}
+</style>
 </head>
 <body>
 <div class="site-photo-background" aria-hidden="true">
   <img src="ppark_background.jpg?v=12bd6a3" alt="" decoding="async">
   <div class="site-photo-overlay"></div>
 </div>
+<div class="site-portrait" aria-hidden="true"><img src="thomas-foto.jpg?v=1" alt="" width="640" height="669" decoding="async"></div>
+<script>
+/* Places the fixed portrait: left edge at the end of the title text, bottom edge on the header rule.
+   Falls back to the CSS calc() values if anything fails. Desktop only (min-width 900px). */
+(function () {
+  var p = document.querySelector('.site-portrait');
+  function place() {
+    try {
+      var h = document.querySelector('header');
+      var t = document.querySelector('header h1');
+      if (!p || !h || !t || !t.firstChild || !window.matchMedia('(min-width: 900px)').matches) {
+        if (p) { p.style.removeProperty('--px'); p.style.removeProperty('--pt'); }
+        return;
+      }
+      var r = document.createRange();
+      r.selectNodeContents(t.firstChild);
+      var rects = r.getClientRects();
+      if (!rects.length) return;
+      var left = rects[0].right;
+      var hb = h.getBoundingClientRect().bottom + window.scrollY;
+      p.style.setProperty('--px', left.toFixed(1) + 'px');
+      p.style.setProperty('--pt', (hb - 1 - p.offsetHeight).toFixed(1) + 'px');
+    } catch (e) {}
+  }
+  place();
+  document.addEventListener('DOMContentLoaded', place);
+  window.addEventListener('load', place);
+  window.addEventListener('resize', place);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  if (window.ResizeObserver) { var h0 = document.querySelector('header'); if (h0) new ResizeObserver(place).observe(h0); }
+  document.addEventListener('click', function () { setTimeout(place, 50); });
+})();
+</script>
 <div class="wrapper">
 
 <header>
