@@ -123,3 +123,9 @@ button.pb-period:hover,button.pb-period:focus-visible{border-color:currentColor;
   .p3dh-period-strip > *, .p3dh-period { min-width:0; overflow-wrap:anywhere; }
   .p3dh-framework-boundary { min-height:36px; }
 }
+
+
+/* POSTLIVE-20261122 / L1: expanded Pillar-A catalogue-status tokens
+   must wrap without hiding evidence or enlarging the document. */
+.pa-card details, .pa-card details p { min-width:0; max-width:100%; overflow-wrap:anywhere; }
+.pa-card details code { white-space:normal; overflow-wrap:anywhere; word-break:break-word; }

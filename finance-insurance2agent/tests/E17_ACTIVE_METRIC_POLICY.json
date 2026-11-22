@@ -40,7 +40,6 @@
     "PILLAR_B_CBCR_PBT_EUR_M": 493,
     "PILLAR_B_CBCR_PPE_EUR_PER_FTE": 493,
     "PILLAR_B_EMPLOYEE_AVG_FTE_SECTION162_EUR": 11,
-    "PILLAR_B_ESRS_HIGHEST_PAID_TO_MEDIAN": 6,
     "PILLAR_C_COMBINED_RATIO_PERCENT": 17,
     "PILLAR_C_ERGO_GROUP_IFRS17_CSM_EUR_M": 2,
     "PILLAR_C_GROSS_WRITTEN_PREMIUMS": 3,
@@ -111,8 +110,12 @@
     "PILLAR_C_UNDERWRITING_RESULT": 1
   },
   "active_app2_metric_counts": {
-    "PILLAR_B_EMPLOYEE_AVG_FTE_SECTION162_EUR": 11,
-    "PILLAR_B_ESRS_HIGHEST_PAID_TO_MEDIAN": 4
+    "PILLAR_B_EMPLOYEE_AVG_FTE_SECTION162_EUR": 11
+  },
+  "approved_current_totals": {
+    "app1": 7801,
+    "app2_pillar_b": 11,
+    "app2_pillar_c": 184
   },
   "change_policy": "DENY_BY_DEFAULT_REQUIRE_INDEPENDENT_REVIEW_FOR_ANY_NEW_CODE_OR_COUNT",
   "explicitly_forbidden_person_metric_codes": [
@@ -122,8 +125,14 @@
     "PILLAR_B_CEO_TO_AVERAGE_FTE_SECTION162",
     "PILLAR_B_EXECUTIVE_COMP_SECTION162_GRANTED_AND_OWED_EUR"
   ],
+  "historical_e17_metrics_not_a_current_release_attestation": true,
+  "historical_policy_sha256": "b2cc6c7348fc8dbf6490d07d65ba33215204fc52ad4fa066733c33bcd2de3ba3",
   "locked_source_head": "1f0bf3712a74b06ebba7442cd925be146c5a53ad",
+  "locked_source_head_scope": "HISTORICAL_E17_ONLY_NOT_CURRENT_PUBLIC_HEAD",
   "not_anonymity_or_legal_attestation": true,
-  "public_projection_sha256": "16333b3a1a89525bfd12a74fc9baf9417df2ca557e910a132bdbc469f3b38c20",
-  "schema": "E17_LOCKED_CURRENT_ACTIVE_METRICS_V1"
+  "pillar_c_public_sha256": "d8bdbd821ce7590ed7eb9c9b6879502dd7d7424f969b75e94528c509135b43ad",
+  "public_projection_sha256": "f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157",
+  "schema": "POSTLIVE_L4_CURRENT_ACTIVE_METRICS_V1",
+  "second_public_sha256": "a3b8d1953dad21b088678d7168abfdd1ca0acf4b172da67bcadbfced302d21d8",
+  "source_release_head": "c8b6384701310606ef24dd4d9c7485abaad2e921"
 }

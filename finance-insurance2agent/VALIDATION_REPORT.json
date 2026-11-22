@@ -91,8 +91,8 @@
     "sources": 279,
     "time_series_decisions": 119
   },
-  "current_capability_evidence_sha256": "5e544f4dc31fe9038336d9c970b4b0ed473d8211d8dce5fdfaa3788b5b84c547",
-  "current_release_gate": "RELEASE_NO_GO_PENDING_UX15_CAP31_V3_AND_INDEPENDENT_E01_E04_OWNER_DECISION",
+  "current_capability_evidence_sha256": "bb4dc82ed5d5d1ab342d75c6f599e154b8b4d1a525a894269d418f7a214ad3f9",
+  "current_release_gate": "POSTLIVE_L1_L4_NONAPPLIED_OWNER_GO_REQUIRED",
   "current_static_validation": {
     "files": 22,
     "operator_cookies": false,
@@ -102,7 +102,7 @@
     "runtime_external_resource_count": 0,
     "static_snapshot_present": true
   },
-  "current_validation_status": "E31_AUDIT_FIX_20261122_NONAPPLIED_STATIC_INTEGRITY_ONLY_FULL_UX_PENDING",
+  "current_validation_status": "POSTLIVE_L1_L4_CURRENT_SUCCESSOR_STATIC_TESTING_PASS_NOT_DEPLOYMENT_CLEARANCE",
   "deployment_performed": false,
   "deterministic_double_generation_byte_identical": true,
   "e17_e04_minimization_review": {
@@ -196,6 +196,16 @@
   "operator_cookies": false,
   "operator_tracking": false,
   "parent_public_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
+  "postlive_l1_l4_current_successor": {
+    "E01_E04_legal_anonymity_clearance": "NOT_CLAIMED",
+    "current_validation_suite_count": 10,
+    "historical_ux15_cap31_v3_and_native_safari_reattestation": "NOT_CLAIMED",
+    "legacy_originals_retained_outside_public_app": true,
+    "public_release_authorized": false,
+    "python_optimized_mode_must_fail_closed": true,
+    "source_release_head": "c8b6384701310606ef24dd4d9c7485abaad2e921",
+    "status": "STATIC_SUCCESSOR_TESTED_MAC_BROWSER_PENDING_NONAPPLIED"
+  },
   "public_game_link_ui_20261018": {
     "independent_second_ai_required": false,
     "label": "Finance2Agent Game Europe · enlarged red CTA",

@@ -47,9 +47,9 @@
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS",
     "whole_site_regeneration": false
   },
-  "current_capability_evidence_sha256": "5e544f4dc31fe9038336d9c970b4b0ed473d8211d8dce5fdfaa3788b5b84c547",
-  "current_release_gate": "RELEASE_NO_GO_PENDING_UX15_CAP31_V3_AND_INDEPENDENT_E01_E04_OWNER_DECISION",
-  "current_validation_report_sha256": "ffa84c96d809ca081b4f953803f830f462579a18137de08f7a01a611a675aa99",
+  "current_capability_evidence_sha256": "bb4dc82ed5d5d1ab342d75c6f599e154b8b4d1a525a894269d418f7a214ad3f9",
+  "current_release_gate": "POSTLIVE_L1_L4_NONAPPLIED_OWNER_GO_REQUIRED",
+  "current_validation_report_sha256": "e87a0a6ca4bae5a54beed121b9136ad9208bdbdeb4f64cfae9c2aefdba91c2b1",
   "e17_e04_minimization_review": {
     "both_apps_in_scope": true,
     "canonical_source_db_unchanged": true,
@@ -652,6 +652,22 @@
     "public_data_refresh": false,
     "scope_notice": "PUBLIC_VS_LOCAL_PLANNED_CAPABILITIES_EXPLICIT__BUTTON_STYLE_ONLY",
     "status": "V2B_G2_G3_CURRENT_CAPABILITY_EVIDENCE_REBOUND"
+  },
+  "postlive_l1_l4_current_successor": {
+    "current_capability_evidence_sha256": "bb4dc82ed5d5d1ab342d75c6f599e154b8b4d1a525a894269d418f7a214ad3f9",
+    "current_validation_report_sha256": "e87a0a6ca4bae5a54beed121b9136ad9208bdbdeb4f64cfae9c2aefdba91c2b1",
+    "current_validator_fixes": "L4_10_CURRENT_SCRIPTS_NO_OPTIMIZATION_BYPASS",
+    "historic_e17_e18_e25_fi3_bindings_remain_historical": true,
+    "independent_browser_attestation": "PENDING",
+    "layout_fixes": [
+      "L1",
+      "L2",
+      "L3"
+    ],
+    "live_base_20261122_not_modified": true,
+    "release_approval": "REQUIRES_SEPARATE_OPERATOR_GO",
+    "source_release_head": "c8b6384701310606ef24dd4d9c7485abaad2e921",
+    "status": "NONAPPLIED_MAINTENANCE_CANDIDATE"
   },
   "presentation_patch_parent_site_sha256": "35b238e02412a1b1b9302cd213ba9800424ced9cbae059e3800288e38a4a3222",
   "presentation_patch_scope": [
