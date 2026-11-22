@@ -1,36 +1,65 @@
 {
   "as_of": "2026-09-13",
   "current_app_facts": {
+    "accessibility_manual_at_review_required": true,
     "analytics_or_tracking_scripts": false,
     "app_sets_cookies": false,
     "e5_release_verified": false,
     "editorial_standards_documented": true,
+    "external_legal_opinion_obtained": false,
     "external_runtime_resources": false,
+    "final_human_legal_review_required": true,
+    "hosting": "GitHub Pages via thomas.autark-data.org/finanztransparenz/",
     "local_only": false,
     "personal_data_publication_review_documented_but_not_legally_closed": true,
-    "personal_remuneration_profiles_in_current_prudential_layer": true,
+    "personal_data_review_required": true,
+    "personal_remuneration_profiles_in_current_prudential_layer": false,
     "pillar_c_role_linked_remuneration_ratio_present": true,
     "public_release_enabled": true,
-    "source_reuse_policy_documented": true,
-    "hosting": "GitHub Pages via thomas.autark-data.org/finanztransparenz/",
-    "external_legal_opinion_obtained": false,
     "publisher_release_decision": true,
-    "technical_publication_verified": true,
-    "personal_data_review_required": true,
     "source_reuse_final_review_required": true,
-    "accessibility_manual_at_review_required": true,
-    "final_human_legal_review_required": true
+    "source_reuse_policy_documented": true,
+    "technical_publication_verified": true
+  },
+  "e17_e04_review_nonapplied": {
+    "both_applications_in_scope": true,
+    "candidate_only": true,
+    "legal_clearance": false,
+    "old_live_profile_not_retroactively_rewritten": true,
+    "personal_data_review_outstanding": true
+  },
+  "e18_e04_review_nonapplied": {
+    "candidate_only": true,
+    "five_inactive_person_metric_definitions_withheld_from_candidate": true,
+    "owner_and_legal_review_outstanding": true,
+    "prior_live_state_not_retroactively_changed": true,
+    "second_app_projection_sha256": "4dc5a2ed5cfb7eeec6981dbd90fdf4ebf2996cc1c5ebfb97ce1320c41936a702",
+    "ten_unreferenced_person_ratio_profiles_withheld_from_candidate": true
+  },
+  "e25_minimised_public_scope": {
+    "esrs_fte_indirect_identifiability_review_outstanding": true,
+    "first_and_second_apps_individual_remuneration_values_withheld": true,
+    "pillar_b_person_context_rows": 0,
+    "pillar_b_person_ratio_profiles_excluded": true,
+    "pillar_c_direct_ceo_role_labels_withheld_in_public_payload": true,
+    "source_reuse_final_review_outstanding": true,
+    "this_block_is_not_a_release_approval": true
+  },
+  "e31_public_project_character_nonapplied": {
+    "de": "Finance/Insurance2Agent ist ein privates, nichtkommerzielles, investigatives Analyse- und Experimentalprojekt. Die Veröffentlichung dient der Erprobung mathematischer, datenanalytischer und KI-gestützter Methoden; eine pauschale Wiederverwendungsberechtigung für fremde Werke wird nicht behauptet. Rechte- und Datenschutzfragen werden dokumentiert und bleiben gegebenenfalls offen.",
+    "en": "Finance/Insurance2Agent is a privately operated, non-commercial investigative analysis and experimental project. The application tests mathematical, data-analytical and AI-assisted methods. No blanket permission to republish third-party works is claimed; any outstanding rights and data-protection questions remain documented.",
+    "status": "PROPOSED_NOT_LEGAL_APPROVAL"
   },
   "privacy_posture": {
-    "hosting": "GITHUB_PAGES_CUSTOM_DOMAIN",
-    "app_level_tracking": "NONE",
     "app_level_cookies": "NONE",
     "app_level_external_runtime_resources": "NONE",
-    "github_pages_ip_logging": "GitHub states that visitor IP addresses are logged and stored for security purposes.",
+    "app_level_tracking": "NONE",
     "contact_processing": "ORDINARY_GDPR_WHERE_APPLICABLE",
+    "correction_and_privacy_contact_available": true,
+    "github_pages_ip_logging": "GitHub states that visitor IP addresses are logged and stored for security purposes.",
+    "hosting": "GITHUB_PAGES_CUSTOM_DOMAIN",
     "journalistic_special_regime_not_assumed_as_blanket_exemption": true,
-    "role_linked_remuneration_minimised_to_role_only_public_payload": true,
-    "correction_and_privacy_contact_available": true
+    "role_linked_remuneration_minimised_to_role_only_public_payload": true
   },
   "provider": {
     "address_lines": [
@@ -44,7 +73,12 @@
   },
   "public_deployment_profile": "GITHUB_PAGES_CUSTOM_DOMAIN_THOMAS_AUTARK_DATA_ORG_FINANZTRANSPARENZ",
   "release_gate_local_status": {
+    "ACCESSIBILITY_MANUAL_AT_REVIEW_REQUIRED": true,
     "E5_RELEASE_VERIFIED": false,
+    "FINAL_HUMAN_LEGAL_REVIEW_REQUIRED": true,
+    "PERSONAL_DATA_REVIEW_REQUIRED": true,
+    "SOURCE_REUSE_FINAL_REVIEW_REQUIRED": true,
+    "TECHNICAL_PUBLICATION_VERIFIED": true,
     "accessibility_automated_remediation": "PASS_BUILD11AW_66_OF_66_REAL_SAFARI_BASELINE; MANUAL_AT_REVIEW_OUTSTANDING",
     "correction_contact_route": "PUBLIC",
     "editorial_governance": "DOCUMENTED",
@@ -54,12 +88,7 @@
     "pre_publication_legal_review": "NOT_COMPLETED; PUBLISHED_BY_PUBLISHER_DECISION_WITH_OUTSTANDING_HUMAN_REVIEW",
     "privacy_notice_review": "GITHUB_PAGES_HOSTING_PROFILE_FROZEN",
     "public_release_enabled": true,
-    "source_reuse_policy": "CONSERVATIVE_FACTS_ONLY_APPLIED; FINAL_HUMAN_SOURCE_RIGHTS_REVIEW_OUTSTANDING",
-    "TECHNICAL_PUBLICATION_VERIFIED": true,
-    "FINAL_HUMAN_LEGAL_REVIEW_REQUIRED": true,
-    "PERSONAL_DATA_REVIEW_REQUIRED": true,
-    "SOURCE_REUSE_FINAL_REVIEW_REQUIRED": true,
-    "ACCESSIBILITY_MANUAL_AT_REVIEW_REQUIRED": true
+    "source_reuse_policy": "CONSERVATIVE_FACTS_ONLY_APPLIED; FINAL_HUMAN_SOURCE_RIGHTS_REVIEW_OUTSTANDING"
   },
   "responsible_editor": {
     "address_lines": [
@@ -136,17 +165,17 @@
     },
     {
       "id": "GITHUB_PAGES_HOSTING",
+      "note": "GitHub states that visitor IP addresses are logged and stored for security purposes when a GitHub Pages site is visited.",
       "title": "GitHub Docs — What is GitHub Pages?",
       "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
-      "verified_at": "2026-09-13",
-      "note": "GitHub states that visitor IP addresses are logged and stored for security purposes when a GitHub Pages site is visited."
+      "verified_at": "2026-09-13"
     },
     {
       "id": "GITHUB_PRIVACY",
+      "note": "Describes GitHub processing of service-usage data including IP address, device/session and request information.",
       "title": "GitHub General Privacy Statement",
       "url": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
-      "verified_at": "2026-09-13",
-      "note": "Describes GitHub processing of service-usage data including IP address, device/session and request information."
+      "verified_at": "2026-09-13"
     }
   ],
   "status": "PUBLIC_RELEASE_BY_PUBLISHER_DECISION_HUMAN_REVIEWS_OUTSTANDING",
@@ -157,11 +186,11 @@
       "correction_title": "Korrektur, Beanstandung & Gegendarstellung",
       "editorial_text": "Die App folgt einer dokumentierten redaktionellen Linie: Primärquellenprüfung, Trennung von Quellenfakten und Ableitungen, keine Gesamt-Risikonote, sichtbare Vergleichsgrenzen sowie ein nachvollziehbarer Korrektur- und Contest-Pfad. Diese Standards dokumentieren die Arbeitsweise, ersetzen aber keine rechtliche Prüfung der journalistischen Ausnahme.",
       "editorial_title": "Redaktionelle Standards",
-      "independence_text": "Privates, unabhängiges Forschungs- und Transparenzprojekt. Nicht mit der Europäischen Bankenaufsichtsbehörde (EBA), der EZB, der BaFin oder den dargestellten Instituten verbunden, von ihnen betrieben oder genehmigt. EBA-Logos werden nicht als App-Branding verwendet.",
+      "independence_text": "Privates, unabhängiges, nichtkommerzielles, investigatives Analyse- und Experimentalprojekt. Nicht mit EBA, EZB, BaFin oder den dargestellten Instituten verbunden oder von ihnen genehmigt.",
       "independence_title": "Unabhängigkeit",
       "local_badge": "Öffentliche Fassung · technisch verifiziert · Human Reviews offen",
       "privacy_basis": "Bei einer freiwilligen Kontaktaufnahme per E-Mail werden die übermittelten personenbezogenen Daten nur zur Bearbeitung des Anliegens verarbeitet; hierfür gilt die normale DSGVO, soweit anwendbar. Eine journalistische Sonderregelung nach Art. 85 DSGVO/BlnDSG wird nicht pauschal für sämtliche Verarbeitungsvorgänge vorausgesetzt.",
-      "privacy_editorial": "Die öffentliche Fassung enthält rollenbezogene Vergütungsverhältnisse aus primären Unternehmensberichten. Direkte Personennamen und Personen-IDs werden in der ausgelieferten Säule-B-Payload nicht bereitgestellt. Rollenbezug kann dennoch indirekte Identifizierbarkeit ermöglichen. Die finale menschliche Legal-/Datenschutz-Einzelfallprüfung bleibt ausdrücklich offen.",
+      "privacy_editorial": "Individuelle Vergütungswerte und ESRS-Höchstverdiener-Verhältniszahlen sind in den aktuellen öffentlichen Datenprojektionen zurückgehalten. Verbleibende Unternehmensaggregate und historische Metadaten erfordern weiterhin eine kontextbezogene Prüfung. Eine endgültige Datenschutzfreigabe wird nicht behauptet.",
       "privacy_future": "GitHub weist für GitHub Pages darauf hin, dass beim Seitenabruf die IP-Adresse des Besuchers zu Sicherheitszwecken protokolliert und gespeichert wird. Nach der GitHub-Datenschutzerklärung können außerdem technische Nutzungs-, Geräte-, Sitzungs- und Requestdaten verarbeitet werden. Die App selbst erstellt keine Besucherprofile und betreibt kein eigenes Tracking.",
       "privacy_local": "Diese öffentliche Fassung wird als statische Website über GitHub Pages unter thomas.autark-data.org/finanztransparenz/ bereitgestellt. Die App selbst setzt keine Cookies, verwendet keine Analytics- oder Tracking-Skripte und lädt im normalen Betrieb keine externen Laufzeitressourcen. Sprachwahl, Filter und Dialoge werden ausschließlich im Browser ausgeführt und von der App nicht gespeichert.",
       "privacy_title": "Datenschutz & Hosting",
@@ -185,11 +214,11 @@
       "correction_title": "Correction, challenge & counterstatement",
       "editorial_text": "The app follows a documented editorial line: primary-source verification, separation of source facts from derivations, no composite risk grade, explicit comparability limits, and a traceable correction/contest path. These standards document working practice; they do not themselves establish the applicability of a journalistic derogation.",
       "editorial_title": "Editorial standards",
-      "independence_text": "Private, independent research and transparency project. Not affiliated with, operated by or endorsed by the European Banking Authority (EBA), the ECB, BaFin or the institutions shown. EBA logos are not used as app branding.",
+      "independence_text": "Private, independent, non-commercial investigative analysis and experimental project. Not affiliated with, operated or endorsed by EBA, ECB, BaFin or the institutions shown.",
       "independence_title": "Independence",
       "local_badge": "Public edition · technically verified · human reviews outstanding",
       "privacy_basis": "If you voluntarily contact the publisher by email, the personal data you send are processed only to handle that communication; ordinary GDPR rules apply where applicable. A journalistic special regime under GDPR Article 85/Berlin law is not assumed as a blanket exemption for all processing.",
-      "privacy_editorial": "The public edition includes role-linked remuneration ratios from primary corporate reports. Direct person names and person IDs are not served in the Pillar-B public payload. Role context may still allow indirect identifiability. Final human legal/privacy case review is explicitly still outstanding.",
+      "privacy_editorial": "Individual remuneration amounts and ESRS highest-paid ratios are withheld from the current public data projections. Remaining company aggregates and historical metadata require contextual review; no final privacy clearance is claimed.",
       "privacy_future": "GitHub states that when a GitHub Pages site is visited, the visitor's IP address is logged and stored for security purposes. GitHub's privacy statement also describes processing of technical service-usage, device, session and request information. The app itself creates no visitor profiles and operates no first-party tracking.",
       "privacy_local": "This public edition is served as a static website through GitHub Pages at thomas.autark-data.org/finanztransparenz/. The app itself sets no cookies, uses no analytics or tracking scripts, and loads no external runtime resources during normal operation. Language selection, filters and dialogs run entirely in the browser and are not stored by the app.",
       "privacy_title": "Privacy & hosting",

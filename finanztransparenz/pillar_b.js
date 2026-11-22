@@ -1,39 +1,37 @@
 "use strict";
 (() => {
   const METRIC_ESRS="PILLAR_B_ESRS_HIGHEST_PAID_TO_MEDIAN";
-  const METRIC_CTX="PILLAR_B_CEO_TO_AVERAGE_FTE_SECTION162";
   const DB_ENTITY="58091005-f8fd-51fa-917c-e44529559a63";
-  const CBK_ENTITY="cbc3d4ee-0fe2-57fd-9be8-050291cb9c39";
   const TXT={
     de:{eyebrow:"Säule B · Vergütung & Pay Ratio",title:"Vergütungsverhältnisse — getrennte Definitionen, sichtbare Grenzen",
-    intro:"Zwei bewusst getrennte Kennzahlfamilien: ESRS S1-16 (höchstbezahlte Person / Median) und ein eigener §162-Kontextquotient (CEO-Vergütung / durchschnittliche FTE-Vergütung). Sie werden nicht ineinander umgerechnet oder zu einem Gesamtscore verschmolzen.",
-    warningTitle:"Role-only Public-Payload · Human Review offen",warning:"Vergütungsangaben werden öffentlich nur rollenbezogen dargestellt. Direkte Personennamen und Personen-IDs sind aus der ausgelieferten Säule-B-Payload entfernt; indirekte Identifizierbarkeit bleibt möglich. Die finale menschliche Legal-/Datenschutz-Einzelfallprüfung ist ausdrücklich noch offen.",
-    source:"15 hashgebundene Primärquellen",evidence:"47 E4-Observations",definitions:"2 getrennte Headline-Definitionen",
-    esrsTitle:"ESRS S1-16 · höchste Vergütung / Median",esrsDef:"Direkt berichtete Verhältniszahl. „Höchstbezahlte Person“ ist nicht automatisch CEO.",
-    ctxTitle:"§162 · CEO / durchschnittliche FTE-Vergütung",ctxDef:"Eigener kontextueller Quotient; kein gesetzlicher Like-for-like-Pay-Ratio.",
+    intro:"Die ESRS-S1-16-Höchstverdiener-Verhältniszahlen werden in dieser öffentlichen Projektion zurückgehalten. Individuelle CEO-/Vorstandsvergütungen und CEO/FTE-Kontextquotienten sind hier zurückgehalten; historische Forschungsnachweise bleiben unverändert.",
+    warningTitle:"Role-only Public-Payload · Human Review offen",warning:"Individuelle CEO- und Vorstandsvergütungen sowie CEO/FTE-Quoten werden in dieser öffentlichen Fassung nicht ausgeliefert. ESRS-Höchstverdiener-Quoten werden ebenfalls zurückgehalten; ausschließlich verbleibende FTE-Unternehmensaggregate sind enthalten. Direkte Personennamen und Personen-IDs sind aus der ausgelieferten Säule-B-Payload entfernt; indirekte Identifizierbarkeit bleibt möglich. Die finale menschliche Legal-/Datenschutz-Einzelfallprüfung ist ausdrücklich noch offen.",
+    source:"15 hashgebundene Primärquellen",evidence:"11 E4-Observations",definitions:"1 öffentliche Headline-Definition",
+    esrsTitle:"ESRS S1-16 · Verhältniswerte zurückgehalten",esrsDef:"Zur Datenminimierung wird keine Verhältniszahl öffentlich ausgegeben.",
+    
     unsupported:"Säule-B-Pilot derzeit nur für Deutsche Bank und Commerzbank.",suppression:"2024 unterdrückt",
-    suppressionWhy:"Kein einzelner Volljahres-CEO-Zähler: CEO-Wechsel im Jahr; keine synthetische Jahreszahl.",
+    
     detail:"Audit-Detail",personGate:"Rollenbezogene Vergütungsdaten · Review erforderlich",ratio:"Verhältnis",numerator:"Zähler",denominator:"Nenner",
     person:"Person",role:"Rolle",basis:"Vergütungsbasis",assertion:"Assertion",evidenceLevel:"Evidence",sourceDoc:"Quelle",sourceHash:"SHA-256",
     sourcePages:"Seiten",method:"Methode",caveats:"Methodische Hinweise",highestPaidCEO:"Höchstbezahlte Person = CEO?",
     yes:"ja",no:"nein",unknown:"nicht festgestellt",
     dbRestatement:"Deutsche Bank: 2020/2021 FTE-Durchschnittswerte folgen der ausdrücklich revidierten Fassung des 2022er Berichts; ältere Werte bleiben nur Auditkontext.",
-    cbk2024:"Commerzbank 2024: kein numerischer CEO/FTE-Quotient. Die Suppression ist selbst Teil des Evidenzmodells.",
+    
     provenance:"15 Primärquellen · E4 · Role-only Public-Payload · quellengebunden",multiple:"×"},
     en:{eyebrow:"Pillar B · remuneration & pay ratio",title:"Remuneration ratios — separate definitions, visible limits",
-    intro:"Two deliberately separate metric families: ESRS S1-16 (highest-paid individual / median) and a separate §162 contextual ratio (CEO remuneration / average FTE remuneration). They are not converted into one another or merged into a composite score.",
-    warningTitle:"Role-only public payload · human review outstanding",warning:"Public remuneration detail is shown by role only. Direct person names and person IDs are removed from the served Pillar-B payload; indirect identifiability may remain. Final human legal/privacy case review is explicitly still outstanding.",
-    source:"15 hash-bound primary sources",evidence:"47 E4 observations",definitions:"2 separate headline definitions",
-    esrsTitle:"ESRS S1-16 · highest-paid / median",esrsDef:"Directly reported ratio. “Highest-paid individual” is not automatically the CEO.",
-    ctxTitle:"§162 · CEO / average FTE remuneration",ctxDef:"Separate contextual ratio; not a statutory like-for-like pay ratio.",
+    intro:"ESRS S1-16 highest-paid remuneration ratios are withheld in this public projection. Individual executive remuneration and CEO/FTE contextual ratios are withheld; historical research evidence remains unchanged.",
+    warningTitle:"Role-only public payload · human review outstanding",warning:"Individual CEO and executive compensation amounts and CEO/FTE ratios are withheld in this public projection. ESRS highest-paid ratios are also withheld; remaining employee-FTE corporate aggregates are source-reported. Direct person names and person IDs are removed from the served Pillar-B payload; indirect identifiability may remain. Final human legal/privacy case review is explicitly still outstanding.",
+    source:"15 hash-bound primary sources",evidence:"11 E4 observations",definitions:"1 public headline definition",
+    esrsTitle:"ESRS S1-16 · ratios withheld",esrsDef:"Ratio values are withheld from this public edition.",
+    
     unsupported:"Pillar-B pilot currently covers Deutsche Bank and Commerzbank only.",suppression:"2024 suppressed",
-    suppressionWhy:"No single full-year CEO numerator: CEO changed during the year; no synthetic annual number.",
+    
     detail:"Audit detail",personGate:"Role-based remuneration data · review required",ratio:"Ratio",numerator:"Numerator",denominator:"Denominator",
     person:"Person",role:"Role",basis:"Remuneration basis",assertion:"Assertion",evidenceLevel:"Evidence",sourceDoc:"Source",sourceHash:"SHA-256",
     sourcePages:"Pages",method:"Method",caveats:"Methodological caveats",highestPaidCEO:"Highest-paid individual = CEO?",
     yes:"yes",no:"no",unknown:"not established",
     dbRestatement:"Deutsche Bank: 2020/2021 average-FTE values use the explicit restatement in the 2022 report; superseded values remain audit context only.",
-    cbk2024:"Commerzbank 2024: no numeric CEO/FTE ratio. The suppression is itself part of the evidence model.",
+    
     provenance:"15 primary sources · E4 · role-only public payload · source-bound",multiple:"×"}
   };
   let data=null,contract=null;
@@ -52,15 +50,10 @@
   const payExtMap=()=>new Map((data?.pay_ratio_extension||[]).map(x=>[x.observation_id,x]));
   const byId=()=>new Map((data?.observations||[]).map(x=>[x.observation_id,x]));
   const obs=(eid,mid)=>(data?.observations||[]).filter(x=>x.entity_id===eid&&x.metric_id===mid).sort((a,b)=>a.reference_date.localeCompare(b.reference_date));
-  const suppression=eid=>(data?.suppressions||[]).find(x=>x.entity_id===eid&&x.metric_id===METRIC_CTX);
 
   function headlineCard(title,defn,recs,kind,eid){
     const periods=recs.map(r=>`<button type="button" class="pb-period" data-pb-oid="${esc(r.observation_id)}"><small>${esc(year(r.reference_date))}</small><strong>${esc(fmtRatio(r.numeric_value))}</strong><span>${esc(r.assertion_level)}</span></button>`);
-    if(kind==="contextual"){
-      const s=suppression(eid);
-      if(s)periods.push(`<div class="pb-period suppressed" data-pb-suppression="${esc(s.suppression_id)}"><small>${esc(year(s.reference_date))}</small><strong>${esc(t("suppression"))}</strong><span>${esc(t("suppressionWhy"))}</span></div>`);
-    }
-    return `<article class="pb-card" data-pb-kind="${esc(kind)}"><header><div><h3>${esc(title)}</h3><p class="pb-definition">${esc(defn)}</p></div><span class="pb-badge">E4</span></header><div class="pb-periods">${periods.join("")||`<div class="pb-empty">—</div>`}</div>${kind==="contextual"?`<div class="pb-method-note">${esc(t("ctxDef"))}</div>`:""}</article>`;
+    return `<article class="pb-card" data-pb-kind="${esc(kind)}"><header><div><h3>${esc(title)}</h3><p class="pb-definition">${esc(defn)}</p></div><span class="pb-badge">E4</span></header><div class="pb-periods">${periods.join("")||`<div class="pb-empty">—</div>`}</div></article>`;
   }
 
   function detail(r){
@@ -99,12 +92,11 @@
     sec.querySelector("[data-pb-warning]").innerHTML=`<strong>${esc(t("warningTitle"))}</strong>${esc(t("warning"))}`;
     const entity=currentEntity();
     if(!entity){panel.innerHTML=`<div class="pb-empty">${esc(t("unsupported"))}</div>`;notes.innerHTML=`<div class="pb-audit-note">${esc(t("provenance"))}</div>`;return;}
-    const esrs=obs(entity.entity_id,METRIC_ESRS),ctx=obs(entity.entity_id,METRIC_CTX);
-    panel.innerHTML=[headlineCard(t("esrsTitle"),t("esrsDef"),esrs,"esrs",entity.entity_id),headlineCard(t("ctxTitle"),t("ctxDef"),ctx,"contextual",entity.entity_id)].join("");
+    const esrs=obs(entity.entity_id,METRIC_ESRS);
+    panel.innerHTML=headlineCard(t("esrsTitle"),t("esrsDef"),esrs,"esrs",entity.entity_id);
     panel.querySelectorAll("button.pb-period[data-pb-oid]").forEach(btn=>btn.addEventListener("click",()=>detail(byId().get(btn.dataset.pbOid))));
     const extra=[];
     if(entity.entity_id===DB_ENTITY)extra.push(t("dbRestatement"));
-    if(entity.entity_id===CBK_ENTITY)extra.push(t("cbk2024"));
     extra.push(t("provenance"));
     notes.innerHTML=extra.map(x=>`<div class="pb-audit-note">${esc(x)}</div>`).join("");
   }

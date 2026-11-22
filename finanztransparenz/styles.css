@@ -106,3 +106,20 @@ button.pb-period:hover,button.pb-period:focus-visible{border-color:currentColor;
 .pillar-return{margin-top:42px;border-left-color:rgba(167,139,250,.55);background:rgba(167,139,250,.035)}
 .pc-scope-note{margin:14px 0 18px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--soft);color:var(--muted);font-size:.84rem;line-height:1.55}
 @media(max-width:900px){.pillar-nav{grid-template-columns:1fr}.pillar-nav-card{min-height:0}.pillar-section-lead{margin-top:26px}}
+
+
+/* E31 final mobile layout: keep full provenance and P3DH data visible, no global clipping.
+   Verified cause in Mac forensic run: minimum-width P3DH period tracks and unwrapped topbar actions. */
+@media (max-width:600px) {
+  .topbar { flex-wrap:wrap; gap:10px; align-items:flex-start; }
+  .topbar .brand { min-width:0; max-width:100%; }
+  .topbar .actions { flex:1 1 100%; min-width:0; display:flex; flex-wrap:wrap; justify-content:flex-start; }
+  .topbar .actions .button { white-space:normal; overflow-wrap:anywhere; }
+  .p3dh-grid, .p3dh-scale-card, .p3dh-scale-card .p3dh-card-head { min-width:0; }
+  .p3dh-scale-card .p3dh-card-head { flex-wrap:wrap; }
+  .p3dh-scale-card .coverage-chip { max-width:100%; white-space:normal; overflow-wrap:anywhere; }
+  .p3dh-historical-reference { flex-wrap:wrap; overflow-wrap:anywhere; }
+  .p3dh-period-strip { grid-template-columns:minmax(0,1fr); }
+  .p3dh-period-strip > *, .p3dh-period { min-width:0; overflow-wrap:anywhere; }
+  .p3dh-framework-boundary { min-height:36px; }
+}

@@ -3,15 +3,44 @@
   "classification": "PUBLIC_ROLE_ONLY_UI_CONTRACT",
   "contains_personal_data": true,
   "direct_person_identifiers_in_public_payload": false,
+  "e17_minimization_review": {
+    "indirect_esrs_identifiability_open": true,
+    "individual_amounts_withheld": 32,
+    "legal_review_open": true,
+    "status": "NONAPPLIED_NOT_A_RELEASE"
+  },
+  "e18_public_projection_review": {
+    "active_metric_definitions": 2,
+    "indirect_identifiability_still_open": true,
+    "publication_authority": "NOT_GRANTED",
+    "referenced_comparability_profiles": 4,
+    "reviewed_public_pillar_b_sha256": "4dc5a2ed5cfb7eeec6981dbd90fdf4ebf2996cc1c5ebfb97ce1320c41936a702",
+    "scope": "NONAPPLIED_ONLY",
+    "source_snapshot_sha256_is_historical_evidence_not_current_public_payload": true
+  },
+  "e25_minimised_public_scope": {
+    "current_pillar_b_observations": 15,
+    "esrs_and_fte_indirect_identifiability_needs_human_review": true,
+    "historical_metric_codes_are_not_republished_in_this_contract": true,
+    "individual_remuneration_observations_withheld": 32,
+    "no_publication_authority_conferred_by_this_field": true,
+    "source_rights_and_personal_data_review_remain_separate": true
+  },
+  "e31_public_ratio_minimization_nonapplied": {
+    "fte_average_values_retained": 11,
+    "highest_paid_esrs_ratio_observations_public": 0,
+    "rights_or_privacy_release_attested": false,
+    "source_data_history_not_deleted": true
+  },
   "e5_release_verified": false,
   "headline_metrics": [
-    "PILLAR_B_ESRS_HIGHEST_PAID_TO_MEDIAN",
-    "PILLAR_B_CEO_TO_AVERAGE_FTE_SECTION162"
+    "PILLAR_B_ESRS_HIGHEST_PAID_TO_MEDIAN"
   ],
   "indirect_identifiability_still_treated_as_personal_data": true,
   "personal_data_review_required": true,
   "public_identity_representation": "ROLE_ONLY",
   "public_release_enabled": true,
+  "publication_decision": "PUBLISHED_BY_PUBLISHER_DECISION_WITH_OUTSTANDING_HUMAN_REVIEW",
   "rules": {
     "cbk_2024_numeric_ratio_forbidden": true,
     "cbk_2024_suppression_required": true,
@@ -30,6 +59,7 @@
     "show_source_sha256_in_detail": true
   },
   "schema": "PILLAR_B_PUBLIC_UI_CONTRACT_V1",
+  "source_reuse_final_review_required": true,
   "source_schema_version": "0.8.1-build11m",
   "source_snapshot_schema": "PILLAR_B_INTERNAL_READMODEL_V1",
   "source_snapshot_sha256": "6b45290b3c09c526b765f8e9ce09fe601acaeefd834de8f9cb2fb2465e43dd8b",
@@ -37,7 +67,5 @@
     "7LTWFZYICNSX8D621K86": "Deutsche Bank AG",
     "851WYGNLUQLFZBSYGB56": "Commerzbank AG"
   },
-  "publication_decision": "PUBLISHED_BY_PUBLISHER_DECISION_WITH_OUTSTANDING_HUMAN_REVIEW",
-  "technical_publication_verified": true,
-  "source_reuse_final_review_required": true
+  "technical_publication_verified": true
 }

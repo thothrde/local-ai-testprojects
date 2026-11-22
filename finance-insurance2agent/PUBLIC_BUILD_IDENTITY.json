@@ -47,9 +47,55 @@
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS",
     "whole_site_regeneration": false
   },
-  "current_capability_evidence_sha256": "1a2197dff0aa13a6d3a0edeb6f6d90e8f9e9f65e5e91d76e1254eecce59f58ac",
-  "current_public_snapshot_refresh": "R38_20261023_CANONICAL_80311d6c",
-  "current_validation_report_sha256": "808a9412ccc8ff36c71dca0868384a6eb0427fe1f09c79ac0360c40b886bb37c",
+  "current_capability_evidence_sha256": "5e544f4dc31fe9038336d9c970b4b0ed473d8211d8dce5fdfaa3788b5b84c547",
+  "current_release_gate": "RELEASE_NO_GO_PENDING_UX15_CAP31_V3_AND_INDEPENDENT_E01_E04_OWNER_DECISION",
+  "current_validation_report_sha256": "ffa84c96d809ca081b4f953803f830f462579a18137de08f7a01a611a675aa99",
+  "e17_e04_minimization_review": {
+    "both_apps_in_scope": true,
+    "canonical_source_db_unchanged": true,
+    "current_candidate_snapshot_sha256": "16333b3a1a89525bfd12a74fc9baf9417df2ca557e910a132bdbc469f3b38c20",
+    "db_sha256_scope": "HISTORICAL_CANONICAL_NOT_MINIMIZED_PUBLIC_DERIVATIVE",
+    "does_not_authorize_deployment": true,
+    "historic_r37_r38_and_r5b_attestations_unmodified": true,
+    "status": "NONAPPLIED_REVIEW_ONLY"
+  },
+  "e18_e04_review_nonapplied": {
+    "e17_mac_candidate_sha256": "161d2965531c055ca56c770aee8a907ca7d1da065613138e70e7ac722ee65133",
+    "first_app_sha256": "16333b3a1a89525bfd12a74fc9baf9417df2ca557e910a132bdbc469f3b38c20",
+    "historic_e17_and_r38_pins_preserved_in_historic_scopes": true,
+    "owner_go": false,
+    "second_app_sha256": "4dc5a2ed5cfb7eeec6981dbd90fdf4ebf2996cc1c5ebfb97ce1320c41936a702",
+    "status": "NO_GO_REVIEW_ONLY"
+  },
+  "e25_e04_public_scope": {
+    "does_not_authorize_deployment": true,
+    "historical_release_audits_are_not_current_release_authority": true,
+    "indirect_personal_data_e04_review_outstanding": true,
+    "scope": "MINIMIZED_PUBLIC_PROJECTION_NOT_RUNTIME_GENAI",
+    "source_families_e01_review_outstanding": true,
+    "underlying_e18_app1_snapshot_unchanged": true
+  },
+  "e31_audit_fix_20261122_nonapplied": {
+    "candidate_app1_observations": 7801,
+    "candidate_pillar_b_observations": 11,
+    "candidate_pillar_c_observations": 184,
+    "requires_ux15_cap31_v3": true,
+    "source_rights_retain_residual_uncertainty": true,
+    "status": "PATCHED_NONAPPLIED"
+  },
+  "e31_e01_e04_successor_nonapplied": {
+    "no_legal_attestation": true,
+    "public_observations": 7801,
+    "retained_sources": 279,
+    "scope": "E04_ESRS_RATIO_WITHHELD;E01_RISK_DISPOSITION_RECORDED",
+    "snapshot_sha256": "f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157",
+    "status": "BYTE_BOUND_CANDIDATE_NOT_DEPLOYED"
+  },
+  "e31_successor_reconciliation_nonapplied": {
+    "not_an_independent_release_certificate": true,
+    "reference_refresh_only": true,
+    "scope": "E31_APP_ONLY_NONAPPLIED"
+  },
   "external_runtime_resources": false,
   "fi3_hold_amount_public_hardening": {
     "base_public_head": "10e12517ba95225e3b0a28810e20e8c06cce5ed0",
@@ -95,7 +141,6 @@
     "required_independent_delta_pass_token": "PASS_INDEPENDENT_FINANCE_INSURANCE2AGENT_GUIDED_UX_TERMINOLOGY_FINAL_HARDENING_DELTA_20261021",
     "status": "LOCAL_AND_REMOTE_RC_GATES_REQUIRED__NARROW_INDEPENDENT_DELTA_AUDIT_REQUIRED"
   },
-  "generated_at_utc": "2026-10-23T23:05:00Z",
   "generative_ai_at_runtime": false,
   "guided_ux_v1_20261020": {
     "app_js_sha256": "0b6cd8619fd7061b07639dc682d3c87c95e0f810bdf677843b21c69fa0011768",
@@ -290,6 +335,17 @@
     "safari_status_token": "PASS_FINANCE_INSURANCE2AGENT_GUIDED_UX_V1_RECOVERY3_AUTOMATED_SAFARI_INPAGE_VERIFICATION_RECOVERY2",
     "second_ai_used": false,
     "status": "PASS_AUTOMATED_REAL_SAFARI_RECOVERY3_CLOSURE"
+  },
+  "historic_generated_at_utc_20261023": "2026-10-23T23:05:00Z",
+  "historic_public_release_gate_20261023": "PUBLIC_GAME_LINK_UI_BOUNDED_RELEASE_READY_FOR_ATOMIC_EXECUTION_AFTER_LIVE_BASELINE_CHECK",
+  "historic_public_snapshot_refresh_20261023": "R38_20261023_CANONICAL_80311d6c",
+  "historic_standing_validators_20261023": {
+    "validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
+    "validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
+    "validate_public_data_release.py": "d60ad7d5c5688789f4f3463f3df6b4a13cb75cac32acf52b8ea63fcdd6fa34bb",
+    "validate_public_static_common_date.py": "491dd5f8b9dd0f6579e0f2fba7aa4fc3f0cd3589ddb9f44dd3371378557cfe59",
+    "validate_v2a_guided_explainer.py": "b496e20b1372d4d00d2d61ff98060c6078f82710cf6380bf60995507bcda3ceb",
+    "validate_v2b_semantic_invariants.py": "65bebe38d32669aab3a65782a40c7e6169b1a807c5b00377c82668a71ad8b554"
   },
   "implemented_capabilities": [
     {
@@ -658,7 +714,6 @@
     "second_ai_gate_required": true,
     "status": "RECOVERY1_SCRATCH_CANDIDATE_PENDING_INDEPENDENT_DELTA_REAUDIT"
   },
-  "public_release_gate": "PUBLIC_GAME_LINK_UI_BOUNDED_RELEASE_READY_FOR_ATOMIC_EXECUTION_AFTER_LIVE_BASELINE_CHECK",
   "public_scope_text_research_alignment_20261018": {
     "new_public_capability": false,
     "presentation_only": true,
@@ -1013,14 +1068,6 @@
     "source_fi_staging_sha256": "649a44182a54e01a9d80a9a8d4b4a1da5efe9ed27f825de2ba5fd3e1e51b8281",
     "ui_recovery2_result_sha256": "e1cec951c1c6be16f4da51a3b8cb85b276315b3579c35bc8a163d59ee2064c9a",
     "validation_report_sha256": "e8b8ad711e5598c4913902719d7feaf4072147053088a84ac7b8e1f70daab9a8"
-  },
-  "standing_validators": {
-    "validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
-    "validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
-    "validate_public_data_release.py": "d60ad7d5c5688789f4f3463f3df6b4a13cb75cac32acf52b8ea63fcdd6fa34bb",
-    "validate_public_static_common_date.py": "491dd5f8b9dd0f6579e0f2fba7aa4fc3f0cd3589ddb9f44dd3371378557cfe59",
-    "validate_v2a_guided_explainer.py": "b496e20b1372d4d00d2d61ff98060c6078f82710cf6380bf60995507bcda3ceb",
-    "validate_v2b_semantic_invariants.py": "65bebe38d32669aab3a65782a40c7e6169b1a807c5b00377c82668a71ad8b554"
   },
   "v2a_guided_research_20261023": {
     "app_js_sha256": "65d9530f430401ccbc360cb8bf813b703e6161ea409678b3ea4172b0df43deed",

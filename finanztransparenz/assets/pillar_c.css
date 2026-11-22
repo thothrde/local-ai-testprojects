@@ -34,3 +34,7 @@
   .pc-audit-grid { grid-template-columns:1fr; }
   .pc-audit-grid dt { margin-top:.4rem; }
 }
+
+/* E31 MOBILE: permit the Pillar-C snapshot SHA-256 in its source panel to
+   wrap at arbitrary characters. Preserve scrollable tables and full hash. */
+#pillarCRoot .pc-panel code { overflow-wrap:anywhere; word-break:break-word; white-space:normal; }

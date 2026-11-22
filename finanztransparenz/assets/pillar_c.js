@@ -2,7 +2,7 @@
   "use strict";
 
   const EXPECTED_SCHEMA = "PILLAR_C_PUBLIC_READMODEL_V1";
-  const EXPECTED_SHA256 = "72430d7cece4855b2e5705dc8bf69ade56b90072994e6d74efa09ce11ef71f44";
+  const EXPECTED_SHA256 = "d8bdbd821ce7590ed7eb9c9b6879502dd7d7424f969b75e94528c509135b43ad";
   const DATA_URL = "data/pillar_c_public_readmodel.json";
 
   const T = {
@@ -28,8 +28,8 @@
       renewables: "Erneuerbare-Energien-Ziel",
       reached: "laut Quelle erreicht",
       climateCaveat: "Die 59,5 % sind der von Munich Re berichtete Wert nach der Climate-Ambition-2025-Methodik. Bei Nominalwerten für Schuldinstrumente wären es 57,2 %. Immobilienemissionen 2025 waren zum Veröffentlichungszeitpunkt teilweise approximiert.",
-      remuneration: "ESRS Vergütungsverhältnis",
-      remunerationNote: "Höchstbezahlte Person / Median der jährlichen Gesamtvergütung aller Beschäftigten. Die öffentliche Detaildarstellung bleibt rollenbezogen; die finale menschliche Legal-/Datenschutzprüfung bleibt offen.",
+      remuneration: "ESRS-Vergütungsverhältnisse zurückgehalten",
+      remunerationNote: "Die ESRS-Höchstverdiener-Relationen sind in dieser öffentlichen Fassung zurückgehalten.",
       csm: "ERGO · IFRS 17 CSM",
       csmNote: "Contractual Service Margin ist kein Embedded Value und kein Value of New Business.",
       tax: "Munich Re · Tax Transparency 2024",
@@ -44,8 +44,8 @@
       employees: "Beschäftigte",
       notApplicable: "N/A",
       sources: "Quellenbindung",
-      sourcesNote: "11 Primärquellen · 186 SOURCE_FACT/E4-Beobachtungen · Snapshot SHA-256",
-      scopeNote: "Aktuelle Abdeckung: Solvency II, ESRS-Vergütungsverhältnis, Climate Ambition 2025, ERGO IFRS-17-CSM und Munich Re Tax Transparency 2024. Climate Ambition 2030 bleibt als nächster Inhaltscheck offen. EV/VNB wird nur bei belastbarer, konsistenter Serie ergänzt.",
+      sourcesNote: "11 Primärquellen · 184 SOURCE_FACT/E4-Beobachtungen · Snapshot SHA-256",
+      scopeNote: "Aktuelle Abdeckung: Solvency II, Climate Ambition 2025, ERGO IFRS-17-CSM und Munich Re Tax Transparency 2024. Climate Ambition 2030 bleibt als nächster Inhaltscheck offen. EV/VNB wird nur bei belastbarer, konsistenter Serie ergänzt.",
       auditTitle: "Audit- und Quellenbeleg",
       close: "Schließen",
       observation: "Observation-ID",
@@ -84,8 +84,8 @@
       renewables: "Renewable-energy target",
       reached: "reported achieved",
       climateCaveat: "59.5% is Munich Re's reported value under the Climate Ambition 2025 methodology. Using nominal values for debt instruments would yield 57.2%. 2025 direct-real-estate emissions were partly approximated at publication.",
-      remuneration: "ESRS remuneration ratio",
-      remunerationNote: "Highest-paid individual / median annual total remuneration for all employees. Public detail remains role-only; direct person names are not served and final human legal/privacy review remains outstanding.",
+      remuneration: "ESRS remuneration ratios withheld",
+      remunerationNote: "The ESRS highest-paid remuneration ratios are withheld from this public edition.",
       csm: "ERGO · IFRS 17 CSM",
       csmNote: "Contractual Service Margin is not Embedded Value and not Value of New Business.",
       tax: "Munich Re · Tax Transparency 2024",
@@ -100,8 +100,8 @@
       employees: "Employees",
       notApplicable: "N/A",
       sources: "Source binding",
-      sourcesNote: "11 primary sources · 186 SOURCE_FACT/E4 observations · snapshot SHA-256",
-      scopeNote: "Current coverage: Solvency II, ESRS remuneration ratio, Climate Ambition 2025, ERGO IFRS 17 CSM and Munich Re Tax Transparency 2024. Climate Ambition 2030 remains the next content review. EV/VNB will only be added if a robust, consistent series is available.",
+      sourcesNote: "11 primary sources · 184 SOURCE_FACT/E4 observations · snapshot SHA-256",
+      scopeNote: "Current coverage: Solvency II, Climate Ambition 2025, ERGO IFRS 17 CSM and Munich Re Tax Transparency 2024. Climate Ambition 2030 remains the next content review. EV/VNB will only be added if a robust, consistent series is available.",
       auditTitle: "Audit and source evidence",
       close: "Close",
       observation: "Observation ID",
@@ -198,8 +198,6 @@
     const cNow=climateValue(d,"PILLAR_C_MR_FINANCED_GHG_ACTUAL_TCO2E");
     const cSens=climateValue(d,"PILLAR_C_MR_FINANCED_GHG_ALT_NOMINAL_REDUCTION_PERCENT");
     const cRenew=climateValue(d,"PILLAR_C_MR_RENEWABLE_ENERGY_INVESTMENT_TARGET_EUR_M");
-    const rem2025=d.readmodel.remuneration_esrs.find(x=>x.reference_date==="2025-12-31");
-    const rem2024=d.readmodel.remuneration_esrs.find(x=>x.reference_date==="2024-12-31");
     const csm25=d.readmodel.ergo_ifrs17_csm.find(x=>x.reference_date==="2025-12-31");
     const csm24=d.readmodel.ergo_ifrs17_csm.find(x=>x.reference_date==="2024-12-31");
 
@@ -228,9 +226,6 @@
       </div><p class="pc-note">${esc(tr("climateCaveat"))}</p></div>
 
       <div class="pc-grid">
-      <div class="pc-card"><h3>${esc(tr("remuneration"))}</h3><div class="pc-value">${esc(fmtRatio(rem2025.numeric_value))}</div>
-      <div class="pc-delta">${esc(rem2024.reference_date.slice(0,4))}: ${esc(fmtRatio(rem2024.numeric_value))}</div>
-      <p>${esc(tr("remunerationNote"))}</p>${auditButton(rem2025.observation_id)}</div>
       <div class="pc-card"><h3>${esc(tr("csm"))}</h3><div class="pc-value">${esc(fmtEuroM(csm25.numeric_value))}</div>
       <div class="pc-delta">${esc(csm24.reference_date.slice(0,4))}: ${esc(fmtEuroM(csm24.numeric_value))}</div>
       <p>${esc(tr("csmNote"))}</p>${auditButton(csm25.observation_id)}</div></div>
@@ -303,7 +298,7 @@
       const got=await sha256Hex(text);
       if (got!==EXPECTED_SHA256) throw new Error(tr("hashError")+` (${got})`);
       const data=JSON.parse(text);
-      if (data.snapshot_schema!==EXPECTED_SCHEMA || data.audit?.observation_count!==186) throw new Error("snapshot contract");
+      if (data.snapshot_schema!==EXPECTED_SCHEMA || data.audit?.observation_count!==184) throw new Error("snapshot contract");
       state.data=data;indexObservations(data);render();
       globalThis.__ebaBuild11ALPillarC={
         snapshotSha256:got,snapshotSchema:data.snapshot_schema,

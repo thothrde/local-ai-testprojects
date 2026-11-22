@@ -7,12 +7,12 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "app.js": "0685b9dd032da92c724e8b2e54b37847de4ba67e54bb33105ad89edea84b627b",
+    "app.js": "a0913a355c1553713d3eb56ac7ce5e423bb90f4f7446aa421638a0459b6583fd",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_research_workspace_v1.js": "b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f",
-    "data/public_snapshot.js": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
+    "data/public_snapshot.js": "f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157",
     "data/research_context_v1.js": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
-    "index.html": "1308030a8ac7a3740f1b41800dc7118873f03231d6a39d5fb2eaafde8a55d4f6",
+    "index.html": "b858f54b0f8365e47581a0340b848cb2f14b993f456ed5aa6e1881497f54196b",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
     "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
@@ -26,7 +26,7 @@
     "tests/validate_v2b_semantic_invariants.py": "65bebe38d32669aab3a65782a40c7e6169b1a807c5b00377c82668a71ad8b554",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
     "v2a_explainer.js": "9adbebd412cd87328292f5443ec34ec6c79563dcf8ef9aeef0e5d13d94212762",
-    "versionen.html": "43c430903199a361036f0eacdffe27dff13758447e6f244eb5be75c2bf2762a3"
+    "versionen.html": "55de22e3136439681115f80b09498e3f279009abc05498898035cda003e27a99"
   },
   "capability_checks": [
     {
@@ -331,12 +331,12 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "1308030a8ac7a3740f1b41800dc7118873f03231d6a39d5fb2eaafde8a55d4f6",
+    "index.html": "59825e47fbfbfaa33165365da19f694334030bb021af3fb36a037667441d6096",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
     "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
-    "versionen.html": "43c430903199a361036f0eacdffe27dff13758447e6f244eb5be75c2bf2762a3"
+    "versionen.html": "f64c1dba78b479467884afb8d3b98b2ddd5fd78a435708e801c9b9fedb0d9218"
   },
   "core_truth_parity_20261013": {
     "allianz_quality_reference_contract": "AFFECTED_239_AUDIT_ONLY_ABSENT__DERIVED_REPLACEMENT_CURRENT_WITH_EXACT_LINEAGE",
@@ -382,6 +382,52 @@
     "source_database_sha256": "7863537c7e03bc6a7a1fa46dd2a42da103fb4f30bc72914ad16334a87cde4e4a",
     "source_quality_issue_count": 3,
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS"
+  },
+  "e17_e04_minimization_review": {
+    "app1_target_sha256": "16333b3a1a89525bfd12a74fc9baf9417df2ca557e910a132bdbc469f3b38c20",
+    "app2_person_records_withheld": 32,
+    "human_authority": "NOT_GRANTED",
+    "prior_capability_records_historical_only": true,
+    "standing_tests_currently_unadapted": true,
+    "status": "NONAPPLIED_REVIEW_ONLY"
+  },
+  "e18_e04_review_nonapplied": {
+    "app2_definitions": 2,
+    "app2_profiles": 4,
+    "historic_e17_public_data_untouched": true,
+    "independent_audit": "REQUIRED",
+    "linked_second_app_sha256": "4dc5a2ed5cfb7eeec6981dbd90fdf4ebf2996cc1c5ebfb97ce1320c41936a702",
+    "scope": "PUBLIC_REVIEW_DERIVATIVE_ONLY",
+    "status": "NO_GO_REVIEW_ONLY"
+  },
+  "e25_e04_evidence_scope": {
+    "e22_1_current_e18_parent_contracts_passed_but_e25_is_a_new_delta": true,
+    "historic_test_results_not_live_browser_attestations": true,
+    "historical_tests_count": 38,
+    "live_capabilities_31_individual_qa_not_attested": true,
+    "original_20261023_counts_remain_historical": true
+  },
+  "e31_audit_fix_20261122_nonapplied": {
+    "historic_attestations_unchanged": true,
+    "scope": "REPAIR_E04_APP2_RENDER_AND_PUBLIC_COPY",
+    "status": "BYTE_REBOUND_NOT_FULL_UX_ATTESTED"
+  },
+  "e31_e01_e04_successor_nonapplied": {
+    "public_observations": 7801,
+    "review_only": true,
+    "status": "CURRENT_BYTES_REBOUND_NOT_HISTORICAL_TEST_REEXECUTION",
+    "withheld_esrs_observations": 6
+  },
+  "e31_successor_bound_bytes_reconciliation_nonapplied": {
+    "base": "E31_APP_ONLY",
+    "changed_public_byte_bindings": [
+      "data/public_snapshot.js",
+      "index.html",
+      "versionen.html"
+    ],
+    "previous_audit_results_not_reexecuted": true,
+    "release_authorization": false,
+    "status": "TECHNICAL_REFERENCE_RECONCILIATION_ONLY"
   },
   "evidence_scope": "PUBLIC_STATIC_CAPABILITIES_PLUS_SPRINT_A_CONTEXT_PLUS_PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_RECOVERY1__BROADER_LOCAL_RUNTIME_REMAINS_CLOSED",
   "fi3_hold_amount_public_hardening": {
@@ -765,7 +811,7 @@
     "runtime_changed": false,
     "validation_report_sha256": "5700e0496cd92b8973f54ec0694660efe9b87e60da9b87fb87ac9933a3391df4"
   },
-  "public_snapshot_sha256": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
+  "public_snapshot_sha256": "f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
     "baseline_mixed_date_cohort_statistics_previously_possible": true,
@@ -1080,6 +1126,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_ASK_STRUCTURED",
       "result": "PASS"
     },
@@ -1105,6 +1152,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_ASK_FREE_EVIDENCE",
       "result": "PASS"
     },
@@ -1129,6 +1177,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_INSTITUTION_BROWSER",
       "result": "PASS"
     },
@@ -1155,6 +1204,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_COMPARE_PAIR",
       "result": "PASS"
     },
@@ -1180,6 +1230,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_COMPARE_COHORT",
       "result": "PASS"
     },
@@ -1196,6 +1247,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_INVESTIGATE_DOSSIER",
       "result": "PASS"
     },
@@ -1212,6 +1264,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_INVESTIGATE_METRIC_EXPLORER",
       "result": "PASS"
     },
@@ -1228,6 +1281,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_INVESTIGATE_TIME_SERIES",
       "result": "PASS"
     },
@@ -1244,6 +1298,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_INVESTIGATE_COMPONENT_EXPLORER",
       "result": "PASS"
     },
@@ -1260,6 +1315,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_INVESTIGATE_SOURCE_BROWSER",
       "result": "PASS"
     },
@@ -1276,6 +1332,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_INVESTIGATE_OWNERSHIP_GRAPH",
       "result": "PASS"
     },
@@ -1293,6 +1350,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_INVESTIGATE_ROBUST_STATS_FAIL_CLOSED",
       "result": "PASS"
     },
@@ -1309,6 +1367,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_DISCOVER_CANDIDATES",
       "result": "PASS"
     },
@@ -1325,6 +1384,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_DISCOVER_THREADS",
       "result": "PASS"
     },
@@ -1341,6 +1401,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_AUDIT_TRACE",
       "result": "PASS"
     },
@@ -1357,6 +1418,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_AUDIT_EVIDENCE_GRAPH",
       "result": "PASS"
     },
@@ -1380,6 +1442,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_AUDIT_RERUN_STATIC",
       "note": "Static edition recomputes locally; local edition may call the rerun route.",
       "result": "PASS"
@@ -1405,6 +1468,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_AGENT_GUARD",
       "note": "Agent UI/code is shipped for parity but is hidden and execution-guarded in static runtime.",
       "result": "PASS"
@@ -1425,6 +1489,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_SCOPE_DE",
       "result": "PASS"
     },
@@ -1444,6 +1509,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_SCOPE_EN",
       "result": "PASS"
     },
@@ -1460,6 +1526,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_FI2_ROUTE_ABSENT",
       "result": "PASS"
     },
@@ -1475,6 +1542,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_NETWORK_ROUTE_ABSENT",
       "result": "PASS"
     },
@@ -1500,6 +1568,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "LOCAL_FI2_PRESENT",
       "result": "PASS"
     },
@@ -1515,6 +1584,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "LOCAL_NETWORK_PRESENT",
       "result": "PASS"
     },
@@ -1530,6 +1600,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "LOCAL_FI1_PRESENT",
       "result": "PASS"
     },
@@ -1546,6 +1617,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "LOCAL_CASE_WORKFLOW_NOT_CLAIMED",
       "note": "Full hypothesis/counterevidence workflow remains gated.",
       "result": "PASS"
@@ -1587,6 +1659,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_FI3_BOUNDED_CANDIDATE_LAYER",
       "note": "Bounded static FI3 REVIEW/HOLD candidate evidence in INVESTIGATE only; no confirmed edges/signals; REJECT aggregate only.",
       "result": "PASS"
@@ -1613,6 +1686,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_LATEST_DATE_MULTIPLICITY_FAIL_CLOSED",
       "note": "Recovery8: same-date multiplicity is non-scalar; only explicit unresolved governance is labelled conflict; A/B/C/D survey heuristics are not product semantics.",
       "result": "PASS"
@@ -1643,6 +1717,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_STATIC_P3DH_COMMON_DATE_COMPARE",
       "note": "R1: EBA_P3DH static comparison is bound to latest common reference date; no-common-date pairs fail closed; statistics/ranking withheld.",
       "result": "PASS"
@@ -1669,6 +1744,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_SPRINT_A_FI1_BOUNDED_CONTEXT",
       "result": "PASS"
     },
@@ -1699,6 +1775,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_SPRINT_A_FI2_BOUNDED_TED_CONTEXT",
       "result": "PASS"
     },
@@ -1726,6 +1803,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_SPRINT_A_NETWORK_BOUNDED_CONTEXT",
       "result": "PASS"
     },
@@ -1768,6 +1846,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_STATIC_RESEARCH_WORKSPACE_V1_PRESENT",
       "note": "Static read-only curated VWFS+SCOR research cases plus clearly separated synthetic technical demo; no public runtime/API, writer, ranking/rating, DB materialization or user persistence.",
       "result": "PASS"
@@ -1792,16 +1871,19 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_GAME_LINK_UI_VISIBLE_AND_BOUNDED",
       "result": "PASS"
     },
     {
       "evidence": "ChatGPT builder-side deterministic static checks only: JS syntax, duplicate-ID check, DE/EN key parity, five guided-intent cards, six preserved modes, cachebuster and comparability explainer markers. This is not an independent audit.",
+      "historical_evidence_as_of_20261023_only": true,
       "id": "GUIDED_UX_V1_BUILDER_SELFTEST",
       "result": "PASS"
     },
     {
       "evidence": "Builder-side candidate checks: JS syntax, duplicate-ID check, DE/EN key parity markers, metric/entity compare filtering markers, institution-scoped DISCOVER thread marker, guided AUDIT selectors, static Rerun hidden, and Expert→Guided auto-open restoration. No Mac project write and no independent second-AI audit.",
+      "historical_evidence_as_of_20261023_only": true,
       "id": "GUIDED_UX_V1_RECOVERY3_BUILDER_PREFLIGHT",
       "result": "PASS"
     },
@@ -1848,6 +1930,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_V2A_GUIDED_COMPARISON_EXPLAINER",
       "note": "Deterministic public-static guided comparison explanation; semantic reference passed 50 tests, 34,801 real-pair parity and real Safari scratch verification. No public LLM/runtime writer/ranking.",
       "result": "PASS"
@@ -1891,6 +1974,7 @@
           "pass": true
         }
       ],
+      "historical_evidence_as_of_20261023_only": true,
       "id": "PUBLIC_V2B_G2_G3_UNIT_POLICY_INVARIANTS",
       "note": "Closed unit policy uses own-property-safe lookup. The DB-derived 21-unit current domain is fully governed. Standing invariants exercise all 34,542 SINGLE pairs across 20 unknown-unit scenarios including Object.prototype names, case/whitespace variants and blank strings; plus symmetry, value blindness, totality, entity-order independence, ambiguous-row fail-closed behavior, evidence-axis independence, strictness monotonicity and P3DH delegation.",
       "result": "PASS"

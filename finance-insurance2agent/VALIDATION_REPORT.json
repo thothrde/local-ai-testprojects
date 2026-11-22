@@ -86,12 +86,13 @@
   "counts": {
     "entities": 144,
     "metrics": 118,
-    "observations": 7839,
+    "observations": 7801,
     "relations": 7,
     "sources": 279,
     "time_series_decisions": 119
   },
-  "current_capability_evidence_sha256": "1a2197dff0aa13a6d3a0edeb6f6d90e8f9e9f65e5e91d76e1254eecce59f58ac",
+  "current_capability_evidence_sha256": "5e544f4dc31fe9038336d9c970b4b0ed473d8211d8dce5fdfaa3788b5b84c547",
+  "current_release_gate": "RELEASE_NO_GO_PENDING_UX15_CAP31_V3_AND_INDEPENDENT_E01_E04_OWNER_DECISION",
   "current_static_validation": {
     "files": 22,
     "operator_cookies": false,
@@ -101,11 +102,68 @@
     "runtime_external_resource_count": 0,
     "static_snapshot_present": true
   },
+  "current_validation_status": "E31_AUDIT_FIX_20261122_NONAPPLIED_STATIC_INTEGRITY_ONLY_FULL_UX_PENDING",
   "deployment_performed": false,
   "deterministic_double_generation_byte_identical": true,
+  "e17_e04_minimization_review": {
+    "deployment_authorized": false,
+    "new_lineage_count": 3723,
+    "new_observation_count": 7807,
+    "old_7839_attestations_historical_only": true,
+    "public_projection_delta_only": true,
+    "release_audit": "REQUIRED",
+    "status": "NONAPPLIED_REVIEW_ONLY"
+  },
+  "e18_e04_review_nonapplied": {
+    "app2_public_projection_sha256": "4dc5a2ed5cfb7eeec6981dbd90fdf4ebf2996cc1c5ebfb97ce1320c41936a702",
+    "current_six_historical_tests_not_migrated": true,
+    "historic_e17_and_r38_attestations_not_current": true,
+    "owner_go": false,
+    "status": "NO_GO_REVIEW_ONLY"
+  },
+  "e25_e04_public_scope": {
+    "ci_gate_installed": false,
+    "e18_parent_attested": true,
+    "e25_extra_delta_is_not_an_e22_1_attestation": true,
+    "privacy_clearance": false,
+    "release_authority": "NONE",
+    "source_rights_clearance": false
+  },
+  "e31_audit_fix_20261122_nonapplied": {
+    "app2_esrs_ratio_observations": 0,
+    "app2_pillar_b_observations": 11,
+    "app2_pillar_c_observations": 184,
+    "current_app1_observations": 7801,
+    "status": "STATIC_REPAIRED_BROWSER_NOT_YET_ATTESTED"
+  },
+  "e31_e01_e04_successor_nonapplied": {
+    "privacy_or_legal_approval": false,
+    "public_observations": 7801,
+    "status": "CURRENT_DATA_COUNTS_CHECKED_HISTORICAL_TESTS_NOT_REEXECUTED",
+    "withheld_esrs_observations": 6
+  },
+  "e31_successor_reconciliation_nonapplied": {
+    "binding_refresh_only": true,
+    "full_ux15_cap31_v3": "NOT_ATTESTED",
+    "github_protected_gate": "NOT_ATTESTED",
+    "legal_approval": false,
+    "live_deployment": false
+  },
   "exactly_comparable_time_series_decisions": 0,
   "fi_staging_data_unchanged": true,
-  "generated_at_utc": "2026-10-23T23:05:00Z",
+  "historic_public_release_gate_20261023": "PUBLIC_GAME_LINK_UI_BOUNDED_RELEASE_READY_FOR_ATOMIC_EXECUTION_AFTER_LIVE_BASELINE_CHECK",
+  "historic_refresh_scope_20261023": "POSTAUDIT_PUBLIC_QUALITY_POLISH__COMPACT_STATIC_SNAPSHOT__NARROW_UI__STATIC_LOCAL_ONLY_HIDE__CURRENT_RELEASE_LABELS__CACHEBUSTER",
+  "historic_snapshot_generated_at_utc_20261023": "2026-10-23T14:29:49Z",
+  "historic_standing_validators_20261023": {
+    "validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
+    "validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
+    "validate_public_data_release.py": "d60ad7d5c5688789f4f3463f3df6b4a13cb75cac32acf52b8ea63fcdd6fa34bb",
+    "validate_public_static_common_date.py": "491dd5f8b9dd0f6579e0f2fba7aa4fc3f0cd3589ddb9f44dd3371378557cfe59",
+    "validate_v2a_guided_explainer.py": "b496e20b1372d4d00d2d61ff98060c6078f82710cf6380bf60995507bcda3ceb",
+    "validate_v2b_semantic_invariants.py": "65bebe38d32669aab3a65782a40c7e6169b1a807c5b00377c82668a71ad8b554"
+  },
+  "historic_validation_generated_at_utc_20261023": "2026-10-23T23:05:00Z",
+  "historic_validation_status_20261023": "PASS_V2B_G2_G3_SEMANTIC_HARDENING_RECOVERY1_RELEASE_CANDIDATE_SELF_VALIDATION",
   "independent_audit_json_sha256": null,
   "independent_audit_md_sha256": null,
   "independent_audit_status": "REQUIRED_BEFORE_PUBLIC_WRITE",
@@ -181,7 +239,6 @@
     ],
     "status": "RECOVERY1_SCRATCH_CANDIDATE_PENDING_INDEPENDENT_DELTA_REAUDIT"
   },
-  "public_release_gate": "PUBLIC_GAME_LINK_UI_BOUNDED_RELEASE_READY_FOR_ATOMIC_EXECUTION_AFTER_LIVE_BASELINE_CHECK",
   "public_scope_text_research_alignment_20261018": {
     "english_research_scope_added": true,
     "german_research_scope_added": true,
@@ -196,7 +253,7 @@
     "runtime_api_changed": false,
     "status": "PASS_CANDIDATE_STATIC_TEXT_ALIGNMENT"
   },
-  "public_snapshot_sha256": "d4c269c61c929f3e36d2ba3d11e051c96257e41384f4d4246f868fa2fb0afd13",
+  "public_snapshot_sha256": "f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157",
   "public_static_common_date_r1_20261013": {
     "app_js_sha256": "04ef8ff20689bf1c772438b42a42afd0416b390178eeeab28142cc1bbe958c3b",
     "canonical_data_unchanged": true,
@@ -394,9 +451,7 @@
     ],
     "unresolved_conflict_source": "EXPLICIT_SOURCE_QUALITY_GOVERNANCE_ONLY"
   },
-  "refresh_scope": "POSTAUDIT_PUBLIC_QUALITY_POLISH__COMPACT_STATIC_SNAPSHOT__NARROW_UI__STATIC_LOCAL_ONLY_HIDE__CURRENT_RELEASE_LABELS__CACHEBUSTER",
   "runtime_external_resource_count": 0,
-  "snapshot_generated_at_utc": "2026-10-23T14:29:49Z",
   "sprint_a_public_context_20261016": {
     "app_js_sha256": "f132680afe4357f07e10859319e88e3d6fc0855784af0cb455ff8ccbbf4dfe10",
     "base_public_head": "f964050b1163dfb94f347ead19356766697aeadf",
@@ -441,15 +496,6 @@
     "robots_unchanged": true,
     "ui_recovery2_result_sha256": "e1cec951c1c6be16f4da51a3b8cb85b276315b3579c35bc8a163d59ee2064c9a"
   },
-  "standing_validators": {
-    "validate_capability_contract.py": "87c75de1aa77c1fb95666b2b05bda0a8880551cba3a1b5d03a23a1fa95ad9fe2",
-    "validate_fi3_public_projection.py": "a818fb9e4f143f3791c2502b63c7dc8a36623fc21dbad999713e520dd8141b61",
-    "validate_public_data_release.py": "d60ad7d5c5688789f4f3463f3df6b4a13cb75cac32acf52b8ea63fcdd6fa34bb",
-    "validate_public_static_common_date.py": "491dd5f8b9dd0f6579e0f2fba7aa4fc3f0cd3589ddb9f44dd3371378557cfe59",
-    "validate_v2a_guided_explainer.py": "b496e20b1372d4d00d2d61ff98060c6078f82710cf6380bf60995507bcda3ceb",
-    "validate_v2b_semantic_invariants.py": "65bebe38d32669aab3a65782a40c7e6169b1a807c5b00377c82668a71ad8b554"
-  },
-  "status": "PASS_V2B_G2_G3_SEMANTIC_HARDENING_RECOVERY1_RELEASE_CANDIDATE_SELF_VALIDATION",
   "v1_0_1_checks": {
     "autonomous_llm_gate_explained": true,
     "eba_datapoint_locator_visible": true,
