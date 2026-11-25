@@ -11,7 +11,7 @@ import hashlib, json, re
 ROOT = Path(__file__).resolve().parents[2]
 A = ROOT/'finance-insurance2agent'
 B = ROOT/'finanztransparenz'
-SHA = {'finance-insurance2agent/data/public_snapshot.js': 'f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157', 'finance-insurance2agent/data/fi3_public_projection.js': 'fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b', 'finance-insurance2agent/data/research_context_v1.js': '195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92', 'finance-insurance2agent/data/public_research_workspace_v1.js': 'b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f', 'finance-insurance2agent/app.js': 'a0913a355c1553713d3eb56ac7ce5e423bb90f4f7446aa421638a0459b6583fd', 'finance-insurance2agent/index.html': 'b858f54b0f8365e47581a0340b848cb2f14b993f456ed5aa6e1881497f54196b', 'finance-insurance2agent/v2a_explainer.js': '9adbebd412cd87328292f5443ec34ec6c79563dcf8ef9aeef0e5d13d94212762', 'finanztransparenz/data/pillar_b_public.json': 'a3b8d1953dad21b088678d7168abfdd1ca0acf4b172da67bcadbfced302d21d8', 'finanztransparenz/data/pillar_c_public_readmodel.json': 'd8bdbd821ce7590ed7eb9c9b6879502dd7d7424f969b75e94528c509135b43ad', 'finance-insurance2agent/tests/E17_ACTIVE_METRIC_POLICY.json': 'bfe0c314ce4af52800741c4f4468afa3955cc2795385a099a658cdf5e56773a0'}
+SHA = {'finance-insurance2agent/data/public_snapshot.js': 'f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157', 'finance-insurance2agent/data/fi3_public_projection.js': 'fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b', 'finance-insurance2agent/data/research_context_v1.js': '195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92', 'finance-insurance2agent/data/public_research_workspace_v1.js': 'b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f', 'finance-insurance2agent/app.js': 'b01fd00d23bf57d9355d23c25944cf966e59f487aa4927981ca1ad3d88642db2', 'finance-insurance2agent/index.html': '78a7dae70fa487039f42446d4bd36d1c90cf085b442e5c8541618f72baedae5f', 'finance-insurance2agent/v2a_explainer.js': 'da73b043aa01483b9aa8742e9609b699134107220db27e06670cee802333b9a2', 'finanztransparenz/data/pillar_b_public.json': 'a3b8d1953dad21b088678d7168abfdd1ca0acf4b172da67bcadbfced302d21d8', 'finanztransparenz/data/pillar_c_public_readmodel.json': 'd8bdbd821ce7590ed7eb9c9b6879502dd7d7424f969b75e94528c509135b43ad', 'finance-insurance2agent/tests/E17_ACTIVE_METRIC_POLICY.json': 'bfe0c314ce4af52800741c4f4468afa3955cc2795385a099a658cdf5e56773a0'}
 BASE_HEAD = 'c8b6384701310606ef24dd4d9c7485abaad2e921'
 SNAP_PREFIX = b'window.FI2A_PUBLIC_SNAPSHOT='
 FORBIDDEN_PERSON_METRICS = {
@@ -115,7 +115,7 @@ def check_current_integrity():
     require(len(c['readmodel']['munich_re_tax_cbcr'])==28,'PILLAR_C_TAX_ROWS')
     require(sum([len(c['readmodel']['solvency']),len(c['readmodel']['climate_target_vs_actual']),len(c['readmodel']['ergo_ifrs17_csm']),6*len(c['readmodel']['munich_re_tax_cbcr'])])==184,'PILLAR_C_OBS_COUNT')
     i,e,v=current_chain();require(manifest()>=37,'MANIFEST_TOO_SMALL')
-    require(i.get('current_release_gate')=='POSTLIVE_L1_L4_NONAPPLIED_OWNER_GO_REQUIRED','CANDIDATE_RELEASE_GATE')
+    require(i.get('current_release_gate')=='RELEASE_STATUS_REQUIRES_EXTERNAL_GITHUB_PAGES_ATTESTATION','CANDIDATE_RELEASE_GATE')
     return {'observations':7801,'lineage':3723,'pillar_b':11,'pillar_c':184,'manifest':manifest()}
 
 def check_metric_policy():

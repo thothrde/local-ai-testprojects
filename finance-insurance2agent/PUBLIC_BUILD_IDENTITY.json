@@ -47,9 +47,9 @@
     "source_quality_projection_contract": "ONE_EXISTING_EXACT_NORMALIZER_PROJECTION_PLUS_TWO_BOUND_ADDITIONS",
     "whole_site_regeneration": false
   },
-  "current_capability_evidence_sha256": "bb4dc82ed5d5d1ab342d75c6f599e154b8b4d1a525a894269d418f7a214ad3f9",
-  "current_release_gate": "POSTLIVE_L1_L4_NONAPPLIED_OWNER_GO_REQUIRED",
-  "current_validation_report_sha256": "e87a0a6ca4bae5a54beed121b9136ad9208bdbdeb4f64cfae9c2aefdba91c2b1",
+  "current_capability_evidence_sha256": "6adb88ecdf2fa5866d3222d683a91df8172a4f1f8a2898452c3b90b16d227a99",
+  "current_release_gate": "RELEASE_STATUS_REQUIRES_EXTERNAL_GITHUB_PAGES_ATTESTATION",
+  "current_validation_report_sha256": "d48f72ba89b8b9a5a907551baec16ea7a9b97debb9c146f4ceef94202032063b",
   "e17_e04_minimization_review": {
     "both_apps_in_scope": true,
     "canonical_source_db_unchanged": true,
@@ -616,6 +616,16 @@
     "source_datapoint_provenance": "UNCHANGED",
     "sources_changed": 0
   },
+  "multiview_20261125_nonapplied_rebinding": {
+    "current_capability_evidence_sha256": "6adb88ecdf2fa5866d3222d683a91df8172a4f1f8a2898452c3b90b16d227a99",
+    "current_validation_report_sha256": "d48f72ba89b8b9a5a907551baec16ea7a9b97debb9c146f4ceef94202032063b",
+    "historical_l1_l4_evidence_not_rewritten": true,
+    "public_release_authorized": false,
+    "published": false,
+    "schema": "MULTIVIEW_20261125_NONAPPLIED_REBINDING_V1",
+    "source_published_commit": "3e8cffe252bbd5c63e734425ae09b47b5ec60763",
+    "status": "CANDIDATE_ONLY_PENDING_OWNER_GO"
+  },
   "operator_cookies": false,
   "operator_tracking": false,
   "post_fi3_hold_ux_guard_hardening": {
@@ -1165,5 +1175,13 @@
       "NOT_DETERMINABLE": 1127
     },
     "version_history_sha256": "43c430903199a361036f0eacdffe27dff13758447e6f244eb5be75c2bf2762a3"
+  },
+  "multiview_20261125_release_status_guidance": {
+    "schema": "FI2A_MULTIVIEW_RELEASE_STATUS_GUIDANCE_V1",
+    "release_candidate_origin_tree": "ab8a387449d23ffa593104a2d9cc71e821b628ff58d9d95c9db7744f00e4d99f",
+    "publication_status": "NOT_ASSERTED_BY_STATIC_FILE",
+    "verify_with": "GITHUB_MAIN_COMMIT_AND_SUCCESSFUL_PAGES_DEPLOYMENT_AND_LIVE_BYTE_COMPARISON",
+    "historical_candidate_rebinding_status_retained_as_history": true,
+    "this_json_is_not_independent_legal_or_release_approval": true
   }
 }

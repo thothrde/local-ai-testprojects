@@ -251,6 +251,26 @@ function createExplainer(snapshot) {
       ? evaluateP3DH(ra.observations[0],rb.observations[0])
       : evaluateGeneric(ra.observations[0],rb.observations[0]);
   }
+  // Add independent evidence axes without changing the older comparison decision contract.
+  // Locator completeness is NOT completeness of all possible published views.
+  function independentEvidenceAxes(r) {
+    const rows=(r&&r.observations)||[];
+    const traceable=rows.filter(o=>!!o.source_id&&["source_page","source_table","source_datapoint"].every(k=>o[k]!=null&&o[k]!==""));
+    const views=rows.map(o=>{
+      const sd=(o.semantic&&o.semantic.selected_dimensions)||{};
+      return {key:String(sd.view_key||o.semantic?.variant_key||""),kind:String(sd.view_class||"")};
+    });
+    const distinct=rows.length>1 && views.every(v=>!!v.key) && new Set(views.map(v=>v.key)).size===rows.length;
+    const explicit=distinct&&views.some(v=>v.kind==="REGULATORY_PRIMARY")&&views.some(v=>v.kind==="MANAGEMENT_VIEW");
+    return {
+      source_locator_rows:traceable.length,
+      reported_rows:rows.length,
+      source_traceability:rows.length===0?"NO_RECORDED_ROW":traceable.length===rows.length?"ALL_RECORDED_ROWS_LOCATED":"PARTIAL_RECORDED_ROW_LOCATORS",
+      semantic_view_status:r?.state==="UNRESOLVED_CONFLICT"?"UNRESOLVED_CONFLICT":explicit?"DISTINCT_REGULATORY_AND_MANAGEMENT_VIEWS":distinct?"DISTINCT_NAMED_VIEWS":r?.state==="SINGLE"?"ONE_CAPTURED_VIEW":r?.state==="NONE"?"NO_RECORDED_VIEW":"UNRESOLVED_MULTIPLE_ROWS",
+      all_source_variants_captured:"UNKNOWN",
+      scalar_winner_authorized:r?.state==="SINGLE"&&rows.length===1,
+    };
+  }
   function explainComparison(metricCode, entityIds) {
     if (!metricCode || !Array.isArray(entityIds) || entityIds.length < 2) throw new Error("INVALID_COMPARE_INPUT");
     const ids=[...entityIds];
@@ -278,7 +298,8 @@ function createExplainer(snapshot) {
       entity_ids:ids,
       selected_reference_date:commonDate,
       resolutions,
-      evidence,
+      evidence, // Legacy status retained for historical contracts, not a source-coverage ranking.
+      evidence_axes:resolutions.map((r,i)=>({entity_id:ids[i],...independentEvidenceAxes(r)})),
       pairwise:pairs,
       overall_verdict:overall,
       ranking_authorized:false,
@@ -292,6 +313,7 @@ function createExplainer(snapshot) {
     resolveEvidenceAtDate,
     latestCommonReferenceDate,
     evidenceStatusForResolution,
+    independentEvidenceAxes,
     evaluateGeneric,
     evaluateP3DH,
     evaluateResolvedPair,

@@ -7,19 +7,19 @@
   "bound_public_bytes": {
     "FI3_PUBLIC_BUILD_IDENTITY.json": "2da1a2669fd683f73706be761b59ce0cd2c6d94e8fc14ed77555ed23b37d17b7",
     "FI3_VALIDATION_REPORT.json": "27e59013918badf0625fb8a2859004f1e27637cb6fd4154ea3eaca32068e4e99",
-    "app.js": "a0913a355c1553713d3eb56ac7ce5e423bb90f4f7446aa421638a0459b6583fd",
+    "app.js": "b01fd00d23bf57d9355d23c25944cf966e59f487aa4927981ca1ad3d88642db2",
     "data/fi3_public_projection.js": "fc19a136a40cf97fe2b22d975567fda9e8ac663ea2086398fce0aca2cea7b30b",
     "data/public_research_workspace_v1.js": "b47a0ce5b4c914fab22783f0296dcd0a8373ec7acd43b9aa2e607af1ba68f02f",
     "data/public_snapshot.js": "f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157",
     "data/research_context_v1.js": "195bc22c51a392baf1a237b16bb56c12471a0456a76b99e5452eaae6ccf10f92",
-    "index.html": "b858f54b0f8365e47581a0340b848cb2f14b993f456ed5aa6e1881497f54196b",
+    "index.html": "78a7dae70fa487039f42446d4bd36d1c90cf085b442e5c8541618f72baedae5f",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
-    "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
+    "presentation_i18n.js": "d3f184b12c0091260b72b12418375fbb1049a14fc2412ebddc8642986d07af72",
     "robots.txt": "fe9c8cfcbb5fc083d6e8dbfcc6423b068787321a82fc8052a928709164d6219d",
-    "styles.css": "48ab1d0a32fd8c8e7fbb91001164f778a0ad853133424c7373e7bdc9f2588000",
+    "styles.css": "f8b1375aa51983113a03faf51ff79662ff47d8f6307d9417ff3955bb1b61d724",
     "tests/E17_ACTIVE_METRIC_POLICY.json": "bfe0c314ce4af52800741c4f4468afa3955cc2795385a099a658cdf5e56773a0",
-    "tests/current_l4_contract.py": "fc9ea883b172543b8b45d5acb24eaa654e2725a530c7ee091bcd02f79e760c52",
+    "tests/current_l4_contract.py": "117ad45a4b39a1b1c8cd52612c805f9678a41b9d00f7929f90ea600bc05abca9",
     "tests/validate_capability_contract.py": "9058645873000dbe782089e4ac86c05a7d85c846eff14e0eabdfdd2b14035713",
     "tests/validate_e17_current_integrity.py": "2d6f366afb8d6839fc5b045cc1021aff71f9a50ea56a6902db1aa6f22cb3e83d",
     "tests/validate_e17_metric_policy.py": "a96ef3c7965ab201deb02b1c6a808189dfbc7546a77bdf80536408a3f41f8450",
@@ -27,11 +27,11 @@
     "tests/validate_e18_second_app_shape.py": "45c980b7be76b2f343f4ba3c3317f33cdb937ac11fb00e86b27e6046cc4e0129",
     "tests/validate_fi3_public_projection.py": "6fbd0d0c45aefb94ec0ff0ab9a38420034fa7f54f504a11f12bd47fdd1d9f3f2",
     "tests/validate_public_data_release.py": "999b496509f39e0c4034a94e2ec3b805c08f4dfea1394225fcba3b7de8bc7e3d",
-    "tests/validate_public_static_common_date.py": "cddb56e612e2b679e18c2390e75db706eb1c522c8b18f52d878360da84fb628a",
+    "tests/validate_public_static_common_date.py": "55e02e7678d9afac9819341bf100c0538c7570172b76ee7f2931941d2ce73c3e",
     "tests/validate_v2a_guided_explainer.py": "cd2ae047b9d3da785f5380fe361831e35dde6ad1db5497e668e3850f6280043e",
     "tests/validate_v2b_semantic_invariants.py": "2084a3ff522a71a96355ec7706bb9b43e03a66f28f166905942b701dd7bdd049",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
-    "v2a_explainer.js": "9adbebd412cd87328292f5443ec34ec6c79563dcf8ef9aeef0e5d13d94212762",
+    "v2a_explainer.js": "da73b043aa01483b9aa8742e9609b699134107220db27e06670cee802333b9a2",
     "versionen.html": "55de22e3136439681115f80b09498e3f279009abc05498898035cda003e27a99"
   },
   "capability_checks": [
@@ -337,10 +337,10 @@
   "claims_as_code_rule": "Standing repository validator: capability-code set equality + test coverage for every public_static_supported=1 capability + exact reviewed public-copy/build byte binding. A capability flag is never evidence by itself.",
   "copy_contract_sha256": {
     "ai-transparenz.html": "e76ea18d1b05ba148558eaa85eeedaa6dca7921d36e0f1b66a13ba2e6eaa7ca5",
-    "index.html": "b858f54b0f8365e47581a0340b848cb2f14b993f456ed5aa6e1881497f54196b",
+    "index.html": "78a7dae70fa487039f42446d4bd36d1c90cf085b442e5c8541618f72baedae5f",
     "korrekturen.html": "842fe5a53bbec7a354ccdf0c13c62c2c258a398555912ade29a8ff039b2776f0",
     "methodik.html": "9d8234fca41e8bd723cbfbc520f491d89ef81012d886ca416b3258defce483b4",
-    "presentation_i18n.js": "c79e66de2d4d58062adaeeddf13680806af0bc37225d8eb01899419d6fa71a50",
+    "presentation_i18n.js": "d3f184b12c0091260b72b12418375fbb1049a14fc2412ebddc8642986d07af72",
     "unabhaengigkeit.html": "c645e6b93d9fbf16a97d031b1abf3283e15c88392f92478e61bb454e55dfd55f",
     "versionen.html": "55de22e3136439681115f80b09498e3f279009abc05498898035cda003e27a99"
   },
@@ -724,6 +724,37 @@
     "source_datapoint_provenance": "UNCHANGED",
     "sources_changed": 0
   },
+  "multiview_20261125_nonapplied_rebinding": {
+    "bound_runtime_sha256": {
+      "app.js": "b01fd00d23bf57d9355d23c25944cf966e59f487aa4927981ca1ad3d88642db2",
+      "presentation_i18n.js": "d3f184b12c0091260b72b12418375fbb1049a14fc2412ebddc8642986d07af72",
+      "styles.css": "f8b1375aa51983113a03faf51ff79662ff47d8f6307d9417ff3955bb1b61d724",
+      "v2a_explainer.js": "da73b043aa01483b9aa8742e9609b699134107220db27e06670cee802333b9a2"
+    },
+    "cache_bust_20261125": {
+      "app.js?v=e17-e04-20261120": "app.js?v=20261125-multiview-v1",
+      "presentation_i18n.js?v=20261023-r38-public-final": "presentation_i18n.js?v=20261125-multiview-v1",
+      "styles.css?v=20261023-v2a-guided-research-v1": "styles.css?v=20261125-multiview-v1",
+      "v2a_explainer.js?v=20261024-v2b-g2-g3-v1": "v2a_explainer.js?v=20261125-multiview-v1"
+    },
+    "current_helper_sha256": "71d08f0d680354eee7def060000b6aa77212213d2245a0b4cff77fe8e85a9e86",
+    "historical_l4_originals_preserved_externally": true,
+    "historical_postlive_l1_l4_preserved_as_historical": true,
+    "not_attested": [
+      "independent audit",
+      "native Safari/iPad/VoiceOver",
+      "historical UX15/CAP31/V3 full reattestation",
+      "publisher/source rights re-review",
+      "owner release GO"
+    ],
+    "schema": "MULTIVIEW_20261125_NONAPPLIED_REBINDING_V1",
+    "scope": "metric labels + multi-view Guided presentation + deterministic evidence axes; no change to original compare verdict semantics",
+    "source_candidate_archive_sha256": "f636d7dd204c691d24e31d6d11a65d93bec08b77cd42a3c30ab284ba4d16a52f",
+    "source_datasets_unchanged": true,
+    "source_published_commit": "3e8cffe252bbd5c63e734425ae09b47b5ec60763",
+    "status": "SELF_TESTED_NONAPPLIED__NOT_PUBLIC_RELEASE",
+    "updated_current_p3dh_date_validator_sha256": "55e02e7678d9afac9819341bf100c0538c7570172b76ee7f2931941d2ce73c3e"
+  },
   "post_fi3_hold_ux_guard_hardening": {
     "base_public_head": "c016696f20a0b30a872042030cbbac7033a5a3af",
     "clarified_local_research_environment_wording": true,
@@ -762,7 +793,7 @@
       "tests/validate_e18_second_app_shape.py": "45c980b7be76b2f343f4ba3c3317f33cdb937ac11fb00e86b27e6046cc4e0129",
       "tests/validate_fi3_public_projection.py": "6fbd0d0c45aefb94ec0ff0ab9a38420034fa7f54f504a11f12bd47fdd1d9f3f2",
       "tests/validate_public_data_release.py": "999b496509f39e0c4034a94e2ec3b805c08f4dfea1394225fcba3b7de8bc7e3d",
-      "tests/validate_public_static_common_date.py": "cddb56e612e2b679e18c2390e75db706eb1c522c8b18f52d878360da84fb628a",
+      "tests/validate_public_static_common_date.py": "55e02e7678d9afac9819341bf100c0538c7570172b76ee7f2931941d2ce73c3e",
       "tests/validate_v2a_guided_explainer.py": "cd2ae047b9d3da785f5380fe361831e35dde6ad1db5497e668e3850f6280043e",
       "tests/validate_v2b_semantic_invariants.py": "2084a3ff522a71a96355ec7706bb9b43e03a66f28f166905942b701dd7bdd049"
     },

@@ -5,8 +5,8 @@ from pathlib import Path
 import hashlib, json, itertools
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_SNAPSHOT = 'f80830bea1dbae4818521ff1770ffc17b8bb7d649af3d8e1bc86af4862835157'
-EXPECTED_APP = 'a0913a355c1553713d3eb56ac7ce5e423bb90f4f7446aa421638a0459b6583fd'
-EXPECTED_INDEX = 'b858f54b0f8365e47581a0340b848cb2f14b993f456ed5aa6e1881497f54196b'
+EXPECTED_APP = 'b01fd00d23bf57d9355d23c25944cf966e59f487aa4927981ca1ad3d88642db2'
+EXPECTED_INDEX = '78a7dae70fa487039f42446d4bd36d1c90cf085b442e5c8541618f72baedae5f'
 EXPECTED_P3DH_PAIR_COUNT = 1759
 EXPECTED_P3DH_COMMON_PAIR_COUNT = 1757
 EXPECTED_P3DH_NO_COMMON_PAIR_COUNT = 2
@@ -57,7 +57,7 @@ def main():
         raise AssertionError('CONTRACT_CONDITION_FAILED')
     if not "String(mc||'').startsWith('EBA_P3DH_')?compareP3DHLocal(mc,ids):compareGenericLocal(mc,ids)" in app:
         raise AssertionError('CONTRACT_CONDITION_FAILED')
-    if not 'app.js?v=e17-e04-20261120' in idx:
+    if not 'app.js?v=20261125-multiview-v1' in idx:
         raise AssertionError('CONTRACT_CONDITION_FAILED')
     s = load()
     by = {}

@@ -91,7 +91,7 @@
     "sources": 279,
     "time_series_decisions": 119
   },
-  "current_capability_evidence_sha256": "bb4dc82ed5d5d1ab342d75c6f599e154b8b4d1a525a894269d418f7a214ad3f9",
+  "current_capability_evidence_sha256": "6adb88ecdf2fa5866d3222d683a91df8172a4f1f8a2898452c3b90b16d227a99",
   "current_release_gate": "POSTLIVE_L1_L4_NONAPPLIED_OWNER_GO_REQUIRED",
   "current_static_validation": {
     "files": 22,
@@ -191,6 +191,15 @@
     "result_public_snapshot_sha256": "ad290e31b4c4c745e50c38d254fd5f2b3309a276d804c67cd4a75d8db6e8bc53",
     "source_datapoint_provenance": "UNCHANGED",
     "sources_changed": 0
+  },
+  "multiview_20261125_nonapplied_rebinding": {
+    "capability_evidence_sha256": "6adb88ecdf2fa5866d3222d683a91df8172a4f1f8a2898452c3b90b16d227a99",
+    "deployment_performed": false,
+    "historical_tests_not_recast_as_candidate_attestation": true,
+    "public_release_authorized": false,
+    "schema": "MULTIVIEW_20261125_NONAPPLIED_REBINDING_V1",
+    "source_published_commit": "3e8cffe252bbd5c63e734425ae09b47b5ec60763",
+    "status": "PENDING_CURRENT_10_VALIDATORS_AND_INDEPENDENT_RELEASE_AUDIT"
   },
   "old_public_snapshot_sha256": "c1160b2c6ba334164c13f67d9aa586362a3e126c39caffaf1afb8ff02895d1ae",
   "operator_cookies": false,
